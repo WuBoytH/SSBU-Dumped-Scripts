@@ -1,0 +1,31 @@
+IS_EXIST_ARTICLE(FIGHTER_LUIGI_GENERATE_ARTICLE_OBAKYUMU)
+if(0xe3130(false, true)){
+	if(is_excute){
+		ArticleModule::remove_exist(FIGHTER_LUIGI_GENERATE_ARTICLE_OBAKYUMU)
+	}
+}
+IS_EXIST_ARTICLE(FIGHTER_LUIGI_GENERATE_ARTICLE_PLUNGER)
+if(0xe3130(false, true)){
+	if(is_excute){
+		ArticleModule::remove_exist(FIGHTER_LUIGI_GENERATE_ARTICLE_PLUNGER)
+	}
+}
+if(is_excute){
+	ArticleModule::generate_article(FIGHTER_LUIGI_GENERATE_ARTICLE_OBAKYUMU)
+	ArticleModule::generate_article(FIGHTER_LUIGI_GENERATE_ARTICLE_OBAKYUMU)
+	methodlib::L2CValue::as_hash()const(FIGHTER_LUIGI_GENERATE_ARTICLE_OBAKYUMU, hash40("air_catch"))
+	ArticleModule::change_motion()
+	ArticleModule::generate_article(FIGHTER_LUIGI_GENERATE_ARTICLE_PLUNGER)
+	ArticleModule::set_visibility_whole(FIGHTER_LUIGI_GENERATE_ARTICLE_PLUNGER, false)
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_LANDING)
+}
+frame(Frame=14)
+if(is_excute){
+	ArticleModule::set_visibility_whole(FIGHTER_LUIGI_GENERATE_ARTICLE_PLUNGER, true)
+	ArticleModule::shoot(FIGHTER_LUIGI_GENERATE_ARTICLE_PLUNGER, ARTICLE_OPE_TARGET_ALL, false)
+	WorkModule::on_flag(Flag=FIGHTER_LUIGI_STATUS_AIR_LASSO_FLAG_SHOOT_PLUNGER)
+}
+frame(Frame=49)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_LANDING)
+}

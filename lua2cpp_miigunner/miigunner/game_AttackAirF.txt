@@ -1,0 +1,17 @@
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
+}
+frame(Frame=1)
+FT_MOTION_RATE(FSM=1)
+frame(Frame=6)
+FT_MOTION_RATE(FSM=1.5)
+frame(Frame=10)
+if(is_excute){
+	KineticModule::add_speed(-1, 0, 0.0)
+	ArticleModule::generate_article(FIGHTER_MIIGUNNER_GENERATE_ARTICLE_ATTACKAIRF_BULLET)
+}
+FT_MOTION_RATE(FSM=1)
+frame(Frame=42)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
+}
