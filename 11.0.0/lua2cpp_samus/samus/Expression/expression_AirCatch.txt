@@ -1,0 +1,47 @@
+if(is_excute){
+	VisibilityModule::set_int64(hash40("body"), hash40("body_hide_gun"))
+	ArticleModule::remove_exist(FIGHTER_SAMUS_GENERATE_ARTICLE_GUN)
+	ArticleModule::generate_article(FIGHTER_SAMUS_GENERATE_ARTICLE_GUN, true)
+	methodlib::L2CValue::as_hash()const(FIGHTER_SAMUS_GENERATE_ARTICLE_GUN, hash40("air_catch"))
+	ArticleModule::change_motion()
+	ArticleModule::generate_article(FIGHTER_SAMUS_GENERATE_ARTICLE_GBEAM)
+	ArticleModule::set_visibility_whole(FIGHTER_SAMUS_GENERATE_ARTICLE_GBEAM, false)
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_CHECK)
+}
+wait(Frames=5)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_CHECK)
+}
+frame(Frame=8)
+if(is_excute){
+	RUMBLE_HIT(hash40("rbkind_attacks"), 0)
+	methodlib::L2CValue::as_hash()const(hash40("rbkind_elecattacks"), 9, true)
+	ControlModule::set_rumble()
+}
+frame(Frame=9)
+if(is_excute){
+	ArticleModule::set_visibility_whole(FIGHTER_SAMUS_GENERATE_ARTICLE_GBEAM, true)
+	ArticleModule::change_status(FIGHTER_SAMUS_GENERATE_ARTICLE_GBEAM, WEAPON_SAMUS_GBEAM_STATUS_KIND_SHOOT)
+}
+frame(Frame=10)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_LANDING)
+}
+frame(Frame=18)
+if(is_excute){
+	methodlib::L2CValue::as_hash()const(hash40("rbkind_elecattacks"), 14, true)
+	ControlModule::set_rumble()
+}
+frame(Frame=24)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_SAMUS_INSTANCE_WORK_ID_FLAG_OFF_MAP_COLL_OFFSET)
+	ArticleModule::change_status_exist(FIGHTER_SAMUS_GENERATE_ARTICLE_GBEAM, WEAPON_SAMUS_GBEAM_STATUS_KIND_REWIND)
+}
+frame(Frame=48)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_LANDING)
+}
+frame(Frame=50)
+if(is_excute){
+	ArticleModule::remove_exist(FIGHTER_SAMUS_GENERATE_ARTICLE_GBEAM)
+}

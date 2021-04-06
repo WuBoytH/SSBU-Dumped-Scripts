@@ -1,0 +1,32 @@
+if(is_excute){
+	ArticleModule::generate_article(FIGHTER_MARIOD_GENERATE_ARTICLE_DRMANTLE)
+	notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS)
+}
+frame(Frame=6)
+if(is_excute){
+	SEARCH(0, 0, hash40("top"), 8.0, 0.0, 6.5, 2.5, 0.0, 6.5, 8.0, COLLISION_KIND_MASK_ATTACK, HIT_STATUS_MASK_NORMAL, 60, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false)
+	WorkModule::set_float(9, FIGHTER_MARIOD_STATUS_SPECIAL_S_WORK_ID_FLOAT_REFLECT_MOTION_FRAME)
+}
+frame(Frame=9)
+if(is_excute){
+	shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, FIGHTER_MARIOD_REFLECTOR_KIND_DRMANTLE, FIGHTER_REFLECTOR_GROUP_EXTEND)
+	search(MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL)
+}
+frame(Frame=12)
+if(is_excute){
+	ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=7.0, Angle=110, KBG=100, FKB=80, BKB=0, Size=4.5, X=0.0, Y=13.0, Z=8.0, X2=0.0, Y2=1.0, Z2=8.0, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=4, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_turn"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MARIOD_MANT, Type=ATTACK_REGION_OBJECT)
+	ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=7.0, Angle=110, KBG=100, FKB=80, BKB=0, Size=5.0, X=0.0, Y=6.7, Z=5.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=4, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_turn"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_MARIOD_MANT, Type=ATTACK_REGION_OBJECT)
+}
+frame(Frame=15)
+if(is_excute){
+	notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
+	AttackModule::clear_all()
+}
+frame(Frame=23)
+if(is_excute){
+	shield(MA_MSC_CMD_SHIELD_OFF, COLLISION_KIND_REFLECTOR, FIGHTER_MARIOD_REFLECTOR_KIND_DRMANTLE, FIGHTER_REFLECTOR_GROUP_EXTEND)
+}
+frame(Frame=45)
+if(is_excute){
+	ArticleModule::remove_exist(FIGHTER_MARIOD_GENERATE_ARTICLE_DRMANTLE)
+}

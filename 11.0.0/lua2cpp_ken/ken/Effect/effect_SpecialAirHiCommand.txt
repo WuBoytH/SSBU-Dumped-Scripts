@@ -1,0 +1,66 @@
+frame(Frame=2)
+if(is_excute){
+	EFFECT(hash40("sys_smash_flash"), hash40("top"), 0, 17, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+}
+frame(Frame=5)
+if(0x16e060(FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_INT_STRENGTH, FIGHTER_RYU_STRENGTH_W)){
+	get_value_float(SO_VAR_FLOAT_LR)
+	if(0x16e060(144, 0)){
+		if(is_excute){
+			EFFECT_FOLLOW(0x1141f46c64, hash40("trans"), 6.5, 5, 0, 5, 0, 25, 1, false)
+		}
+		else{
+			if(0x16e060(FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_INT_STRENGTH, FIGHTER_RYU_STRENGTH_M)){
+				get_value_float(SO_VAR_FLOAT_LR)
+				if(0x16e060(144, 0)){
+					if(is_excute){
+						EFFECT_FOLLOW(0x1141f46c64, hash40("trans"), 6.5, 5, 0, 5, 0, 25, 1, false)
+					}
+					else{
+						if(is_excute){
+							EFFECT_FOLLOW_NO_STOP(0x127b397c4f, hash40("handr"), 0, 0, 0, 0, 0, 0, 1, false)
+							EffectModule::enable_sync_init_pos_last()
+						}
+						get_value_float(SO_VAR_FLOAT_LR)
+						if(0x16e060(144, 0)){
+							if(is_excute){
+								EFFECT_FOLLOW(0x15d8af27e7, hash40("trans"), 3, 2, 2, 5, 0, 5, 1, false)
+								EFFECT_FOLLOW(0x16246366f1, hash40("trans"), 3, 2, 2, 5, 0, 5, 1, false)
+							}
+							else{
+								if(is_excute){
+									EFFECT_FOLLOW(0x1141f46c64, hash40("trans"), -6.5, 5, 0, 5, 0, -25, 1, false)
+								}
+								else{
+									if(is_excute){
+										EFFECT_FOLLOW(0x1141f46c64, hash40("trans"), -6.5, 5, 0, 5, 0, -25, 1, false)
+									}
+									else{
+										if(is_excute){
+											EFFECT_FOLLOW(0x15d8af27e7, hash40("trans"), -3, 2, 2, 5, 0, -5, 1, false)
+											EFFECT_FOLLOW(0x16246366f1, hash40("trans"), -3, 2, 2, 5, 0, -5, 1, false)
+											EffectModule::enable_sync_init_pos_last()
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+frame(Frame=9)
+if(is_excute){
+	EFFECT_DETACH_KIND(0x15d8af27e7, -1)
+	EFFECT(0x1486865453, hash40("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+}
+frame(Frame=11)
+if(is_excute){
+	EFFECT_OFF_KIND(0x1141f46c64, false, true)
+}
+frame(Frame=21)
+if(is_excute){
+	EFFECT_OFF_KIND(0x127b397c4f, false, true)
+}

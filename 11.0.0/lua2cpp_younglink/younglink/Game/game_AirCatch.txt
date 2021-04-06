@@ -1,0 +1,49 @@
+frame(Frame=1)
+FT_MOTION_RATE(FSM=0.5)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_CHECK)
+}
+frame(Frame=4)
+FT_MOTION_RATE(FSM=1)
+frame(Frame=5)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_CHECK)
+	ArticleModule::generate_article(FIGHTER_YOUNGLINK_GENERATE_ARTICLE_HOOKSHOT)
+	ArticleModule::generate_article(FIGHTER_YOUNGLINK_GENERATE_ARTICLE_HOOKSHOT_HAND)
+}
+frame(Frame=11)
+if(is_excute){
+	ATTACK(ID=0, Part=0, Bone=hash40("throw"), Damage=4.0, Angle=60, KBG=20, FKB=0, BKB=70, Size=2.7, X=0.0, Y=0.0, Z=-0.5, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.8, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=1, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
+	AttackModule::set_add_reaction_frame(ID=0, Frames=4, Unk=false)
+	ArticleModule::change_status(FIGHTER_YOUNGLINK_GENERATE_ARTICLE_HOOKSHOT, WEAPON_TOONLINK_HOOKSHOT_STATUS_KIND_SHOOT)
+	methodlib::L2CValue::as_hash()const(FIGHTER_YOUNGLINK_GENERATE_ARTICLE_HOOKSHOT_HAND, hash40("shoot"))
+	ArticleModule::change_motion()
+}
+frame(Frame=12)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_LANDING)
+}
+frame(Frame=19)
+if(is_excute){
+	AttackModule::clear_all()
+}
+frame(Frame=41)
+if(is_excute){
+	ArticleModule::change_status_exist(FIGHTER_YOUNGLINK_GENERATE_ARTICLE_HOOKSHOT, WEAPON_TOONLINK_HOOKSHOT_STATUS_KIND_REWIND)
+	methodlib::L2CValue::as_hash()const(FIGHTER_YOUNGLINK_GENERATE_ARTICLE_HOOKSHOT_HAND, hash40("back"))
+	ArticleModule::change_motion()
+	WorkModule::on_flag(Flag=FIGHTER_LINK_INSTANCE_WORK_ID_FLAG_OFF_MAP_COLL_OFFSET)
+}
+frame(Frame=46)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_LANDING)
+}
+frame(Frame=53)
+if(is_excute){
+	notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
+}
+frame(Frame=72)
+if(is_excute){
+	ArticleModule::remove_exist(FIGHTER_YOUNGLINK_GENERATE_ARTICLE_HOOKSHOT)
+	ArticleModule::remove_exist(FIGHTER_YOUNGLINK_GENERATE_ARTICLE_HOOKSHOT_HAND)
+}

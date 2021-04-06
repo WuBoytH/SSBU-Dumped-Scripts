@@ -1,0 +1,32 @@
+frame(Frame=1)
+FT_MOTION_RATE(FSM=1.3)
+if(is_excute){
+	notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS)
+}
+frame(Frame=3)
+if(is_excute){
+	SEARCH(0, 0, hash40("top"), 8.0, 0.0, 6.5, 2.5, 0.0, 6.5, 8.0, COLLISION_KIND_MASK_ATTACK, HIT_STATUS_MASK_NORMAL, 60, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false)
+	WorkModule::set_float(6, FIGHTER_MIISWORDSMAN_STATUS_REVERSE_SLASH_FLOAT_REFLECT_MOTION_FRAME)
+}
+frame(Frame=6)
+if(is_excute){
+	search(MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL)
+	shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, FIGHTER_MIISWORDSMAN_REFLECTOR_KIND_REVERSE_SLASH, FIGHTER_REFLECTOR_GROUP_EXTEND)
+}
+frame(Frame=12)
+FT_MOTION_RATE(FSM=0.8)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_MIISWORDSMAN_STATUS_REVERSE_SLASH_FLAG_SPECIAL_FALL)
+	ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=6.0, Angle=110, KBG=100, FKB=80, BKB=0, Size=9.0, X=0.0, Y=6.7, Z=13.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_turn"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
+	ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=6.0, Angle=110, KBG=100, FKB=80, BKB=0, Size=6.0, X=0.0, Y=6.7, Z=5.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=0.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_turn"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
+}
+frame(Frame=15)
+if(is_excute){
+	notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
+	AttackModule::clear_all()
+}
+frame(Frame=23)
+if(is_excute){
+	shield(MA_MSC_CMD_SHIELD_OFF, COLLISION_KIND_REFLECTOR, FIGHTER_MIISWORDSMAN_REFLECTOR_KIND_REVERSE_SLASH, FIGHTER_REFLECTOR_GROUP_EXTEND)
+	WorkModule::off_flag(Flag=FIGHTER_MIISWORDSMAN_STATUS_REVERSE_SLASH_FLAG_SPECIAL_FALL)
+}

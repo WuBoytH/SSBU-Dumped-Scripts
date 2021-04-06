@@ -1,0 +1,33 @@
+if(is_excute){
+	WHOLE_HIT(HIT_STATUS_XLU)
+	SLOW_OPPONENT(10, 70)
+	CHECK_VALID_FINAL_START_CAMERA(0, 7, 20, 0, 0, 0)
+}
+WorkModule::is_flag(FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA)
+if(0x160580(false, false)){
+	frame(Frame=10)
+	if(is_excute){
+		FT_SET_FINAL_FEAR_FACE(50)
+		REQ_FINAL_START_CAMERA(hash40("d04final.nuanmb"), false)
+	}
+	else{
+		if(is_excute){
+			PostureModule::scale(3, 0)
+			0x160580(1587365787, 1.8)
+			CAM_ZOOM_IN_arg5(0, 0)
+			FT_START_CUTIN()
+		}
+	}
+}
+frame(Frame=31)
+if(is_excute){
+	CAM_ZOOM_OUT()
+}
+frame(Frame=70)
+if(is_excute){
+	ArticleModule::generate_article(FIGHTER_RYU_GENERATE_ARTICLE_SHINKUHADOKEN)
+}
+frame(Frame=75)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_RYU_STATUS_WORK_ID_FINAL_FLAG_REMOVE_FINAL_AURA)
+}
