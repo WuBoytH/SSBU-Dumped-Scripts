@@ -1,0 +1,251 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void __thiscall pikachu_SpecialSHoldMainSub(void *this,L2CValue *param_1)
+
+{
+  byte bVar1;
+  bool bVar2;
+  ulong uVar3;
+  int iVar4;
+  GroundCorrectKind GVar5;
+  longlong lVar6;
+  ulonglong uVar7;
+  L2CValue *this_00;
+  void *pvVar8;
+  L2CValue *in_x8;
+  float fVar9;
+  L2CValue aLStack160 [16];
+  L2CValue aLStack144 [16];
+  L2CValue aLStack128 [16];
+  L2CValue aLStack112 [16];
+  L2CValue aLStack96 [16];
+  L2CValue aLStack80 [16];
+  
+  L2CValue(aLStack96,0);
+  L2CValue(aLStack112,0);
+  L2CValue(aLStack128,0xea97fe73);
+  L2CValue(aLStack144,0x29aebbfd);
+  uVar3 = as_integer(aLStack128);
+  lVar6 = as_integer(aLStack144);
+  fVar9 = (float)WorkModule__get_param_float_impl
+                           (*(BattleObjectModuleAccessor **)((longlong)this + 0x40),uVar3,
+                            (ulong)lVar6);
+  L2CValue(aLStack80,fVar9);
+  operator=(aLStack96,aLStack80);
+  ~L2CValue(aLStack80);
+  ~L2CValue(aLStack144);
+  ~L2CValue(aLStack128);
+  L2CValue(aLStack128,_FIGHTER_PIKACHU_STATUS_WORK_ID_INT_SKULL_BASH_HOLD_COUNT);
+  iVar4 = as_integer(aLStack128);
+  iVar4 = WorkModule__get_int_impl(*(BattleObjectModuleAccessor **)((longlong)this +0x40),iVar4);
+  L2CValue(aLStack80,iVar4);
+  uVar7 = operator<=(aLStack96,aLStack80);
+  ~L2CValue(aLStack80);
+  ~L2CValue(aLStack128);
+  if ((uVar7 & 1) != 0) {
+    L2CValue(aLStack80,_FIGHTER_PIKACHU_STATUS_KIND_SPECIAL_S_WEAK);
+    L2CValue(aLStack128,false);
+    change_status(this,(L2CValue)0xb0,(L2CValue)0x80);
+    ~L2CValue(aLStack128);
+    ~L2CValue(aLStack80);
+    L2CValue(in_x8,1);
+    goto LAB_71000241ac;
+  }
+  L2CValue(aLStack128,CONTROL_PAD_BUTTON_SPECIAL);
+  iVar4 = as_integer(aLStack128);
+  bVar1 = ControlModule__check_button_off_impl
+                    (*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+  L2CValue(aLStack80,(bool)(bVar1 & 1));
+  bVar2 = operator.cast.to.bool(aLStack80);
+  ~L2CValue(aLStack80);
+  ~L2CValue(aLStack128);
+  if ((bVar2 & 1U) != 0) {
+    L2CValue(aLStack80,_FIGHTER_PIKACHU_STATUS_KIND_SPECIAL_S_WEAK);
+    L2CValue(aLStack128,true);
+    change_status(this,(L2CValue)0xb0,(L2CValue)0x80);
+    ~L2CValue(aLStack128);
+    ~L2CValue(aLStack80);
+    L2CValue(in_x8,1);
+    goto LAB_71000241ac;
+  }
+  this_00 = (L2CValue *)operator[]((L2CValue *)((longlong)this + 200),0xe);
+  L2CValue(aLStack80,1.00000000);
+  uVar7 = operator<=(aLStack80,this_00);
+  ~L2CValue(aLStack80);
+  if ((uVar7 & 1) != 0) {
+    L2CValue(aLStack80,_FIGHTER_PIKACHU_STATUS_WORK_ID_FLAG_SKULL_BASH_INHERIT_MOTION);
+    iVar4 = as_integer(aLStack80);
+    WorkModule__on_flag_impl(*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+    ~L2CValue(aLStack80);
+  }
+  pvVar8 = this;
+  pikachu_SpecialSHoldCheckFlags(aLStack128,(L2CValue *)this,lVar6);
+  operator!(aLStack128);
+  bVar2 = operator.cast.to.bool(aLStack80);
+  ~L2CValue(aLStack80);
+  ~L2CValue(aLStack128);
+  if ((bVar2 & 1U) != 0) {
+    pikachu_SpecialSHoldGroundAirCheck(this,pvVar8);
+    this_00 = (L2CValue *)operator[]((L2CValue *)((longlong)this + 200),0x16);
+    L2CValue(aLStack80,_sys_line_status_end_control);
+    uVar7 = operator==(this_00,aLStack80);
+    ~L2CValue(aLStack80);
+    if ((uVar7 & 1) == 0) {
+      L2CValue(aLStack144,_FIGHTER_PIKACHU_STATUS_WORK_ID_FLAG_SKULL_BASH_AIR);
+      iVar4 = as_integer(aLStack144);
+      bVar1 = WorkModule__is_flag_impl
+                        (*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+      L2CValue(aLStack128,(bool)(bVar1 & 1));
+      operator!(aLStack128);
+      bVar2 = operator.cast.to.bool(aLStack80);
+      ~L2CValue(aLStack80);
+      ~L2CValue(aLStack128);
+      ~L2CValue(aLStack144);
+      if ((bVar2 & 1U) != 0) {
+        L2CValue(aLStack80,_FIGHTER_PIKACHU_STATUS_WORK_ID_FLAG_SKULL_BASH_CHG_SA);
+        iVar4 = as_integer(aLStack80);
+        WorkModule__on_flag_impl(*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+        ~L2CValue(aLStack80);
+      }
+      L2CValue(aLStack80,_FIGHTER_PIKACHU_STATUS_WORK_ID_FLAG_SKULL_BASH_AIR);
+      iVar4 = as_integer(aLStack80);
+      WorkModule__on_flag_impl(*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+      ~L2CValue(aLStack80);
+      L2CValue(aLStack80,FIGHTER_KINETIC_TYPE_AIR_STOP);
+      iVar4 = as_integer(aLStack80);
+      KineticModule__change_kinetic_impl
+                (*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+      ~L2CValue(aLStack80);
+      L2CValue(aLStack80,_expression_PassiveWallRumble);
+      GVar5 = as_integer(aLStack80);
+      GroundModule__correct_impl(*(BattleObjectModuleAccessor **)((longlong)this + 0x40),GVar5);
+      ~L2CValue(aLStack80);
+      L2CValue(aLStack128,SITUATION_KIND_AIR);
+      set_situation(SUB81(this,0));
+      ~L2CValue(aLStack128);
+      L2CValue(aLStack80,_FIGHTER_PIKACHU_INSTANCE_WORK_ID_FLAG_MTRANS_SMPL_GROUND);
+      iVar4 = as_integer(aLStack80);
+      WorkModule__on_flag_impl(*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+    }
+    else {
+      L2CValue(aLStack128,_FIGHTER_PIKACHU_STATUS_WORK_ID_FLAG_SKULL_BASH_AIR);
+      iVar4 = as_integer(aLStack128);
+      bVar1 = WorkModule__is_flag_impl
+                        (*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+      L2CValue(aLStack80,(bool)(bVar1 & 1));
+      bVar2 = operator.cast.to.bool(aLStack80);
+      ~L2CValue(aLStack80);
+      ~L2CValue(aLStack128);
+      if ((bVar2 & 1U) != 0) {
+        L2CValue(aLStack80,_FIGHTER_PIKACHU_STATUS_WORK_ID_FLAG_SKULL_BASH_CHG_SA);
+        iVar4 = as_integer(aLStack80);
+        WorkModule__on_flag_impl(*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+        ~L2CValue(aLStack80);
+      }
+      L2CValue(aLStack80,_FIGHTER_PIKACHU_STATUS_WORK_ID_FLAG_SKULL_BASH_AIR);
+      iVar4 = as_integer(aLStack80);
+      WorkModule__off_flag_impl(*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+      ~L2CValue(aLStack80);
+      L2CValue(aLStack80,FIGHTER_KINETIC_TYPE_GROUND_STOP);
+      iVar4 = as_integer(aLStack80);
+      KineticModule__change_kinetic_impl
+                (*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+      ~L2CValue(aLStack80);
+      L2CValue(aLStack80,GROUND_CORRECT_KIND_GROUND_CLIFF_STOP_ATTACK);
+      GVar5 = as_integer(aLStack80);
+      GroundModule__correct_impl(*(BattleObjectModuleAccessor **)((longlong)this + 0x40),GVar5);
+      ~L2CValue(aLStack80);
+      L2CValue(aLStack128,_sys_line_status_end_control);
+      set_situation(SUB81(this,0));
+      ~L2CValue(aLStack128);
+      L2CValue(aLStack80,_FIGHTER_PIKACHU_INSTANCE_WORK_ID_FLAG_MTRANS_SMPL_AIR);
+      iVar4 = as_integer(aLStack80);
+      WorkModule__on_flag_impl(*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+    }
+    ~L2CValue(aLStack80);
+  }
+  pikachu_SpecialSHoldExtra(aLStack80,(L2CValue *)this,lVar6);
+  bVar2 = operator.cast.to.bool(aLStack80);
+  ~L2CValue(aLStack80);
+  if ((bVar2 & 1U) != 0) {
+    pikachu_SpecialSHoldMainOffFlags((longlong)this);
+  }
+  L2CValue(aLStack144,_expression_StepPoseRumble);
+  iVar4 = as_integer(aLStack144);
+  fVar9 = (float)KineticModule__get_sum_speed_x_impl
+                           (*(BattleObjectModuleAccessor **)((longlong)this + 0x40),iVar4);
+  L2CValue(aLStack80,fVar9);
+  operator=(aLStack112,aLStack80);
+  ~L2CValue(aLStack80);
+  ~L2CValue(aLStack144);
+  fVar9 = (float)PostureModule__lr_impl(*(BattleObjectModuleAccessor **)((longlong)this +0x40));
+  L2CValue(aLStack144,fVar9);
+  L2CValue(aLStack80,0);
+  uVar7 = operator<(aLStack80,aLStack144);
+  ~L2CValue(aLStack80);
+  ~L2CValue(aLStack144);
+  if ((uVar7 & 1) == 0) {
+    L2CValue(aLStack80,0);
+    uVar7 = operator<(aLStack80,aLStack112);
+    ~L2CValue(aLStack80);
+    if ((uVar7 & 1) != 0) {
+      L2CValue(aLStack80,FIGHTER_KINETIC_ENERGY_ID_STOP);
+      L2CValue(aLStack144,0.00000000);
+      L2CValue(aLStack160,0.00000000);
+      clear_lua_stack();
+      push_lua_stack((L2CValue *)this);
+      push_lua_stack((L2CValue *)this);
+      push_lua_stack((L2CValue *)this);
+      set_speed(*(lua_State **)((longlong)this + 8));
+      ~L2CValue(aLStack160);
+      ~L2CValue(aLStack144);
+      ~L2CValue(aLStack80);
+      L2CValue(aLStack80,FIGHTER_KINETIC_ENERGY_ID_STOP);
+      L2CValue(aLStack144,0.00000000);
+      L2CValue(aLStack160,0.00000000);
+      clear_lua_stack();
+      push_lua_stack((L2CValue *)this);
+      push_lua_stack((L2CValue *)this);
+      push_lua_stack((L2CValue *)this);
+      set_accel(*(lua_State **)((longlong)this + 8));
+      goto LAB_7100024188;
+    }
+  }
+  else {
+    L2CValue(aLStack80,0);
+    uVar7 = operator<(aLStack112,aLStack80);
+    ~L2CValue(aLStack80);
+    if ((uVar7 & 1) != 0) {
+      L2CValue(aLStack80,FIGHTER_KINETIC_ENERGY_ID_STOP);
+      L2CValue(aLStack144,0.00000000);
+      L2CValue(aLStack160,0.00000000);
+      clear_lua_stack();
+      push_lua_stack((L2CValue *)this);
+      push_lua_stack((L2CValue *)this);
+      push_lua_stack((L2CValue *)this);
+      set_speed(*(lua_State **)((longlong)this + 8));
+      ~L2CValue(aLStack160);
+      ~L2CValue(aLStack144);
+      ~L2CValue(aLStack80);
+      L2CValue(aLStack80,FIGHTER_KINETIC_ENERGY_ID_STOP);
+      L2CValue(aLStack144,0.00000000);
+      L2CValue(aLStack160,0.00000000);
+      clear_lua_stack();
+      push_lua_stack((L2CValue *)this);
+      push_lua_stack((L2CValue *)this);
+      push_lua_stack((L2CValue *)this);
+      set_accel(*(lua_State **)((longlong)this + 8));
+LAB_7100024188:
+      ~L2CValue(aLStack160);
+      ~L2CValue(aLStack144);
+      ~L2CValue(aLStack80);
+    }
+  }
+  L2CValue(in_x8,0);
+LAB_71000241ac:
+  ~L2CValue(aLStack112);
+  ~L2CValue(aLStack96);
+  return;
+}
+
