@@ -1,0 +1,49 @@
+if(is_excute){
+	EFFECT_OFF_KIND(hash40("sys_bg_black"), false, false)
+	EFFECT_OFF_KIND(hash40("metaknight_sword"), false, false)
+}
+frame(Frame=43)
+if(is_excute){
+	EFFECT(hash40("sys_smash_flash"), hash40("haver"), 0, 14, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true)
+}
+frame(Frame=49)
+if(is_excute){
+	EFFECT_FOLLOW(hash40("metaknight_sword"), hash40("haver"), 0, 0, 0, 0, 0, 0, 1, true)
+}
+get_value_float(SO_VAR_FLOAT_LR)
+if(0x12eb70(240, 0)){
+	if(is_excute){
+		methodlib::L2CValue::as_hash()const(hash40("critical_hit"), hash40("top"), 3, 3, 0, 6, -15, true)
+		methodlib::L2CValue::as_hash()const()
+		EffectModule::request_post_effect_line_circle()
+	}
+	else{
+		if(is_excute){
+			methodlib::L2CValue::as_hash()const(hash40("critical_hit"), hash40("top"), 3, 3, 0, 6, 20, true)
+			methodlib::L2CValue::as_hash()const(0)
+			EffectModule::request_post_effect_line_circle()
+		}
+	}
+}
+frame(0, 50)
+get_value_float(SO_VAR_FLOAT_LR)
+if(0x12eb70(1325252, 0)){
+	if(is_excute){
+		EFFECT_FLW_POS(hash40("metaknight_final_last_trace_l"), hash40("top"), 0, 0, -32.859, 0, 180, 0, 1, true)
+		EffectModule::set_disable_render_offset_last()
+		EFFECT_FOLLOW_NO_STOP(hash40("metaknight_final_hit"), hash40("top"), -4.65, -2.883, -19, -162.6, 67.7, -138.2, 1, true)
+	}
+	else{
+		if(is_excute){
+			EFFECT_FLW_POS(hash40("metaknight_final_last_trace_r"), hash40("top"), 0, 0, 0, 0, 0, 0, 1, true)
+			EffectModule::set_disable_render_offset_last()
+			EFFECT_FOLLOW_NO_STOP(hash40("metaknight_final_hit"), hash40("top"), -12.857, 0, 18, 70, 42.5, -46, 1, true)
+			EffectModule::set_disable_render_offset_last()
+		}
+	}
+}
+frame(Frame=54)
+if(is_excute){
+	EffectModule::remove_post_effect_line(3, true)
+	EFFECT_OFF_KIND(hash40("metaknight_sword"), false, false)
+}

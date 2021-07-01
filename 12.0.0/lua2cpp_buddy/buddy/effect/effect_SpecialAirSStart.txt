@@ -1,0 +1,40 @@
+WorkModule::is_flag(FIGHTER_BUDDY_STATUS_SPECIAL_S_FLAG_FAIL)
+if(0x18cbc0(false, false)){
+	get_value_float(SO_VAR_FLOAT_LR)
+	if(0x18cbc0(0, 0)){
+		if(is_excute){
+			EFFECT_FOLLOW(hash40("buddy_special_s_start"), hash40("top"), -2, 9, -14, 0, 0, 0, 1.2, true)
+		}
+		else{
+			if(is_excute){
+				EFFECT_FOLLOW(hash40("buddy_special_s_start"), hash40("top"), 2, 9, -14, 0, 0, 0, 1.2, true)
+			}
+		}
+	}
+}
+frame(Frame=2)
+if(is_excute){
+	EFFECT_FOLLOW(hash40("buddy_special_s_hold"), hash40("virtualcenter"), 1.5, 0, 0, 0, 0, 0, 1, true)
+	EffectModule::enable_sync_init_pos_last()
+}
+frame(Frame=3)
+if(is_excute){
+	FLASH(1, 0.4, 0, 0.2)
+}
+frame(Frame=6)
+if(is_excute){
+	FLASH_FRM(4, 0, 0, 0, 0)
+}
+frame(Frame=10)
+if(is_excute){
+	COL_NORMAL()
+}
+frame(Frame=12)
+if(is_excute){
+	FLASH(1, 1, 0.4, 0.3)
+}
+wait(Frames=2)
+if(is_excute){
+	FLASH(1, 0.3, 0, 0.4)
+}
+wait(Frames=2)

@@ -1,0 +1,36 @@
+frame(Frame=70)
+if(is_excute){
+	EFFECT_FOLLOW_RND(hash40("shizue_final_house_smoke"), hash40("top"), 0, 5, 0, 0, 0, 0, 1.1, 0, 1, 0, 0, 0, 0, true)
+}
+frame(Frame=90)
+if(is_excute){
+	VisibilityModule::set_int64(hash40("step1"), hash40("step1_on"))
+}
+frame(Frame=150)
+if(is_excute){
+	VisibilityModule::set_int64(hash40("step2"), hash40("step2_on"))
+}
+frame(Frame=200)
+if(is_excute){
+	VisibilityModule::set_int64(hash40("step3"), hash40("step3_on"))
+}
+frame(Frame=215)
+if(is_excute){
+	EFFECT_OFF_KIND(hash40("shizue_final_house_smoke"), false, false)
+}
+frame(Frame=220)
+if(is_excute){
+	EFFECT(hash40("shizue_final_house_completion"), hash40("top"), 0, -2, -4, 0, 0, 0, 1.05, 0, 1, 0, 0, 0, 0, false)
+}
+frame(Frame=300)
+if(is_excute){
+	VisibilityModule::set_whole(false)
+	methodlib::L2CValue::as_hash()const(hash40("critical_hit"), hash40("top"), 5, 5, 0, 10, 0, true)
+	methodlib::L2CValue::as_hash()const()
+	EffectModule::request_post_effect_line_circle()
+	EFFECT(0, hash40("shizue_final_house_explosion"), hash40("top"), 0, 0, -5, 0, 90, 0, 1.2, 0, 1, 0, 0, 0, 0, false)
+}
+frame(Frame=10)
+if(is_excute){
+	EffectModule::remove_post_effect_line(5, true)
+}

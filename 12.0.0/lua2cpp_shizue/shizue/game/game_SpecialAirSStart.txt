@@ -1,0 +1,32 @@
+frame(Frame=1)
+FT_MOTION_RATE(FSM=0.8)
+if(is_excute){
+	ArticleModule::generate_article(FIGHTER_SHIZUE_GENERATE_ARTICLE_FISHINGROD)
+}
+frame(Frame=20)
+if(is_excute){
+	FighterAreaModuleImpl::enable_fix_jostle_area(9, 4)
+	JostleModule::set_push_speed_x(12, true)
+	JostleModule::set_push_speed_x_overlap_rate(12)
+}
+frame(Frame=21)
+FT_MOTION_RATE(FSM=1)
+frame(Frame=22)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_CHECK)
+	FighterAreaModuleImpl::enable_fix_jostle_area(16, 4)
+}
+frame(Frame=24)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_CHECK)
+}
+frame(Frame=25)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_SHIZUE_STATUS_WORK_ID_SPECIAL_S_FLAG_SHOOT)
+}
+frame(Frame=26)
+if(is_excute){
+	FighterAreaModuleImpl::enable_fix_jostle_area(3.8, 3)
+	JostleModule::set_push_speed_x(0, true)
+	JostleModule::set_push_speed_x_overlap_rate(0)
+}

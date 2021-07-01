@@ -1,0 +1,23 @@
+if(is_excute){
+	ATTACK_ABS(Kind=FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, ID=0, Damage=7.0, Angle=75, KBG=75, FKB=0, BKB=55, Hitlag=0.0, Unk=1.0, FacingRestrict=ATTACK_LR_CHECK_F, Unk=0.0, Unk=true, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_THROW)
+	ATTACK_ABS(Kind=FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, ID=0, Damage=3.0, Angle=75, KBG=75, FKB=0, BKB=55, Hitlag=0.0, Unk=1.0, FacingRestrict=ATTACK_LR_CHECK_F, Unk=0.0, Unk=true, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_THROW)
+}
+frame(Frame=1)
+if(is_excute){
+	CHECK_FINISH_CAMERA(30, 7)
+	FighterCutInManager::set_throw_finish_zoom_rate(1.5)
+	FighterCutInManager::set_throw_finish_offset(10, 50, 0)
+}
+frame(Frame=2)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_RIDLEY_STATUS_SPECIAL_S_FLAG_THROW)
+}
+frame(Frame=38)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_RIDLEY_STATUS_SPECIAL_S_FLAG_ENABLE_CONTROL_JUMP)
+	notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES)
+}
+frame(Frame=42)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_RIDLEY_STATUS_SPECIAL_S_FLAG_ENABLE_GRAVITY)
+}

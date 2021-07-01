@@ -1,0 +1,82 @@
+if(0x16e550(FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_LW_INT_SAVING_LV, FIGHTER_RYU_SAVING_LV_1)){
+	frame(Frame=8)
+	get_value_float(SO_VAR_FLOAT_LR)
+	if(0x16e550(0, 0)){
+		if(is_excute){
+			EFFECT_FOLLOW(hash40("ken_savingattack_line_l"), hash40("top"), 4, 10.5, 0, 0, 180, 5, 1, true)
+		}
+		else{
+			if(0x16e550(FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_LW_INT_SAVING_LV, FIGHTER_RYU_SAVING_LV_2)){
+				frame(Frame=8)
+				get_value_float(SO_VAR_FLOAT_LR)
+				if(0x16e550(0, 0)){
+					if(is_excute){
+						EFFECT_FOLLOW(hash40("ken_savingattack_line_l"), hash40("top"), 4, 10.5, 0, 0, 180, 5, 1.05, true)
+					}
+					else{
+						if(is_excute){
+							FLASH(1, 1, 0.392, 0.784)
+						}
+						wait(Frames=3)
+						if(is_excute){
+							COL_NORMAL()
+						}
+						wait(Frames=2)
+						if(is_excute){
+							FLASH(1, 1, 1, 0.667)
+						}
+						wait(Frames=2)
+						if(is_excute){
+							COL_NORMAL()
+						}
+						wait(Frames=1)
+						get_value_float(SO_VAR_FLOAT_LR)
+						if(0x16e550(0, 0)){
+							if(is_excute){
+								EFFECT_FOLLOW(hash40("ken_savingattack_line_l2"), hash40("top"), 4, 10.5, 0, 0, 180, 5, 1.15, true)
+							}
+							else{
+								if(is_excute){
+									EFFECT_FOLLOW(hash40("ken_savingattack_line_r"), hash40("top"), -4, 10.5, 0, 0, 180, -5, 1, true)
+								}
+								frame(Frame=15)
+								if(is_excute){
+									EFFECT_DETACH_KIND(hash40("ken_savingattack_line_l"), -1)
+									EFFECT_DETACH_KIND(hash40("ken_savingattack_line_r"), -1)
+								}
+								else{
+									if(is_excute){
+										EFFECT_FOLLOW(hash40("ken_savingattack_line_r"), hash40("top"), -4, 10.5, 0, 0, 180, -5, 1.05, true)
+									}
+									frame(Frame=15)
+									if(is_excute){
+										EFFECT_DETACH_KIND(hash40("ken_savingattack_line_l"), -1)
+										EFFECT_DETACH_KIND(hash40("ken_savingattack_line_r"), -1)
+									}
+									else{
+										if(is_excute){
+											EFFECT_FOLLOW(hash40("ken_savingattack_line_r2"), hash40("top"), -4, 10.5, 0, 0, 180, -5, 1.15, true)
+										}
+										wait(Frames=1)
+										if(is_excute){
+											FLASH(1, 1, 0.392, 0.588)
+										}
+										wait(Frames=2)
+										if(is_excute){
+											COL_NORMAL()
+										}
+										frame(Frame=15)
+										if(is_excute){
+											EFFECT_DETACH_KIND(hash40("ken_savingattack_line_l"), -1)
+											EFFECT_DETACH_KIND(hash40("ken_savingattack_line_r"), -1)
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

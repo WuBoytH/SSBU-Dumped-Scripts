@@ -1,0 +1,33 @@
+frame(Frame=1)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_LW_FLAG_ENABLE_NEXT_NO_COMP)
+}
+frame(Frame=8)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_LW_FLAG_WITCH_TIME)
+	SEARCH(0, 0, hash40("top"), 11.5, -2.0, 10.0, 0.0, COLLISION_KIND_MASK_ATTACK, HIT_STATUS_MASK_ALL, 1, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_FIEB, COLLISION_PART_MASK_BODY_HEAD, false)
+}
+frame(Frame=24)
+if(is_excute){
+	notify_event_msc_cmd(0x2ea0f68425, true)
+}
+frame(Frame=28)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_LW_FLAG_WITCH_TIME)
+	search(MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL)
+}
+frame(Frame=36)
+if(is_excute){
+	notify_event_msc_cmd(0x2ea0f68425, false)
+}
+frame(Frame=37)
+WorkModule::is_flag(FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_LW_FLAG_WITCH_TIME_SUCCESS)
+if(0x1cb400(false, false)){
+	if(is_excute){
+		KineticModule::change_kinetic(FIGHTER_KINETIC_TYPE_FALL)
+	}
+}
+frame(Frame=44)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_LW_FLAG_ENABLE_NEXT_NO_COMP)
+}
