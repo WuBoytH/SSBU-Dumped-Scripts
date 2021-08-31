@@ -1,12 +1,12 @@
 if(is_excute){
-	WorkModule::on_flag(Flag=61220)
+	WorkModule::on_flag(Flag=FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON)
 	CHECK_VALID_FINAL_START_CAMERA(0, 7, 20, 0, 0, 0)
 	SLOW_OPPONENT(30, 25)
 }
 frame(Frame=3)
 frame(Frame=5)
 if(is_excute){
-	ArticleModule::generate_article(55240)
+	ArticleModule::generate_article(FIGHTER_PICKEL_GENERATE_ARTICLE_PUSHFINAL)
 	FT_SET_FINAL_FEAR_FACE(50)
 	FT_START_CUTIN()
 }
@@ -47,10 +47,10 @@ if(is_excute){
 frame(Frame=45)
 if(is_excute){
 	AttackModule::clear_all()
-	WorkModule::on_flag(Flag=61264)
-	ATTACK_ABS(Kind=61268, ID=0, Damage=15.0, Angle=30, KBG=120, FKB=100, BKB=0, Hitlag=0.0, Unk=1.0, FacingRestrict=ATTACK_LR_CHECK_POS, Unk=0.0, Unk=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_OBJECT)
+	WorkModule::on_flag(Flag=FIGHTER_PICKEL_STATUS_FINAL_FLAG_ATTACK)
+	ATTACK_ABS(Kind=FIGHTER_PICKEL_ATTACK_ABSOLUTE_KIND_FINAL, ID=0, Damage=15.0, Angle=30, KBG=120, FKB=100, BKB=0, Hitlag=0.0, Unk=1.0, FacingRestrict=ATTACK_LR_CHECK_POS, Unk=0.0, Unk=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_PUNCH, Type=ATTACK_REGION_OBJECT)
 	AttackModule::set_no_dead_all(true, true)
-	WorkModule::on_flag(Flag=61272)
+	WorkModule::on_flag(Flag=FIGHTER_PICKEL_STATUS_FINAL_FLAG_ABS_HIT)
 	ATTACK(ID=0, Part=0, Bone=hash40("top"), Damage=15.0, Angle=35, KBG=120, FKB=0, BKB=50, Size=13.0, X=0.0, Y=11.0, Z=16.0, X2=0.0, Y2=11.0, Z2=47.0, Hitlag=0.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=hash40("no"), Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_OBJECT)
 	AttackModule::set_no_dead_all(true, false)
 }
@@ -60,5 +60,5 @@ if(is_excute){
 }
 frame(Frame=90)
 if(is_excute){
-	ArticleModule::remove_exist(55240)
+	ArticleModule::remove_exist(FIGHTER_PICKEL_GENERATE_ARTICLE_PUSHFINAL)
 }
