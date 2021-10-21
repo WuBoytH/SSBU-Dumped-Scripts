@@ -1,0 +1,31 @@
+if(is_excute){
+	damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 11.99)
+	ATTACK_ABS(Kind=FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, ID=0, Damage=0.0, Angle=145, KBG=454, FKB=0, BKB=20, Hitlag=0.0, Unk=1.0, FacingRestrict=ATTACK_LR_CHECK_B, Unk=0.0, Unk=true, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_S, SFXType=COLLISION_SOUND_ATTR_NONE, Type=ATTACK_REGION_THROW)
+	AttackModule::set_force_reaction(0, true, true)
+	WorkModule::set_float(9, FIGHTER_GAOGAEN_STATUS_SPECIAL_S_FLOAT_LARIAT_HIT_FRAME)
+}
+frame(Frame=9)
+if(is_excute){
+	ATTACK(ID=0, Part=0, Bone=hash40("arml"), Damage=20.0, Angle=145, KBG=40, FKB=0, BKB=88, Size=7.0, X=0.0, Y=0.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.4, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_B, SetWeight=false, ShieldDamage=2, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=true, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_L, SFXType=COLLISION_SOUND_ATTR_HEAVY, Type=ATTACK_REGION_PUNCH)
+	CHECK_FINISH_CAMERA(0, 0)
+	FighterCutInManager::set_throw_finish_zoom_rate(1.5)
+	FighterCutInManager::set_throw_finish_offset(0, 0, 0)
+}
+frame(Frame=14)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_GAOGAEN_STATUS_SPECIAL_S_FLAG_DAMAGE_CUT)
+}
+frame(Frame=20)
+if(is_excute){
+	AttackModule::clear_all()
+	REVERSE_LR()
+}
+frame(Frame=50)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_GAOGAEN_STATUS_SPECIAL_S_FLAG_ENABLE_GRAVITY)
+}
+frame(Frame=58)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_GAOGAEN_STATUS_SPECIAL_S_WORK_ID_FLAG_AIR_CONTROL)
+	damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
+}

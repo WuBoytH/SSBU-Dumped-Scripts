@@ -1,0 +1,24 @@
+if(is_excute){
+	EFFECT_OFF_KIND(hash40("sonic_spinwind"), false, false)
+}
+WorkModule::is_flag(FIGHTER_SONIC_STATUS_SPECIAL_S_DASH_FLAG_MAX_CHARGE)
+if(0x12c570(false, true)){
+	if(is_excute){
+		EFFECT_FOLLOW_NO_STOP(hash40("sonic_spintrace_max"), hash40("top"), 0, 5, 0, 0, 0, 0, 1, true)
+		LAST_EFFECT_SET_ALPHA(0.5)
+	}
+	else{
+		if(is_excute){
+			EFFECT_FOLLOW_NO_STOP(hash40("sonic_spintrace"), hash40("top"), 0, 5, 0, 0, 0, 0, 1, true)
+			LAST_EFFECT_SET_ALPHA(0.5)
+			EffectModule::enable_sync_init_pos_last()
+		}
+	}
+}
+frame(Frame=14)
+if(is_excute){
+	LANDING_EFFECT_FLIP(hash40("sys_whirlwind_l"), hash40("sys_whirlwind_r"), hash40("top"), 0, 0, 0, 0, 0, 0, 0.65, 0, 0, 0, 0, 0, 0, false, EF_FLIP_YZ)
+}
+wait(Frames=4)
+wait(Frames=4)
+LANDING_EFFECT(hash40("sys_dash_smoke"), hash40("top"), 0, 0, 5, 0, 180, 0, 0.6, 0, 0, 0, 0, 0, 0, true)

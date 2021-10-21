@@ -1,0 +1,38 @@
+frame(Frame=1)
+if(is_excute){
+	notify_event_msc_cmd(0x2d51fcdb09, FIGHTER_BAYONETTA_SHOOTING_SLOT_L_ARM, false, false, true, 20, 3, 15, 0, false)
+	notify_event_msc_cmd(0x2b7cb92b79, FIGHTER_BAYONETTA_SHOOTING_SLOT_R_ARM, false, false, true, 20)
+	notify_event_msc_cmd(0x2b7cb92b79, FIGHTER_BAYONETTA_SHOOTING_SLOT_L_LEG, false, false, true, 20)
+	notify_event_msc_cmd(0x2b7cb92b79, FIGHTER_BAYONETTA_SHOOTING_SLOT_R_LEG, false, false, true, 20)
+}
+FT_MOTION_RATE(FSM=0.7)
+frame(Frame=3)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
+}
+frame(Frame=10)
+FT_MOTION_RATE(FSM=0.75)
+frame(Frame=12)
+if(is_excute){
+	ATTACK(ID=0, Part=0, Bone=hash40("kneer"), Damage=7.5, Angle=55, KBG=80, FKB=0, BKB=40, Size=5.5, X=6.0, Y=1.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_KICK, Type=ATTACK_REGION_KICK)
+	ATTACK(ID=1, Part=0, Bone=hash40("kneer"), Damage=7.5, Angle=55, KBG=80, FKB=0, BKB=40, Size=4.2, X=2.5, Y=1.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_KICK, Type=ATTACK_REGION_KICK)
+	ATTACK(ID=2, Part=0, Bone=hash40("kneer"), Damage=7.5, Angle=55, KBG=80, FKB=0, BKB=40, Size=3.0, X=-1.0, Y=1.0, Z=0.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.0, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_ON, FacingRestrict=ATTACK_LR_CHECK_POS, SetWeight=false, ShieldDamage=0, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_normal"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_KICK, Type=ATTACK_REGION_KICK)
+}
+frame(Frame=25)
+if(is_excute){
+	AttackModule::clear_all()
+}
+wait(Frames=1)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_BAYONETTA_INSTANCE_WORK_ID_FLAG_SHOOTING_ACTION)
+	WorkModule::on_flag(Flag=FIGHTER_BAYONETTA_STATUS_ATTACK_AIR_FLAG_CHECK_HOLD)
+}
+frame(Frame=28)
+if(is_excute){
+	notify_event_msc_cmd(0x2bfb02b69a, false)
+	AttackModule::clear_all()
+}
+frame(Frame=35)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)
+}

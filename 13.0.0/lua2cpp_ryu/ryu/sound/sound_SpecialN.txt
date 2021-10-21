@@ -1,0 +1,60 @@
+frame(Frame=1)
+WorkModule::is_flag(FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED)
+if(0x163770(false, true)){
+	wait(Frames=10)
+	if(is_excute){
+		PLAY_SE(hash40("se_ryu_special_n03"))
+	}
+}
+wait(Frames=2)
+if(is_excute){
+	PLAY_SE(hash40("vc_ryu_special_n03"))
+}
+else{
+	WorkModule::is_flag(FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND)
+	if(0x163770(false, false)){
+		if(is_excute){
+			PLAY_SE(hash40("se_ryu_special_n01"))
+		}
+		wait(Frames=10)
+		if(is_excute){
+			PLAY_SE(hash40("se_ryu_special_n03"))
+		}
+		wait(Frames=2)
+		if(is_excute){
+			PLAY_SE(hash40("vc_ryu_special_n01"))
+		}
+		else{
+			if(0x163770(FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_INT_TYPE, 0)){
+				if(is_excute){
+					PLAY_SE(hash40("se_ryu_command_success"))
+					PLAY_SE(hash40("se_ryu_special_n01"))
+				}
+				wait(Frames=10)
+				if(is_excute){
+					PLAY_SE(hash40("se_ryu_special_n03"))
+				}
+				wait(Frames=2)
+				if(is_excute){
+					PLAY_SE(hash40("vc_ryu_special_n01_command"))
+				}
+				else{
+					if(0x163770(FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_INT_TYPE, 1)){
+						if(is_excute){
+							PLAY_SE(hash40("se_ryu_command_success"))
+							PLAY_SE(hash40("se_ryu_special_n01"))
+						}
+						wait(Frames=3)
+						if(is_excute){
+							PLAY_SE(hash40("vc_ryu_special_n02_command"))
+						}
+						wait(Frames=6)
+						if(is_excute){
+							PLAY_SE(hash40("se_ryu_special_n03"))
+						}
+					}
+				}
+			}
+		}
+	}
+}
