@@ -1,0 +1,15 @@
+frame(lua_state, 1.0);
+get_value_int(*SO_VAR_INT_CURRENT_STATUS);
+if(0x10d030(0, *FIGHTER_FOX_STATUS_KIND_SPECIAL_LW_LOOP)){;
+WorkModule::is_flag(boma, *FIGHTER_FOX_REFLECTOR_STATUS_WORK_ID_FLAG_SET_EFFECT);
+if(0x10d030(false, false)){;
+if is_excute(fighter) {
+EFFECT_FOLLOW(fighter, Hash40::new("fox_ref_loop"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, true);
+EFFECT_FOLLOW(fighter, Hash40::new("fox_ref_flash"), Hash40::new("reflector"), 1.2, 0, -0.5, 0, 0, 0, 1, true);
+WorkModule::on_flag(boma, /*Flag*/ *FIGHTER_FOX_REFLECTOR_STATUS_WORK_ID_FLAG_SET_EFFECT);
+}}}if is_excute(fighter) {
+FLASH(fighter, 0, 0.5, 1, 0.25);
+}wait(lua_state, 2.0);
+if is_excute(fighter) {
+COL_NORMAL(fighter);
+}wait(lua_state, 1.0);

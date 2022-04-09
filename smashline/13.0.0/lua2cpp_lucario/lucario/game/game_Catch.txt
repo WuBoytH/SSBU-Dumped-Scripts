@@ -1,0 +1,14 @@
+frame(lua_state, 6.0);
+if is_excute(fighter) {
+GrabModule::set_rebound(boma, /*CanCatchRebound*/ true);
+}frame(lua_state, 7.0);
+if is_excute(fighter) {
+CATCH(fighter, 0, Hash40::new("top"), 3.8, 0.0, 8.5, 4.0, 0.0, 8.5, 9.7, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
+CATCH(fighter, 1, Hash40::new("top"), 1.9, 0.0, 8.5, 2.1, 0.0, 8.5, 11.6, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
+}methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
+wait(lua_state, 2.0);
+if is_excute(fighter) {
+grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+WorkModule::on_flag(boma, /*Flag*/ *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
+GrabModule::set_rebound(boma, /*CanCatchRebound*/ false);
+}
