@@ -92,12 +92,12 @@ def convert(the_dir: str, output_folder: str):
                             # Extract the non-equals characters from the argument and enclose it in comments
                             split_arg = entry.split("=")
                             formatted_arg = "/*" + split_arg[0] + "*/ "
-                            fn_argslist_formatted.append(formatted_arg)
+                            #fn_argslist_formatted.append(formatted_arg)
                         #print(fn_argslist_formatted) # Print the formatted args list to make sure it was formatted correctly
                         # Replace each arg in the string with its formatted version
                         str_replace_temp = str_temp
                         for i in range(len(fn_argslist)):
-                            str_replace_temp = str_replace_temp.replace(fn_argslist[i], fn_argslist_formatted[i], 1)
+                            str_replace_temp = str_replace_temp.replace(fn_argslist[i], "", 1)
                         # Add a fighter arg to the first part of the function call
                         if "()" in str_replace_temp:
                             str_replace_temp = str_replace_temp.replace("()", "(fighter)")
