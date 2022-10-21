@@ -1,0 +1,11 @@
+frame(lua_state, 1.0);
+if is_excute(fighter) {
+PLAY_SE(fighter, Hash40::new("se_pacman_dash_turn"));
+SET_PLAY_INHIVIT(fighter, Hash40::new("se_pacman_dash_stop"), 30);
+}wait(lua_state, 24.0);
+if is_excute(fighter) {
+PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_pacman_step_left_l"), Hash40::new("se_pacman_step_right_l"));
+}wait(lua_state, 11.0);
+if is_excute(fighter) {
+PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_pacman_step_right_l"), Hash40::new("se_pacman_step_left_l"));
+}

@@ -1,0 +1,35 @@
+if(is_excute){
+	EFFECT_FOLLOW(hash40("tantan_wepon1_wind"), hash40("top"), 0, 0, 0, 0, 0, 0, 1, true)
+	EffectModule::enable_sync_init_pos_last()
+	EFFECT_FOLLOW_NO_STOP(hash40("tantan_wepon_ringwind"), hash40("top"), 0, 0, 0, 0, 0, 0, 1, true)
+	EffectModule::enable_sync_init_pos_last()
+}
+frame(Frame=3)
+WorkModule::is_flag(WEAPON_TANTAN_PUNCH1_INSTANCE_WORK_ID_FLAG_BOUND)
+if(0x3a02e0(false, true)){
+	if(is_excute){
+		EFFECT_OFF_KIND(hash40("tantan_wepon1_wind"), true, true)
+		EFFECT_OFF_KIND(hash40("tantan_wepon1_wind_big"), true, true)
+		EFFECT_OFF_KIND(hash40("tantan_wepon1_wind_s"), true, true)
+		EFFECT_OFF_KIND(hash40("tantan_wepon_ringwind"), true, true)
+		EFFECT_OFF_KIND(0x136ce4d206, true, true)
+		EFFECT_OFF_KIND(0x13f5ed83bc, true, true)
+	}
+}
+else{
+	WorkModule::is_flag(0, 0, WEAPON_TANTAN_PUNCH1_INSTANCE_WORK_ID_FLAG_IS_KIRBY)
+	if(0x3a02e0(false, true)){
+		frame(Frame=12)
+	}
+	else{
+		frame(Frame=14)
+	}
+}
+WorkModule::is_flag(WEAPON_TANTAN_PUNCH1_INSTANCE_WORK_ID_FLAG_BOUND)
+0x3a02e0(false, true)
+if(is_excute){
+	EFFECT_FOLLOW_NO_STOP(hash40("tantan_dragon_eye_flash"), hash40("top"), 0, 0, 0, 0, 0, 0, 1, true)
+}
+if(is_excute){
+	EffectModule::enable_sync_init_pos_last()
+}

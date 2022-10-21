@@ -1,0 +1,60 @@
+if(is_excute){
+	ArticleModule::generate_article(FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE)
+}
+frame(Frame=8)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_JACK_STATUS_SPECIAL_HI_FLAG_REVERSE_LR)
+}
+frame(Frame=12)
+if(is_excute){
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_CHECK)
+	WorkModule::on_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_HANG_IMMIDIATE)
+}
+frame(Frame=13)
+if(is_excute){
+	GroundModule::select_cliff_hangdata(FIGHTER_JACK_CLIFF_HANG_DATA_AIR_LASSO)
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_HANG_IMMIDIATE)
+}
+frame(Frame=15)
+if(is_excute){
+	WorkModule::off_flag(Flag=FIGHTER_STATUS_AIR_LASSO_FLAG_CHECK)
+}
+frame(Frame=19)
+if(is_excute){
+	ArticleModule::change_status(FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE, WEAPON_JACK_WIREROPE_STATUS_KIND_EXTEND)
+	AreaModule::reset_area(FIGHTER_JACK_AREA_KIND_ITEM_CATCH)
+	ENABLE_AREA(FIGHTER_JACK_AREA_KIND_ITEM_CATCH)
+	AreaModule::reset_area(FIGHTER_JACK_AREA_KIND_ITEM_CATCH_ADD)
+	ENABLE_AREA(FIGHTER_JACK_AREA_KIND_ITEM_CATCH_ADD)
+}
+frame(Frame=20)
+if(is_excute){
+	ATTACK(ID=0, Part=0, Bone=hash40("throw"), Damage=5.0, Angle=55, KBG=56, FKB=0, BKB=76, Size=2.7, X=1.5, Y=2.0, Z=2.0, X2=LUA_VOID, Y2=LUA_VOID, Z2=LUA_VOID, Hitlag=1.2, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=1, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
+	ATTACK(ID=1, Part=0, Bone=hash40("top"), Damage=5.0, Angle=55, KBG=56, FKB=0, BKB=76, Size=2.7, X=0.0, Y=22.0, Z=3.2, X2=0.0, Y2=38.0, Z2=10.6, Hitlag=1.2, SDI=1.0, Clang_Rebound=ATTACK_SETOFF_KIND_OFF, FacingRestrict=ATTACK_LR_CHECK_F, SetWeight=false, ShieldDamage=1, Trip=0.0, Rehit=0, Reflectable=false, Absorbable=false, Flinchless=false, DisableHitlag=false, Direct_Hitbox=true, Ground_or_Air=COLLISION_SITUATION_MASK_GA, Hitbits=COLLISION_CATEGORY_MASK_ALL, CollisionPart=COLLISION_PART_MASK_ALL, FriendlyFire=false, Effect=hash40("collision_attr_cutup"), SFXLevel=ATTACK_SOUND_LEVEL_M, SFXType=COLLISION_SOUND_ATTR_CUTUP, Type=ATTACK_REGION_OBJECT)
+}
+frame(Frame=21)
+if(is_excute){
+	AttackModule::clear(ID=1)
+}
+frame(Frame=23)
+if(is_excute){
+	UNABLE_AREA(FIGHTER_JACK_AREA_KIND_ITEM_CATCH_ADD)
+}
+frame(Frame=24)
+if(is_excute){
+	AttackModule::clear_all()
+}
+frame(Frame=25)
+if(is_excute){
+	notify_event_msc_cmd(0x2127e37c07, GROUND_CLIFF_CHECK_KIND_ALWAYS)
+}
+frame(Frame=26)
+if(is_excute){
+	AttackModule::clear_all()
+}
+frame(Frame=27)
+if(is_excute){
+	ArticleModule::change_status(FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE, WEAPON_JACK_WIREROPE_STATUS_KIND_BACK)
+	search(MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL)
+	UNABLE_AREA(FIGHTER_JACK_AREA_KIND_ITEM_CATCH)
+}

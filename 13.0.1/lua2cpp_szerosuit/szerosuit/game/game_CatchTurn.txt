@@ -1,0 +1,28 @@
+if(is_excute){
+	ArticleModule::generate_article(FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP)
+	methodlib::L2CValue::as_hash()const(FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP, hash40("catch_turn"))
+	ArticleModule::change_motion()
+}
+frame(Frame=17)
+if(is_excute){
+	GrabModule::set_rebound(CanCatchRebound=true)
+}
+frame(Frame=18)
+if(is_excute){
+	CATCH(ID=0, Bone=hash40("throw"), Size=3.0, X=0.0, Y=0.0, Z=0.0, Status=FIGHTER_STATUS_KIND_CAPTURE_PULLED, Ground_or_Air=COLLISION_SITUATION_MASK_GA)
+	CATCH(ID=1, Bone=hash40("handr"), Size=2.0, X=0.0, Y=0.0, Z=0.0, Status=FIGHTER_STATUS_KIND_CAPTURE_PULLED, Ground_or_Air=COLLISION_SITUATION_MASK_GA)
+}
+methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()()
+frame(Frame=21)
+if(is_excute){
+	grab(MA_MSC_CMD_GRAB_CLEAR, 1)
+}
+frame(Frame=27)
+if(is_excute){
+	grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
+	GrabModule::set_rebound(CanCatchRebound=false)
+}
+frame(Frame=57)
+if(is_excute){
+	ArticleModule::remove_exist(FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP)
+}
