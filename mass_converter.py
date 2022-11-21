@@ -10,6 +10,10 @@ def collect_dirs(dir: str):
         # ignore status script folders
         if "Status Scripts" in entry:
             continue
+        if ".git" in entry:
+            continue
+        if "smashline" in entry:
+            continue
         
         entry = os.path.join(dir, entry)
 

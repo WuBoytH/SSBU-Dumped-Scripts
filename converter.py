@@ -140,14 +140,14 @@ def convert(the_dir: str, output_folder: str):
                         frame_num_write = frame_num[0]
                         if "." not in frame_num_write:
                             frame_num_write = frame_num[0] + ".0"
-                        str_write = "frame(lua_state, " + frame_num_write + ");\n"
+                        str_write = "frame(fighter.lua_state_agent, " + frame_num_write + ");\n"
                         
                     elif "wait(Frames=" in line: # Translate wait calls
                         frame_num = re.findall(r'\d+[.]*\d*', line)
                         frame_num_write = frame_num[0]
                         if "." not in frame_num_write:
                             frame_num_write = frame_num[0] + ".0"
-                        str_write = "wait(lua_state, " + frame_num_write + ");\n"
+                        str_write = "wait(fighter.lua_state_agent, " + frame_num_write + ");\n"
                 
                     elif "if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(FIGHTER_INSTANCE_WORK_ID_INT_KIND, FIGHTER_KIND_KIRBY)){" in line: # Translate Kirby calls
                         str_write = "if WorkModule::get_int(boma, *FIGHTER_INSTANCE_WORK_ID_INT_KIND) == *FIGHTER_KIND_KIRBY {\n"
@@ -172,13 +172,13 @@ def convert(the_dir: str, output_folder: str):
                         if "()" in str_replace_temp:
                             str_replace_temp = str_replace_temp.replace("()", "(boma)")
                         else:
-                            str_replace_temp = str_replace_temp.replace("(", "(boma, ", 1)
+                            str_replace_temp = str_replace_temp.replace("(", "(fighter.module_accessor, ", 1)
                         #print(str_replace_temp) # Print the rewritten string to make sure it was reformatted correctly
                         # Write the new ATTACK/ATTACK_ABS call to the output file
                         str_write = str_replace_temp.rstrip('\n') + ";\n"
                     
                     elif "if(is_excute){" in line: # Replace if(is_excute) calls
-                        str_write = "if is_excute(fighter) {\n"
+                        str_write = "if macros::is_excute(fighter) {\n"
                         
                     else: # If not an attack call, just write it to the output file with a semicolon at the end
                         str_write = str_temp.rstrip('\n') + ";\n"

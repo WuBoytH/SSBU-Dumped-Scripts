@@ -1,12 +1,12 @@
-frame(lua_state, 1.0);
-if is_excute(fighter) {
+frame(fighter.lua_state_agent, 1.0);
+if macros::is_excute(fighter) {
 SET_SPEED_EX(fighter, 3, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
 AttackModule::clear_all(boma);
 ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_DEDEDE_FINAL, 0, 15.0, 60, 80, 0, 45, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
-WorkModule::on_flag(boma, /*Flag*/ *FIGHTER_RIDLEY_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
-}frame(lua_state, 2.0);
+WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_RIDLEY_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
+}frame(fighter.lua_state_agent, 2.0);
 FT_MOTION_RATE(fighter, 0.9);
-frame(lua_state, 30.0);
-if is_excute(fighter) {
-WorkModule::on_flag(boma, /*Flag*/ *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+frame(fighter.lua_state_agent, 30.0);
+if macros::is_excute(fighter) {
+WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
 }

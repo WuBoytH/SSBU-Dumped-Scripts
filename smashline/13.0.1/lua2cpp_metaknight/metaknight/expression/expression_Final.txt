@@ -1,8 +1,8 @@
-if is_excute(fighter) {
-VisibilityModule::set_status_default_int64(boma, Hash40::new("mantle"), Hash40::new("mantle_wing"));
-ItemModule::set_have_item_visibility(boma, false);
-}frame(lua_state, 10.0);
-if is_excute(fighter) {
+if macros::is_excute(fighter) {
+VisibilityModule::set_status_default_int64(fighter.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_wing"));
+ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+}frame(fighter.lua_state_agent, 10.0);
+if macros::is_excute(fighter) {
 RUMBLE_HIT(fighter, Hash40::new("rbkind_attack_critical"), 0);
 methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohit_explosionm"), 0, false);
 ControlModule::set_rumble(boma);

@@ -1,14 +1,14 @@
-if is_excute(fighter) {
+if macros::is_excute(fighter) {
 START_INFO_FLASH_EYE(fighter);
-ItemModule::set_have_item_visibility(boma, false);
+ItemModule::set_have_item_visibility(fighter.module_accessor, false);
 AREA_WIND_2ND_arg10(0, 0.5, 120, 20, 0.2, -5, 7, 14, 14, 40);
-VisibilityModule::set_int64(boma, Hash40::new("sword"), Hash40::new("sword_lhand"));
-VisibilityModule::set_int64(boma, Hash40::new("sword"), Hash40::new("sword_lhand_saya"));
-}frame(lua_state, 28.0);
-if is_excute(fighter) {
+VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("sword"), Hash40::new("sword_lhand"));
+VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("sword"), Hash40::new("sword_lhand_saya"));
+}frame(fighter.lua_state_agent, 28.0);
+if macros::is_excute(fighter) {
 RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 6);
-}frame(lua_state, 58.0);
-if is_excute(fighter) {
+}frame(fighter.lua_state_agent, 58.0);
+if macros::is_excute(fighter) {
 methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_beamm"), 0, false);
 ControlModule::set_rumble(boma);
 }

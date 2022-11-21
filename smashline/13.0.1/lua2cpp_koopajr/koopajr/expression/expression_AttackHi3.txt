@@ -1,15 +1,15 @@
-if is_excute(fighter) {
-ItemModule::set_have_item_visibility(boma, false);
-}frame(lua_state, 0.0);
-if is_excute(fighter) {
-VisibilityModule::set_int64(boma, Hash40::new("sholder_l"), Hash40::new("sholder_l_on"));
-VisibilityModule::set_int64(boma, Hash40::new("sholder_r"), Hash40::new("sholder_r_on"));
-VisibilityModule::set_int64(boma, Hash40::new("item"), Hash40::new("item_fork"));
-}frame(lua_state, 5.0);
-if is_excute(fighter) {
+if macros::is_excute(fighter) {
+ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+}frame(fighter.lua_state_agent, 0.0);
+if macros::is_excute(fighter) {
+VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("sholder_l"), Hash40::new("sholder_l_on"));
+VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("sholder_r"), Hash40::new("sholder_r_on"));
+VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("item"), Hash40::new("item_fork"));
+}frame(fighter.lua_state_agent, 5.0);
+if macros::is_excute(fighter) {
 methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitm"), 0, false);
 ControlModule::set_rumble(boma);
-}frame(lua_state, 7.0);
-if is_excute(fighter) {
+}frame(fighter.lua_state_agent, 7.0);
+if macros::is_excute(fighter) {
 RUMBLE_HIT(fighter, Hash40::new("rbkind_pierces"), 0);
 }

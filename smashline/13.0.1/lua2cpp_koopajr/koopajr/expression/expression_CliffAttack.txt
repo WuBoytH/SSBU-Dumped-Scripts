@@ -1,9 +1,9 @@
-if is_excute(fighter) {
-VisibilityModule::set_int64(boma, Hash40::new("sholder_l"), Hash40::new("sholder_l_on"));
-VisibilityModule::set_int64(boma, Hash40::new("sholder_r"), Hash40::new("sholder_r_on"));
-VisibilityModule::set_int64(boma, Hash40::new("item"), Hash40::new("item_ironball"));
-}frame(lua_state, 24.0);
-if is_excute(fighter) {
+if macros::is_excute(fighter) {
+VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("sholder_l"), Hash40::new("sholder_l_on"));
+VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("sholder_r"), Hash40::new("sholder_r_on"));
+VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("item"), Hash40::new("item_ironball"));
+}frame(fighter.lua_state_agent, 24.0);
+if macros::is_excute(fighter) {
 RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
 methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_impact"), 0, false);
 ControlModule::set_rumble(boma);

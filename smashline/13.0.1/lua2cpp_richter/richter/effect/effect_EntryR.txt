@@ -1,16 +1,16 @@
-if is_excute(fighter) {
+if macros::is_excute(fighter) {
 EFFECT(fighter, Hash40::new("richter_entry"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
 FLASH(fighter, 1, 1, 1, 0.502);
-ColorBlendModule::set_disable_camera_depth_influence(boma, true);
-}wait(lua_state, 1.0);
-if is_excute(fighter) {
+ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
+}wait(fighter.lua_state_agent, 1.0);
+if macros::is_excute(fighter) {
 FLASH_FRM(fighter, 12, 1, 0.784, 0.627, 0.118);
-}wait(lua_state, 12.0);
-if is_excute(fighter) {
+}wait(fighter.lua_state_agent, 12.0);
+if macros::is_excute(fighter) {
 COL_NORMAL(fighter);
-ColorBlendModule::set_disable_camera_depth_influence(boma, false);
-}frame(lua_state, 35.0);
-if is_excute(fighter) {
+ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
+}frame(fighter.lua_state_agent, 35.0);
+if macros::is_excute(fighter) {
 LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
 LAST_EFFECT_SET_RATE(fighter, 0.7);
 }

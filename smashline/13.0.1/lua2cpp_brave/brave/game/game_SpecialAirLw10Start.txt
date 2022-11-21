@@ -1,14 +1,14 @@
-frame(lua_state, 1.0);
+frame(fighter.lua_state_agent, 1.0);
 FT_MOTION_RATE(fighter, 0.8);
-frame(lua_state, 10.0);
+frame(fighter.lua_state_agent, 10.0);
 FT_MOTION_RATE(fighter, 0.65);
-if is_excute(fighter) {
-KineticModule::add_speed(boma, 0, 3.4, 0.0);
-WorkModule::on_flag(boma, /*Flag*/ *FIGHTER_BRAVE_STATUS_SPECIAL_LW_FLAG_ENABLE_CONTROL_ENERGY);
-}frame(lua_state, 15.0);
-if is_excute(fighter) {
-PhysicsModule::set_swing_rate(boma, 0);
-}frame(lua_state, 20.0);
-if is_excute(fighter) {
-WorkModule::on_flag(boma, /*Flag*/ *FIGHTER_BRAVE_STATUS_SPECIAL_LW_START_FLAG_ENABLE_STEEL);
+if macros::is_excute(fighter) {
+KineticModule::add_speed(fighter.module_accessor, 0, 3.4, 0.0);
+WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_BRAVE_STATUS_SPECIAL_LW_FLAG_ENABLE_CONTROL_ENERGY);
+}frame(fighter.lua_state_agent, 15.0);
+if macros::is_excute(fighter) {
+PhysicsModule::set_swing_rate(fighter.module_accessor, 0);
+}frame(fighter.lua_state_agent, 20.0);
+if macros::is_excute(fighter) {
+WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_BRAVE_STATUS_SPECIAL_LW_START_FLAG_ENABLE_STEEL);
 }
