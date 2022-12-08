@@ -47,11 +47,11 @@ for i in range(len(fn_argslist)):
     str_replace_temp = str_replace_temp.replace(fn_argslist[i], fn_argslist_formatted[i], 1)
     print(str_replace_temp)
     print()
-# Add a boma arg to the first part of the function call
+# Add a fighter.module_accessor arg to the first part of the function call
 if "()" in str_replace_temp:
-    str_replace_temp = str_replace_temp.replace("()", "(boma)")
+    str_replace_temp = str_replace_temp.replace("()", "(fighter.module_accessor)")
 else:
-    str_replace_temp = str_replace_temp.replace("(", "(boma, ", 1)
+    str_replace_temp = str_replace_temp.replace("(", "(fighter.module_accessor, ", 1)
 print(str_replace_temp) # Print the rewritten string to make sure it was reformatted correctly
 """
 """
@@ -82,20 +82,40 @@ def convert(the_dir: str, output_folder: str):
                     line = line.strip()
                     str_temp = line # Create a temporary string with the line within it
                     if re.match(r'[A-Z_]+[(]', line): # If there's an ACMD func in the line
+                        str_replace_temp = "macros::" + str_temp
+                        # For ATTACK calls with X2/Y2/Z2
+                        if re.search(r'[XYZ]2\=\-*\d+[.]*\d*', str_replace_temp):
+                            # print("X/Y/Z2 Found")
+                            capsule_args = re.findall(r'[XYZ]2\=\-*\d+[.]*\d*', str_replace_temp)
                         
+                            # Make a list of formatted capsule args
+                            capsule_args_formatted = []
+                            for entry in capsule_args:
+                                # print("Entry:", entry)
+                                size_param = re.findall(r'\-*\d+[.]*\d*', entry)
+                                # print("size param:", size_param)
+                                capsule_args_formatted.append("Some(" + size_param[1] + ")")
+                            
+                            #print(capsule_args_formatted)
+                            
+                            for i in range(len(capsule_args)):
+                                str_replace_temp = str_replace_temp.replace(capsule_args[i], capsule_args_formatted[i], 1)
+                            
+                            #print("Final String:")
+                            #print(str_replace_temp)
+
                         # Get all of the args in the function call
                         fn_argslist = re.findall(r'\w*[=]', str_temp)
                         #print(fn_argslist) # Print the args list to make sure it was extracted correctly
                         # Make list of formatted args
                         fn_argslist_formatted = []
-                        for entry in fn_argslist:
+                        # for entry in fn_argslist:
                             # Extract the non-equals characters from the argument and enclose it in comments
-                            split_arg = entry.split("=")
-                            formatted_arg = "/*" + split_arg[0] + "*/ "
+                            # split_arg = entry.split("=")
+                            # formatted_arg = "/*" + split_arg[0] + "*/ "
                             #fn_argslist_formatted.append(formatted_arg)
                         #print(fn_argslist_formatted) # Print the formatted args list to make sure it was formatted correctly
                         # Replace each arg in the string with its formatted version
-                        str_replace_temp = str_temp
                         for i in range(len(fn_argslist)):
                             str_replace_temp = str_replace_temp.replace(fn_argslist[i], "", 1)
                         # Add a fighter arg to the first part of the function call
@@ -105,32 +125,6 @@ def convert(the_dir: str, output_folder: str):
                             str_replace_temp = str_replace_temp.replace("(", "(fighter, ", 1)
                         #print(str_replace_temp) # Print the rewritten string to make sure it was reformatted correctly
                         # Write the new ATTACK/ATTACK_ABS call to the output file
-                        
-                        
-                        # For ATTACK calls with X2/Y2/Z2
-                        if re.match(r'.*\/\*[XYZ]2\*\/ \-*\d+[.]*\d*', str_replace_temp):
-                            capsule_args = re.findall(r'.\/\*[XYZ]2\*\/ \-*\d+[.]*\d*', str_replace_temp)
-                        
-                            # Make a list of formatted capsule args
-                            capsule_args_formatted = []
-                            for entry in capsule_args:
-                                #print("Entry:", entry)
-                                size_param = re.findall(r'\-*\d+[.]*\d*', entry)
-                                #print("size param:", size_param)
-                                capsule_args_formatted.append(size_param[1])
-                            
-                            capsule_args_formatted[0] =  " /*X2*/ " + "Some(" + capsule_args_formatted[0] + ")"
-                            capsule_args_formatted[1] =  " /*Y2*/ " + "Some(" + capsule_args_formatted[1] + ")"
-                            capsule_args_formatted[2] =  " /*Z2*/ " + "Some(" + capsule_args_formatted[2] + ")"
-                            
-                            #print(capsule_args_formatted)
-                            
-                            for i in range(len(capsule_args)):
-                                str_replace_temp = str_replace_temp.replace(capsule_args[i], capsule_args_formatted[i], 1)
-                            
-                            #print("Final String:")
-                            #print(str_replace_temp)
-                        
                         
                         str_write = str_replace_temp.rstrip('\n') + ";\n"
                         
@@ -150,7 +144,7 @@ def convert(the_dir: str, output_folder: str):
                         str_write = "wait(fighter.lua_state_agent, " + frame_num_write + ");\n"
                 
                     elif "if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(FIGHTER_INSTANCE_WORK_ID_INT_KIND, FIGHTER_KIND_KIRBY)){" in line: # Translate Kirby calls
-                        str_write = "if WorkModule::get_int(boma, *FIGHTER_INSTANCE_WORK_ID_INT_KIND) == *FIGHTER_KIND_KIRBY {\n"
+                        str_write = "if WorkModule::get_int(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_KIND) == *FIGHTER_KIND_KIRBY {\n"
                     
                     elif re.match(r'\w+[:]+\w+[(]', line): # If a function call is found in the line
                         # Get all of the args in the function call
@@ -168,9 +162,9 @@ def convert(the_dir: str, output_folder: str):
                         str_replace_temp = str_temp
                         for i in range(len(fn_argslist)):
                             str_replace_temp = str_replace_temp.replace(fn_argslist[i], fn_argslist_formatted[i], 1)
-                        # Add a boma arg to the first part of the function call
+                        # Add a fighter.module_accessor arg to the first part of the function call
                         if "()" in str_replace_temp:
-                            str_replace_temp = str_replace_temp.replace("()", "(boma)")
+                            str_replace_temp = str_replace_temp.replace("()", "(fighter.module_accessor)")
                         else:
                             str_replace_temp = str_replace_temp.replace("(", "(fighter.module_accessor, ", 1)
                         #print(str_replace_temp) # Print the rewritten string to make sure it was reformatted correctly

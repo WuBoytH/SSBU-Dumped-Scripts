@@ -9,10 +9,10 @@ GrabModule::set_rebound(fighter.module_accessor, /*CanCatchRebound*/ true);
 if macros::is_excute(fighter) {
 ArticleModule::change_status(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_HOOKSHOT, *WEAPON_TOONLINK_HOOKSHOT_STATUS_KIND_SHOOT);
 methodlib::L2CValue::as_hash()const(*FIGHTER_TOONLINK_GENERATE_ARTICLE_HOOKSHOT_HAND, Hash40::new("shoot"));
-ArticleModule::change_motion(boma);
-CATCH(fighter, 0, Hash40::new("throw"), 2.8, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_GA);
-CATCH(fighter, 1, Hash40::new("handr"), 1.5, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_GA);
-CATCH(fighter, 2, Hash40::new("handr"), 4.0, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
+ArticleModule::change_motion(fighter.module_accessor);
+macros::CATCH(fighter, 0, Hash40::new("throw"), 2.8, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_GA);
+macros::CATCH(fighter, 1, Hash40::new("handr"), 1.5, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_GA);
+macros::CATCH(fighter, 2, Hash40::new("handr"), 4.0, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
 }methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
 wait(fighter.lua_state_agent, 2.0);
 if macros::is_excute(fighter) {
@@ -26,7 +26,7 @@ GrabModule::set_rebound(fighter.module_accessor, /*CanCatchRebound*/ false);
 if macros::is_excute(fighter) {
 ArticleModule::change_status_exist(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_HOOKSHOT, *WEAPON_TOONLINK_HOOKSHOT_STATUS_KIND_REWIND);
 methodlib::L2CValue::as_hash()const(*FIGHTER_TOONLINK_GENERATE_ARTICLE_HOOKSHOT_HAND, Hash40::new("back"));
-ArticleModule::change_motion(boma);
+ArticleModule::change_motion(fighter.module_accessor);
 WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_LINK_INSTANCE_WORK_ID_FLAG_OFF_MAP_COLL_OFFSET);
 }frame(fighter.lua_state_agent, 58.0);
 if macros::is_excute(fighter) {

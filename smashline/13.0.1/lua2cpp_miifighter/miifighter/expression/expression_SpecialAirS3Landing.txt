@@ -1,13 +1,13 @@
 if macros::is_excute(fighter) {
-FT_ATTACK_ABS_CAMERA_QUAKE(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
+macros::FT_ATTACK_ABS_CAMERA_QUAKE(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
 ItemModule::set_have_item_visibility(fighter.module_accessor, false);
 notify_event_msc_cmd(0x1f20a9d549, false);
 notify_event_msc_cmd(0x24772eddef, false);
 }frame(fighter.lua_state_agent, 1.0);
 if macros::is_excute(fighter) {
-QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
+macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
 methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_attackl"), 0, false);
-ControlModule::set_rumble(boma);
+ControlModule::set_rumble(fighter.module_accessor);
 }frame(fighter.lua_state_agent, 14.0);
 if macros::is_excute(fighter) {
 notify_event_msc_cmd(0x1f20a9d549, true);
@@ -15,5 +15,5 @@ notify_event_msc_cmd(0x24772eddef, true);
 }frame(fighter.lua_state_agent, 31.0);
 if macros::is_excute(fighter) {
 methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_landl"), 0, false);
-ControlModule::set_rumble(boma);
+ControlModule::set_rumble(fighter.module_accessor);
 }

@@ -1,20 +1,20 @@
 if macros::is_excute(fighter) {
-AttackModule::disable_tip(boma);
-QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
-ATTACK(fighter, 0, 0, Hash40::new("top"), 14.0, 65, 60, 0, 88, 8.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -6, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_MAGIC);
-ATTACK(fighter, 1, 0, Hash40::new("top"), 12.0, 60, 60, 0, 88, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_MAGIC);
+AttackModule::disable_tip(fighter.module_accessor);
+macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 14.0, 65, 60, 0, 88, 8.0, 0.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -6, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_MAGIC);
+macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 12.0, 60, 60, 0, 88, 10.0, 0.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_MAGIC);
 AREA_WIND_2ND_RAD(0, 0.5, 0.01, 1000, 1, 0, 0, 25);
 }frame(fighter.lua_state_agent, 4.0);
 if macros::is_excute(fighter) {
 AttackModule::set_size(fighter.module_accessor, /*ID*/ 0, /*Size*/ 10);
 AttackModule::set_size(fighter.module_accessor, /*ID*/ 1, /*Size*/ 13);
 methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_explosion"), 0, false);
-ControlModule::set_rumble(boma);
+ControlModule::set_rumble(fighter.module_accessor);
 }frame(fighter.lua_state_agent, 11.0);
 if macros::is_excute(fighter) {
 AttackModule::set_size(fighter.module_accessor, /*ID*/ 0, /*Size*/ 13);
 AttackModule::set_size(fighter.module_accessor, /*ID*/ 1, /*Size*/ 16);
 }frame(fighter.lua_state_agent, 21.0);
 if macros::is_excute(fighter) {
-AttackModule::clear_all(boma);
+AttackModule::clear_all(fighter.module_accessor);
 }
