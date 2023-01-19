@@ -208,7 +208,7 @@ def convert(the_dir: str, output_folder: str):
                     tabdepth_temp = tabdepth
                     tabs = ""
                     while tabdepth_temp > 0:
-                        tabs += "\t"
+                        tabs += "    "
                         tabdepth_temp-=1
 
                     if "if(" in line:
