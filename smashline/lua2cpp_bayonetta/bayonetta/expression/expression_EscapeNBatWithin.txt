@@ -2,13 +2,13 @@
 unsafe fn expression_escapenbatwithin(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 5.0);
     if macros::is_excute(fighter) {
-        notify_event_msc_cmd(0x1f20a9d549, false);
-        notify_event_msc_cmd(0x24772eddef, false);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), false);
     }
     frame(fighter.lua_state_agent, 24.0);
     if macros::is_excute(fighter) {
-        notify_event_msc_cmd(0x1f20a9d549, true);
-        notify_event_msc_cmd(0x24772eddef, true);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), true);
         slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
     }
 }

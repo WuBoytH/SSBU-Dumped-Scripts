@@ -3,7 +3,7 @@ unsafe fn game_specialairs2end(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
         SET_SPEED_EX(fighter, 1.4, -0.019, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
     }
     frame(lua_state, 8.0);

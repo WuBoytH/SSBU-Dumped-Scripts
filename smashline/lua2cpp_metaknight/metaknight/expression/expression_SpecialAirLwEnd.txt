@@ -5,13 +5,13 @@ unsafe fn expression_specialairlwend(fighter: &mut L2CAgentBase) {
         VisibilityModule::set_whole(fighter.module_accessor, true);
         VisibilityModule::set_status_default_int64(fighter.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_none"));
         ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true);
-        notify_event_msc_cmd(0x1f20a9d549, false);
-        notify_event_msc_cmd(0x24772eddef, false);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), false);
     }
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
         ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        notify_event_msc_cmd(0x1f20a9d549, true);
-        notify_event_msc_cmd(0x24772eddef, true);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), true);
     }
 }

@@ -4,8 +4,8 @@ unsafe fn expression_entryr(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         ItemModule::set_attach_item_visibility(boma, false);
-        notify_event_msc_cmd(0x1f20a9d549, false);
-        notify_event_msc_cmd(0x24772eddef, false);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), false);
     }
     frame(lua_state, 5.0);
     if is_excute(fighter) {
@@ -13,8 +13,8 @@ unsafe fn expression_entryr(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 7.0);
     if is_excute(fighter) {
-        notify_event_msc_cmd(0x1f20a9d549, true);
-        notify_event_msc_cmd(0x24772eddef, true);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), true);
         QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
     }
     frame(lua_state, 50.0);

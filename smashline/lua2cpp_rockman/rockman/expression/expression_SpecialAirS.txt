@@ -1,7 +1,7 @@
 #[acmd_script( agent = "rockman", script = "expression_specialairs", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_specialairs(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        notify_event_msc_cmd(0x1f5b14bb65, *FIGHTER_ROCKMAN_ARM_LEFT, *FIGHTER_ROCKMAN_ARMFORM_ROCKBUSTER, 5);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f5b14bb65), *FIGHTER_ROCKMAN_ARM_LEFT, *FIGHTER_ROCKMAN_ARMFORM_ROCKBUSTER, 5);
         slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(fighter.lua_state_agent, 18.0);

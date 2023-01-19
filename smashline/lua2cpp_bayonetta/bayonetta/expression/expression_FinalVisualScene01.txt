@@ -1,7 +1,7 @@
 #[acmd_script( agent = "bayonetta", script = "expression_finalvisualscene01", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_finalvisualscene01(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        notify_event_msc_cmd(0x25fd66ecef, 0, 0, 1);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x25fd66ecef), 0, 0, 1);
         VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("gun_hand"), Hash40::new("gun_hand_hide_all"));
     }
     frame(fighter.lua_state_agent, 1.0);
@@ -16,7 +16,7 @@ unsafe fn expression_finalvisualscene01(fighter: &mut L2CAgentBase) {
     }
     frame(fighter.lua_state_agent, 20.0);
     if macros::is_excute(fighter) {
-        notify_event_msc_cmd(0x25fd66ecef, 18, -1, 0);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x25fd66ecef), 18, -1, 0);
     }
     frame(fighter.lua_state_agent, 32.0);
     if macros::is_excute(fighter) {

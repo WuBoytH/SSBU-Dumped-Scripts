@@ -28,7 +28,7 @@ unsafe fn game_specials(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         AttackModule::clear_all(boma);
         WorkModule::on_flag(boma, *FIGHTER_DEMON_STATUS_SPECIAL_S_FLAG_CHANGE_HIT);
-        notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS);
     }
     frame(lua_state, 16.0);
     FighterSpecializer_Demon::set_devil(boma, true, 1);

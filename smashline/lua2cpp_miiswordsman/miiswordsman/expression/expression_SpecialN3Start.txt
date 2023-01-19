@@ -1,7 +1,7 @@
 #[acmd_script( agent = "miiswordsman", script = "expression_specialn3start", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_specialn3start(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        notify_event_msc_cmd(0x26769bd1de, 0, 0, 0);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x26769bd1de), 0, 0, 0);
         slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(fighter.module_accessor, false);
     }

@@ -1,7 +1,7 @@
 #[acmd_script( agent = "bayonetta", script = "expression_attacklw4", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_attacklw4(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        notify_event_msc_cmd(0x25fd66ecef, 18, -1, 0);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x25fd66ecef), 18, -1, 0);
         slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(fighter.lua_state_agent, 3.0);
@@ -30,6 +30,6 @@ unsafe fn expression_attacklw4(fighter: &mut L2CAgentBase) {
     }
     frame(fighter.lua_state_agent, 68.0);
     if macros::is_excute(fighter) {
-        notify_event_msc_cmd(0x25fd66ecef, 30, 0, 1);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x25fd66ecef), 30, 0, 1);
     }
 }

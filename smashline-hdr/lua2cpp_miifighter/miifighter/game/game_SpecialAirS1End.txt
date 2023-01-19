@@ -5,7 +5,7 @@ unsafe fn game_specialairs1end(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         SET_SPEED_EX(fighter, 1, 1);
         WorkModule::on_flag(boma, FIGHTER_MIIFIGHTER_STATUS_WORK_ID_FLAG_100*KICK_ENABLE_LANDING_MUL_SPEED_X);
-        notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_NONE);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_NONE);
     }
     frame(lua_state, 3.0);
     if is_excute(fighter) {
@@ -65,7 +65,7 @@ unsafe fn game_specialairs1end(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 48.0);
     if is_excute(fighter) {
-        notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
     }
     frame(lua_state, 55.0);
     if is_excute(fighter) {

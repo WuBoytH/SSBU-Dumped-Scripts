@@ -25,8 +25,8 @@ if is_excute(fighter) {
     ArticleModule::set_visibility_whole(boma, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, false);
     ItemModule::set_have_item_visibility(boma, false);
     ItemModule::set_attach_item_visibility(boma, false);
-    notify_event_msc_cmd(0x1f20a9d549, false);
-    notify_event_msc_cmd(0x24772eddef, false);
+    notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), false);
+    notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), false);
     ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
 }
 frame(lua_state, 50.0);
@@ -34,8 +34,8 @@ if is_excute(fighter) {
     ArticleModule::set_visibility_whole(boma, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true);
     ItemModule::set_have_item_visibility(boma, true);
     ItemModule::set_attach_item_visibility(boma, true);
-    notify_event_msc_cmd(0x1f20a9d549, true);
-    notify_event_msc_cmd(0x24772eddef, true);
+    notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), true);
+    notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), true);
     ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
 }
 }
