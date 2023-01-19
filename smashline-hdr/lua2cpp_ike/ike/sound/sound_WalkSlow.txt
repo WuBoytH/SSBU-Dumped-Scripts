@@ -1,0 +1,12 @@
+#[acmd_script( agent = "ike", script = "sound_walkslow" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_walkslow(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait_loop_sync_mot();
+	frame(lua_state, 40.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_ike_step_right_s"));
+	}
+	frame(lua_state, 79.0);
+	PLAY_STEP(fighter, Hash40::new("se_ike_step_left_s"));
+}

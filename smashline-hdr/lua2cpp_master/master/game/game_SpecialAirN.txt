@@ -1,0 +1,16 @@
+#[acmd_script( agent = "master", script = "game_specialairn" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairn(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ArticleModule::shoot_exist(boma, FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1, *ARTICLE_OPE_TARGET_ALL, false);
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_N_FLAG_ENABLE_CONTROL_ENERGY);
+	}
+	frame(lua_state, 35.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW);
+	}
+}

@@ -1,0 +1,18 @@
+#[acmd_script( agent = "popo", script = "expression_finalair1r" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_finalair1r(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ItemModule::set_have_item_visibility(boma, false);
+		START_INFO_FLASH_EYE(fighter);
+	}
+	frame(lua_state, 67.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_15_iceberg_sp"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 89.0);
+	if is_excute(fighter) {
+		ModelModule::disable_gold_eye(boma);
+	}
+}

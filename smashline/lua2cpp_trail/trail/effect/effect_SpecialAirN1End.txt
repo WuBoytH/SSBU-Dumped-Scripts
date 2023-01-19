@@ -1,0 +1,6 @@
+#[acmd_script( agent = "trail", script = "effect_specialairn1end" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairn1end(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_fire_end"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}

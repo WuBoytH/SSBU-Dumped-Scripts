@@ -1,0 +1,13 @@
+#[acmd_script( agent = "gekkouga", script = "game_scopeairrapid" , category = ACMD_GAME , low_priority)]
+unsafe fn game_scopeairrapid(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+	if(0x141380(false, false)){;
+		if is_excute(fighter) {
+			SHOOT_ITEM_BULLET(fighter);
+			WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+		}
+	}
+}

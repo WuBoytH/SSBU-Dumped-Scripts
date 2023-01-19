@@ -1,0 +1,18 @@
+#[acmd_script( agent = "trail_hole", script = "effect_vanish" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_vanish(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	WorkModule::is_flag(boma, *WEAPON_TRAIL_HOLE_INSTANCE_WORK_ID_FLAG_GROUND);
+	if(0x4ae890(false, true)){;
+		if is_excute(fighter) {
+			EFFECT_OFF_KIND(fighter, Hash40::new("trail_final_hole"), false, true);
+			EFFECT(fighter, Hash40::new("trail_final_hole_vanish"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		}
+	}
+	else{;
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("trail_final_hole_air"), false, true);
+		EFFECT(fighter, 0x1b406021be, Hash40::new("top"), 0, 21.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+}
+}

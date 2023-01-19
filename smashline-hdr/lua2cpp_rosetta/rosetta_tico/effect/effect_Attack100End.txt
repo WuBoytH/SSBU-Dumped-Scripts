@@ -1,0 +1,24 @@
+#[acmd_script( agent = "rosetta_tico", script = "effect_attack100end" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack100end(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("rosetta_tico_spin"), false, false);
+		LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_attack_line"), Hash40::new("top"), 0, 5.5, -5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		EFFECT(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 5, -2.5, 0, 0, 0, 0.95, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("rosetta_tico_spin_finish"), Hash40::new("top"), 0, 5, 13.5, 0, 0, 0, 1.1, true);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("rosetta_tico_spin_finish"), -1);
+		WorkModule::on_flag(boma, *WEAPON_ROSETTA_TICO_INSTANCE_WORK_ID_FLAG_TOGGLE_TWINKLE_EFFECT);
+	}
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *WEAPON_ROSETTA_TICO_INSTANCE_WORK_ID_FLAG_TOGGLE_TWINKLE_EFFECT);
+	}
+}

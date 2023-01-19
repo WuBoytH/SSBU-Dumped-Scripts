@@ -1,0 +1,16 @@
+#[acmd_script( agent = "metaknight", script = "sound_throwhi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_throwhi(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_throw_02"));
+	}
+	wait(fighter.lua_state_agent, 29.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_throw_03"));
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_metaknight_rnd_attack"));
+	}
+	wait(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_DOWN_SE(fighter, Hash40::new("se_common_down_soil_s"));
+		macros::PLAY_SE(fighter, Hash40::new("se_common_kick_hit_m"));
+	}

@@ -1,0 +1,10 @@
+#[acmd_script( agent = "mewtwo", script = "game_finalairend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalairend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
+	}
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MEWTWO_STATUS_FINAL_FLAG_FINAL_CHANGE);
+		macros::CANCEL_FILL_SCREEN(fighter, 0, 180);
+	}

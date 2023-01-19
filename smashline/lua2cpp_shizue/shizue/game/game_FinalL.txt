@@ -1,0 +1,22 @@
+#[acmd_script( agent = "shizue", script = "game_finall" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finall(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
+		macros::SLOW_OPPONENT(fighter, 5, 20);
+	}
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+	if(0x11d6f0(false, false)){;
+		frame(fighter.lua_state_agent, 5.0);
+		if macros::is_excute(fighter) {
+			macros::FT_SET_FINAL_FEAR_FACE(fighter, 40);
+			REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalr.nuanmb"), false, false);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			PostureModule::scale(fighter.module_accessor, 3, 0);
+			0x11d6f0(-1753104860, 2.2);
+			CAM_ZOOM_IN_arg5(0, 0);
+			macros::FT_START_CUTIN(fighter);
+		}
+	}
+}

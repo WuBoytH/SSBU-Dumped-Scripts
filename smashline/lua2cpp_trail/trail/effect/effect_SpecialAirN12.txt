@@ -1,0 +1,16 @@
+#[acmd_script( agent = "trail", script = "effect_specialairn12" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairn12(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_fire_end"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("trail_fire_hold"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 29.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("trail_fire_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_fire_keyblade"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
+	}

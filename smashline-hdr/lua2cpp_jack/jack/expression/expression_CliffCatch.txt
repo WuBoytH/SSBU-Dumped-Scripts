@@ -1,0 +1,11 @@
+#[acmd_script( agent = "jack", script = "expression_cliffcatch" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_cliffcatch(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_CliffCatchRumble()();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_grapple"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+}

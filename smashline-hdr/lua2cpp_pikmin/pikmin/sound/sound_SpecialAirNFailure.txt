@@ -1,0 +1,9 @@
+#[acmd_script( agent = "pikmin", script = "sound_specialairnfailure" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialairnfailure(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_pikmin_special_n02"));
+	}
+}

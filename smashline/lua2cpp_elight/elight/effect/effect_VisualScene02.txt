@@ -1,0 +1,12 @@
+#[acmd_script( agent = "elight", script = "effect_visualscene02" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_visualscene02(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("elight_final_sword_beam"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 45.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("elight_final_head_light"), Hash40::new("head"), 1.5, 1.2, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("elight_final_sword_light_start"), Hash40::new("sword1"), 4.5, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("elight_final_sword_light"), Hash40::new("sword1"), 4.5, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("elight_final_lens_flare"), Hash40::new("sword1"), 4, 0, 0, 0, 0, 0, 0.3, true);
+	}

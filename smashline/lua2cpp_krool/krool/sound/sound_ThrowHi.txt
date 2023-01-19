@@ -1,0 +1,20 @@
+#[acmd_script( agent = "krool", script = "sound_throwhi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_throwhi(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_throw_01"));
+		macros::PLAY_SE(fighter, Hash40::new("se_krool_smash_l02"));
+	}
+	frame(fighter.lua_state_agent, 40.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_krool_rnd_attack"));
+	}
+	frame(fighter.lua_state_agent, 43.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_throw_02"));
+	}
+	frame(fighter.lua_state_agent, 47.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_krool_landing03"));
+		macros::PLAY_SE(fighter, Hash40::new("se_common_kick_hit_m"));
+	}

@@ -1,0 +1,10 @@
+#[acmd_script( agent = "krool", script = "game_attacklw4charge" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attacklw4charge(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		JostleModule::set_status(fighter.module_accessor, false);
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		JostleModule::set_status(fighter.module_accessor, true);
+	}

@@ -1,0 +1,15 @@
+#[acmd_script( agent = "ness", script = "effect_attackhi3" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackhi3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_line"), Hash40::new("top"), 2, 9, 2, -90, 0, 0, 0.55, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_line"), Hash40::new("top"), 0, 9, -2, -90, 0, 0, 0.55, true);
+		EFFECT(fighter, Hash40::new("ness_psi_atk"), Hash40::new("top"), 0, 17, 0, 0, -90, 0, 1.8, 0, 0, 0, 0, 0, 360, true);
+	}
+	frame(lua_state, 28.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+	}
+}

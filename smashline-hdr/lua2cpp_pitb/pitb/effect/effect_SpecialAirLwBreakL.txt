@@ -1,0 +1,10 @@
+#[acmd_script( agent = "pitb", script = "effect_specialairlwbreakl" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairlwbreakl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("pitb_guardian_shield"), true, true);
+		EFFECT(fighter, Hash40::new("pitb_guardian_break"), 0x10489b2b69, 2, 3, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		EFFECT(fighter, Hash40::new("pitb_guardian_break"), 0x104ff6ef70, 2, 3, -4, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+}

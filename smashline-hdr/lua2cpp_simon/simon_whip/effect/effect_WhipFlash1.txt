@@ -1,0 +1,10 @@
+#[acmd_script( agent = "simon_whip", script = "effect_whipflash1" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_whipflash1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("simon_whip_light"), Hash40::new("hookshot11"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("simon_whip_light_s"), Hash40::new("hookshot3"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("simon_whip_flash_top"), Hash40::new("hookshot27"), 1, 0, 0, 0, 0, 0, 1, true);
+	}
+}

@@ -1,0 +1,10 @@
+#[acmd_script( agent = "kirby", script = "expression_foxspecialairnstart" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_foxspecialairnstart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_FOX_GENERATE_ARTICLE_BLASTER);
+	}

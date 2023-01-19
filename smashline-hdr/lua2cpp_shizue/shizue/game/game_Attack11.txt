@@ -1,0 +1,29 @@
+#[acmd_script( agent = "shizue", script = "game_attack11" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attack11(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_SHIZUE_GENERATE_ARTICLE_PICOPICOHAMMER);
+	}
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 361, 30, 0, 14, 2.5, 0.0, 5.5, 5.0, None, None, None, 0.8, 0.5, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_SHIZUE_HAMMER, *ATTACK_REGION_OBJECT);
+		ATTACK(fighter, 1, 0, Hash40::new("top"), 2.0, 361, 30, 0, 14, 2.5, 0.0, 5.5, 8.0, None, None, None, 0.8, 0.5, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_SHIZUE_HAMMER, *ATTACK_REGION_OBJECT);
+		ATTACK(fighter, 2, 0, Hash40::new("top"), 2.0, 361, 30, 0, 14, 2.5, 0.0, 5.5, 11.0, None, None, None, 0.8, 0.5, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_SHIZUE_HAMMER, *ATTACK_REGION_OBJECT);
+		AttackModule::set_add_reaction_frame(boma, 0, 14, false);
+		AttackModule::set_add_reaction_frame(boma, 1, 14, false);
+		AttackModule::set_add_reaction_frame(boma, 2, 14, false);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		AttackModule::clear_all(boma);
+	}
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_ENABLE_RESTART);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, *FIGHTER_SHIZUE_GENERATE_ARTICLE_PICOPICOHAMMER);
+	}
+}

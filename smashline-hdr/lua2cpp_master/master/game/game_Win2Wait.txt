@@ -1,0 +1,13 @@
+#[acmd_script( agent = "master", script = "game_win2wait" , category = ACMD_GAME , low_priority)]
+unsafe fn game_win2wait(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(*FIGHTER_MASTER_GENERATE_ARTICLE_SPEAR, Hash40::new("win_2_wait"));
+		ArticleModule::change_motion(boma);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_MASTER_GENERATE_ARTICLE_AXE, Hash40::new("win_2_wait"));
+		ArticleModule::change_motion(boma);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_MASTER_GENERATE_ARTICLE_BOW, Hash40::new("win_2_wait"));
+		ArticleModule::change_motion(boma);
+	}
+}

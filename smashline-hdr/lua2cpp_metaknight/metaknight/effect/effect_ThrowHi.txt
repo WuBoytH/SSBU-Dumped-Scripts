@@ -1,0 +1,28 @@
+#[acmd_script( agent = "metaknight", script = "effect_throwhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
+		LAST_EFFECT_SET_RATE(fighter, 0.8);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+		EFFECT_ALPHA(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 0, 0, -90, 0, 0, 1.6, 0, 1, 0, 0, 0, 0, true, 0.4);
+		EFFECT(fighter, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 0.6);
+	}
+	frame(lua_state, 40.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("metaknight_throw_hi_line"), Hash40::new("top"), 0, 8, 2, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 44.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
+		LAST_EFFECT_SET_RATE(fighter, 0.8);
+		LANDING_EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+		EFFECT(fighter, Hash40::new("sys_hit_cut"), Hash40::new("top"), 2, 20, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+}

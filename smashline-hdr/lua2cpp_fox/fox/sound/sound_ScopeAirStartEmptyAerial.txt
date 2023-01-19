@@ -1,0 +1,18 @@
+#[acmd_script( agent = "fox", script = "sound_scopeairstartemptyaerial" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_scopeairstartemptyaerial(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_fox_rnd_jump02"));
+		PLAY_SE(fighter, Hash40::new("se_fox_jump02"));
+	}
+	wait(lua_state, 11.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_swing_03"));
+	}
+	wait(lua_state, 15.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_swing_03"));
+	}
+}

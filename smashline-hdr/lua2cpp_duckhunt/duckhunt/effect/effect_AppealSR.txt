@@ -1,0 +1,23 @@
+#[acmd_script( agent = "duckhunt", script = "effect_appealsr" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appealsr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_arg11(Hash40::new("duckhunt_feather"), Hash40::new("duckneck"), -4, 0, 0, 0, 0, -90, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+		LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_HANDLE(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+	}
+	frame(lua_state, 72.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_arg11(Hash40::new("duckhunt_feather"), Hash40::new("duckneck"), -4, 0, 0, 0, 0, -90, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+		LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+	}
+	frame(lua_state, 86.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_HANDLE(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+	}
+}

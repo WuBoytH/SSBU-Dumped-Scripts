@@ -1,0 +1,20 @@
+#[acmd_script( agent = "eflame", script = "sound_throwlw" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_throwlw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_elight_throw_l01"));
+		macros::PLAY_SE(fighter, Hash40::new("se_common_throw_01"));
+	}
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_down_m_01"));
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_eflame_rnd_attack01"));
+		macros::PLAY_SE(fighter, Hash40::new("se_eflame_throw_l02"));
+	}
+	frame(fighter.lua_state_agent, 43.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_elight_throw_l03"));
+	}

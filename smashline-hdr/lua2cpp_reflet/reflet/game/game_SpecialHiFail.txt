@@ -1,0 +1,13 @@
+#[acmd_script( agent = "reflet", script = "game_specialhifail" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhifail(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_REFLET_STATUS_SPECIAL_HI_FLAG_JUMP);
+	}
+	frame(lua_state, 35.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
+}

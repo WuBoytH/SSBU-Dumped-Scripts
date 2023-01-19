@@ -1,0 +1,10 @@
+#[acmd_script( agent = "zelda", script = "sound_attackairf" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attackairf(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_zelda_attackair_f01"));
+		PLAY_SE(fighter, Hash40::new("se_zelda_attackair_f01"));
+	}
+}

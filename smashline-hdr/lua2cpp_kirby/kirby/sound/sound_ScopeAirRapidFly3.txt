@@ -1,0 +1,13 @@
+#[acmd_script( agent = "kirby", script = "sound_scopeairrapidfly3" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_scopeairrapidfly3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND);
+	if(0x543c60(false, true)){;
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("se_kirby_jump02_03"));
+			WorkModule::off_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND);
+		}
+	}
+}

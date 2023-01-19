@@ -1,0 +1,17 @@
+#[acmd_script( agent = "yoshi", script = "effect_win1" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 54.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), -1, 0, 0, 0, 90, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 68.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), -2.5, 0, -3, 0, 90, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 94.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), -1, 0, 2, 0, 90, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+	}
+}

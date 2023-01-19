@@ -1,0 +1,11 @@
+#[acmd_script( agent = "roy", script = "sound_specialairlwhit" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialairlwhit(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_roy_special_l02"));
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_roy_special_l03"));
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_roy_rnd_special_l"));
+	}

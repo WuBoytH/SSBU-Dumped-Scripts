@@ -1,0 +1,40 @@
+#[acmd_script( agent = "dolly", script = "game_specialairlwrisew" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlwrisew(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_DOLLY_INSTANCE_WORK_ID_FLAG_FINAL_HIT_CANCEL);
+		WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_NO_SPEED_OPERATION_CHK);
+		KineticModule::clear_speed_all(boma);
+		WorkModule::off_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_NO_SPEED_OPERATION_CHK);
+	}
+	WorkModule::is_flag(boma, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND);
+	if(0x2508e0(false, true)){;
+		if is_excute(fighter) {
+			WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		}
+	}
+	if is_excute(fighter) {
+		ATTACK(fighter, 0, 0, Hash40::new("top"), 1.0, 90, 100, 50, 50, 5.0, 0.0, 10.0, 3.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, true, 0, 0.0, 3, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_DOLLY_KICK, *ATTACK_REGION_KICK);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 65, 100, 40, 10, 5.0, 0.0, 10.0, 3.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, true, 0, 0.0, 14, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_DOLLY_KICK, *ATTACK_REGION_KICK);
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 50, 100, 30, 10, 5.0, 0.0, 10.0, 3.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, true, 0, 0.0, 7, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_DOLLY_KICK, *ATTACK_REGION_KICK);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		AttackModule::clear_all(boma);
+		WorkModule::off_flag(boma, *FIGHTER_DOLLY_INSTANCE_WORK_ID_FLAG_FINAL_HIT_CANCEL);
+		WHOLE_HIT(fighter, *HIT_STATUS_NORMAL);
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_NO_SPEED_OPERATION_CHK);
+		KineticModule::add_speed(boma, 5, -1.5, 0.0);
+		WorkModule::off_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_NO_SPEED_OPERATION_CHK);
+	}
+}

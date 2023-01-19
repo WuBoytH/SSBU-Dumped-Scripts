@@ -1,0 +1,6 @@
+#[acmd_script( agent = "pitb", script = "game_specialairnstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairnstart(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PITB_GENERATE_ARTICLE_BOWARROW);
+	}

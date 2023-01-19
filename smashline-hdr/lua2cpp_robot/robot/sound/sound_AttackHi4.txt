@@ -1,0 +1,30 @@
+#[acmd_script( agent = "robot", script = "sound_attackhi4" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attackhi4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_common_smash_start"));
+	}
+	wait(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_robot_attack06"));
+		PLAY_SE(fighter, Hash40::new("se_common_smashswing_02"));
+	}
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_smash_h01"));
+	}
+	frame(lua_state, 41.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_landing01"));
+	}
+	frame(lua_state, 56.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_step_s"));
+	}
+	wait(lua_state, 3.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_robot_step_s"));
+	}
+}

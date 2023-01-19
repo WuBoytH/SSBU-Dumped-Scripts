@@ -1,0 +1,13 @@
+#[acmd_script( agent = "lucario_auraball", script = "effect_chargemax" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_chargemax(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FLW_POS(fighter, Hash40::new("lucario_hadoudan_max_sign"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 3, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("lucario_hadoudan_max_hold"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("lucario_hadoudan_hold"), false, false);
+	}
+}

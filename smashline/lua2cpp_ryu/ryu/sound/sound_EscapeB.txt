@@ -1,0 +1,14 @@
+#[acmd_script( agent = "ryu", script = "sound_escapeb" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_escapeb(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_ryu_escape_b"));
+	}
+	wait(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_ryu_step_right_m"), Hash40::new("se_ryu_step_left_m"));
+	}
+	wait(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_ryu_step_left_m"), Hash40::new("se_ryu_step_right_m"));
+	}

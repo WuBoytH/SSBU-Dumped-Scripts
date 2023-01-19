@@ -1,0 +1,11 @@
+#[acmd_script( agent = "ike", script = "effect_finalend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("ike_final_volcano"), Hash40::new("top"), 0, 0, 20, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
+		macros::EFFECT(fighter, Hash40::new("ike_final_volcano_add"), Hash40::new("top"), 0, 0, 20, 0, 0, 0, 1.8, 0, 0, 0, 0, 0, 0, true);
+		macros::EFFECT(fighter, Hash40::new("ike_final_volcano_flash"), Hash40::new("top"), 0, 0, 20, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 40.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("ike_final_sword"), false, true);
+	}

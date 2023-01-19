@@ -1,0 +1,14 @@
+#[acmd_script( agent = "simon", script = "expression_entryl" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_entryl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x1f20a9d549, false);
+		notify_event_msc_cmd(0x24772eddef, false);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x1f20a9d549, true);
+		notify_event_msc_cmd(0x24772eddef, true);
+	}
+}

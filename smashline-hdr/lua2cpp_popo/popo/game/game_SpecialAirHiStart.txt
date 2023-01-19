@@ -1,0 +1,29 @@
+#[acmd_script( agent = "popo", script = "game_specialairhistart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairhistart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_CHECK_COUPLE);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_CHECK_COUPLE);
+	}
+	frame(lua_state, 6.0);
+	FT_MOTION_RATE(fighter, 0.5);
+	frame(lua_state, 12.0);
+	FT_MOTION_RATE(fighter, 1);
+	frame(lua_state, 15.0);
+	get_value_float(*FT_VAR_FLOAT_STICK_X_BACK);
+	WorkModule::get_param_float(boma, 0, Hash40::new("param_special_hi"), Hash40::new("start_turn_cont_x"));
+	if(0x19e320(32)){;
+		if is_excute(fighter) {
+			STICK_LR(fighter);
+			UPDATE_ROT(fighter);
+		}
+	}
+	frame(0, 16);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_DETACH_PARTNER);
+	}
+}

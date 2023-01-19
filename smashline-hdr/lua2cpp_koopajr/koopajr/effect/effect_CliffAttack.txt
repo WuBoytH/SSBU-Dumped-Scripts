@@ -1,0 +1,22 @@
+#[acmd_script( agent = "koopajr", script = "effect_cliffattack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_cliffattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		EFFECT_FLIP(fighter, Hash40::new("sys_smash_flash"), Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 23, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 13, 0, 0, 0, 0.5, true, *EF_FLIP_XY);
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_quake"), Hash40::new("top"), 13, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("sys_landing_smoke"), Hash40::new("top"), 1, 0, 22, 0, 0, 0, 0.5, true, *EF_FLIP_XY);
+	}
+	frame(lua_state, 26.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_quake"), Hash40::new("top"), 22, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+	}
+}

@@ -1,0 +1,19 @@
+#[acmd_script( agent = "roy", script = "effect_specials3s" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specials3s(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("roy_sword_red"), Hash40::new("sword1"), -0.0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("roy_mc_3s"), Hash40::new("top"), -0.0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::set_disable_render_offset_last(boma);
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("roy_sword_red"), false, true);
+	}
+}

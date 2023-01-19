@@ -1,0 +1,10 @@
+#[acmd_script( agent = "kirby", script = "effect_littlemacspecialairndash" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_littlemacspecialairndash(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FLW_POS(fighter, Hash40::new("littlemac_straight"), Hash40::new("handr"), -3, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("littlemac_straight"), false, false);
+	}

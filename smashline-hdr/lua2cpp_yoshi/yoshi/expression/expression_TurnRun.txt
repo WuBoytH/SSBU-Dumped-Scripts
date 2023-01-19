@@ -1,0 +1,29 @@
+#[acmd_script( agent = "yoshi", script = "expression_turnrun" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_turnrun(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x23c33f3bdc);
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_dash"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_walk"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_walk"), 2, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_walk"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+}

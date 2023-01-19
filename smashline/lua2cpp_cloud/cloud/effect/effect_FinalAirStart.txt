@@ -1,0 +1,33 @@
+#[acmd_script( agent = "cloud", script = "effect_finalairstart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_cloud_final"), false);
+		EffectModule::req_screen(fighter.module_accessor);
+		effect(*MA_MSC_EFFECT_SET_SYNC_SCALE, false);
+		effect(*MA_MSC_EFFECT_SET_SYNC_SCALE, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("cloud_final_chant"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.2);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_WORK(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE_LB, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::LAST_EFFECT_SET_ALPHA(fighter, 0.5);
+		macros::EFFECT(fighter, Hash40::new("cloud_final_tornado"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("cloud_final_sword_aura"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("cloud_final_start_light"), Hash40::new("haver"), 0, 13, 1, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("cloud_final_sword_aura"), false, true);
+	}

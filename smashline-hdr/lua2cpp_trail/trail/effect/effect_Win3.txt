@@ -1,0 +1,17 @@
+#[acmd_script( agent = "trail", script = "effect_win3" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 1, 0, -4, 0, 25, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 90.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("trail_win_slash"), Hash40::new("haver"), 0.1, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 102.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("trail_win_slash"), false, false);
+	}
+}

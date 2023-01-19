@@ -1,0 +1,26 @@
+#[acmd_script( agent = "roy", script = "effect_specialnendmax" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnendmax(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("roy_erupution_hold"), false, false);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("roy_erupution_hold"), Hash40::new("sword1"), 0, 0, -3, 0, 0, 0, 2, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("roy_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("roy_erupution_hold"), false, false);
+		macros::EFFECT(fighter, Hash40::new("roy_eruption_max"), Hash40::new("top"), 0, 0, 15, 0, 0, 0, 2.1, 0, 0, 0, 0, 0, 0, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.7);
+		macros::EFFECT(fighter, Hash40::new("roy_eruption_bomb_main"), Hash40::new("top"), 0, 0, 15, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.7);
+		macros::EFFECT(fighter, Hash40::new("roy_eruption_bomb_start_max"), Hash40::new("top"), 0, 0, 15, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.7);
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 13.0);
+	frame(fighter.lua_state_agent, 26.0);
+	frame(fighter.lua_state_agent, 46.0);
+	if macros::is_excute(fighter) {
+		macros::COL_NORMAL(fighter);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("roy_sword"), false, false);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("roy_erupution_hold"), false, false);
+	}

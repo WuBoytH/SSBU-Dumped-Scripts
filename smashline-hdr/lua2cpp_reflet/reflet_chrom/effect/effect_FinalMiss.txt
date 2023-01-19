@@ -1,0 +1,36 @@
+#[acmd_script( agent = "reflet_chrom", script = "effect_finalmiss" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalmiss(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura2"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 2, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura2"), Hash40::new("head"), 1, 0, 0, 0, 0, 0, 1.8, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura2"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1.1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura2"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 1.1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("finreflet_dash"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_reflet_sword6"), Hash40::new("tex_reflet_sword2"), 6, Hash40::new("haver"), 0, 1, 0, Hash40::new("haver"), 0, 11, 0, true, Hash40::new("finreflet_chrom_sword"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE_OFF(fighter, 4);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("finreflet_dash"), false, false);
+	}
+	frame(lua_state, 15.0);
+	WorkModule::is_flag(boma, *WEAPON_REFLET_CHROM_INSTANCE_WORK_ID_FLAG_LAUNCH_HIT);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){;
+		if is_excute(fighter) {
+			EFFECT(fighter, Hash40::new("reflet_entry"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+			LAST_EFFECT_SET_RATE(fighter, 1.2);
+		}
+	}
+	frame(lua_state, 34.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("finreflet_warp"), Hash40::new("trans"), 0, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+}

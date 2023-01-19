@@ -1,0 +1,21 @@
+#[acmd_script( agent = "metaknight", script = "sound_entryr" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_entryr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_metaknight_appeal_h02"));
+	}
+	wait(lua_state, 24.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, 0x1457636c3a);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_metaknight_appeal_h03"));
+	}
+	frame(lua_state, 46.0);
+	if is_excute(fighter) {
+		PLAY_LANDING_SE(fighter, Hash40::new("se_metaknight_landing01"));
+	}
+}

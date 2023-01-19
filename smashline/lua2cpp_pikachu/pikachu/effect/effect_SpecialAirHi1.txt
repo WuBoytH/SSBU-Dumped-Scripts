@@ -1,0 +1,17 @@
+#[acmd_script( agent = "pikachu", script = "effect_specialairhi1" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairhi1(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("pikachu_denko_elec"), Hash40::new("rot"), 5, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("pikachu_denko_line"), Hash40::new("rot"), 0, 0, 10, 90, 0, 0, 1.5, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::EFFECT(fighter, Hash40::new("sys_flash"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 0.6, 10, 10, 10, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_flash"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 0.6, 10, 10, 10, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_flash"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 0.6, 10, 10, 10, 0, 0, 0, false);
+	}

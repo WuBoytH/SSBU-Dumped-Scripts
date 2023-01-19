@@ -1,0 +1,13 @@
+#[acmd_script( agent = "gekkouga_gekkougas", script = "game_finalend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		CAM_ZOOM_OUT(fighter);
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		CANCEL_FILL_SCREEN(fighter, 0, 50);
+	}
+}

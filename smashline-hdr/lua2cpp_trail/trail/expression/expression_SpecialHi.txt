@@ -1,0 +1,34 @@
+#[acmd_script( agent = "trail", script = "expression_specialhi" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_specialhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ItemModule::set_have_item_visibility(boma, false);
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_81_attacks1_1"), 5);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitm"), 4, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 8.0);
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitm"), 4, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 19.0);
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitl"), 4, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 30.0);
+	frame(lua_state, 34.0);
+	if is_excute(fighter) {
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_81_special_hi"), 0);
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitll"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+}

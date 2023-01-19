@@ -1,0 +1,18 @@
+#[acmd_script( agent = "popo", script = "sound_turndash" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_turndash(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_popo_dash_start"));
+		SET_PLAY_INHIVIT(fighter, Hash40::new("se_popo_dash_start"), 20);
+	}
+	wait(lua_state, 11.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_popo_step_right_l"), Hash40::new("se_popo_step_left_l"));
+	}
+	wait(lua_state, 4.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_popo_step_left_l"), Hash40::new("se_popo_step_right_l"));
+	}
+}

@@ -1,0 +1,29 @@
+#[acmd_script( agent = "kirby", script = "expression_attackhi4" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_attackhi4(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
+	}
+	frame(fighter.lua_state_agent, 8.0);
+	execute(8);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+		methodlib::L2CValue::as_hash()const(Hash40::new("toer"), *ATTACK_DIRECTION_Y_MINUS, *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Z);
+		AttackModule::set_attack_reference_joint_id(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitl"), 0, false);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+	}
+	frame(fighter.lua_state_agent, 28.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 7, true);
+	}
+	frame(fighter.lua_state_agent, 38.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 7);
+	}

@@ -1,0 +1,14 @@
+#[acmd_script( agent = "marth", script = "sound_downforwardd" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_downforwardd(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_marth_dash_start"));
+	}
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_marth_escape"));
+	}
+	frame(fighter.lua_state_agent, 29.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_marth_landing01"));
+	}

@@ -84,7 +84,7 @@ def convert(the_dir: str, output_folder: str):
                 # Loop through the file line by line
                 tabdepth = 1
                 char = file.split("\\")
-                f_out.write("#[acmd_script( agent = \"" + char[2] + "\", script = \"" + char[4].replace('.txt', '').lower() + "\" , category = ACMD_" + char[3].upper() + " , low_priority)]\nunsafe fn " + char[4].replace('.txt', '').lower() + " (fighter: &mut L2CAgentBase) {\n")
+                f_out.write("#[acmd_script( agent = \"" + char[2] + "\", script = \"" + char[4].replace('.txt', '').lower() + "\" , category = ACMD_" + char[3].upper() + " , low_priority)]\nunsafe fn " + char[4].replace('.txt', '').lower() + "(fighter: &mut L2CAgentBase) {\n")
                 f_out.write("\tlet lua_state = fighter.lua_state_agent;\n\tlet boma = fighter.boma();\n")
                 for line in f_in:
                     line = line.strip()

@@ -1,0 +1,31 @@
+#[acmd_script( agent = "ryu", script = "effect_specialhicommand" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialhicommand(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 17, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_v_smoke_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.7);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x183460(288, 0)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("ryu_syoryuken_arc"), Hash40::new("trans"), 6.5, 5, 0, 5, 0, 25, 1, false);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("ryu_syoryuken_arc"), Hash40::new("trans"), -6.5, 5, 0, 5, 0, -25, 1, false);
+		}
+	}
+}
+frame(fighter.lua_state_agent, 9.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT_DETACH_KIND(fighter, Hash40::new("ryu_syoryuken_arc"), -1);
+}
+frame(fighter.lua_state_agent, 11.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("ryu_syoryuken_arc"), true, true);
+}

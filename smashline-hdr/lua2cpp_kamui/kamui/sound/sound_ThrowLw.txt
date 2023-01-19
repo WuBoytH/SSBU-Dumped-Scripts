@@ -1,0 +1,25 @@
+#[acmd_script( agent = "kamui", script = "sound_throwlw" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_throwlw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_kamui_dragon_start"));
+	}
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_throw_01"));
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_kamui_dragon"));
+	}
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_throw_03"));
+	}
+	frame(lua_state, 41.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_kamui_dragon_end"));
+	}
+}

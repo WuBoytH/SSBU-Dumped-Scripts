@@ -1,0 +1,12 @@
+#[acmd_script( agent = "rockman_crashbomb", script = "effect_stick" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_stick(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("rockman_clashbomb_count"), Hash40::new("crashbomb"), 0, 0, 0, 0, -0.0, 0, 1, true);
+	}
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("rockman_clashbomb_attach"), Hash40::new("top"), 0, 0, 0, 0, -0.0, 0, 1, true);
+	}
+}

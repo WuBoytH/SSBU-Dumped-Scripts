@@ -1,0 +1,10 @@
+#[acmd_script( agent = "inkling", script = "sound_specialairsstart" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialairsstart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		WorkModule::set_float(fighter.module_accessor, 1200, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_ROLLER_SE_MAX_PITCH);
+		WorkModule::set_float(fighter.module_accessor, 1000, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_ROLLER_EMPTY_SE_MAX_PITCH);
+	}
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_inkling_special_s01"));
+	}

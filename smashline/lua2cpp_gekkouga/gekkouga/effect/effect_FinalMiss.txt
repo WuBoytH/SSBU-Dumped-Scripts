@@ -1,0 +1,7 @@
+#[acmd_script( agent = "gekkouga", script = "effect_finalmiss" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalmiss(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_gekkouga_final"));
+		EffectModule::remove_screen(fighter.module_accessor);
+	}

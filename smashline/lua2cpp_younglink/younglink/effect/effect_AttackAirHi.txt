@@ -1,0 +1,13 @@
+#[acmd_script( agent = "younglink", script = "effect_attackairhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairhi(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("younglink_sword_flare"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("sword"), 8, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("younglink_sword_flare"), false, false);
+	}

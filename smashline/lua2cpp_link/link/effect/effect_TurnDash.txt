@@ -1,0 +1,10 @@
+#[acmd_script( agent = "link", script = "effect_turndash" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_turndash(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 180, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("footl"), 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}

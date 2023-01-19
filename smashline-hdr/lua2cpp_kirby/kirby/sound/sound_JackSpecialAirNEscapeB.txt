@@ -1,0 +1,27 @@
+#[acmd_script( agent = "kirby", script = "sound_jackspecialairnescapeb" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_jackspecialairnescapeb(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_jack_escape"));
+	}
+	IS_RANDOM(fighter, 2);
+	if(0x543c60(false, true)){;
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("vc_kirby_copy_jack_01"));
+		}
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_jack_step_right_l"));
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_jack_step_left_l"));
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_jack_special_n01"));
+	}
+}

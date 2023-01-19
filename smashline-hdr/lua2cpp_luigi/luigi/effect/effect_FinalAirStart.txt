@@ -1,0 +1,9 @@
+#[acmd_script( agent = "luigi", script = "effect_finalairstart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_luigi_final"), false);
+		EffectModule::req_screen(boma);
+	}
+}

@@ -1,0 +1,22 @@
+#[acmd_script( agent = "kamui", script = "sound_specialswallattackb" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialswallattackb(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_kamui_special_s04"));
+	}
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_kamui_rnd_attack_air"));
+	}
+	wait(lua_state, 11.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_kamui_horn_end"));
+		PLAY_SE(fighter, Hash40::new("se_kamui_special_s04b"));
+	}
+	wait(lua_state, 4.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_kamui_special_s05"));
+	}
+}

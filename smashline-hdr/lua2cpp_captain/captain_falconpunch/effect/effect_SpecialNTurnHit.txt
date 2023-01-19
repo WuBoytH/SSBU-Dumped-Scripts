@@ -1,0 +1,21 @@
+#[acmd_script( agent = "captain_falconpunch", script = "effect_specialnturnhit" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnturnhit(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("captain_fp_body_r"), Hash40::new("captain_fp_body_l"), Hash40::new("top"), 0, 10, 7, 0, 0, 0, 1, true, *EF_FLIP_XY);
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("captain_fp_wing_r"), Hash40::new("captain_fp_wing_r"), Hash40::new("wingr2"), -6, 0, -2, -10, -10, 0, 0.7, true, *EF_FLIP_YZ);
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("captain_fp_wing_l"), Hash40::new("captain_fp_wing_l"), Hash40::new("wingl2"), 6, 0, -2, -10, 10, 0, 0.7, true, *EF_FLIP_YZ);
+		EFFECT_FOLLOW_NO_STOP_FLIP(fighter, Hash40::new("captain_fp_hit_r"), Hash40::new("captain_fp_hit_r"), Hash40::new("wingr2"), -6, 2, -2, -10, -10, 0, 0.7, true, *EF_FLIP_YZ);
+		EFFECT_FOLLOW_NO_STOP_FLIP(fighter, Hash40::new("captain_fp_hit_l"), Hash40::new("captain_fp_hit_l"), Hash40::new("wingl2"), 6, 2, -2, -10, 10, 0, 0.7, true, *EF_FLIP_YZ);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		EFFECT_DETACH_KIND(fighter, Hash40::new("captain_fp_body_r"), -1);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("captain_fp_body_l"), -1);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("captain_fp_wing_r"), -1);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("captain_fp_wing_l"), -1);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("captain_fp_hit_r"), -1);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("captain_fp_hit_l"), -1);
+	}
+}

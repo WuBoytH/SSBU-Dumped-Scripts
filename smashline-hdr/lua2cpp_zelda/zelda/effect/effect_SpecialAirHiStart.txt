@@ -1,0 +1,39 @@
+#[acmd_script( agent = "zelda", script = "effect_specialairhistart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairhistart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x10db70(0, 0)){;
+		if is_excute(fighter) {
+			EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("zelda_flor_start_l"), Hash40::new("top"), 0, -2, 0, 0, 0, 0, 1, true);
+		}
+		else{;
+		if is_excute(fighter) {
+			EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("zelda_flor_start_r"), Hash40::new("top"), 0, -2, 0, 0, 0, 0, 1, true);
+			EffectModule::enable_sync_init_pos_last(boma);
+		}
+	}
+}
+frame(lua_state, 10.0);
+if is_excute(fighter) {
+	EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("zelda_flor_teleport"), Hash40::new("top"), 0, 8, 0, 0, 0, 0, 1, false);
+	EffectModule::enable_sync_init_pos_last(boma);
+}
+wait(lua_state, 2.0);
+if is_excute(fighter) {
+	FLASH(fighter, 0.18, 0.87, 0, 0.6);
+}
+wait(lua_state, 2.0);
+if is_excute(fighter) {
+	FLASH(fighter, 0.18, 0.87, 0, 0.6);
+}
+wait(lua_state, 2.0);
+if is_excute(fighter) {
+	FLASH(fighter, 0.6, 1, 1, 0.5);
+}
+wait(lua_state, 1.0);
+if is_excute(fighter) {
+	COL_NORMAL(fighter);
+}
+}

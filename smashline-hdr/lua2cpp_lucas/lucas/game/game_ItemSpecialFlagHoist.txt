@@ -1,0 +1,9 @@
+#[acmd_script( agent = "lucas", script = "game_itemspecialflaghoist" , category = ACMD_GAME , low_priority)]
+unsafe fn game_itemspecialflaghoist(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SPECIALFLAG_HOIST_WORK_FLAG_HOIST_START);
+	}
+}

@@ -1,0 +1,17 @@
+#[acmd_script( agent = "toonlink", script = "sound_scopeairendaerial" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_scopeairendaerial(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_toonlink_jump02"));
+	}
+	wait(lua_state, 9.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_toonlink_jumpround"));
+	}
+	wait(lua_state, 12.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_toonlink_jumpround"));
+	}
+}

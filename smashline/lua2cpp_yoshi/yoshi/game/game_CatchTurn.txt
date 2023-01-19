@@ -1,0 +1,26 @@
+#[acmd_script( agent = "yoshi", script = "game_catchturn" , category = ACMD_GAME , low_priority)]
+unsafe fn game_catchturn(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		GrabModule::set_rebound(fighter.module_accessor, true);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::CATCH(fighter, 0, Hash40::new("mouth2"), 3.5, -2.0, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_A);
+		macros::CATCH(fighter, 1, Hash40::new("mouth2"), 2.8, 1.2, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_G);
+		macros::CATCH(fighter, 2, Hash40::new("top"), 5.5, 0.0, 6.0, -8.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_GA);
+	}
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		grab(*MA_MSC_CMD_GRAB_CLEAR, 2);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+		GrabModule::set_rebound(fighter.module_accessor, false);
+	}
+	frame(fighter.lua_state_agent, 28.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
+	}

@@ -1,0 +1,23 @@
+#[acmd_script( agent = "packun_bosspackun", script = "game_end" , category = ACMD_GAME , low_priority)]
+unsafe fn game_end(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 39.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_attack_critical"), 0, false);
+		ControlModule::set_rumble(boma);
+		ATTACK(fighter, 2, 0, Hash40::new("top"), 20.0, 40, 100, 0, 10, 20.0, 0.0, 10.0, 20.0, Some(0.0), Some(10.0), Some(35.0), 1.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, Hash40::new("no"), 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+		ATTACK(fighter, 3, 0, Hash40::new("top"), 20.0, 40, 100, 0, 10, 20.0, 0.0, 10.0, -20.0, Some(0.0), Some(10.0), Some(-35.0), 1.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, Hash40::new("no"), 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+		AttackModule::set_final_finish_cut_in(boma, 2, true, true, -1, false);
+		AttackModule::set_final_finish_cut_in(boma, 3, true, true, -1, false);
+		QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
+	}
+	frame(lua_state, 40.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *WEAPON_PACKUN_BOSSPACKUN_STATUS_WORK_FLAG_END_CAPTURE);
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		AttackModule::clear_all(boma);
+	}
+}

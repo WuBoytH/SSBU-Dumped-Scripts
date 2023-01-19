@@ -1,0 +1,32 @@
+#[acmd_script( agent = "dolly", script = "effect_superspecial2" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_superspecial2(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("dolly_buster_punch"), true, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("dolly_buster_dash"), false, true);
+	}
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+		macros::BURN_COLOR(fighter, 2, 0.4, 0.008, 0);
+		macros::BURN_COLOR_FRAME(fighter, 4, 2, 0.4, 0.008, 0.4);
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_buster_ground"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_buster_ground_blow"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_buster"), Hash40::new("top"), 0, 11, 4, 90, 0, 0, 1, false);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		macros::CANCEL_FILL_SCREEN(fighter, 1, 20);
+		macros::BURN_COLOR(fighter, 2, 0.4, 0.008, 0.4);
+		macros::BURN_COLOR_FRAME(fighter, 12, 2, 0.4, 0.008, 0);
+	}
+	frame(fighter.lua_state_agent, 30.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_buster_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_DETACH_KIND(fighter, Hash40::new("dolly_buster_ground"), -1);
+		macros::EFFECT_DETACH_KIND(fighter, Hash40::new("dolly_buster_ground_blow"), -1);
+		macros::EFFECT_DETACH_KIND(fighter, Hash40::new("dolly_buster"), -1);
+	}
+	frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		macros::BURN_COLOR_NORMAL(fighter);
+	}

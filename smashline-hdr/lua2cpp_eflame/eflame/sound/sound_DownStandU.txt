@@ -1,0 +1,17 @@
+#[acmd_script( agent = "eflame", script = "sound_downstandu" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_downstandu(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_eflame_step_left_s"));
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_eflame_step_right_s"));
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_element_rise"));
+	}
+}

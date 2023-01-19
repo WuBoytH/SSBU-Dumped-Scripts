@@ -1,0 +1,7 @@
+#[acmd_script( agent = "simon", script = "sound_specialhi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialhi(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_simon_special_h01"));
+		macros::PLAY_SE(fighter, Hash40::new("se_simon_special_h01"));
+	}

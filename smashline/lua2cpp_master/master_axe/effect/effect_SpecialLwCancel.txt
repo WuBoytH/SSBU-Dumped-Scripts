@@ -1,0 +1,13 @@
+#[acmd_script( agent = "master_axe", script = "effect_speciallwcancel" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallwcancel(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("master_axeflare_sp1"), Hash40::new("blade1"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("master_axeflare_sp2"), Hash40::new("blade2"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("master_axeflare_sp3"), Hash40::new("axe"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_axeflare_sp1"), false, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_axeflare_sp2"), false, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_axeflare_sp3"), false, true);
+	}

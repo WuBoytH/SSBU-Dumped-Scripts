@@ -1,0 +1,12 @@
+#[acmd_script( agent = "zelda", script = "sound_furafura" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_furafura(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait_loop_sync_mot();
+	WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL);
+	0x10db70(false, true);
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("vc_zelda_furafura"));
+	}
+	wait_loop_sync_mot();
+}

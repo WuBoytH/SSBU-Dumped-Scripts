@@ -1,0 +1,12 @@
+#[acmd_script( agent = "marth", script = "expression_win2" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_win2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_MARTH_STATUS_RESULT_FLAG_TWIST_SWORD);
+	}
+	frame(lua_state, 124.0);
+	if is_excute(fighter) {
+		VisibilityModule::set_int64(boma, Hash40::new("sword"), Hash40::new("sword_saya"));
+	}
+}

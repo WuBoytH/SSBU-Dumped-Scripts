@@ -1,0 +1,30 @@
+#[acmd_script( agent = "lucario_lucariom", script = "effect_finalhold" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalhold(fighter: &mut L2CAgentBase) {
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x1035e0(0, 0)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("havel"), 0, 0, 1, 0, 0, 0, 1, false);
+			macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("haver"), 1, 0, 0, 0, 0, 0, 1, false);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("havel"), 0, 0, 1, 180, 0, 180, 1, false);
+			macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("haver"), 1, 0, 0, 180, 0, 180, 1, false);
+		}
+	}
+}
+if macros::is_excute(fighter) {
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("lucario_sinsoku_hadou"), false, true);
+}
+frame(fighter.lua_state_agent, 10.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT(fighter, Hash40::new("lucario_hadoudan_hold"), Hash40::new("top"), 0, 17, 0, 0, 0, 90, 4, 0, 0, 0, 0, 0, 0, true);
+	macros::LAST_EFFECT_SET_RATE(fighter, 1.4);
+}
+frame(fighter.lua_state_agent, 20.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT_FOLLOW(fighter, Hash40::new("lucario_sinsoku_hold"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1.5, true);
+	macros::EFFECT_FOLLOW(fighter, Hash40::new("lucario_sinsoku_hold"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1.5, true);
+	macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 17, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("lucario_hadoudan_hold"), false, true);
+}

@@ -1,0 +1,10 @@
+#[acmd_script( agent = "kirby", script = "game_buddyspecialnupperfire" , category = ACMD_GAME , low_priority)]
+unsafe fn game_buddyspecialnupperfire(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_GENERATE_BULLET);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_START_PRECEDE_CHECK);
+	}

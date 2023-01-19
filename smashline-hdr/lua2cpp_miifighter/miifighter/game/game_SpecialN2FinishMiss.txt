@@ -1,0 +1,13 @@
+#[acmd_script( agent = "miifighter", script = "game_specialn2finishmiss" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialn2finishmiss(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_MIIFIGHTER_STATUS_WORK_ID_MACH_PUNCH_FLAG_SET_FALL_SPEED);
+	}
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS);
+	}
+}

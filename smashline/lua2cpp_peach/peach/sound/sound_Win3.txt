@@ -1,0 +1,11 @@
+#[acmd_script( agent = "peach", script = "sound_win3" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_win3(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 110.0);
+	if macros::is_excute(fighter) {
+		PLAY_SE_NO_3D(Hash40::new("vc_peach_win03"));
+		macros::PLAY_SE(fighter, Hash40::new("se_peach_swing_s_win03"));
+	}
+	frame(fighter.lua_state_agent, 112.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_peach_special_s02_win03"));
+	}

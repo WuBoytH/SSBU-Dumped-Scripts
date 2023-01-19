@@ -1,0 +1,10 @@
+#[acmd_script( agent = "peach", script = "sound_specialshitend" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialshitend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		PLAY_SE_REMAIN(fighter, Hash40::new("se_peach_special_s02"));
+		PLAY_SE(fighter, Hash40::new("vc_peach_003"));
+		SET_PLAY_INHIVIT(fighter, Hash40::new("vc_peach_003"), 30);
+	}
+}

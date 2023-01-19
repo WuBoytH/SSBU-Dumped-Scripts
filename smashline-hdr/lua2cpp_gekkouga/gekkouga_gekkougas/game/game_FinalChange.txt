@@ -1,0 +1,12 @@
+#[acmd_script( agent = "gekkouga_gekkougas", script = "game_finalchange" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalchange(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_TATAMI);
+		methodlib::L2CValue::as_hash()const(*WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_TATAMI, Hash40::new("final_start"));
+		ArticleModule::change_motion(boma);
+		ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_TATAMI, false);
+	}
+}

@@ -1,0 +1,6 @@
+#[acmd_script( agent = "gamewatch", script = "expression_jumpaerialback" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_jumpaerialback(fighter: &mut L2CAgentBase) {
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_JumpAerialBackRumble()();
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("head"), Hash40::new("head_close"));
+	}

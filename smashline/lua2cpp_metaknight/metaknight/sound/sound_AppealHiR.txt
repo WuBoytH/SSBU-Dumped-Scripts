@@ -1,0 +1,15 @@
+#[acmd_script( agent = "metaknight", script = "sound_appealhir" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appealhir(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STATUS(fighter, Hash40::new("vc_metaknight_appeal03"));
+		macros::PLAY_SE_REMAIN(fighter, Hash40::new("se_metaknight_appeal_h01"));
+	}
+	frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_metaknight_appeal_h02"));
+	}
+	frame(fighter.lua_state_agent, 37.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_metaknight_appeal_h03"));
+	}

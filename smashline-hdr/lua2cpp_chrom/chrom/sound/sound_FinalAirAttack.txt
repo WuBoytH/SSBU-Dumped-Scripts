@@ -1,0 +1,42 @@
+#[acmd_script( agent = "chrom", script = "sound_finalairattack" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_finalairattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_final04"));
+	}
+	frame(lua_state, 45.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_final_landing02"));
+	}
+	frame(lua_state, 63.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_final_jump01"));
+	}
+	frame(lua_state, 67.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_chrom_final04"));
+		PLAY_SE(fighter, Hash40::new("se_chrom_final_escape"));
+	}
+	frame(lua_state, 77.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_final_step_left_l"));
+	}
+	frame(lua_state, 79.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_final_dash_stop"));
+	}
+	frame(lua_state, 111.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_final05"));
+	}
+	frame(lua_state, 132.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_final07"));
+	}
+	frame(lua_state, 134.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_final06"));
+	}
+}

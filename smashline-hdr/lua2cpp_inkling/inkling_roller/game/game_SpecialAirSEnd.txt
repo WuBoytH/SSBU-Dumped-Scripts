@@ -1,0 +1,12 @@
+#[acmd_script( agent = "inkling_roller", script = "game_specialairsend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairsend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		AttackModule::clear_all(boma);
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x199c462b5d);
+	}
+}

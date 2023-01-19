@@ -1,0 +1,35 @@
+#[acmd_script( agent = "dolly", script = "effect_superspecial2" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_superspecial2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("dolly_buster_punch"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("dolly_buster_dash"), false, true);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+		BURN_COLOR(fighter, 2, 0.4, 0.008, 0);
+		BURN_COLOR_FRAME(fighter, 4, 2, 0.4, 0.008, 0.4);
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_buster_ground"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_buster_ground_blow"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_buster"), Hash40::new("top"), 0, 11, 4, 90, 0, 0, 1, false);
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		CANCEL_FILL_SCREEN(fighter, 1, 20);
+		BURN_COLOR(fighter, 2, 0.4, 0.008, 0.4);
+		BURN_COLOR_FRAME(fighter, 12, 2, 0.4, 0.008, 0);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_buster_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 1, true);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("dolly_buster_ground"), -1);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("dolly_buster_ground_blow"), -1);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("dolly_buster"), -1);
+	}
+	frame(lua_state, 50.0);
+	if is_excute(fighter) {
+		BURN_COLOR_NORMAL(fighter);
+	}
+}

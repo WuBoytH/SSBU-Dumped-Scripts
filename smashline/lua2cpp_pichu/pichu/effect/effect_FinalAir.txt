@@ -1,0 +1,15 @@
+#[acmd_script( agent = "pichu", script = "effect_finalair" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_pichu_final"), false);
+		EffectModule::req_screen(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("pichu_final_hold"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("pichu_final_hold"), false, false);
+		macros::EFFECT(fighter, Hash40::new("pichu_final_sphere_start"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}

@@ -1,0 +1,16 @@
+#[acmd_script( agent = "miifighter", script = "game_specialn1" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialn1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ArticleModule::generate_article_enable(boma, *FIGHTER_MIIFIGHTER_GENERATE_ARTICLE_IRONBALL);
+	}
+	frame(lua_state, 28.0);
+	if is_excute(fighter) {
+		ArticleModule::shoot_exist(boma, *FIGHTER_MIIFIGHTER_GENERATE_ARTICLE_IRONBALL, *ARTICLE_OPE_TARGET_ALL, false);
+	}
+	frame(lua_state, 40.0);
+	FT_MOTION_RATE(fighter, 0.7);
+	frame(lua_state, 80.0);
+	FT_MOTION_RATE(fighter, 1);
+}

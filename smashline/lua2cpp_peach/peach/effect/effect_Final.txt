@@ -1,0 +1,18 @@
+#[acmd_script( agent = "peach", script = "effect_final" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_final(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_peach_final"), false);
+		EffectModule::req_screen(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FLW_POS(fighter, Hash40::new("peach_final_bit"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("peach_final_light"), Hash40::new("trans"), 0, 0, 0, 0, 90, 0, 1.5, true);
+	}
+	frame(fighter.lua_state_agent, 225.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("peach_final_lip_heart"), Hash40::new("head"), 0.5, 1.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}

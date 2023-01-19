@@ -1,0 +1,34 @@
+#[acmd_script( agent = "edge", script = "effect_entryr" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_entryr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		FLASH(fighter, 0, 0, 0, 0.8);
+		ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+		BURN_COLOR(fighter, 0.5, 0.15, 2, 0.3);
+		EFFECT(fighter, Hash40::new("edge_entry_darkspace"), Hash40::new("top"), 0, 26, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	WorkModule::is_flag(boma, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_ACTIVATED);
+	methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_wing"), Hash40::new("bust"), 0, 0, 0, 0, 0, -90, 1, true);
+	}
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("kneel"), 4, -1, -1, 0, 0, -90, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("hip"), -3, 0, 0, 0, 0, -90, 2, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("neck"), 0, 0, 0, 0, 0, 0, 1.5, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("arml"), 1, 0, 0, 0, 0, -90, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("armr"), 1, 0, 0, 0, 0, -90, 1, true);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		FLASH_FRM(fighter, 36, 0, 0, 0, 0);
+		BURN_COLOR_FRAME(fighter, 36, 0.5, 0.15, 2, 0);
+	}
+	wait(lua_state, 36.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+		BURN_COLOR_NORMAL(fighter);
+		ColorBlendModule::set_disable_camera_depth_influence(boma, false);
+	}
+}

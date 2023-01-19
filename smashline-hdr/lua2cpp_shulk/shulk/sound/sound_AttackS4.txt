@@ -1,0 +1,25 @@
+#[acmd_script( agent = "shulk", script = "sound_attacks4" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacks4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_common_smash_start"));
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_shulk_smash_s01"));
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_shulk_attack05"));
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_shulk_monado_open"));
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_shulk_smash_s02"));
+	}
+}

@@ -1,0 +1,33 @@
+#[acmd_script( agent = "miifighter", script = "effect_specialairn3" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairn3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("miifighter_sidekick_flash"), Hash40::new("toel"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("miifighter_sidekick_hold"), Hash40::new("toel"), 0, 0, 0, 0, 0, 0, 0.8, true);
+	}
+	frame(lua_state, 33.0);
+	for(4 Iterations){;
+	if is_excute(fighter) {
+		FLASH(fighter, 1, 1, 0.392, 0.392);
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		FLASH(fighter, 1, 0.392, 0, 0.353);
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+	}
+	wait(lua_state, 1.0);
+}
+frame(lua_state, 43.0);
+if is_excute(fighter) {
+	EFFECT_FLW_POS(fighter, Hash40::new("miifighter_sidekick"), Hash40::new("toel"), 0, 0, 0, 0, 0, 0, 1, true);
+	EffectModule::enable_sync_init_pos_last(boma);
+}
+}

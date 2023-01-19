@@ -1,0 +1,30 @@
+#[acmd_script( agent = "brave_crash", script = "effect_crash1" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_crash1(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 3.0);
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x23a020(0, 0)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("brave_fullburst"), Hash40::new("top"), 0, 0, 0, 0, 90, 0, 1.5, true);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("brave_fullburst"), Hash40::new("top"), 0, 0, 0, 0, -90, 0, 1.5, true);
+		}
+	}
+}
+frame(fighter.lua_state_agent, 80.0);
+get_value_float(*SO_VAR_FLOAT_LR);
+if(0x23a020(0, 0)){;
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("brave_fullburst_finish"), Hash40::new("top"), 0, 0, 0, 0, 90, 0, 1.25, true);
+	}
+	else{;
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("brave_fullburst_finish"), Hash40::new("top"), 0, 0, 0, 0, -90, 0, 1.25, true);
+	}
+}
+}
+frame(fighter.lua_state_agent, 82.0);
+if macros::is_excute(fighter) {
+macros::EFFECT_DETACH_KIND(fighter, Hash40::new("brave_fullburst_finish"), -1);
+}

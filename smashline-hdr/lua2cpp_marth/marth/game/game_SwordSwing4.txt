@@ -1,0 +1,31 @@
+#[acmd_script( agent = "marth", script = "game_swordswing4" , category = ACMD_GAME , low_priority)]
+unsafe fn game_swordswing4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SWING_WORK_FLAG_START_SMASH_HOLD);
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		ItemModule::set_have_item_scale_anim(boma, 5, 3.8);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		ItemModule::set_have_item_action(boma, *ITEM_SWING_ACTION_BEGIN);
+	}
+	frame(lua_state, 15.0);
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_SwordSwing4Common()();
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		AttackModule::clear_all(boma);
+	}
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		ItemModule::set_have_item_scale_anim(boma, 3, 0.4);
+	}
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		ItemModule::set_have_item_scale_anim(boma, 5, 1);
+	}
+}

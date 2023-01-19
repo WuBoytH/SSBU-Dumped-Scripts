@@ -1,0 +1,13 @@
+#[acmd_script( agent = "murabito", script = "game_finalendl" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalendl(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.75);
+	frame(fighter.lua_state_agent, 35.0);
+	macros::FT_MOTION_RATE(fighter, 1.3);
+	frame(fighter.lua_state_agent, 45.0);
+	macros::FT_MOTION_RATE(fighter, 0.85);
+	frame(fighter.lua_state_agent, 75.0);
+	macros::FT_MOTION_RATE(fighter, 0.75);

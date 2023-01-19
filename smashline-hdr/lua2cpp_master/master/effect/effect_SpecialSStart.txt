@@ -1,0 +1,14 @@
+#[acmd_script( agent = "master", script = "effect_specialsstart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialsstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("master_spear_aura"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("master_spear_flash"), Hash40::new("top"), 4, 20, 10, 0, 0, 0, 1.1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+}

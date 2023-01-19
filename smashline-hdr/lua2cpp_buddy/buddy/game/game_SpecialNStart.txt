@@ -1,0 +1,14 @@
+#[acmd_script( agent = "buddy", script = "game_specialnstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialnstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	0x18cc20(*FIGHTER_INSTANCE_WORK_ID_INT_KIND, *FIGHTER_KIND_KIRBY);
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_PARTNER);
+	}
+	FT_MOTION_RATE(fighter, 0.75);
+	wait(lua_state, 36.0);
+	FT_MOTION_RATE(fighter, 0.25);
+	frame(lua_state, 40.0);
+	FT_MOTION_RATE(fighter, 1);
+}

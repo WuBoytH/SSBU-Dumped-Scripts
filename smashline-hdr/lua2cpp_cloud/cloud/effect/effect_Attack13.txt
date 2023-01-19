@@ -1,0 +1,24 @@
+#[acmd_script( agent = "cloud", script = "effect_attack13" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack13(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("sys_attack_arc_b"), true, true);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_WORK(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, 0.4);
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_cloud_sword1"), Hash40::new("tex_cloud_sword2"), 3, Hash40::new("haver"), 0, 1.5, -1.2, Hash40::new("haver"), 0, 20.5, -1.2, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("top"), Hash40::new("top"), 4, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE_OFF(fighter, 4);
+		EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE, false, true);
+	}
+}

@@ -1,0 +1,20 @@
+#[acmd_script( agent = "captain", script = "effect_downattacku" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_downattacku(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 11, 2, 0, 60, 10, 1.15, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 2);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 11, 2, 0, 240, 10, 1.15, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 2);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 13, 2, 0, 0, 10, 1.15, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 2);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 13, 2, 0, -180, 10, 1.15, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 2);
+	}

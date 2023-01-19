@@ -1,0 +1,23 @@
+#[acmd_script( agent = "younglink", script = "effect_attack100end" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack100end(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("younglink_sword"), false, false);
+		AFTER_IMAGE_OFF(fighter, 1);
+		EFFECT_OFF_KIND(fighter, Hash40::new("younglink_atk100"), false, false);
+		EffectModule::set_disable_render_offset_last(boma);
+	}
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE4_ON_arg29(Hash40::new("younglink_sword1"), Hash40::new("younglink_sword2"), 3, Hash40::new("sword"), 0.5, 0, 0, Hash40::new("sword"), 9.7, 0, -0.25, true, Hash40::new("younglink_sword"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.5, 0.2);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 2, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE_OFF(fighter, 3);
+	}
+}

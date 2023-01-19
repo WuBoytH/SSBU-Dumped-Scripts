@@ -1,0 +1,19 @@
+#[acmd_script( agent = "buddy", script = "sound_throwhi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_throwhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_throw_01"));
+		PLAY_SE(fighter, Hash40::new("vc_buddy_attack05"));
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_buddy_attackhard_s02"));
+		PLAY_SE(fighter, Hash40::new("vc_buddy_attackhard_s02"));
+	}
+	frame(lua_state, 53.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_buddy_special_n04_01"));
+	}
+}

@@ -1,0 +1,21 @@
+#[acmd_script( agent = "gaogaen", script = "effect_specialairhifall2" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairhifall2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("gaogaen_chop_line"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+		EFFECT_FOLLOW(fighter, Hash40::new("gaogaen_chop_arm"), Hash40::new("armr"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+		EFFECT_FOLLOW(fighter, Hash40::new("gaogaen_chop_arm"), Hash40::new("arml"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("gaogaen_chop_hand"), Hash40::new("handl"), 3, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("gaogaen_chop_hand"), Hash40::new("handr"), 3, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("gaogaen_chop_hand"), false, true);
+	}
+}

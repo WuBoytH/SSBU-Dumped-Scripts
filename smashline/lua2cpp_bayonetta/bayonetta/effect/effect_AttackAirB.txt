@@ -1,0 +1,11 @@
+#[acmd_script( agent = "bayonetta", script = "effect_attackairb" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairb(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_WORK(fighter, FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_EFFECT_KIND_BAYONETTA_ATTACK_ARC2, Hash40::new("top"), 2, 11, 0, 0, 170, 120, 1.1, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.1);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_DETACH_KIND_WORK(fighter, FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_EFFECT_KIND_BAYONETTA_ATTACK_ARC2, -1);
+	}

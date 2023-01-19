@@ -1,0 +1,13 @@
+#[acmd_script( agent = "rosetta", script = "effect_appealsr" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appealsr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("rosetta_wand_stardust"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 0.7, true);
+	}
+	frame(lua_state, 68.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("rosetta_wand_stardust"), false, false);
+	}
+}

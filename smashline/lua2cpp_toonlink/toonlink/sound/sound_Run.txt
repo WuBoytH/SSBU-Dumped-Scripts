@@ -1,0 +1,9 @@
+#[acmd_script( agent = "toonlink", script = "sound_run" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_run(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_toonlink_step_left_m"));
+	}
+	frame(fighter.lua_state_agent, 24.0);
+	macros::PLAY_STEP(fighter, Hash40::new("se_toonlink_step_right_m"));

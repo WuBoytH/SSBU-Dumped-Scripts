@@ -1,0 +1,6 @@
+#[acmd_script( agent = "robot", script = "game_turnrun" , category = ACMD_GAME , low_priority)]
+unsafe fn game_turnrun(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_RUN_BRAKE_FLAG_STOP);
+	}

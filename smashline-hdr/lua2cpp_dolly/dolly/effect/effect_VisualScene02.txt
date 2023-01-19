@@ -1,0 +1,13 @@
+#[acmd_script( agent = "dolly", script = "effect_visualscene02" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_visualscene02(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("dolly_fainal_down"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("dolly_fainal_bg1"), Hash40::new("handr"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		EFFECT(fighter, Hash40::new("dolly_fainal_hit1"), Hash40::new("handr"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+}

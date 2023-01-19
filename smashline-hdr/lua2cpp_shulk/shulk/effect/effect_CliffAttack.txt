@@ -1,0 +1,47 @@
+#[acmd_script( agent = "shulk", script = "effect_cliffattack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_cliffattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_sword2"), Hash40::new("haver"), 0, 2.5, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_circle"), Hash40::new("swordr"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("handr"), 0, 0, -3, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+	}
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x127550(480, 0)){;
+		frame(lua_state, 22.0);
+		if is_excute(fighter) {
+			AFTER_IMAGE4_ON_arg29(Hash40::new("tex_shulk_sword3"), Hash40::new("tex_shulk_sword4"), 7, Hash40::new("haver"), 0, 3, 1.1, Hash40::new("haver"), 0, 19, 1.1, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
+		}
+		else{;
+		frame(lua_state, 21.0);
+		if is_excute(fighter) {
+			AFTER_IMAGE4_ON_arg29(Hash40::new("tex_shulk_sword3"), Hash40::new("tex_shulk_sword4"), 5, Hash40::new("haver"), 0, 3, 1.1, Hash40::new("haver"), 0, 19, 1.1, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
+		}
+	}
+}
+frame(lua_state, 26.0);
+if is_excute(fighter) {
+	LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+frame(lua_state, 30.0);
+if is_excute(fighter) {
+	AFTER_IMAGE_OFF(fighter, 4);
+}
+frame(lua_state, 39.0);
+if is_excute(fighter) {
+	EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_sword2_end"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 0.98, true);
+}
+frame(lua_state, 40.0);
+if is_excute(fighter) {
+	EFFECT_OFF_KIND(fighter, Hash40::new("shulk_monad_sword2"), false, false);
+	EFFECT_OFF_KIND(fighter, Hash40::new("shulk_monad_circle"), false, false);
+}
+}

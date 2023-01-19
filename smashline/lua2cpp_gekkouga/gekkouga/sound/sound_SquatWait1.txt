@@ -1,0 +1,10 @@
+#[acmd_script( agent = "gekkouga", script = "sound_squatwait1" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_squatwait1(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 3.0);
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_SQUAT_FLAG_REQUEST_SQUAT_SE);
+	if(0x141380(false, true)){;
+		if macros::is_excute(fighter) {
+			macros::PLAY_SE(fighter, Hash40::new("se_gekkouga_squat"));
+			WorkModule::off_flag(fighter.module_accessor, *FIGHTER_STATUS_SQUAT_FLAG_REQUEST_SQUAT_SE);
+		}
+	}

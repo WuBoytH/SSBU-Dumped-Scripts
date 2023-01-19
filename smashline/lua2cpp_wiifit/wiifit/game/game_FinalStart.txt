@@ -1,0 +1,30 @@
+#[acmd_script( agent = "wiifit", script = "game_finalstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalstart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
+		macros::SLOW_OPPONENT(fighter, 10, 75);
+	}
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){;
+		frame(fighter.lua_state_agent, 10.0);
+		if macros::is_excute(fighter) {
+			macros::FT_SET_FINAL_FEAR_FACE(fighter, 60);
+			REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalstart.nuanmb"), false, false);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			PostureModule::scale(fighter.module_accessor, 3, 0);
+			0x12ac70(1530964934, 1.8);
+			CAM_ZOOM_IN_arg5(0, 0);
+			macros::FT_START_CUTIN(fighter);
+		}
+	}
+}
+frame(fighter.lua_state_agent, 30.0);
+if macros::is_excute(fighter) {
+	macros::CAM_ZOOM_OUT(fighter);
+}
+frame(fighter.lua_state_agent, 56.0);
+if macros::is_excute(fighter) {
+	AttackModule::clear_all(fighter.module_accessor);
+}

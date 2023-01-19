@@ -1,0 +1,17 @@
+#[acmd_script( agent = "eflame", script = "sound_appealhir" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appealhir(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 50.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_eflame_appeal01"));
+	}
+	frame(lua_state, 95.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_eflame_step_right_m"));
+	}
+	frame(lua_state, 106.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_eflame_step_right_s"));
+	}
+}

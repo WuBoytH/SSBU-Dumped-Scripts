@@ -1,0 +1,6 @@
+#[acmd_script( agent = "peach", script = "expression_catchcut" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_catchcut(fighter: &mut L2CAgentBase) {
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_CatchCutRumble()();
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 2);
+	}

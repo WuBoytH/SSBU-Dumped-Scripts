@@ -1,0 +1,12 @@
+#[acmd_script( agent = "master", script = "game_specialairlwturn" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlwturn(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		FighterAreaModuleImpl::enable_fix_jostle_area(boma, 3, 3);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		REVERSE_LR(fighter);
+	}
+}

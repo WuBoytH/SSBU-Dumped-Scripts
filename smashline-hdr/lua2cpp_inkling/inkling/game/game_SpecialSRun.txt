@@ -1,0 +1,10 @@
+#[acmd_script( agent = "inkling", script = "game_specialsrun" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialsrun(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		FighterAreaModuleImpl::enable_fix_jostle_area(boma, 3, 8);
+		WorkModule::set_float(boma, 3, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_WALK_JOSTLE_FRONT);
+		WorkModule::set_float(boma, 8, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_WALK_JOSTLE_BACK);
+	}
+}

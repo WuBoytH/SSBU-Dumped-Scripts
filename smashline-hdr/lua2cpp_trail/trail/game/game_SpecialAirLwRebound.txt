@@ -1,0 +1,9 @@
+#[acmd_script( agent = "trail", script = "game_specialairlwrebound" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlwrebound(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
+	}
+}

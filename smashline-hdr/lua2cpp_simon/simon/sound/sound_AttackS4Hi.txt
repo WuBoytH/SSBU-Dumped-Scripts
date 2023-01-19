@@ -1,0 +1,20 @@
+#[acmd_script( agent = "simon", script = "sound_attacks4hi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacks4hi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_simon_whip_holding"));
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_simon_smash_s01"));
+	}
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_simon_attack05"));
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_simon_smash_s02"));
+	}
+}

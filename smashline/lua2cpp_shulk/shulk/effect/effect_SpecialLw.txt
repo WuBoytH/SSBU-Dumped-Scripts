@@ -1,0 +1,11 @@
+#[acmd_script( agent = "shulk", script = "effect_speciallw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("shulk_vision_start"), Hash40::new("top"), -3, 13, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		macros::FLASH(fighter, 1, 1, 1, 0.75);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::COL_NORMAL(fighter);
+	}

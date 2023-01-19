@@ -1,0 +1,8 @@
+#[acmd_script( agent = "krool", script = "effect_appeallwr" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appeallwr(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 10, 0, -4, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.85);
+	}

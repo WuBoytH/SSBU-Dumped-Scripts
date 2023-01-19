@@ -1,0 +1,15 @@
+#[acmd_script( agent = "kirby", script = "game_lipstickswing4" , category = ACMD_GAME , low_priority)]
+unsafe fn game_lipstickswing4(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SWING_WORK_FLAG_START_SMASH_HOLD);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_LipStickSwing4Common()();
+	if macros::is_excute(fighter) {
+		macros::SHOOT_ITEM_BULLET_CHARGE(fighter, 1);
+	}
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}

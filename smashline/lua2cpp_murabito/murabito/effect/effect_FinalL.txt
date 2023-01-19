@@ -1,0 +1,7 @@
+#[acmd_script( agent = "murabito", script = "effect_finall" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finall(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::FILL_SCREEN_MODEL_COLOR(fighter, 1, 0, 0.15, 0.15, 0.15, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_murabito_final"), false);
+		EffectModule::req_screen(fighter.module_accessor);
+	}

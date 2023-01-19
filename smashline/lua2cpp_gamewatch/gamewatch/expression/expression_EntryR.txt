@@ -1,0 +1,9 @@
+#[acmd_script( agent = "gamewatch", script = "expression_entryr" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_entryr(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("hand"), Hash40::new("hand_hold_lr"));
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("head"), Hash40::new("head_close"));
+		notify_event_msc_cmd(0x1f20a9d549, false);
+		notify_event_msc_cmd(0x24772eddef, false);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+	}

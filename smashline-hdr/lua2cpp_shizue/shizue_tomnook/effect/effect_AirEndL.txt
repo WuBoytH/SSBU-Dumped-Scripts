@@ -1,0 +1,16 @@
+#[acmd_script( agent = "shizue_tomnook", script = "effect_airendl" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_airendl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("shizue_final_flyroll_smoke"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 61.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("shizue_final_appearance_smoke"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 62.0);
+	if is_excute(fighter) {
+		EFFECT_DETACH_KIND(fighter, Hash40::new("shizue_final_flyroll_smoke"), -1);
+	}
+}

@@ -1,0 +1,19 @@
+#[acmd_script( agent = "mario", script = "expression_attackhi4" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_attackhi4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	frame(lua_state, 7.0);
+	execute(7);
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitl"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+	}
+}

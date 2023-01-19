@@ -1,0 +1,16 @@
+#[acmd_script( agent = "jack", script = "effect_specials1" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specials1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("jack_magic_aura"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, true);
+	}
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("jack_eiha_finger"), Hash40::new("havel"), 1, 1, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0, 0, true);
+	}
+}

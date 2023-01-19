@@ -1,0 +1,30 @@
+#[acmd_script( agent = "ike", script = "effect_speciallwhit" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallwhit(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, false);
+		macros::EFFECT(fighter, Hash40::new("ike_counter_success"), Hash40::new("top"), 0, 16, -1, 0, 90, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+	}
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_LW_FLAG_SPECIAL_EFFECT);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("sys_counter_flash"), Hash40::new("top"), 0, 16, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		}
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("ike_sword2"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.5);
+		macros::FLASH(fighter, 1, 1, 1, 0);
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_ike_sword5"), Hash40::new("tex_ike_sword2"), 5, Hash40::new("sword"), 0, 1, 0, Hash40::new("sword"), 0, 16.2, 0, true, Hash40::new("null"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.5, 0.1);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("ike_counter_attack"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("ike_sword2"), false, true);
+		macros::AFTER_IMAGE_OFF(fighter, 4);
+		macros::COL_NORMAL(fighter);
+	}

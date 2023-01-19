@@ -1,0 +1,29 @@
+#[acmd_script( agent = "elight", script = "sound_cliffattack" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_cliffattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_elight_dash_start"));
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_elight_step_left_s"));
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_elight_dash_stop"));
+	}
+	frame(lua_state, 21.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_elight_swing_l01"));
+	}
+	frame(lua_state, 51.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_elight_step_right_s"));
+	}
+	frame(lua_state, 55.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_element_rise"));
+	}
+}

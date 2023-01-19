@@ -1,0 +1,13 @@
+#[acmd_script( agent = "pickel", script = "game_scopeairrapidfly4" , category = ACMD_GAME , low_priority)]
+unsafe fn game_scopeairrapidfly4(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+	if(0x370870(false, false)){;
+		if macros::is_excute(fighter) {
+			macros::SHOOT_ITEM_BULLET(fighter);
+			WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+		}
+	}

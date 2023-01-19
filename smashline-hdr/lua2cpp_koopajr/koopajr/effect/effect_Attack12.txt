@@ -1,0 +1,11 @@
+#[acmd_script( agent = "koopajr", script = "effect_attack12" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack12(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 180, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW_FLIP_ALPHA(fighter, Hash40::new("sys_attack_arc"), Hash40::new("sys_attack_arc"), Hash40::new("top"), -1, 8.5, 7, 20, -35, -10, 1, true, *EF_FLIP_YZ, 0.6);
+		LAST_EFFECT_SET_RATE(fighter, 2);
+	}
+}

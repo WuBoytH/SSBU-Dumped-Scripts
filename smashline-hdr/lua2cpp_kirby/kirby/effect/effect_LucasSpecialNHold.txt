@@ -1,0 +1,21 @@
+#[acmd_script( agent = "kirby", script = "effect_lucasspecialnhold" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_lucasspecialnhold(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FLW_POS(fighter, Hash40::new("lucas_pkfr_hold"), Hash40::new("top"), 0, 9, 0, 0, 0, 0, 1, true);
+	}
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 9, 0, 9, 0, 0, 0, false);
+		FLASH(fighter, 0.01, 0.5, 1, 0.4);
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		FLASH(fighter, 1, 1, 1, 0.6);
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+	}
+	wait(lua_state, 1.0);
+}

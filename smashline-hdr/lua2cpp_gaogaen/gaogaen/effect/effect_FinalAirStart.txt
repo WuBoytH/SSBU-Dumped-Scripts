@@ -1,0 +1,23 @@
+#[acmd_script( agent = "gaogaen", script = "effect_finalairstart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_gaogaen_final"), false);
+		EffectModule::req_screen(boma);
+		FT_REMOVE_FINAL_AURA(fighter, false);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("gaogaen_final_ground"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("gaogaen_final_start"), Hash40::new("feelerca"), 0, 0, 2.5, 0, 0, 0, 1, false);
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("gaogaen_final_symbol"), Hash40::new("gaogaen_final_symbol"), Hash40::new("top"), -4, 8, 4, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+	}
+}

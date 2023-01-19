@@ -1,0 +1,15 @@
+#[acmd_script( agent = "dedede", script = "effect_downattackd" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_downattackd(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.8);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_b"), Hash40::new("top"), 0, 5, 6, 180, -130, 15, 1.5, true);
+	}
+	frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_b"), Hash40::new("top"), 0, 5, -6, 180, 60, -15, 1.5, true);
+	}

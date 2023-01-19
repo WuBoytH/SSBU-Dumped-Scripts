@@ -1,0 +1,17 @@
+#[acmd_script( agent = "kirby", script = "effect_specialss" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialss(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_NONE);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("kirby_onigoroshi_wind"), Hash40::new("kirby_onigoroshi_wind"), Hash40::new("top"), 1, 6, 3, 13, -20, 0, 1, false, *EF_FLIP_YZ);
+	}
+}

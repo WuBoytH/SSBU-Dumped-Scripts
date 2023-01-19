@@ -1,0 +1,11 @@
+#[acmd_script( agent = "sheik", script = "game_starrodswing3" , category = ACMD_GAME , low_priority)]
+unsafe fn game_starrodswing3(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 8.0);
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_StarRodSwing3Common()();
+	if macros::is_excute(fighter) {
+		macros::SHOOT_ITEM_BULLET_CHARGE(fighter, 0);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}

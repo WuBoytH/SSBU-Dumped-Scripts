@@ -1,0 +1,11 @@
+#[acmd_script( agent = "murabito_sprout", script = "effect_appear" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appear(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 34.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.45, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("murabito_sprout_soil"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT(fighter, Hash40::new("murabito_clay"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.45, 0, 0, 0, 0, 0, 0, false);
+	}
+}

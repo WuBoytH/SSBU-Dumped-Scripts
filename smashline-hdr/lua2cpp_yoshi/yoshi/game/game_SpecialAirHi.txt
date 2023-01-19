@@ -1,0 +1,16 @@
+#[acmd_script( agent = "yoshi", script = "game_specialairhi" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.85);
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_YOSHI_STATUS_SPECIAL_HI_FLAG_EGG_APPEAR);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_YOSHI_STATUS_SPECIAL_HI_FLAG_EGG_SHOOT);
+	}
+	FT_MOTION_RATE(fighter, 1);
+}

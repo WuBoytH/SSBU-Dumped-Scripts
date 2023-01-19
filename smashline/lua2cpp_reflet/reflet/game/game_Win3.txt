@@ -1,0 +1,7 @@
+#[acmd_script( agent = "reflet", script = "game_win3" , category = ACMD_GAME , low_priority)]
+unsafe fn game_win3(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_REFLET_GENERATE_ARTICLE_CHROM);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_REFLET_GENERATE_ARTICLE_CHROM, Hash40::new("win3"));
+		ArticleModule::change_motion(fighter.module_accessor);
+	}

@@ -1,0 +1,6 @@
+#[acmd_script( agent = "edge", script = "effect_attackairfwalljump" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairfwalljump(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_ATTACK_AIR_F_WORK_FLAG_SET_PIERCE_EFFECT);
+	}

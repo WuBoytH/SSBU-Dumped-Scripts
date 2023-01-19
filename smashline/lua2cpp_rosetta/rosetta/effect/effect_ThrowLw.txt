@@ -1,0 +1,20 @@
+#[acmd_script( agent = "rosetta", script = "effect_throwlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_throwlw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_wand_light"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_wand_stardust"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 12, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::DOWN_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 12, 0, 0, 0, 1.45, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 28.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("rosetta_wand_light"), false, false);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("rosetta_wand_stardust"), false, false);
+	}

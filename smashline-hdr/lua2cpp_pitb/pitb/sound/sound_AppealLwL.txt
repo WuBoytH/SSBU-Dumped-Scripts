@@ -1,0 +1,25 @@
+#[acmd_script( agent = "pitb", script = "sound_appeallwl" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appeallwl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_pitb_appeal03"));
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_pitb_step_right_s"));
+	}
+	frame(lua_state, 33.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_pitb_swing_s"));
+	}
+	frame(lua_state, 73.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_pitb_step_right_s"));
+	}
+	frame(lua_state, 82.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_pitb_step_left_s"));
+	}
+}

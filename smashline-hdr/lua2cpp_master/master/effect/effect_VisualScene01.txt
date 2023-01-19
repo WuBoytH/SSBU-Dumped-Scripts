@@ -1,0 +1,15 @@
+#[acmd_script( agent = "master", script = "effect_visualscene01" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_visualscene01(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("master_final_bg_twincle"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		EFFECT_GLOBAL(fighter, Hash40::new("master_final_bg_twincle_front"), 0, 0, 0, 0, 0, 0, 1, true);
+		WorkModule::on_flag(boma, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
+		EFFECT_FOLLOW(fighter, Hash40::new("master_final_sword_spark"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 55.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("master_final_sword_charge"), Hash40::new("sword1"), 2.5, 0, 0, 0, 0, 0, 1, true);
+	}
+}

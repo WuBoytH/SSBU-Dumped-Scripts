@@ -1,0 +1,13 @@
+#[acmd_script( agent = "buddy", script = "game_speciallw" , category = ACMD_GAME , low_priority)]
+unsafe fn game_speciallw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_BUDDY_STATUS_SPECIAL_LW_FLAG_GENERATE);
+	}
+	frame(lua_state, 45.0);
+	if is_excute(fighter) {
+		WorkModule::enable_transition_term(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_ITEM_THROW);
+	}
+}

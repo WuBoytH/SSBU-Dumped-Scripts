@@ -1,0 +1,13 @@
+#[acmd_script( agent = "pfushigisou", script = "game_scopeairrapid" , category = ACMD_GAME , low_priority)]
+unsafe fn game_scopeairrapid(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("weapon"), Hash40::new("weapon_normal"));
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+	if(0x103920(false, false)){;
+		if macros::is_excute(fighter) {
+			macros::SHOOT_ITEM_BULLET(fighter);
+			WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+		}
+	}

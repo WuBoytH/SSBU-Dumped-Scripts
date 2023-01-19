@@ -1,0 +1,11 @@
+#[acmd_script( agent = "snake", script = "sound_win2_us_en" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_win2_us_en(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		PLAY_SE_NO_3D(Hash40::new("se_snake_squat"));
+		PLAY_SE_NO_3D(Hash40::new("se_snake_squat_gear"));
+	}
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		PLAY_SE_NO_3D(Hash40::new("vc_snake_win02"));
+	}

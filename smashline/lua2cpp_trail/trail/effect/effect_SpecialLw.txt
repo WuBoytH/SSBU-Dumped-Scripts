@@ -1,0 +1,40 @@
+#[acmd_script( agent = "trail", script = "effect_speciallw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallw(fighter: &mut L2CAgentBase) {
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_TRAIL_STATUS_SPECIAL_LW_FLAG_SPECIAL_EFFECT);
+	if(0x4ae890(false, true)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("sys_counter_flash"), Hash40::new("top"), 0, 13, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		}
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_keyblade_flare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.7);
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_trail_keyblade1"), Hash40::new("tex_trail_keyblade2"), 14, Hash40::new("haver"), 0, 2, 0, Hash40::new("haver"), 0, 13.8, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
+	}
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_counter_attack"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::AFTER_IMAGE_OFF(fighter, 3);
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_trail_keyblade1"), Hash40::new("tex_trail_keyblade2"), 14, Hash40::new("haver"), 0, 2, 0.5, Hash40::new("haver"), 0, 19, 1, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_keyblade_light"), Hash40::new("haver"), 0, 5, 0, 0, 0, 0, 1.25, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		macros::AFTER_IMAGE_OFF(fighter, 0);
+		macros::EFFECT_DETACH_KIND(fighter, Hash40::new("trail_counter_attack"), -1);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("trail_keyblade_light"), false, true);
+	}
+	frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("trail_keyblade_flare"), false, true);
+	}

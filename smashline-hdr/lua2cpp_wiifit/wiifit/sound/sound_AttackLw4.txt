@@ -1,0 +1,23 @@
+#[acmd_script( agent = "wiifit", script = "sound_attacklw4" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacklw4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_wiifit_whistle"));
+		SET_PLAY_INHIVIT(fighter, Hash40::new("se_wiifit_whistle"), 30);
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		PLAY_SEQUENCE_DAMAGESTOP(fighter, Hash40::new("seq_wiifit_rnd_smash_l"));
+		PLAY_SE(fighter, Hash40::new("se_wiifit_smash_l01"));
+	}
+	frame(lua_state, 41.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_wiifit_step_left_s"));
+	}
+	frame(lua_state, 49.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_wiifit_step_right_s"));
+	}
+}

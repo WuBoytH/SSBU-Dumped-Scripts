@@ -1,0 +1,9 @@
+#[acmd_script( agent = "simon", script = "effect_appeallwr" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appeallwr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 21.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("simon_appeal_lw"), Hash40::new("top"), -12, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+}

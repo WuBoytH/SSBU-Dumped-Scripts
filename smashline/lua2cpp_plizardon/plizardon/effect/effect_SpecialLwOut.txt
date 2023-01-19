@@ -1,0 +1,17 @@
+#[acmd_script( agent = "plizardon", script = "effect_speciallwout" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallwout(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::FLASH(fighter, 0.9, 1, 1, 0.9);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::FLASH_FRM(fighter, 6, 0.9, 1, 1, 0);
+	}
+	wait(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::COL_NORMAL(fighter);
+	}
+	frame(fighter.lua_state_agent, 27.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}

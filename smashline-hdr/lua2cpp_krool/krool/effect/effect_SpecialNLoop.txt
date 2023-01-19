@@ -1,0 +1,12 @@
+#[acmd_script( agent = "krool", script = "effect_specialnloop" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnloop(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("krool_cannon_vacuum"), Hash40::new("top"), 0, 10, 17, 0, 0, 0, 0.8, true);
+	}
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 0.6, 10, 0, 4, 0, 0, 0, false);
+	}
+	wait(lua_state, 10.0);
+}

@@ -1,0 +1,9 @@
+#[acmd_script( agent = "rockman", script = "game_speciallwshoot" , category = ACMD_GAME , low_priority)]
+unsafe fn game_speciallwshoot(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_ROCKMAN_STATUS_SPECIAL_LW_SHOOT_WORK_ID_FLAG_REQUEST_SHOOT);
+	}
+}

@@ -1,0 +1,6 @@
+#[acmd_script( agent = "gamewatch", script = "expression_rebound" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_rebound(fighter: &mut L2CAgentBase) {
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_ReboundRumble()();
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+	}

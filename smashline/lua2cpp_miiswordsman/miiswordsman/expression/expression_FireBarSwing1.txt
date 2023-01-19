@@ -1,0 +1,14 @@
+#[acmd_script( agent = "miiswordsman", script = "expression_firebarswing1" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_firebarswing1(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitm"), 0, false);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 26.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd(0x26769bd1de, 0, 30, 10);
+	}

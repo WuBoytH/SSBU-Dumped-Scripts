@@ -1,0 +1,21 @@
+#[acmd_script( agent = "edge", script = "game_attackairfwalljump" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attackairfwalljump(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_NONE);
+	}
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_ATTACK_AIR_F_WORK_FLAG_MOVE_KINETIC_PARAM);
+	}
+	frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_ATTACK_AIR_F_WORK_FLAG_JUMP_CONTROL);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_ATTACK_AIR_F_WORK_FLAG_CHANGE_JUMP_ACCEL_Y);
+	}
+	frame(fighter.lua_state_agent, 26.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS);
+	}

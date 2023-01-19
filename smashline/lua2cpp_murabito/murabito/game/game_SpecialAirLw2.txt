@@ -1,0 +1,10 @@
+#[acmd_script( agent = "murabito", script = "game_specialairlw2" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlw2(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MURABITO_INSTANCE_WORK_ID_FLAG_WATER);
+	}
+	frame(fighter.lua_state_agent, 31.0);
+	if macros::is_excute(fighter) {
+		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_MURABITO_INSTANCE_WORK_ID_FLAG_WATER);
+	}

@@ -1,0 +1,18 @@
+#[acmd_script( agent = "palutena", script = "sound_finalair" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_finalair(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_palutena_final01"));
+		PLAY_STATUS(fighter, Hash40::new("se_palutena_final01"));
+	}
+	wait(lua_state, 85.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_palutena_final02"));
+	}
+	frame(lua_state, 142.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_palutena_final02"));
+	}
+}

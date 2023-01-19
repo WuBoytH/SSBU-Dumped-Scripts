@@ -1,0 +1,19 @@
+#[acmd_script( agent = "miiswordsman", script = "effect_win1" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 36.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 1, 8, 1, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 47.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 0.75);
+	}
+	frame(lua_state, 65.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), -0.5, 8, -0.5, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 86.0);
+}

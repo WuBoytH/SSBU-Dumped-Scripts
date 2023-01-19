@@ -1,0 +1,12 @@
+#[acmd_script( agent = "demon", script = "sound_walkfast" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_walkfast(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait_loop_sync_mot();
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_demon_step_left_l"));
+	}
+	frame(lua_state, 27.0);
+	PLAY_STEP(fighter, Hash40::new("se_demon_step_right_l"));
+}

@@ -1,0 +1,15 @@
+#[acmd_script( agent = "brave", script = "effect_entryl" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_entryl(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("brave_flying"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.25);
+		macros::EFFECT(fighter, Hash40::new("brave_entry"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 67.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("sword1"), 10, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 73.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("brave_sword_light"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+	}

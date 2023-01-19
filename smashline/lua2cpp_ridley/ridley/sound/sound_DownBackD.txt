@@ -1,0 +1,14 @@
+#[acmd_script( agent = "ridley", script = "sound_downbackd" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_downbackd(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_ridley_escape"));
+	}
+	frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_ridley_step_right_m"));
+	}
+	frame(fighter.lua_state_agent, 31.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_ridley_step_left_m"));
+	}

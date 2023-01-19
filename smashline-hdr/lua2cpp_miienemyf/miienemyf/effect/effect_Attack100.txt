@@ -1,0 +1,18 @@
+#[acmd_script( agent = "miienemyf", script = "effect_attack100" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack100(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_ALPHA(fighter, Hash40::new("miienemyf_attack100"), Hash40::new("top"), 0, 6, 3, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 360, true, 0.4);
+	}
+	wait(lua_state, 4.0);
+	if is_excute(fighter) {
+		EFFECT_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 16, 10, 0, 0, 0, 0, 0.8, 5, 4, 2, 0, 0, 360, false, 0.7);
+	}
+	wait(lua_state, 4.0);
+	if is_excute(fighter) {
+		EFFECT_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 15, 3.5, 0, 0, 0, 0, 0.7, 5, 4, 2, 0, 0, 360, false, 0.6);
+	}
+	wait(lua_state, 4.0);
+	EFFECT_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 15.5, 6.5, 0, 0, 0, 0, 0.8, 6, 4, 2, 0, 0, 360, false, 0.6);
+}

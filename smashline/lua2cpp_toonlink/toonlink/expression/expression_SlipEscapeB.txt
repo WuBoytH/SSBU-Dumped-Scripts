@@ -1,0 +1,10 @@
+#[acmd_script( agent = "toonlink", script = "expression_slipescapeb" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_slipescapeb(fighter: &mut L2CAgentBase) {
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SlipEscapeBRumble()();
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+	}
+	frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+	}

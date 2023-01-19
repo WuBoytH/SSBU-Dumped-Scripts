@@ -1,0 +1,18 @@
+#[acmd_script( agent = "falco", script = "game_specialairs" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairs(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 1);
+	if is_excute(fighter) {
+		JostleModule::set_status(boma, false);
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_FALCO_GENERATE_ARTICLE_ILLUSION);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_FALCO_GENERATE_ARTICLE_ILLUSION);
+	}
+}

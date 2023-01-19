@@ -1,0 +1,29 @@
+#[acmd_script( agent = "miigunner", script = "effect_throwhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("miigunner_blaster_shot"), Hash40::new("armr"), 5.3, 0, 0, 90, 0, 90, 0.7, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.6);
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("miigunner_shot_add"), Hash40::new("armr"), 5.3, 0, 0, 90, 0, 90, 0.8, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_v"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+		LAST_EFFECT_SET_RATE(fighter, 0.75);
+	}
+	frame(lua_state, 28.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("miigunner_blaster_shot"), Hash40::new("armr"), 5.3, 0, 0, 90, 0, 90, 0.7, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.6);
+		EFFECT(fighter, Hash40::new("miigunner_shot_add"), Hash40::new("armr"), 5.3, 0, 0, 90, 0, 90, 0.5, 0, 0, 0, 0, 0, 0, true);
+	}
+}

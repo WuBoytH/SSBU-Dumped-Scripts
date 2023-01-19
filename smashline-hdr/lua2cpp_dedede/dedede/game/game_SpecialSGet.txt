@@ -1,0 +1,13 @@
+#[acmd_script( agent = "dedede", script = "game_specialsget" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialsget(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.8);
+	frame(lua_state, 20.0);
+	FT_MOTION_RATE(fighter, 1);
+	frame(lua_state, 29.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_DEDEDE_STATUS_GORDO_THROW_FLAG_THROW);
+	}
+}

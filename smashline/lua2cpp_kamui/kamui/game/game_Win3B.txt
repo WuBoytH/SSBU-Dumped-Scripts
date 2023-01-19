@@ -1,0 +1,15 @@
+#[acmd_script( agent = "kamui", script = "game_win3b" , category = ACMD_GAME , low_priority)]
+unsafe fn game_win3b(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON);
+		VisibilityModule::set_whole(fighter.module_accessor, true);
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON);
+		ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, false);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, Hash40::new("win_3"));
+		ArticleModule::change_motion(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 112.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_whole(fighter.module_accessor, false);
+		ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, true);
+	}

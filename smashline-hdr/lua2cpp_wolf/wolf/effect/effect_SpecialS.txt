@@ -1,0 +1,11 @@
+#[acmd_script( agent = "wolf", script = "effect_specials" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specials(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("wolf_slash"), Hash40::new("top"), -3, 5.5, 0, 65, 0, 0, 1, false);
+		EffectModule::enable_sync_init_pos_last(boma);
+		EFFECT_FOLLOW(fighter, Hash40::new("wolf_slash_rush"), Hash40::new("top"), 4, 20.7, 35, 65, 0, 0, 1, false);
+	}
+}

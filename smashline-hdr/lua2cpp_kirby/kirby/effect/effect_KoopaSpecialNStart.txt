@@ -1,0 +1,19 @@
+#[acmd_script( agent = "kirby", script = "effect_koopaspecialnstart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_koopaspecialnstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		FLASH(fighter, 0.961, 0.569, 0.569, 0.392);
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		FLASH(fighter, 1, 0.537, 0.537, 0.588);
+		FLASH_FRM(fighter, 20, 0, 0, 0, 0);
+	}
+	wait(lua_state, 20.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+	}
+}

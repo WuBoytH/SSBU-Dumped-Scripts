@@ -1,0 +1,11 @@
+#[acmd_script( agent = "ridley_gunship", script = "effect_visualscene05" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_visualscene05(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("ridley_final_beam_b"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("ridley_final_screen"), true, true);
+		EFFECT(fighter, Hash40::new("ridley_final_explosion"), Hash40::new("throw1"), 10, -0.0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 0.5);
+	}
+}

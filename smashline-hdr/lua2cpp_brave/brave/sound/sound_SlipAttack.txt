@@ -1,0 +1,21 @@
+#[acmd_script( agent = "brave", script = "sound_slipattack" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_slipattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_brave_rise"));
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_brave_attackhard_s02"));
+	}
+	frame(lua_state, 26.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_brave_attackair_f01"));
+	}
+	frame(lua_state, 54.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_brave_step_left_s"));
+	}
+}

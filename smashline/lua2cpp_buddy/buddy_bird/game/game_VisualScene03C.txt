@@ -1,0 +1,9 @@
+#[acmd_script( agent = "buddy_bird", script = "game_visualscene03c" , category = ACMD_GAME , low_priority)]
+unsafe fn game_visualscene03c(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_whole(fighter.module_accessor, false);
+	}
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_whole(fighter.module_accessor, true);
+	}

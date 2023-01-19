@@ -1,0 +1,20 @@
+#[acmd_script( agent = "diddy", script = "effect_finalend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("diddy_final_fly_end"), Hash40::new("bust"), -3, -3.5, 4.2, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("diddy_final_fly_end"), Hash40::new("bust"), -3, -3.5, -4.2, 0, 0, 0, 1, true);
+	}
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x148390(84648550082, 0)){;
+		if is_excute(fighter) {
+			EFFECT_FOLLOW(fighter, Hash40::new("diddy_bjet_landing"), Hash40::new("top"), 0, -3, 0, 0, -90, 0, 1.5, true);
+		}
+		else{;
+		if is_excute(fighter) {
+			EFFECT_FOLLOW(fighter, Hash40::new("diddy_bjet_landing"), Hash40::new("top"), 0, -3, 0, 0, 90, 0, 1.5, true);
+		}
+	}
+}
+}

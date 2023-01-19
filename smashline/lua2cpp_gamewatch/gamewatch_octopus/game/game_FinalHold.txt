@@ -1,0 +1,11 @@
+#[acmd_script( agent = "gamewatch_octopus", script = "game_finalhold" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalhold(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::HIT_NODE(fighter, Hash40::new("roty"), *HIT_STATUS_XLU);
+		macros::ATTACK(fighter, 0, 0, Hash40::new("roty"), 15.0, 150, 100, 100, 0, 15.0, 0.0, 7.0, 6.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, Hash40::new("no"), 0.0, 35, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("roty"), 15.0, 150, 100, 100, 0, 17.0, 0.0, 6.0, -17.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, Hash40::new("no"), 0.0, 35, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
+		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, true, -1, false);
+		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 1, true, true, -1, false);
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 0, false);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}

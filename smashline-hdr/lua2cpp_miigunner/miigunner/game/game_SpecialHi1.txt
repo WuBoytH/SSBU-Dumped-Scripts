@@ -1,0 +1,21 @@
+#[acmd_script( agent = "miigunner", script = "game_specialhi1" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhi1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 6.0);
+	FT_MOTION_RATE(fighter, 0.5);
+	frame(lua_state, 10.0);
+	FT_MOTION_RATE(fighter, 1);
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_MIIGUNNER_STATUS_BOTTOM_SHOOT_FLAG_JUMP);
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_MIIGUNNER_GENERATE_ARTICLE_BOTTOMSHOOT);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS);
+	}
+}

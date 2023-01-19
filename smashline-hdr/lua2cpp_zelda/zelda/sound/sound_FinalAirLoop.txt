@@ -1,0 +1,14 @@
+#[acmd_script( agent = "zelda", script = "sound_finalairloop" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_finalairloop(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_zelda_final01"));
+		PLAY_STATUS(fighter, Hash40::new("se_zelda_final03"));
+	}
+	frame(lua_state, 135.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_zelda_final03_end"));
+	}
+}

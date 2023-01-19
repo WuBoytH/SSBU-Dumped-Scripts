@@ -1,0 +1,8 @@
+#[acmd_script( agent = "trail", script = "game_specialairn12" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairn12(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_TRAIL_INSTANCE_WORK_ID_FLAG_MAGIC_SELECT_FORBID);
+	}
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	frame(fighter.lua_state_agent, 26.0);
+	FT_START_ADJUST_MOTION_FRAME_REVISED_arg1(1);

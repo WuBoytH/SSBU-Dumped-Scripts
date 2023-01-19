@@ -1,0 +1,15 @@
+#[acmd_script( agent = "metaknight", script = "game_specialairlwend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlwend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(*FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, Hash40::new("special_lw_end"));
+		ArticleModule::change_motion(boma);
+		KineticModule::change_kinetic(boma, *FIGHTER_KINETIC_TYPE_METAKNIGHT_SPECIAL_LW_END);
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		KineticModule::enable_energy(boma, *FIGHTER_KINETIC_ENERGY_ID_GRAVITY);
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+	}
+}

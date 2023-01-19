@@ -1,0 +1,20 @@
+#[acmd_script( agent = "ryu", script = "effect_walkslow" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_walkslow(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait_loop_sync_mot();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 4, 0, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 37.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 68.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 4, 0, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 102.0);
+	FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 0, 0, false);
+}

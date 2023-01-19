@@ -1,0 +1,18 @@
+#[acmd_script( agent = "lucario", script = "effect_specialairhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairhi(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("lucario_sinsoku_hold"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("lucario_sinsoku_hold"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_shield_smoke"), false, false);
+	}
+	frame(fighter.lua_state_agent, 28.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("lucario_sinsoku_hadou1"), Hash40::new("havel"), 0, 0, 0, 0, -30, 180, 1.5, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("lucario_sinsoku_hadou1"), Hash40::new("haver"), 0, 0, 0, 0, -30, 0, 1.5, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}

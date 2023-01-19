@@ -1,0 +1,16 @@
+#[acmd_script( agent = "nana", script = "sound_throwf" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_throwf(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	WorkModule::is_flag(boma, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA);
+	0x1478c0(false, true);
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_throw_01"));
+		PLAY_SE(fighter, Hash40::new("vc_popo_attack01"));
+	}
+	wait(lua_state, 21.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_popo_swing_l"));
+	}
+}

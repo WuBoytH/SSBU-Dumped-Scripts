@@ -1,0 +1,20 @@
+#[acmd_script( agent = "miigunner", script = "effect_appeallwr" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appeallwr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_shield_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 0.8, true);
+		LAST_EFFECT_SET_ALPHA(fighter, 0.5);
+	}
+	for(11 Iterations){;
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("miigunner_appeal_lw"), Hash40::new("armr"), 5.5, 0, 0, 0, 0, -90, 0.6, 0, 0, 0, 0, 0, 0, true);
+	}
+	wait(lua_state, 4.0);
+}
+wait(lua_state, 4.0);
+if is_excute(fighter) {
+	EFFECT_OFF_KIND(fighter, Hash40::new("sys_shield_smoke"), false, false);
+}
+}

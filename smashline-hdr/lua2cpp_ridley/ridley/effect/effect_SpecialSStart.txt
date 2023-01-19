@@ -1,0 +1,18 @@
+#[acmd_script( agent = "ridley", script = "effect_specialsstart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialsstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("ridley_grabbing_hold"), Hash40::new("havel"), -1, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 21.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 39.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("ridley_scratch"), Hash40::new("ridley_scratch"), Hash40::new("top"), -5, 8, 8, -124, 72.5, 70, 1, true, *EF_FLIP_YZ);
+		LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+}

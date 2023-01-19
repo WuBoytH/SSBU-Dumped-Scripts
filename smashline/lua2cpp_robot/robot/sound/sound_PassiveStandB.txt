@@ -1,0 +1,11 @@
+#[acmd_script( agent = "robot", script = "sound_passivestandb" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_passivestandb(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_robot_dash_start"));
+	}
+	frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_robot_landing01"));
+		macros::PLAY_SE(fighter, Hash40::new("se_robot_escapefb"));
+	}

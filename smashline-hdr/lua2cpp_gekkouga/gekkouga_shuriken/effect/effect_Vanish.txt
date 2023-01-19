@@ -1,0 +1,10 @@
+#[acmd_script( agent = "gekkouga_shuriken", script = "effect_vanish" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_vanish(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_mizusyuriken"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_mizusyuriken_s"), false, false);
+		EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_mizusyuriken_tail_s"), false, false);
+	}
+}

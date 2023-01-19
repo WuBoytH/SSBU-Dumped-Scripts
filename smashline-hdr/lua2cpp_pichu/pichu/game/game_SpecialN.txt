@@ -1,0 +1,12 @@
+#[acmd_script( agent = "pichu", script = "game_specialn" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialn(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_PICHU_GENERATE_ARTICLE_DENGEKIDAMA);
+	}
+	if is_excute(fighter) {
+		FT_ADD_DAMAGE(fighter, 0.7);
+	}
+}

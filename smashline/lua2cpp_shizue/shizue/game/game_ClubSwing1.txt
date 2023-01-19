@@ -1,0 +1,18 @@
+#[acmd_script( agent = "shizue", script = "game_clubswing1" , category = ACMD_GAME , low_priority)]
+unsafe fn game_clubswing1(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 0.5);
+		ItemModule::set_have_item_scale_anim(fighter.module_accessor, 3, 1.1);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		ItemModule::set_have_item_action(fighter.module_accessor, *ITEM_SWING_ACTION_BEGIN);
+	}
+	frame(fighter.lua_state_agent, 4.0);
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_ClubSwing1Common()();
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		MotionModule::set_rate(fighter.module_accessor, 0.8);
+		AttackModule::clear_all(fighter.module_accessor);
+		ItemModule::set_have_item_scale_anim(fighter.module_accessor, 10, 1);
+	}

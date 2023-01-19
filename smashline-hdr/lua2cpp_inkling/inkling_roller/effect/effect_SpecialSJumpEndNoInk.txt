@@ -1,0 +1,9 @@
+#[acmd_script( agent = "inkling_roller", script = "effect_specialsjumpendnoink" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialsjumpendnoink(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("inkling_roller_splash_run"), false, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("inkling_roller_splash_walk"), false, true);
+	}
+}

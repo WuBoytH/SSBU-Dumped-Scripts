@@ -1,0 +1,25 @@
+#[acmd_script( agent = "metaknight", script = "effect_attack100" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack100(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("metaknight_sword"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("metaknight_attack"), Hash40::new("top"), -0.0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::set_disable_render_offset_last(boma);
+	}
+	wait(lua_state, 4.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1.2, 10, 0, 2, 0, 0, 0, false);
+	}
+	wait(lua_state, 6.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1.5, 10, 0, 2, 0, 0, 0, false);
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1.5, 10, 0, 2, 0, 0, 0, false);
+	}
+	wait(lua_state, 7.0);
+}

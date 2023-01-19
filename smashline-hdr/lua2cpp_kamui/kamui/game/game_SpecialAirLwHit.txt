@@ -1,0 +1,19 @@
+#[acmd_script( agent = "kamui", script = "game_specialairlwhit" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlwhit(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON);
+		ArticleModule::set_visibility_whole(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, false);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		VisibilityModule::set_whole(boma, false);
+		ArticleModule::set_visibility_whole(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, true);
+	}
+	frame(lua_state, 40.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON);
+		VisibilityModule::set_whole(boma, true);
+	}
+}

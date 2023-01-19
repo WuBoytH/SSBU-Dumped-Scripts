@@ -1,0 +1,18 @@
+#[acmd_script( agent = "cloud", script = "expression_attacks4charge" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_attacks4charge(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		physics(*MA_MSC_CMD_PHYSICS_START_CHARGE, -1, -1, -1, -1, 0.9, -1, Hash40::new("invalid"));
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_L);
+		AREA_WIND_2ND_arg10(0, 0.1, 15, 20, 0.01, -8, 4, 16, 8, 1);
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_smashhold1"), 0, true);
+		ControlModule::set_rumble(boma);
+		ItemModule::set_have_item_visibility(boma, false);
+	}
+	frame(lua_state, 61.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_smashhold2"), 0, true);
+		ControlModule::set_rumble(boma);
+	}
+}

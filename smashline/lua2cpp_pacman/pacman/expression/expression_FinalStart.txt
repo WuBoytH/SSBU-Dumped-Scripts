@@ -1,0 +1,21 @@
+#[acmd_script( agent = "pacman", script = "expression_finalstart" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_finalstart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::START_INFO_FLASH_EYE(fighter);
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("final_poweresa"), Hash40::new("final_poweresa_disp"));
+	}
+	frame(fighter.lua_state_agent, 77.0);
+	if macros::is_excute(fighter) {
+		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("final_poweresa"), Hash40::new("final_poweresa_disp_off"));
+	}
+	frame(fighter.lua_state_agent, 88.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_warpstar"), 0, true);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 155.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+	}

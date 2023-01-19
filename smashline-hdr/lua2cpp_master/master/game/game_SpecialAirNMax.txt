@@ -1,0 +1,28 @@
+#[acmd_script( agent = "master", script = "game_specialairnmax" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairnmax(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	IS_EXIST_ARTICLE(fighter, FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){;
+		if is_excute(fighter) {
+			ArticleModule::remove_exist(boma, FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1);
+		}
+	}
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, FIGHTER_MASTER_GENERATE_ARTICLE_ARROW2);
+		ArticleModule::shoot_exist(boma, FIGHTER_MASTER_GENERATE_ARTICLE_ARROW2, *ARTICLE_OPE_TARGET_ALL, false);
+		SET_SPEED_EX(fighter, -0.6, 1.8, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_N_FLAG_REVERT_FALL_SPEED);
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_N_FLAG_ENABLE_CONTROL_ENERGY);
+	}
+	frame(lua_state, 48.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW);
+	}
+}

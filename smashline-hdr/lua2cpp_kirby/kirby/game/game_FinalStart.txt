@@ -1,0 +1,66 @@
+#[acmd_script( agent = "kirby", script = "game_finalstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		SLOW_OPPONENT(fighter, 4, 50);
+		WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		ArticleModule::generate_article(boma, *FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORD, false);
+		ArticleModule::generate_article(boma, *FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORDHAT, false);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORD, Hash40::new("final_start"));
+		ArticleModule::change_motion(boma);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORDHAT, Hash40::new("final_start"));
+		ArticleModule::change_motion(boma);
+		CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 30, 0, 0, 0);
+	}
+	WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+	if(0x543c60(false, false)){;
+		frame(lua_state, 10.0);
+		if is_excute(fighter) {
+			FT_SET_FINAL_FEAR_FACE(fighter, 60);
+			REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04finalstart.nuanmb"), false);
+			FT_START_CUTIN(fighter);
+		}
+		else{;
+		if is_excute(fighter) {
+			PostureModule::scale(boma, 5, 0);
+			0x543c60(-1165490952, 1.3);
+			CAM_ZOOM_IN_arg5(0, 0);
+			FT_START_CUTIN(fighter);
+			camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 20, 0, 0, 0);
+		}
+	}
+}
+frame(lua_state, 17.0);
+if is_excute(fighter) {
+	ATTACK(fighter, 0, 0, Hash40::new("top"), 3.0, 22, 100, 30, 0, 10.0, 0.0, 8.0, 15.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, Hash40::new("no"), 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_NONE);
+	AttackModule::set_no_dead_all(boma, true, false);
+	AttackModule::set_catch_only_all(boma, true, false);
+}
+frame(lua_state, 20.0);
+if is_excute(fighter) {
+	AttackModule::clear_all(boma);
+}
+frame(lua_state, 22.0);
+if is_excute(fighter) {
+	camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 25, -5, 10, -5);
+}
+frame(lua_state, 54.0);
+if is_excute(fighter) {
+	ATTACK(fighter, 0, 0, Hash40::new("haver"), 5.0, 361, 0, 0, 70, 9.0, 0.0, 0.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, Hash40::new("no"), 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+	ATTACK(fighter, 1, 0, Hash40::new("haver"), 5.0, 361, 0, 0, 70, 9.0, 0.0, 18.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, Hash40::new("no"), 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+	ATTACK(fighter, 2, 0, Hash40::new("haver"), 5.0, 361, 0, 0, 70, 9.0, 0.0, 35.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, Hash40::new("no"), 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+	ATTACK(fighter, 3, 0, Hash40::new("throw"), 5.0, 361, 0, 0, 70, 9.0, -4.0, 5.0, 1.5, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, Hash40::new("no"), 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+	AttackModule::set_no_dead_all(boma, true, false);
+}
+frame(lua_state, 58.0);
+if is_excute(fighter) {
+	ATTACK(fighter, 3, 0, Hash40::new("throw"), 5.0, 361, 0, 0, 70, 8.0, 5.0, 10.0, 1.5, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, Hash40::new("no"), 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+	AttackModule::set_no_dead_all(boma, true, false);
+}
+frame(lua_state, 61.0);
+if is_excute(fighter) {
+	AttackModule::clear_all(boma);
+}
+}

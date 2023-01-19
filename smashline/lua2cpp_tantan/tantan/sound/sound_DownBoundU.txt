@@ -1,0 +1,15 @@
+#[acmd_script( agent = "tantan", script = "sound_downboundu" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_downboundu(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_common_blowaway_s"));
+		macros::STOP_SE(fighter, Hash40::new("se_common_blowaway_m"));
+		macros::STOP_SE(fighter, Hash40::new("se_common_blowaway_l"));
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_DOWN_SE(fighter, Hash40::new("se_common_down_soil_s"));
+	}
+	frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_DOWN_SE(fighter, Hash40::new("se_common_down_soil_ss"));
+	}

@@ -1,0 +1,17 @@
+#[acmd_script( agent = "master", script = "sound_attackairf" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attackairf(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_master_rnd_attack02"));
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_master_attackair_f01"));
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_master_cloth_m"));
+	}
+}

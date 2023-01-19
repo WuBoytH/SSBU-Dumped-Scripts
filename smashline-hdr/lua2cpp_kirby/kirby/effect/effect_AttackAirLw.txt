@@ -1,0 +1,23 @@
+#[acmd_script( agent = "kirby", script = "effect_attackairlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairlw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP_RND(fighter, Hash40::new("sys_spin_wind"), Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 1, 0, 0, 0, 0, 0.7, 1, 1, 1, 0, 90, 0, true, *EF_FLIP_YZ);
+		EFFECT_FOLLOW_FLIP_RND(fighter, Hash40::new("sys_spin_wind"), Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, -8, -1.5, 0, 0, 0, 0.4, 1, 1, 1, 0, 90, 0, true, *EF_FLIP_YZ);
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP_RND(fighter, Hash40::new("sys_spin_wind"), Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, -6, -1.5, 0, 110, 0, 0.5, 1, 1, 1, 0, 90, 0, true, *EF_FLIP_YZ);
+	}
+	frame(lua_state, 21.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP_RND(fighter, Hash40::new("sys_spin_wind"), Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, -1, 0, 0, 40, 0, 0.6, 1, 1, 1, 0, 90, 0, true, *EF_FLIP_YZ);
+		EFFECT_FOLLOW_FLIP_RND(fighter, Hash40::new("sys_spin_wind"), Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, -9, -2, 0, 0, 0, 0.35, 1, 1, 1, 0, 90, 0, true, *EF_FLIP_YZ);
+	}
+}

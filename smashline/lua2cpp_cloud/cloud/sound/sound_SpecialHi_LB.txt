@@ -1,0 +1,16 @@
+#[acmd_script( agent = "cloud", script = "sound_specialhi_lb" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialhi_lb(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_cloud_special_lbstart"));
+		macros::PLAY_SE(fighter, Hash40::new("se_cloud_special_h05"));
+	}
+	wait(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_cloud_rnd_special_h01_lb"));
+		macros::PLAY_SE(fighter, Hash40::new("se_cloud_special_h06"));
+	}
+	wait(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_cloud_special_h07"));
+	}

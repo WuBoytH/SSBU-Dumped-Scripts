@@ -1,0 +1,10 @@
+#[acmd_script( agent = "jack", script = "game_specialairnrandomstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairnrandomstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.5);
+	if is_excute(fighter) {
+		KineticModule::add_speed(boma, 0, 0.3, 0.0);
+	}
+}

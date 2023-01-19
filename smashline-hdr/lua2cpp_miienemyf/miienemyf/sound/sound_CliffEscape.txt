@@ -1,0 +1,17 @@
+#[acmd_script( agent = "miienemyf", script = "sound_cliffescape" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_cliffescape(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_miienemyf_dash_start"));
+	}
+	frame(lua_state, 21.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_miienemyf_escape"));
+	}
+	frame(lua_state, 38.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_miienemyf_landing01"));
+	}
+}

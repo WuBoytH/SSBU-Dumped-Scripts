@@ -1,0 +1,13 @@
+#[acmd_script( agent = "koopag", script = "effect_wait1" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_wait1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("koopag_wait_breath"), Hash40::new("mouth1"), 0, -3.7, 0, 0, 0, 0, 1.35, true);
+	}
+	frame(lua_state, 130.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("koopag_wait_breath"), Hash40::new("mouth1"), 0, -3.7, 0, 0, 0, 0, 1.35, true);
+	}
+}

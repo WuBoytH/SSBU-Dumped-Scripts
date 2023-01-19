@@ -1,0 +1,26 @@
+#[acmd_script( agent = "ness", script = "game_attackhi4" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attackhi4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.74);
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		ArticleModule::set_visibility_whole(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, true);
+		ArticleModule::set_visibility_whole(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO, true);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		ArticleModule::shoot(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, *ARTICLE_OPE_TARGET_ALL, false);
+	}
+	frame(lua_state, 12.0);
+	FT_MOTION_RATE(fighter, 1);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
+	}
+	frame(lua_state, 56.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO);
+		ArticleModule::remove_exist(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD);
+	}
+}

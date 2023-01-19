@@ -1,0 +1,17 @@
+#[acmd_script( agent = "snake", script = "effect_attack12" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack12(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_attack_line"), Hash40::new("top"), 0, 12, -2, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.2);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		EFFECT_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 12, 10, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 360, true, 0.5);
+	}
+}

@@ -1,0 +1,11 @@
+#[acmd_script( agent = "nana", script = "sound_jumpfront_nana" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_jumpfront_nana(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	WorkModule::is_flag(boma, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING);
+	0x1478c0(false, true);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_popo_jump01"));
+	}
+}

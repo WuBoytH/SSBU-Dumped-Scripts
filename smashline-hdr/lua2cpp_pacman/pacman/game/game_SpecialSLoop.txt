@@ -1,0 +1,8 @@
+#[acmd_script( agent = "pacman", script = "game_specialsloop" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialsloop(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ArticleModule::shoot(boma, *FIGHTER_PACMAN_GENERATE_ARTICLE_ESA, *ARTICLE_OPE_TARGET_ALL, false);
+	}
+}

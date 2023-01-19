@@ -1,0 +1,12 @@
+#[acmd_script( agent = "link", script = "sound_speciallw" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_speciallw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 22.0);
+	get_value_int(*SO_VAR_INT_HAVE_ITEM_KIND);
+	if(0x11e440(0, *ITEM_KIND_LINKBOMB)){;
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("se_link_special_l01"));
+		}
+	}
+}

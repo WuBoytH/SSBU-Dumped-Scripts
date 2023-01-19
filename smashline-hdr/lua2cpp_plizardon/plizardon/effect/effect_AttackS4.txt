@@ -1,0 +1,17 @@
+#[acmd_script( agent = "plizardon", script = "effect_attacks4" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attacks4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("head"), 4, 5.0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("plizardon_smash_arc2"), Hash40::new("plizardon_smash_arc2"), Hash40::new("top"), 7, 8, 3, 0, -80, 20, 1.25, true, *EF_FLIP_YZ);
+	}
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+}

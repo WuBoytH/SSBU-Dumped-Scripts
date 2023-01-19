@@ -1,0 +1,30 @@
+#[acmd_script( agent = "brave", script = "sound_specials2_us_en" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specials2_us_en(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	WorkModule::is_flag(boma, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP);
+	if(0x23a020(false, true)){;
+		if is_excute(fighter) {
+			STOP_SE(fighter, Hash40::new("se_brave_special_s01"));
+		}
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_brave_special_s04"));
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_brave_rnd_special_s2_en"));
+	}
+	else{;
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_brave_special_s01"));
+	}
+}
+frame(lua_state, 10.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("se_brave_miss"));
+}
+frame(lua_state, 45.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("se_brave_special_s07"));
+}
+}

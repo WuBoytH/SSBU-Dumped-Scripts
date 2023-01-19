@@ -1,0 +1,28 @@
+#[acmd_script( agent = "elight", script = "effect_finalattack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_eelight_final2"), false);
+		EffectModule::req_screen(boma);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_sword_beam_l"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_final_sword_light"), Hash40::new("sword1"), 4.5, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 100.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_aura"), false, true);
+	}
+	frame(lua_state, 135.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_final_aura"), false, false);
+	}
+	frame(lua_state, 145.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_final_sword_light"), false, false);
+	}
+	frame(lua_state, 172.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_sword_beam_l"), true, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_sword_close_l"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+	}
+}

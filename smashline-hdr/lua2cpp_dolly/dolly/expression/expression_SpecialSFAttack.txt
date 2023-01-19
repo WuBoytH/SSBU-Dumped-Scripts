@@ -1,0 +1,27 @@
+#[acmd_script( agent = "dolly", script = "expression_specialsfattack" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_specialsfattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	WorkModule::is_flag(boma, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND);
+	if(0x2508e0(false, true)){;
+		0x2508e0(*FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_INT_STRENGTH, *FIGHTER_DOLLY_STRENGTH_W);
+		if is_excute(fighter) {
+			QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
+		}
+	}
+	if is_excute(fighter) {
+		ItemModule::set_have_item_visibility(boma, false);
+	}
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_dash"), 4, false);
+		ControlModule::set_rumble(boma);
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_elecattack"), 0, true);
+		ControlModule::set_rumble(boma);
+	}
+	wait(lua_state, 2.0);
+}

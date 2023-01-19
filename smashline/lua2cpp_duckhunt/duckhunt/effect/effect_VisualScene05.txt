@@ -1,0 +1,26 @@
+#[acmd_script( agent = "duckhunt", script = "effect_visualscene05" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_visualscene05(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_final_muzzle"), true, true);
+		macros::EFFECT(fighter, Hash40::new("duckhunt_final_hit3"), Hash40::new("top"), -2, 3, -4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.5);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("duckhunt_final_hit"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, 5, 5, 0, 0, 0, 0, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.3);
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("duckhunt_final_can"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.2);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("duckhunt_final_hit2"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 0.2);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		EffectModule::remove_post_effect_line(fighter.module_accessor, 6, true);
+	}

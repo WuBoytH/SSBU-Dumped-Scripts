@@ -1,0 +1,7 @@
+#[acmd_script( agent = "ike", script = "game_specialhi1" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhi1(fighter: &mut L2CAgentBase) {
+	macros::FT_MOTION_RATE(fighter, 0.82);
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		damage(MSC=*MA_MSC_DAMAGE_DAMAGE_NO_REACTION, Type=*DAMAGE_NO_REACTION_MODE_ALWAYS, DamageThreshold=0);
+	}

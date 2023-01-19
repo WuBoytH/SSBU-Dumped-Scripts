@@ -1,0 +1,12 @@
+#[acmd_script( agent = "simon", script = "game_guardoff" , category = ACMD_GAME , low_priority)]
+unsafe fn game_guardoff(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		HIT_NODE(fighter, Hash40::new("head"), *HIT_STATUS_XLU);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		HitModule::set_status_all(boma, *HIT_STATUS_NORMAL);
+	}
+}

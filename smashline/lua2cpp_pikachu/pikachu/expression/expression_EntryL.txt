@@ -1,0 +1,25 @@
+#[acmd_script( agent = "pikachu", script = "expression_entryl" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_entryl(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_whole(fighter.module_accessor, false);
+		ItemModule::set_attach_item_visibility(fighter.module_accessor, false);
+		notify_event_msc_cmd(0x1f20a9d549, false);
+		notify_event_msc_cmd(0x24772eddef, false);
+	}
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		ItemModule::set_attach_item_visibility(fighter.module_accessor, true);
+	}
+	frame(fighter.lua_state_agent, 21.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_whole(fighter.module_accessor, true);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd(0x1f20a9d549, true);
+		notify_event_msc_cmd(0x24772eddef, true);
+	}
+	frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_PIKACHU_GENERATE_ARTICLE_MONSTERBALL, false);
+	}

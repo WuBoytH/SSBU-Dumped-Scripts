@@ -1,0 +1,8 @@
+#[acmd_script( agent = "samus_missile", script = "effect_hburst" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_hburst(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_BRANCH_SITUATION(fighter, Hash40::new("sys_bomb_a"), Hash40::new("sys_bomb_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, true);
+	}
+}

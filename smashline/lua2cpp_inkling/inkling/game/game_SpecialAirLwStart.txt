@@ -1,0 +1,8 @@
+#[acmd_script( agent = "inkling", script = "game_specialairlwstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlwstart(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.66);
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INKLING_STATUS_SPECIAL_LW_FLAG_TO_THROW_OK);
+	}

@@ -1,0 +1,14 @@
+#[acmd_script( agent = "link", script = "expression_entryr" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_entryr(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("sword"), Hash40::new("sword_back"));
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("shield"), Hash40::new("shield_back"));
+	}
+	frame(fighter.lua_state_agent, 76.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("shield"), Hash40::new("shield_normal"));
+	}
+	frame(fighter.lua_state_agent, 77.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("sword"), Hash40::new("sword_normal"));
+	}

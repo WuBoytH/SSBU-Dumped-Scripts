@@ -1,0 +1,6 @@
+#[acmd_script( agent = "rosetta", script = "game_specialncharge" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialncharge(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_ROSETTA_STATUS_SPECIAL_N_FLAG_CHARGE_SKIP);
+	}

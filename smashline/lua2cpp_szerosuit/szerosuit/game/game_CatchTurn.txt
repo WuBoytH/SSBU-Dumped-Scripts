@@ -1,0 +1,30 @@
+#[acmd_script( agent = "szerosuit", script = "game_catchturn" , category = ACMD_GAME , low_priority)]
+unsafe fn game_catchturn(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP, Hash40::new("catch_turn"));
+		ArticleModule::change_motion(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		GrabModule::set_rebound(fighter.module_accessor, true);
+	}
+	frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		macros::CATCH(fighter, 0, Hash40::new("throw"), 3.0, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_GA);
+		macros::CATCH(fighter, 1, Hash40::new("handr"), 2.0, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_GA);
+	}
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
+	frame(fighter.lua_state_agent, 21.0);
+	if macros::is_excute(fighter) {
+		grab(*MA_MSC_CMD_GRAB_CLEAR, 1);
+	}
+	frame(fighter.lua_state_agent, 27.0);
+	if macros::is_excute(fighter) {
+		grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+		GrabModule::set_rebound(fighter.module_accessor, false);
+	}
+	frame(fighter.lua_state_agent, 57.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP);
+	}

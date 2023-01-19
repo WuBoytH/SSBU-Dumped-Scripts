@@ -1,0 +1,11 @@
+#[acmd_script( agent = "toonlink", script = "game_appealhir" , category = ACMD_GAME , low_priority)]
+unsafe fn game_appealhir(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_TAKT);
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_TAKT, true);
+	}
+	frame(fighter.lua_state_agent, 80.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_TAKT);
+	}

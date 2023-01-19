@@ -1,0 +1,12 @@
+#[acmd_script( agent = "wiifit", script = "sound_passivewall" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_passivewall(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_common_blowaway_s"));
+		STOP_SE(fighter, Hash40::new("se_common_blowaway_m"));
+		STOP_SE(fighter, Hash40::new("se_common_blowaway_l"));
+		PLAY_SE(fighter, Hash40::new("vc_wiifit_passive"));
+		PLAY_SE(fighter, Hash40::new("se_wiifit_landing01"));
+	}
+}

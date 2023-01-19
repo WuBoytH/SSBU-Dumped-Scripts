@@ -1,0 +1,14 @@
+#[acmd_script( agent = "captain", script = "sound_appealsl" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appealsl(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_LANDING_SE(fighter, Hash40::new("se_captain_landing01"));
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_swing_04"));
+	}
+	frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_captain_appeal02"));
+	}

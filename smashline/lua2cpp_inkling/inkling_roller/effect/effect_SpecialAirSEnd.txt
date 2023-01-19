@@ -1,0 +1,19 @@
+#[acmd_script( agent = "inkling_roller", script = "effect_specialairsend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairsend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_DETACH_KIND(fighter, Hash40::new("inkling_roller_splash_run"), -1);
+		macros::EFFECT_DETACH_KIND(fighter, Hash40::new("inkling_roller_splash_walk"), -1);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("inkling_roller_splash_run"), false, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("inkling_roller_splash_walk"), false, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("inkling_roller_splash_air"), Hash40::new("neck"), 0, 5, 0, 0, 0, 90, 1, true);
+	}
+	WorkModule::get_float(fighter.module_accessor, *WEAPON_INKLING_ROLLER_INSTANCE_WORK_ID_FLOAT_R);
+	WorkModule::get_float(fighter.module_accessor, -1407754940, *WEAPON_INKLING_ROLLER_INSTANCE_WORK_ID_FLOAT_G);
+	WorkModule::get_float(fighter.module_accessor, -1407754940, *WEAPON_INKLING_ROLLER_INSTANCE_WORK_ID_FLOAT_B);
+	if macros::is_excute(fighter) {
+		macros::LAST_PARTICLE_SET_COLOR(fighter);
+	}
+	frame(0, 6);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("inkling_roller_splash_air"), false, true);
+	}

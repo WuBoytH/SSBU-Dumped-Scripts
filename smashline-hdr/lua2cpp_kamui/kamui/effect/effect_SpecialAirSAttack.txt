@@ -1,0 +1,29 @@
+#[acmd_script( agent = "kamui", script = "effect_specialairsattack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairsattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("handl"), 14.5, 0, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
+		EFFECT_FOLLOW(fighter, Hash40::new("kamui_attack_line_hi4"), Hash40::new("handl"), -7, -0.15, 0, 0, 90, -0.3, 1, true);
+		EFFECT_FLW_POS(fighter, Hash40::new("kamui_attack_flash"), Hash40::new("handl"), 15, 0, 0, 0, 0, 0, 0.9, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("kamui_attack_line_hi4"), false, true);
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
+	}
+	frame(lua_state, 48.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+	}
+}

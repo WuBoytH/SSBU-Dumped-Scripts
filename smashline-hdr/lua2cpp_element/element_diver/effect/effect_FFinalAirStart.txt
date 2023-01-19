@@ -1,0 +1,67 @@
+#[acmd_script( agent = "element_diver", script = "effect_ffinalairstart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_ffinalairstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("eflame_final_appearance2"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("eflame_final_activate"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_open"), Hash40::new("haver"), 0, 0.1, 0, -90, 90, 0, 1, true);
+	}
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_open"), false, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_beam_l2"), Hash40::new("haver"), 0, 0.1, 0, -90, 90, 0, 1, true);
+	}
+	frame(lua_state, 50.0);
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(methodlib::L2CValue::operator<(lib::L2CValueconst&)const(0, 0)){;
+		if is_excute(fighter) {
+			EFFECT_FOLLOW(fighter, Hash40::new("eflame_final_start_l"), Hash40::new("top"), 0, 0, -9.5, 0, 0, 0, 1, false);
+		}
+		else{;
+		if is_excute(fighter) {
+			EFFECT_FOLLOW(fighter, Hash40::new("eflame_final_start"), Hash40::new("top"), 0, 0, -9.5, 0, 0, 0, 1, false);
+		}
+	}
+}
+frame(lua_state, 65.0);
+if is_excute(fighter) {
+	EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_activate"), false, false);
+}
+frame(lua_state, 68.0);
+if is_excute(fighter) {
+	EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_close"), Hash40::new("haver"), 0, 0, 0, -90, 90, 0, 1, true);
+	EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_beam_l2"), false, true);
+	EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_open"), false, true);
+}
+frame(lua_state, 87.0);
+if is_excute(fighter) {
+	EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("armr"), 5, 0, -0.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	FLASH(fighter, 0.5, 0.5, 0.8, 0);
+	BURN_COLOR(fighter, 0.8, 1.5, 1.5, 0);
+	ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+}
+frame(lua_state, 105.0);
+if is_excute(fighter) {
+	FLASH_FRM(fighter, 15, 0.45, 0.45, 1, 0.4);
+	BURN_COLOR_FRAME(fighter, 13, 3.8, 22, 32, 1);
+	EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("eflame_appeal_vanish2"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+}
+frame(lua_state, 115.0);
+if is_excute(fighter) {
+	EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("eflame_appeal_vanish"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+}
+frame(lua_state, 122.0);
+if is_excute(fighter) {
+	EFFECT_DETACH_KIND(fighter, Hash40::new("eflame_appeal_vanish2"), -1);
+	EFFECT_DETACH_KIND(fighter, Hash40::new("eflame_appeal_vanish"), -1);
+	ColorBlendModule::set_disable_camera_depth_influence(boma, false);
+}
+}

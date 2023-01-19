@@ -1,0 +1,18 @@
+#[acmd_script( agent = "pzenigame", script = "game_specialnshot" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialnshot(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
+	}
+	macros::FT_MOTION_RATE(fighter, 0.85);
+	frame(fighter.lua_state_agent, 7.0);
+	for(6 Iterations){;
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PZENIGAME_GENERATE_ARTICLE_WATER);
+	}
+	wait(fighter.lua_state_agent, 4.0);
+}
+frame(fighter.lua_state_agent, 40.0);
+if macros::is_excute(fighter) {
+	WorkModule::off_flag(fighter.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
+}

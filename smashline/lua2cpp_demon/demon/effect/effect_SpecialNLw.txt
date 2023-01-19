@@ -1,0 +1,35 @@
+#[acmd_script( agent = "demon", script = "effect_specialnlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnlw(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("demon_blaster_aura"), Hash40::new("top"), 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 11.0);
+	for(3 Iterations){;
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1.6, 4, 0, 4, 0, 0, 0, false);
+	}
+	wait(fighter.lua_state_agent, 5.0);
+}
+frame(fighter.lua_state_agent, 58.0);
+if macros::is_excute(fighter) {
+	ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
+	macros::FLASH(fighter, 0.097, 0.006, 0.238, 0.15);
+	macros::BURN_COLOR(fighter, 6, 0, 40, 0.045);
+	macros::FLASH_FRM(fighter, 2, 0.097, 0.006, 0.238, 0.45);
+	macros::BURN_COLOR_FRAME(fighter, 2, 6, 0, 40, 0.13);
+}
+frame(fighter.lua_state_agent, 59.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_end"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, true);
+}
+frame(fighter.lua_state_agent, 61.0);
+if macros::is_excute(fighter) {
+	macros::FLASH(fighter, 0.097, 0.006, 0.238, 0.45);
+	macros::BURN_COLOR(fighter, 6, 0, 40, 0.13);
+	macros::FLASH_FRM(fighter, 8, 0.097, 0.006, 0.238, 0);
+	macros::BURN_COLOR_FRAME(fighter, 8, 6, 0, 40, 0);
+}

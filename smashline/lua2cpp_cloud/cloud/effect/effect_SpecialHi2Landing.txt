@@ -1,0 +1,16 @@
+#[acmd_script( agent = "cloud", script = "effect_specialhi2landing" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialhi2landing(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("cloud_climhazzard_slash2"), true, true);
+		macros::EFFECT_FOLLOW_WORK(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_CLIMHAZZARD_SWORD, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT(fighter, Hash40::new("cloud_climhazzard_slash3"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		macros::EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_CLIMHAZZARD_SWORD, false, true);
+	}

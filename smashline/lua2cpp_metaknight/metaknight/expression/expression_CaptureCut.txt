@@ -1,0 +1,6 @@
+#[acmd_script( agent = "metaknight", script = "expression_capturecut" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_capturecut(fighter: &mut L2CAgentBase) {
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_CaptureCutRumble()();
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_status_default_int64(fighter.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+	}

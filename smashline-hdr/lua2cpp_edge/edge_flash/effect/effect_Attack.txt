@@ -1,0 +1,46 @@
+#[acmd_script( agent = "edge_flash", script = "effect_attack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_RND(fighter, Hash40::new("edge_senkou_hold_attack"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, 7, 7, 7, 0, 0, 0, false);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_EDGE_FLASH_INSTANCE_WORK_ID_EFFECT_ID);
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_senkou_hold"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_EDGE_FLASH_INSTANCE_WORK_ID_EFFECT_ID);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_RND(fighter, Hash40::new("edge_senkou_hold_attack"), Hash40::new("top"), 0, -6, 0, 0, 0, 0, 1, 7, 7, 7, 0, 0, 0, false);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_EDGE_FLASH_INSTANCE_WORK_ID_EFFECT_ID);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_RND(fighter, Hash40::new("edge_senkou_hold_attack"), Hash40::new("top"), 0, 0, 6, 0, 0, 0, 1, 7, 7, 7, 0, 0, 0, false);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_EDGE_FLASH_INSTANCE_WORK_ID_EFFECT_ID);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_RND(fighter, Hash40::new("edge_senkou_hold_attack"), Hash40::new("top"), 0, 0, -6, 0, 0, 0, 1, 7, 7, 7, 0, 0, 0, false);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_EDGE_FLASH_INSTANCE_WORK_ID_EFFECT_ID);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_RND(fighter, Hash40::new("edge_senkou_hold_attack"), Hash40::new("top"), 0, -6, 0, 0, 0, 0, 1, 7, 7, 7, 0, 0, 0, false);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_EDGE_FLASH_INSTANCE_WORK_ID_EFFECT_ID);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_RND(fighter, Hash40::new("edge_senkou_hold_attack"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, 7, 7, 7, 0, 0, 0, false);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_EDGE_FLASH_INSTANCE_WORK_ID_EFFECT_ID);
+	}
+	wait(lua_state, 4.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_senkou_hold_end"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_EDGE_FLASH_INSTANCE_WORK_ID_EFFECT_ID);
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT_DETACH_KIND(fighter, Hash40::new("edge_senkou_hold"), -1);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("edge_senkou_hold_end"), -1);
+	}
+}

@@ -1,0 +1,16 @@
+#[acmd_script( agent = "lucas_bonnie", script = "effect_finalair" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("lucas_final_assist"), Hash40::new("top"), 0, 0, -4, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 52.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("head"), 0, 2.5, 0, 0, 0, 0, 1.5, false);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1.5, false);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 1.2, false);
+	}
+	frame(fighter.lua_state_agent, 348.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_assist_out"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}

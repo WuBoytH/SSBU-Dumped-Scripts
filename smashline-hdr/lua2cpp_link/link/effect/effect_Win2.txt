@@ -1,0 +1,19 @@
+#[acmd_script( agent = "link", script = "effect_win2" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 31.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("link_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+		LAST_EFFECT_SET_ALPHA(fighter, 0.7);
+	}
+	frame(lua_state, 37.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("sword1"), 13, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(lua_state, 49.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("link_sword"), false, true);
+	}
+}

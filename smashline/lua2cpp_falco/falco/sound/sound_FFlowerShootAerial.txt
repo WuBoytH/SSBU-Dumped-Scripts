@@ -1,0 +1,7 @@
+#[acmd_script( agent = "falco", script = "sound_fflowershootaerial" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_fflowershootaerial(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_falco_rnd_jump02"));
+		macros::PLAY_SE(fighter, Hash40::new("se_falco_jump02"));
+	}

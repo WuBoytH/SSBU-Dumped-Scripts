@@ -1,0 +1,7 @@
+#[acmd_script( agent = "chrom", script = "effect_throwhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 13.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}

@@ -1,0 +1,16 @@
+#[acmd_script( agent = "inkling", script = "expression_landingheavy" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_landingheavy(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_LandingHeavyRumble()();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	frame(lua_state, 24.0);
+	WorkModule::is_flag(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_BOY);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){;
+		if is_excute(fighter) {
+			FT_MOTION_INTP_WAIT(fighter);
+		}
+	}
+}

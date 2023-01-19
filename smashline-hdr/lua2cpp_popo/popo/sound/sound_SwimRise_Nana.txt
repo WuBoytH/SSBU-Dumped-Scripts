@@ -1,0 +1,23 @@
+#[acmd_script( agent = "popo", script = "sound_swimrise_nana" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_swimrise_nana(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_swim_high_02"));
+	}
+	wait(lua_state, 15.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_swim_high_01"));
+	}
+	wait(lua_state, 14.0);
+	methodlib::L2CAgent::pop();
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_swim_high_02"));
+	}
+	wait(lua_state, 15.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_swim_high_01"));
+	}
+	wait(lua_state, 14.0);
+	loc.imp._Unwind_Resume();
+}

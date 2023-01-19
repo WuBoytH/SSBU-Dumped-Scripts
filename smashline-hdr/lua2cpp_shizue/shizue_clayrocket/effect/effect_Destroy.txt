@@ -1,0 +1,9 @@
+#[acmd_script( agent = "shizue_clayrocket", script = "effect_destroy" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_destroy(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_bomb_a"), Hash40::new("have"), 0, 0, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, true);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("shizue_clayrocket_jet"), 10);
+	}
+}

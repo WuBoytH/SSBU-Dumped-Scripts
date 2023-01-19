@@ -1,0 +1,6 @@
+#[acmd_script( agent = "pichu", script = "game_specialairhi2" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairhi2(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::FT_ADD_DAMAGE(fighter, 1);
+		JostleModule::set_status(fighter.module_accessor, false);
+	}

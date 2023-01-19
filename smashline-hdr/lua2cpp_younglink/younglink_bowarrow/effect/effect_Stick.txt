@@ -1,0 +1,19 @@
+#[acmd_script( agent = "younglink_bowarrow", script = "effect_stick" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_stick(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("younglink_arrow_trace"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("younglink_arrow"), true, true);
+		EFFECT(fighter, Hash40::new("younglink_arrow_hit"), Hash40::new("top"), 0, -0.3, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT_OFF(fighter, *EFFECT_SUB_ATTRIBUTE_FOLLOW, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("younglink_arrow_fire"), Hash40::new("top"), 0, 0, -4, 0, 0, 0, 1, false);
+	}
+	frame(lua_state, 37.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_erace_smoke"), Hash40::new("top"), 0, 0, -7, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+	}
+}

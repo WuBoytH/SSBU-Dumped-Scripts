@@ -1,0 +1,11 @@
+#[acmd_script( agent = "inkling", script = "game_speciallwstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_speciallwstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.66);
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_INKLING_STATUS_SPECIAL_LW_FLAG_TO_THROW_OK);
+	}
+}

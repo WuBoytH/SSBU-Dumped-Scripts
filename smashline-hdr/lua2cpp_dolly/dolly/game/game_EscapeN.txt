@@ -1,0 +1,13 @@
+#[acmd_script( agent = "dolly", script = "game_escapen" , category = ACMD_GAME , low_priority)]
+unsafe fn game_escapen(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_DOLLY_STATUS_ESCAPE_WORK_FLAG_ATTACK);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_DOLLY_STATUS_ESCAPE_WORK_FLAG_ATTACK);
+	}
+}

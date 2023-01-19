@@ -1,0 +1,40 @@
+#[acmd_script( agent = "demon", script = "sound_throwcommand" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_throwcommand(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	FighterCutInManager::is_play_motion_camera(boma);
+	if(0x3cfb70(false, true)){;
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("se_demon_throwcommand_01"));
+		}
+		else{;
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("se_demon_throwcommand_01_low"));
+		}
+	}
+}
+frame(lua_state, 5.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("vc_demon_attack01"));
+}
+frame(lua_state, 27.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("se_demon_throwcommand_swing01"));
+}
+frame(lua_state, 30.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("vc_demon_attack05"));
+}
+frame(lua_state, 58.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("se_demon_down"));
+}
+frame(lua_state, 74.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("se_demon_throwcommand_swing02"));
+}
+frame(lua_state, 77.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("vc_demon_attack03"));
+}
+}

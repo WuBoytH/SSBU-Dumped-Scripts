@@ -1,0 +1,14 @@
+#[acmd_script( agent = "ganon", script = "expression_entryr" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_entryr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_L);
+		WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+	}
+	frame(lua_state, 60.0);
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 1);
+		WorkModule::off_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+	}
+}

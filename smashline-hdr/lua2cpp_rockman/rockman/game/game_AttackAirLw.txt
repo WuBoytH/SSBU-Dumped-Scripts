@@ -1,0 +1,19 @@
+#[acmd_script( agent = "rockman", script = "game_attackairlw" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attackairlw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_GRAVITY_STABLE_UNABLE);
+	}
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_ROCKMAN_GENERATE_ARTICLE_HARDKNUCKLE);
+		WorkModule::off_flag(boma, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_GRAVITY_STABLE_UNABLE);
+	}
+	frame(lua_state, 55.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+	}
+}

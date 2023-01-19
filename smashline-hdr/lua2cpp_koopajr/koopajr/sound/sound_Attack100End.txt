@@ -1,0 +1,18 @@
+#[acmd_script( agent = "koopajr", script = "sound_attack100end" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attack100end(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_koopajr_attack100_end"));
+		PLAY_SE(fighter, Hash40::new("vc_koopajr_attack05"));
+	}
+	frame(lua_state, 37.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_koopajr_close"));
+	}
+	frame(lua_state, 45.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_koopajr_close"));
+	}
+}

@@ -1,0 +1,12 @@
+#[acmd_script( agent = "nana", script = "expression_slip_nana" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_slip_nana(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_down"), 0, false);
+		ControlModule::set_rumble(boma);
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
+	}
+}

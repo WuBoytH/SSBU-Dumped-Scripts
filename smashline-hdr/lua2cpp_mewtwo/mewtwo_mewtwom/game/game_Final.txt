@@ -1,0 +1,12 @@
+#[acmd_script( agent = "mewtwo_mewtwom", script = "game_final" , category = ACMD_GAME , low_priority)]
+unsafe fn game_final(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
+	}
+	frame(lua_state, 3.0);
+	FT_MOTION_RATE(fighter, 10);
+	frame(lua_state, 4.0);
+	FT_MOTION_RATE(fighter, 1);
+}

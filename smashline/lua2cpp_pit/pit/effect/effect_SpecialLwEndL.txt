@@ -1,0 +1,10 @@
+#[acmd_script( agent = "pit", script = "effect_speciallwendl" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallwendl(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("pit_guardian_shield_end"), 0x10489b2b69, 2, 3, 4, 0, 300, 0, 1.3, 0, 0, 0, 0, 0, 0, true);
+		macros::EFFECT(fighter, Hash40::new("pit_guardian_shield_end"), 0x104ff6ef70, 2, 3, -4, 0, 60, 0, 1.3, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("pit_guardian_shield"), false, false);
+	}

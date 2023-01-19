@@ -1,0 +1,13 @@
+#[acmd_script( agent = "pacman", script = "game_finalend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		CAM_ZOOM_OUT(fighter);
+	}
+	FT_MOTION_RATE(fighter, 0.6);
+}

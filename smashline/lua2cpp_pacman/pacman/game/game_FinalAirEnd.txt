@@ -1,0 +1,10 @@
+#[acmd_script( agent = "pacman", script = "game_finalairend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalairend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
+	}
+	frame(fighter.lua_state_agent, 30.0);
+	if macros::is_excute(fighter) {
+		macros::CAM_ZOOM_OUT(fighter);
+	}
+	macros::FT_MOTION_RATE(fighter, 0.6);

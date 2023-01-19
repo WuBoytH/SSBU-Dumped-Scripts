@@ -1,0 +1,14 @@
+#[acmd_script( agent = "kirby", script = "effect_kroolspecialnspitb" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_kroolspecialnspitb(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("krool_cannon_shot"), Hash40::new("haver"), 0, 2, 25, 0, 0, 0, 1.3, true);
+	}
+	frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_DETACH_KIND(fighter, Hash40::new("krool_cannon_shot"), -1);
+	}

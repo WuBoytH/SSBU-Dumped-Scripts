@@ -1,0 +1,17 @@
+#[acmd_script( agent = "shizue", script = "effect_specialsthrowlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialsthrowlw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_NONE);
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 10, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 10, 0, 6, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+	}
+}

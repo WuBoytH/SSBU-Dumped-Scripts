@@ -1,0 +1,36 @@
+#[acmd_script( agent = "link", script = "expression_specialnend" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_specialnend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ItemModule::set_have_item_visibility(boma, false);
+		VisibilityModule::set_int64(boma, Hash40::new("sword"), Hash40::new("sword_back"));
+		VisibilityModule::set_int64(boma, Hash40::new("shield"), Hash40::new("shield_back"));
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_erase"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 2.0);
+	WorkModule::is_flag(boma, *FIGHTER_LINK_STATUS_BOW_FLAG_CHARGE_MAX);
+	if(0x11e440(false, true)){;
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_attackl"), 0, false);
+			ControlModule::set_rumble(boma);
+		}
+		else{;
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_attackm"), 0, false);
+			ControlModule::set_rumble(boma);
+		}
+	}
+}
+frame(lua_state, 22.0);
+if is_excute(fighter) {
+	VisibilityModule::set_int64(boma, Hash40::new("sword"), Hash40::new("sword_normal"));
+	ArticleModule::change_status_exist(boma, *FIGHTER_LINK_GENERATE_ARTICLE_BOW, *WN_LINK_BOW_STATUS_KIND_BACK);
+}
+frame(lua_state, 23.0);
+if is_excute(fighter) {
+	VisibilityModule::set_int64(boma, Hash40::new("shield"), Hash40::new("shield_normal"));
+}
+}

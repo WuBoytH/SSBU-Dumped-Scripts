@@ -1,0 +1,13 @@
+#[acmd_script( agent = "lucina", script = "game_specialairlw" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_MARTH_STATUS_SPECIAL_LW_FLAG_SHIELD);
+	}
+	frame(lua_state, 28.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_MARTH_STATUS_SPECIAL_LW_FLAG_SHIELD);
+	}
+}

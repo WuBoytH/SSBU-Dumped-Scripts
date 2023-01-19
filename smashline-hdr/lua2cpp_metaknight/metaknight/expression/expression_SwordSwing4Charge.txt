@@ -1,0 +1,17 @@
+#[acmd_script( agent = "metaknight", script = "expression_swordswing4charge" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_swordswing4charge(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		physics(*MA_MSC_CMD_PHYSICS_START_CHARGE, 0.1, 0.3, -1, -1, 0.8, -1, Hash40::new("invalid"));
+		VisibilityModule::set_status_default_int64(boma, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_smashhold1"), 0, true);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 61.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_smashhold2"), 0, true);
+		ControlModule::set_rumble(boma);
+	}
+}

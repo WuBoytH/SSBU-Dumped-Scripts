@@ -1,0 +1,7 @@
+#[acmd_script( agent = "diddy", script = "effect_specialnshoot" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnshoot(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FLIP(fighter, Hash40::new("diddy_popgun"), Hash40::new("diddy_popgun"), Hash40::new("top"), 1, 9, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}

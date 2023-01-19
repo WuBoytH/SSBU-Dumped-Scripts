@@ -1,0 +1,10 @@
+#[acmd_script( agent = "buddy", script = "effect_specialairsend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairsend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, Hash40::new("k_all"), 0, -6, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+}

@@ -1,0 +1,18 @@
+#[acmd_script( agent = "sonic", script = "effect_attacks3hi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attacks3hi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 0, -3, -42, 0, 0, 1.1, true, *EF_FLIP_YZ);
+		LAST_EFFECT_SET_COLOR(fighter, 3, 0.7, 0.2);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 13.2, 12.2, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 360, true);
+	}
+}

@@ -1,0 +1,7 @@
+#[acmd_script( agent = "falco", script = "effect_specialnloop" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnloop(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("falco_blaster_shot"), Hash40::new("top"), -1, 8, 3.5, 0, 0, 0, 1, true);
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 1.2, 3, 0, 3, 0, 0, 0, false);
+	}

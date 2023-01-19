@@ -1,0 +1,24 @@
+#[acmd_script( agent = "demon", script = "sound_speciallwcatch" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_speciallwcatch(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_demon_special_l01"));
+		macros::PLAY_SE(fighter, Hash40::new("se_demon_ragedrive_01"));
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_demon_spark"));
+		macros::PLAY_SE(fighter, Hash40::new("se_demon_ragedrive_hit"));
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_demon_ragedrive_whoosh_up"));
+	}
+	frame(fighter.lua_state_agent, 44.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_demon_ragedrive_whoosh_down"));
+	}
+	frame(fighter.lua_state_agent, 46.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_demon_ragedrive_02"));
+	}

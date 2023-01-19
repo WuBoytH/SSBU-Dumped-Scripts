@@ -1,0 +1,11 @@
+#[acmd_script( agent = "peach", script = "expression_throwf" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_throwf(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		macros::FT_ATTACK_ABS_CAMERA_QUAKE(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
+	}
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}

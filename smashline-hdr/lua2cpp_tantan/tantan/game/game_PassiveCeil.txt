@@ -1,0 +1,9 @@
+#[acmd_script( agent = "tantan", script = "game_passiveceil" , category = ACMD_GAME , low_priority)]
+unsafe fn game_passiveceil(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		KineticModule::change_kinetic(boma, *FIGHTER_KINETIC_TYPE_PASSIVE_CEIL);
+	}
+}

@@ -1,0 +1,19 @@
+#[acmd_script( agent = "roy", script = "expression_specialairs1" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_specialairs1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("sword1"), *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Z, *ATTACK_DIRECTION_Y);
+		AttackModule::set_attack_reference_joint_id(boma);
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_slashs"), 0);
+	}
+}

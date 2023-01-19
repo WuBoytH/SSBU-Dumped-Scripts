@@ -1,0 +1,22 @@
+#[acmd_script( agent = "koopa", script = "effect_entryr" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_entryr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("koopa_entry"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, false);
+		FLASH(fighter, 0.921, 0.087, 0, 0.4);
+		BURN_COLOR(fighter, 2, 0.301, 0.02, 0.8);
+		ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+	}
+	wait(lua_state, 40.0);
+	if is_excute(fighter) {
+		FLASH_FRM(fighter, 30, 0.921, 0.087, 0, 0);
+		BURN_COLOR_FRAME(fighter, 30, 2, 0.301, 0.02, 0);
+	}
+	wait(lua_state, 30.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+		BURN_COLOR_NORMAL(fighter);
+		ColorBlendModule::set_disable_camera_depth_influence(boma, false);
+	}
+}

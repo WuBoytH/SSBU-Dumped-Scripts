@@ -1,0 +1,9 @@
+#[acmd_script( agent = "trail_ice", script = "effect_flylast" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_flylast(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("trail_ice_bullet"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+}

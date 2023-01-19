@@ -1,0 +1,14 @@
+#[acmd_script( agent = "yoshi", script = "game_jumpaerialfront" , category = ACMD_GAME , low_priority)]
+unsafe fn game_jumpaerialfront(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		WorkModule::enable_transition_term_group(boma, *FIGHTER_STATUS_TRANSITION_GROUP_CHK_AIR_LANDING);
+	}
+	frame(lua_state, 45.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_YOSHI_INSTANCE_WORK_ID_FLAG_JUMP_AERIAL_ARMOR);
+		damage(MSC=*MA_MSC_DAMAGE_DAMAGE_NO_REACTION, Type=*DAMAGE_NO_REACTION_MODE_NORMAL, DamageThreshold=0);
+	}
+}

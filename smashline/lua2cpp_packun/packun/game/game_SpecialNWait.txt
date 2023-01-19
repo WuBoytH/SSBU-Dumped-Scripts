@@ -1,0 +1,10 @@
+#[acmd_script( agent = "packun", script = "game_specialnwait" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialnwait(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::SEARCH(fighter, 0, 0, Hash40::new("top"), 4.0, 0.0, 7.0, 0.0, 0.0, 8.0, 0.0, *COLLISION_KIND_MASK_ATTACK, *HIT_STATUS_MASK_ALL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, true);
+	}
+	if WorkModule::get_int(fighter.module_accessor, **FIGHTER_INSTANCE_WORK_ID_INT_KIND) == *FIGHTER_KIND_KIRBY {
+		if macros::is_excute(fighter) {
+			macros::SEARCH(fighter, 0, 0, Hash40::new("top"), 4.0, 0.0, 3.0, 0.0, 0.0, 3.0, 0.0, *COLLISION_KIND_MASK_ATTACK, *HIT_STATUS_MASK_ALL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, true);
+		}
+	}

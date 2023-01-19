@@ -1,0 +1,26 @@
+#[acmd_script( agent = "dolly", script = "effect_specialairlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairlw(fighter: &mut L2CAgentBase) {
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND);
+	if(0x2508e0(false, true)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_down_tail_s"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("dolly_down_s"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("dolly_down_tail_n"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("dolly_down_n"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		}
+	}
+}
+frame(fighter.lua_state_agent, 1.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("dolly_wave_aura"), true, true);
+}
+frame(fighter.lua_state_agent, 32.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("dolly_down_tail_n"), false, true);
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("dolly_down_n"), false, true);
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("dolly_down_tail_s"), false, true);
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("dolly_down_s"), false, true);
+}

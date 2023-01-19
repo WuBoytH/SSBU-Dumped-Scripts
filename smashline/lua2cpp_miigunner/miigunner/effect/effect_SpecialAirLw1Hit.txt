@@ -1,0 +1,14 @@
+#[acmd_script( agent = "miigunner", script = "effect_specialairlw1hit" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairlw1hit(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FLW_POS(fighter, Hash40::new("miigunner_ref_ref"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FLW_POS(fighter, Hash40::new("miigunner_ref_flash"), Hash40::new("armr"), 5.5, 0, 0, 0, 0, 0, 1, true);
+	}
+	if macros::is_excute(fighter) {
+		macros::FLASH(fighter, 1, 0.784, 0.784, 0.376);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::COL_NORMAL(fighter);
+	}
+	wait(fighter.lua_state_agent, 1.0);

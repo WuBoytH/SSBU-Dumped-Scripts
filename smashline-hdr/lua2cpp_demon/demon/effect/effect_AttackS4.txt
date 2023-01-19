@@ -1,0 +1,71 @@
+#[acmd_script( agent = "demon", script = "effect_attacks4" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attacks4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("handl"), 0, -3, -5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_sign_flash"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_aura"), Hash40::new("handl"), 0.7, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+		FLASH(fighter, 0.25, 0.08, 0.6, 0.15);
+		FLASH_SET_DIRECTION(fighter, -1, 0, 0);
+		BURN_COLOR(fighter, 8, 3, 36, 0.15);
+		FLASH_FRM(fighter, 2, 0.25, 0.08, 0.6, 0.4);
+		BURN_COLOR_FRAME(fighter, 2, 8, 3, 36, 0.4);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_start"), Hash40::new("top"), 0, 0, 1, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_start_aura"), Hash40::new("bust"), 0, 0, 1, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_start_elec"), Hash40::new("bust"), 0, 0, 1, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_aura"), Hash40::new("handl"), 0.7, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		FLASH(fighter, 0.25, 0.08, 0.6, 0.4);
+		BURN_COLOR(fighter, 10, 3, 36, 0.3);
+		FLASH_FRM(fighter, 3, 0.25, 0.08, 0.6, 0);
+		BURN_COLOR_FRAME(fighter, 3, 10, 3, 36, 0);
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("demon_devil_start_elec"), false, true);
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_elec"), Hash40::new("handl"), 0.7, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_smash_line"), Hash40::new("top"), 3, 11, -8.7, 0, -10, 0, 1, true);
+		LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 32.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("demon_devil_elec"), false, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("demon_devil_aura"), false, true);
+	}
+	frame(lua_state, 57.0);
+	if is_excute(fighter) {
+		ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+		FLASH(fighter, 0.097, 0.006, 0.238, 0);
+		FLASH_SET_DIRECTION(fighter, 0, 0, 0);
+		BURN_COLOR(fighter, 6, 0, 40, 0);
+		FLASH_FRM(fighter, 2, 0.097, 0.006, 0.238, 0.45);
+		BURN_COLOR_FRAME(fighter, 2, 6, 0, 40, 0.13);
+	}
+	frame(lua_state, 58.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_end"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 60.0);
+	if is_excute(fighter) {
+		FLASH(fighter, 0.097, 0.006, 0.238, 0.45);
+		BURN_COLOR(fighter, 6, 0, 40, 0.13);
+		FLASH_FRM(fighter, 8, 0.097, 0.006, 0.238, 0);
+		BURN_COLOR_FRAME(fighter, 8, 6, 0, 40, 0);
+	}
+}

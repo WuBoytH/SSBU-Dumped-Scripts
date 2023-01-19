@@ -1,0 +1,26 @@
+#[acmd_script( agent = "peach", script = "game_specialairn" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairn(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_PEACH_STATUS_SPECIAL_N_FLAG_GENERATE_ARTICLE);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		shield(MSC=*MA_MSC_CMD_SHIELD_ON, Type=*COLLISION_KIND_SHIELD, ID=*FIGHTER_PEACH_SHIELD_KIND_KINOPIO_GUARD, Group=*FIGHTER_PEACH_SHIELD_GROUP_KIND_KINOPIO_GUARD);
+	}
+	WorkModule::is_flag(boma, *FIGHTER_PEACH_INSTANCE_WORK_ID_FLAG_SPECIAL_N_RAISE);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){;
+		if is_excute(fighter) {
+			KineticModule::change_kinetic(boma, *FIGHTER_KINETIC_TYPE_PEACH_SPECIAL_AIR_N_RAISE);
+		}
+	}
+	frame(lua_state, 35.0);
+	if is_excute(fighter) {
+		shield(MSC=*MA_MSC_CMD_SHIELD_OFF, Type=*COLLISION_KIND_SHIELD, ID=*FIGHTER_PEACH_SHIELD_KIND_KINOPIO_GUARD, Group=*FIGHTER_PEACH_SHIELD_GROUP_KIND_KINOPIO_GUARD);
+	}
+	frame(lua_state, 44.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, *FIGHTER_PEACH_GENERATE_ARTICLE_KINOPIO);
+	}
+}

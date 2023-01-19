@@ -1,0 +1,13 @@
+#[acmd_script( agent = "ridley", script = "sound_appealsl" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appealsl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_ridley_appeal_s01"));
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_ridley_appeal_s02"));
+	}
+}

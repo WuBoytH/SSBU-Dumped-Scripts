@@ -1,0 +1,12 @@
+#[acmd_script( agent = "gekkouga", script = "effect_specialairsattackf" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairsattackf(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("gekkouga_kageuchi_warp_end"), Hash40::new("top"), 0, 7, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("gekkouga_kageuchi_arc"), Hash40::new("gekkouga_kageuchi_arc"), Hash40::new("top"), 0, 14, 4, 0, -70, 120, 1, true, *EF_FLIP_YZ);
+	}
+}

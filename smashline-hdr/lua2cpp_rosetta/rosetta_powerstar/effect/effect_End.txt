@@ -1,0 +1,12 @@
+#[acmd_script( agent = "rosetta_powerstar", script = "effect_end" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_end(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		VisibilityModule::set_whole(boma, false);
+		EFFECT_OFF_KIND(fighter, Hash40::new("rosetta_final_powerstar_light"), false, false);
+		EFFECT(fighter, Hash40::new("rosetta_final_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.35, 0, 0, 0, 0, 0, 0, false);
+		EFFECT(fighter, Hash40::new("rosetta_final_bomb"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
+		QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
+	}
+}

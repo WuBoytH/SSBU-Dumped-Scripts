@@ -1,0 +1,11 @@
+#[acmd_script( agent = "snake", script = "effect_finalairend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalairend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("snake_final_ui"), false, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("snake_final_frame"), false, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("snake_final_lockon_count"), false, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("snake_final_lockon_count2"), false, true);
+	}
+}

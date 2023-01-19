@@ -1,0 +1,12 @@
+#[acmd_script( agent = "kirby", script = "expression_speciallwtoground" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_speciallwtoground(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_attackl"), 0, false);
+		ControlModule::set_rumble(boma);
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_06_stone_attack"), 0);
+		QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+		ItemModule::set_have_item_visibility(boma, false);
+	}
+}

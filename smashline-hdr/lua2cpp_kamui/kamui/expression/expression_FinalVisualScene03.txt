@@ -1,0 +1,11 @@
+#[acmd_script( agent = "kamui", script = "expression_finalvisualscene03" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_finalvisualscene03(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_spinattack"), 74, true);
+		ControlModule::set_rumble(boma);
+		RUMBLE_FINAL_TARGET(fighter, Hash40::new("rbkind_damage_visual"), 74);
+	}
+}

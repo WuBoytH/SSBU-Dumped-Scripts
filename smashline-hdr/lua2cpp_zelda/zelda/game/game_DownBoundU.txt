@@ -1,0 +1,9 @@
+#[acmd_script( agent = "zelda", script = "game_downboundu" , category = ACMD_GAME , low_priority)]
+unsafe fn game_downboundu(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 26.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_CHANGE_STATUS_DLAY_MOTION);
+	}
+}

@@ -1,0 +1,6 @@
+#[acmd_script( agent = "zelda", script = "game_escapeb" , category = ACMD_GAME , low_priority)]
+unsafe fn game_escapeb(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 0.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ESCAPE_FLAG_MOTION_RATE_PENALTY);
+	}

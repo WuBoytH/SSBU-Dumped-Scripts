@@ -1,0 +1,24 @@
+#[acmd_script( agent = "pikmin", script = "effect_attackhi3" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackhi3(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("pikmin_attack_spin"), Hash40::new("trans"), 0, 11, 0.5, 0, 0, 0, 0.55, true);
+		macros::EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("pikmin_attack_spin"), Hash40::new("trans"), 0, 6, 0.5, 0, 0, 0, 0.7, true, 0.7);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("pikmin_attack_spin"), Hash40::new("trans"), 0, 4, 0.5, 0, 0, 0, 0.85, true, 0.5);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 27, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 360, true, 0.32);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.6);
+	}
+	frame(fighter.lua_state_agent, 24.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+	}

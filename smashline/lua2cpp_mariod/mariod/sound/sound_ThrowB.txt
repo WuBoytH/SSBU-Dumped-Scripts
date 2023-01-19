@@ -1,0 +1,11 @@
+#[acmd_script( agent = "mariod", script = "sound_throwb" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_throwb(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_throw_01"));
+	}
+	frame(fighter.lua_state_agent, 26.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_throw_02"));
+		macros::PLAY_SE(fighter, Hash40::new("vc_mariod_010"));
+	}

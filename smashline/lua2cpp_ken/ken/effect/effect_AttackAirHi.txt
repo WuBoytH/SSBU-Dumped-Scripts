@@ -1,0 +1,11 @@
+#[acmd_script( agent = "ken", script = "effect_attackairhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairhi(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_FLIP_ALPHA(fighter, Hash40::new("ken_attack_arc2"), Hash40::new("ken_attack_arc2"), Hash40::new("top"), 0, 15, 4.5, 0, 0, 90, 0.55, true, *EF_FLIP_YZ, 0.2);
+		macros::LAST_EFFECT_SET_RATE(fighter, 2.5);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 20, 8, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true, 0.5);
+	}

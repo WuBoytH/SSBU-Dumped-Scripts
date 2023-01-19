@@ -1,0 +1,16 @@
+#[acmd_script( agent = "marth", script = "effect_specials3lw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specials3lw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("marth_sword_green"), Hash40::new("haver"), -0.0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("marth_mc_3lw"), Hash40::new("top"), -0.0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::set_disable_render_offset_last(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("marth_sword_green"), false, true);
+	}

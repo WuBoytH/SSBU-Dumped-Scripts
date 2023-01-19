@@ -1,0 +1,11 @@
+#[acmd_script( agent = "koopag", script = "expression_landingairn" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_landingairn(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		ItemModule::set_attach_item_visibility(fighter.module_accessor, false);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		ItemModule::set_attach_item_visibility(fighter.module_accessor, true);
+	}

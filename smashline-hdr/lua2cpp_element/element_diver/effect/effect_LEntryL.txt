@@ -1,0 +1,42 @@
+#[acmd_script( agent = "element_diver", script = "effect_lentryl" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_lentryl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("eflame_appeal_appearance"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		EFFECT_DETACH_KIND(fighter, Hash40::new("eflame_appeal_appearance"), -1);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_down_smoke"), Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 10, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+	}
+	frame(lua_state, 37.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("armr"), 5, 0, -0.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 70.0);
+	if is_excute(fighter) {
+		EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("eflame_appeal_vanish2"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+	}
+	frame(lua_state, 75.0);
+	if is_excute(fighter) {
+		FLASH(fighter, 1, 1.2, 1.5, 0.05);
+		BURN_COLOR(fighter, 3.8, 24, 32, 0.35);
+		ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+	}
+	frame(lua_state, 79.0);
+	if is_excute(fighter) {
+		FLASH_FRM(fighter, 10, 0.45, 0.45, 1, 0.4);
+		BURN_COLOR_FRAME(fighter, 10, 3.8, 22, 32, 1);
+		EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("eflame_appeal_vanish"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+	}
+	frame(lua_state, 89.0);
+	if is_excute(fighter) {
+		EFFECT_DETACH_KIND(fighter, Hash40::new("eflame_appeal_vanish2"), -1);
+		EFFECT_DETACH_KIND(fighter, Hash40::new("eflame_appeal_vanish"), -1);
+		ColorBlendModule::set_disable_camera_depth_influence(boma, false);
+	}
+}

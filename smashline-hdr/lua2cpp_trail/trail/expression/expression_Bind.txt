@@ -1,0 +1,19 @@
+#[acmd_script( agent = "trail", script = "expression_bind" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_bind(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_BindRumble()();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_erase"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_furafura"), 0, true);
+		ControlModule::set_rumble(boma);
+	}
+}

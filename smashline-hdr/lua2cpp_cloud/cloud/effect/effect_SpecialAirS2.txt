@@ -1,0 +1,39 @@
+#[acmd_script( agent = "cloud", script = "effect_specialairs2" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairs2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("cloud_kyogiri_stroke1_l"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("cloud_kyogiri_stroke1_r"), true, true);
+		EFFECT_FOLLOW_WORK(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		LAST_EFFECT_SET_COLOR(fighter, 0.79, 1.1, 0.4);
+		LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, 0.4);
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_cloud_sword1_yellow"), Hash40::new("tex_cloud_sword2"), 3, Hash40::new("haver"), 0, 1.5, -1.2, Hash40::new("haver"), 0, 20.5, -1.2, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+	}
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x1801b0(2001472, 0)){;
+		if is_excute(fighter) {
+			EFFECT(fighter, Hash40::new("cloud_kyogiri_stroke2_l"), Hash40::new("top"), 0, 10, 17, 0, 100, 0, 1, 0, 0, 0, 0, 0, 0, true);
+			LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_KYOU_EFFECT);
+		}
+		else{;
+		if is_excute(fighter) {
+			EFFECT(fighter, Hash40::new("cloud_kyogiri_stroke2_r"), Hash40::new("top"), 0, 10, 17, 0, -100, 0, 1, 0, 0, 0, 0, 0, 0, true);
+			LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_KYOU_EFFECT);
+		}
+	}
+}
+frame(lua_state, 4.0);
+if is_excute(fighter) {
+	AFTER_IMAGE_OFF(fighter, 2);
+}
+frame(lua_state, 5.0);
+if is_excute(fighter) {
+	EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE, true, true);
+}
+frame(lua_state, 29.0);
+if is_excute(fighter) {
+	EFFECT_OFF_KIND(fighter, Hash40::new("cloud_kyogiri_stroke2_l"), false, false);
+	EFFECT_OFF_KIND(fighter, Hash40::new("cloud_kyogiri_stroke2_r"), false, false);
+}
+}

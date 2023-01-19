@@ -1,0 +1,10 @@
+#[acmd_script( agent = "pickel", script = "game_catchpull" , category = ACMD_GAME , low_priority)]
+unsafe fn game_catchpull(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::set_flag(fighter.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_FISHINGROD, true, *WEAPON_PICKEL_FISHINGROD_INSTANCE_WORK_ID_FLAG_PULL_FIX_LINE_LENGTH);
+	}
+	frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_FISHINGROD);
+	}

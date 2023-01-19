@@ -1,0 +1,17 @@
+#[acmd_script( agent = "pikmin_pikmin", script = "game_attackairlw_w" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attackairlw_w(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::ATTACK(fighter, 0, 0, Hash40::new("head1"), 7.2, 270, 99, 0, 10, 3.5, 0.0, 2.5, 0.0, Some(0.0), Some(2.5), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PIKMIN);
+		macros::ATTACK(fighter, 1, 0, Hash40::new("head1"), 7.2, 50, 99, 0, 30, 4.0, 0.0, 3.5, 0.0, Some(0.0), Some(-2.0), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PIKMIN);
+		macros::HIT_NODE(fighter, Hash40::new("waist"), *HIT_STATUS_XLU);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear(fighter.module_accessor, 0);
+	}
+	wait(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		HitModule::set_status_all(fighter.module_accessor, *HIT_STATUS_NORMAL);
+	}

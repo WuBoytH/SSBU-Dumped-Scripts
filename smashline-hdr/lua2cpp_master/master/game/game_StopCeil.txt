@@ -1,0 +1,9 @@
+#[acmd_script( agent = "master", script = "game_stopceil" , category = ACMD_GAME , low_priority)]
+unsafe fn game_stopceil(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_STOP_CEIL_FLAG_FALL);
+	}
+}

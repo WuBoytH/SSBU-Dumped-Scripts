@@ -1,0 +1,6 @@
+#[acmd_script( agent = "zelda", script = "expression_attacklw3_cancel" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_attacklw3_cancel(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_h_smoke_b"), true, true);
+		macros::STOP_SE(fighter, Hash40::new("se_zelda_ware01"));
+	}

@@ -1,0 +1,9 @@
+#[acmd_script( agent = "ness", script = "sound_walkslow" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_walkslow(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 0.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_ness_step_right_s"));
+	}
+	frame(fighter.lua_state_agent, 21.0);
+	macros::PLAY_STEP(fighter, 0x1359b4a891);

@@ -1,0 +1,13 @@
+#[acmd_script( agent = "buddy", script = "game_specialsfail" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialsfail(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		KineticModule::add_speed(boma, 1.2, 0, 0.0);
+	}
+	frame(lua_state, 37.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_BUDDY_STATUS_SPECIAL_S_FLAG_LANDING_HEAVY);
+	}
+}

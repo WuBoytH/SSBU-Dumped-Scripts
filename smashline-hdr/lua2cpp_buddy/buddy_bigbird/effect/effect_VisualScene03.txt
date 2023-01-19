@@ -1,0 +1,14 @@
+#[acmd_script( agent = "buddy_bigbird", script = "effect_visualscene03" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_visualscene03(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("buddy_final_rash"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("buddy_final_linebody"), true, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("buddy_final_flow_bg"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("buddy_final_lineflow"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("buddy_final_linebody"), Hash40::new("hip"), 80, 0, 0, 0, 0, 0, 1.5, true);
+		EFFECT_FOLLOW_COLOR(fighter, Hash40::new("buddy_final_flash_s"), Hash40::new("hip"), -10, 0, 0, 0, 0, 0, 3, true, 0.3, 0.8, 1.5);
+		EFFECT_FOLLOW(fighter, Hash40::new("buddy_final_wind"), Hash40::new("hip"), 30, -3.6, 0.8, 0, 0, 0, 1, true);
+	}
+}

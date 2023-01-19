@@ -1,0 +1,36 @@
+#[acmd_script( agent = "edge", script = "effect_specialairlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairlw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_senkou_start"), Hash40::new("waist"), 2, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x24aec0(0, 0)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_senkou_shield"), Hash40::new("top"), 0, 13, 9, 0, -55, 0, 0.85, true);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_senkou_shield"), Hash40::new("top"), 0, 13, 9, 0, -125, 0, 0.85, true);
+		}
+	}
+}
+if macros::is_excute(fighter) {
+	macros::FLASH(fighter, 1, 1, 1, 0.75);
+}
+wait(fighter.lua_state_agent, 1.0);
+for(4 Iterations){;
+if macros::is_excute(fighter) {
+	macros::FLASH(fighter, 0.7, 0.7, 0.7, 0.5);
+}
+wait(fighter.lua_state_agent, 2.0);
+if macros::is_excute(fighter) {
+	macros::FLASH(fighter, 0.67, 0, 0.78, 0.31);
+}
+wait(fighter.lua_state_agent, 2.0);
+if macros::is_excute(fighter) {
+	macros::COL_NORMAL(fighter);
+}
+wait(fighter.lua_state_agent, 2.0);
+}

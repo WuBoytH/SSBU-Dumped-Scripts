@@ -1,0 +1,8 @@
+#[acmd_script( agent = "younglink", script = "game_walkmiddle" , category = ACMD_GAME , low_priority)]
+unsafe fn game_walkmiddle(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_LINK_INSTANCE_WORK_ID_FLAG_WAIT_SHIELD);
+	}
+}

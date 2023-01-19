@@ -1,0 +1,40 @@
+#[acmd_script( agent = "fox", script = "game_finalvisualscene" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalvisualscene(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_FOX_GENERATE_ARTICLE_ARWING, true);
+	}
+	frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_START_CAPTION);
+	}
+	frame(fighter.lua_state_agent, 120.0);
+	for(9 Iterations){;
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ARIGNWSHOT_SELF_1);
+		WorkModule::on_flag(fighter.module_accessor, FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ARIGNWSHOT_CONSORT_1_1);
+		WorkModule::on_flag(fighter.module_accessor, FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ARIGNWSHOT_CONSORT_2_1);
+		WorkModule::on_flag(fighter.module_accessor, FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ARIGNWSHOT_CONSORT_3_1);
+	}
+	wait(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ARIGNWSHOT_SELF_2);
+		WorkModule::on_flag(fighter.module_accessor, FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ARIGNWSHOT_CONSORT_1_2);
+		WorkModule::on_flag(fighter.module_accessor, FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ARIGNWSHOT_CONSORT_2_2);
+		WorkModule::on_flag(fighter.module_accessor, FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ARIGNWSHOT_CONSORT_3_2);
+	}
+	wait(fighter.lua_state_agent, 5.0);
+}
+frame(fighter.lua_state_agent, 220.0);
+if macros::is_excute(fighter) {
+	WorkModule::on_flag(fighter.module_accessor, *FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_END_CAPTION);
+}
+frame(fighter.lua_state_agent, 230.0);
+if macros::is_excute(fighter) {
+	macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_FOX_FINAL, 0, 30.0, 361, 80, 1, 0, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+	AttackModule::set_no_dead_all(fighter.module_accessor, true, true);
+}
+frame(fighter.lua_state_agent, 240.0);
+if macros::is_excute(fighter) {
+	WorkModule::on_flag(fighter.module_accessor, *FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+	AttackModule::set_no_dead_all(fighter.module_accessor, true, true);
+}

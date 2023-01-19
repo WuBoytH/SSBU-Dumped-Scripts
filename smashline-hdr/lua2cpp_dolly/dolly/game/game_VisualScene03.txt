@@ -1,0 +1,13 @@
+#[acmd_script( agent = "dolly", script = "game_visualscene03" , category = ACMD_GAME , low_priority)]
+unsafe fn game_visualscene03(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, FIGHTER_DOLLY_STATUS_FINAL_SCENE03*_WORK_FLAG_PLAY_MOTION_OPPONENT);
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, FIGHTER_DOLLY_STATUS_FINAL_SCENE03*_WORK_FLAG_SET_MOTION_RATE_OPPONENT);
+	}
+}

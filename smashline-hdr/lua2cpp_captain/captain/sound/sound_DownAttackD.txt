@@ -1,0 +1,25 @@
+#[acmd_script( agent = "captain", script = "sound_downattackd" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_downattackd(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_captain_jump02"));
+	}
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_captain_swing_l"));
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_captain_swing_l"));
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_captain_attackhard_h01"));
+	}
+	frame(lua_state, 39.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_captain_step_left_s"));
+	}
+}

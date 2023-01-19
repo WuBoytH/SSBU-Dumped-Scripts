@@ -1,0 +1,19 @@
+#[acmd_script( agent = "wolf", script = "game_screwair" , category = ACMD_GAME , low_priority)]
+unsafe fn game_screwair(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	for(10 Iterations){;
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_ScrewCommon()();
+	if is_excute(fighter) {
+		attack(*MA_MSC_CMD_ATTACK_NODE, 0, Hash40::new("top"), 0, 0, 5.2);
+		attack(*MA_MSC_CMD_ATTACK_NODE, 1, Hash40::new("top"), 0, 0, -5.2);
+		attack(*MA_MSC_CMD_ATTACK_NODE, 2, Hash40::new("top"), 0, 9, 5.2);
+		attack(*MA_MSC_CMD_ATTACK_NODE, 3, Hash40::new("top"), 0, 9, -5.2);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		AttackModule::clear_all(boma);
+	}
+}
+}

@@ -1,0 +1,16 @@
+#[acmd_script( agent = "ridley", script = "effect_visualscene03" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_visualscene03(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("ridley_final_hold"), Hash40::new("virtualmouth"), -2, 0, 0, 0, 0, -90, 1, true);
+	}
+	frame(lua_state, 37.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("ridley_final_beam_a"), Hash40::new("mouth1"), 3, 5, 0, -90, 0, -30, 0.6, true);
+	}
+	frame(lua_state, 38.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("ridley_final_hold"), true, true);
+	}
+}

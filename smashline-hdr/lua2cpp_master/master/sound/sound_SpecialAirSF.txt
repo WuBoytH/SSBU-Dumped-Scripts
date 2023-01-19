@@ -1,0 +1,16 @@
+#[acmd_script( agent = "master", script = "sound_specialairsf" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialairsf(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_master_rnd_special_s"));
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_master_special_s04"));
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_master_cloth_ll03"));
+	}
+}

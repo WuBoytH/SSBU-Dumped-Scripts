@@ -1,0 +1,10 @@
+#[acmd_script( agent = "krool_ironball", script = "effect_bound" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_bound(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_quake"), Hash40::new("top"), 0, -3, 0, 0, 0, 0, 0.45, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.6);
+		LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, -3, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+	}
+}

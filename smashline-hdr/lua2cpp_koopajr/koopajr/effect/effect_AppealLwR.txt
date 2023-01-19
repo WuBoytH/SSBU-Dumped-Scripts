@@ -1,0 +1,18 @@
+#[acmd_script( agent = "koopajr", script = "effect_appeallwr" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appeallwr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -5, 0, -7, 0, 0, 0, 1.5, 5, 0, 5, 0, 0, 0, false);
+	}
+	wait(lua_state, 6.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -5, 0, -7, 0, 0, 0, 1.5, 5, 0, 5, 0, 0, 0, false);
+	}
+	wait(lua_state, 6.0);
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+	}
+}

@@ -1,0 +1,7 @@
+#[acmd_script( agent = "miifighter", script = "game_specials2hit" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specials2hit(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS);
+	}
+	macros::FT_MOTION_RATE(fighter, 0.8);

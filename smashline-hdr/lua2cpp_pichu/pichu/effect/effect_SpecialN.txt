@@ -1,0 +1,27 @@
+#[acmd_script( agent = "pichu", script = "effect_specialn" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialn(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("pichu_cheek_spn"), Hash40::new("head"), 0, 0, 0, 0, -90, -90, 1, true);
+		LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	for(12 Iterations){;
+	if is_excute(fighter) {
+		FLASH(fighter, 0, 0, 1, 0.196);
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		FLASH(fighter, 1, 1, 1, 0.353);
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+	}
+	wait(lua_state, 1.0);
+}
+if is_excute(fighter) {
+	EFFECT_OFF_KIND(fighter, Hash40::new("pichu_cheek_spn"), false, true);
+}
+}

@@ -1,0 +1,10 @@
+#[acmd_script( agent = "duckhunt", script = "sound_attack100end" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attack100end(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_duckhunt_attack100_02"));
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_duckhunt_rnd_attack_duck"));
+	}
+}

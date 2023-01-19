@@ -1,0 +1,9 @@
+#[acmd_script( agent = "trail_thunder", script = "0x12426b2248" , category = ACMD_EFFECT , low_priority)]
+unsafe fn 0x12426b2248(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("trail_thunder_bullet"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+		EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("trail_thunder_bullet_top"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+	}
+}

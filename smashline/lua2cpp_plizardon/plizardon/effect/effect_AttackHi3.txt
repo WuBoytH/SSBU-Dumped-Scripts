@@ -1,0 +1,16 @@
+#[acmd_script( agent = "plizardon", script = "effect_attackhi3" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackhi3(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("sys_attack_speedline"), Hash40::new("top"), 3, 15, 12, -90, 0, 0, 1.4, true, *EF_FLIP_YZ);
+		macros::LAST_PARTICLE_SET_COLOR(fighter, 0.7, 0.4, 0.9);
+	}
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("sys_attack_speedline"), Hash40::new("top"), -6, 15, -8, -90, 0, 0, 1.4, true, *EF_FLIP_YZ);
+		macros::LAST_PARTICLE_SET_COLOR(fighter, 0.7, 0.4, 0.9);
+	}
+	frame(fighter.lua_state_agent, 21.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}

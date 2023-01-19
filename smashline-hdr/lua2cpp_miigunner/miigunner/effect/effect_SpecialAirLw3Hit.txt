@@ -1,0 +1,20 @@
+#[acmd_script( agent = "miigunner", script = "effect_specialairlw3hit" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairlw3hit(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("miigunner_absorber_ab"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 0, 1.8, true);
+	}
+	if is_excute(fighter) {
+		FLASH(fighter, 0.1, 0.5, 0.8, 0.8);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		FLASH_FRM(fighter, 3, 0, 0.2, 0.5, 0);
+	}
+	wait(lua_state, 3.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+	}
+	wait(lua_state, 1.0);
+}

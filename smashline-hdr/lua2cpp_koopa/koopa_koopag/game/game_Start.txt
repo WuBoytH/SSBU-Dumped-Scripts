@@ -1,0 +1,9 @@
+#[acmd_script( agent = "koopa_koopag", script = "game_start" , category = ACMD_GAME , low_priority)]
+unsafe fn game_start(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *WEAPON_KOOPA_KOOPAG_INSTANCE_WORK_ID_FLAG_REQUEST_RUMBLE);
+	}
+}

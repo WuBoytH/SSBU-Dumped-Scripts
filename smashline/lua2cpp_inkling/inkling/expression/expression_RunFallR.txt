@@ -1,0 +1,6 @@
+#[acmd_script( agent = "inkling", script = "expression_runfallr" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_runfallr(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		InkPaintModule::set_special_paint(fighter.module_accessor, *SPECIAL_PAINT_SQUID_TO_HUMAN);
+	}

@@ -1,0 +1,56 @@
+#[acmd_script( agent = "ryu", script = "expression_specialairlw" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_specialairlw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		AREA_WIND_2ND_arg10(0, 0.6, 70, 8, 0.4, 0, 12, 40, 12, 80);
+		ItemModule::set_have_item_visibility(boma, false);
+	}
+	if(0x183460(*FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_LW_INT_SAVING_LV, FIGHTER_RYU_SAVING_LV_1)){;
+		frame(lua_state, 10.0);
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitm"), 0, false);
+			ControlModule::set_rumble(boma);
+		}
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+	else{;
+	if(0x183460(*FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_LW_INT_SAVING_LV, FIGHTER_RYU_SAVING_LV_2)){;
+		frame(lua_state, 10.0);
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitl"), 0, false);
+			ControlModule::set_rumble(boma);
+		}
+		frame(lua_state, 11.0);
+		if is_excute(fighter) {
+			QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+			RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+		}
+		else{;
+		frame(lua_state, 0.0);
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_attackm"), 0, false);
+			ControlModule::set_rumble(boma);
+		}
+		frame(lua_state, 11.0);
+		if is_excute(fighter) {
+			QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
+			RUMBLE_HIT(fighter, Hash40::new("rbkind_attack_critical"), 0);
+		}
+	}
+}
+}
+frame(lua_state, 42.0);
+if is_excute(fighter) {
+AreaModule::erase_wind(boma, 0);
+}
+frame(lua_state, 54.0);
+if is_excute(fighter) {
+ItemModule::set_have_item_visibility(boma, true);
+}
+}

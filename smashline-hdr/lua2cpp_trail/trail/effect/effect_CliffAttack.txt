@@ -1,0 +1,27 @@
+#[acmd_script( agent = "trail", script = "effect_cliffattack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_cliffattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 12, -5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("trail_keyblade_flare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("haver"), 0, -0.5, 0, -90, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.4);
+		LAST_EFFECT_SET_COLOR(fighter, 1.2, 1.2, 0.5);
+		EFFECT_FLW_POS(fighter, Hash40::new("trail_keyblade_speedline"), Hash40::new("haver"), 0, 2.2, -0.3, 0, 0, 0, 0.6, true);
+		LAST_EFFECT_SET_RATE(fighter, 2);
+		LAST_EFFECT_SET_ALPHA(fighter, 0.5);
+	}
+	frame(lua_state, 26.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("trail_keyblade_flare"), false, true);
+	}
+}

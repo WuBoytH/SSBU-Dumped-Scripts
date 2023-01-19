@@ -1,0 +1,21 @@
+#[acmd_script( agent = "tantan", script = "effect_win2" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 39.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 4.7, 0, -3, 0, -20, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 70.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 6, 0, -4, 0, 0, 0, 0.55, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 86.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("tantan_attack_arc"), Hash40::new("top"), 2, 8.2, -1, 55, -20, 140, 0.83, true, 0.5);
+	}
+	frame(lua_state, 129.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("tantan_result_speedline"), Hash40::new("top"), 0.7, 12.5, 7, 75, 0, 0, 0.3, true, 1);
+	}
+}

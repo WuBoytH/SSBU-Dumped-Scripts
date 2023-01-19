@@ -1,0 +1,13 @@
+#[acmd_script( agent = "kirby", script = "effect_rosettaspecialnchargestart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_rosettaspecialnchargestart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_wand_light"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_wand_stardust"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_ticoshot_hold_end"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1, 2, 0, 4, 0, 0, 0, true);
+	}
+	wait(fighter.lua_state_agent, 6.0);

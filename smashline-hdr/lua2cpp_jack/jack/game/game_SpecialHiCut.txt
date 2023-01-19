@@ -1,0 +1,14 @@
+#[acmd_script( agent = "jack", script = "game_specialhicut" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhicut(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_CURSOR_ON_POSTURE);
+		WorkModule::set_float(boma, 17, *FIGHTER_INSTANCE_WORK_ID_FLOAT_CURSOR_OFFSET_Y);
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_CURSOR_ON_POSTURE);
+		WorkModule::set_float(boma, 0, *FIGHTER_INSTANCE_WORK_ID_FLOAT_CURSOR_OFFSET_Y);
+	}
+}

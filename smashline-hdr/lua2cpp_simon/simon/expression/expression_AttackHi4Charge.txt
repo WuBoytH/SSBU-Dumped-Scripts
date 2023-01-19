@@ -1,0 +1,16 @@
+#[acmd_script( agent = "simon", script = "expression_attackhi4charge" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_attackhi4charge(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		physics(*MA_MSC_CMD_PHYSICS_START_CHARGE, 0.7, 0.9, -1, 0.5, 0.5, -1, Hash40::new("invalid"));
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_smashhold1"), 0, true);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 61.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_smashhold2"), 0, true);
+		ControlModule::set_rumble(boma);
+	}
+}

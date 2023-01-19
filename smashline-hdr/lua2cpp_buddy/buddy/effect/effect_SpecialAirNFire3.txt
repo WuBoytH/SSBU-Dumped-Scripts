@@ -1,0 +1,15 @@
+#[acmd_script( agent = "buddy", script = "effect_specialairnfire3" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairnfire3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("buddy_scope_shot"), Hash40::new("top"), 0, 8, 0, 0, 0, 0, 1, false);
+		EFFECT_FOLLOW_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, Hash40::new("top"), -2, 5, -2, 0, 0, 0, 0.7, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, false, true);
+	}
+}

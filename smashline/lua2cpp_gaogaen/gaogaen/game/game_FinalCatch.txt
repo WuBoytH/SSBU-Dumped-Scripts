@@ -1,0 +1,14 @@
+#[acmd_script( agent = "gaogaen", script = "game_finalcatch" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalcatch(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::SET_SPEED_EX(fighter, 0, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::SEARCH(fighter, 0, 0, Hash40::new("top"), 40.0, 0.0, 10.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_ALL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		search(*MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_GAOGAEN_STATUS_WORK_ID_FLAG_FINAL_SEARCH_END);
+	}

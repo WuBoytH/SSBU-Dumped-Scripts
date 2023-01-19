@@ -1,0 +1,10 @@
+#[acmd_script( agent = "pit", script = "effect_speciallwstartlnoshield" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallwstartlnoshield(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("pit_guardian_shield_end"), 0x10489b2b69, -2, 0, 4, 0, 240, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+		macros::EFFECT(fighter, Hash40::new("pit_guardian_shield_end"), 0x104ff6ef70, -2, 0, -4, 0, 120, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+	}

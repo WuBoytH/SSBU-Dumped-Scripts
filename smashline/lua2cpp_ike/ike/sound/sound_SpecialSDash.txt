@@ -1,0 +1,9 @@
+#[acmd_script( agent = "ike", script = "sound_specialsdash" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialsdash(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_ike_special_s01"));
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_ike_special_s02"));
+	}

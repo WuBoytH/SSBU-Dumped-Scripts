@@ -1,0 +1,30 @@
+#[acmd_script( agent = "falco_arwing", script = "effect_visualscene02" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_visualscene02(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("falco_entry"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("falco_final_jet"), true, true);
+	}
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("falco_final_jet"), Hash40::new("jet1"), 0, 0, -3.7, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 137.0);
+	for(9 Iterations){;
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("falco_final_beam_shot"), Hash40::new("rot"), 13.5, -4, 16, 0, 0, 0, 0.8, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("falco_final_beam"), Hash40::new("rot"), 13.5, -4, 16, 0, 0, 0, 1, true);
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("falco_final_beam_shot"), Hash40::new("rot"), -13.5, -4, 16, 0, 0, 0, 0.8, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("falco_final_beam"), Hash40::new("rot"), -13.5, -4, 16, 0, 0, 0, 1, true);
+	}
+	wait(lua_state, 5.0);
+}
+frame(lua_state, 199.0);
+if is_excute(fighter) {
+	EFFECT_FOLLOW(fighter, Hash40::new("falco_final_jet_impact"), Hash40::new("jet1"), 0, 0, -24, 0, 0, 0, 1, true);
+}
+}

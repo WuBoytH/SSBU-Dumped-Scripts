@@ -1,0 +1,21 @@
+#[acmd_script( agent = "jack", script = "game_specialairhithrow" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairhithrow(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE, Hash40::new("special_hi_throw"));
+		ArticleModule::change_motion(fighter.module_accessor);
+		macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 11.0, 78, 40, 0, 75, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+	}
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::CHECK_FINISH_CAMERA(fighter, -20, 10);
+		FighterCutInManager::set_throw_finish_zoom_rate(fighter.module_accessor, 1.5);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::ATK_HIT_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), *FIGHTER_STATUS_THROW_WORK_INT_TARGET_OBJECT, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_GROUP, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_NO);
+	}
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE);
+	}

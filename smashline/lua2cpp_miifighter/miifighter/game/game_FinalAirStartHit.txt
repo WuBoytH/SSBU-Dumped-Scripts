@@ -1,0 +1,10 @@
+#[acmd_script( agent = "miifighter", script = "game_finalairstarthit" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalairstarthit(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		macros::CAM_ZOOM_OUT(fighter);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MIIFIGHTER_STATUS_FINAL_FLAG_ATTACK_START);
+	}

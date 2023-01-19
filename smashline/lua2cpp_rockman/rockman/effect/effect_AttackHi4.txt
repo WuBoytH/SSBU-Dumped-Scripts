@@ -1,0 +1,14 @@
+#[acmd_script( agent = "rockman", script = "effect_attackhi4" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackhi4(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("rockman_sparkshock"), Hash40::new("rockman_sparkshock"), Hash40::new("top"), 1, 19, -0.2, 0, 0, 0, 1.5, true, *EF_FLIP_YZ);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}

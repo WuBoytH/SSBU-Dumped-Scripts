@@ -1,0 +1,11 @@
+#[acmd_script( agent = "metaknight", script = "expression_passivestandf" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_passivestandf(fighter: &mut L2CAgentBase) {
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_PassiveStandFRumble()();
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_status_default_int64(fighter.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+	}
+	frame(fighter.lua_state_agent, 27.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
+	}

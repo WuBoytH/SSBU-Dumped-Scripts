@@ -1,0 +1,20 @@
+#[acmd_script( agent = "inkling_megaphonelaser", script = "effect_finalend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalend(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 4, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("inkling_final_splash"), false, true);
+	}
+	frame(fighter.lua_state_agent, 56.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("inkling_final_vanish"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+	}
+	WorkModule::get_float(fighter.module_accessor, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_R);
+	WorkModule::get_float(fighter.module_accessor, -1407754940, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_G);
+	WorkModule::get_float(fighter.module_accessor, -1407754940, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_B);
+	if macros::is_excute(fighter) {
+		macros::LAST_PARTICLE_SET_COLOR(fighter);
+	}

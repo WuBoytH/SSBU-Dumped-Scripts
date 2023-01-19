@@ -1,0 +1,6 @@
+#[acmd_script( agent = "pikachu", script = "game_specialairsend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairsend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+		JostleModule::set_status(fighter.module_accessor, true);
+	}

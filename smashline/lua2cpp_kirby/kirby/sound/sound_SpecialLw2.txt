@@ -1,0 +1,10 @@
+#[acmd_script( agent = "kirby", script = "sound_speciallw2" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_speciallw2(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_kirby_rnd_special_lw"));
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_kirby_special_l03"));
+	}

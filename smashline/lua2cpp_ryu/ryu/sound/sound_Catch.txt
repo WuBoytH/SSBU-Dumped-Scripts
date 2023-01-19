@@ -1,0 +1,10 @@
+#[acmd_script( agent = "ryu", script = "sound_catch" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_catch(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_swing_06"));
+	}
+	wait(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_common_swing_06"));
+	}

@@ -1,0 +1,25 @@
+#[acmd_script( agent = "trail", script = "sound_speciallw" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_speciallw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_trail_rnd_special_lw"));
+	}
+	WorkModule::is_flag(boma, *FIGHTER_TRAIL_STATUS_SPECIAL_LW_FLAG_DIRECT);
+	if(0x4ae890(false, true)){;
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("se_trail_special_l02_01"));
+		}
+	}
+	WorkModule::is_flag(boma, *FIGHTER_TRAIL_STATUS_SPECIAL_LW_FLAG_DIRECT);
+	if(0x4ae890(false, false)){;
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("se_trail_special_l02_02"));
+		}
+	}
+	frame(lua_state, 62.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_trail_step_left_m"));
+	}
+}

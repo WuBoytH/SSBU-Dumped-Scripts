@@ -1,0 +1,23 @@
+#[acmd_script( agent = "gaogaen", script = "effect_finaldash" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finaldash(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 0.0);
+	if macros::is_excute(fighter) {
+		macros::FT_REMOVE_FINAL_AURA(fighter, true);
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -9, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("gaogaen_final_dash"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	for(5 Iterations){;
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 1, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+}

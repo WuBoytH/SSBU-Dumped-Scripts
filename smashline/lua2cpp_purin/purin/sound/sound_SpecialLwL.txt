@@ -1,0 +1,24 @@
+#[acmd_script( agent = "purin", script = "sound_speciallwl" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_speciallwl(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 34.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STATUS(fighter, Hash40::new("vc_purin_001"));
+		macros::PLAY_STATUS(fighter, Hash40::new("se_purin_sleep"));
+	}
+	wait(fighter.lua_state_agent, 100.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STATUS(fighter, Hash40::new("se_purin_sleep"));
+	}
+	wait(fighter.lua_state_agent, 53.0);
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_purin_sleep"));
+		macros::PLAY_STATUS(fighter, Hash40::new("vc_purin_002"));
+	}
+	wait(fighter.lua_state_agent, 24.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_purin_special_l01"));
+	}
+	wait(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_purin_special_l01"));
+	}

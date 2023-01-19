@@ -1,0 +1,14 @@
+#[acmd_script( agent = "bayonetta", script = "game_shootinglegr_atkoff_attackairhi" , category = ACMD_GAME , low_priority)]
+unsafe fn game_shootinglegr_atkoff_attackairhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	WorkModule::is_flag(boma, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_FLAG_SHOOTING_DISABLE_ROOT_ATTACK);
+	if(0x1cb400(false, false)){;
+		if is_excute(fighter) {
+			AttackModule::clear(boma, FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_02);
+		}
+	}
+	if is_excute(fighter) {
+		AttackModule::clear(boma, FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_02);
+	}
+}

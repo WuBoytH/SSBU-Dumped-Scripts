@@ -1,0 +1,10 @@
+#[acmd_script( agent = "nana", script = "effect_attackairb_nana" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairb_nana(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("popo_attack_arc_b"), Hash40::new("popo_attack_arc_b"), Hash40::new("top"), 0.5, 6, -3, 16.42, 228.9, -5.3, 1.35, true, *EF_FLIP_YZ);
+		LAST_EFFECT_SET_RATE(fighter, 1.3);
+	}
+}

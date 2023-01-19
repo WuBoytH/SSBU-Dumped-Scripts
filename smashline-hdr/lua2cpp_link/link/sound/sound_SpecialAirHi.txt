@@ -1,0 +1,23 @@
+#[acmd_script( agent = "link", script = "sound_specialairhi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialairhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_link_special_h02"));
+		PLAY_SE(fighter, Hash40::new("se_link_special_h07"));
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_link_special_h08"));
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_link_special_h09"));
+	}
+	frame(lua_state, 47.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_link_special_h11"));
+		PLAY_SE(fighter, Hash40::new("se_link_special_h10"));
+	}
+}

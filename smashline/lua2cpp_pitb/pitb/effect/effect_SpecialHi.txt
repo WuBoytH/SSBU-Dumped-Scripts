@@ -1,0 +1,6 @@
+#[acmd_script( agent = "pitb", script = "effect_specialhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialhi(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("pitb_fly_miracle_b"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}

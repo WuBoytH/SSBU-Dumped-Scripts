@@ -1,0 +1,15 @@
+#[acmd_script( agent = "edge", script = "effect_wingflare" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_wingflare(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_onewinged_feather"), Hash40::new("wingr03"), 0, 0, 0, 0, 0, 0, 1, false);
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("edge_onewinged_flare"), Hash40::new("wingr01"), 1, 0, -1, 0, 0, 0, 0.8, false, 1);
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("edge_onewinged_flare"), Hash40::new("wingr02"), 0, 0, 0, 0, 0, 0, 0.8, false, 1);
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("edge_onewinged_flare"), Hash40::new("wingr02"), 2.5, 0, -1, 0, 0, 0, 0.8, false, 1);
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("edge_onewinged_flare"), Hash40::new("wingr03"), 0, 0, -0.5, 0, 0, 0, 0.8, false, 0.8);
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("edge_onewinged_flare"), Hash40::new("wingr03"), 2.5, 0, 0, 0, 0, 0, 0.8, false, 0.6);
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("edge_onewinged_flare"), Hash40::new("wingr04"), 0, 0, 0, 0, 0, 0, 0.8, false, 0.4);
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("edge_onewinged_flare"), Hash40::new("wingr04"), 2.5, 0, 0.5, 0, 0, 0, 0.8, false, 0.25);
+	}
+}

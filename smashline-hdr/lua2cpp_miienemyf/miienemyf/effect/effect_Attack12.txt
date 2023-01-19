@@ -1,0 +1,13 @@
+#[acmd_script( agent = "miienemyf", script = "effect_attack12" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack12(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP_ALPHA(fighter, Hash40::new("sys_attack_line"), Hash40::new("sys_attack_line"), Hash40::new("top"), -1.5, 7, -2, 0, 5, 0, 0.75, true, *EF_FLIP_YZ, 0.4);
+	}
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 7, 11, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 360, true, 0.4);
+	}
+}

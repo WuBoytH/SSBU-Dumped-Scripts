@@ -1,0 +1,17 @@
+#[acmd_script( agent = "inkling", script = "expression_final" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_final(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		START_INFO_FLASH_EYE(fighter);
+	}
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		ItemModule::set_have_item_visibility(boma, false);
+	}
+	frame(lua_state, 39.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_attackl"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+}

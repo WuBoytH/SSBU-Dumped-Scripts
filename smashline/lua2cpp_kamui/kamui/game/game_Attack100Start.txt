@@ -1,0 +1,7 @@
+#[acmd_script( agent = "kamui", script = "game_attack100start" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attack100start(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_DRAGONHAND);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_KAMUI_GENERATE_ARTICLE_DRAGONHAND, Hash40::new("attack_100_start"));
+		ArticleModule::change_motion(fighter.module_accessor);
+	}

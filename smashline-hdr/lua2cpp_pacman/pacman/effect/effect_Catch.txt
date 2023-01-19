@@ -1,0 +1,11 @@
+#[acmd_script( agent = "pacman", script = "effect_catch" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_catch(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("pacman_tractorbeam"), Hash40::new("top"), 0, 7, 11, -90, 0, 90, 1, true);
+		LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_PACMAN_INSTANCE_WORK_ID_INT_CATCH_EFFECT_HANDLE);
+		EffectModule::set_custom_uv_offset(boma, *FIGHTER_PACMAN_INSTANCE_WORK_ID_INT_CATCH_EFFECT_HANDLE, 0, 0);
+	}
+}

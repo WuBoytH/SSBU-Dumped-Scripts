@@ -1,0 +1,8 @@
+#[acmd_script( agent = "gamewatch", script = "expression_catchattack" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_catchattack(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("head"), Hash40::new("head_close"));
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("hand"), Hash40::new("hand_hold_l"));
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("lhand"), Hash40::new("lhand_alarm"));
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 0);
+	}

@@ -1,0 +1,11 @@
+#[acmd_script( agent = "popo", script = "effect_specialn" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialn(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 18.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("popo_thammer_wind_arc"), Hash40::new("popo_thammer_wind_arc"), Hash40::new("top"), -1, 9, 1.5, -6.025, 8.347, -136.367, 0.9, true, *EF_FLIP_YZ);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.3);
+	}

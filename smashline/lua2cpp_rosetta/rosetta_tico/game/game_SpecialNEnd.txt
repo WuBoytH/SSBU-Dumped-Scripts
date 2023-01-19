@@ -1,0 +1,9 @@
+#[acmd_script( agent = "rosetta_tico", script = "game_specialnend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialnend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		KineticModule::clear_speed_all(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.6);
+	frame(fighter.lua_state_agent, 11.0);
+	macros::FT_MOTION_RATE(fighter, 1);

@@ -1,0 +1,11 @@
+#[acmd_script( agent = "plizardon", script = "effect_run" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_run(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait(lua_state, 8.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+	}
+	wait(lua_state, 8.0);
+	FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, 3, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+}

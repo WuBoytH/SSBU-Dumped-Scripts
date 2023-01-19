@@ -1,0 +1,17 @@
+#[acmd_script( agent = "krool", script = "sound_win1" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_win1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 96.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_krool_swing_m"));
+	}
+	frame(lua_state, 120.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_krool_swing_s"));
+	}
+	frame(lua_state, 122.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_krool_win01"));
+	}
+}

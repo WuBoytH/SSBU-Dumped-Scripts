@@ -1,0 +1,7 @@
+#[acmd_script( agent = "pikachu", script = "game_specialn" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialn(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PIKACHU_GENERATE_ARTICLE_DENGEKIDAMA);
+	}
+	macros::FT_MOTION_RATE(fighter, 0, 0.77);

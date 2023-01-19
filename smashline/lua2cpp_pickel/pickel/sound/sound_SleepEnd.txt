@@ -1,0 +1,14 @@
+#[acmd_script( agent = "pickel", script = "sound_sleepend" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_sleepend(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 36.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_pickel_swing_s"));
+	}
+	frame(fighter.lua_state_agent, 41.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_pickel_special_n02_wood"));
+	}
+	frame(fighter.lua_state_agent, 50.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_LANDING_SE(fighter, Hash40::new("se_pickel_landing01"));
+	}

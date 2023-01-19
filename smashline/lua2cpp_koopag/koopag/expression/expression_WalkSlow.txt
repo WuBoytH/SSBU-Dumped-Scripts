@@ -1,0 +1,12 @@
+#[acmd_script( agent = "koopag", script = "expression_walkslow" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_walkslow(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 12);
+	}
+	frame(fighter.lua_state_agent, 30.0);
+	if macros::is_excute(fighter) {
+		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+	}
+	frame(fighter.lua_state_agent, 92.0);
+	macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);

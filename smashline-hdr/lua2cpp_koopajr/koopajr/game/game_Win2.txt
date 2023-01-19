@@ -1,0 +1,12 @@
+#[acmd_script( agent = "koopajr", script = "game_win2" , category = ACMD_GAME , low_priority)]
+unsafe fn game_win2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ArticleModule::generate_article_enable(boma, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_KART);
+	}
+	frame(lua_state, 74.0);
+	if is_excute(fighter) {
+		ArticleModule::generate_article_enable(boma, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_HAMMER);
+	}
+}

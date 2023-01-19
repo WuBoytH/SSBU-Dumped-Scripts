@@ -1,0 +1,30 @@
+#[acmd_script( agent = "pitb", script = "expression_specialsstart" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_specialsstart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_status_default_int64(fighter.module_accessor, Hash40::new("weapon"), Hash40::new("weapon_bow_r"));
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("weapon"), Hash40::new("weapon_arm_r"));
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
+	}
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+	}
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_rush"), 0, true);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 40.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_dash"), 0, false);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 64.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 15);
+	}
+	frame(fighter.lua_state_agent, 75.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_default_int64(fighter.module_accessor, Hash40::new("weapon"));
+	}

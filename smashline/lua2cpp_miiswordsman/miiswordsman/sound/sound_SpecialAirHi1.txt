@@ -1,0 +1,15 @@
+#[acmd_script( agent = "miiswordsman", script = "sound_specialairhi1" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialairhi1(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_miiswordsman_special_h01"));
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_miiswordsman_rnd_special_c1_h01"));
+	}
+	wait(fighter.lua_state_agent, 27.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_miiswordsman_rnd_special_c1_h02"));
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STATUS(fighter, Hash40::new("se_miiswordsman_special_h02"));
+	}

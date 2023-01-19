@@ -1,0 +1,8 @@
+#[acmd_script( agent = "zelda", script = "sound_speciallwattack" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_speciallwattack(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_ZELDA_STATUS_SPECIAL_LW_FLAG_FAIL);
+	0x10db70(false, false);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_zelda_special_l09"));
+	}

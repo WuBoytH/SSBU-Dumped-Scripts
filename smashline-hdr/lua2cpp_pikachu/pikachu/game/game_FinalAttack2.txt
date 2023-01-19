@@ -1,0 +1,11 @@
+#[acmd_script( agent = "pikachu", script = "game_finalattack2" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalattack2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		ATTACK(fighter, 0, 0, Hash40::new("top"), 1.5, 366, 90, 100, 0, 13.0, 0.0, 3.0, 0.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, Hash40::new("no"), 0.0, 50, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+		AttackModule::set_no_dead_all(boma, true, false);
+		AttackModule::set_no_damage_fly_smoke_all(boma, true, false);
+	}
+}

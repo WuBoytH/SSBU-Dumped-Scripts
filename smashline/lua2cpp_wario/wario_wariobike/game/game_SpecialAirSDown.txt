@@ -1,0 +1,6 @@
+#[acmd_script( agent = "wario_wariobike", script = "game_specialairsdown" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairsdown(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *WEAPON_WARIO_WARIOBIKE_STATUS_WORK_FLAG_TURN_TO_ITEM);
+	}

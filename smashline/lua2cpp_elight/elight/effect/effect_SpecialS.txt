@@ -1,0 +1,13 @@
+#[acmd_script( agent = "elight", script = "effect_specials" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specials(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+		macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("elight_photon_speedline"), Hash40::new("top"), 0, 7, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("elight_photon_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		macros::LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, -0.3);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("elight_photon_body_lihgt"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 36.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}

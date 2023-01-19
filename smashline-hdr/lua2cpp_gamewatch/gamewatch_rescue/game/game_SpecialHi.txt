@@ -1,0 +1,18 @@
+#[acmd_script( agent = "gamewatch_rescue", script = "game_specialhi" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		VisibilityModule::set_int64(boma, Hash40::new("up"), Hash40::new("off"));
+		VisibilityModule::set_int64(boma, Hash40::new("down"), Hash40::new("off"));
+	}
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		VisibilityModule::set_int64(boma, Hash40::new("down"), Hash40::new("on"));
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		VisibilityModule::set_int64(boma, Hash40::new("up"), Hash40::new("on"));
+		VisibilityModule::set_int64(boma, Hash40::new("down"), Hash40::new("off"));
+	}
+}

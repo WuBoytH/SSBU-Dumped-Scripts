@@ -1,0 +1,6 @@
+#[acmd_script( agent = "gamewatch", script = "game_specialairlwend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlwend(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_LW_FLAG_LOOP);
+	}

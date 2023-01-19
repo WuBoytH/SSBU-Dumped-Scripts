@@ -1,0 +1,11 @@
+#[acmd_script( agent = "jack", script = "game_specialairs1" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairs1(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_FIRE);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_JACK_STATUS_SPECIAL_S_FLAG_ENABLE_CONTROL_ENERGY);
+	}
+	frame(fighter.lua_state_agent, 32.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_JACK_STATUS_SPECIAL_S_FLAG_SET_FALL_NORMAL);
+	}

@@ -1,0 +1,38 @@
+#[acmd_script( agent = "edge", script = "effect_throwlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_throwlw(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_catch_handaura"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x24aec0(0, 0)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("edge_throwlw_gravity"), Hash40::new("top"), 12, 0.1, -2, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("edge_throwlw_gravity"), Hash40::new("top"), 12, 0.1, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		}
+	}
+}
+frame(fighter.lua_state_agent, 18.0);
+if macros::is_excute(fighter) {
+	macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 12, 0.1, -2, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+}
+frame(fighter.lua_state_agent, 25.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 12, 0.1, -2, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
+}
+frame(fighter.lua_state_agent, 29.0);
+if macros::is_excute(fighter) {
+	macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 12, 0.1, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+frame(fighter.lua_state_agent, 40.0);
+if macros::is_excute(fighter) {
+	macros::LANDING_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 12, 0.1, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	macros::EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 12, 0.1, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+frame(fighter.lua_state_agent, 44.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("edge_catch_handaura"), false, true);
+}

@@ -1,0 +1,14 @@
+#[acmd_script( agent = "ptrainer_pzenigame", script = "sound_final" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_final(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_pzenigame_final01"));
+		PLAY_SE(fighter, Hash40::new("se_pzenigame_final_lp"));
+	}
+	frame(lua_state, 217.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_pzenigame_final_lp"));
+	}
+}

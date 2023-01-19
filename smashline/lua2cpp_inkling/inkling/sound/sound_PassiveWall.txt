@@ -1,0 +1,9 @@
+#[acmd_script( agent = "inkling", script = "sound_passivewall" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_passivewall(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_common_blowaway_s"));
+		macros::STOP_SE(fighter, Hash40::new("se_common_blowaway_m"));
+		macros::STOP_SE(fighter, Hash40::new("se_common_blowaway_l"));
+		macros::PLAY_SE(fighter, 0x12f91c8546);
+		macros::PLAY_SE(fighter, Hash40::new("se_inkling_landing01"));
+	}

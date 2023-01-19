@@ -1,0 +1,12 @@
+#[acmd_script( agent = "miigunner", script = "sound_attackairhi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attackairhi(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STATUS(fighter, Hash40::new("se_miigunner_attackair_h01_lp"));
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_miigunner_rnd_attack02"));
+	}
+	frame(fighter.lua_state_agent, 39.0);
+	if macros::is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+		macros::PLAY_SE(fighter, Hash40::new("se_miigunner_attackair_h01"));
+	}

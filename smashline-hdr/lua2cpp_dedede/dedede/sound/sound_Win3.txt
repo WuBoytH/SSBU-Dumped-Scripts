@@ -1,0 +1,34 @@
+#[acmd_script( agent = "dedede", script = "sound_win3" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_win3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_dedede_attack100_win03"));
+	}
+	frame(lua_state, 32.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_dedede_attack100_win03"));
+	}
+	frame(lua_state, 40.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_dedede_hammer_swing_s_win03"));
+	}
+	frame(lua_state, 54.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_dedede_attack100_win03"));
+	}
+	frame(lua_state, 86.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_dedede_attack100_win03"));
+	}
+	frame(lua_state, 87.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_dedede_special_l01_win03"));
+	}
+	frame(lua_state, 115.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_dedede_landing02_win03"));
+		PLAY_SE(fighter, Hash40::new("se_dedede_hammer_swing_s_win03"));
+	}
+}

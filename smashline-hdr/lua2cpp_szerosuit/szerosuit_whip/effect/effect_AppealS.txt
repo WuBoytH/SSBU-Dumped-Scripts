@@ -1,0 +1,32 @@
+#[acmd_script( agent = "szerosuit_whip", script = "effect_appeals" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appeals(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("szero_whip_flash"), Hash40::new("plasmawhip1"), 1, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		EFFECT_FLW_POS(fighter, Hash40::new("szero_whip"), Hash40::new("attach"), 0, 0, 0, 0, 0, 0, 0.7, true);
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("szero_gbeam_lightning"), Hash40::new("plasmawhip2"), 0, 0, 0, 0, 0, 0, 0.6, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("szero_gbeam_lightning"), Hash40::new("plasmawhip3"), 0, 0, 0, 0, 0, 0, 0.6, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("szero_gbeam_lightning"), Hash40::new("plasmawhip4"), 0, 0, 0, 0, 0, 0, 0.6, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("szero_gbeam_lightning"), Hash40::new("plasmawhip5"), 0, 0, 0, 0, 0, 0, 0.6, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("szero_gbeam_lightning"), Hash40::new("plasmawhip6"), 0, 0, 0, 0, 0, 0, 0.6, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("szero_gbeam_lightning"), Hash40::new("plasmawhip7"), 0, 0, 0, 0, 0, 0, 0.6, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("szero_gbeam_lightning"), Hash40::new("plasmawhip8"), 0, 0, 0, 0, 0, 0, 0.6, true);
+	}
+	frame(lua_state, 46.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("szero_gbeam_lightning"), false, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("szero_whip"), false, true);
+	}
+	frame(lua_state, 47.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("szero_whip_flash"), false, true);
+	}
+}

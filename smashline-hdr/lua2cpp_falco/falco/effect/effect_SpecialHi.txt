@@ -1,0 +1,46 @@
+#[acmd_script( agent = "falco", script = "effect_specialhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("falco_firebird_start"), Hash40::new("waist"), -8, 0, 0, 0, 90, 10, 1, 0, 0, 0, 0, 0, 0, true);
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("falco_firebird"), Hash40::new("rot"), 0.75, -1.5, 1.5, 90, 0, 0, 0.85, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+	for(4 Iterations){;
+	if is_excute(fighter) {
+		BURN_COLOR(fighter, 2, 0.1, 0, 0.5);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		BURN_COLOR_FRAME(fighter, 2, 1, 0.2, 0.1, 0);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		BURN_COLOR_NORMAL(fighter);
+	}
+	wait(lua_state, 1.0);
+}
+frame(lua_state, 18.0);
+if is_excute(fighter) {
+	EFFECT_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("rot"), 0, -3, 7, 0, 0, 0, 2.7, 0, 0, 0, 0, 0, 0, true, 0.9);
+}
+frame(lua_state, 21.0);
+if is_excute(fighter) {
+	EFFECT_OFF_KIND(fighter, Hash40::new("falco_firebird"), false, false);
+	EffectModule::enable_sync_init_pos_last(boma);
+}
+if is_excute(fighter) {
+	BURN_COLOR(fighter, 2, 0.1, 0, 0.5);
+}
+wait(lua_state, 2.0);
+if is_excute(fighter) {
+	BURN_COLOR_FRAME(fighter, 2, 1, 0.2, 0.1, 0);
+}
+wait(lua_state, 2.0);
+if is_excute(fighter) {
+	BURN_COLOR_NORMAL(fighter);
+}
+wait(lua_state, 1.0);
+}

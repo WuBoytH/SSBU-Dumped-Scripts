@@ -1,0 +1,15 @@
+#[acmd_script( agent = "duckhunt", script = "expression_guardoff" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_guardoff(fighter: &mut L2CAgentBase) {
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_GuardOffRumble()();
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("body"), Hash40::new("body_normal"));
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("body"), Hash40::new("body_openwing"));
+	}
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("body"), Hash40::new("body_normal"));
+	}

@@ -1,0 +1,10 @@
+#[acmd_script( agent = "ryu", script = "game_batswing4" , category = ACMD_GAME , low_priority)]
+unsafe fn game_batswing4(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::SEARCH(fighter, 0, 0, Hash40::new("top"), 9.5, 0.0, 8.5, 6.5, 0.0, 8.5, 10.5, *COLLISION_KIND_MASK_ATTACK, *HIT_STATUS_MASK_NORMAL, 60, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+	}
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_BatSwing4Common1()();
+	if macros::is_excute(fighter) {
+		shield(*MA_MSC_CMD_REFLECTOR, *COLLISION_KIND_REFLECTOR, 0, Hash40::new("top"), 9, 0, 8, 7, 0, 8, 8, 2, 2.5, 80, false, 0.5, *FIGHTER_REFLECTOR_GROUP_HOMERUNBAT);
+	}
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_BatSwing4Common2()();

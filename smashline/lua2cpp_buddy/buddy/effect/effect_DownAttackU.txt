@@ -1,0 +1,22 @@
+#[acmd_script( agent = "buddy", script = "effect_downattacku" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_downattacku(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 3, 0, 0, 0, 180, 0, 0.65, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 4, 0, 0, 180, 0, 0.95, true);
+	}
+	frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), -13, 4.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 23.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 0.65, 0, 0, 0, 0, 0, 0, false);
+		macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_line"), Hash40::new("sys_attack_line"), Hash40::new("top"), 0, 3, -4, 0, 0, 0, 1.1, true, *EF_FLIP_YZ);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 3, -2, 0, 0, 0, 0.85, true);
+	}
+	frame(fighter.lua_state_agent, 24.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 13, 4, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}

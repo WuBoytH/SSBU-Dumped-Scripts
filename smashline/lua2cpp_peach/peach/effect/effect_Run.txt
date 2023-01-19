@@ -1,0 +1,9 @@
+#[acmd_script( agent = "peach", script = "effect_run" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_run(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 1, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);

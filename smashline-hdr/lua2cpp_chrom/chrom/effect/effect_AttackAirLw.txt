@@ -1,0 +1,30 @@
+#[acmd_script( agent = "chrom", script = "effect_attackairlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairlw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_chrom_sword1"), Hash40::new("tex_chrom_sword2"), 10, Hash40::new("sword1"), 0, 0, 1.65, Hash40::new("sword1"), -0.0, -0.0, 12.4, true, Hash40::new("chrom_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.2, 0.2);
+		EFFECT_FOLLOW(fighter, Hash40::new("chrom_sword_light"), Hash40::new("sword1"), 0, 0, 11, 0, 0, 0, 0.4, true);
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		EFFECT_ALPHA(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 1, -6.5, -1.5, -90, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, true, 1);
+		EFFECT(fighter, Hash40::new("chrom_attack_refraction"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, -8, 0, 0, 0, 0, 1.5, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.1);
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("chrom_sword_aura"), false, false);
+		EFFECT_OFF_KIND(fighter, Hash40::new("chrom_sword_light"), false, false);
+	}
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE_OFF(fighter, 2);
+	}
+}

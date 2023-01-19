@@ -1,0 +1,8 @@
+#[acmd_script( agent = "jack", script = "game_specialhiitem" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhiitem(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_SPECIAL_HI_FLAG_PICKUP);
+	}
+}

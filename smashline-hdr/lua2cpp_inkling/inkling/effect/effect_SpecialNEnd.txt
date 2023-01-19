@@ -1,0 +1,18 @@
+#[acmd_script( agent = "inkling", script = "effect_specialnend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("inkling_splashooter_muzzle"), Hash40::new("muzzle"), -1, 0, 0, 0, 180, 0, 1, true);
+	}
+	WorkModule::get_float(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
+	WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
+	WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_B);
+	if is_excute(fighter) {
+		LAST_PARTICLE_SET_COLOR(fighter);
+	}
+	frame(0, 6);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("inkling_splashooter_muzzle"), false, true);
+	}
+}

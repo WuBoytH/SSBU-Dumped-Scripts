@@ -1,0 +1,7 @@
+#[acmd_script( agent = "jack_doyle", script = "game_specials2" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specials2(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 0.0);
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, WEAPON_JACK_DOYLE_GENERATE_ARTICLE_FIRE2);
+	}

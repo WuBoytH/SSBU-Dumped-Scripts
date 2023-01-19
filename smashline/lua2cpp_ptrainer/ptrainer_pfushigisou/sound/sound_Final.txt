@@ -1,0 +1,11 @@
+#[acmd_script( agent = "ptrainer_pfushigisou", script = "sound_final" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_final(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 30.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_pfushigisou_final01"));
+		macros::PLAY_STATUS(fighter, Hash40::new("se_pfushigisou_final_lp"));
+	}
+	frame(fighter.lua_state_agent, 214.0);
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_pfushigisou_final_lp"));
+	}

@@ -1,0 +1,9 @@
+#[acmd_script( agent = "edge_flare1", script = "game_hit" , category = ACMD_GAME , low_priority)]
+unsafe fn game_hit(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x199c462b5d);
+	}
+}

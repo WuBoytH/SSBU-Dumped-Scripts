@@ -1,0 +1,9 @@
+#[acmd_script( agent = "edge", script = "game_jumpaerialback" , category = ACMD_GAME , low_priority)]
+unsafe fn game_jumpaerialback(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_CANNOT_JUMP_PLUS);
+	}
+}

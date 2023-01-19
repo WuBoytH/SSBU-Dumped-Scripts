@@ -1,0 +1,29 @@
+#[acmd_script( agent = "brave", script = "effect_speciallw8" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallw8(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("brave_chant_finish"), Hash40::new("top"), 0, 9, 0, 0, -60, 0, 1, false);
+	}
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("brave_fullburst_start"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, true);
+		LAST_EFFECT_SET_RATE(fighter, 0.6);
+		FLASH(fighter, 0.8, 0.8, 2, 0.1);
+		BURN_COLOR(fighter, 4, 1.6, 8, 0.8);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 32.0);
+	if is_excute(fighter) {
+		FLASH_FRM(fighter, 4, 1, 1, 1, 0);
+		BURN_COLOR_FRAME(fighter, 4, 1, 1, 1, 0);
+	}
+	frame(lua_state, 36.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+		BURN_COLOR_NORMAL(fighter);
+	}
+}

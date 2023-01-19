@@ -1,0 +1,16 @@
+#[acmd_script( agent = "robot", script = "sound_final" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_final(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STATUS(fighter, Hash40::new("se_robot_final04"));
+		macros::PLAY_STATUS(fighter, Hash40::new("se_robot_final05"));
+	}
+	frame(fighter.lua_state_agent, 194.0);
+	if macros::is_excute(fighter) {
+		PLAY_SE_NO_3D(Hash40::new("se_robot_final07"));
+	}
+	frame(fighter.lua_state_agent, 201.0);
+	if macros::is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+		PLAY_SE_NO_3D(Hash40::new("se_robot_final08"));
+	}

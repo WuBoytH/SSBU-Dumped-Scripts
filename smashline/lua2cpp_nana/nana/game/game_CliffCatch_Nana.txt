@@ -1,0 +1,16 @@
+#[acmd_script( agent = "nana", script = "game_cliffcatch_nana" , category = ACMD_GAME , low_priority)]
+unsafe fn game_cliffcatch_nana(fighter: &mut L2CAgentBase) {
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_POPO_STATUS_CLIFF_CATCH_MOVE_FLAG_SPECIAL_HI_PARTNER);
+	if(0x1478c0(false, true)){;
+		if macros::is_excute(fighter) {
+			macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+		}
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_POPO_STATUS_CLIFF_CATCH_FLAG_TO_PULL_PARTNER);
+	}
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_CHANGE_STATUS_DLAY_MOTION);
+	}

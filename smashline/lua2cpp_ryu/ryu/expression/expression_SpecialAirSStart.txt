@@ -1,0 +1,11 @@
+#[acmd_script( agent = "ryu", script = "expression_specialairsstart" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_specialairsstart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+	}
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 3);
+	}

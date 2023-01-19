@@ -1,0 +1,18 @@
+#[acmd_script( agent = "peach", script = "sound_jumpfront" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_jumpfront(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 3.0);
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){;
+		if macros::is_excute(fighter) {
+			macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_peach_rnd_jump"));
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_peach_rnd_jump"));
+		}
+		wait(fighter.lua_state_agent, 2.0);
+		if macros::is_excute(fighter) {
+			macros::PLAY_SE(fighter, Hash40::new("se_peach_jump01"));
+		}
+	}
+}

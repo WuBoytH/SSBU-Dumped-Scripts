@@ -1,0 +1,17 @@
+#[acmd_script( agent = "ken", script = "sound_escapeb" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_escapeb(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_ken_escape_b"));
+	}
+	wait(lua_state, 20.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_ken_step_right_m"), Hash40::new("se_ken_step_left_m"));
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_ken_step_left_m"), Hash40::new("se_ken_step_right_m"));
+	}
+}

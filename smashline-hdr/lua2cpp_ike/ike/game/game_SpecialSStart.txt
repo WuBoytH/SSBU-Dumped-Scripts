@@ -1,0 +1,13 @@
+#[acmd_script( agent = "ike", script = "game_specialsstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialsstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.8);
+	frame(lua_state, 16.0);
+	FT_MOTION_RATE(fighter, 1);
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_IKE_STATUS_SPECIAL_S_FLAG_CHARGE);
+	}
+}

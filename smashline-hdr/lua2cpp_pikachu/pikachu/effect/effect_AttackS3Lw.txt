@@ -1,0 +1,28 @@
+#[acmd_script( agent = "pikachu", script = "effect_attacks3lw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attacks3lw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 3.5, -2, 5, 0, 0, 0.9, true);
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("pikachu_elec"), Hash40::new("waist"), -9, 0, 0, 0, 0, 0, 0.75, true);
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("pikachu_cheek"), Hash40::new("head"), 0, 0, 0, 0, -90, -90, 1, true);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 2.5, 13, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 360, true);
+		LAST_EFFECT_SET_ALPHA(fighter, 0.6);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("pikachu_elec"), false, true);
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("pikachu_cheek"), false, true);
+	}
+}

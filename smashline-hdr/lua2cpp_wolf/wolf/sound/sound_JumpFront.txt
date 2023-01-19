@@ -1,0 +1,26 @@
+#[acmd_script( agent = "wolf", script = "sound_jumpfront" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_jumpfront(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	WorkModule::is_flag(boma, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING);
+	if(0x108260(false, true)){;
+		if is_excute(fighter) {
+			PLAY_SEQUENCE(fighter, Hash40::new("seq_wolf_rnd_jump"));
+		}
+	}
+	wait(lua_state, 15.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_swing_06"));
+	}
+	else{;
+	if is_excute(fighter) {
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_wolf_rnd_jump"));
+		PLAY_SE(fighter, Hash40::new("se_wolf_jump01"));
+	}
+}
+wait(lua_state, 15.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("se_common_swing_06"));
+}
+}

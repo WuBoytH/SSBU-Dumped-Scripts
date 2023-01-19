@@ -1,0 +1,17 @@
+#[acmd_script( agent = "master_sword", script = "game_specialhiend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhiend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::set_float(boma, 10, WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLOAT_2*ND_GRAVITY);
+		WorkModule::set_float(boma, 0.5, WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLOAT_2*ND_AIR_RESISTANCE);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLAG_PHYSICS);
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLAG_PHYSICS);
+	}
+}

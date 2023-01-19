@@ -1,0 +1,36 @@
+#[acmd_script( agent = "link", script = "effect_specialhihold" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialhihold(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("link_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+		LAST_EFFECT_SET_ALPHA(fighter, 0.7);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("link_sword_flare"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("link_kaiten_hold"), Hash40::new("sword1"), 4, 0, 0, 0, 0, 0, 0.4, true);
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("link_sword_flare"), false, false);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("link_sword_flare"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("link_kaiten_hold"), Hash40::new("sword1"), 8, 0, 0, 0, 0, 0, 0.6, true);
+	}
+	frame(lua_state, 32.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("link_sword_flare"), false, false);
+	}
+	frame(lua_state, 48.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("link_sword_flare"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("link_kaiten_hold"), Hash40::new("sword1"), 13, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 50.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("link_sword_flare"), false, false);
+	}
+}

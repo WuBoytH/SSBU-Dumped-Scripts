@@ -1,0 +1,9 @@
+#[acmd_script( agent = "sonic_homingtarget", script = "effect_vanish" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_vanish(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("sonic_homing_target"), false, true);
+	}
+}

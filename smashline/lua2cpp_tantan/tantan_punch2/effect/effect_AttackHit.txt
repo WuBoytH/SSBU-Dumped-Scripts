@@ -1,0 +1,6 @@
+#[acmd_script( agent = "tantan_punch2", script = "effect_attackhit" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackhit(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_wepon2_hit"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}

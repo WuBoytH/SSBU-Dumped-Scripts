@@ -1,0 +1,14 @@
+#[acmd_script( agent = "bayonetta", script = "game_escapeair" , category = ACMD_GAME , low_priority)]
+unsafe fn game_escapeair(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd(0x2ea0f68425, true);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd(0x2ea0f68425, false);
+	}
+	frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		KineticModule::change_kinetic(fighter.module_accessor, *FIGHTER_KINETIC_TYPE_FALL);
+	}

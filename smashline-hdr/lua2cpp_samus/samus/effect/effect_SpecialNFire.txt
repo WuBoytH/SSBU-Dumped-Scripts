@@ -1,0 +1,22 @@
+#[acmd_script( agent = "samus", script = "effect_specialnfire" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnfire(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("samus_cshot_shot"), Hash40::new("top"), 6, 6, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		FLASH(fighter, 1, 0.753, 1, 0.706);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		FLASH_FRM(fighter, 10, 0.314, 0.314, 0.314, 0);
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+	}
+}

@@ -1,0 +1,9 @@
+#[acmd_script( agent = "littlemac", script = "sound_walkmiddle" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_walkmiddle(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 78.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_littlemac_step_right_m"));
+	}
+	frame(fighter.lua_state_agent, 100.0);
+	macros::PLAY_STEP(fighter, Hash40::new("se_littlemac_step_left_m"));

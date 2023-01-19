@@ -1,0 +1,11 @@
+#[acmd_script( agent = "gaogaen", script = "game_win2" , category = ACMD_GAME , low_priority)]
+unsafe fn game_win2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, *FIGHTER_GAOGAEN_GENERATE_ARTICLE_CHAMPIONBELT);
+		ArticleModule::generate_article(boma, *FIGHTER_GAOGAEN_GENERATE_ARTICLE_CHAMPIONBELT);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_GAOGAEN_GENERATE_ARTICLE_CHAMPIONBELT, Hash40::new("win_2"));
+		ArticleModule::change_motion(boma);
+	}
+}

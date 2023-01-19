@@ -1,0 +1,14 @@
+#[acmd_script( agent = "wario", script = "sound_capturepulledlw" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_capturepulledlw(fighter: &mut L2CAgentBase) {
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_CAPTURE_PULLED_SE);
+	if(0x105d70(false, true)){;
+		if macros::is_excute(fighter) {
+			macros::SET_PLAY_INHIVIT(fighter, Hash40::new("se_common_cliff_catch"), 5);
+		}
+		else{;
+		frame(fighter.lua_state_agent, 3.0);
+		if macros::is_excute(fighter) {
+			macros::PLAY_SE(fighter, Hash40::new("se_common_cliff_catch"));
+		}
+	}
+}

@@ -1,0 +1,21 @@
+#[acmd_script( agent = "link", script = "expression_downforwardd" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_downforwardd(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_DownForwardDRumble()();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 4);
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_R, 2);
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+	}
+}

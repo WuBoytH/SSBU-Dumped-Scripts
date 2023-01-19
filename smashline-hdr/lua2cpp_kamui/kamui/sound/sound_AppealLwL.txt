@@ -1,0 +1,21 @@
+#[acmd_script( agent = "kamui", script = "sound_appeallwl" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appeallwl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_kamui_appeal03"));
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_kamui_appeal_l02"));
+	}
+	frame(lua_state, 21.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_kamui_appeal_l03"));
+	}
+	frame(lua_state, 50.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_kamui_appeal_l01"));
+	}
+}

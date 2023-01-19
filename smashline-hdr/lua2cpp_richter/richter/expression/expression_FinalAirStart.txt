@@ -1,0 +1,43 @@
+#[acmd_script( agent = "richter", script = "expression_finalairstart" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_finalairstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ItemModule::set_have_item_visibility(boma, false);
+	}
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitm"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 35.0);
+	WorkModule::is_flag(boma, *FIGHTER_SIMON_INSTANCE_WORK_ID_FLAG_FINAL_HIT);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){;
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_attack_critical"), 0, false);
+			ControlModule::set_rumble(boma);
+		}
+		else{;
+		wait(lua_state, 10.0);
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitl"), 0, true);
+			ControlModule::set_rumble(boma);
+		}
+		wait(lua_state, 20.0);
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitl"), 14, true);
+			ControlModule::set_rumble(boma);
+		}
+		wait(lua_state, 15.0);
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitl"), 9, true);
+			ControlModule::set_rumble(boma);
+		}
+		wait(lua_state, 10.0);
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_31_cypher"), 0, true);
+			ControlModule::set_rumble(boma);
+		}
+	}
+}
+}

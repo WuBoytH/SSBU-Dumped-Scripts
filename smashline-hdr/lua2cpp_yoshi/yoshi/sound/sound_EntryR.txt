@@ -1,0 +1,25 @@
+#[acmd_script( agent = "yoshi", script = "sound_entryr" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_entryr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_yoshi_appear01"));
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_yoshi_jump01"));
+	}
+	wait(lua_state, 28.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_yoshi_landing02"));
+	}
+	wait(lua_state, 20.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_yoshi_step_right_m"));
+	}
+	wait(lua_state, 10.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_yoshi_step_left_s"));
+	}
+}

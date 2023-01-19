@@ -1,0 +1,11 @@
+#[acmd_script( agent = "peach", script = "effect_attackhi3" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackhi3(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("peach_attack_hi3"), Hash40::new("top"), 0, 23.5, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("peach_attack_heart"), Hash40::new("top"), 0, 23.5, 0, 0, 90, 0, 0.8, true);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_action_smoke_v"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+	}

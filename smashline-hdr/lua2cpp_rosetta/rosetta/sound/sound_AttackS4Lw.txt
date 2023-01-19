@@ -1,0 +1,11 @@
+#[acmd_script( agent = "rosetta", script = "sound_attacks4lw" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacks4lw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_common_smash_start_03"));
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_rosetta_rnd_attack_smash"));
+		PLAY_SE(fighter, Hash40::new("se_rosetta_smash_s01"));
+	}
+}

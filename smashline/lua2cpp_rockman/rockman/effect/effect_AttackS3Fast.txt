@@ -1,0 +1,8 @@
+#[acmd_script( agent = "rockman", script = "effect_attacks3fast" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attacks3fast(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 16.0);

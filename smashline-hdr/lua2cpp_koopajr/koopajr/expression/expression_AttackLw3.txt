@@ -1,0 +1,43 @@
+#[acmd_script( agent = "koopajr", script = "expression_attacklw3" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_attacklw3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		HIT_NODE(fighter, Hash40::new("bust"), *HIT_STATUS_OFF);
+		HIT_NODE(fighter, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
+		HIT_NODE(fighter, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
+		HIT_NODE(fighter, Hash40::new("armr"), *HIT_STATUS_OFF);
+		HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_OFF);
+		ItemModule::set_have_item_visibility(boma, false);
+		VisibilityModule::set_int64(boma, Hash40::new("clown_face"), Hash40::new("clown_face_mouth_open"));
+		VisibilityModule::set_int64(boma, Hash40::new("item"), Hash40::new("item_tongue"));
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 9, true);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 0);
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 8, true);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 21.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitl"), 0, true);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+	}
+	frame(lua_state, 33.0);
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 5);
+	}
+}

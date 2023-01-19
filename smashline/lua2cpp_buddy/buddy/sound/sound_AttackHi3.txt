@@ -1,0 +1,14 @@
+#[acmd_script( agent = "buddy", script = "sound_attackhi3" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attackhi3(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_buddy_attackhard_h01"));
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_buddy_attack05"));
+	}
+	frame(fighter.lua_state_agent, 26.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_LANDING_SE(fighter, Hash40::new("se_buddy_attackhard_h02"));
+	}

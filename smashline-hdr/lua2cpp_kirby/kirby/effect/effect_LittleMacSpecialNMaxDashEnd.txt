@@ -1,0 +1,16 @@
+#[acmd_script( agent = "kirby", script = "effect_littlemacspecialnmaxdashend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_littlemacspecialnmaxdashend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("littlemac_straight_aura"), Hash40::new("handr"), -4, 0, 0, 0, 90, 0, 1, true);
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 15, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 70.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("littlemac_straight_aura"), false, false);
+	}
+}

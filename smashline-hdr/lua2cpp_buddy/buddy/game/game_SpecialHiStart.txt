@@ -1,0 +1,30 @@
+#[acmd_script( agent = "buddy", script = "game_specialhistart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhistart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	IS_EXIST_ARTICLE(fighter, *FIGHTER_BUDDY_GENERATE_ARTICLE_PAD);
+	if(0x18cc20(false, true)){;
+		if is_excute(fighter) {
+			ArticleModule::remove_exist(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_PAD);
+		}
+	}
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_PAD);
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_NONE);
+		HIT_NO(fighter, 12, *HIT_STATUS_NORMAL);
+		HIT_NO(fighter, 13, *HIT_STATUS_NORMAL);
+		HIT_NO(fighter, 14, *HIT_STATUS_NORMAL);
+		HIT_NO(fighter, 15, *HIT_STATUS_NORMAL);
+		HIT_NO(fighter, 16, *HIT_STATUS_NORMAL);
+		HIT_NO(fighter, 17, *HIT_STATUS_NORMAL);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		HIT_NO(fighter, 12, *HIT_STATUS_OFF);
+		HIT_NO(fighter, 13, *HIT_STATUS_OFF);
+		HIT_NO(fighter, 14, *HIT_STATUS_OFF);
+		HIT_NO(fighter, 15, *HIT_STATUS_OFF);
+		HIT_NO(fighter, 16, *HIT_STATUS_OFF);
+		HIT_NO(fighter, 17, *HIT_STATUS_OFF);
+	}
+}

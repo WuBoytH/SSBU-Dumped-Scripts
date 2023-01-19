@@ -1,0 +1,18 @@
+#[acmd_script( agent = "chrom", script = "game_swordswingdash" , category = ACMD_GAME , low_priority)]
+unsafe fn game_swordswingdash(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ItemModule::set_have_item_scale_anim(fighter.module_accessor, 5, 2.5);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		ItemModule::set_have_item_action(fighter.module_accessor, *ITEM_SWING_ACTION_BEGIN);
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_SwordSwingDashCommon()();
+	frame(fighter.lua_state_agent, 10.0);
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_SwordSwingDashCommon2()();
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+		ItemModule::set_have_item_scale_anim(fighter.module_accessor, 6, 1);
+	}

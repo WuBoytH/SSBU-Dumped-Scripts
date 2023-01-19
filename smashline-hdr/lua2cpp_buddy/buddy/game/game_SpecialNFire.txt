@@ -1,0 +1,10 @@
+#[acmd_script( agent = "buddy", script = "game_specialnfire" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialnfire(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_GENERATE_BULLET);
+		WorkModule::on_flag(boma, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_ENABLE_SHOOT);
+	}
+}

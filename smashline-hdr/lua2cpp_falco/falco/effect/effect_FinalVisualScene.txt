@@ -1,0 +1,16 @@
+#[acmd_script( agent = "falco", script = "effect_finalvisualscene" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalvisualscene(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		CANCEL_FILL_SCREEN(fighter, 0, 5);
+	}
+	frame(lua_state, 222.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("falco_final_explosion"), Hash40::new("throw"), 0, 0, 0, 0, 0, -40, 35, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 235.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("falco_final_explosion"), false, false);
+	}
+}

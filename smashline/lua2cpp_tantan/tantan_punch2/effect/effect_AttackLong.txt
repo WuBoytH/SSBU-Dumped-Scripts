@@ -1,0 +1,8 @@
+#[acmd_script( agent = "tantan_punch2", script = "effect_attacklong" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attacklong(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_wepon2_wind"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("tantan_wepon_ringwind"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}

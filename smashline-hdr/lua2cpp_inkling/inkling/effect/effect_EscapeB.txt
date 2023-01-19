@@ -1,0 +1,35 @@
+#[acmd_script( agent = "inkling", script = "effect_escapeb" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_escapeb(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("inkling_squid_change"), Hash40::new("head"), 3, 0, 0, 0, 0, 0, 0.9, true);
+	}
+	WorkModule::get_float(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
+	WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
+	WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_B);
+	if is_excute(fighter) {
+		LAST_PARTICLE_SET_COLOR(fighter);
+	}
+	if is_excute(fighter) {
+		EffectModule::enable_sync_init_pos_last(boma, 0);
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("inkling_squid_change"), Hash40::new("head"), 3, 0, 0, 0, 0, 0, 0.9, true);
+	}
+	WorkModule::get_float(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
+	WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
+	WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_B);
+	if is_excute(fighter) {
+		LAST_PARTICLE_SET_COLOR(fighter);
+	}
+	if is_excute(fighter) {
+		EffectModule::enable_sync_init_pos_last(boma, 0);
+	}
+}

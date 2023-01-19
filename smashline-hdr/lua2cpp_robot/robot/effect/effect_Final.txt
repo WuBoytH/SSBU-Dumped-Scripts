@@ -1,0 +1,32 @@
+#[acmd_script( agent = "robot", script = "effect_final" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_final(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("robot_final_main_charge"), Hash40::new("head"), 0, 6, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 200.0);
+	if is_excute(fighter) {
+		COL_PRI(fighter, 200);
+		BURN_COLOR(fighter, 0.02, 0.2, 2, 0.6);
+	}
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		BURN_COLOR_FRAME(fighter, 2, 1, 1, 1, 0);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		BURN_COLOR_NORMAL(fighter);
+		FLASH(fighter, 0.3, 0.7, 1, 0.4);
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		FLASH_FRM(fighter, 2, 0, 0.3, 1, 0);
+	}
+	wait(lua_state, 2.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+		FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 9, 0, 0, 0, 0, 0, 1, 8, 0, 10, 0, 0, 0, false);
+	}
+	wait(lua_state, 1.0);
+}

@@ -1,0 +1,12 @@
+#[acmd_script( agent = "bayonetta", script = "effect_specialairnendf" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairnendf(fighter: &mut L2CAgentBase) {
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX);
+	0x1cb400(false, false);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("bayonetta_chargebullet_end"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("bayonetta_chargebullet_end"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("bayonetta_butterfly_walk"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}

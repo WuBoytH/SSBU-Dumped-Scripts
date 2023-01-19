@@ -1,0 +1,23 @@
+#[acmd_script( agent = "pfushigisou", script = "sound_attacks4hi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacks4hi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_common_smash_start"));
+		PLAY_SE(fighter, Hash40::new("se_pfushigisou_smash_s01"));
+		PLAY_SE(fighter, Hash40::new("vc_pfushigisou_attack05"));
+	}
+	frame(lua_state, 33.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_pfushigisou_step_f_left_m"), Hash40::new("se_pfushigisou_step_f_right_m"));
+	}
+	frame(lua_state, 37.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_pfushigisou_step_f_right_m"), Hash40::new("se_pfushigisou_step_f_left_m"));
+	}
+	frame(lua_state, 62.0);
+	if is_excute(fighter) {
+		PLAY_LANDING_SE(fighter, Hash40::new("se_pfushigisou_landing01"));
+	}
+}

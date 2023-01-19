@@ -1,0 +1,17 @@
+#[acmd_script( agent = "falco", script = "effect_specialhifall" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialhifall(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::BURN_COLOR(fighter, 2, 0.1, 0, 0.4);
+		macros::EFFECT(fighter, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::BURN_COLOR_FRAME(fighter, 2, 1, 0.2, 0.1, 0);
+	}
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::BURN_COLOR_NORMAL(fighter);
+	}

@@ -1,0 +1,11 @@
+#[acmd_script( agent = "murabito", script = "game_itemlightthrowdash" , category = ACMD_GAME , low_priority)]
+unsafe fn game_itemlightthrowdash(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.92);
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		THROW_ITEM_OFFSET(fighter, 8, 10, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_ANGLE, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_SPEED, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_POWER);
+	}
+}

@@ -1,0 +1,18 @@
+#[acmd_script( agent = "trail", script = "effect_attacks33" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attacks33(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.3, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("trail_keyblade_flare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, 0x13e7c1e06c, Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("trail_keyblade_flare"), false, true);
+	}
+}

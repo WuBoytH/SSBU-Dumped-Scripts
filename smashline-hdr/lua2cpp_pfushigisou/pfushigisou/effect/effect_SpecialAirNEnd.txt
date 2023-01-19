@@ -1,0 +1,14 @@
+#[acmd_script( agent = "pfushigisou", script = "effect_specialairnend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairnend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_FLW_POS(fighter, Hash40::new("pfushigisou_tanemg"), Hash40::new("flower"), 5.7, 0, 0, 0, 0, 0, 1.3, true);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("pfushigisou_leaf"), Hash40::new("flower"), 0, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 360, 0, true);
+	}
+	frame(lua_state, 26.0);
+}

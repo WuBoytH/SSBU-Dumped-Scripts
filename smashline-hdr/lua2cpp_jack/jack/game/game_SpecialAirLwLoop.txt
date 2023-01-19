@@ -1,0 +1,10 @@
+#[acmd_script( agent = "jack", script = "game_specialairlwloop" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlwloop(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		FighterAreaModuleImpl::enable_fix_jostle_area(boma, 4, 3.8);
+		WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_SPECIAL_LW_FLAG_GUARD_START);
+	}
+}

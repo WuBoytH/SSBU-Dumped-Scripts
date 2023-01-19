@@ -1,0 +1,15 @@
+#[acmd_script( agent = "lucario", script = "effect_specialairappear" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairappear(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::COL_PRI(fighter, 200);
+		macros::FLASH(fighter, 0.1, 0, 0.4, 0.6);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("lucario_kagebunshin_appear"), Hash40::new("top"), 0, 7.3, -2.5, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::FLASH_FRM(fighter, 3, 0.1, 0, 0.4, 0);
+	}
+	frame(fighter.lua_state_agent, 12.0);
+	if macros::is_excute(fighter) {
+		macros::COL_NORMAL(fighter);
+	}

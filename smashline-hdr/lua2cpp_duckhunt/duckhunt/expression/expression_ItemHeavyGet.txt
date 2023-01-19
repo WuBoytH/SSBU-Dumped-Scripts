@@ -1,0 +1,14 @@
+#[acmd_script( agent = "duckhunt", script = "expression_itemheavyget" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_itemheavyget(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		VisibilityModule::set_int64(boma, Hash40::new("body"), Hash40::new("body_normal"));
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 3);
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_grapple"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+}

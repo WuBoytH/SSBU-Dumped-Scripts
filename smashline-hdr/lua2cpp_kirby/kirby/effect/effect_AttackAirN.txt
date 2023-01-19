@@ -1,0 +1,26 @@
+#[acmd_script( agent = "kirby", script = "effect_attackairn" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairn(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("kirby_air_n"), Hash40::new("top"), 0, 4, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 0, 0, 0, 0, 270, 0.7, true, 0.6);
+		LAST_EFFECT_SET_RATE(fighter, 2);
+	}
+	wait(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 0, 0, 0, 0, 270, 0.5, true, 1);
+	}
+	wait(lua_state, 3.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 0, 0, 0, 0, 270, 0.6, true, 0.7);
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 0, 0, 0, 0, 270, 0.45, true, 0.5);
+	}
+}

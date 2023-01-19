@@ -1,0 +1,44 @@
+#[acmd_script( agent = "bayonetta", script = "sound_specialnfireh" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialnfireh(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	WorkModule::is_flag(boma, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX);
+	if(0x1cb400(false, false)){;
+		frame(lua_state, 2.0);
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n06"));
+		}
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n06_04"));
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n06"));
+	}
+	frame(lua_state, 21.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n06_04"));
+	}
+	else{;
+	frame(lua_state, 0.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n07_head01"));
+	}
+}
+frame(lua_state, 6.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n07"));
+}
+frame(lua_state, 17.0);
+if is_excute(fighter) {
+	STOP_SE(fighter, Hash40::new("se_bayonetta_special_n07_head01"));
+	STOP_SE(fighter, Hash40::new("se_bayonetta_special_n07"));
+	PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n07_head02"));
+}
+frame(lua_state, 21.0);
+if is_excute(fighter) {
+	PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n07"));
+}
+}

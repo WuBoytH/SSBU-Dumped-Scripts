@@ -1,0 +1,15 @@
+#[acmd_script( agent = "bayonetta", script = "sound_attacks3" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacks3(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_bayonetta_rnd_attack01"));
+		macros::PLAY_SE(fighter, Hash40::new("se_bayonetta_attackhard_s01"));
+	}
+	frame(fighter.lua_state_agent, 23.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_bayonetta_step_left_s"));
+	}
+	frame(fighter.lua_state_agent, 43.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_bayonetta_step_right_s"));
+	}

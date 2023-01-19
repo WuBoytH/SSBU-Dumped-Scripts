@@ -1,0 +1,14 @@
+#[acmd_script( agent = "ryu", script = "sound_final2" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_final2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_ryu_final02_01"));
+		PLAY_SE(fighter, Hash40::new("vc_ryu_final01"));
+	}
+	wait(lua_state, 69.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_ryu_final01_02"));
+	}
+}

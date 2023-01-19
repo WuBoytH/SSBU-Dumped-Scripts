@@ -1,0 +1,126 @@
+#[acmd_script( agent = "elight", script = "effect_specialairn2" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairn2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::set_float(boma, 15.5, FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT1*_POS_X_MIN);
+		WorkModule::set_float(boma, 30, FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT1*_POS_X_MAX);
+		WorkModule::set_float(boma, 1, FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT2*_POS_X_MIN);
+		WorkModule::set_float(boma, 12, FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT2*_POS_X_MAX);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_buster_sword2"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_buster_sword_max"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, -0.3);
+	}
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_elight_sword4"), Hash40::new("tex_elight_sword5"), 7, Hash40::new("sword1"), 0, 0, -0.08, Hash40::new("sword1"), 23.5, 0, -0.08, true, Hash40::new("null"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_buster_sword_light"), Hash40::new("sword1"), 4, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("elight_buster_sword_lensflare"), Hash40::new("top"), 0, 10, 20, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_buster_sword_light"), false, true);
+	}
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE_OFF(fighter, 4);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_buster_sword_max"), true, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_buster_sword_linear"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_ELIGHT_STATUS_SPECIAL_N_INT_EFFECT_ID);
+		LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, -0.3);
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		WorkModule::get_float(boma, Hash40::new("tex_elight_sword4"), Hash40::new("tex_elight_sword5"), 7, Hash40::new("sword1"), 0, 0, -0.08, Hash40::new("sword1"), FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT1*_X);
+		AFTER_IMAGE4_ON_arg29(-1178691668, 0, -0.08, true, Hash40::new("null"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+		WorkModule::get_float(boma, Hash40::new("elight_buster_sword_light"), Hash40::new("sword1"), FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT2*_X);
+		EFFECT_FOLLOW(fighter, -1178691668, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("elight_buster_sword_lensflare"), Hash40::new("top"), 0, 8, 21, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE_OFF(fighter, 4);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_buster_wind"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, true);
+		EffectModule::set_disable_render_offset_last(boma);
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_buster_sword_light"), false, true);
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		WorkModule::get_float(boma, Hash40::new("tex_elight_sword4"), Hash40::new("tex_elight_sword5"), 6, Hash40::new("sword1"), 0, 0, -0.08, Hash40::new("sword1"), FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT1*_X);
+		AFTER_IMAGE4_ON_arg29(-1178691668, 0, -0.08, true, Hash40::new("null"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		WorkModule::get_float(boma, Hash40::new("elight_buster_sword_light"), Hash40::new("sword1"), FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT2*_X);
+		EFFECT_FOLLOW(fighter, -1178691668, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 26.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("elight_buster_sword_lensflare"), Hash40::new("top"), 0, 11, 22, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 29.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_buster_sword_light"), false, true);
+		AFTER_IMAGE_OFF(fighter, 3);
+	}
+	frame(lua_state, 33.0);
+	if is_excute(fighter) {
+		WorkModule::get_float(boma, Hash40::new("tex_elight_sword4"), Hash40::new("tex_elight_sword5"), 6, Hash40::new("sword1"), 0, 0, -0.08, Hash40::new("sword1"), FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT1*_X);
+		AFTER_IMAGE4_ON_arg29(-1178691668, 0, -0.08, true, Hash40::new("null"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+	}
+	frame(lua_state, 34.0);
+	if is_excute(fighter) {
+		WorkModule::get_float(boma, Hash40::new("elight_buster_sword_light"), Hash40::new("sword1"), FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT2*_X);
+		EFFECT_FOLLOW(fighter, -1178691668, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 35.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("elight_buster_sword_lensflare"), Hash40::new("top"), 0, 11, 22, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 39.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_buster_sword_light"), false, true);
+		AFTER_IMAGE_OFF(fighter, 3);
+	}
+	frame(lua_state, 44.0);
+	if is_excute(fighter) {
+		WorkModule::get_float(boma, Hash40::new("tex_elight_sword4"), Hash40::new("tex_elight_sword5"), 8, Hash40::new("sword1"), 0, 0, -0.08, Hash40::new("sword1"), FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT1*_X);
+		AFTER_IMAGE4_ON_arg29(-1178691668, 0, -0.08, true, Hash40::new("null"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+		WorkModule::get_float(boma, Hash40::new("elight_buster_sword_light"), Hash40::new("sword1"), FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT2*_X);
+		EFFECT_FOLLOW_NO_STOP(fighter, -1178691668, 0, 0, 0, 0, 0, 1, true);
+		WorkModule::get_float(boma, Hash40::new("elight_buster_sword_light"), Hash40::new("sword1"), FIGHTER_ELIGHT_STATUS_SPECIAL_N_FLOAT_EFFECT2*_X);
+		EFFECT_FOLLOW_NO_STOP(fighter, -1178691668, 0, 0, 0, 0, 0, 0.9, true);
+	}
+	frame(lua_state, 45.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_buster_sword_lensflare"), Hash40::new("top"), 0, 10, 23, 0, 0, 0, 0.9, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_buster_sword_lensflare"), Hash40::new("top"), 0, 10, 23, 0, 0, 0, 1.3, true);
+	}
+	frame(lua_state, 47.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_buster_sword_light"), false, true);
+	}
+	frame(lua_state, 48.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE_OFF(fighter, 5);
+	}
+	frame(lua_state, 52.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_buster_sword_linear"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_buster_sword2"), true, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_sword_close_m"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, -0.3);
+	}
+}

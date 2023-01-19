@@ -1,0 +1,9 @@
+#[acmd_script( agent = "eflame", script = "game_attack100start" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attack100start(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.5);
+	frame(lua_state, 5.0);
+	FT_MOTION_RATE(fighter, 1);
+}

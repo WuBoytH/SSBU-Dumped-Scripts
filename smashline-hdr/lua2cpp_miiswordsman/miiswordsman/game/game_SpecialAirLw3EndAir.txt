@@ -1,0 +1,9 @@
+#[acmd_script( agent = "miiswordsman", script = "game_specialairlw3endair" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlw3endair(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait(lua_state, 8.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_MIISWORDSMAN_STATUS_WORK_ID_FLAG_JET_STUB_LANDING_FALL_SPECIAL);
+	}
+}

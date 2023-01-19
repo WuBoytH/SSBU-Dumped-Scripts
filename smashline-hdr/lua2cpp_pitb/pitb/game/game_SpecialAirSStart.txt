@@ -1,0 +1,32 @@
+#[acmd_script( agent = "pitb", script = "game_specialairsstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairsstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_PIT_STATUS_SPECIAL_S_WORK_ID_FLAG_MOVE_FRONT);
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		damage(MSC=*MA_MSC_DAMAGE_DAMAGE_NO_REACTION, Type=*DAMAGE_NO_REACTION_MODE_ALWAYS, DamageThreshold=0);
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 361, 0, 0, 0, 2.0, 0.0, 14.0, 9.0, Some(0.0), Some(4.0), Some(9.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, Hash40::new("no"), 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_search"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+		WorkModule::on_flag(boma, *FIGHTER_PIT_STATUS_SPECIAL_S_WORK_ID_FLAG_HIT_CHECK_ONOFF);
+		shield(MSC=*MA_MSC_CMD_SHIELD_ON, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, Group=*FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
+	}
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		damage(MSC=*MA_MSC_DAMAGE_DAMAGE_NO_REACTION, Type=*DAMAGE_NO_REACTION_MODE_NORMAL, DamageThreshold=0);
+	}
+	frame(lua_state, 31.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_PIT_STATUS_SPECIAL_S_WORK_ID_FLAG_GRAVITY_ONOFF);
+	}
+	frame(lua_state, 36.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_PIT_STATUS_SPECIAL_S_WORK_ID_FLAG_HIT_CHECK_ONOFF);
+		shield(MSC=*MA_MSC_CMD_SHIELD_OFF, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, Group=*FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
+		AttackModule::clear_all(boma);
+	}
+}

@@ -1,0 +1,10 @@
+#[acmd_script( agent = "elight", script = "game_lipstickswingdash" , category = ACMD_GAME , low_priority)]
+unsafe fn game_lipstickswingdash(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 7.0);
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_LipStickSwingDashCommon()();
+	frame(fighter.lua_state_agent, 10.0);
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_LipStickSwingDashCommon2()();
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		AttackModule::clear_all(fighter.module_accessor);
+	}

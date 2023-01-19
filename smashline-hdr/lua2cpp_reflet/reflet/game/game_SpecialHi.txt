@@ -1,0 +1,14 @@
+#[acmd_script( agent = "reflet", script = "game_specialhi" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_REFLET_GENERATE_ARTICLE_ELWIND);
+		WorkModule::on_flag(boma, *FIGHTER_REFLET_STATUS_SPECIAL_HI_FLAG_JUMP);
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, FIGHTER_REFLET_STATUS_SPECIAL_HI_FLAG_TRY_2*ND);
+	}
+}

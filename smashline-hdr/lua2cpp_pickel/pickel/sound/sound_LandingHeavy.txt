@@ -1,0 +1,19 @@
+#[acmd_script( agent = "pickel", script = "sound_landingheavy" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_landingheavy(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	WorkModule::is_flag(boma, *FIGHTER_PICKEL_STATUS_LANDING_FLAG_HIGH_PLACE);
+	if(0x370870(false, true)){;
+		frame(lua_state, 3.0);
+		if is_excute(fighter) {
+			PLAY_LANDING_SE(fighter, Hash40::new("invalid"));
+			PLAY_SE(fighter, Hash40::new("se_pickel_landing_high_place"));
+		}
+		else{;
+		frame(lua_state, 0.0);
+		if is_excute(fighter) {
+			PLAY_LANDING_SE(fighter, Hash40::new("se_pickel_landing02"));
+		}
+	}
+}
+}

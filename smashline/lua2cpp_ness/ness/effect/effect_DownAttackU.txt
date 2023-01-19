@@ -1,0 +1,16 @@
+#[acmd_script( agent = "ness", script = "effect_downattacku" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_downattacku(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_arc_b"), Hash40::new("sys_attack_arc_b"), Hash40::new("top"), 0, 4.5, -6, 0, 120, 13, 0.9, true, *EF_FLIP_YZ);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(fighter.lua_state_agent, 17.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_NONE);
+		macros::LAST_EFFECT_SET_ALPHA(fighter, 0.55);
+	}
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_arc_b"), Hash40::new("sys_attack_arc_b"), Hash40::new("top"), 0, 4.5, 5, 0, -50, -10, 1, true, *EF_FLIP_YZ);
+	}

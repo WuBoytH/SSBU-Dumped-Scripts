@@ -1,0 +1,20 @@
+#[acmd_script( agent = "szerosuit", script = "sound_squatb" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_squatb(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait_loop_sync_mot();
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_szerosuit_crawing_left_f"));
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_szerosuit_crawing_right_h"));
+	}
+	frame(lua_state, 46.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_szerosuit_crawing_right_f"));
+	}
+	frame(lua_state, 47.0);
+	PLAY_SE(fighter, Hash40::new("se_szerosuit_crawing_left_h"));
+}

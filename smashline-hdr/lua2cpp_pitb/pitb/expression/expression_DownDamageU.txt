@@ -1,0 +1,9 @@
+#[acmd_script( agent = "pitb", script = "expression_downdamageu" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_downdamageu(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		VisibilityModule::set_status_default_int64(boma, Hash40::new("weapon"), Hash40::new("weapon_bow_r"));
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+	}
+}

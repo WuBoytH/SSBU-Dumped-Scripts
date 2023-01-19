@@ -1,0 +1,10 @@
+#[acmd_script( agent = "murabito_tommy", script = "effect_appearl" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appearl(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_whole(fighter.module_accessor, false);
+	}
+	frame(fighter.lua_state_agent, 23.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("murabito_final_appearance_smoke"), Hash40::new("bust"), 3, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+		VisibilityModule::set_whole(fighter.module_accessor, true);
+	}

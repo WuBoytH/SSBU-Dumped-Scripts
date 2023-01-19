@@ -1,0 +1,13 @@
+#[acmd_script( agent = "kamui", script = "expression_sleeploop" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_sleeploop(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait_loop_sync_mot();
+	methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SleepLoopRumble()();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+	}
+	frame(lua_state, 1.0);
+	methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_sleep"), 0, true);
+	ControlModule::set_rumble(boma);
+}

@@ -1,0 +1,13 @@
+#[acmd_script( agent = "kirby", script = "effect_gekkougaspecialnhold" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_gekkougaspecialnhold(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_mizusyuriken_hold"), Hash40::new("haver"), -0.0, 0, 0, 0, 0, 0, 1, true);
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -8, 0, 0, 0, 0, 0, 1, 4, 0, 15, 0, 0, 0, false);
+	}
+	wait(lua_state, 5.0);
+}

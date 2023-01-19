@@ -1,0 +1,9 @@
+#[acmd_script( agent = "yoshi_star", script = "effect_move" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_move(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("yoshi_hipdrop_star"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+}

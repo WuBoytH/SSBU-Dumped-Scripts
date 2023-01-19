@@ -1,0 +1,18 @@
+#[acmd_script( agent = "ridley", script = "effect_throwhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 12, 3, -90, 0, 0, 1.5, true, *EF_FLIP_YZ);
+		LAST_PARTICLE_SET_COLOR(fighter, 0.104, 0.024, 0.754);
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+}

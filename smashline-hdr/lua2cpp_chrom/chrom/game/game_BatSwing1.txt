@@ -1,0 +1,11 @@
+#[acmd_script( agent = "chrom", script = "game_batswing1" , category = ACMD_GAME , low_priority)]
+unsafe fn game_batswing1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_BatSwing1Common()();
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		AttackModule::clear_all(boma);
+	}
+}

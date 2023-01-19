@@ -1,0 +1,9 @@
+#[acmd_script( agent = "link_ancientbowarrow", script = "effect_stickwall" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_stickwall(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("link_final_arrow_flare"), false, true);
+		EFFECT(fighter, Hash40::new("link_final_hit"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 3.5, 0, 0, 0, 0, 0, 0, true);
+	}
+}

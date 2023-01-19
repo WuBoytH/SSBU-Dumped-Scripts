@@ -1,0 +1,32 @@
+#[acmd_script( agent = "brave", script = "effect_finalairend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalairend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("brave_final_slash"), true, true);
+		FILL_SCREEN_MODEL_COLOR(fighter, 1, 0, 0.14, 0.16, 0.18, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+		EFFECT(fighter, Hash40::new("brave_final_lightning"), Hash40::new("top"), -0.0, 14, 18, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("brave_final_lightsword2"), Hash40::new("sword1"), 0, 0, 0, 0, 0, -90, 1, true);
+		EFFECT_FOLLOW_WORK(fighter, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE, Hash40::new("sword1"), 0, 0, 0, 0, 0, -90, 1, true);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("brave_final_lightning"), Hash40::new("top"), -0.0, 15, 23, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("brave_final_lightning"), Hash40::new("top"), -0.0, 14, 23, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 35.0);
+	if is_excute(fighter) {
+		CANCEL_FILL_SCREEN(fighter, 1, 30);
+	}
+	frame(lua_state, 48.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("brave_final_lightsword2"), false, true);
+	}
+	frame(lua_state, 54.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE, false, true);
+	}
+}

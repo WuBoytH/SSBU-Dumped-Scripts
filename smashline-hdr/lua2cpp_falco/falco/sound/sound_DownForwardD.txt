@@ -1,0 +1,13 @@
+#[acmd_script( agent = "falco", script = "sound_downforwardd" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_downforwardd(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_falco_escape"));
+	}
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_falco_landing01"));
+	}
+}

@@ -1,0 +1,33 @@
+#[acmd_script( agent = "inkling_squid", script = "effect_specialhijump" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialhijump(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("inkling_superjump_ripple_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	WorkModule::get_float(boma, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_R);
+	WorkModule::get_float(boma, -1407754940, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_G);
+	WorkModule::get_float(boma, -1407754940, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_B);
+	if is_excute(fighter) {
+		LAST_PARTICLE_SET_COLOR(fighter);
+	}
+	frame(0, 2);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("inkling_superjump_jet"), Hash40::new("head"), -2, 0, 0, 0, 0, -90, 1, true);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_INT_JET_EFFECT_HANDLE);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+	WorkModule::get_float(boma, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_R);
+	WorkModule::get_float(boma, -1407754940, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_G);
+	WorkModule::get_float(boma, -1407754940, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_B);
+	if is_excute(fighter) {
+		LAST_PARTICLE_SET_COLOR(fighter);
+	}
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("inkling_superjump_line"), Hash40::new("head"), -2, 0, 0, 0, 0, -90, 1, true);
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("inkling_superjump_jet"), false, true);
+	}
+}

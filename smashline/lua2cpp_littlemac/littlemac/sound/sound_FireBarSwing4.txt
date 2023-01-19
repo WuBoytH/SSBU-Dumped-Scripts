@@ -1,0 +1,10 @@
+#[acmd_script( agent = "littlemac", script = "sound_firebarswing4" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_firebarswing4(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_common_smash_start"));
+	}
+	wait(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_littlemac_attack05"));
+	}

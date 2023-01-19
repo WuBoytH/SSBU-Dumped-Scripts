@@ -1,0 +1,14 @@
+#[acmd_script( agent = "eflame", script = "effect_win1" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win1(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_beam_win1"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, false);
+	}
+	frame(lua_state, 33.0);
+	frame(lua_state, 55.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_beam_win1"), false, true);
+	}
+}

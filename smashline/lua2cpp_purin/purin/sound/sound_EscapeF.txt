@@ -1,0 +1,18 @@
+#[acmd_script( agent = "purin", script = "sound_escapef" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_escapef(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_purin_escape"));
+	}
+	wait(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_purin_step_right_m"));
+	}
+	wait(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_purin_step_left_m"));
+	}
+	wait(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_purin_landing01"));
+	}

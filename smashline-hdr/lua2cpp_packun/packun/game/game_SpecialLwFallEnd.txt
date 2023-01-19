@@ -1,0 +1,9 @@
+#[acmd_script( agent = "packun", script = "game_speciallwfallend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_speciallwfallend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait(lua_state, 18.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_PACKUN_STATUS_SPECIAL_LW_FLAG_END_CHANGE_KINETIC);
+	}
+}

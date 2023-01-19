@@ -1,0 +1,18 @@
+#[acmd_script( agent = "ridley", script = "game_speciallwfinish" , category = ACMD_GAME , low_priority)]
+unsafe fn game_speciallwfinish(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		JostleModule::set_status(boma, false);
+		WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
+		ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 10.0, 57, 100, 150, 0, 2.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_stab"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_TAIL);
+		AttackModule::set_no_finish_camera(boma, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, true, true);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_RIDLEY_STATUS_SPECIAL_LW_FLAG_THROW);
+		JostleModule::set_status(boma, true);
+		WHOLE_HIT(fighter, *HIT_STATUS_NORMAL);
+	}
+}

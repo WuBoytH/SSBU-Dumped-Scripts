@@ -1,0 +1,24 @@
+#[acmd_script( agent = "tantan", script = "effect_attack13" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack13(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.2);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x3a02e0(192, 0)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_attack_arc_weak"), Hash40::new("top"), -0.8, 8, 1.8, 36.609, 23.747, 176.23, 0.98, true);
+			macros::LAST_EFFECT_SET_COLOR(fighter, 3, 1.2, 0.5);
+			macros::LAST_EFFECT_SET_RATE(fighter, 1.2);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_attack_arc_weak"), Hash40::new("top"), -0.8, 8, 1.8, 57.86, 49.861, 210.164, 0.98, true);
+			macros::LAST_EFFECT_SET_COLOR(fighter, 3, 1.2, 0.5);
+			macros::LAST_EFFECT_SET_RATE(fighter, 1.1);
+		}
+	}
+}

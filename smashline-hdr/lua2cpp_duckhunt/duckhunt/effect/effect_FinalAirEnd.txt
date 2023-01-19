@@ -1,0 +1,17 @@
+#[acmd_script( agent = "duckhunt", script = "effect_finalairend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalairend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_final_can"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_final_hit"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_final_hit2"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_final_hit3"), true, true);
+		EFFECT_FOLLOW_arg11(Hash40::new("duckhunt_feather_long"), Hash40::new("duckrot"), 0, 4, 0, 20, 0, 0, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+		LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+	}
+	frame(lua_state, 72.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_HANDLE(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+	}
+}

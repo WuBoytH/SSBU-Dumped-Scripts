@@ -1,0 +1,9 @@
+#[acmd_script( agent = "packun_poisonbreath", script = "sound_startmax" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_startmax(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("se_packun_special_s04"));
+		PLAY_SE(fighter, Hash40::new("se_packun_special_s05"));
+	}
+}

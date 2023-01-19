@@ -1,0 +1,14 @@
+#[acmd_script( agent = "dolly", script = "effect_escapeattack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_escapeattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT_FLIP(fighter, Hash40::new("sys_run_smoke"), Hash40::new("sys_run_smoke"), Hash40::new("top"), -4, 0, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP_ALPHA(fighter, Hash40::new("dolly_attack_arc3"), Hash40::new("dolly_attack_arc3"), Hash40::new("top"), 4, 14.5, 2, -34.5, 0.4, 105, 0.67, true, *EF_FLIP_YZ, 0.5);
+		LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+}

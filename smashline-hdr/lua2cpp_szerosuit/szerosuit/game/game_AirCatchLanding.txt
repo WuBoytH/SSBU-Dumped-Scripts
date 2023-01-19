@@ -1,0 +1,15 @@
+#[acmd_script( agent = "szerosuit", script = "game_aircatchlanding" , category = ACMD_GAME , low_priority)]
+unsafe fn game_aircatchlanding(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.4);
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		ArticleModule::change_status_exist(boma, FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP2, WEAPON_SZEROSUIT_WHIP2*_STATUS_KIND_REWIND);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP2);
+	}
+}

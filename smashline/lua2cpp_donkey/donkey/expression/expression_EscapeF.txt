@@ -1,0 +1,17 @@
+#[acmd_script( agent = "donkey", script = "expression_escapef" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_escapef(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+	}
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		notify_event_msc_cmd(0x23c33f3bdc);
+	}
+	frame(fighter.lua_state_agent, 21.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_L, 3);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+	}

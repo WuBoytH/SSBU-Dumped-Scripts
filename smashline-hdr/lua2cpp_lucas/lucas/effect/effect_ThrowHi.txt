@@ -1,0 +1,26 @@
+#[acmd_script( agent = "lucas", script = "effect_throwhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("lucas_psi_atk"), Hash40::new("throw"), 0, 2, 4, 0, 0, 0, 0.8, true);
+		LAST_EFFECT_SET_RATE(fighter, 0.9);
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("lucas_psi_atk"), Hash40::new("throw"), 0, 2, 4, 0, 0, 0, 0.8, true);
+		LAST_EFFECT_SET_RATE(fighter, 0.9);
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("lucas_psi_atk_lw"), Hash40::new("throw"), 0, 2, 4, 0, 0, 0, 1.2, true);
+	}
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+	}
+}

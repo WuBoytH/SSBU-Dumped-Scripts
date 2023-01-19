@@ -1,0 +1,28 @@
+#[acmd_script( agent = "plizardon", script = "effect_attackhi4" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackhi4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 23, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("plizardon_smash_arc"), Hash40::new("plizardon_smash_arc"), Hash40::new("top"), -1, 14, -2, -17, 10, 74, 1.1, true, *EF_FLIP_YZ);
+		LAST_EFFECT_SET_RATE(fighter, 1.2);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("plizardon_smash_arc"), Hash40::new("plizardon_smash_arc"), Hash40::new("top"), -1, 16, 1, -178, -20, 98, 1.1, true, *EF_FLIP_YZ);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		EFFECT_DETACH_KIND(fighter, Hash40::new("plizardon_smash_arc"), -1);
+		FOOT_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 3, 0, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		LAST_EFFECT_SET_ALPHA(fighter, 0.7);
+	}
+}

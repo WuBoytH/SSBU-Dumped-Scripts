@@ -1,0 +1,8 @@
+#[acmd_script( agent = "sonic", script = "effect_speciallwdashchargemiddle" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallwdashchargemiddle(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sonic_spinblur_middle"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, false);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("sonic_spintrace_middle"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1.1, false);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}

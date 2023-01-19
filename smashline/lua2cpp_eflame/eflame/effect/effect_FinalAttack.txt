@@ -1,0 +1,20 @@
+#[acmd_script( agent = "eflame", script = "effect_finalattack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalattack(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_eflame_final2"), false);
+		EffectModule::req_screen(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 5.0);
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_final_sword_arc"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, false);
+	}
+	frame(fighter.lua_state_agent, 36.0);
+	frame(fighter.lua_state_agent, 92.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_aura"), false, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_sword_fire"), false, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_sword_beam"), false, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_sword_body"), false, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_close"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+	}

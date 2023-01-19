@@ -1,0 +1,11 @@
+#[acmd_script( agent = "wiifit", script = "game_finalend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_SILHOUETTEL);
+	}
+	frame(0, 40);
+	FT_MOTION_RATE(fighter, 0.8);
+}

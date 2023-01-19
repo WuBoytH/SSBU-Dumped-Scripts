@@ -1,0 +1,13 @@
+#[acmd_script( agent = "gamewatch", script = "sound_speciallw" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_speciallw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 6.0);
+	get_value_int(*SO_VAR_INT_PREV_STATUS);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(0, *FIGHTER_GAMEWATCH_STATUS_KIND_SPECIAL_LW_WAIT_START)){;
+		WorkModule::is_flag(fighter.module_accessor, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_LW_FLAG_SE_PLAYED);
+		if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){;
+			if macros::is_excute(fighter) {
+				macros::PLAY_SE(fighter, Hash40::new("se_gamewatch_wave08_mi"));
+				WorkModule::on_flag(fighter.module_accessor, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_LW_FLAG_SE_PLAYED);
+			}
+		}
+	}

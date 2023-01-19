@@ -1,0 +1,41 @@
+#[acmd_script( agent = "palutena", script = "effect_specialairlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairlw(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		EFFECT_FLW_POS(fighter, Hash40::new("palutena_counter_flash"), Hash40::new("shield"), -1, 0, -3, 0, 0, 0, 1, true);
+	}
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0xee630(0, 0)){;
+		if is_excute(fighter) {
+			EFFECT_FLW_POS(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 23, -1, 0, 90, 0, 1, false);
+			LAST_EFFECT_SET_RATE(fighter, 0.7);
+		}
+		else{;
+		if is_excute(fighter) {
+			EFFECT_FLW_POS(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 23, 1, 0, -90, 0, 1, false);
+			LAST_EFFECT_SET_RATE(fighter, 0.7);
+		}
+	}
+}
+frame(lua_state, 6.0);
+if is_excute(fighter) {
+	FLASH(fighter, 1, 1, 1, 0.75);
+}
+wait(lua_state, 1.0);
+for(5 Iterations){;
+if is_excute(fighter) {
+	FLASH(fighter, 0.7, 0.7, 0.7, 0.5);
+}
+wait(lua_state, 2.0);
+if is_excute(fighter) {
+	FLASH(fighter, 0.67, 0, 0.78, 0.31);
+}
+wait(lua_state, 2.0);
+if is_excute(fighter) {
+	COL_NORMAL(fighter);
+}
+wait(lua_state, 2.0);
+}
+}

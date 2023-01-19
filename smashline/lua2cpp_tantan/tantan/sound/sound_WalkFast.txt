@@ -1,0 +1,9 @@
+#[acmd_script( agent = "tantan", script = "sound_walkfast" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_walkfast(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_tantan_step_left_l"));
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	macros::PLAY_STEP(fighter, Hash40::new("se_tantan_step_right_l"));

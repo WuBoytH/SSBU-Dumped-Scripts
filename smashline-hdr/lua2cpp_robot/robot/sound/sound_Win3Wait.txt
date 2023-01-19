@@ -1,0 +1,37 @@
+#[acmd_script( agent = "robot", script = "sound_win3wait" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_win3wait(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_machine_down_win03"));
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_robot_machine_down_win03"));
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_appeal01_win03"));
+	}
+	frame(lua_state, 35.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_robot_appeal01_win03"));
+	}
+	frame(lua_state, 43.0);
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("se_robot_appeal01_win03"));
+	}
+	frame(lua_state, 54.0);
+	if is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+	}
+	frame(lua_state, 67.0);
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("se_robot_appeal01_win03"));
+	}
+	frame(lua_state, 120.0);
+	if is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+	}
+}

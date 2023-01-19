@@ -1,0 +1,31 @@
+#[acmd_script( agent = "miifighter", script = "game_specialn3" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialn3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_MIIFIGHTER_STATUS_WORK_ID_FLAG_BAKURETU_KICK_TURN);
+	}
+	frame(lua_state, 31.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_MIIFIGHTER_STATUS_WORK_ID_FLAG_BAKURETU_KICK_TURN);
+	}
+	frame(lua_state, 40.0);
+	if is_excute(fighter) {
+		damage(MSC=*MA_MSC_DAMAGE_DAMAGE_NO_REACTION, Type=*DAMAGE_NO_REACTION_MODE_ALWAYS, DamageThreshold=0);
+	}
+	frame(lua_state, 50.0);
+	if is_excute(fighter) {
+		ATTACK(fighter, 0, 0, Hash40::new("legl"), 25.0, 361, 80, 0, 40, 4.0, 6.8, 0.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
+		ATTACK(fighter, 1, 0, Hash40::new("legl"), 23.0, 361, 80, 0, 40, 3.0, -4.7, 0.0, 0.0, Some(2.2), Some(0.0), Some(0.0), 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
+	}
+	wait(lua_state, 3.0);
+	if is_excute(fighter) {
+		damage(MSC=*MA_MSC_DAMAGE_DAMAGE_NO_REACTION, Type=*DAMAGE_NO_REACTION_MODE_NORMAL, DamageThreshold=0);
+		AttackModule::clear_all(boma);
+	}
+	frame(lua_state, 55.0);
+	FT_MOTION_RATE(fighter, 0.714);
+	frame(lua_state, 90.0);
+	FT_MOTION_RATE(fighter, 1);
+}

@@ -1,0 +1,9 @@
+#[acmd_script( agent = "koopag", script = "game_cliffcatch" , category = ACMD_GAME , low_priority)]
+unsafe fn game_cliffcatch(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	FT_MOTION_RATE(fighter, 2);
+	frame(lua_state, 5.0);
+	FT_MOTION_RATE(fighter, 1);
+}

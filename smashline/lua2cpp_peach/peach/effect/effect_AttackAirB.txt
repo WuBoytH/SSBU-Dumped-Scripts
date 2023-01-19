@@ -1,0 +1,21 @@
+#[acmd_script( agent = "peach", script = "effect_attackairb" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairb(fighter: &mut L2CAgentBase) {
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x115d40(0, 0)){;
+		frame(fighter.lua_state_agent, 6.0);
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 3, 8.5, -14, 0, 0, 0, 1.35, 0, 0, 0, 0, 0, 0, true);
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("peach_back_atk"), Hash40::new("top"), 3, 8.5, -10, 0, 0, 0, 1, true);
+		}
+		else{;
+		frame(fighter.lua_state_agent, 0.0);
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), -3, 8.5, -14, 0, 0, 0, 1.35, 0, 0, 0, 0, 0, 0, true);
+			macros::EFFECT_FOLLOW(fighter, Hash40::new("peach_back_atk"), Hash40::new("top"), -3, 8.5, -10, 0, 0, 0, 1, true);
+		}
+	}
+}
+frame(fighter.lua_state_agent, 5.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT(fighter, Hash40::new("peach_back_atk_heart"), Hash40::new("top"), 0, 8.5, -13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}

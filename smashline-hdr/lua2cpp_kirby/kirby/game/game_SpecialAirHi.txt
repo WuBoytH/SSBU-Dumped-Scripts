@@ -1,0 +1,10 @@
+#[acmd_script( agent = "kirby", script = "game_specialairhi" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ArticleModule::generate_article(boma, *FIGHTER_KIRBY_GENERATE_ARTICLE_FINALCUTTER);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_KIRBY_GENERATE_ARTICLE_FINALCUTTER, Hash40::new("special_hi"));
+		ArticleModule::change_motion(boma);
+	}
+}

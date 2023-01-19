@@ -1,0 +1,7 @@
+#[acmd_script( agent = "buddy", script = "game_specialnend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialnend(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 30.0);
+	0x18cc20(*FIGHTER_INSTANCE_WORK_ID_INT_KIND, *FIGHTER_KIND_KIRBY);
+	if macros::is_excute(fighter) {
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_BUDDY_GENERATE_ARTICLE_PARTNER);
+	}

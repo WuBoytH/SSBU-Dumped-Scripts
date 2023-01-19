@@ -1,0 +1,10 @@
+#[acmd_script( agent = "sonic", script = "effect_speciallwholdchargemiddle" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallwholdchargemiddle(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("sonic_idling_flash2"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1.35, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("sonic_spinblur_middle"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(boma);
+	}
+}

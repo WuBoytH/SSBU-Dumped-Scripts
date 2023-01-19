@@ -1,0 +1,11 @@
+#[acmd_script( agent = "popo", script = "effect_attackdash" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackdash(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("popo_attack_arc_b"), Hash40::new("popo_attack_arc_b"), Hash40::new("top"), -3, 7.2, 2.7, -9, 11.5, -176.5, 1.4, true, *EF_FLIP_YZ);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.7);
+	}

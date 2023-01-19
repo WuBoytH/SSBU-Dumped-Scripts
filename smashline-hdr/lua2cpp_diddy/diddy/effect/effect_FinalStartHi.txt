@@ -1,0 +1,18 @@
+#[acmd_script( agent = "diddy", script = "effect_finalstarthi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalstarthi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("sys_final_aura"), false, true);
+		LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("diddy_final_fly"), Hash40::new("bust"), -2.5, -3.5, -4.2, 0, 90, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("diddy_final_fly"), Hash40::new("bust"), -2.5, -3.5, 4.2, 0, 90, 0, 1, true);
+		EFFECT(fighter, Hash40::new("diddy_bjet_blast"), Hash40::new("top"), 0, 2, 0, 0, 90, 0, 0.75, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.3);
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("diddy_bjet_smoke"), Hash40::new("bust"), -2.5, -3.5, -4.2, 0, 0, 0, 0.9, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("diddy_bjet_smoke"), Hash40::new("bust"), -2.5, -3.5, 4.2, 0, 0, 0, 0.9, false);
+	}
+}

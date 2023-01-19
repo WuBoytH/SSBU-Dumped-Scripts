@@ -1,0 +1,10 @@
+#[acmd_script( agent = "toonlink", script = "effect_appealhir" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appealhir(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("toonlink_appeal_twinkle"), Hash40::new("sword1"), 0, 0, 5, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 70.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("toonlink_appeal_twinkle"), false, false);
+	}

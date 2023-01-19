@@ -1,0 +1,11 @@
+#[acmd_script( agent = "mewtwo", script = "game_downeatu" , category = ACMD_GAME , low_priority)]
+unsafe fn game_downeatu(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		ItemModule::pickup_item(fighter.module_accessor, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+		ItemModule::use_item(fighter.module_accessor, false, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+	}
+	frame(fighter.lua_state_agent, 30.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_CHANGE_STATUS_DLAY_MOTION);
+	}

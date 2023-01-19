@@ -1,0 +1,11 @@
+#[acmd_script( agent = "shulk", script = "sound_attackairlw" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attackairlw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_shulk_rnd_attack"));
+		macros::PLAY_SE(fighter, Hash40::new("se_shulk_attackair_l01"));
+	}
+	wait(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_shulk_monado_open"));
+	}

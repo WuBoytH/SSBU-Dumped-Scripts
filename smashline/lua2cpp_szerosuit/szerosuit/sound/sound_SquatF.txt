@@ -1,0 +1,17 @@
+#[acmd_script( agent = "szerosuit", script = "sound_squatf" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_squatf(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_szerosuit_crawing_right_f"));
+	}
+	frame(fighter.lua_state_agent, 26.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_szerosuit_crawing_left_h"));
+	}
+	frame(fighter.lua_state_agent, 47.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_szerosuit_crawing_left_f"));
+	}
+	frame(fighter.lua_state_agent, 48.0);
+	macros::PLAY_SE(fighter, Hash40::new("se_szerosuit_crawing_right_h"));

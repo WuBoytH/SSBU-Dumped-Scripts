@@ -1,0 +1,13 @@
+#[acmd_script( agent = "demon", script = "sound_attackragedriveground" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attackragedriveground(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_demon_ragedrive_01"));
+		STOP_SE(fighter, Hash40::new("se_demon_ragedrive_02"));
+		STOP_SE(fighter, Hash40::new("se_demon_ragedrive"));
+		STOP_SE(fighter, Hash40::new("se_demon_ragedrive_whoosh_down"));
+		PLAY_SE(fighter, Hash40::new("se_demon_ragedrive_03"));
+		PLAY_SE(fighter, Hash40::new("vc_demon_attack07"));
+	}
+}

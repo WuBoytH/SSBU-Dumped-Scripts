@@ -1,0 +1,9 @@
+#[acmd_script( agent = "pickel", script = "game_sleepend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_sleepend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_STUFF);
+	}
+	frame(fighter.lua_state_agent, 41.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_STUFF);
+	}

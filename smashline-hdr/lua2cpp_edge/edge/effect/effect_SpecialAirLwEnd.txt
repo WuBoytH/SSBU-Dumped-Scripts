@@ -1,0 +1,9 @@
+#[acmd_script( agent = "edge", script = "effect_specialairlwend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairlwend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("edge_senkou_shield"), true, true);
+		EFFECT(fighter, Hash40::new("edge_senkou_shield_break"), Hash40::new("top"), 0, 13, 12, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+	}
+}

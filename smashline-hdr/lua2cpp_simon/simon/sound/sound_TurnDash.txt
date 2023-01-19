@@ -1,0 +1,11 @@
+#[acmd_script( agent = "simon", script = "sound_turndash" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_turndash(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_simon_dash_start"));
+		SET_PLAY_INHIVIT(fighter, Hash40::new("se_simon_dash_start"), 20);
+		PLAY_SE(fighter, Hash40::new("se_simon_whip_chain"));
+	}
+}

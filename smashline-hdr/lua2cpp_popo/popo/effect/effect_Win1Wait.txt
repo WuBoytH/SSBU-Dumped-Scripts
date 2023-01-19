@@ -1,0 +1,10 @@
+#[acmd_script( agent = "popo", script = "effect_win1wait" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win1wait(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait(lua_state, 27.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), -5.3, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, true);
+	}
+	wait(lua_state, 8.0);
+}

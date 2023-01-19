@@ -1,0 +1,12 @@
+#[acmd_script( agent = "trail", script = "effect_batswing4" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_batswing4(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("trail_keyblade_fade"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	methodlua2cpp::L2CFighterAnimcmdEffectCommon::effect_BatSwing4Common()();
+	frame(fighter.lua_state_agent, 77.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_keyblade_fade"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}

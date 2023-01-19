@@ -1,0 +1,36 @@
+#[acmd_script( agent = "brave", script = "effect_speciallw9" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_speciallw9(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("brave_chant_finish"), Hash40::new("top"), 0, 9, 0, 0, -60, 0, 1, false);
+	}
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x23a020(112, 0)){;
+		if is_excute(fighter) {
+			EFFECT_FOLLOW(fighter, Hash40::new("brave_crash2_omen"), Hash40::new("top"), 0, 10, -1, 0, 180, 0, 1, true);
+		}
+		else{;
+		if is_excute(fighter) {
+			EFFECT_FOLLOW(fighter, Hash40::new("brave_crash2_omen"), Hash40::new("top"), 0, 10, -0.5, 0, 0, 0, 1, true);
+		}
+	}
+}
+if is_excute(fighter) {
+	LAST_EFFECT_SET_DISABLE_SYSTEM_SLOW(fighter, true);
+}
+frame(lua_state, 12.0);
+if is_excute(fighter) {
+	FLASH(fighter, 0, 0, 0, 0);
+	ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+	BURN_COLOR(fighter, 4, 4, 1.2, 0);
+	ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+}
+wait(lua_state, 2.0);
+if is_excute(fighter) {
+	FLASH_FRM(fighter, 50, 0, 0, 0, 0.99);
+	BURN_COLOR_FRAME(fighter, 50, 4, 4, 1.2, 2);
+}
+}

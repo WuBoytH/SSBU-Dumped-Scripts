@@ -1,0 +1,7 @@
+#[acmd_script( agent = "samus", script = "game_specialnstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialnstart(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article_enable(fighter.module_accessor, *FIGHTER_SAMUS_GENERATE_ARTICLE_CSHOT);
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_SAMUS_STATUS_SPECIAL_N_FLAG_BULLET_DISP);
+	}

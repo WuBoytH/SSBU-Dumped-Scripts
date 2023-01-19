@@ -1,0 +1,21 @@
+#[acmd_script( agent = "robot", script = "sound_cliffattack" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_cliffattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_criffrise"));
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_swing_l"));
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_attackair_n01"));
+	}
+	frame(lua_state, 41.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_landing01"));
+	}
+}

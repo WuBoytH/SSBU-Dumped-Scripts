@@ -1,0 +1,39 @@
+#[acmd_script( agent = "purin", script = "effect_slipattack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_slipattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_whirlwind_r"), Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
+		LAST_EFFECT_SET_ALPHA(fighter, 0.5);
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("sys_attack_speedline"), Hash40::new("top"), -1, 6, 2, 0, 0, 0, 0.7, true, *EF_FLIP_YZ);
+		LAST_PARTICLE_SET_COLOR(fighter, 1, 0.8, 0.2);
+		LAST_EFFECT_SET_RATE(fighter, 1.4);
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("sys_attack_speedline"), Hash40::new("top"), 1, 6, -2, 0, 180, 0, 0.7, true, *EF_FLIP_YZ);
+		LAST_PARTICLE_SET_COLOR(fighter, 1, 0.8, 0.2);
+		LAST_EFFECT_SET_RATE(fighter, 1.4);
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_whirlwind_r"), Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 3, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_NONE);
+		LAST_EFFECT_SET_ALPHA(fighter, 0.5);
+	}
+	frame(lua_state, 26.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 7, 0, 180, 0, 7, 0.9, true, *EF_FLIP_YZ);
+		LAST_EFFECT_SET_RATE(fighter, 1.7);
+		EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 7, 0, 180, 180, 7, 0.9, true, *EF_FLIP_YZ);
+		LAST_EFFECT_SET_RATE(fighter, 1.7);
+	}
+	frame(lua_state, 33.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("sys_attack_arc_d"), false, false);
+	}
+	frame(lua_state, 43.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT_FLIP(fighter, Hash40::new("sys_down_smoke"), Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_NONE);
+	}
+}

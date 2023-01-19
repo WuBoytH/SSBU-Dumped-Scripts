@@ -1,0 +1,22 @@
+#[acmd_script( agent = "chrom", script = "sound_entryr" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_entryr(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_chrom_appear01"));
+	}
+	wait(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_chrom_landing02"));
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_chrom_hitground"));
+	}
+	wait(fighter.lua_state_agent, 58.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_chrom_swordpullout"));
+	}
+	wait(fighter.lua_state_agent, 35.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_chrom_appeal_s03"));
+	}

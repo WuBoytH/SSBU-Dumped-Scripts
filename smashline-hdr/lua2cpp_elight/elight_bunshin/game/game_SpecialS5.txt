@@ -1,0 +1,21 @@
+#[acmd_script( agent = "elight_bunshin", script = "game_specials5" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specials5(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	IS_EXIST_ARTICLE(fighter, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD);
+	if(0x357740(false, true)){;
+		if is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(*WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 10, 10, false, false, 0, false, true, false);
+			ArticleModule::add_motion_partial(boma);
+		}
+	}
+	frame(0, 5);
+	if is_excute(fighter) {
+		ATTACK(fighter, 0, 0, Hash40::new("top"), 7.0, 60, 60, 0, 85, 9.0, 0.0, 8.0, 5.0, Some(0.0), Some(8.0), Some(20.0), 1.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
+		WorkModule::on_flag(boma, *WEAPON_ELIGHT_BUNSHIN_INSTANCE_WORK_ID_FLAG_FINISH);
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		AttackModule::clear_all(boma);
+	}
+}

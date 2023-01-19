@@ -1,0 +1,11 @@
+#[acmd_script( agent = "miiswordsman", script = "sound_finalhold" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_finalhold(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STATUS(fighter, Hash40::new("se_miiswordsman_final01"));
+		macros::PLAY_SE(fighter, Hash40::new("vc_mii_final_swordsman"));
+	}
+	frame(fighter.lua_state_agent, 173.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_miiswordsman_final03"));
+	}

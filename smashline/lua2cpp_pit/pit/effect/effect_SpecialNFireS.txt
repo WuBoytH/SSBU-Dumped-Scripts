@@ -1,0 +1,19 @@
+#[acmd_script( agent = "pit", script = "effect_specialnfires" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnfires(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("pit_pa_hold_bow"), true, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("pit_pa_hold_bow2"), true, true);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_flash"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_PIT_STATUS_SPECIAL_N_CHARGE_FLAG_CHARGE_MAX);
+	if(0x111840(false, true)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT(fighter, Hash40::new("pit_pa_max_flash"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+			macros::EFFECT(fighter, Hash40::new("pit_pa_max"), Hash40::new("top"), 0, 10, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		}
+	}

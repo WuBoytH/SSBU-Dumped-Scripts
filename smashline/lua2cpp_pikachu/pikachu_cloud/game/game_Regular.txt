@@ -1,0 +1,6 @@
+#[acmd_script( agent = "pikachu_cloud", script = "game_regular" , category = ACMD_GAME , low_priority)]
+unsafe fn game_regular(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *WEAPON_PIKACHU_CLOUD_INSTANCE_WORK_ID_FLAG_ACTIVATE_KAMINARI);
+	}

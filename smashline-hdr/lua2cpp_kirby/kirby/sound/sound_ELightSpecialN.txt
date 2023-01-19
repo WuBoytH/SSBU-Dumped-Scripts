@@ -1,0 +1,21 @@
+#[acmd_script( agent = "kirby", script = "sound_elightspecialn" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_elightspecialn(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_elight_special_n02_01"));
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_elight_special_n02_02"));
+	}
+	frame(lua_state, 26.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_elight_special_n02_03"));
+	}
+	frame(lua_state, 36.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_elight_special_n02_end"));
+	}
+}

@@ -1,0 +1,7 @@
+#[acmd_script( agent = "tantan_punch2", script = "effect_attacks4start" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attacks4start(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_wepon2_pu_charge"), Hash40::new("center"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, -0.3);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}

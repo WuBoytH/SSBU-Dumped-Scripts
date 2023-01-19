@@ -1,0 +1,9 @@
+#[acmd_script( agent = "jack_wing", script = "game_specialhistart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialhistart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_whole(fighter.module_accessor, false);
+	}
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_whole(fighter.module_accessor, true);
+	}

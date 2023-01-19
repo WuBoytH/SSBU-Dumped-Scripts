@@ -1,0 +1,15 @@
+#[acmd_script( agent = "sheik", script = "expression_finalairdashend" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_finalairdashend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE);
+		ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false);
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, true);
+	}
+	frame(fighter.lua_state_agent, 44.0);
+	if macros::is_excute(fighter) {
+		ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false);
+	}

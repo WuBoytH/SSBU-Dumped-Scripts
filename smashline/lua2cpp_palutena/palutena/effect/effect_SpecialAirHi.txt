@@ -1,0 +1,32 @@
+#[acmd_script( agent = "palutena", script = "effect_specialairhi" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairhi(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("palutena_teleport_end"), Hash40::new("rot"), 0, 4, 0, 0, 0, 0, 1, false);
+		macros::FLASH(fighter, 1, 1, 1, 1);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 21.5, 0, 0, 90, 0, 1, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 4);
+		macros::FLASH(fighter, 1, 1, 1, 0.3);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::FLASH(fighter, 0.25, 1, 1, 0.2);
+	}
+	wait(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("palutena_backlight"), false, true);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::FLASH(fighter, 1, 1, 1, 0.15);
+	}
+	wait(fighter.lua_state_agent, 2.0);
+	if macros::is_excute(fighter) {
+		macros::COL_NORMAL(fighter);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("palutena_teleport_feather"), Hash40::new("rot"), 0, 4, 0, 0, 0, 0, 1, true);
+	}

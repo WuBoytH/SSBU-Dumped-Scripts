@@ -1,0 +1,19 @@
+#[acmd_script( agent = "trail", script = "effect_attack12" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack12(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("trail_keyblade_flare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		EFFECT_FLW_POS(fighter, Hash40::new("trail_keyblade_speedline"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.2);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("trail_keyblade_flare"), false, true);
+	}
+}

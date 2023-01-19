@@ -1,0 +1,9 @@
+#[acmd_script( agent = "mewtwo", script = "effect_slipdown" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_slipdown(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
+	}
+}

@@ -1,0 +1,15 @@
+#[acmd_script( agent = "captain", script = "game_speciallwend" , category = ACMD_GAME , low_priority)]
+unsafe fn game_speciallwend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 1.05);
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_CAPTAIN_STATUS_WORK_ID_FLAG_FALCON_KICK_SP_BRAKE);
+	}
+	frame(lua_state, 31.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_CAPTAIN_STATUS_WORK_ID_FLAG_FALCON_KICK_SP_BRAKE);
+	}
+}

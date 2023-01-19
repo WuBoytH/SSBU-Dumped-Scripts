@@ -1,0 +1,9 @@
+#[acmd_script( agent = "diddy", script = "effect_finalchargeready" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalchargeready(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("diddy_final_charge_hi"), Hash40::new("bust"), -3, -4.5, -4.5, 0, 0, 0, 1.2, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("diddy_final_charge_hi"), Hash40::new("bust"), -3, -4.5, 4.5, 0, 0, 0, 1.2, true);
+	}
+}

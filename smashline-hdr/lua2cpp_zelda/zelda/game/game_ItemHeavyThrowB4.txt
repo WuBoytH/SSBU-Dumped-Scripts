@@ -1,0 +1,10 @@
+#[acmd_script( agent = "zelda", script = "game_itemheavythrowb4" , category = ACMD_GAME , low_priority)]
+unsafe fn game_itemheavythrowb4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		REVERSE_LR(fighter);
+		THROW_ITEM_OFFSET(fighter, 18, 13, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_ANGLE, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_SPEED, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_POWER);
+	}
+}

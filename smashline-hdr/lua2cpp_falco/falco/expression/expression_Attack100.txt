@@ -1,0 +1,28 @@
+#[acmd_script( agent = "falco", script = "expression_attack100" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_attack100(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait_loop_clear();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 3, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		RUMBLE_HIT(fighter, Hash40::new("rbkind_attackss"), 3);
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 3, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 3, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 13.0);
+	methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 4, false);
+	ControlModule::set_rumble(boma);
+}

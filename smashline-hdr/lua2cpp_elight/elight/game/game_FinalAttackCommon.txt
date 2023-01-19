@@ -1,0 +1,75 @@
+#[acmd_script( agent = "elight", script = "game_finalattackcommon" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalattackcommon(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ATTACK_ABS(fighter, *FIGHTER_ELIGHT_ATTACK_ABSOLUTE_KIND_FINAL, 0, 7.0, 70, 0, 0, 80, 0.3, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+		AttackModule::set_final_finish_cut_in(boma, 0, false, false, -1, true);
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_ABS_SET);
+		CAM_ZOOM_OUT(fighter);
+	}
+	frame(lua_state, 2.0);
+	WorkModule::is_flag(boma, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_CAMERA_CLIP_IN);
+	if(0x357740(false, true)){;
+		WorkModule::is_flag(boma, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_DEMON_DOJO_ZOOM);
+		if(0x357740(false, true)){;
+			WorkModule::is_flag(boma, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_TRAINING_ZOOM);
+			if(0x357740(false, false)){;
+				get_value_float(*SO_VAR_FLOAT_LR);
+				if(0x357740(1984, 0)){;
+					if is_excute(fighter) {
+						PostureModule::scale(boma, 1, 0);
+						0x357740(-1178691668, 5);
+						CAM_ZOOM_IN_arg5(0, 0.1);
+						camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, -20, 25);
+					}
+					else{;
+					if is_excute(fighter) {
+						PostureModule::scale(boma, 1, 0);
+						0x357740(-1178691668, 5);
+						CAM_ZOOM_IN_arg5(0, 0);
+					}
+					WorkModule::is_flag(boma, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_TRAINING_ZOOM);
+					if(0x357740(false, false)){;
+						get_value_float(*SO_VAR_FLOAT_LR);
+						if(0x357740(1984, 0)){;
+							if is_excute(fighter) {
+								camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, -40, 25);
+							}
+							else{;
+							if is_excute(fighter) {
+								PostureModule::scale(boma, 1, 0);
+								0x357740(-1178691668, 5);
+								CAM_ZOOM_IN_arg5(0, -0.1);
+								camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 20, 25);
+							}
+							else{;
+							if is_excute(fighter) {
+								camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 40, 25);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+}
+}
+frame(lua_state, 5.0);
+if is_excute(fighter) {
+WorkModule::on_flag(boma, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+}
+frame(lua_state, 107.0);
+if is_excute(fighter) {
+ArticleModule::generate_article(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_BEAM);
+}
+frame(lua_state, 130.0);
+if is_excute(fighter) {
+CAM_ZOOM_OUT(fighter);
+}
+frame(lua_state, 154.0);
+if is_excute(fighter) {
+ArticleModule::set_flag(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_DIVER, true, *WEAPON_ELEMENT_DIVER_INSTANCE_WORK_ID_FLAG_FINAL_ATTACK_DETACH);
+}
+}

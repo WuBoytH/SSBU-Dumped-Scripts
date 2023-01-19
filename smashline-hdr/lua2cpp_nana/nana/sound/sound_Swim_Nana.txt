@@ -1,0 +1,20 @@
+#[acmd_script( agent = "nana", script = "sound_swim_nana" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_swim_nana(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 28.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_swim_high_02"));
+	}
+	wait(lua_state, 1.0);
+	methodlib::L2CAgent::pop();
+	wait_loop_sync_mot();
+	methodlib::L2CAgent::pop();
+	wait_loop_sync_mot();
+	frame(lua_state, 28.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_swim_high_02"));
+	}
+	wait(lua_state, 1.0);
+	loc.imp._Unwind_Resume();
+}

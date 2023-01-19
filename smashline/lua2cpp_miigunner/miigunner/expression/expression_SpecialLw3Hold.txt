@@ -1,0 +1,16 @@
+#[acmd_script( agent = "miigunner", script = "expression_speciallw3hold" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_speciallw3hold(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		AREA_WIND_2ND_RAD_arg9(1, 2, -0.05, 2, 0.8, 0, 7, 32, 50);
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 9);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_elecattacks"), 0, true);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_elecattacks"), 0, true);
+	ControlModule::set_rumble(fighter.module_accessor);

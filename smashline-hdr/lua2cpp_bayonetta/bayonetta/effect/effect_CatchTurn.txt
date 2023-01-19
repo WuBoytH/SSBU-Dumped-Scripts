@@ -1,0 +1,13 @@
+#[acmd_script( agent = "bayonetta", script = "effect_catchturn" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_catchturn(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2.5, 0, 8, 0, 180, 0, 0.85, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 3, 0, 8, 0, 180, 0, 0.85, 0, 0, 0, 0, 0, 0, true);
+	}
+}

@@ -1,0 +1,16 @@
+#[acmd_script( agent = "kirby", script = "sound_bayonettaspecialnendh" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_bayonettaspecialnendh(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	WorkModule::is_flag(boma, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX);
+	if(0x543c60(false, false)){;
+		frame(lua_state, 30.0);
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n08"));
+		}
+	}
+	frame(lua_state, 38.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_bayonetta_step_left_s"));
+	}
+}

@@ -1,0 +1,41 @@
+#[acmd_script( agent = "rosetta", script = "game_finalair" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalair(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
+		macros::SLOW_OPPONENT(fighter, 15, 70);
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.5);
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+	if(0x11e570(false, false)){;
+		if macros::is_excute(fighter) {
+			macros::FT_SET_FINAL_FEAR_FACE(fighter, 55);
+		}
+	}
+	get_value_float(*SO_VAR_FLOAT_LR);
+	if(0x11e570(0, 0)){;
+		if macros::is_excute(fighter) {
+			macros::REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04final02.nuanmb"), true);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			PostureModule::scale(fighter.module_accessor, 4, 0);
+			0x11e570(1469557358, 0.9);
+			CAM_ZOOM_IN_arg5(0, 0);
+			camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 13);
+			camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 0, 0, 50, 0);
+		}
+		else{;
+		if macros::is_excute(fighter) {
+			macros::REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04final.nuanmb"), true);
+		}
+		if macros::is_excute(fighter) {
+			macros::FT_START_CUTIN(fighter);
+		}
+	}
+}
+}
+frame(fighter.lua_state_agent, 50.0);
+if macros::is_excute(fighter) {
+macros::CAM_ZOOM_OUT(fighter);
+}

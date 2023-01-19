@@ -1,0 +1,27 @@
+#[acmd_script( agent = "nana", script = "sound_specialn_nana" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialn_nana(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	WorkModule::is_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_N_FLAG_GENERATE_ARTICLE_SUCCESS);
+	if(0x1478c0(false, true)){;
+		if is_excute(fighter) {
+			PLAY_SE(fighter, Hash40::new("se_popo_special_n01"));
+		}
+	}
+	wait(lua_state, 8.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_nana_001"));
+		PLAY_SE(fighter, Hash40::new("se_popo_swing_s"));
+	}
+	wait(lua_state, 3.0);
+	WorkModule::is_flag(boma, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA);
+	if(0x1478c0(false, true)){;
+		WorkModule::is_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_N_FLAG_GENERATE_ARTICLE_SUCCESS);
+		if(0x1478c0(false, true)){;
+			if is_excute(fighter) {
+				PLAY_SE(fighter, Hash40::new("se_popo_special_n02"));
+			}
+		}
+	}
+}

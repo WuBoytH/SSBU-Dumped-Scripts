@@ -1,0 +1,27 @@
+#[acmd_script( agent = "miienemyg", script = "effect_attack13" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack13(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), -1, 6, 3, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+		LAST_PARTICLE_SET_COLOR(fighter, 1, 2, 0.8);
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("miienemyg_atk_shot_after"), Hash40::new("armr"), 6, 0, 0, 0, 0, -90, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("miienemyg_atk_shot_s"), Hash40::new("armr"), 6, 0, 0, 0, 0, -90, 1, true);
+	}
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		EFFECT_DETACH_KIND(fighter, Hash40::new("miienemyg_atk_shot_s"), -1);
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("miienemyg_atk_shot_after"), false, true);
+	}
+}

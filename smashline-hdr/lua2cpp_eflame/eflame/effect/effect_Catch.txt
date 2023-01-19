@@ -1,0 +1,14 @@
+#[acmd_script( agent = "eflame", script = "effect_catch" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_catch(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("eflame_catch_hand"), Hash40::new("handl"), 1.7, 0.8, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("eflame_catch_hand"), Hash40::new("handr"), 1.7, 0.8, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("eflame_catch_hand"), false, true);
+	}
+}

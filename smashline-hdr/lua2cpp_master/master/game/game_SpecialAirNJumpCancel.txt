@@ -1,0 +1,13 @@
+#[acmd_script( agent = "master", script = "game_specialairnjumpcancel" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairnjumpcancel(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1);
+	}
+	frame(lua_state, 6.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW);
+	}
+}

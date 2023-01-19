@@ -1,0 +1,30 @@
+#[acmd_script( agent = "miifighter", script = "sound_specialhi2" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialhi2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 8.0);
+	if is_excute(fighter) {
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_miifighter_rnd_special_c2_h01"));
+		PLAY_SE(fighter, Hash40::new("se_miifighter_special_c2_h01"));
+	}
+	wait(lua_state, 7.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_miifighter_special_c2_h02"));
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_miifighter_special_c2_h02"));
+	}
+	wait(lua_state, 6.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_miifighter_special_c2_h02"));
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_miifighter_special_c2_h02"));
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_miifighter_special_c2_h03"));
+	}
+}

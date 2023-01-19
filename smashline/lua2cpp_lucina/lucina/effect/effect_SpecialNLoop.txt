@@ -1,0 +1,20 @@
+#[acmd_script( agent = "lucina", script = "effect_specialnloop" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnloop(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("lucina_sword_purple"), Hash40::new("haver"), -0.0, 0, 0, 0, 0, 0, 1, true);
+		macros::FLASH(fighter, 1, 1, 1, 0.863);
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::FLASH(fighter, 0.392, 0, 0.941, 0);
+		macros::FLASH_FRM(fighter, 90, 0.392, 0, 0.941, 0.706);
+	}
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_a"), Hash40::new("top"), 0, 0, -2, 0, 0, 0, 0.8, 8, 0, 7, 0, 0, 0, true);
+	}
+	wait(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("sword1"), 0, -0.0, 8, 0, 0, 0, 1, 2, 2, 8, 0, 0, 0, true);
+	}
+	wait(fighter.lua_state_agent, 5.0);
+	macros::EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("sword1"), 0, -0.0, 8, 0, 0, 0, 1, 2, 2, 8, 0, 0, 0, true);

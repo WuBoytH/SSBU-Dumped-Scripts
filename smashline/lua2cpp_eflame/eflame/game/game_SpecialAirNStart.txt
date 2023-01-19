@@ -1,0 +1,21 @@
+#[acmd_script( agent = "eflame", script = "game_specialairnstart" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairnstart(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	macros::FT_MOTION_RATE(fighter, 0.6);
+	frame(fighter.lua_state_agent, 2.0);
+	macros::IS_EXIST_ARTICLE(fighter, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD);
+	if(0x3de840(false, true)){;
+		if macros::is_excute(fighter) {
+			methodlib::L2CValue::as_hash()const(*FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 10, 10, false, false, 0, false, true, false);
+			ArticleModule::add_motion_partial(fighter.module_accessor);
+		}
+	}
+	MotionModule::is_changing(fighter.module_accessor);
+	if(0x3de840(false, true)){;
+		if macros::is_excute(fighter) {
+			WorkModule::on_flag(fighter.module_accessor, *FIGHTER_EFLAME_INSTANCE_WORK_ID_FLAG_ADD_PARTIAL_MTION_SWORD_WHEN_CHANGEING);
+		}
+	}
+	if macros::is_excute(fighter) {
+		WorkModule::set_int64(fighter.module_accessor, Hash40::new("special_air_n_start"), *FIGHTER_ELIGHT_INSTANCE_WORK_ID_INT_ESWORD_INHERIT_OPEN_MOTION_KIND);
+	}

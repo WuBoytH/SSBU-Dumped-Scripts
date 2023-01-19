@@ -1,0 +1,12 @@
+#[acmd_script( agent = "koopajr", script = "sound_itemlegswalkf" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_itemlegswalkf(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait_loop_sync_mot();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, 0x162c50d01e, 0x17a5c684d4);
+	}
+	frame(lua_state, 18.0);
+	PLAY_STEP_FLIPPABLE(fighter, 0x17a5c684d4, 0x162c50d01e);
+}

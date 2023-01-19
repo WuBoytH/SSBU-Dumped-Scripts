@@ -1,0 +1,17 @@
+#[acmd_script( agent = "elight", script = "effect_specialairhistart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairhistart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_sword_open_l"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, -0.3);
+	}
+	frame(lua_state, 10.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("elight_sword_open_l"), true, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("elight_sword_beam_l"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, -0.3);
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_elight_sword1"), Hash40::new("tex_elight_sword2"), 6, Hash40::new("sword1"), 0, 0, -0.08, Hash40::new("sword1"), 21, 0, -0.08, false, Hash40::new("null"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+	}
+}

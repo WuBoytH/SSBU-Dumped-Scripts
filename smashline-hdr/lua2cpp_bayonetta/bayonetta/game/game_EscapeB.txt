@@ -1,0 +1,13 @@
+#[acmd_script( agent = "bayonetta", script = "game_escapeb" , category = ACMD_GAME , low_priority)]
+unsafe fn game_escapeb(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x2ea0f68425, true);
+	}
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x2ea0f68425, false);
+	}
+}

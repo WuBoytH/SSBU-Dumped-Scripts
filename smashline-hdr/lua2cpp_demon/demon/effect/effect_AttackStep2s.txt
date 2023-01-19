@@ -1,0 +1,32 @@
+#[acmd_script( agent = "demon", script = "effect_attackstep2s" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackstep2s(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 1.5, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_attack_arc_d"), Hash40::new("top"), 0, 5.5, 5, 0, 15, 185, 1, true);
+		LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		LAST_EFFECT_SET_RATE(fighter, 1.3);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("demon_combo_elec"), Hash40::new("havel"), 0.5, 0, -0.5, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 32.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_ALPHA(fighter, 0x1034f25d99, Hash40::new("top"), 0.9, 12.8, 0.5, 0, -65, 130, 0.6, true, 1);
+		LAST_EFFECT_SET_RATE(fighter, 2);
+	}
+	frame(lua_state, 39.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("demon_combo_elec"), false, false);
+	}
+}

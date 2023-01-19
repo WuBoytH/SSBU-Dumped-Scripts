@@ -1,0 +1,15 @@
+#[acmd_script( agent = "fox", script = "sound_scopeairfireemptyaerial" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_scopeairfireemptyaerial(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_fox_rnd_jump02"));
+		macros::PLAY_SE(fighter, Hash40::new("se_fox_jump02"));
+	}
+	wait(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_swing_03"));
+	}
+	wait(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_swing_03"));
+	}

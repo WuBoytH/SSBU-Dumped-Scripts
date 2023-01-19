@@ -1,0 +1,22 @@
+#[acmd_script( agent = "pfushigisou", script = "sound_escapeb" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_escapeb(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_pfushigisou_escape"));
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_pfushigisou_step_f_right_m"), Hash40::new("se_pfushigisou_step_f_left_m"));
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_pfushigisou_step_f_left_m"), Hash40::new("se_pfushigisou_step_f_right_m"));
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_pfushigisou_step_b_right_m"), Hash40::new("se_pfushigisou_step_b_left_m"));
+	}
+	frame(lua_state, 29.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_pfushigisou_step_b_left_m"), Hash40::new("se_pfushigisou_step_b_right_m"));
+	}
+}

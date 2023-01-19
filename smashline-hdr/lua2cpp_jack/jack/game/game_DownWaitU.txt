@@ -1,0 +1,8 @@
+#[acmd_script( agent = "jack", script = "game_downwaitu" , category = ACMD_GAME , low_priority)]
+unsafe fn game_downwaitu(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		FighterAreaModuleImpl::enable_fix_jostle_area_xy(boma, 6, 6.5, 0.5, 2.5);
+	}
+}

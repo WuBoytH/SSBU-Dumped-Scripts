@@ -1,0 +1,15 @@
+#[acmd_script( agent = "roy", script = "sound_attacklw4" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacklw4(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_common_smash_start_02"));
+	}
+	wait(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_roy_rnd_attack_smash_l"));
+		macros::PLAY_SE(fighter, Hash40::new("se_roy_smash_l01"));
+	}
+	wait(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_roy_smash_l01"));
+	}

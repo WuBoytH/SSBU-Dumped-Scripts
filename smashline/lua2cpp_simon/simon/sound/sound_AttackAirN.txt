@@ -1,0 +1,10 @@
+#[acmd_script( agent = "simon", script = "sound_attackairn" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attackairn(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_simon_attackair_n01"));
+	}
+	frame(fighter.lua_state_agent, 7.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_simon_rnd_attack"));
+	}

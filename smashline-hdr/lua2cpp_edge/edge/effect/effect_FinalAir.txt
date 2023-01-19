@@ -1,0 +1,31 @@
+#[acmd_script( agent = "edge", script = "effect_finalair" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_edge_final"), false);
+		EffectModule::req_screen(boma);
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_final_swoad_flare"), Hash40::new("swordl2"), 0, 0, 0, 0, 180, -90, 1, true);
+	}
+	frame(lua_state, 58.0);
+	if is_excute(fighter) {
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_edge_sword1"), Hash40::new("tex_edge_sword2"), 6, Hash40::new("swordl2"), -4, 0, -0.7, Hash40::new("swordl2"), 29.2, 0, 1.5, true, Hash40::new("null"), Hash40::new("swordl2"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_sword_flare"), Hash40::new("swordl2"), 0, 0, 0, 0, 180, -90, 1, true);
+	}
+	frame(lua_state, 59.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_final_start"), Hash40::new("top"), 0, 13, 12, 0, 0, -30, 0.6, false);
+		LAST_EFFECT_SET_RATE(fighter, 1.4);
+		EFFECT(fighter, Hash40::new("edge_final_start2"), Hash40::new("top"), 0, 13, 12, 0, 0, 210, 0.6, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 61.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("edge_sword_flare"), true, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("edge_sword_light"), Hash40::new("swordl2"), 0, 0, 0, 0, 180, -90, 1, true);
+		AFTER_IMAGE_OFF(fighter, 3);
+	}
+	frame(lua_state, 65.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("edge_final_start2"), false, true);
+	}
+}

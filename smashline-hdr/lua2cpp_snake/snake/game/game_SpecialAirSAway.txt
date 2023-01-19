@@ -1,0 +1,12 @@
+#[acmd_script( agent = "snake", script = "game_specialairsaway" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairsaway(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		ArticleModule::set_flag(boma, *FIGHTER_SNAKE_GENERATE_ARTICLE_NIKITA, true, *WEAPON_SNAKE_NIKITA_INSTANCE_WORK_ID_FLAG_AWAY);
+	}
+	frame(lua_state, 31.0);
+	if is_excute(fighter) {
+		ArticleModule::remove_exist(boma, *FIGHTER_SNAKE_GENERATE_ARTICLE_NIKITA);
+	}
+}

@@ -1,0 +1,9 @@
+#[acmd_script( agent = "donkey", script = "sound_superliftwalkfast" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_superliftwalkfast(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP(fighter, Hash40::new("se_donkey_step_left_m"));
+	}
+	wait(fighter.lua_state_agent, 15.0);
+	macros::PLAY_STEP(fighter, Hash40::new("se_donkey_step_right_m"));

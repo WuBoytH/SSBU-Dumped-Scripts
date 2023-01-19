@@ -1,0 +1,8 @@
+#[acmd_script( agent = "purin", script = "effect_win3wait" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win3wait(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	wait_loop_sync_mot();
+	frame(lua_state, 62.0);
+	EFFECT_FLW_POS(fighter, Hash40::new("purin_sleep"), Hash40::new("top"), 0.2, 3.5, 6, 30, 0, 0, 1, false);
+}

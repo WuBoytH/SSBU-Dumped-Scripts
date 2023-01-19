@@ -1,0 +1,15 @@
+#[acmd_script( agent = "dedede", script = "effect_attack11" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attack11(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 9.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+		EFFECT_FOLLOW(fighter, Hash40::new("dedede_hammer_br"), Hash40::new("hammer2"), 0, 0, 0, 0, 0, 0, 1, true);
+		EFFECT(fighter, Hash40::new("dedede_attack_arc"), Hash40::new("top"), 3, 6, 0, 0, -50, 0, 1.8, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 16.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("dedede_hammer_br"), false, true);
+	}
+}

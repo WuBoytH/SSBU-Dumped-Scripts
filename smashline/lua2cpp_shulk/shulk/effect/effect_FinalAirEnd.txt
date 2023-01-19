@@ -1,0 +1,19 @@
+#[acmd_script( agent = "shulk", script = "effect_finalairend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalairend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_sword3_2"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_circle"), Hash40::new("swordr"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 25.0);
+	if macros::is_excute(fighter) {
+		macros::AFTER_IMAGE_OFF(fighter, 8);
+	}
+	frame(fighter.lua_state_agent, 35.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_sword3_end"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 36.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("shulk_monad_sword3_2"), false, false);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("shulk_monad_circle"), false, false);
+	}

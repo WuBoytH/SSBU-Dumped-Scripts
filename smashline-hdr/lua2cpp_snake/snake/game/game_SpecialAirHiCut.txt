@@ -1,0 +1,15 @@
+#[acmd_script( agent = "snake", script = "game_specialairhicut" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairhicut(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS);
+	}
+	WorkModule::unable_transition_term_group_ex(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_JUMP_AERIAL);
+	WorkModule::unable_transition_term_group_ex(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_JUMP_AERIAL_BUTTON);
+	WorkModule::unable_transition_term_group_ex(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_SPECIAL_HI);
+	frame(0, 0, 12);
+	if is_excute(fighter) {
+		ArticleModule::shoot(boma, *FIGHTER_SNAKE_GENERATE_ARTICLE_CYPHER, *ARTICLE_OPE_TARGET_ALL, false);
+	}
+}

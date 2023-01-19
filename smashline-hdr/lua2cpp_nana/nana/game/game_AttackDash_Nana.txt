@@ -1,0 +1,18 @@
+#[acmd_script( agent = "nana", script = "game_attackdash_nana" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attackdash_nana(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 6.0);
+	FT_MOTION_RATE(fighter, 0.5);
+	frame(lua_state, 10.0);
+	FT_MOTION_RATE(fighter, 1);
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		ATTACK(fighter, 0, 0, Hash40::new("havel"), 4.5, 80, 60, 0, 90, 5.0, 0.0, 5.5, 0.5, Some(0.0), Some(7.5), Some(0.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_HAMMER);
+		ATTACK(fighter, 1, 0, Hash40::new("shoulderl"), 4.5, 80, 60, 0, 90, 4.0, 3.5, 0.0, 0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_HAMMER);
+	}
+	wait(lua_state, 4.0);
+	if is_excute(fighter) {
+		AttackModule::clear_all(boma);
+	}
+}

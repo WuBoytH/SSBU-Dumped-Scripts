@@ -1,0 +1,14 @@
+#[acmd_script( agent = "peach", script = "effect_win3" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 117.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("peach_appeal_lw"), Hash40::new("top"), 4, 12, -3, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+		LAST_EFFECT_SET_RATE(fighter, 0.5);
+	}
+	frame(lua_state, 132.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("peach_appeal_lw"), true, true);
+	}
+}

@@ -1,0 +1,16 @@
+#[acmd_script( agent = "samus", script = "game_specialairlw" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specialairlw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_SAMUS_STATUS_SPECIAL_LW_FLAG_WEAPON);
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("body"), Hash40::new("body_sphere"));
+		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_SAMUS_STATUS_SPECIAL_LW_FLAG_MV);
+	}
+	frame(fighter.lua_state_agent, 44.0);
+	if macros::is_excute(fighter) {
+		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_SAMUS_STATUS_SPECIAL_LW_FLAG_MV);
+	}
+	frame(fighter.lua_state_agent, 45.0);
+	if macros::is_excute(fighter) {
+		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("body"), Hash40::new("body_normal"));
+	}

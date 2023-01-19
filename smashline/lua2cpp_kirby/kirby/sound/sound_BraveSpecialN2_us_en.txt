@@ -1,0 +1,23 @@
+#[acmd_script( agent = "kirby", script = "sound_bravespecialn2_us_en" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_bravespecialn2_us_en(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 1.0);
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_N_FLAG_SUCCESS_SP);
+	if(0x543c60(false, true)){;
+		if macros::is_excute(fighter) {
+			macros::STOP_SE(fighter, Hash40::new("se_brave_special_n01"));
+		}
+	}
+	frame(fighter.lua_state_agent, 11.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_brave_special_n03"));
+		macros::PLAY_SE(fighter, Hash40::new("vc_kirby_copy_brave_03"));
+	}
+	else{;
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_brave_special_n01"));
+	}
+}
+frame(fighter.lua_state_agent, 12.0);
+if macros::is_excute(fighter) {
+	macros::PLAY_SE(fighter, Hash40::new("se_brave_miss"));
+}

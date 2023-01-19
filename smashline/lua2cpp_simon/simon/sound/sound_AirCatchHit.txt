@@ -1,0 +1,11 @@
+#[acmd_script( agent = "simon", script = "sound_aircatchhit" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_aircatchhit(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_simon_attackair_f01"));
+		macros::STOP_SE(fighter, Hash40::new("se_simon_attackair_b01"));
+		macros::STOP_SE(fighter, Hash40::new("se_simon_attackair_h01"));
+	}
+	frame(fighter.lua_state_agent, 1.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("se_common_cliff_catch"));
+	}

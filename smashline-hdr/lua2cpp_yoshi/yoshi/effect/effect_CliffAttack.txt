@@ -1,0 +1,17 @@
+#[acmd_script( agent = "yoshi", script = "effect_cliffattack" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_cliffattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("tail2"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_FLIP_ALPHA(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 6, 6, 0, -50, 12, 1.1, true, *EF_FLIP_YZ, 0.6);
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_ZX);
+	}
+}

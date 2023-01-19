@@ -1,0 +1,6 @@
+#[acmd_script( agent = "tantan", script = "game_attacks4chargel" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attacks4chargel(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_COMBO_ENABLE);
+	}

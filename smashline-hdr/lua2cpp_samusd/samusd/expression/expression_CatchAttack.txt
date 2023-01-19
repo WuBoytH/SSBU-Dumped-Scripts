@@ -1,0 +1,15 @@
+#[acmd_script( agent = "samusd", script = "expression_catchattack" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_catchattack(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		VisibilityModule::set_int64(boma, Hash40::new("body"), Hash40::new("body_hide_gun"));
+		ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN);
+		ArticleModule::generate_article(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, true);
+		methodlib::L2CValue::as_hash()const(*FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, Hash40::new("catch_attack"));
+		ArticleModule::change_motion(boma);
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_attacks"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+}

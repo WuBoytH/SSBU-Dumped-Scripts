@@ -1,0 +1,15 @@
+#[acmd_script( agent = "miifighter", script = "effect_finalairstart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::FT_REMOVE_FINAL_AURA(fighter, true);
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_miifighter_final"), false);
+		EffectModule::req_screen(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_NO_STOP_FLIP(fighter, Hash40::new("miifighter_final_start"), Hash40::new("miifighter_final_start"), Hash40::new("top"), 0, 7, 0, 0, -10, 70, 0.8, false, *EF_FLIP_YZ);
+	}
+	frame(fighter.lua_state_agent, 24.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_smash_flash"), Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 9, 12, 0, 20, 90, 1, false, *EF_FLIP_YZ);
+	}

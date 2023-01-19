@@ -1,0 +1,51 @@
+#[acmd_script( agent = "eflame", script = "effect_attackairlw" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairlw(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 5.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_core_start"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("sword1"), 7, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_open"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 14.0);
+	if macros::is_excute(fighter) {
+		AFTER_IMAGE4_ON_arg29(Hash40::new("tex_eflame_sword1"), Hash40::new("tex_eflame_sword2"), 5, Hash40::new("sword1"), 0.3, 0, 0, Hash40::new("sword1"), 18.5, 0, -0.25, true, Hash40::new("null"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_fire"), Hash40::new("sword1"), -0.5, 0, 0, 0, 0, 0, 0.9, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 15.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_open"), true, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_beam_m"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		macros::LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, -3);
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("eflame_sword_fire2"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("eflame_sword_firetrail"), Hash40::new("sword1"), 1.5, 0, 0, -5, 0, 0, 0.5, true);
+	}
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_firetrail"), true, true);
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("eflame_sword_firetrail"), Hash40::new("sword1"), 1, 0, 0, -10, 0, 0, 0.85, true);
+	}
+	frame(fighter.lua_state_agent, 19.0);
+	if macros::is_excute(fighter) {
+		macros::AFTER_IMAGE_OFF(fighter, 2);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_fire2"), false, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_firetrail"), true, true);
+		macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("eflame_sword_firetrail_end"), Hash40::new("sword1"), 2, 0, 0, 0, 0, 0, 0.4, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 4);
+	}
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_fire"), false, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_beam_m"), true, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_close_s"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+		macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(fighter.lua_state_agent, 27.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_sword_core_start"), false, true);
+	}

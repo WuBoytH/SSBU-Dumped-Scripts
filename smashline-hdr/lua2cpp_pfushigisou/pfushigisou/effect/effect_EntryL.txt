@@ -1,0 +1,27 @@
+#[acmd_script( agent = "pfushigisou", script = "effect_entryl" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_entryl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 26.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_mball"), Hash40::new("throw"), 0, 2.3, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+		FLASH(fighter, 0.9, 1, 1, 0.9);
+	}
+	wait(lua_state, 7.0);
+	if is_excute(fighter) {
+		FLASH_FRM(fighter, 15, 0.9, 1, 1, 0);
+	}
+	wait(lua_state, 15.0);
+	if is_excute(fighter) {
+		COL_NORMAL(fighter);
+	}
+	frame(lua_state, 39.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+		LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(lua_state, 49.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT_FLIP(fighter, Hash40::new("sys_whirlwind_r"), Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0.5, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_NONE);
+	}
+}

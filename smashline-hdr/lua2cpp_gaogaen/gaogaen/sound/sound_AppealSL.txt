@@ -1,0 +1,21 @@
+#[acmd_script( agent = "gaogaen", script = "sound_appealsl" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appealsl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_gaogaen_appeal_s01"));
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_gaogaen_appeal_s02"));
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_gaogaen_appeal_s01"));
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		PLAY_STEP(fighter, Hash40::new("se_gaogaen_step_right_s"));
+	}
+}

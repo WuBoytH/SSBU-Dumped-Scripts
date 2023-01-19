@@ -1,0 +1,13 @@
+#[acmd_script( agent = "shizue", script = "game_turndash" , category = ACMD_GAME , low_priority)]
+unsafe fn game_turndash(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_DASH_FLAG_TURN_DASH);
+	}
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		WorkModule::enable_transition_term(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_DASH_TO_RUN);
+	}
+}

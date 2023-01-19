@@ -1,0 +1,34 @@
+#[acmd_script( agent = "luigi", script = "expression_entryl" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_entryl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x1f20a9d549, false);
+		notify_event_msc_cmd(0x24772eddef, false);
+		ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_HAT);
+		ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_BACK);
+		WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		notify_event_msc_cmd(0x1f20a9d549, true);
+		notify_event_msc_cmd(0x24772eddef, true);
+		ItemModule::set_attach_item_visibility(boma, true, *ATTACH_ITEM_GROUP_HAT);
+	}
+	frame(lua_state, 31.0);
+	if is_excute(fighter) {
+		ItemModule::set_attach_item_visibility(boma, true, *ATTACH_ITEM_GROUP_BACK);
+	}
+	frame(lua_state, 81.0);
+	if is_excute(fighter) {
+		ArticleModule::set_visibility_whole(boma, *FIGHTER_LUIGI_GENERATE_ARTICLE_DOKAN, false);
+	}
+	frame(lua_state, 86.0);
+	if is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+	}
+	frame(lua_state, 90.0);
+	if is_excute(fighter) {
+		WorkModule::off_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+	}
+}

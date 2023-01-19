@@ -1,0 +1,21 @@
+#[acmd_script( agent = "ganon", script = "sound_appeallwl" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appeallwl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_ganon_attackair_s01"));
+	}
+	frame(lua_state, 35.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_ganon_appeal_l02"));
+	}
+	frame(lua_state, 37.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_ganon_appeal_l01"));
+	}
+	frame(lua_state, 77.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_ganon_appeal_l01"));
+	}
+}

@@ -1,0 +1,28 @@
+#[acmd_script( agent = "master", script = "sound_specialnstart" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialnstart(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 20.0);
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_MASTER_STATUS_SPECIAL_N_FLAG_AFTER_TURN);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){;
+		if macros::is_excute(fighter) {
+			macros::PLAY_SE(fighter, Hash40::new("vc_master_special_n01"));
+		}
+	}
+	frame(fighter.lua_state_agent, 27.0);
+	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_MASTER_STATUS_SPECIAL_N_FLAG_AFTER_TURN);
+	if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){;
+		if macros::is_excute(fighter) {
+			macros::PLAY_STATUS(fighter, Hash40::new("se_master_special_n01"));
+		}
+	}
+	frame(fighter.lua_state_agent, 53.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_SE(fighter, Hash40::new("vc_master_special_n02"));
+	}
+	frame(fighter.lua_state_agent, 57.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STATUS(fighter, Hash40::new("se_master_special_n02"));
+	}
+	frame(fighter.lua_state_agent, 114.0);
+	if macros::is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+	}

@@ -1,0 +1,29 @@
+#[acmd_script( agent = "tantan", script = "effect_attackairf" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairf(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("tantan_jump_line_s"), false, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("tantan_jump_line_l"), false, true);
+	}
+	if(0x3a02e0(*FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R, 1)){;
+		frame(lua_state, 10.0);
+		if is_excute(fighter) {
+			EFFECT_FOLLOW(fighter, Hash40::new("tantan_atk_air_n2"), Hash40::new("top"), 0, 10, 4, 0, 0, 0, 1.2, true);
+		}
+		else{;
+		if(0x3a02e0(*FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R, 2)){;
+			frame(lua_state, 10.0);
+			if is_excute(fighter) {
+				EFFECT_FOLLOW(fighter, Hash40::new("tantan_atk_air_n3"), Hash40::new("top"), 0, 10, 4, 0, 0, 0, 1.2, true);
+			}
+			else{;
+			frame(lua_state, 0.0);
+			if is_excute(fighter) {
+				EFFECT_FOLLOW(fighter, Hash40::new("tantan_atk_air_n1"), Hash40::new("top"), 0, 10, 4, 0, 0, 0, 1.2, true);
+			}
+		}
+	}
+}
+}
+}

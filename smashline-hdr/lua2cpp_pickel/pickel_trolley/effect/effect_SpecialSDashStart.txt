@@ -1,0 +1,9 @@
+#[acmd_script( agent = "pickel_trolley", script = "effect_specialsdashstart" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialsdashstart(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("pickel_rail_dash"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1, true);
+		LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_PICKEL_TROLLEY_INSTANCE_WORK_ID_INT_DASH_EFFECT_ID);
+	}
+}

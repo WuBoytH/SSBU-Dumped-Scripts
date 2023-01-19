@@ -1,0 +1,13 @@
+#[acmd_script( agent = "zelda", script = "sound_turn" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_turn(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_zelda_step_right_l"), Hash40::new("se_zelda_step_left_l"));
+	}
+	wait(lua_state, 4.0);
+	if is_excute(fighter) {
+		PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_zelda_step_left_l"), Hash40::new("se_zelda_step_right_l"));
+	}
+}

@@ -1,0 +1,14 @@
+#[acmd_script( agent = "jack_mona", script = "effect_appealhir" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_appealhir(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("throw"), 0, 6, 0, -90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+		macros::LAST_EFFECT_SET_COLOR(fighter, 0.05, 0.05, 0.05);
+		macros::LAST_EFFECT_SET_ALPHA(fighter, 0.6);
+		macros::EFFECT(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("throw"), 0, 6, 0, -90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+		macros::LAST_EFFECT_SET_COLOR(fighter, 0.08, 0.08, 0.08);
+		macros::LAST_EFFECT_SET_ALPHA(fighter, 0.5);
+	}
+	frame(fighter.lua_state_agent, 90.0);
+	if macros::is_excute(fighter) {
+		macros::EFFECT(fighter, Hash40::new("jack_mona_smoke"), Hash40::new("throw"), 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}

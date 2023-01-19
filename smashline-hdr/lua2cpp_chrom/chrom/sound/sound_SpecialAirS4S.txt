@@ -1,0 +1,14 @@
+#[acmd_script( agent = "chrom", script = "sound_specialairs4s" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_specialairs4s(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_jump01"));
+		PLAY_SE(fighter, Hash40::new("vc_chrom_attack06"));
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_chrom_special_s04s"));
+	}
+}

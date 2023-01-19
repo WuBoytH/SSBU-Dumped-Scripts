@@ -1,0 +1,29 @@
+#[acmd_script( agent = "koopa", script = "sound_win3" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_win3(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_koopa_special_n01"));
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_koopa_special_n02_win03"));
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_koopa_special_n01_win03"));
+	}
+	frame(lua_state, 67.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_koopa_special_n03_win03"));
+	}
+	frame(lua_state, 99.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_koopa_special_n02_win03"));
+	}
+	frame(lua_state, 124.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_koopa_landing02"));
+	}
+}

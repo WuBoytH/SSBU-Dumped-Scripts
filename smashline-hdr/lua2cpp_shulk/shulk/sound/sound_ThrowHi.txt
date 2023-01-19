@@ -1,0 +1,22 @@
+#[acmd_script( agent = "shulk", script = "sound_throwhi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_throwhi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 3.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_common_throw_01"));
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_shulk_monado_open"));
+	}
+	frame(lua_state, 19.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_shulk_smash_s02"));
+	}
+	frame(lua_state, 21.0);
+	if is_excute(fighter) {
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_shulk_rnd_attack"));
+		PLAY_SE(fighter, Hash40::new("se_common_throw_02"));
+	}
+}

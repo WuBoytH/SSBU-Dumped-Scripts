@@ -1,0 +1,8 @@
+#[acmd_script( agent = "gekkouga", script = "effect_win2wait" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win2wait(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_pump_line"), true, true);
+	}
+}

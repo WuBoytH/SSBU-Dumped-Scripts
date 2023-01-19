@@ -1,0 +1,16 @@
+#[acmd_script( agent = "shizue", script = "game_finalendr" , category = ACMD_GAME , low_priority)]
+unsafe fn game_finalendr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+	}
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.75);
+	frame(lua_state, 35.0);
+	FT_MOTION_RATE(fighter, 1.3);
+	frame(lua_state, 45.0);
+	FT_MOTION_RATE(fighter, 0.85);
+	frame(lua_state, 75.0);
+	FT_MOTION_RATE(fighter, 0.75);
+}

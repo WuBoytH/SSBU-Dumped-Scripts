@@ -1,0 +1,13 @@
+#[acmd_script( agent = "buddy", script = "game_jumpback" , category = ACMD_GAME , low_priority)]
+unsafe fn game_jumpback(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 1.0);
+	FT_MOTION_RATE(fighter, 0.25);
+	frame(lua_state, 13.0);
+	FT_MOTION_RATE(fighter, 1.75);
+	frame(lua_state, 25.0);
+	FT_MOTION_RATE(fighter, 1.25);
+	frame(lua_state, 29.0);
+	FT_MOTION_RATE(fighter, 1);
+}

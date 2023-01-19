@@ -1,0 +1,43 @@
+#[acmd_script( agent = "trail", script = "expression_finalair" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_finalair(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		START_INFO_FLASH_EYE(fighter);
+		ItemModule::set_have_item_visibility(boma, false);
+	}
+	if is_excute(fighter) {
+		START_INFO_FLASH_EYE(fighter);
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+		ItemModule::set_have_item_visibility(boma, false);
+	}
+	frame(lua_state, 47.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_erase_sp"), 0, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 60.0);
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_81_kirifuda"), 50, false);
+		ControlModule::set_rumble(boma);
+	}
+	frame(lua_state, 117.0);
+	ItemModule::is_have_item(boma, 0);
+	if(0x4ae890(false, true)){;
+		if is_excute(fighter) {
+			FT_MOTION_INTP_WAIT_ITEM(fighter, true, 0.05);
+		}
+	}
+	frame(lua_state, 124.0);
+	if is_excute(fighter) {
+		FT_MOTION_INTP_WAIT_ITEM(fighter, true, 0.07);
+	}
+	frame(lua_state, 128.0);
+	if is_excute(fighter) {
+		ItemModule::set_have_item_visibility(boma, true);
+	}
+	frame(lua_state, 132.0);
+	if is_excute(fighter) {
+		FT_MOTION_INTP_WAIT_ITEM(fighter, true, 0);
+	}
+}

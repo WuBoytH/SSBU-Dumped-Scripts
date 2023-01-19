@@ -1,0 +1,45 @@
+#[acmd_script( agent = "shulk", script = "effect_attacks4" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attacks4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 13.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_circle"), Hash40::new("swordr"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		EFFECT_ALPHA(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("haver"), 0, 2, 1, -90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true, 0.8);
+		LAST_EFFECT_SET_COLOR(fighter, 0.3, 0.6, 3);
+		EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_sword"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_sword3_3"), Hash40::new("haver"), 0, 1, 0, 0, 0, 0, 1, true);
+		EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("shulk_monad_sword3_4"), Hash40::new("haver"), 0, 1, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 23.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("shulk_monad_sword"), false, false);
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, -5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("shulk_monad_sword3_4"), false, true);
+	}
+	frame(lua_state, 41.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_sword3_end"), Hash40::new("haver"), 0, 1, 0, 0, 0, 0, 1, true);
+	}
+	frame(lua_state, 46.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("shulk_monad_sword3_3"), false, false);
+		EFFECT_OFF_KIND(fighter, Hash40::new("shulk_monad_circle"), false, false);
+	}
+}

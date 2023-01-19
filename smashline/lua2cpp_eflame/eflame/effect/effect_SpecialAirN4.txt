@@ -1,0 +1,30 @@
+#[acmd_script( agent = "eflame", script = "effect_specialairn4" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairn4(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_nova_ring"), false, true);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_nova_trail"), false, true);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_nova_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+	}
+	frame(fighter.lua_state_agent, 2.0);
+	if(0x3de840(*FIGHTER_EFLAME_STATUS_SPECIAL_N_WORK_INT_ROTATE_NUM, 3)){;
+		if macros::is_excute(fighter) {
+			macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("eflame_nova_explosion3"), Hash40::new("top"), 0, -4, 1, 0, 0, 0, 1, true);
+		}
+		else{;
+		if(0x3de840(*FIGHTER_EFLAME_STATUS_SPECIAL_N_WORK_INT_ROTATE_NUM, 2)){;
+			if macros::is_excute(fighter) {
+				macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("eflame_nova_explosion2"), Hash40::new("top"), 0, -4, 1, 0, 0, 0, 1, true);
+			}
+			else{;
+			if macros::is_excute(fighter) {
+				macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("eflame_nova_explosion"), Hash40::new("top"), 0, -4, 1, 0, 0, 0, 1, true);
+			}
+		}
+	}
+}
+}
+frame(fighter.lua_state_agent, 14.0);
+if macros::is_excute(fighter) {
+macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_nova_sword"), false, true);
+macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_nova_sword_close"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+}

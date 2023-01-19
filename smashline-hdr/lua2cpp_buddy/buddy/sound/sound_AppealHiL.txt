@@ -1,0 +1,29 @@
+#[acmd_script( agent = "buddy", script = "sound_appealhil" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appealhil(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_buddy_appeal_h01"));
+	}
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_buddy_appeal_h02"));
+	}
+	frame(lua_state, 29.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_buddy_appeal01"));
+	}
+	frame(lua_state, 50.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_buddy_appeal_h01"));
+	}
+	frame(lua_state, 69.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("vc_buddy_appeal01_2"));
+	}
+	frame(lua_state, 72.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_buddy_step_left_m"));
+	}
+}

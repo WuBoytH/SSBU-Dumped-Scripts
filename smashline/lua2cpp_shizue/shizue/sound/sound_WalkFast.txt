@@ -1,0 +1,9 @@
+#[acmd_script( agent = "shizue", script = "sound_walkfast" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_walkfast(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 6.0);
+	if macros::is_excute(fighter) {
+		macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_shizue_step_left_m"), Hash40::new("se_shizue_step_right_m"));
+	}
+	frame(fighter.lua_state_agent, 18.0);
+	macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_shizue_step_right_m"), Hash40::new("se_shizue_step_left_m"));

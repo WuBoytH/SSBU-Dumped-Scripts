@@ -1,0 +1,37 @@
+#[acmd_script( agent = "reflet", script = "effect_win2await" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_win2await(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_damage_elec"), Hash40::new("sword"), 0, 4, 0, 0, 0, 89, 0.2, 0, 3, 0, 0, 0, 360, true);
+	}
+	wait(lua_state, 10.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("reflet_thunder_max"), Hash40::new("sword"), 0, 8, 0, 0, 0, 89, 0.15, 0, 3, 0, 0, 0, 360, true);
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("reflet_thunder_max"), false, false);
+	}
+	wait(lua_state, 30.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_damage_elec"), Hash40::new("sword"), 0, 6, 0, 0, 0, 89, 0.14, 0, 3, 0, 0, 0, 360, true);
+	}
+	wait(lua_state, 15.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_damage_elec"), Hash40::new("sword"), 0, 4, 0, 0, 0, 89, 0.14, 0, 3, 0, 0, 0, 360, true);
+	}
+	wait(lua_state, 10.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_damage_elec"), Hash40::new("sword"), 0, 8, 0, 0, 0, 89, 0.14, 0, 3, 0, 0, 0, 360, true);
+	}
+	wait(lua_state, 30.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("reflet_thunder_max"), Hash40::new("sword"), 0, 6, 0, 0, 0, 89, 0.15, 0, 3, 0, 0, 0, 360, true);
+	}
+	wait(lua_state, 5.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("reflet_thunder_max"), false, false);
+	}
+	wait(lua_state, 15.0);
+}

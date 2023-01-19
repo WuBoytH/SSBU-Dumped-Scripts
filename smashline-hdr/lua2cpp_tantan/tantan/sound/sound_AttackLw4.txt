@@ -1,0 +1,19 @@
+#[acmd_script( agent = "tantan", script = "sound_attacklw4" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacklw4(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 4.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_common_smash_start"));
+		PLAY_SE(fighter, Hash40::new("se_tantan_smash_l01"));
+		PLAY_SEQUENCE(fighter, Hash40::new("seq_tantan_rnd_attack04"));
+	}
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("se_tantan_smash_l02"));
+	}
+	frame(lua_state, 60.0);
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("se_tantan_step_right_l"));
+	}
+}

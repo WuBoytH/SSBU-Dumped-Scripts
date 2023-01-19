@@ -1,0 +1,40 @@
+#[acmd_script( agent = "miifighter", script = "expression_specials1end" , category = ACMD_EXPRESSION , low_priority)]
+unsafe fn expression_specials1end(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+	}
+	frame(fighter.lua_state_agent, 3.0);
+	if macros::is_excute(fighter) {
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 4);
+	}
+	frame(fighter.lua_state_agent, 4.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 4, false);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 10.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 4, false);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 16.0);
+	if macros::is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohits"), 8, false);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 27.0);
+	if macros::is_excute(fighter) {
+		macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+		macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_nohitl"), 0, false);
+		ControlModule::set_rumble(fighter.module_accessor);
+	}
+	frame(fighter.lua_state_agent, 44.0);
+	if macros::is_excute(fighter) {
+		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+	}
+	frame(fighter.lua_state_agent, 69.0);
+	if macros::is_excute(fighter) {
+		ItemModule::set_have_item_visibility(fighter.module_accessor, true);
+	}

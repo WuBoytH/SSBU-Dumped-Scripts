@@ -1,0 +1,9 @@
+#[acmd_script( agent = "master", script = "game_attackhi4charge" , category = ACMD_GAME , low_priority)]
+unsafe fn game_attackhi4charge(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		methodlib::L2CValue::as_hash()const(*FIGHTER_MASTER_GENERATE_ARTICLE_SWORD, Hash40::new("attack_hi4_hold"));
+		ArticleModule::change_motion(boma);
+	}
+}

@@ -1,0 +1,17 @@
+#[acmd_script( agent = "demon", script = "sound_attacks4transform" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacks4transform(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 7.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, 0x15feb03369);
+	}
+	frame(lua_state, 22.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_demon_smash_s01"));
+	}
+	frame(lua_state, 58.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_demon_spark_end"));
+	}
+}

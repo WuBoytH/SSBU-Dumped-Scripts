@@ -1,0 +1,48 @@
+#[acmd_script( agent = "robot", script = "sound_appeallwl" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appeallwl(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 2.0);
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("se_robot_appeal04"));
+	}
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+		PLAY_STATUS(fighter, Hash40::new("se_robot_appeal01"));
+		PLAY_STATUS(fighter, Hash40::new("se_robot_appeal03"));
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+	}
+	frame(lua_state, 24.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_robot_appeal05"));
+	}
+	frame(lua_state, 47.0);
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("se_robot_appeal01"));
+	}
+	frame(lua_state, 78.0);
+	if is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+	}
+	frame(lua_state, 87.0);
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("se_robot_appeal04"));
+		PLAY_STATUS(fighter, Hash40::new("se_robot_appeal01"));
+	}
+	frame(lua_state, 93.0);
+	if is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+	}
+	frame(lua_state, 97.0);
+	if is_excute(fighter) {
+		PLAY_STATUS(fighter, Hash40::new("se_robot_appeal03"));
+	}
+	frame(lua_state, 104.0);
+	if is_excute(fighter) {
+		sound(*MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+	}
+}

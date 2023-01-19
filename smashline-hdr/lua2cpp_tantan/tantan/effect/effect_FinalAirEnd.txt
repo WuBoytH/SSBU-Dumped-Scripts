@@ -1,0 +1,14 @@
+#[acmd_script( agent = "tantan", script = "effect_finalairend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_finalairend(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		CANCEL_FILL_SCREEN(fighter, 0, 1);
+		methodlib::L2CValue::as_hash()const(Hash40::new("bg_tantan_final_end"), false);
+		EffectModule::req_screen(boma);
+		EFFECT_OFF_KIND(fighter, Hash40::new("tantan_final_beam"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("tantan_final_knock"), true, true);
+		EFFECT_OFF_KIND(fighter, Hash40::new("tantan_final_beam_hit"), true, true);
+		EFFECT_FLW_POS(fighter, Hash40::new("tantan_final_after"), Hash40::new("handl"), 4, 0, 0, 0, 0, 0, 0.5, true);
+	}
+}

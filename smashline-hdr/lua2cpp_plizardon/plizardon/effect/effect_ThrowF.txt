@@ -1,0 +1,13 @@
+#[acmd_script( agent = "plizardon", script = "effect_throwf" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_throwf(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 27.0);
+	if is_excute(fighter) {
+		FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 0, 22, 23, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+	}
+}

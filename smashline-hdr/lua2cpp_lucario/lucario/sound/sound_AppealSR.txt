@@ -1,0 +1,14 @@
+#[acmd_script( agent = "lucario", script = "sound_appealsr" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_appealsr(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 25.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_lucario_appeal_s01"));
+		PLAY_SE(fighter, Hash40::new("vc_lucario_appeal02"));
+	}
+	wait(lua_state, 40.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_lucario_appeal_s02"));
+	}
+}

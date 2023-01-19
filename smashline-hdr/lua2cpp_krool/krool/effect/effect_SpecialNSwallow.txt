@@ -1,0 +1,9 @@
+#[acmd_script( agent = "krool", script = "effect_specialnswallow" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialnswallow(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("krool_cannon_vacuum"), true, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("krool_cannon_vacuum_success"), Hash40::new("top"), 0, 10, 17, 0, 0, 0, 0.8, true);
+	}
+}

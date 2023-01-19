@@ -1,0 +1,6 @@
+#[acmd_script( agent = "rosetta_tico", script = "game_specials" , category = ACMD_GAME , low_priority)]
+unsafe fn game_specials(fighter: &mut L2CAgentBase) {
+	frame(fighter.lua_state_agent, 9.0);
+	if macros::is_excute(fighter) {
+		WorkModule::on_flag(fighter.module_accessor, *WEAPON_ROSETTA_TICO_STATUS_SPECIAL_S_WORK_FLAG_SHOOT);
+	}

@@ -1,0 +1,9 @@
+#[acmd_script( agent = "koopa", script = "effect_walkmiddle" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_walkmiddle(fighter: &mut L2CAgentBase) {
+	wait_loop_sync_mot();
+	frame(fighter.lua_state_agent, 20.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 3, 0, 3, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
+	}
+	frame(fighter.lua_state_agent, 45.0);
+	macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 5, 0, -2, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);

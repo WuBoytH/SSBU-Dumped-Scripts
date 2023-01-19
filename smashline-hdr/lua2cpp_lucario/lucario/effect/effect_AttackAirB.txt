@@ -1,0 +1,20 @@
+#[acmd_script( agent = "lucario", script = "effect_attackairb" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackairb(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 11.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_line"), Hash40::new("top"), -2.4, 13, 4.5, 10, 180, 0, 0.9, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("lucario_hattack_c"), Hash40::new("top"), -2.4, 9.7, -10, 5, 180, 0, 1.1, true);
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW(fighter, Hash40::new("lucario_hattack_b"), Hash40::new("top"), -2.4, 10.5, -10, 5, 180, 0, 0.9, true);
+		LAST_EFFECT_SET_COLOR(fighter, 0.7, 0.7, 0.7);
+		LAST_EFFECT_SET_RATE(fighter, 1.5);
+	}
+	frame(lua_state, 17.0);
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("lucario_hattack_c"), false, true);
+	}
+}

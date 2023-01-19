@@ -1,0 +1,16 @@
+#[acmd_script( agent = "pickel", script = "effect_attackhi4" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_attackhi4(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::EFFECT_FLIP(fighter, Hash40::new("sys_smash_flash"), Hash40::new("sys_smash_flash"), Hash40::new("top"), -6, 9, -6, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+	}
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT_FLIP(fighter, Hash40::new("null"), Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
+		macros::EFFECT_FOLLOW(fighter, Hash40::new("pickel_block_magma_heat"), Hash40::new("top"), 0, 26.5, 0, 0, 0, 0, 1.3, true);
+	}
+	frame(fighter.lua_state_agent, 22.0);
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT_FLIP(fighter, Hash40::new("null"), Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_NONE);
+		macros::EFFECT_OFF_KIND(fighter, Hash40::new("pickel_block_magma_heat"), false, true);
+		macros::EFFECT(fighter, Hash40::new("pickel_block_break_magma"), Hash40::new("top"), 0, 25, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+	}

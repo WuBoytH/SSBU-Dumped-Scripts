@@ -1,0 +1,14 @@
+#[acmd_script( agent = "mario", script = "sound_attacks4hi" , category = ACMD_SOUND , low_priority)]
+unsafe fn sound_attacks4hi(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 14.0);
+	if is_excute(fighter) {
+		STOP_SE(fighter, Hash40::new("se_common_smash_start"));
+		PLAY_SE(fighter, Hash40::new("vc_mario_attack05"));
+	}
+	wait(lua_state, 1.0);
+	if is_excute(fighter) {
+		PLAY_SE(fighter, Hash40::new("se_mario_smash_s01"));
+	}
+}

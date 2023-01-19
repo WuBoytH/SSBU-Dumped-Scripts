@@ -1,0 +1,9 @@
+#[acmd_script( agent = "koopa", script = "effect_specialairnend" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairnend(fighter: &mut L2CAgentBase) {
+	if macros::is_excute(fighter) {
+		macros::COL_NORMAL(fighter);
+	}
+	frame(fighter.lua_state_agent, 8.0);
+	if macros::is_excute(fighter) {
+		macros::FOOT_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+	}

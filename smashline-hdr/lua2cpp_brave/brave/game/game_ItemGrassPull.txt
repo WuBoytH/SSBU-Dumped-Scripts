@@ -1,0 +1,26 @@
+#[acmd_script( agent = "brave", script = "game_itemgrasspull" , category = ACMD_GAME , low_priority)]
+unsafe fn game_itemgrasspull(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	frame(lua_state, 5.0);
+	if is_excute(fighter) {
+		WorkModule::set_int(boma, *FIGHTER_ITEM_GRASS_PULL_STEP_PICKUP, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_NEXT_STEP);
+	}
+	frame(lua_state, 12.0);
+	if is_excute(fighter) {
+		WorkModule::set_int(boma, *FIGHTER_ITEM_GRASS_PULL_STEP_PULL, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_NEXT_STEP);
+	}
+	frame(lua_state, 15.0);
+	if is_excute(fighter) {
+		WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_GRASS_PULL_FLAG_STTUS_END_IF_PICKUP_FAILED);
+		WorkModule::set_int(boma, 4, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_THROW_N_OFFSET_ANIM_FRAME_COUNT_MAX);
+	}
+	frame(lua_state, 18.0);
+	if is_excute(fighter) {
+		WorkModule::set_int(boma, *FIGHTER_ITEM_GRASS_PULL_STEP_HOIST, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_NEXT_STEP);
+	}
+	frame(lua_state, 30.0);
+	if is_excute(fighter) {
+		WorkModule::set_int(boma, *FIGHTER_ITEM_GRASS_PULL_STEP_END, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_NEXT_STEP);
+	}
+}

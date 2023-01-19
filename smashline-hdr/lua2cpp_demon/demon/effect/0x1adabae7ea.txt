@@ -1,0 +1,9 @@
+#[acmd_script( agent = "demon", script = "0x1adabae7ea" , category = ACMD_EFFECT , low_priority)]
+unsafe fn 0x1adabae7ea(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_OFF_KIND(fighter, Hash40::new("demon_rage_aura"), false, true);
+		EFFECT_FOLLOW(fighter, Hash40::new("demon_rage_end"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, false);
+	}
+}

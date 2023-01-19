@@ -1,0 +1,16 @@
+#[acmd_script( agent = "miifighter", script = "effect_specialairn2" , category = ACMD_EFFECT , low_priority)]
+unsafe fn effect_specialairn2(fighter: &mut L2CAgentBase) {
+	let lua_state = fighter.lua_state_agent;
+	let boma = fighter.boma();
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_NO_STOP(fighter, 0x1aa2c81ef2, Hash40::new("top"), 0, 7, 3, 0, 0, 0, 0.9, true);
+	}
+	frame(lua_state, 20.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_NO_STOP(fighter, 0x1aa2c81ef2, Hash40::new("top"), 0, 10, 3, -20, 0, 0, 0.9, true);
+	}
+	frame(lua_state, 35.0);
+	if is_excute(fighter) {
+		EFFECT_FOLLOW_NO_STOP(fighter, 0x1aa2c81ef2, Hash40::new("top"), 0, 12, 3, -45, 0, 0, 0.9, true);
+	}
+}
