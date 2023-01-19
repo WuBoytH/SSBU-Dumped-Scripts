@@ -78,6 +78,7 @@ def convert(the_dir: str, output_folder: str):
             # Label all of the files, then put them in "*.rs_labeled" files
             with open(os.path.join(output_folder, file), "w") as f_out:
                 # Loop through the file line by line
+                tabdepth = 0
                 for line in f_in:
                     line = line.strip()
                     str_temp = line # Create a temporary string with the line within it
@@ -171,6 +172,8 @@ def convert(the_dir: str, output_folder: str):
                         # Write the new ATTACK/ATTACK_ABS call to the output file
                         str_write = str_replace_temp.rstrip('\n') + ";\n"
                     
+                    
+
                     elif "if(is_excute){" in line: # Replace if(is_excute) calls
                         str_write = "if macros::is_excute(fighter) {\n"
                         
@@ -178,6 +181,9 @@ def convert(the_dir: str, output_folder: str):
                         str_write = str_temp.rstrip('\n') + ";\n"
                         if "}" in line or line == "\n":
                             str_write = str_temp
+                        if "}" in line:
+                            str_write += "\n"
+                            tabdepth-=1
                     
                     # Prepend asterisks to constants as necessary
                     # Get all of the constants in the function call
@@ -191,9 +197,20 @@ def convert(the_dir: str, output_folder: str):
                             
                     # Replace all hash40 calls with Hash40::new
                     str_write = str_write.replace("hash40", "Hash40::new")
+
+                    tabdepth_temp = tabdepth
+                    tabs = ""
+                    while tabdepth_temp > 0:
+                        tabs += "\t"
+                        tabdepth_temp-=1
+
+                    if "if(" in line:
+                        tabdepth+=1
                     
+                    print(str_write)
+
                     # Write to file
-                    f_out.write(str_write)
+                    f_out.write(tabs + str_write)
                         # Move on to the next line
         
         # Move to the next file
