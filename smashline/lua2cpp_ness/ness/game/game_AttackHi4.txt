@@ -1,0 +1,21 @@
+frame(fighter.lua_state_agent, 1.0);
+macros::FT_MOTION_RATE(fighter, 0.74);
+frame(fighter.lua_state_agent, 3.0);
+if macros::is_excute(fighter) {
+	ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, true);
+	ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO, true);
+}
+frame(fighter.lua_state_agent, 10.0);
+if macros::is_excute(fighter) {
+	ArticleModule::shoot(fighter.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, *ARTICLE_OPE_TARGET_ALL, false);
+}
+frame(fighter.lua_state_agent, 12.0);
+macros::FT_MOTION_RATE(fighter, 1);
+if macros::is_excute(fighter) {
+	WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
+}
+frame(fighter.lua_state_agent, 56.0);
+if macros::is_excute(fighter) {
+	ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO);
+	ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD);
+}

@@ -1,0 +1,29 @@
+if macros::is_excute(fighter) {
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_attack100"), false, false);
+}
+frame(fighter.lua_state_agent, 3.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("duckhunt_attack_line"), Hash40::new("duckhunt_attack_line"), Hash40::new("top"), 0, 7, 5, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+	macros::LAST_EFFECT_SET_COLOR(fighter, 1, 1, 1);
+	macros::LAST_EFFECT_SET_RATE(fighter, 2);
+}
+get_value_float(*SO_VAR_FLOAT_LR);
+if(0x119a00(88629789117, 0)){;
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("duckhunt_atk_smoke_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+	}
+	else{;
+	if macros::is_excute(fighter) {
+		macros::LANDING_EFFECT(fighter, Hash40::new("duckhunt_atk_smoke_l"), Hash40::new("top"), 1, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+	}
+}
+}
+if macros::is_excute(fighter) {
+macros::EFFECT_FLIP(fighter, Hash40::new("sys_attack_impact"), Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 7, 18, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 360, true, *EF_FLIP_YZ);
+EFFECT_FOLLOW_arg11(Hash40::new("duckhunt_feather"), Hash40::new("duckneck"), 0, 0, 0, 0, 0, 0, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+macros::LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+}
+frame(fighter.lua_state_agent, 20.0);
+if macros::is_excute(fighter) {
+macros::EFFECT_OFF_HANDLE(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+}

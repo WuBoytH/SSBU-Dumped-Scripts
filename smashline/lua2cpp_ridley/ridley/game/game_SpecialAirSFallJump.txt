@@ -1,0 +1,23 @@
+if macros::is_excute(fighter) {
+	macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 7.0, 75, 75, 0, 55, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+	macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 75, 75, 0, 55, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+}
+frame(fighter.lua_state_agent, 1.0);
+if macros::is_excute(fighter) {
+	macros::CHECK_FINISH_CAMERA(fighter, 30, 7);
+	FighterCutInManager::set_throw_finish_zoom_rate(fighter.module_accessor, 1.5);
+	FighterCutInManager::set_throw_finish_offset(fighter.module_accessor, 10, 50, 0);
+}
+frame(fighter.lua_state_agent, 2.0);
+if macros::is_excute(fighter) {
+	WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_RIDLEY_STATUS_SPECIAL_S_FLAG_THROW);
+}
+frame(fighter.lua_state_agent, 38.0);
+if macros::is_excute(fighter) {
+	WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_RIDLEY_STATUS_SPECIAL_S_FLAG_ENABLE_CONTROL_JUMP);
+	notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+}
+frame(fighter.lua_state_agent, 42.0);
+if macros::is_excute(fighter) {
+	WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_RIDLEY_STATUS_SPECIAL_S_FLAG_ENABLE_GRAVITY);
+}

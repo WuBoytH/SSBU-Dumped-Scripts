@@ -1,0 +1,11 @@
+if macros::is_excute(fighter) {
+	macros::EFFECT_FLW_POS(fighter, Hash40::new("pichu_rocket_aura"), Hash40::new("head"), 6.5, 0, 0, 90, 0, 0, 1.13, true);
+	EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+	macros::EFFECT_FLW_POS_NO_STOP(fighter, Hash40::new("pichu_rocket_jet"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 0.95, true);
+	EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+}
+frame(fighter.lua_state_agent, 2.0);
+if macros::is_excute(fighter) {
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("pichu_rocket_aura"), false, true);
+	macros::EFFECT_OFF_KIND(fighter, Hash40::new("pichu_rocket_jet"), false, true);
+}

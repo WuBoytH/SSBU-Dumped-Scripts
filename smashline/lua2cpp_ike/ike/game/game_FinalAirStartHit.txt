@@ -1,0 +1,10 @@
+if macros::is_excute(fighter) {
+	macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+	macros::CAM_ZOOM_OUT(fighter);
+	VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("sword"), Hash40::new("sword_hide"));
+}
+frame(fighter.lua_state_agent, 7.0);
+if macros::is_excute(fighter) {
+	WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_IKE_STATUS_FINAL_FLAG_SWORD_THROW_START);
+	ArticleModule::shoot(fighter.module_accessor, *FIGHTER_IKE_GENERATE_ARTICLE_SWORD, *ARTICLE_OPE_TARGET_ALL, false);
+}

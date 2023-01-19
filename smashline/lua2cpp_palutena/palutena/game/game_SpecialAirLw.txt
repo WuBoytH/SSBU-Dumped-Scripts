@@ -1,0 +1,18 @@
+frame(fighter.lua_state_agent, 3.0);
+if macros::is_excute(fighter) {
+	FighterAreaModuleImpl::enable_fix_jostle_area(fighter.module_accessor, 6.8, 6.8);
+}
+frame(fighter.lua_state_agent, 7.0);
+if macros::is_excute(fighter) {
+	WorkModule::on_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_PALUTENA_STATUS_SPECIAL_LW_FLAG_SHIELD);
+	shield(MSC=*MA_MSC_CMD_SHIELD_ON, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_PALUTENA_REFLECTOR_KIND_REFLECTOR, Group=*FIGHTER_REFLECTOR_GROUP_EXTEND);
+	macros::SEARCH(fighter, 0, 0, Hash40::new("top"), 12.3, 0.0, 10.0, 1.5, *COLLISION_KIND_MASK_AH, *HIT_STATUS_MASK_ALL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+}
+frame(fighter.lua_state_agent, 35.0);
+macros::FT_MOTION_RATE(fighter, 0.9);
+if macros::is_excute(fighter) {
+	WorkModule::off_flag(fighter.module_accessor, /*Flag*/ *FIGHTER_PALUTENA_STATUS_SPECIAL_LW_FLAG_SHIELD);
+	shield(MSC=*MA_MSC_CMD_SHIELD_OFF, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_PALUTENA_REFLECTOR_KIND_REFLECTOR, Group=*FIGHTER_REFLECTOR_GROUP_EXTEND);
+	FighterAreaModuleImpl::enable_fix_jostle_area(fighter.module_accessor, 3, 3.2);
+	search(*MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR, 0);
+}

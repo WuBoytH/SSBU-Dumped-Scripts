@@ -1,0 +1,13 @@
+macros::IS_EXIST_ARTICLE(fighter, WEAPON_TANTAN_PUNCH1*_GENERATE_ARTICLE_BEAM);
+if(0x3a02e0(false, true)){;
+	if macros::is_excute(fighter) {
+		ArticleModule::remove_exist(fighter.module_accessor, WEAPON_TANTAN_PUNCH1*_GENERATE_ARTICLE_BEAM);
+	}
+}
+if macros::is_excute(fighter) {
+	ArticleModule::generate_article(fighter.module_accessor, WEAPON_TANTAN_PUNCH1*_GENERATE_ARTICLE_BEAM);
+	ArticleModule::shoot_exist(fighter.module_accessor, WEAPON_TANTAN_PUNCH1*_GENERATE_ARTICLE_BEAM, *ARTICLE_OPE_TARGET_ALL, false);
+	methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_76_dragonbeam2"), 30, false);
+	ControlModule::set_rumble(fighter.module_accessor);
+	macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
+}
