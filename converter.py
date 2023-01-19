@@ -65,7 +65,10 @@ else:
 def convert(the_dir: str, output_folder: str):
     # List all files in a directory using os.listdir
     basepath = the_dir
-    os.makedirs(os.path.join(output_folder, the_dir))
+    adjustedpath = basepath.replace("skyline-acmd\\", "", 1)
+    print(basepath)
+    print(adjustedpath)
+    os.makedirs(os.path.join(output_folder, adjustedpath))
     txt_files = [] # Blank list to hold list of all rust files
     for entry in os.listdir(basepath):
         if os.path.isfile(os.path.join(basepath, entry)):
@@ -76,7 +79,8 @@ def convert(the_dir: str, output_folder: str):
     for file in txt_files:
         with open(file, "r") as f_in:
             # Label all of the files, then put them in "*.rs_labeled" files
-            with open(os.path.join(output_folder, file), "w") as f_out:
+            newfile = file.replace("skyline-acmd\\", "", 1)
+            with open(os.path.join(output_folder, newfile), "w") as f_out:
                 # Loop through the file line by line
                 tabdepth = 1
                 char = file.split("\\")
@@ -157,10 +161,11 @@ def convert(the_dir: str, output_folder: str):
                         fn_argslist_formatted = []
                         for entry in fn_argslist:
                             # Extract the non-equals characters from the argument and enclose it in comments
-                            split_arg = entry.split("=")
-                            formatted_arg = "/*" + split_arg[0] + "*/ "
+                            # split_arg = entry.split("=")
+                            # formatted_arg = "/*" + split_arg[0] + "*/ "
+                            formatted_arg = ""
                             fn_argslist_formatted.append(formatted_arg)
-                        #print(fn_argslist_formatted) # Print the formatted args list to make sure it was formatted correctly
+                        # print(fn_argslist_formatted) # Print the formatted args list to make sure it was formatted correctly
                         # Replace each arg in the string with its formatted version
                         str_replace_temp = str_temp
                         for i in range(len(fn_argslist)):
