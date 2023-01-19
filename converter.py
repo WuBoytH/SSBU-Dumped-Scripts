@@ -207,7 +207,7 @@ def convert(the_dir: str, output_folder: str):
                     if "if(" in line:
                         tabdepth+=1
                     
-                    print(str_write)
+                    # print(str_write)
 
                     # Write to file
                     f_out.write(tabs + str_write)

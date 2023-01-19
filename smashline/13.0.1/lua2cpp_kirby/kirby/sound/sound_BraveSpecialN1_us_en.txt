@@ -1,16 +1,21 @@
 frame(fighter.lua_state_agent, 1.0);
 WorkModule::is_flag(fighter.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_N_FLAG_SUCCESS_SP);
 if(0x543c60(false, true)){;
+	if macros::is_excute(fighter) {
+		macros::STOP_SE(fighter, Hash40::new("se_brave_special_n01"));
+	}
+}
+frame(fighter.lua_state_agent, 8.0);
 if macros::is_excute(fighter) {
-macros::STOP_SE(fighter, Hash40::new("se_brave_special_n01"));
-}}frame(fighter.lua_state_agent, 8.0);
+	macros::PLAY_SE(fighter, Hash40::new("se_brave_special_n02"));
+	macros::PLAY_SE(fighter, Hash40::new("vc_kirby_copy_brave_02"));
+}
+else{;
 if macros::is_excute(fighter) {
-macros::PLAY_SE(fighter, Hash40::new("se_brave_special_n02"));
-macros::PLAY_SE(fighter, Hash40::new("vc_kirby_copy_brave_02"));
-}else{;
-if macros::is_excute(fighter) {
-macros::STOP_SE(fighter, Hash40::new("se_brave_special_n01"));
-}}frame(fighter.lua_state_agent, 10.0);
+	macros::STOP_SE(fighter, Hash40::new("se_brave_special_n01"));
+}
+}
+frame(fighter.lua_state_agent, 10.0);
 if macros::is_excute(fighter) {
 macros::PLAY_SE(fighter, Hash40::new("se_brave_miss"));
 }

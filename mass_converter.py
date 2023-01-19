@@ -14,10 +14,6 @@ def collect_dirs(dir: str):
             continue
         if "smashline" in entry:
             continue
-        if "11.0.0" in entry:
-            continue
-        if "12.0.0" in entry:
-            continue
         
         entry = os.path.join(dir, entry)
 
