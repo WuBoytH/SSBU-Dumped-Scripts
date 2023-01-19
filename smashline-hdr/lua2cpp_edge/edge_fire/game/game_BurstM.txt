@@ -3,13 +3,11 @@ unsafe fn game_burstm(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_furafura"), 14, false);
-        ControlModule::set_rumble(boma);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_furafura"), 14, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 9.0);
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_explosionm"), 0, false);
-        ControlModule::set_rumble(boma);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
         AttackModule::disable_tip(boma);
         ATTACK(fighter, 0, 0, Hash40::new("top"), 3.7, 366, 100, 50, 0, 19.3, 0.0, 0.0, 0.0, None, None, None, 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, -1, -1.0, 3, false, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_MAGIC);

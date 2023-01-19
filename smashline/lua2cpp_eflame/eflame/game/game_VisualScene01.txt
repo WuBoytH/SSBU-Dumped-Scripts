@@ -1,8 +1,7 @@
 #[acmd_script( agent = "eflame", script = "game_visualscene01", category = ACMD_GAME, low_priority )]
 unsafe fn game_visualscene01(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_79_vs_a01"), 0, false);
-        ControlModule::set_rumble(fighter.module_accessor);
+        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_79_vs_a01"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         macros::RUMBLE_FINAL_TARGET(fighter, Hash40::new("rbkind_79_vs_a01"), 0);
     }
     macros::IS_EXIST_ARTICLE(fighter, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD);

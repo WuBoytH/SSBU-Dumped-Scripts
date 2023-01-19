@@ -4,8 +4,7 @@ unsafe fn game_explosion(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
-        methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_explosion"), 0, true);
-        ControlModule::set_rumble(boma);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_explosion"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
         ATTACK(fighter, 0, 0, Hash40::new("top"), 18.0, 70, 70, 0, 50, 20.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_BOMB);
     }
     wait(lua_state, 2.0);

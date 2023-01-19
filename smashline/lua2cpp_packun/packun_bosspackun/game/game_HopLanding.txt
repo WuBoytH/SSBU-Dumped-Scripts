@@ -1,8 +1,7 @@
 #[acmd_script( agent = "packun_bosspackun", script = "game_hoplanding", category = ACMD_GAME, low_priority )]
 unsafe fn game_hoplanding(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_landl_hv"), 0, false);
-        ControlModule::set_rumble(fighter.module_accessor);
+        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_landl_hv"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(fighter.lua_state_agent, 1.0);
     WorkModule::is_flag(fighter.module_accessor, *WEAPON_PACKUN_BOSSPACKUN_STATUS_WORK_FLAG_HOP_HIGH);
