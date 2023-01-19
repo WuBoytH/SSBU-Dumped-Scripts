@@ -14,7 +14,7 @@ unsafe fn game_specialairhi(fighter: &mut L2CAgentBase) {
     }
     wait(lua_state, 1.0);
     if is_excute(fighter) {
-        grab(*MA_MSC_CMD_GRAB_CLEAR, 1);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR, 1);
         CATCH(fighter, 0, Hash40::new("top"), 4.4, 0.0, 16.0, 6.5, Some(0.0), Some(18.0), Some(3.0), *FIGHTER_STATUS_KIND_CLUNG_GANON, *COLLISION_SITUATION_MASK_GA);
     }
     frame(lua_state, 18.0);
@@ -23,7 +23,7 @@ unsafe fn game_specialairhi(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 29.0);
     if is_excute(fighter) {
-        grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 34.0);

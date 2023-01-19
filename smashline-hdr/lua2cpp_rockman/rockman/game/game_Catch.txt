@@ -14,7 +14,7 @@ unsafe fn game_catch(fighter: &mut L2CAgentBase) {
     methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()(false);
     wait(lua_state, 2.0);
     if is_excute(fighter) {
-        grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
         WorkModule::on_flag(boma, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
         GrabModule::set_rebound(boma, false);
     }

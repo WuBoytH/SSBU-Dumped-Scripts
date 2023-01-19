@@ -31,18 +31,18 @@ unsafe fn game_catchturn(fighter: &mut L2CAgentBase) {
         CATCH(fighter, 0, Hash40::new("throw"), 3.0, 0.0, 0.0, 1.5, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_GA);
         CATCH(fighter, 1, Hash40::new("top"), 3.3, 0.0, 6.6, -4.0, Some(0.0), Some(6.6), Some(-14.7), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
     }
-    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
+    macros::game_CaptureCutCommon();
     if is_excute(fighter) {
         ArticleModule::set_visibility_whole(boma, *FIGHTER_LUIGI_GENERATE_ARTICLE_PLUNGER, true);
         ArticleModule::shoot(boma, *FIGHTER_LUIGI_GENERATE_ARTICLE_PLUNGER, *ARTICLE_OPE_TARGET_ALL, false);
     }
     wait(lua_state, 2.0);
     if is_excute(fighter) {
-        grab(*MA_MSC_CMD_GRAB_CLEAR, 1);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR, 1);
     }
     wait(lua_state, 5.0);
     if is_excute(fighter) {
-        grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
         WorkModule::on_flag(boma, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
         GrabModule::set_rebound(boma, false);
     }

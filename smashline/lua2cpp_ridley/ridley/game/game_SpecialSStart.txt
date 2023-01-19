@@ -27,7 +27,7 @@ unsafe fn game_specialsstart(fighter: &mut L2CAgentBase) {
     }
     frame(false, 25);
     if macros::is_excute(fighter) {
-        grab(*MA_MSC_CMD_GRAB_CLEAR, 2);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR, 2);
     }
     frame(fighter.lua_state_agent, 28.0);
     macros::FT_MOTION_RATE(fighter, 0.8);
@@ -39,7 +39,7 @@ unsafe fn game_specialsstart(fighter: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(fighter, 1);
     frame(fighter.lua_state_agent, 39.0);
     if macros::is_excute(fighter) {
-        grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
         GrabModule::set_rebound(fighter.module_accessor, false);
     }
     frame(fighter.lua_state_agent, 49.0);

@@ -18,15 +18,15 @@ unsafe fn game_catchturn(fighter: &mut L2CAgentBase) {
         macros::CATCH(fighter, 1, Hash40::new("handr"), 1.5, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_GA);
         macros::CATCH(fighter, 2, Hash40::new("handr"), 4.0, 0.0, 0.0, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
     }
-    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
+    macros::game_CaptureCutCommon();
     wait(fighter.lua_state_agent, 2.0);
     if macros::is_excute(fighter) {
-        grab(*MA_MSC_CMD_GRAB_CLEAR, 1);
-        grab(*MA_MSC_CMD_GRAB_CLEAR, 2);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR, 1);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR, 2);
     }
     wait(fighter.lua_state_agent, 5.0);
     if macros::is_excute(fighter) {
-        grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
         GrabModule::set_rebound(fighter.module_accessor, false);
     }
     frame(fighter.lua_state_agent, 37.0);
