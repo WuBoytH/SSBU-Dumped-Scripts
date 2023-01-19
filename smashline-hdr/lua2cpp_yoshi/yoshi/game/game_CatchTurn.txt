@@ -2,28 +2,28 @@
 unsafe fn game_catchturn(fighter: &mut L2CAgentBase) {
 	let lua_state = fighter.lua_state_agent;
 	let boma = fighter.boma();
-	frame(lua_state, 16.0);
-	if is_excute(fighter) {
-		GrabModule::set_rebound(boma, true);
-	}
-	frame(lua_state, 17.0);
-	if is_excute(fighter) {
-		CATCH(fighter, 0, Hash40::new("mouth2"), 3.5, -2.0, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_A);
-		CATCH(fighter, 1, Hash40::new("mouth2"), 2.8, 1.2, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_G);
-		CATCH(fighter, 2, Hash40::new("top"), 5.5, 0.0, 6.0, -8.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_GA);
-	}
-	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
-	wait(lua_state, 2.0);
-	if is_excute(fighter) {
-		grab(*MA_MSC_CMD_GRAB_CLEAR, 2);
-	}
-	frame(lua_state, 25.0);
-	if is_excute(fighter) {
-		grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
-		GrabModule::set_rebound(boma, false);
-	}
-	frame(lua_state, 28.0);
-	if is_excute(fighter) {
-		WorkModule::on_flag(boma, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
-	}
+    frame(lua_state, 16.0);
+    if is_excute(fighter) {
+        GrabModule::set_rebound(boma, true);
+    }
+    frame(lua_state, 17.0);
+    if is_excute(fighter) {
+        CATCH(fighter, 0, Hash40::new("mouth2"), 3.5, -2.0, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_A);
+        CATCH(fighter, 1, Hash40::new("mouth2"), 2.8, 1.2, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_G);
+        CATCH(fighter, 2, Hash40::new("top"), 5.5, 0.0, 6.0, -8.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_GA);
+    }
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
+    wait(lua_state, 2.0);
+    if is_excute(fighter) {
+        grab(*MA_MSC_CMD_GRAB_CLEAR, 2);
+    }
+    frame(lua_state, 25.0);
+    if is_excute(fighter) {
+        grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+        GrabModule::set_rebound(boma, false);
+    }
+    frame(lua_state, 28.0);
+    if is_excute(fighter) {
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
+    }
 }

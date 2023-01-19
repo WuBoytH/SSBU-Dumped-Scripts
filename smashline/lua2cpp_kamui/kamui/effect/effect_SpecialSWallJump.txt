@@ -1,12 +1,13 @@
 #[acmd_script( agent = "kamui", script = "effect_specialswalljump" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_specialswalljump(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 5, 12, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
-	}
-	frame(fighter.lua_state_agent, 12.0);
-	if macros::is_excute(fighter) {
-		macros::FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 21, -16, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
-	}
+    if macros::is_excute(fighter) {
+        macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 5, 12, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
+    }
+    frame(fighter.lua_state_agent, 12.0);
+    if macros::is_excute(fighter) {
+        macros::FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 21, -16, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+    }
+}

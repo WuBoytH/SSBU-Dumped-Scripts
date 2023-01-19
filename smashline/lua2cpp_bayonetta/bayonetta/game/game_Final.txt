@@ -1,43 +1,44 @@
 #[acmd_script( agent = "bayonetta", script = "game_final" , category = ACMD_GAME , low_priority)]
 unsafe fn game_final(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
-	}
-	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-	if(0x1cb400(false, false)){;
-		frame(fighter.lua_state_agent, 10.0);
-		if macros::is_excute(fighter) {
-			macros::FT_SET_FINAL_FEAR_FACE(fighter, 40);
-			REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04final.nuanmb"), false, false);
-			macros::FT_START_CUTIN(fighter);
-		}
-	}
-	frame(fighter.lua_state_agent, 15.0);
-	if macros::is_excute(fighter) {
-		SlowModule::set_whole(fighter.module_accessor, 3, 0);
-	}
-	frame(fighter.lua_state_agent, 25.0);
-	if macros::is_excute(fighter) {
-		SlowModule::clear_whole(fighter.module_accessor);
-	}
-	else{;
-	frame(fighter.lua_state_agent, 1.0);
-	if macros::is_excute(fighter) {
-		PostureModule::scale(fighter.module_accessor, 3, 0);
-		0x1cb400(-460198162, 2.0);
-		CAM_ZOOM_IN_arg5(0, 0);
-		macros::FT_START_CUTIN(fighter);
-	}
+    if macros::is_excute(fighter) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
+    }
+    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    if(0x1cb400(false, false)){;
+        frame(fighter.lua_state_agent, 10.0);
+        if macros::is_excute(fighter) {
+            macros::FT_SET_FINAL_FEAR_FACE(fighter, 40);
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04final.nuanmb"), false, false);
+            macros::FT_START_CUTIN(fighter);
+        }
+    }
+    frame(fighter.lua_state_agent, 15.0);
+    if macros::is_excute(fighter) {
+        SlowModule::set_whole(fighter.module_accessor, 3, 0);
+    }
+    frame(fighter.lua_state_agent, 25.0);
+    if macros::is_excute(fighter) {
+        SlowModule::clear_whole(fighter.module_accessor);
+    }
+    else{;
+    frame(fighter.lua_state_agent, 1.0);
+    if macros::is_excute(fighter) {
+        PostureModule::scale(fighter.module_accessor, 3, 0);
+        0x1cb400(-460198162, 2.0);
+        CAM_ZOOM_IN_arg5(0, 0);
+        macros::FT_START_CUTIN(fighter);
+    }
 }
 frame(fighter.lua_state_agent, 25.0);
 if macros::is_excute(fighter) {
-	macros::CAM_ZOOM_OUT(fighter);
+    macros::CAM_ZOOM_OUT(fighter);
 }
 frame(fighter.lua_state_agent, 45.0);
 if macros::is_excute(fighter) {
-	WorkModule::on_flag(fighter.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_FLAG_START_CLIMAX_GAUGE);
+    WorkModule::on_flag(fighter.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_FLAG_START_CLIMAX_GAUGE);
 }
 frame(fighter.lua_state_agent, 49.0);
 if macros::is_excute(fighter) {
-	WorkModule::on_flag(fighter.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_FLAG_SYNC);
+    WorkModule::on_flag(fighter.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_FLAG_SYNC);
+}
 }

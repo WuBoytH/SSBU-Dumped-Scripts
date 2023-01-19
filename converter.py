@@ -219,5 +219,5 @@ def convert(the_dir: str, output_folder: str):
                     # Write to file
                     f_out.write(tabs + str_write)
                         # Move on to the next line
-        
+                f_out.write("}")
         # Move to the next file

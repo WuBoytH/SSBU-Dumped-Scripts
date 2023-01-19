@@ -2,14 +2,14 @@
 unsafe fn game_finalstarthit(fighter: &mut L2CAgentBase) {
 	let lua_state = fighter.lua_state_agent;
 	let boma = fighter.boma();
-	if is_excute(fighter) {
-		WHOLE_HIT(fighter, *HIT_STATUS_XLU);
-		CAM_ZOOM_OUT(fighter);
-		VisibilityModule::set_int64(boma, Hash40::new("sword"), Hash40::new("sword_hide"));
-	}
-	frame(lua_state, 7.0);
-	if is_excute(fighter) {
-		WorkModule::on_flag(boma, *FIGHTER_IKE_STATUS_FINAL_FLAG_SWORD_THROW_START);
-		ArticleModule::shoot(boma, *FIGHTER_IKE_GENERATE_ARTICLE_SWORD, *ARTICLE_OPE_TARGET_ALL, false);
-	}
+    if is_excute(fighter) {
+        WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+        CAM_ZOOM_OUT(fighter);
+        VisibilityModule::set_int64(boma, Hash40::new("sword"), Hash40::new("sword_hide"));
+    }
+    frame(lua_state, 7.0);
+    if is_excute(fighter) {
+        WorkModule::on_flag(boma, *FIGHTER_IKE_STATUS_FINAL_FLAG_SWORD_THROW_START);
+        ArticleModule::shoot(boma, *FIGHTER_IKE_GENERATE_ARTICLE_SWORD, *ARTICLE_OPE_TARGET_ALL, false);
+    }
 }

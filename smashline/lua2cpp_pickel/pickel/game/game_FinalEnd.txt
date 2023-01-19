@@ -1,16 +1,17 @@
 #[acmd_script( agent = "pickel", script = "game_finalend" , category = ACMD_GAME , low_priority)]
 unsafe fn game_finalend(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		macros::ATTACK_ABS(fighter, *FIGHTER_PICKEL_ATTACK_ABSOLUTE_KIND_FINAL, 0, 45.0, 35, 34, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_BOMB);
-		AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, false, -1, true);
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_ABS_SET);
-		macros::CAM_ZOOM_OUT(fighter);
-	}
-	frame(fighter.lua_state_agent, 5.0);
-	if macros::is_excute(fighter) {
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PICKEL_STATUS_FINAL_FLAG_END_FINAL);
-	}
-	frame(fighter.lua_state_agent, 15.0);
-	if macros::is_excute(fighter) {
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
-	}
+    if macros::is_excute(fighter) {
+        macros::ATTACK_ABS(fighter, *FIGHTER_PICKEL_ATTACK_ABSOLUTE_KIND_FINAL, 0, 45.0, 35, 34, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_BOMB);
+        AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, false, -1, true);
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_ABS_SET);
+        macros::CAM_ZOOM_OUT(fighter);
+    }
+    frame(fighter.lua_state_agent, 5.0);
+    if macros::is_excute(fighter) {
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PICKEL_STATUS_FINAL_FLAG_END_FINAL);
+    }
+    frame(fighter.lua_state_agent, 15.0);
+    if macros::is_excute(fighter) {
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+    }
+}

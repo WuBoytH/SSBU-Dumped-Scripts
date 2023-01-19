@@ -1,14 +1,15 @@
 #[acmd_script( agent = "daisy", script = "game_specialsjump" , category = ACMD_GAME , low_priority)]
 unsafe fn game_specialsjump(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		JostleModule::set_status(fighter.module_accessor, false);
-		macros::SEARCH(fighter, 0, 0, Hash40::new("hip"), 3.5, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
-	}
-	frame(fighter.lua_state_agent, 4.0);
-	if macros::is_excute(fighter) {
-		KineticModule::change_kinetic(fighter.module_accessor, *FIGHTER_KINETIC_TYPE_PEACH_SPECIAL_S_BRAKE);
-	}
-	frame(fighter.lua_state_agent, 25.0);
-	if macros::is_excute(fighter) {
-		WorkModule::enable_transition_term(fighter.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_S_JUMP_ID_TIME_OUT);
-	}
+    if macros::is_excute(fighter) {
+        JostleModule::set_status(fighter.module_accessor, false);
+        macros::SEARCH(fighter, 0, 0, Hash40::new("hip"), 3.5, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+    }
+    frame(fighter.lua_state_agent, 4.0);
+    if macros::is_excute(fighter) {
+        KineticModule::change_kinetic(fighter.module_accessor, *FIGHTER_KINETIC_TYPE_PEACH_SPECIAL_S_BRAKE);
+    }
+    frame(fighter.lua_state_agent, 25.0);
+    if macros::is_excute(fighter) {
+        WorkModule::enable_transition_term(fighter.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_S_JUMP_ID_TIME_OUT);
+    }
+}

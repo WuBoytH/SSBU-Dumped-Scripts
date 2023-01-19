@@ -1,9 +1,10 @@
 #[acmd_script( agent = "peach", script = "game_specialairsend" , category = ACMD_GAME , low_priority)]
 unsafe fn game_specialairsend(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS);
-	}
-	frame(fighter.lua_state_agent, 2.0);
-	if macros::is_excute(fighter) {
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_S_JUMP_FLAG_START_CONTROLLER_MOVE);
-	}
+    if macros::is_excute(fighter) {
+        notify_event_msc_cmd(0x2127e37c07, *GROUND_CLIFF_CHECK_KIND_ALWAYS);
+    }
+    frame(fighter.lua_state_agent, 2.0);
+    if macros::is_excute(fighter) {
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_S_JUMP_FLAG_START_CONTROLLER_MOVE);
+    }
+}

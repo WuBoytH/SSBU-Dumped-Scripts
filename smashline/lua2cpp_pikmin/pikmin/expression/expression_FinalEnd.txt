@@ -1,14 +1,15 @@
 #[acmd_script( agent = "pikmin", script = "expression_finalend" , category = ACMD_EXPRESSION , low_priority)]
 unsafe fn expression_finalend(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
-		ItemModule::set_have_item_visibility(fighter.module_accessor, false);
-		ItemModule::set_attach_item_visibility(fighter.module_accessor, false);
-		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_erase_sp"), 0, false);
-		ControlModule::set_rumble(fighter.module_accessor);
-	}
-	wait(fighter.lua_state_agent, 1.0);
-	if macros::is_excute(fighter) {
-		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_40_rocket_sp2"), 0, false);
-		ControlModule::set_rumble(fighter.module_accessor);
-	}
+    if macros::is_excute(fighter) {
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+        ItemModule::set_attach_item_visibility(fighter.module_accessor, false);
+        methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_erase_sp"), 0, false);
+        ControlModule::set_rumble(fighter.module_accessor);
+    }
+    wait(fighter.lua_state_agent, 1.0);
+    if macros::is_excute(fighter) {
+        methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_40_rocket_sp2"), 0, false);
+        ControlModule::set_rumble(fighter.module_accessor);
+    }
+}

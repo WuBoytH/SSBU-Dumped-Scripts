@@ -1,19 +1,20 @@
 #[acmd_script( agent = "koopa", script = "effect_entryr" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_entryr(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("koopa_entry"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, false);
-		macros::FLASH(fighter, 0.921, 0.087, 0, 0.4);
-		macros::BURN_COLOR(fighter, 2, 0.301, 0.02, 0.8);
-		ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
-	}
-	wait(fighter.lua_state_agent, 40.0);
-	if macros::is_excute(fighter) {
-		macros::FLASH_FRM(fighter, 30, 0.921, 0.087, 0, 0);
-		macros::BURN_COLOR_FRAME(fighter, 30, 2, 0.301, 0.02, 0);
-	}
-	wait(fighter.lua_state_agent, 30.0);
-	if macros::is_excute(fighter) {
-		macros::COL_NORMAL(fighter);
-		macros::BURN_COLOR_NORMAL(fighter);
-		ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
-	}
+    if macros::is_excute(fighter) {
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("koopa_entry"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, false);
+        macros::FLASH(fighter, 0.921, 0.087, 0, 0.4);
+        macros::BURN_COLOR(fighter, 2, 0.301, 0.02, 0.8);
+        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
+    }
+    wait(fighter.lua_state_agent, 40.0);
+    if macros::is_excute(fighter) {
+        macros::FLASH_FRM(fighter, 30, 0.921, 0.087, 0, 0);
+        macros::BURN_COLOR_FRAME(fighter, 30, 2, 0.301, 0.02, 0);
+    }
+    wait(fighter.lua_state_agent, 30.0);
+    if macros::is_excute(fighter) {
+        macros::COL_NORMAL(fighter);
+        macros::BURN_COLOR_NORMAL(fighter);
+        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
+    }
+}

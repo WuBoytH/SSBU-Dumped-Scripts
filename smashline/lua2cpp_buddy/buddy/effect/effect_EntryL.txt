@@ -1,30 +1,31 @@
 #[acmd_script( agent = "buddy", script = "effect_entryl" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_entryl(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
-		macros::EFFECT(fighter, Hash40::new("buddy_entry"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-		macros::FLASH(fighter, 0, 0, 0, 0.7);
-	}
-	frame(fighter.lua_state_agent, 5.0);
-	if macros::is_excute(fighter) {
-		macros::FLASH_FRM(fighter, 12, 0, 0, 0, 0);
-	}
-	frame(fighter.lua_state_agent, 17.0);
-	if macros::is_excute(fighter) {
-		macros::FOOT_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
-		macros::LAST_EFFECT_SET_RATE(fighter, 0.8);
-		macros::COL_NORMAL(fighter);
-		macros::EFFECT_FOLLOW_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_SCATTER, Hash40::new("top"), 0, 14, 0, 0, 0, 20, 0.7, true);
-		macros::LAST_EFFECT_SET_RATE(fighter, 0.6);
-		macros::EFFECT_FOLLOW_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, Hash40::new("top"), 0, 14, 0, 0, 0, 0, 0.5, true);
-		macros::LAST_EFFECT_SET_RATE(fighter, 0.6);
-	}
-	frame(fighter.lua_state_agent, 19.0);
-	if macros::is_excute(fighter) {
-		macros::EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, false, true);
-	}
-	frame(fighter.lua_state_agent, 22.0);
-	if macros::is_excute(fighter) {
-		macros::EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_SCATTER, false, true);
-		ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
-	}
+    if macros::is_excute(fighter) {
+        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
+        macros::EFFECT(fighter, Hash40::new("buddy_entry"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FLASH(fighter, 0, 0, 0, 0.7);
+    }
+    frame(fighter.lua_state_agent, 5.0);
+    if macros::is_excute(fighter) {
+        macros::FLASH_FRM(fighter, 12, 0, 0, 0, 0);
+    }
+    frame(fighter.lua_state_agent, 17.0);
+    if macros::is_excute(fighter) {
+        macros::FOOT_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(fighter, 0.8);
+        macros::COL_NORMAL(fighter);
+        macros::EFFECT_FOLLOW_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_SCATTER, Hash40::new("top"), 0, 14, 0, 0, 0, 20, 0.7, true);
+        macros::LAST_EFFECT_SET_RATE(fighter, 0.6);
+        macros::EFFECT_FOLLOW_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, Hash40::new("top"), 0, 14, 0, 0, 0, 0, 0.5, true);
+        macros::LAST_EFFECT_SET_RATE(fighter, 0.6);
+    }
+    frame(fighter.lua_state_agent, 19.0);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, false, true);
+    }
+    frame(fighter.lua_state_agent, 22.0);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_SCATTER, false, true);
+        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
+    }
+}

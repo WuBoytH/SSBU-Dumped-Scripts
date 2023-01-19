@@ -1,41 +1,42 @@
 #[acmd_script( agent = "sonic", script = "effect_specialsholdjump" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_specialsholdjump(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		macros::EFFECT_OFF_KIND(fighter, Hash40::new("sonic_spindash_hold_blur"), true, true);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("sonic_spindash_hold_blur"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
-		macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_dash_smoke"), false, true);
-	}
-	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_SPECIAL_S_HOLD_JUMP_EFFECT);
-	if(0x12c570(false, false)){;
-		get_value_float(*SO_VAR_FLOAT_LR);
-		if(0x12c570(107048047716, 0)){;
-			if macros::is_excute(fighter) {
-				macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spindash_hold"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 1, true);
-			}
-			else{;
-			if macros::is_excute(fighter) {
-				macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spindash_hold"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 1, true);
-			}
-		}
-	}
+    if macros::is_excute(fighter) {
+        macros::EFFECT_OFF_KIND(fighter, Hash40::new("sonic_spindash_hold_blur"), true, true);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("sonic_spindash_hold_blur"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_dash_smoke"), false, true);
+    }
+    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_SPECIAL_S_HOLD_JUMP_EFFECT);
+    if(0x12c570(false, false)){;
+        get_value_float(*SO_VAR_FLOAT_LR);
+        if(0x12c570(107048047716, 0)){;
+            if macros::is_excute(fighter) {
+                macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spindash_hold"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 1, true);
+            }
+            else{;
+            if macros::is_excute(fighter) {
+                macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spindash_hold"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 1, true);
+            }
+        }
+    }
 }
 frame(fighter.lua_state_agent, 2.0);
 if macros::is_excute(fighter) {
-	WorkModule::on_flag(fighter.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_SPECIAL_S_HOLD_JUMP_EFFECT);
+    WorkModule::on_flag(fighter.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_SPECIAL_S_HOLD_JUMP_EFFECT);
 }
 if macros::is_excute(fighter) {
-	macros::FLASH(fighter, 1, 1, 1, 0.13);
+    macros::FLASH(fighter, 1, 1, 1, 0.13);
 }
 wait(fighter.lua_state_agent, 3.0);
 if macros::is_excute(fighter) {
-	macros::COL_NORMAL(fighter);
+    macros::COL_NORMAL(fighter);
 }
 wait(fighter.lua_state_agent, 4.0);
 if macros::is_excute(fighter) {
-	macros::FLASH(fighter, 1, 1, 0.275, 0.196);
+    macros::FLASH(fighter, 1, 1, 0.275, 0.196);
 }
 wait(fighter.lua_state_agent, 3.0);
 if macros::is_excute(fighter) {
-	macros::COL_NORMAL(fighter);
+    macros::COL_NORMAL(fighter);
 }
 wait(fighter.lua_state_agent, 2.0);
+}

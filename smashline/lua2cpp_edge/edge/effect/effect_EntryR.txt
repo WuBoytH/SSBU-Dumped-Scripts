@@ -1,31 +1,32 @@
 #[acmd_script( agent = "edge", script = "effect_entryr" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_entryr(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		macros::FLASH(fighter, 0, 0, 0, 0.8);
-		ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
-		macros::BURN_COLOR(fighter, 0.5, 0.15, 2, 0.3);
-		macros::EFFECT(fighter, Hash40::new("edge_entry_darkspace"), Hash40::new("top"), 0, 26, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-	}
-	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_ACTIVATED);
-	methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
-	if macros::is_excute(fighter) {
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_wing"), Hash40::new("bust"), 0, 0, 0, 0, 0, -90, 1, true);
-	}
-	if macros::is_excute(fighter) {
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("kneel"), 4, -1, -1, 0, 0, -90, 1, true);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("hip"), -3, 0, 0, 0, 0, -90, 2, true);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("neck"), 0, 0, 0, 0, 0, 0, 1.5, true);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("arml"), 1, 0, 0, 0, 0, -90, 1, true);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("armr"), 1, 0, 0, 0, 0, -90, 1, true);
-	}
-	frame(fighter.lua_state_agent, 10.0);
-	if macros::is_excute(fighter) {
-		macros::FLASH_FRM(fighter, 36, 0, 0, 0, 0);
-		macros::BURN_COLOR_FRAME(fighter, 36, 0.5, 0.15, 2, 0);
-	}
-	wait(fighter.lua_state_agent, 36.0);
-	if macros::is_excute(fighter) {
-		macros::COL_NORMAL(fighter);
-		macros::BURN_COLOR_NORMAL(fighter);
-		ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
-	}
+    if macros::is_excute(fighter) {
+        macros::FLASH(fighter, 0, 0, 0, 0.8);
+        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
+        macros::BURN_COLOR(fighter, 0.5, 0.15, 2, 0.3);
+        macros::EFFECT(fighter, Hash40::new("edge_entry_darkspace"), Hash40::new("top"), 0, 26, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_ACTIVATED);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_wing"), Hash40::new("bust"), 0, 0, 0, 0, 0, -90, 1, true);
+    }
+    if macros::is_excute(fighter) {
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("kneel"), 4, -1, -1, 0, 0, -90, 1, true);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("hip"), -3, 0, 0, 0, 0, -90, 2, true);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("neck"), 0, 0, 0, 0, 0, 0, 1.5, true);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("arml"), 1, 0, 0, 0, 0, -90, 1, true);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_entry_darkaura"), Hash40::new("armr"), 1, 0, 0, 0, 0, -90, 1, true);
+    }
+    frame(fighter.lua_state_agent, 10.0);
+    if macros::is_excute(fighter) {
+        macros::FLASH_FRM(fighter, 36, 0, 0, 0, 0);
+        macros::BURN_COLOR_FRAME(fighter, 36, 0.5, 0.15, 2, 0);
+    }
+    wait(fighter.lua_state_agent, 36.0);
+    if macros::is_excute(fighter) {
+        macros::COL_NORMAL(fighter);
+        macros::BURN_COLOR_NORMAL(fighter);
+        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
+    }
+}

@@ -1,15 +1,16 @@
 #[acmd_script( agent = "inkling", script = "game_specialsjumpend" , category = ACMD_GAME , low_priority)]
 unsafe fn game_specialsjumpend(fighter: &mut L2CAgentBase) {
-	frame(fighter.lua_state_agent, 3.0);
-	if macros::is_excute(fighter) {
-		FighterAreaModuleImpl::enable_fix_jostle_area(fighter.module_accessor, 1, 9);
-		macros::HIT_NODE(fighter, Hash40::new("trans"), *HIT_STATUS_OFF);
-	}
-	frame(fighter.lua_state_agent, 8.0);
-	if macros::is_excute(fighter) {
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INKLING_STATUS_SPECIAL_S_FLAG_JUMP);
-	}
-	frame(fighter.lua_state_agent, 20.0);
-	if macros::is_excute(fighter) {
-		FighterAreaModuleImpl::enable_fix_jostle_area(fighter.module_accessor, 5, 5);
-	}
+    frame(fighter.lua_state_agent, 3.0);
+    if macros::is_excute(fighter) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(fighter.module_accessor, 1, 9);
+        macros::HIT_NODE(fighter, Hash40::new("trans"), *HIT_STATUS_OFF);
+    }
+    frame(fighter.lua_state_agent, 8.0);
+    if macros::is_excute(fighter) {
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INKLING_STATUS_SPECIAL_S_FLAG_JUMP);
+    }
+    frame(fighter.lua_state_agent, 20.0);
+    if macros::is_excute(fighter) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(fighter.module_accessor, 5, 5);
+    }
+}

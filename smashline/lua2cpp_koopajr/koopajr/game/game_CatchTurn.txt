@@ -1,18 +1,19 @@
 #[acmd_script( agent = "koopajr", script = "game_catchturn" , category = ACMD_GAME , low_priority)]
 unsafe fn game_catchturn(fighter: &mut L2CAgentBase) {
-	frame(fighter.lua_state_agent, 14.0);
-	if macros::is_excute(fighter) {
-		GrabModule::set_rebound(fighter.module_accessor, true);
-	}
-	frame(fighter.lua_state_agent, 15.0);
-	if macros::is_excute(fighter) {
-		macros::CATCH(fighter, 0, Hash40::new("top"), 4.0, 0.0, 6.6, -6.5, Some(0.0), Some(6.6), Some(-16.4), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
-		macros::CATCH(fighter, 1, Hash40::new("top"), 2.0, 0.0, 6.6, -4.5, Some(0.0), Some(6.6), Some(-18.4), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
-	}
-	methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
-	wait(fighter.lua_state_agent, 3.0);
-	if macros::is_excute(fighter) {
-		grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
-		GrabModule::set_rebound(fighter.module_accessor, false);
-	}
+    frame(fighter.lua_state_agent, 14.0);
+    if macros::is_excute(fighter) {
+        GrabModule::set_rebound(fighter.module_accessor, true);
+    }
+    frame(fighter.lua_state_agent, 15.0);
+    if macros::is_excute(fighter) {
+        macros::CATCH(fighter, 0, Hash40::new("top"), 4.0, 0.0, 6.6, -6.5, Some(0.0), Some(6.6), Some(-16.4), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
+        macros::CATCH(fighter, 1, Hash40::new("top"), 2.0, 0.0, 6.6, -4.5, Some(0.0), Some(6.6), Some(-18.4), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
+    }
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_CaptureCutCommon()();
+    wait(fighter.lua_state_agent, 3.0);
+    if macros::is_excute(fighter) {
+        grab(*MA_MSC_CMD_GRAB_CLEAR_ALL);
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
+        GrabModule::set_rebound(fighter.module_accessor, false);
+    }
+}

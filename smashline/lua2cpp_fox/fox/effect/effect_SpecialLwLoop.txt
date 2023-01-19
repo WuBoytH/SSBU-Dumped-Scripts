@@ -1,22 +1,23 @@
 #[acmd_script( agent = "fox", script = "effect_speciallwloop" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_speciallwloop(fighter: &mut L2CAgentBase) {
-	frame(fighter.lua_state_agent, 1.0);
-	get_value_int(*SO_VAR_INT_CURRENT_STATUS);
-	if(0x10d030(0, *FIGHTER_FOX_STATUS_KIND_SPECIAL_LW_LOOP)){;
-		WorkModule::is_flag(fighter.module_accessor, *FIGHTER_FOX_REFLECTOR_STATUS_WORK_ID_FLAG_SET_EFFECT);
-		if(0x10d030(false, false)){;
-			if macros::is_excute(fighter) {
-				macros::EFFECT_FOLLOW(fighter, Hash40::new("fox_ref_loop"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, true);
-				macros::EFFECT_FOLLOW(fighter, Hash40::new("fox_ref_flash"), Hash40::new("reflector"), 1.2, 0, -0.5, 0, 0, 0, 1, true);
-				WorkModule::on_flag(fighter.module_accessor, *FIGHTER_FOX_REFLECTOR_STATUS_WORK_ID_FLAG_SET_EFFECT);
-			}
-		}
-	}
-	if macros::is_excute(fighter) {
-		macros::FLASH(fighter, 0, 0.5, 1, 0.25);
-	}
-	wait(fighter.lua_state_agent, 2.0);
-	if macros::is_excute(fighter) {
-		macros::COL_NORMAL(fighter);
-	}
-	wait(fighter.lua_state_agent, 1.0);
+    frame(fighter.lua_state_agent, 1.0);
+    get_value_int(*SO_VAR_INT_CURRENT_STATUS);
+    if(0x10d030(0, *FIGHTER_FOX_STATUS_KIND_SPECIAL_LW_LOOP)){;
+        WorkModule::is_flag(fighter.module_accessor, *FIGHTER_FOX_REFLECTOR_STATUS_WORK_ID_FLAG_SET_EFFECT);
+        if(0x10d030(false, false)){;
+            if macros::is_excute(fighter) {
+                macros::EFFECT_FOLLOW(fighter, Hash40::new("fox_ref_loop"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, true);
+                macros::EFFECT_FOLLOW(fighter, Hash40::new("fox_ref_flash"), Hash40::new("reflector"), 1.2, 0, -0.5, 0, 0, 0, 1, true);
+                WorkModule::on_flag(fighter.module_accessor, *FIGHTER_FOX_REFLECTOR_STATUS_WORK_ID_FLAG_SET_EFFECT);
+            }
+        }
+    }
+    if macros::is_excute(fighter) {
+        macros::FLASH(fighter, 0, 0.5, 1, 0.25);
+    }
+    wait(fighter.lua_state_agent, 2.0);
+    if macros::is_excute(fighter) {
+        macros::COL_NORMAL(fighter);
+    }
+    wait(fighter.lua_state_agent, 1.0);
+}

@@ -1,21 +1,22 @@
 #[acmd_script( agent = "wario", script = "expression_entryr" , category = ACMD_EXPRESSION , low_priority)]
 unsafe fn expression_entryr(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		notify_event_msc_cmd(0x1f20a9d549, false);
-		notify_event_msc_cmd(0x24772eddef, false);
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
-	}
-	frame(fighter.lua_state_agent, 59.0);
-	if macros::is_excute(fighter) {
-		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
-	}
-	frame(fighter.lua_state_agent, 61.0);
-	if macros::is_excute(fighter) {
-		slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-	}
-	frame(fighter.lua_state_agent, 69.0);
-	if macros::is_excute(fighter) {
-		ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_WARIO_GENERATE_ARTICLE_WARIOBIKE, false);
-		notify_event_msc_cmd(0x1f20a9d549, true);
-		notify_event_msc_cmd(0x24772eddef, true);
-	}
+    if macros::is_excute(fighter) {
+        notify_event_msc_cmd(0x1f20a9d549, false);
+        notify_event_msc_cmd(0x24772eddef, false);
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    }
+    frame(fighter.lua_state_agent, 59.0);
+    if macros::is_excute(fighter) {
+        WorkModule::off_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    }
+    frame(fighter.lua_state_agent, 61.0);
+    if macros::is_excute(fighter) {
+        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(fighter.lua_state_agent, 69.0);
+    if macros::is_excute(fighter) {
+        ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_WARIO_GENERATE_ARTICLE_WARIOBIKE, false);
+        notify_event_msc_cmd(0x1f20a9d549, true);
+        notify_event_msc_cmd(0x24772eddef, true);
+    }
+}

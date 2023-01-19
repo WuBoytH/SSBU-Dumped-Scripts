@@ -1,11 +1,12 @@
 #[acmd_script( agent = "link", script = "game_specialairnstart" , category = ACMD_GAME , low_priority)]
 unsafe fn game_specialairnstart(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_LINK_GENERATE_ARTICLE_BOWARROW);
-	}
-	macros::FT_MOTION_RATE(fighter, 0.8);
-	frame(fighter.lua_state_agent, 18.0);
-	macros::FT_MOTION_RATE(fighter, 1);
-	if macros::is_excute(fighter) {
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_LINK_STATUS_BOW_FLAG_CHARGE);
-	}
+    if macros::is_excute(fighter) {
+        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_LINK_GENERATE_ARTICLE_BOWARROW);
+    }
+    macros::FT_MOTION_RATE(fighter, 0.8);
+    frame(fighter.lua_state_agent, 18.0);
+    macros::FT_MOTION_RATE(fighter, 1);
+    if macros::is_excute(fighter) {
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_LINK_STATUS_BOW_FLAG_CHARGE);
+    }
+}

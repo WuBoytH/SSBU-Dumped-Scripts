@@ -1,17 +1,18 @@
 #[acmd_script( agent = "master", script = "effect_visualscene02" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_visualscene02(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("master_final_sword_spark"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("master_final_sword_charge2"), Hash40::new("sword1"), 2.5, 0, 0, 0, 0, 0, 1, true);
-		macros::EFFECT_GLOBAL(fighter, Hash40::new("master_final_screen1"), 0, 0, 0, 0, 0, 0, 1, true);
-	}
-	frame(fighter.lua_state_agent, 7.0);
-	if macros::is_excute(fighter) {
-		macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_final_bg_twincle"), false, true);
-		macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_final_sword_spark"), true, true);
-	}
-	frame(fighter.lua_state_agent, 70.0);
-	if macros::is_excute(fighter) {
-		macros::EFFECT_GLOBAL(fighter, Hash40::new("master_final_sword_front"), 0, 0, 0, 0, 0, 0, 1, true);
-	}
+    if macros::is_excute(fighter) {
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("master_final_sword_spark"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("master_final_sword_charge2"), Hash40::new("sword1"), 2.5, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_GLOBAL(fighter, Hash40::new("master_final_screen1"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(fighter.lua_state_agent, 7.0);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_final_bg_twincle"), false, true);
+        macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_final_sword_spark"), true, true);
+    }
+    frame(fighter.lua_state_agent, 70.0);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_GLOBAL(fighter, Hash40::new("master_final_sword_front"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}

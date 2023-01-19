@@ -2,21 +2,21 @@
 unsafe fn game_attackairf(fighter: &mut L2CAgentBase) {
 	let lua_state = fighter.lua_state_agent;
 	let boma = fighter.boma();
-	if is_excute(fighter) {
-		WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
-	}
-	frame(lua_state, 1.0);
-	FT_MOTION_RATE(fighter, 1);
-	frame(lua_state, 6.0);
-	FT_MOTION_RATE(fighter, 1.5);
-	frame(lua_state, 10.0);
-	if is_excute(fighter) {
-		KineticModule::add_speed(boma, -1, 0, 0.0);
-		ArticleModule::generate_article(boma, *FIGHTER_MIIGUNNER_GENERATE_ARTICLE_ATTACKAIRF_BULLET);
-	}
-	FT_MOTION_RATE(fighter, 1);
-	frame(lua_state, 42.0);
-	if is_excute(fighter) {
-		WorkModule::off_flag(boma, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
-	}
+    if is_excute(fighter) {
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+    }
+    frame(lua_state, 1.0);
+    FT_MOTION_RATE(fighter, 1);
+    frame(lua_state, 6.0);
+    FT_MOTION_RATE(fighter, 1.5);
+    frame(lua_state, 10.0);
+    if is_excute(fighter) {
+        KineticModule::add_speed(boma, -1, 0, 0.0);
+        ArticleModule::generate_article(boma, *FIGHTER_MIIGUNNER_GENERATE_ARTICLE_ATTACKAIRF_BULLET);
+    }
+    FT_MOTION_RATE(fighter, 1);
+    frame(lua_state, 42.0);
+    if is_excute(fighter) {
+        WorkModule::off_flag(boma, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+    }
 }

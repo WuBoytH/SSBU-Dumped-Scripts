@@ -1,34 +1,35 @@
 #[acmd_script( agent = "ike", script = "effect_specialsattack" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_specialsattack(fighter: &mut L2CAgentBase) {
-	frame(fighter.lua_state_agent, 1.0);
-	if macros::is_excute(fighter) {
-		macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 6, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
-		macros::LAST_EFFECT_SET_RATE(fighter, 0.5);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("ike_sword"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, true);
-	}
-	frame(fighter.lua_state_agent, 2.0);
-	get_value_float(*SO_VAR_FLOAT_LR);
-	if(methodlib::L2CValue::operator<(lib::L2CValueconst&)const(144, 0)){;
-		if macros::is_excute(fighter) {
-			macros::EFFECT_FOLLOW(fighter, Hash40::new("ike_iaigiri_attack"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
-			EffectModule::set_disable_render_offset_last(fighter.module_accessor);
-		}
-	}
-	frame(fighter.lua_state_agent, 3.0);
-	if macros::is_excute(fighter) {
-		macros::EFFECT_DETACH_KIND(fighter, Hash40::new("ike_iaigiri_attack"), -1);
-	}
-	else{;
-	if macros::is_excute(fighter) {
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("ike_iaigiri_attack_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
-		EffectModule::set_disable_render_offset_last(fighter.module_accessor);
-	}
+    frame(fighter.lua_state_agent, 1.0);
+    if macros::is_excute(fighter) {
+        macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 6, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(fighter, 0.5);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("ike_sword"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(fighter.lua_state_agent, 2.0);
+    get_value_float(*SO_VAR_FLOAT_LR);
+    if(methodlib::L2CValue::operator<(lib::L2CValueconst&)const(144, 0)){;
+        if macros::is_excute(fighter) {
+            macros::EFFECT_FOLLOW(fighter, Hash40::new("ike_iaigiri_attack"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+            EffectModule::set_disable_render_offset_last(fighter.module_accessor);
+        }
+    }
+    frame(fighter.lua_state_agent, 3.0);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_DETACH_KIND(fighter, Hash40::new("ike_iaigiri_attack"), -1);
+    }
+    else{;
+    if macros::is_excute(fighter) {
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("ike_iaigiri_attack_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
+    }
 }
 frame(fighter.lua_state_agent, 3.0);
 if macros::is_excute(fighter) {
-	macros::EFFECT_DETACH_KIND(fighter, Hash40::new("ike_iaigiri_attack_r"), -1);
+    macros::EFFECT_DETACH_KIND(fighter, Hash40::new("ike_iaigiri_attack_r"), -1);
 }
 frame(fighter.lua_state_agent, 10.0);
 if macros::is_excute(fighter) {
-	macros::EFFECT_OFF_KIND(fighter, Hash40::new("ike_sword"), true, true);
+    macros::EFFECT_OFF_KIND(fighter, Hash40::new("ike_sword"), true, true);
+}
 }

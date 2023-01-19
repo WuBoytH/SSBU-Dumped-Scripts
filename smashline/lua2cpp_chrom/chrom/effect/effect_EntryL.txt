@@ -1,24 +1,25 @@
 #[acmd_script( agent = "chrom", script = "effect_entryl" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_entryl(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		macros::EFFECT(fighter, Hash40::new("chrom_entry"), Hash40::new("top"), 0, 0, 0, 0, 270, 0, 1, 0, 0, 0, 0, 0, 0, true);
-		macros::FLASH(fighter, 0.8, 0.8, 0.5, 0.8);
-		macros::BURN_COLOR(fighter, 2.6, 2.6, 0.85, 0.9);
-		ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
-	}
-	frame(fighter.lua_state_agent, 6.0);
-	if macros::is_excute(fighter) {
-		macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
-		macros::LAST_EFFECT_SET_RATE(fighter, 1.3);
-	}
-	wait(fighter.lua_state_agent, 1.0);
-	if macros::is_excute(fighter) {
-		macros::FLASH_FRM(fighter, 20, 0.8, 0.8, 0.4, 0);
-		macros::BURN_COLOR_FRAME(fighter, 25, 2.6, 2.6, 0.85, 0);
-	}
-	wait(fighter.lua_state_agent, 20.0);
-	if macros::is_excute(fighter) {
-		macros::COL_NORMAL(fighter);
-		macros::BURN_COLOR_NORMAL(fighter);
-		ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
-	}
+    if macros::is_excute(fighter) {
+        macros::EFFECT(fighter, Hash40::new("chrom_entry"), Hash40::new("top"), 0, 0, 0, 0, 270, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::FLASH(fighter, 0.8, 0.8, 0.5, 0.8);
+        macros::BURN_COLOR(fighter, 2.6, 2.6, 0.85, 0.9);
+        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
+    }
+    frame(fighter.lua_state_agent, 6.0);
+    if macros::is_excute(fighter) {
+        macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(fighter, 1.3);
+    }
+    wait(fighter.lua_state_agent, 1.0);
+    if macros::is_excute(fighter) {
+        macros::FLASH_FRM(fighter, 20, 0.8, 0.8, 0.4, 0);
+        macros::BURN_COLOR_FRAME(fighter, 25, 2.6, 2.6, 0.85, 0);
+    }
+    wait(fighter.lua_state_agent, 20.0);
+    if macros::is_excute(fighter) {
+        macros::COL_NORMAL(fighter);
+        macros::BURN_COLOR_NORMAL(fighter);
+        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
+    }
+}

@@ -1,14 +1,15 @@
 #[acmd_script( agent = "tantan", script = "effect_specialhishort" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_specialhishort(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_shield_smoke"), false, true);
-		macros::LANDING_EFFECT(fighter, Hash40::new("tantan_jump_quake_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
-		macros::EFFECT(fighter, Hash40::new("tantan_jump_wind_s"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-	}
-	frame(fighter.lua_state_agent, 4.0);
-	if macros::is_excute(fighter) {
-		macros::EFFECT_ALPHA(fighter, Hash40::new("sys_spin_wind_s"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1.2, 0, 2, 0, 5, 360, 5, true, 0.5);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_jump_line_s"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, false);
-		EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-	}
-	frame(fighter.lua_state_agent, 19.0);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_shield_smoke"), false, true);
+        macros::LANDING_EFFECT(fighter, Hash40::new("tantan_jump_quake_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(fighter, Hash40::new("tantan_jump_wind_s"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(fighter.lua_state_agent, 4.0);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_ALPHA(fighter, Hash40::new("sys_spin_wind_s"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1.2, 0, 2, 0, 5, 360, 5, true, 0.5);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_jump_line_s"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, false);
+        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+    }
+    frame(fighter.lua_state_agent, 19.0);
+}

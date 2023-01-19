@@ -1,15 +1,16 @@
 #[acmd_script( agent = "gamewatch_rescue", script = "game_specialhi" , category = ACMD_GAME , low_priority)]
 unsafe fn game_specialhi(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("up"), Hash40::new("off"));
-		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("down"), Hash40::new("off"));
-	}
-	frame(fighter.lua_state_agent, 1.0);
-	if macros::is_excute(fighter) {
-		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("down"), Hash40::new("on"));
-	}
-	frame(fighter.lua_state_agent, 8.0);
-	if macros::is_excute(fighter) {
-		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("up"), Hash40::new("on"));
-		VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("down"), Hash40::new("off"));
-	}
+    if macros::is_excute(fighter) {
+        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("up"), Hash40::new("off"));
+        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("down"), Hash40::new("off"));
+    }
+    frame(fighter.lua_state_agent, 1.0);
+    if macros::is_excute(fighter) {
+        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("down"), Hash40::new("on"));
+    }
+    frame(fighter.lua_state_agent, 8.0);
+    if macros::is_excute(fighter) {
+        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("up"), Hash40::new("on"));
+        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("down"), Hash40::new("off"));
+    }
+}

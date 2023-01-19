@@ -2,18 +2,18 @@
 unsafe fn expression_specialairhijump(fighter: &mut L2CAgentBase) {
 	let lua_state = fighter.lua_state_agent;
 	let boma = fighter.boma();
-	if is_excute(fighter) {
-		ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_BACK);
-		VisibilityModule::set_int64(boma, Hash40::new("barrel"), Hash40::new("barrel_visible"));
-	}
-	frame(lua_state, 1.0);
-	if is_excute(fighter) {
-		QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
-		methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_fly"), 0, true);
-		ControlModule::set_rumble(boma);
-	}
-	frame(lua_state, 3.0);
-	if is_excute(fighter) {
-		RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
-	}
+    if is_excute(fighter) {
+        ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_BACK);
+        VisibilityModule::set_int64(boma, Hash40::new("barrel"), Hash40::new("barrel_visible"));
+    }
+    frame(lua_state, 1.0);
+    if is_excute(fighter) {
+        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+        methodlib::L2CValue::as_hash()const(Hash40::new("rbkind_fly"), 0, true);
+        ControlModule::set_rumble(boma);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(fighter) {
+        RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+    }
 }

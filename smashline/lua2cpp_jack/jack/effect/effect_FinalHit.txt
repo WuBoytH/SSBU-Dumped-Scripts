@@ -1,22 +1,23 @@
 #[acmd_script( agent = "jack", script = "effect_finalhit" , category = ACMD_EFFECT , low_priority)]
 unsafe fn effect_finalhit(fighter: &mut L2CAgentBase) {
-	if macros::is_excute(fighter) {
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("jack_final_speedline"), Hash40::new("top"), 0, 2, 1, 0, 0, 0, 1, true);
-		macros::EFFECT_FOLLOW(fighter, Hash40::new("jack_knife_front"), Hash40::new("knife"), 0, 0, 0, 0, 180, 0, 1, true);
-		macros::LAST_EFFECT_SET_RATE(fighter, 3);
-	}
-	frame(fighter.lua_state_agent, 2.0);
-	if macros::is_excute(fighter) {
-		macros::EFFECT_OFF_KIND(fighter, Hash40::new("jack_final_speedline"), false, true);
-	}
-	frame(fighter.lua_state_agent, 3.0);
-	if macros::is_excute(fighter) {
-		macros::AFTER_IMAGE_OFF(fighter, 3);
-		macros::EFFECT_OFF_KIND(fighter, Hash40::new("jack_knife_front"), true, true);
-	}
-	frame(fighter.lua_state_agent, 5.0);
-	if macros::is_excute(fighter) {
-		macros::EFFECT_GLOBAL(fighter, Hash40::new("jack_final_bg2"), 0, 0, 0, 0, 0, 0, 1, true);
-		macros::FILL_SCREEN_MODEL_COLOR(fighter, 0, 10, 0, 0, 0, 1, 0, 0, 1, 1, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
-		macros::FILL_SCREEN_MODEL_COLOR(fighter, 1, 10, 0, 0, 0, 0, 0, 0, 1, 1, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
-	}
+    if macros::is_excute(fighter) {
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("jack_final_speedline"), Hash40::new("top"), 0, 2, 1, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("jack_knife_front"), Hash40::new("knife"), 0, 0, 0, 0, 180, 0, 1, true);
+        macros::LAST_EFFECT_SET_RATE(fighter, 3);
+    }
+    frame(fighter.lua_state_agent, 2.0);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_OFF_KIND(fighter, Hash40::new("jack_final_speedline"), false, true);
+    }
+    frame(fighter.lua_state_agent, 3.0);
+    if macros::is_excute(fighter) {
+        macros::AFTER_IMAGE_OFF(fighter, 3);
+        macros::EFFECT_OFF_KIND(fighter, Hash40::new("jack_knife_front"), true, true);
+    }
+    frame(fighter.lua_state_agent, 5.0);
+    if macros::is_excute(fighter) {
+        macros::EFFECT_GLOBAL(fighter, Hash40::new("jack_final_bg2"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::FILL_SCREEN_MODEL_COLOR(fighter, 0, 10, 0, 0, 0, 1, 0, 0, 1, 1, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+        macros::FILL_SCREEN_MODEL_COLOR(fighter, 1, 10, 0, 0, 0, 0, 0, 0, 1, 1, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
+    }
+}

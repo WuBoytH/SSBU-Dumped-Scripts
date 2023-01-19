@@ -2,56 +2,56 @@
 unsafe fn game_finalairstart(fighter: &mut L2CAgentBase) {
 	let lua_state = fighter.lua_state_agent;
 	let boma = fighter.boma();
-	if is_excute(fighter) {
-		FT_SET_FINAL_SMASH_LIGHT(fighter, true);
-		CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
-		SLOW_OPPONENT(fighter, 15, 40);
-	}
-	WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-	if(0x2508e0(false, false)){;
-		frame(lua_state, 5.0);
-		if is_excute(fighter) {
-			FT_SET_FINAL_FEAR_FACE(fighter, 40);
-			REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04finalstart.nuanmb"), true);
-		}
-		else{;
-		if is_excute(fighter) {
-			PostureModule::scale(boma, 5, 0);
-			0x2508e0(-986880942, 2.1);
-			CAM_ZOOM_IN_arg5(0, 0);
-			FT_START_CUTIN(fighter);
-		}
-	}
+    if is_excute(fighter) {
+        FT_SET_FINAL_SMASH_LIGHT(fighter, true);
+        CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
+        SLOW_OPPONENT(fighter, 15, 40);
+    }
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    if(0x2508e0(false, false)){;
+        frame(lua_state, 5.0);
+        if is_excute(fighter) {
+            FT_SET_FINAL_FEAR_FACE(fighter, 40);
+            REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04finalstart.nuanmb"), true);
+        }
+        else{;
+        if is_excute(fighter) {
+            PostureModule::scale(boma, 5, 0);
+            0x2508e0(-986880942, 2.1);
+            CAM_ZOOM_IN_arg5(0, 0);
+            FT_START_CUTIN(fighter);
+        }
+    }
 }
 frame(lua_state, 35.0);
 if is_excute(fighter) {
-	CAM_ZOOM_OUT(fighter);
+    CAM_ZOOM_OUT(fighter);
 }
 frame(lua_state, 40.0);
 if is_excute(fighter) {
-	camera(*MA_MSC_CMD_CAMERA_CAM_RESET);
-	camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 45, 0, 0, 0);
-	ArticleModule::generate_article(boma, *FIGHTER_DOLLY_GENERATE_ARTICLE_BURST);
-	MotionModule::set_rate(boma, 1.5);
+    camera(*MA_MSC_CMD_CAMERA_CAM_RESET);
+    camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 45, 0, 0, 0);
+    ArticleModule::generate_article(boma, *FIGHTER_DOLLY_GENERATE_ARTICLE_BURST);
+    MotionModule::set_rate(boma, 1.5);
 }
 frame(lua_state, 60.0);
 if is_excute(fighter) {
-	ATTACK_ABS(fighter, *FIGHTER_DOLLY_ATTACK_ABSOLUTE_KIND_FINAL, 0, 6.0, 361, 80, 1, 0, 0.5, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_DOLLY_PUNCH, *ATTACK_REGION_NONE);
-	AttackModule::set_no_dead_all(boma, true, true);
-	WorkModule::on_flag(boma, *FIGHTER_DOLLY_STATUS_FINAL_WORK_FLAG_ABS_HIT);
-	ArticleModule::generate_article(boma, *FIGHTER_DOLLY_GENERATE_ARTICLE_BURST);
+    ATTACK_ABS(fighter, *FIGHTER_DOLLY_ATTACK_ABSOLUTE_KIND_FINAL, 0, 6.0, 361, 80, 1, 0, 0.5, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_DOLLY_PUNCH, *ATTACK_REGION_NONE);
+    AttackModule::set_no_dead_all(boma, true, true);
+    WorkModule::on_flag(boma, *FIGHTER_DOLLY_STATUS_FINAL_WORK_FLAG_ABS_HIT);
+    ArticleModule::generate_article(boma, *FIGHTER_DOLLY_GENERATE_ARTICLE_BURST);
 }
 frame(lua_state, 90.0);
 if is_excute(fighter) {
-	ATTACK_ABS(fighter, *FIGHTER_DOLLY_ATTACK_ABSOLUTE_KIND_FINAL, 0, 12.0, 361, 80, 1, 0, 0.3, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_DOLLY_CRITICAL, *ATTACK_REGION_NONE);
-	AttackModule::set_no_dead_all(boma, true, true);
-	WorkModule::on_flag(boma, FIGHTER_DOLLY_STATUS_FINAL_WORK_FLAG_ATTACK_ABS_FINAL3);
-	WorkModule::on_flag(boma, *FIGHTER_DOLLY_STATUS_FINAL_WORK_FLAG_ABS_HIT);
-	ArticleModule::generate_article(boma, *FIGHTER_DOLLY_GENERATE_ARTICLE_BURST);
-	MotionModule::set_rate(boma, 1);
+    ATTACK_ABS(fighter, *FIGHTER_DOLLY_ATTACK_ABSOLUTE_KIND_FINAL, 0, 12.0, 361, 80, 1, 0, 0.3, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_DOLLY_CRITICAL, *ATTACK_REGION_NONE);
+    AttackModule::set_no_dead_all(boma, true, true);
+    WorkModule::on_flag(boma, FIGHTER_DOLLY_STATUS_FINAL_WORK_FLAG_ATTACK_ABS_FINAL3);
+    WorkModule::on_flag(boma, *FIGHTER_DOLLY_STATUS_FINAL_WORK_FLAG_ABS_HIT);
+    ArticleModule::generate_article(boma, *FIGHTER_DOLLY_GENERATE_ARTICLE_BURST);
+    MotionModule::set_rate(boma, 1);
 }
 frame(lua_state, 120.0);
 if is_excute(fighter) {
-	CAM_ZOOM_OUT(fighter);
+    CAM_ZOOM_OUT(fighter);
 }
 }

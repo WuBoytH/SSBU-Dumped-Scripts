@@ -1,12 +1,13 @@
 #[acmd_script( agent = "kamui", script = "game_speciallw" , category = ACMD_GAME , low_priority)]
 unsafe fn game_speciallw(fighter: &mut L2CAgentBase) {
-	frame(fighter.lua_state_agent, 7.0);
-	if macros::is_excute(fighter) {
-		WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KAMUI_STATUS_SPECIAL_LW_FLAG_SHIELD);
-	}
-	frame(fighter.lua_state_agent, 27.0);
-	macros::FT_MOTION_RATE(fighter, 1.1);
-	if macros::is_excute(fighter) {
-		WorkModule::off_flag(fighter.module_accessor, *FIGHTER_KAMUI_STATUS_SPECIAL_LW_FLAG_SHIELD);
-		HitModule::set_status_all(fighter.module_accessor, *HIT_STATUS_NORMAL);
-	}
+    frame(fighter.lua_state_agent, 7.0);
+    if macros::is_excute(fighter) {
+        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_KAMUI_STATUS_SPECIAL_LW_FLAG_SHIELD);
+    }
+    frame(fighter.lua_state_agent, 27.0);
+    macros::FT_MOTION_RATE(fighter, 1.1);
+    if macros::is_excute(fighter) {
+        WorkModule::off_flag(fighter.module_accessor, *FIGHTER_KAMUI_STATUS_SPECIAL_LW_FLAG_SHIELD);
+        HitModule::set_status_all(fighter.module_accessor, *HIT_STATUS_NORMAL);
+    }
+}

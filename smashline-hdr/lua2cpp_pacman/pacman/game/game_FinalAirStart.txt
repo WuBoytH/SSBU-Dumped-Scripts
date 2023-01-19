@@ -2,57 +2,57 @@
 unsafe fn game_finalairstart(fighter: &mut L2CAgentBase) {
 	let lua_state = fighter.lua_state_agent;
 	let boma = fighter.boma();
-	frame(lua_state, 1.0);
-	FT_MOTION_RATE(fighter, 0.6);
-	if is_excute(fighter) {
-		CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
-		SLOW_OPPONENT(fighter, 5, 90);
-	}
-	WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-	if(0x11a0d0(false, false)){;
-		frame(lua_state, 10.0);
-		if is_excute(fighter) {
-			FT_SET_FINAL_FEAR_FACE(fighter, 70);
-			REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalstart.nuanmb"), true, false);
-			FT_START_CUTIN(fighter);
-		}
-		else{;
-		if is_excute(fighter) {
-			PostureModule::scale(boma, 3, 0);
-			0x11a0d0(-2004456512, 2.7);
-			CAM_ZOOM_IN_arg5(0, 0);
-			FT_START_CUTIN(fighter);
-			camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 15);
-		}
-	}
+    frame(lua_state, 1.0);
+    FT_MOTION_RATE(fighter, 0.6);
+    if is_excute(fighter) {
+        CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
+        SLOW_OPPONENT(fighter, 5, 90);
+    }
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    if(0x11a0d0(false, false)){;
+        frame(lua_state, 10.0);
+        if is_excute(fighter) {
+            FT_SET_FINAL_FEAR_FACE(fighter, 70);
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalstart.nuanmb"), true, false);
+            FT_START_CUTIN(fighter);
+        }
+        else{;
+        if is_excute(fighter) {
+            PostureModule::scale(boma, 3, 0);
+            0x11a0d0(-2004456512, 2.7);
+            CAM_ZOOM_IN_arg5(0, 0);
+            FT_START_CUTIN(fighter);
+            camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 15);
+        }
+    }
 }
 frame(lua_state, 40.0);
 if is_excute(fighter) {
-	CAM_ZOOM_OUT(fighter);
+    CAM_ZOOM_OUT(fighter);
 }
 frame(lua_state, 100.0);
 FT_MOTION_RATE(fighter, 1);
 if is_excute(fighter) {
-	WorkModule::on_flag(boma, *FIGHTER_PACMAN_STATUS_FINAL_FLAG_CHANGE);
+    WorkModule::on_flag(boma, *FIGHTER_PACMAN_STATUS_FINAL_FLAG_CHANGE);
 }
 frame(lua_state, 101.0);
 if is_excute(fighter) {
-	SlowModule::set_whole(boma, 5, 0);
+    SlowModule::set_whole(boma, 5, 0);
 }
 frame(lua_state, 102.0);
 if is_excute(fighter) {
-	SlowModule::clear_whole(boma);
+    SlowModule::clear_whole(boma);
 }
 frame(lua_state, 105.0);
 if is_excute(fighter) {
-	SlowModule::set_whole(boma, 5, 0);
+    SlowModule::set_whole(boma, 5, 0);
 }
 frame(lua_state, 106.0);
 if is_excute(fighter) {
-	SlowModule::clear_whole(boma);
+    SlowModule::clear_whole(boma);
 }
 frame(lua_state, 110.0);
 if is_excute(fighter) {
-	WorkModule::on_flag(boma, *FIGHTER_PACMAN_STATUS_FINAL_FLAG_START_MOVE);
+    WorkModule::on_flag(boma, *FIGHTER_PACMAN_STATUS_FINAL_FLAG_START_MOVE);
 }
 }

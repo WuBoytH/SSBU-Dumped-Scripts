@@ -1,35 +1,36 @@
 #[acmd_script( agent = "palutena", script = "game_finalair" , category = ACMD_GAME , low_priority)]
 unsafe fn game_finalair(fighter: &mut L2CAgentBase) {
-	macros::FT_MOTION_RATE(fighter, 0.8);
-	frame(fighter.lua_state_agent, 1.0);
-	if macros::is_excute(fighter) {
-		macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 13, 0, 0);
-		macros::SLOW_OPPONENT(fighter, 6, 85);
-	}
-	WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-	if(0xee630(false, false)){;
-		frame(fighter.lua_state_agent, 10.0);
-		if macros::is_excute(fighter) {
-			macros::FT_SET_FINAL_FEAR_FACE(fighter, 60);
-			REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04final.nuanmb"), false, false);
-		}
-		else{;
-		if macros::is_excute(fighter) {
-			PostureModule::scale(fighter.module_accessor, 10, 0);
-			0xee630(-748688718, 2);
-			CAM_ZOOM_IN_arg5(0, 0);
-			camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
-			macros::FT_START_CUTIN(fighter);
-		}
-	}
+    macros::FT_MOTION_RATE(fighter, 0.8);
+    frame(fighter.lua_state_agent, 1.0);
+    if macros::is_excute(fighter) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 13, 0, 0);
+        macros::SLOW_OPPONENT(fighter, 6, 85);
+    }
+    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    if(0xee630(false, false)){;
+        frame(fighter.lua_state_agent, 10.0);
+        if macros::is_excute(fighter) {
+            macros::FT_SET_FINAL_FEAR_FACE(fighter, 60);
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04final.nuanmb"), false, false);
+        }
+        else{;
+        if macros::is_excute(fighter) {
+            PostureModule::scale(fighter.module_accessor, 10, 0);
+            0xee630(-748688718, 2);
+            CAM_ZOOM_IN_arg5(0, 0);
+            camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
+            macros::FT_START_CUTIN(fighter);
+        }
+    }
 }
 frame(fighter.lua_state_agent, 40.0);
 if macros::is_excute(fighter) {
-	macros::CAM_ZOOM_OUT(fighter);
+    macros::CAM_ZOOM_OUT(fighter);
 }
 frame(fighter.lua_state_agent, 70.0);
 if macros::is_excute(fighter) {
-	camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 25, -10, 10, -15);
+    camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 25, -10, 10, -15);
 }
 frame(fighter.lua_state_agent, 90.0);
 macros::FT_MOTION_RATE(fighter, 0.4);
+}

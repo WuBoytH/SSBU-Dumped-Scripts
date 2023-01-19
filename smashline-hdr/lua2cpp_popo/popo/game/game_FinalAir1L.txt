@@ -2,31 +2,31 @@
 unsafe fn game_finalair1l(fighter: &mut L2CAgentBase) {
 	let lua_state = fighter.lua_state_agent;
 	let boma = fighter.boma();
-	if is_excute(fighter) {
-		WHOLE_HIT(fighter, *HIT_STATUS_XLU);
-		FT_SET_FINAL_SMASH_LIGHT(fighter, true);
-		FT_REMOVE_FINAL_AURA(fighter, false);
-		PostureModule::scale(boma, 20, 0);
-		0x19e320(-395664327, 2.1);
-		CAM_ZOOM_IN_arg5(0, 0);
-		FT_START_CUTIN(fighter);
-		camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
-		SLOW_OPPONENT(fighter, 10, 60);
-	}
-	frame(lua_state, 40.0);
-	if is_excute(fighter) {
-		CAM_ZOOM_OUT(fighter);
-	}
-	frame(lua_state, 51.0);
-	if is_excute(fighter) {
-		CANCEL_FILL_SCREEN(fighter, 0, 0);
-		ArticleModule::generate_article(boma, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG);
-		ArticleModule::generate_article(boma, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG_HIT);
-		ArticleModule::generate_article(boma, *FIGHTER_POPO_GENERATE_ARTICLE_WHITEBEAR);
-		ArticleModule::generate_article(boma, *FIGHTER_POPO_GENERATE_ARTICLE_CONDOR);
-	}
-	frame(lua_state, 52.0);
-	if is_excute(fighter) {
-		WorkModule::on_flag(boma, *FIGHTER_POPO_STATUS_FINAL_FLAG_FINAL_CAMERA);
-	}
+    if is_excute(fighter) {
+        WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+        FT_SET_FINAL_SMASH_LIGHT(fighter, true);
+        FT_REMOVE_FINAL_AURA(fighter, false);
+        PostureModule::scale(boma, 20, 0);
+        0x19e320(-395664327, 2.1);
+        CAM_ZOOM_IN_arg5(0, 0);
+        FT_START_CUTIN(fighter);
+        camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+        SLOW_OPPONENT(fighter, 10, 60);
+    }
+    frame(lua_state, 40.0);
+    if is_excute(fighter) {
+        CAM_ZOOM_OUT(fighter);
+    }
+    frame(lua_state, 51.0);
+    if is_excute(fighter) {
+        CANCEL_FILL_SCREEN(fighter, 0, 0);
+        ArticleModule::generate_article(boma, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG);
+        ArticleModule::generate_article(boma, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG_HIT);
+        ArticleModule::generate_article(boma, *FIGHTER_POPO_GENERATE_ARTICLE_WHITEBEAR);
+        ArticleModule::generate_article(boma, *FIGHTER_POPO_GENERATE_ARTICLE_CONDOR);
+    }
+    frame(lua_state, 52.0);
+    if is_excute(fighter) {
+        WorkModule::on_flag(boma, *FIGHTER_POPO_STATUS_FINAL_FLAG_FINAL_CAMERA);
+    }
 }
