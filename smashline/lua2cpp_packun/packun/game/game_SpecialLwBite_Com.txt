@@ -1,7 +1,7 @@
 #[acmd_script( agent = "packun", script = "game_speciallwbite_com", category = ACMD_GAME, low_priority )]
 unsafe fn game_speciallwbite_com(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        damage(MSC=*MA_MSC_DAMAGE_DAMAGE_NO_REACTION, Type=*DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, DamageThreshold=12);
+        damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 12);
         macros::SEARCH(fighter, 0, 0, Hash40::new("mouth"), 6.0, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
     }
     frame(fighter.lua_state_agent, 4.0);

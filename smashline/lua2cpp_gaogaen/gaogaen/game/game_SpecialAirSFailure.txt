@@ -1,7 +1,7 @@
 #[acmd_script( agent = "gaogaen", script = "game_specialairsfailure", category = ACMD_GAME, low_priority )]
 unsafe fn game_specialairsfailure(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        damage(MSC=*MA_MSC_DAMAGE_DAMAGE_NO_REACTION, Type=*DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, DamageThreshold=11.99);
+        damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 11.99);
         macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 0.0, 30, 50, 0, 30, 0.0, 1.0, *ATTACK_LR_CHECK_B, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
         AttackModule::set_force_reaction(fighter.module_accessor, 0, true, true);
     }
@@ -15,7 +15,7 @@ unsafe fn game_specialairsfailure(fighter: &mut L2CAgentBase) {
     }
     frame(fighter.lua_state_agent, 4.0);
     if macros::is_excute(fighter) {
-        damage(MSC=*MA_MSC_DAMAGE_DAMAGE_NO_REACTION, Type=*DAMAGE_NO_REACTION_MODE_NORMAL, DamageThreshold=0);
+        damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
     }
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
