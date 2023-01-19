@@ -27,7 +27,7 @@ unsafe fn game_specialhi(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 21.0);
     if macros::is_excute(fighter) {
         AttackModule::clear(fighter.module_accessor, 1);
-        search(*MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR, 0);
+        search!(fighter, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR, 0);
     }
     frame(fighter.lua_state_agent, 22.0);
     if macros::is_excute(fighter) {
@@ -44,7 +44,7 @@ unsafe fn game_specialhi(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 27.0);
     if macros::is_excute(fighter) {
         ArticleModule::change_status(fighter.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE, *WEAPON_JACK_WIREROPE_STATUS_KIND_BACK);
-        search(*MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
+        search!(fighter, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
         macros::UNABLE_AREA(fighter, *FIGHTER_JACK_AREA_KIND_ITEM_CATCH);
     }
 }
