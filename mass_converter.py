@@ -1,4 +1,4 @@
-import converter, os
+import converter, converter_hdr, os
 
 
 dirs = []
@@ -25,3 +25,4 @@ collect_dirs("./")
 for dir in dirs:
     print(dir)
     converter.convert(dir, "smashline")
+    converter_hdr.convert(dir, "smashline-hdr")
