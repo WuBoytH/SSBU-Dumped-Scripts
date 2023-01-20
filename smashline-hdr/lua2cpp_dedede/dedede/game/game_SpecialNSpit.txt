@@ -23,6 +23,9 @@ unsafe fn game_specialnspit(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         WorkModule::on_flag(boma, *FIGHTER_DEDEDE_STATUS_SPECIAL_N_FLAG_SPIT);
         ArticleModule::generate_article(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_STAR_MISSILE);
-        ATK_HIT_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), *FIGHTER_DEDEDE_STATUS_SPECIAL_N_WORK_INT_TARGET_TASK, *FIGHTER_DEDEDE_STATUS_SPECIAL_N_WORK_INT_TARGET_HIT_GROUP, *FIGHTER_DEDEDE_STATUS_SPECIAL_N_WORK_INT_TARGET_HIT_NO);
+        let target = WorkModule::get_int64(boma, *FIGHTER_DEDEDE_STATUS_SPECIAL_N_WORK_INT_TARGET_TASK);
+        let target_group = WorkModule::get_int64(boma, *FIGHTER_DEDEDE_STATUS_SPECIAL_N_WORK_INT_TARGET_HIT_GROUP);
+        let target_no = WorkModule::get_int64(boma, *FIGHTER_DEDEDE_STATUS_SPECIAL_N_WORK_INT_TARGET_HIT_NO);
+        ATTACK_HIT_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), target, target_group, target_no);
     }
 }
