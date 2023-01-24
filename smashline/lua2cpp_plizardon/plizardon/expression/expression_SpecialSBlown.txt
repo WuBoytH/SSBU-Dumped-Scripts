@@ -1,7 +1,7 @@
 #[acmd_script( agent = "plizardon", script = "expression_specialsblown", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_specialsblown(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
         ItemModule::set_have_item_visibility(fighter.module_accessor, false);
         macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);

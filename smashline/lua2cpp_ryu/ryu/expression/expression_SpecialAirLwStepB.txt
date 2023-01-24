@@ -1,7 +1,7 @@
 #[acmd_script( agent = "ryu", script = "expression_specialairlwstepb", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_specialairlwstepb(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(fighter.module_accessor, false);
     }
     frame(fighter.lua_state_agent, 5.0);

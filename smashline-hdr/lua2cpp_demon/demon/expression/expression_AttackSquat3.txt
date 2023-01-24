@@ -3,16 +3,16 @@ unsafe fn expression_attacksquat3(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ControlModule::set_rumble(boma, 0x19b46c1b8e, 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 4.0);
     if is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4);
         RUMBLE_HIT(fighter, Hash40::new("rbkind_80_attacks2"), 0);
     }
     frame(lua_state, 26.0);
     if is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 11);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 11);
     }
 }

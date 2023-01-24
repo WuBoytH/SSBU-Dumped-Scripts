@@ -1,7 +1,7 @@
 #[acmd_script( agent = "gamewatch", script = "expression_catch", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_catch(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
         VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("head"), Hash40::new("head_close"));
         VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("hand"), Hash40::new("hand_hold_l"));
     }
@@ -11,10 +11,10 @@ unsafe fn expression_catch(fighter: &mut L2CAgentBase) {
     }
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
     }
     frame(fighter.lua_state_agent, 14.0);
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
     }
 }

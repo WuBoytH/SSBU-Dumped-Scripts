@@ -4,11 +4,11 @@ unsafe fn expression_walkfast_sub(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     wait_loop_sync_mot();
     if is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 8);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 8);
     }
     frame(lua_state, 1.0);
     if is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 8, true);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 8, true);
     }
     frame(lua_state, 6.0);
     ControlModule::set_rumble(boma, 0x11699da2fd, 6, true, *BATTLE_OBJECT_ID_INVALID as u32);

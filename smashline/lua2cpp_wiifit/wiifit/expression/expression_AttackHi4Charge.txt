@@ -3,7 +3,7 @@ unsafe fn expression_attackhi4charge(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         ItemModule::set_have_item_visibility(fighter.module_accessor, false);
         physics(*MA_MSC_CMD_PHYSICS_START_CHARGE, 0.5, 0.2, -1, -1, -1, -1, Hash40::new("invalid"));
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(fighter.lua_state_agent, 61.0);

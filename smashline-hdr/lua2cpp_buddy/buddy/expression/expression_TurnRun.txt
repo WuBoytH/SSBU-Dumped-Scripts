@@ -4,7 +4,7 @@ unsafe fn expression_turnrun(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_BACK);
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
         notify_event_msc_cmd!(fighter, Hash40::new_raw(0x23c33f3bdc));
     }
     frame(lua_state, 5.0);
@@ -17,7 +17,7 @@ unsafe fn expression_turnrun(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 16.0);
     if is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
     }
     frame(lua_state, 17.0);
     if is_excute(fighter) {

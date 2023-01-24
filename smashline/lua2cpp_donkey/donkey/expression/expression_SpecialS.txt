@@ -1,7 +1,7 @@
 #[acmd_script( agent = "donkey", script = "expression_specials", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_specials(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(fighter.lua_state_agent, 18.0);
     if macros::is_excute(fighter) {
@@ -9,7 +9,7 @@ unsafe fn expression_specials(fighter: &mut L2CAgentBase) {
     }
     frame(fighter.lua_state_agent, 19.0);
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 2);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 2);
         macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
     }
     frame(fighter.lua_state_agent, 20.0);
@@ -18,6 +18,6 @@ unsafe fn expression_specials(fighter: &mut L2CAgentBase) {
     }
     frame(fighter.lua_state_agent, 47.0);
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
     }
 }

@@ -1,7 +1,7 @@
 #[acmd_script( agent = "kamui", script = "expression_attacklw4", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_attacklw4(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
         VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("dragon"), Hash40::new("dragon_horn"));
     }
     frame(fighter.lua_state_agent, 4.0);
@@ -21,14 +21,14 @@ unsafe fn expression_attacklw4(fighter: &mut L2CAgentBase) {
     WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_SMASH_SMASH_HOLD_TO_ATTACK);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
         if macros::is_excute(fighter) {
-            slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
+            slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
         }
     }
     frame(fighter.lua_state_agent, 10.0);
     if macros::is_excute(fighter) {
         methodlib::L2CValue::as_hash()const(Hash40::new("rot"), *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Z, *ATTACK_DIRECTION_Y);
         AttackModule::set_attack_reference_joint_id(fighter.module_accessor);
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
     }
     frame(fighter.lua_state_agent, 11.0);
     if macros::is_excute(fighter) {
@@ -52,6 +52,6 @@ unsafe fn expression_attacklw4(fighter: &mut L2CAgentBase) {
     }
     frame(fighter.lua_state_agent, 43.0);
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 14);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 14);
     }
 }

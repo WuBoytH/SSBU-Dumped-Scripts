@@ -5,7 +5,7 @@ unsafe fn expression_sleeploop(fighter: &mut L2CAgentBase) {
     wait_loop_sync_mot();
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SleepLoopRumble()();
     if is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(lua_state, 1.0);
     ControlModule::set_rumble(boma, Hash40::new("rbkind_sleep"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);

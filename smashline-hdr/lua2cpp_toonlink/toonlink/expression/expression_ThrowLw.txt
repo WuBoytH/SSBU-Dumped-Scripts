@@ -4,7 +4,7 @@ unsafe fn expression_throwlw(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         FT_ATTACK_ABS_CAMERA_QUAKE(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         VisibilityModule::set_int64(boma, Hash40::new("shield"), Hash40::new("shield_back"));
     }
     frame(lua_state, 3.0);
@@ -18,7 +18,7 @@ unsafe fn expression_throwlw(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 40.0);
     if is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
     }
     frame(lua_state, 46.0);
     if is_excute(fighter) {

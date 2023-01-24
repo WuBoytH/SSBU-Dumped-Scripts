@@ -1,12 +1,12 @@
 #[acmd_script( agent = "pfushigisou", script = "expression_specialairhi", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_specialairhi(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("weapon"), Hash40::new("weapon_normal"));
     }
     frame(fighter.lua_state_agent, 11.0);
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 5);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 5);
     }
     frame(fighter.lua_state_agent, 13.0);
     if macros::is_excute(fighter) {
@@ -18,6 +18,6 @@ unsafe fn expression_specialairhi(fighter: &mut L2CAgentBase) {
     }
     frame(fighter.lua_state_agent, 26.0);
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
     }
 }

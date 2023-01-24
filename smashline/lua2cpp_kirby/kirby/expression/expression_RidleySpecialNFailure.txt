@@ -1,7 +1,7 @@
 #[acmd_script( agent = "kirby", script = "expression_ridleyspecialnfailure", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_ridleyspecialnfailure(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
         ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_damage_lv4"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }

@@ -6,7 +6,7 @@ unsafe fn expression_attacklw3(fighter: &mut L2CAgentBase) {
         methodlib::L2CValue::as_hash()const(Hash40::new("sword1"), *ATTACK_DIRECTION_Z, *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Y);
         AttackModule::set_attack_reference_joint_id(boma);
         ItemModule::set_have_item_visibility(boma, false);
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
     }
     frame(lua_state, 11.0);
     if is_excute(fighter) {
@@ -18,6 +18,6 @@ unsafe fn expression_attacklw3(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 30.0);
     if is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
     }
 }

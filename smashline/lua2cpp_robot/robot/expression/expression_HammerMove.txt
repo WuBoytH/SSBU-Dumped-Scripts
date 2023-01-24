@@ -1,7 +1,7 @@
 #[acmd_script( agent = "robot", script = "expression_hammermove", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_hammermove(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TPART, 4, true);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TPART, 4, true);
     }
     frame(fighter.lua_state_agent, 4.0);
     if macros::is_excute(fighter) {
@@ -11,7 +11,7 @@ unsafe fn expression_hammermove(fighter: &mut L2CAgentBase) {
     methodlib::L2CAgent::pop();
     wait_loop_sync_mot();
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TPART);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TPART);
     }
     frame(fighter.lua_state_agent, 4.0);
     loc.imp._Unwind_Resume();

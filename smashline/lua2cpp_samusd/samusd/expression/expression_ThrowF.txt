@@ -1,7 +1,7 @@
 #[acmd_script( agent = "samusd", script = "expression_throwf", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_throwf(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("body"), Hash40::new("body_hide_gun"));
         ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN);
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, true);

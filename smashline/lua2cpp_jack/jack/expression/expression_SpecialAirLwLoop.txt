@@ -1,7 +1,7 @@
 #[acmd_script( agent = "jack", script = "expression_specialairlwloop", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_specialairlwloop(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        slope(*MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(fighter.module_accessor, false);
         ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_31_cypher"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
