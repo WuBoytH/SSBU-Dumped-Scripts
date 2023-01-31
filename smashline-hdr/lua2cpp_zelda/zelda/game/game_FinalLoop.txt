@@ -4,7 +4,7 @@ unsafe fn game_finalloop(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     wait(lua_state, 1.0);
     if is_excute(fighter) {
-        AttackModule::clear(boma, 0);
+        AttackModule::clear(boma, 0, false);
     }
     frame(lua_state, 80.0);
     WorkModule::is_flag(boma, *FIGHTER_ZELDA_STATUS_FINAL_FLAG_HIT);
@@ -16,7 +16,7 @@ unsafe fn game_finalloop(fighter: &mut L2CAgentBase) {
     }
     wait(lua_state, 2.0);
     if is_excute(fighter) {
-        AttackModule::clear(boma, 4);
+        AttackModule::clear(boma, 4, false);
     }
     frame(lua_state, 160.0);
     WorkModule::is_flag(boma, *FIGHTER_ZELDA_STATUS_FINAL_FLAG_HIT);
@@ -28,6 +28,6 @@ unsafe fn game_finalloop(fighter: &mut L2CAgentBase) {
     }
     wait(lua_state, 2.0);
     if is_excute(fighter) {
-        AttackModule::clear(boma, 4);
+        AttackModule::clear(boma, 4, false);
     }
 }

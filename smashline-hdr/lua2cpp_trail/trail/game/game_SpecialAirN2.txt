@@ -16,7 +16,7 @@ unsafe fn game_specialairn2(fighter: &mut L2CAgentBase) {
     frame(lua_state, 24.0);
     FT_MOTION_RATE(fighter, 1.25);
     if is_excute(fighter) {
-        AttackModule::clear(boma, 0);
+        AttackModule::clear(boma, 0, false);
         WorkModule::set_float(boma, 4, FIGHTER_TRAIL_STATUS_SPECIAL_N2*_FLOAT_ANGLE);
         ArticleModule::generate_article(boma, *FIGHTER_TRAIL_GENERATE_ARTICLE_ICE);
         WorkModule::on_flag(boma, FIGHTER_TRAIL_STATUS_SPECIAL_N2*_FLAG_CHANGE_MAGIC);
@@ -66,7 +66,7 @@ unsafe fn game_specialairn2(fighter: &mut L2CAgentBase) {
     wait(lua_state, 2.0);
     FT_MOTION_RATE(fighter, 0.8);
     if is_excute(fighter) {
-        AttackModule::clear(boma, 0);
+        AttackModule::clear(boma, 0, false);
         WorkModule::off_flag(boma, *FIGHTER_TRAIL_INSTANCE_WORK_ID_FLAG_MAGIC_SELECT_FORBID);
     }
     frame(lua_state, 57.0);
