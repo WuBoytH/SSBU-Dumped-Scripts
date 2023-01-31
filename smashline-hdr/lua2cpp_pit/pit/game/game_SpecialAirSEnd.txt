@@ -3,7 +3,7 @@ unsafe fn game_specialairsend(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        shield(MSC=*MA_MSC_CMD_SHIELD_ON, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, Group=*FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
+        shield!(fighter, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, *FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
     }
     frame(lua_state, 2.0);
     if is_excute(fighter) {
@@ -16,7 +16,7 @@ unsafe fn game_specialairsend(fighter: &mut L2CAgentBase) {
     frame(lua_state, 6.0);
     if is_excute(fighter) {
         AttackModule::clear_all(boma);
-        shield(MSC=*MA_MSC_CMD_SHIELD_OFF, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, Group=*FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
+        shield!(fighter, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_REFLECTOR, *FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, *FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
     }
     frame(lua_state, 22.0);
     FT_MOTION_RATE(fighter, 0.83);

@@ -1,7 +1,7 @@
 #[acmd_script( agent = "pit", script = "game_specialairsend", category = ACMD_GAME, low_priority )]
 unsafe fn game_specialairsend(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        shield(MSC=*MA_MSC_CMD_SHIELD_ON, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, Group=*FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
+        shield!(fighter, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, *FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
     }
     frame(fighter.lua_state_agent, 2.0);
     if macros::is_excute(fighter) {
@@ -14,7 +14,7 @@ unsafe fn game_specialairsend(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
         AttackModule::clear_all(fighter.module_accessor);
-        shield(MSC=*MA_MSC_CMD_SHIELD_OFF, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, Group=*FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
+        shield!(fighter, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_REFLECTOR, *FIGHTER_PIT_REFLECTOR_KIND_SPECIAL_S, *FIGHTER_PIT_REFLECTOR_GROUP_SPECIAL_S);
     }
     frame(fighter.lua_state_agent, 22.0);
     macros::FT_MOTION_RATE(fighter, 0.83);

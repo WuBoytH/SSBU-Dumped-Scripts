@@ -8,7 +8,7 @@ unsafe fn game_specials(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         macros::CATCH(fighter, 0, Hash40::new("top"), 7.4, 0.0, 8.4, 17.0, *FIGHTER_STATUS_KIND_MEWTWO_THROWN, *COLLISION_SITUATION_MASK_GA);
         macros::CATCH(fighter, 1, Hash40::new("top"), 10.2, 0.0, 8.4, 17.0, *FIGHTER_STATUS_KIND_MEWTWO_THROWN, *COLLISION_SITUATION_MASK_G);
-        shield(MSC=*MA_MSC_CMD_SHIELD_ON, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_MEWTWO_REFLECTOR_KIND_REFLECTOR, Group=*FIGHTER_REFLECTOR_GROUP_EXTEND);
+        shield!(fighter, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_MEWTWO_REFLECTOR_KIND_REFLECTOR, *FIGHTER_REFLECTOR_GROUP_EXTEND);
         macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 1.0, 280, 16, 0, 50, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
         macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 361, 100, 0, 0, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
         macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW_MEWTWO, 0, 1.15, 280, 16, 0, 50, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -30,7 +30,7 @@ unsafe fn game_specials(fighter: &mut L2CAgentBase) {
 }
 frame(fighter.lua_state_agent, 36.0);
 if macros::is_excute(fighter) {
-    shield(MSC=*MA_MSC_CMD_SHIELD_OFF, Type=*COLLISION_KIND_REFLECTOR, ID=*FIGHTER_MEWTWO_REFLECTOR_KIND_REFLECTOR, Group=*FIGHTER_REFLECTOR_GROUP_EXTEND);
+    shield!(fighter, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_REFLECTOR, *FIGHTER_MEWTWO_REFLECTOR_KIND_REFLECTOR, *FIGHTER_REFLECTOR_GROUP_EXTEND);
     WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MEWTWO_STATUS_SPECIAL_S_FLAG_GRAVITY_NORMAL);
 }
 frame(fighter.lua_state_agent, 40.0);
