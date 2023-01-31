@@ -26,8 +26,8 @@ unsafe fn game_attackairhi(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         AttackModule::set_size(fighter.module_accessor, 0, 5.2);
         AttackModule::set_size(fighter.module_accessor, 1, 5.8);
-        attack(*MA_MSC_CMD_ATTACK_NODE, 0, Hash40::new("top"), 0, 12.8, 0);
-        attack(*MA_MSC_CMD_ATTACK_NODE, 1, Hash40::new("top"), 0, 19, 0);
+        attack!(fighter, *MA_MSC_CMD_ATTACK_NODE, 0, Hash40::new("top"), 0, 12.8, 0);
+        attack!(fighter, *MA_MSC_CMD_ATTACK_NODE, 1, Hash40::new("top"), 0, 19, 0);
     }
     wait(fighter.lua_state_agent, 2.0);
     if macros::is_excute(fighter) {
