@@ -1,7 +1,7 @@
 #[acmd_script( agent = "kamui", script = "game_throwf", category = ACMD_GAME, low_priority )]
 unsafe fn game_throwf(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_SPEARHAND);
+        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_SPEARHAND, false, -1);
         methodlib::L2CValue::as_hash()const(*FIGHTER_KAMUI_GENERATE_ARTICLE_SPEARHAND, Hash40::new("throw_f"));
         ArticleModule::change_motion(fighter.module_accessor);
         macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 2.0, 50, 70, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);

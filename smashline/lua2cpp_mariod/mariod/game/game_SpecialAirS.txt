@@ -1,7 +1,7 @@
 #[acmd_script( agent = "mariod", script = "game_specialairs", category = ACMD_GAME, low_priority )]
 unsafe fn game_specialairs(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MARIOD_GENERATE_ARTICLE_DRMANTLE);
+        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MARIOD_GENERATE_ARTICLE_DRMANTLE, false, -1);
         notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS);
     }
     frame(fighter.lua_state_agent, 6.0);

@@ -1,7 +1,7 @@
 #[acmd_script( agent = "toonlink", script = "game_win2wait", category = ACMD_GAME, low_priority )]
 unsafe fn game_win2wait(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_PIG);
+        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_PIG, false, -1);
         methodlib::L2CValue::as_hash()const(*FIGHTER_TOONLINK_GENERATE_ARTICLE_PIG, Hash40::new("win2_wait"));
         ArticleModule::change_motion(fighter.module_accessor);
     }

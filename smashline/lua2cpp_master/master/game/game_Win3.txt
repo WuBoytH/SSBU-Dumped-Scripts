@@ -1,7 +1,7 @@
 #[acmd_script( agent = "master", script = "game_win3", category = ACMD_GAME, low_priority )]
 unsafe fn game_win3(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD);
+        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD, false, -1);
         methodlib::L2CValue::as_hash()const(*FIGHTER_MASTER_GENERATE_ARTICLE_SWORD, Hash40::new("win_3"));
         ArticleModule::change_motion(fighter.module_accessor);
     }
