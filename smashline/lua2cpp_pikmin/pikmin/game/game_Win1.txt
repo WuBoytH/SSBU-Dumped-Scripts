@@ -1,12 +1,12 @@
 #[acmd_script( agent = "pikmin", script = "game_win1", category = ACMD_GAME, low_priority )]
 unsafe fn game_win1(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1, false, -1);
+        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1, false, -1);
     }
-    macros::IS_EXIST_ARTICLE(fighter, FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1);
+    macros::IS_EXIST_ARTICLE(fighter, *FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
         if macros::is_excute(fighter) {
-            methodlib::L2CValue::as_hash()const(FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1, Hash40::new("win1"));
+            methodlib::L2CValue::as_hash()const(*FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1, Hash40::new("win1"));
             ArticleModule::change_motion(fighter.module_accessor);
         }
     }

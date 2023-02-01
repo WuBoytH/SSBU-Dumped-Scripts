@@ -4,8 +4,8 @@ unsafe fn game_attackstand6(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     frame(lua_state, 6.0);
     if is_excute(fighter) {
-        WorkModule::on_flag(boma, FIGHTER_DEMON_STATUS_ATTACK_STAND_6*_FLAG_KEEP_SITUATION_AIR);
-        WorkModule::on_flag(boma, FIGHTER_DEMON_STATUS_ATTACK_STAND_6*_FLAG_IGNORE_CHANGE_FALL);
+        WorkModule::on_flag(boma, *FIGHTER_DEMON_STATUS_ATTACK_STAND_6_FLAG_KEEP_SITUATION_AIR);
+        WorkModule::on_flag(boma, *FIGHTER_DEMON_STATUS_ATTACK_STAND_6_FLAG_IGNORE_CHANGE_FALL);
         HIT_NODE(fighter, Hash40::new("kneel"), *HIT_STATUS_XLU);
         HIT_NODE(fighter, Hash40::new("kneer"), *HIT_STATUS_XLU);
         HIT_NODE(fighter, Hash40::new("legl"), *HIT_STATUS_XLU);
@@ -27,11 +27,11 @@ unsafe fn game_attackstand6(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 20.0);
     if is_excute(fighter) {
-        WorkModule::off_flag(boma, FIGHTER_DEMON_STATUS_ATTACK_STAND_6*_FLAG_KEEP_SITUATION_AIR);
+        WorkModule::off_flag(boma, *FIGHTER_DEMON_STATUS_ATTACK_STAND_6_FLAG_KEEP_SITUATION_AIR);
     }
     frame(lua_state, 21.0);
     if is_excute(fighter) {
         HitModule::set_status_all(boma, HitStatus(*HIT_STATUS_NORMAL), 0);
-        WorkModule::off_flag(boma, FIGHTER_DEMON_STATUS_ATTACK_STAND_6*_FLAG_IGNORE_CHANGE_FALL);
+        WorkModule::off_flag(boma, *FIGHTER_DEMON_STATUS_ATTACK_STAND_6_FLAG_IGNORE_CHANGE_FALL);
     }
 }

@@ -4,12 +4,12 @@ unsafe fn game_speciallw(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     frame(lua_state, 4.0);
     if is_excute(fighter) {
-        shield(MSC=*MA_MSC_CMD_SHIELD_ON, Type=*COLLISION_KIND_SHIELD, ID=0, Group=*FIGHTER_JACK_SHIELD_GROUP_KIND_SPECIAL_LW);
+        shield!(fighter, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_SHIELD, 0, *FIGHTER_JACK_SHIELD_GROUP_KIND_SPECIAL_LW);
         shield!(fighter, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_JACK_REFLECTOR_KIND_SPECIAL_LW, *FIGHTER_REFLECTOR_GROUP_EXTEND);
     }
     frame(lua_state, 32.0);
     if is_excute(fighter) {
-        shield(MSC=*MA_MSC_CMD_SHIELD_OFF, Type=*COLLISION_KIND_SHIELD, ID=0, Group=*FIGHTER_JACK_SHIELD_GROUP_KIND_SPECIAL_LW);
+        shield!(fighter, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_SHIELD, 0, *FIGHTER_JACK_SHIELD_GROUP_KIND_SPECIAL_LW);
         shield!(fighter, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_REFLECTOR, *FIGHTER_JACK_REFLECTOR_KIND_SPECIAL_LW, *FIGHTER_REFLECTOR_GROUP_EXTEND);
     }
 }

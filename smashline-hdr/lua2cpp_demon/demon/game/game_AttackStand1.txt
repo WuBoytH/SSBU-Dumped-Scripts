@@ -4,7 +4,7 @@ unsafe fn game_attackstand1(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     frame(lua_state, 6.0);
     if is_excute(fighter) {
-        shield(MSC=*MA_MSC_CMD_SHIELD_ON, Type=*COLLISION_KIND_REFLECTOR, ID=FIGHTER_DEMON_REFLECTOR_KIND_ATTACK_STAND1, Group=FIGHTER_DEMON_REFLECTOR_GROUP_ATTACK_STAND1);
+        shield!(fighter, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_DEMON_REFLECTOR_KIND_ATTACK_STAND1, *FIGHTER_DEMON_REFLECTOR_GROUP_ATTACK_STAND1);
         HIT_NODE(fighter, Hash40::new("legl"), *HIT_STATUS_XLU);
         HIT_NODE(fighter, Hash40::new("kneel"), *HIT_STATUS_XLU);
     }
@@ -39,6 +39,6 @@ unsafe fn game_attackstand1(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 17.0);
     if is_excute(fighter) {
-        shield(MSC=*MA_MSC_CMD_SHIELD_OFF, Type=*COLLISION_KIND_REFLECTOR, ID=FIGHTER_DEMON_REFLECTOR_KIND_ATTACK_STAND1, Group=FIGHTER_DEMON_REFLECTOR_GROUP_ATTACK_STAND1);
+        shield!(fighter, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_REFLECTOR, *FIGHTER_DEMON_REFLECTOR_KIND_ATTACK_STAND1, *FIGHTER_DEMON_REFLECTOR_GROUP_ATTACK_STAND1);
     }
 }
