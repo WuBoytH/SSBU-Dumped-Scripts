@@ -2,8 +2,7 @@
 unsafe fn game_attackairn(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW, false, -1);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_MASTER_GENERATE_ARTICLE_BOW, Hash40::new("attack_air_n"));
-        ArticleModule::change_motion(fighter.module_accessor);
+        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW, Hash40::new("attack_air_n"), false, -1.0);
         FighterAreaModuleImpl::enable_fix_jostle_area(fighter.module_accessor, 3, 3);
     }
     frame(fighter.lua_state_agent, 6.0);

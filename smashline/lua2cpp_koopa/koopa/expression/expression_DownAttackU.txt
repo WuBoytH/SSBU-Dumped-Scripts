@@ -1,8 +1,7 @@
 #[acmd_script( agent = "koopa", script = "expression_downattacku", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_downattacku(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("armr"), *ATTACK_DIRECTION_Y, *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Z);
-        AttackModule::set_attack_reference_joint_id(fighter.module_accessor);
+        AttackModule::set_attack_reference_joint_id(fighter.module_accessor, Hash40::new("armr"), AttackDirectionAxis(*ATTACK_DIRECTION_Y), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Z));
         ItemModule::set_have_item_visibility(fighter.module_accessor, false);
         slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
     }

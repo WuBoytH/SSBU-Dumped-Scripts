@@ -6,10 +6,8 @@ unsafe fn game_finalstart(fighter: &mut L2CAgentBase) {
         macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORD, false);
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORDHAT, false);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORD, Hash40::new("final_start"));
-        ArticleModule::change_motion(fighter.module_accessor);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORDHAT, Hash40::new("final_start"));
-        ArticleModule::change_motion(fighter.module_accessor);
+        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORD, Hash40::new("final_start"), false, -1.0);
+        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORDHAT, Hash40::new("final_start"), false, -1.0);
         macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 30, 0, 0, 0);
     }
     WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);

@@ -4,8 +4,7 @@ unsafe fn game_attacks4(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         ArticleModule::generate_article(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_BRUSH, false, -1);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_INKLING_GENERATE_ARTICLE_BRUSH, Hash40::new("attack_s4_s"));
-        ArticleModule::change_motion(boma);
+        ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_BRUSH, Hash40::new("attack_s4_s"), false, -1.0);
     }
     frame(lua_state, 6.0);
     execute(lua_state, 6.0);
@@ -15,9 +14,8 @@ unsafe fn game_attacks4(fighter: &mut L2CAgentBase) {
     WorkModule::is_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_SMASH_SMASH_HOLD_TO_ATTACK);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
         if is_excute(fighter) {
-            WorkModule::get_float(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_BRUSH, Hash40::new("attack_s4_s"), true, *FIGHTER_STATUS_ATTACK_WORK_FLOAT_SMASH_RESTART_FRAME);
-            methodlib::L2CValue::as_hash()const(-1407754940);
-            ArticleModule::change_motion(boma);
+            let restart_frame = WorkModule::get_float(boma, *FIGHTER_STATUS_ATTACK_WORK_FLOAT_SMASH_RESTART_FRAME);
+            ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_BRUSH, Hash40::new("attack_s4_s"), true, restart_frame);
         }
     }
     frame(lua_state, 16.0);

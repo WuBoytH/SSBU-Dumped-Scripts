@@ -1,8 +1,7 @@
 #[acmd_script( agent = "ken", script = "effect_final2", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_final2(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_ken_final_shinryuken"), false);
-        EffectModule::req_screen(fighter.module_accessor);
+        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_ken_final_shinryuken"), false, false, false);
     }
     frame(fighter.lua_state_agent, 5.0);
     get_value_float(*SO_VAR_FLOAT_LR);

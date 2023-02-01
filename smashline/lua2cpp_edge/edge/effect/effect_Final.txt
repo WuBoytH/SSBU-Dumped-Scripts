@@ -1,8 +1,7 @@
 #[acmd_script( agent = "edge", script = "effect_final", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_final(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_edge_final"), false);
-        EffectModule::req_screen(fighter.module_accessor);
+        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_edge_final"), false, false, false);
         macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_final_swoad_flare"), Hash40::new("swordl2"), 0, 0, 0, 0, 180, -90, 1, true);
     }
     frame(fighter.lua_state_agent, 58.0);

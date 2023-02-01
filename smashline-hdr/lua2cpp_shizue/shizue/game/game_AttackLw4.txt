@@ -4,16 +4,14 @@ unsafe fn game_attacklw4(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         ArticleModule::generate_article(boma, *FIGHTER_SHIZUE_GENERATE_ARTICLE_BUCKET, false);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_SHIZUE_GENERATE_ARTICLE_BUCKET, Hash40::new("attack"));
-        ArticleModule::change_motion(boma);
+        ArticleModule::change_motion(boma, *FIGHTER_SHIZUE_GENERATE_ARTICLE_BUCKET, Hash40::new("attack"), false, -1.0);
     }
     frame(lua_state, 4.0);
     execute(lua_state, 4.0);
     if is_excute(fighter) {
         WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
-        WorkModule::get_float(boma, *FIGHTER_SHIZUE_GENERATE_ARTICLE_BUCKET, Hash40::new("attack"), true, *FIGHTER_STATUS_ATTACK_WORK_FLOAT_SMASH_RESTART_FRAME);
-        methodlib::L2CValue::as_hash()const(-1753104860);
-        ArticleModule::change_motion(boma);
+        let restart_frame = WorkModule::get_float(boma, *FIGHTER_STATUS_ATTACK_WORK_FLOAT_SMASH_RESTART_FRAME);
+        ArticleModule::change_motion(boma, *FIGHTER_SHIZUE_GENERATE_ARTICLE_BUCKET, Hash40::new("attack"), true, restart_frame);
     }
     frame(lua_state, 8.0);
     if is_excute(fighter) {

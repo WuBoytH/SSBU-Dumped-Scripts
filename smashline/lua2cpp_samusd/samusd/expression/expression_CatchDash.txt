@@ -4,11 +4,9 @@ unsafe fn expression_catchdash(fighter: &mut L2CAgentBase) {
         VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("body"), Hash40::new("body_hide_gun"));
         ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN);
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, true);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, Hash40::new("catch_dash"));
-        ArticleModule::change_motion(fighter.module_accessor);
+        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, Hash40::new("catch_dash"), false, -1.0);
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM, false, -1);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM, Hash40::new("catch_dash"));
-        ArticleModule::change_motion(fighter.module_accessor);
+        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM, Hash40::new("catch_dash"), false, -1.0);
         ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM, false);
     }
     frame(fighter.lua_state_agent, 10.0);

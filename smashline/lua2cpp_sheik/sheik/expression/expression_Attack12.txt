@@ -1,8 +1,7 @@
 #[acmd_script( agent = "sheik", script = "expression_attack12", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_attack12(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("handr"), *ATTACK_DIRECTION_Z_MINUS, *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Y);
-        AttackModule::set_attack_reference_joint_id(fighter.module_accessor);
+        AttackModule::set_attack_reference_joint_id(fighter.module_accessor, Hash40::new("handr"), AttackDirectionAxis(*ATTACK_DIRECTION_Z_MINUS), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Y));
         slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(fighter.lua_state_agent, 1.0);

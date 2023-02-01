@@ -1,8 +1,7 @@
 #[acmd_script( agent = "edge", script = "expression_attackairb", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_attackairb(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("swordl1"), *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Z, *ATTACK_DIRECTION_Y);
-        AttackModule::set_attack_reference_joint_id(fighter.module_accessor);
+        AttackModule::set_attack_reference_joint_id(fighter.module_accessor, Hash40::new("swordl1"), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Z), AttackDirectionAxis(*ATTACK_DIRECTION_Y));
         macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_78_slash"), 16);
     }
     frame(fighter.lua_state_agent, 14.0);

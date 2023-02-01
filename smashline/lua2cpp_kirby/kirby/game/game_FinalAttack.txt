@@ -4,10 +4,8 @@ unsafe fn game_finalattack(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
         camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 40, -10, 20, -10);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORD, Hash40::new("final_attack"));
-        ArticleModule::change_motion(fighter.module_accessor);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORDHAT, Hash40::new("final_attack"));
-        ArticleModule::change_motion(fighter.module_accessor);
+        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORD, Hash40::new("final_attack"), false, -1.0);
+        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_ULTRASWORDHAT, Hash40::new("final_attack"), false, -1.0);
     }
     frame(fighter.lua_state_agent, 21.0);
     if macros::is_excute(fighter) {

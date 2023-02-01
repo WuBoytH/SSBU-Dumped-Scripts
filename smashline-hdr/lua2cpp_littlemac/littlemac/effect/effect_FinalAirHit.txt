@@ -3,11 +3,9 @@ unsafe fn effect_finalairhit(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("sys_final_aura"), false);
-        EffectModule::set_visible_kind(boma);
+        EffectModule::set_visible_kind(boma, Hash40::new("sys_final_aura"), false);
         EFFECT_STENCIL_ON(fighter);
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_littlemac_final2"), false);
-        EffectModule::req_screen(boma);
+        EffectModule::req_screen(boma, Hash40::new("bg_littlemac_final2"), false, false, false);
         methodlib::L2CValue::as_hash()const(Hash40::new("critical_hit"), Hash40::new("top"), 10, 8, 0, 8, 15, true);
         methodlib::L2CValue::as_hash()const();
         EffectModule::request_post_effect_line_circle(boma);

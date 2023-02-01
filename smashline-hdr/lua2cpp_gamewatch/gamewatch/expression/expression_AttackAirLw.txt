@@ -4,8 +4,7 @@ unsafe fn expression_attackairlw(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         VisibilityModule::set_int64(boma, Hash40::new("lhand"), Hash40::new("lhand_key"));
-        methodlib::L2CValue::as_hash()const(Hash40::new("top"), *ATTACK_DIRECTION_Y_MINUS, *ATTACK_DIRECTION_Z_MINUS, *ATTACK_DIRECTION_X);
-        AttackModule::set_attack_reference_joint_id(boma);
+        AttackModule::set_attack_reference_joint_id(boma, Hash40::new("top"), AttackDirectionAxis(*ATTACK_DIRECTION_Y_MINUS), AttackDirectionAxis(*ATTACK_DIRECTION_Z_MINUS), AttackDirectionAxis(*ATTACK_DIRECTION_X));
         ItemModule::set_have_item_visibility(boma, false);
     }
     frame(lua_state, 10.0);

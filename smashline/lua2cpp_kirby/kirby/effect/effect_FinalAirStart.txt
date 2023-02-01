@@ -1,8 +1,7 @@
 #[acmd_script( agent = "kirby", script = "effect_finalairstart", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_kirby_final"), false);
-        EffectModule::req_screen(fighter.module_accessor);
+        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_kirby_final"), false, false, false);
         macros::EFFECT_FOLLOW(fighter, Hash40::new("kirby_final_star_a"), Hash40::new("top"), 0, 6, 0, 0, 90, 0, 1, false);
         macros::EFFECT_FOLLOW(fighter, Hash40::new("kirby_final_star_circle"), Hash40::new("top"), 0, 2, 0, 0, 0, 0, 1, false);
     }
@@ -26,7 +25,6 @@ unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
 }
 frame(fighter.lua_state_agent, 82.0);
 if macros::is_excute(fighter) {
-    methodlib::L2CValue::as_hash()const(Hash40::new("bg_kirby_final"));
-    EffectModule::remove_screen(fighter.module_accessor);
+    EffectModule::remove_screen(fighter.module_accessor, Hash40::new("bg_kirby_final"), -1);
 }
 }

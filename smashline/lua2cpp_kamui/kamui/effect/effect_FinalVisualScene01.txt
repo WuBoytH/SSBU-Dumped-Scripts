@@ -1,8 +1,7 @@
 #[acmd_script( agent = "kamui", script = "effect_finalvisualscene01", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_finalvisualscene01(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_kamui_final"));
-        EffectModule::remove_screen(fighter.module_accessor);
+        EffectModule::remove_screen(fighter.module_accessor, Hash40::new("bg_kamui_final"), -1);
         macros::EFFECT_OFF_KIND(fighter, Hash40::new("bg_kamui_final"), true, true);
         macros::EFFECT_OFF_KIND(fighter, Hash40::new("kamui_final_energy"), true, true);
     }

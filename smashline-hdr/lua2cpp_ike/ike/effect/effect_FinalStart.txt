@@ -3,8 +3,7 @@ unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_ike_final"), false);
-        EffectModule::req_screen(boma);
+        EffectModule::req_screen(boma, Hash40::new("bg_ike_final"), false, false, false);
     }
     frame(lua_state, 7.0);
     if is_excute(fighter) {
@@ -31,7 +30,6 @@ unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
     frame(lua_state, 25.0);
     if is_excute(fighter) {
         EFFECT_OFF_KIND(fighter, Hash40::new("ike_final_sword"), false, true);
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_ike_final"));
-        EffectModule::remove_screen(boma);
+        EffectModule::remove_screen(boma, Hash40::new("bg_ike_final"), -1);
     }
 }

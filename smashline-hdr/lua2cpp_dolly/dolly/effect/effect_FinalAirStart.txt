@@ -3,8 +3,7 @@ unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_dolly_final"), false);
-        EffectModule::req_screen(boma);
+        EffectModule::req_screen(boma, Hash40::new("bg_dolly_final"), false, false, false);
         FILL_SCREEN_MODEL_COLOR(fighter, 0, 0, 1, 0.95, 0.9, 0, 0, 0, 1, 1.2, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
         EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("hip"), 1, 0, 0, 0, 0, 0, 1.4, true);
         EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 0.7, true);

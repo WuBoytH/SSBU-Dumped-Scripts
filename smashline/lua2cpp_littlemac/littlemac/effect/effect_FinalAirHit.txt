@@ -1,11 +1,9 @@
 #[acmd_script( agent = "littlemac", script = "effect_finalairhit", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_finalairhit(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("sys_final_aura"), false);
-        EffectModule::set_visible_kind(fighter.module_accessor);
+        EffectModule::set_visible_kind(fighter.module_accessor, Hash40::new("sys_final_aura"), false);
         macros::EFFECT_STENCIL_ON(fighter);
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_littlemac_final2"), false);
-        EffectModule::req_screen(fighter.module_accessor);
+        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_littlemac_final2"), false, false, false);
         methodlib::L2CValue::as_hash()const(Hash40::new("critical_hit"), Hash40::new("top"), 10, 8, 0, 8, 15, true);
         methodlib::L2CValue::as_hash()const();
         EffectModule::request_post_effect_line_circle(fighter.module_accessor);

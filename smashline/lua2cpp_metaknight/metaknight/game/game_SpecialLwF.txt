@@ -6,8 +6,7 @@ unsafe fn game_speciallwf(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 2.0);
     if macros::is_excute(fighter) {
         WorkModule::on_flag(fighter.module_accessor, *FIGHTER_METAKNIGHT_STATUS_SPECIAL_LW_ATTACK_FLAG_NO_HOP);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, Hash40::new("special_air_lw_f"));
-        ArticleModule::change_motion(fighter.module_accessor);
+        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, Hash40::new("special_air_lw_f"), false, -1.0);
         JostleModule::set_status(fighter.module_accessor, true);
     }
     frame(fighter.lua_state_agent, 6.0);

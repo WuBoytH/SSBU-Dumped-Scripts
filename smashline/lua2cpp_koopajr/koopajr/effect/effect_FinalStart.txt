@@ -1,8 +1,7 @@
 #[acmd_script( agent = "koopajr", script = "effect_finalstart", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_koopajr_final"), false);
-        EffectModule::req_screen(fighter.module_accessor);
+        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_koopajr_final"), false, false, false);
         macros::COL_PRI(fighter, 105);
         macros::BURN_COLOR(fighter, 0.5, 3, 3, 0);
         macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("koopajr_final_change"), Hash40::new("rot"), 0, -2, 0, 0, 0, 0, 1, true);

@@ -3,15 +3,13 @@ unsafe fn effect_final(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_mario_final"), false);
-        EffectModule::req_screen(boma);
+        EffectModule::req_screen(boma, Hash40::new("bg_mario_final"), false, false, false);
         EFFECT_FLW_POS(fighter, Hash40::new("mario_final_handfire"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
         EFFECT_FLW_POS(fighter, Hash40::new("mario_final_handfire"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 4.0);
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_effect_test1"));
-        EffectModule::remove_screen(boma);
+        EffectModule::remove_screen(boma, Hash40::new("bg_effect_test1"), -1);
     }
     frame(lua_state, 56.0);
     if is_excute(fighter) {

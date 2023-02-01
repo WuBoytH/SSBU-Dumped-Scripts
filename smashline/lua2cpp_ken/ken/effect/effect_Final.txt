@@ -1,8 +1,7 @@
 #[acmd_script( agent = "ken", script = "effect_final", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_final(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_ken_final_shippu"), false);
-        EffectModule::req_screen(fighter.module_accessor);
+        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_ken_final_shippu"), false, false, false);
     }
     frame(fighter.lua_state_agent, 9.0);
     if macros::is_excute(fighter) {
@@ -60,7 +59,6 @@ if macros::is_excute(fighter) {
 }
 frame(fighter.lua_state_agent, 90.0);
 if macros::is_excute(fighter) {
-    methodlib::L2CValue::as_hash()const(Hash40::new("bg_ken_final_shippu"));
-    EffectModule::remove_screen(fighter.module_accessor);
+    EffectModule::remove_screen(fighter.module_accessor, Hash40::new("bg_ken_final_shippu"), -1);
 }
 }

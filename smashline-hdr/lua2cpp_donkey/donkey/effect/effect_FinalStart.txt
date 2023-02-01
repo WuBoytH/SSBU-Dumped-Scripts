@@ -3,8 +3,7 @@ unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_donkey_final"), false);
-        EffectModule::req_screen(boma);
+        EffectModule::req_screen(boma, Hash40::new("bg_donkey_final"), false, false, false);
         LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 4.0);
@@ -26,7 +25,6 @@ unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 60.0);
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_donkey_final"));
-        EffectModule::remove_screen(boma);
+        EffectModule::remove_screen(boma, Hash40::new("bg_donkey_final"), -1);
     }
 }

@@ -1,8 +1,7 @@
 #[acmd_script( agent = "sheik", script = "effect_finalairdashend", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_finalairdashend(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_sheik_final"));
-        EffectModule::remove_screen(fighter.module_accessor);
+        EffectModule::remove_screen(fighter.module_accessor, Hash40::new("bg_sheik_final"), -1);
         macros::CANCEL_FILL_SCREEN(fighter, 0, 50);
         macros::CANCEL_FILL_SCREEN(fighter, 1, 50);
     }

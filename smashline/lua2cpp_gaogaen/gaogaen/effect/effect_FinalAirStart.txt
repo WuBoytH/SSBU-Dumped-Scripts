@@ -1,8 +1,7 @@
 #[acmd_script( agent = "gaogaen", script = "effect_finalairstart", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_gaogaen_final"), false);
-        EffectModule::req_screen(fighter.module_accessor);
+        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_gaogaen_final"), false, false, false);
         macros::FT_REMOVE_FINAL_AURA(fighter, false);
     }
     frame(fighter.lua_state_agent, 9.0);

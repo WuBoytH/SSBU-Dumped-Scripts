@@ -3,14 +3,12 @@ unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_richter_final"), false);
-        EffectModule::req_screen(boma);
+        EffectModule::req_screen(boma, Hash40::new("bg_richter_final"), false, false, false);
     }
     frame(lua_state, 60.0);
     WorkModule::is_flag(boma, *FIGHTER_SIMON_INSTANCE_WORK_ID_FLAG_FINAL_HIT);
     methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
     if is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("bg_richter_final"));
-        EffectModule::remove_screen(boma);
+        EffectModule::remove_screen(boma, Hash40::new("bg_richter_final"), -1);
     }
 }

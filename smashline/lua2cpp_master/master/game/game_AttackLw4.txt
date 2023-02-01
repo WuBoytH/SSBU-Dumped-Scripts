@@ -2,8 +2,7 @@
 unsafe fn game_attacklw4(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, false, -1);
-        methodlib::L2CValue::as_hash()const(*FIGHTER_MASTER_GENERATE_ARTICLE_AXE, Hash40::new("attack_lw4"));
-        ArticleModule::change_motion(fighter.module_accessor);
+        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, Hash40::new("attack_lw4"), false, -1.0);
     }
     frame(fighter.lua_state_agent, 3.0);
     execute(fighter.lua_state_agent, 3.0);
@@ -13,9 +12,8 @@ unsafe fn game_attacklw4(fighter: &mut L2CAgentBase) {
     WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_SMASH_SMASH_HOLD_TO_ATTACK);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
         if macros::is_excute(fighter) {
-            WorkModule::get_float(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, Hash40::new("attack_lw4"), true, *FIGHTER_STATUS_ATTACK_WORK_FLOAT_SMASH_RESTART_FRAME);
-            methodlib::L2CValue::as_hash()const(-335839065);
-            ArticleModule::change_motion(fighter.module_accessor);
+            let restart_frame = WorkModule::get_float(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_WORK_FLOAT_SMASH_RESTART_FRAME);
+            ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, Hash40::new("attack_lw4"), true, restart_frame);
         }
     }
     frame(fighter.lua_state_agent, 5.0);

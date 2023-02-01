@@ -1,13 +1,11 @@
 #[acmd_script( agent = "ridley", script = "expression_attacks3lw", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_attacks3lw(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("tail8"), *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Y, *ATTACK_DIRECTION_Z);
-        AttackModule::set_attack_reference_joint_id(fighter.module_accessor);
+        AttackModule::set_attack_reference_joint_id(fighter.module_accessor, Hash40::new("tail8"), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Y), AttackDirectionAxis(*ATTACK_DIRECTION_Z));
     }
     if macros::is_excute(fighter) {
         slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        methodlib::L2CValue::as_hash()const(Hash40::new("tail8"), *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Z, *ATTACK_DIRECTION_Y);
-        AttackModule::set_attack_reference_joint_id(fighter.module_accessor);
+        AttackModule::set_attack_reference_joint_id(fighter.module_accessor, Hash40::new("tail8"), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Z), AttackDirectionAxis(*ATTACK_DIRECTION_Y));
     }
     frame(fighter.lua_state_agent, 9.0);
     if macros::is_excute(fighter) {

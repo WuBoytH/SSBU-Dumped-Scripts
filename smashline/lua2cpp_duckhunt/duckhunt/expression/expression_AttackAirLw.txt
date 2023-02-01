@@ -1,8 +1,7 @@
 #[acmd_script( agent = "duckhunt", script = "expression_attackairlw", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_attackairlw(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        methodlib::L2CValue::as_hash()const(Hash40::new("top"), *ATTACK_DIRECTION_X, *ATTACK_DIRECTION_Y_MINUS, *ATTACK_DIRECTION_Z);
-        AttackModule::set_attack_reference_joint_id(fighter.module_accessor);
+        AttackModule::set_attack_reference_joint_id(fighter.module_accessor, Hash40::new("top"), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Y_MINUS), AttackDirectionAxis(*ATTACK_DIRECTION_Z));
     }
     frame(fighter.lua_state_agent, 12.0);
     if macros::is_excute(fighter) {
