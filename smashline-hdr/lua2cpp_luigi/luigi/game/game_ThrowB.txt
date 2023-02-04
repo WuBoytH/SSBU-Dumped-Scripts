@@ -16,8 +16,8 @@ unsafe fn game_throwb(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_REVERSE_LR_FINISH_CAMERA_THROW_ORBIT);
         CHECK_FINISH_CAMERA(fighter, 21, 3);
-        FighterCutInManager::set_throw_finish_zoom_rate(boma, 1);
-        FighterCutInManager::set_throw_finish_offset(boma, 10, -1, 0);
+        lua_bind::FighterCutInManager::set_throw_finish_zoom_rate(singletons::FighterCutInManager(), 1);
+        lua_bind::FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: 10.0, y: -1.0, z: 0.0});
         FT_CATCH_STOP(fighter, 5, 1);
     }
     frame(lua_state, 15.0);

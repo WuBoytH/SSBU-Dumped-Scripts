@@ -8,7 +8,7 @@ unsafe fn game_throwb(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_REVERSE_LR_FINISH_CAMERA_THROW_ORBIT);
         macros::CHECK_FINISH_CAMERA(fighter, 20, 4);
-        FighterCutInManager::set_throw_finish_offset(fighter.module_accessor, 10, 0, 0);
+        lua_bind::FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: 10.0, y: 0.0, z: 0.0});
     }
     frame(fighter.lua_state_agent, 18.0);
     if macros::is_excute(fighter) {

@@ -13,8 +13,8 @@ unsafe fn game_throwf(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 14.0);
     if macros::is_excute(fighter) {
         macros::CHECK_FINISH_CAMERA(fighter, 18, 4);
-        FighterCutInManager::set_throw_finish_zoom_rate(fighter.module_accessor, 1);
-        FighterCutInManager::set_throw_finish_offset(fighter.module_accessor, 12, -1, 0);
+        lua_bind::FighterCutInManager::set_throw_finish_zoom_rate(singletons::FighterCutInManager(), 1);
+        lua_bind::FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: 12.0, y: -1.0, z: 0.0});
         macros::FT_CATCH_STOP(fighter, 5, 1);
     }
     frame(fighter.lua_state_agent, 15.0);

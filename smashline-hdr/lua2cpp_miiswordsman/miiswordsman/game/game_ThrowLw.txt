@@ -11,8 +11,8 @@ unsafe fn game_throwlw(fighter: &mut L2CAgentBase) {
         ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 361, 150, 0, 30, 4.5, -7.0, 3.0, -2.0, None, None, None, 0.9, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_KNEE);
         AttackModule::set_catch_only_all(boma, true, false);
         CHECK_FINISH_CAMERA(fighter, 5, 0);
-        FighterCutInManager::set_throw_finish_zoom_rate(boma, 1.5);
-        FighterCutInManager::set_throw_finish_offset(boma, 0, -3, 0);
+        lua_bind::FighterCutInManager::set_throw_finish_zoom_rate(singletons::FighterCutInManager(), 1.5);
+        lua_bind::FighterCutInManager::set_throw_finish_offset(singletons::FighterCutInManager(), Vector3f{x: 0.0, y: -3.0, z: 0.0});
     }
     frame(lua_state, 16.0);
     if is_excute(fighter) {
