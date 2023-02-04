@@ -4,24 +4,20 @@ unsafe fn sound_specialairlwhit(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         macros::PLAY_SE(fighter, Hash40::new("se_edge_special_l02_01"));
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD) {
         if macros::is_excute(fighter) {
             macros::PLAY_SE(fighter, Hash40::new("se_edge_special_l04"));
         }
     }
     frame(fighter.lua_state_agent, 6.0);
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_VOICE);
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
-        WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
-        if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_VOICE) {
+        if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD) {
             if macros::is_excute(fighter) {
                 macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_edge_rnd_attack_special_lw_b"));
             }
         }
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD) {
         if macros::is_excute(fighter) {
             macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_edge_rnd_attack_special_lw"));
         }

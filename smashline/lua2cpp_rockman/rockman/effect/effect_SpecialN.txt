@@ -1,8 +1,7 @@
 #[acmd_script( agent = "rockman", script = "effect_specialn", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_specialn(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 5.0);
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_ALREADY_EXIST_METALBLADE);
-    if(0xf4c50(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_ALREADY_EXIST_METALBLADE) {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW(fighter, Hash40::new("rockman_metalblade_start"), Hash40::new("handl"), 0, 0, 0, 0, -0.0, 0, 0.8, true);
         }
@@ -28,8 +27,7 @@ if macros::is_excute(fighter) {
     macros::LAST_EFFECT_SET_RATE(fighter, 1.7);
 }
 frame(fighter.lua_state_agent, 16.0);
-WorkModule::is_flag(fighter.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_ALREADY_EXIST_METALBLADE);
-if(0xf4c50(false, false)){
+if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_ALREADY_EXIST_METALBLADE) {
     if macros::is_excute(fighter) {
         macros::LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }

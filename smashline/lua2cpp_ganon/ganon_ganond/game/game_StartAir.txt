@@ -28,8 +28,7 @@ unsafe fn game_startair(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 2, 50, 0, 0, 0);
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         PostureModule::scale(fighter.module_accessor);
         0xffe90(1095804846, 0.5);
         get_value_float(*SO_VAR_FLOAT_LR);

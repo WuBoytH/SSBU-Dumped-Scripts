@@ -6,8 +6,7 @@ unsafe fn game_finalstart_com(fighter: &mut L2CAgentBase) {
         CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
         SLOW_OPPONENT(fighter, 4, 30);
     }
-    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-    if(0x119a00(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(lua_state, 5.0);
         if is_excute(fighter) {
             ArticleModule::generate_article(boma, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_FINALDUCK, false, -1);
@@ -51,8 +50,7 @@ if is_excute(fighter) {
 SlowModule::clear_whole(boma);
 }
 frame(lua_state, 23.0);
-WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-if(0x119a00(false, false)){
+if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
 if is_excute(fighter) {
     SlowModule::set_whole(boma, 30, 0);
 }

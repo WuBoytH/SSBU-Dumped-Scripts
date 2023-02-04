@@ -2,8 +2,7 @@
 unsafe fn sound_specialnendf(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    WorkModule::is_flag(boma, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX);
-    if(0x1cb400(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
         frame(lua_state, 30.0);
         if is_excute(fighter) {
             PLAY_SE(fighter, Hash40::new("se_bayonetta_special_n08"));

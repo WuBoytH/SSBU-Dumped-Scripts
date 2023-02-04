@@ -6,8 +6,7 @@ unsafe fn game_scopeairfireempty(fighter: &mut L2CAgentBase) {
         VisibilityModule::set_int64(boma, Hash40::new("weapon"), Hash40::new("weapon_normal"));
     }
     frame(lua_state, 3.0);
-    WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
-    if(0x103920(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
         if is_excute(fighter) {
             SHOOT_ITEM_BULLET_CHARGE(fighter, *FIGHTER_STATUS_ITEM_SHOOT_WORK_INT_SSCOPE_CHARGE);
             WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);

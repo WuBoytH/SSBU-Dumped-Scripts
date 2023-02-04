@@ -2,8 +2,7 @@
 unsafe fn sound_attackragedrivecatch(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    WorkModule::is_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ATTACK_RAGE_CAPTURE);
-    if(0x3cfb70(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ATTACK_RAGE_CAPTURE) {
         frame(lua_state, 2.0);
         FighterCutInManager::is_play_motion_camera(boma);
         if(0x3cfb70(false, true)){

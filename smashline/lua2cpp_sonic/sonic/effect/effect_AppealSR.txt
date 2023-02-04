@@ -1,7 +1,6 @@
 #[acmd_script( agent = "sonic", script = "effect_appealsr", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_appealsr(fighter: &mut L2CAgentBase) {
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_DISABLE_RUN_TRACE);
-    if(0x12c570(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_DISABLE_RUN_TRACE) {
         if macros::is_excute(fighter) {
             EFFECT_FOLLOW_arg11(Hash40::new("sonic_appealruntrace"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.85, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
             macros::LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);

@@ -1,7 +1,6 @@
 #[acmd_script( agent = "demon", script = "effect_attackragedrivefall", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_attackragedrivefall(fighter: &mut L2CAgentBase) {
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ATTACK_RAGE_CAPTURE);
-    if(0x3cfb70(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ATTACK_RAGE_CAPTURE) {
         if macros::is_excute(fighter) {
             EffectModule::req_screen(fighter.module_accessor, Hash40::new("demon_ragedrive_bg"), true, false, false);
             macros::FLASH(fighter, 0.45, 0.45, 2, 0.1);

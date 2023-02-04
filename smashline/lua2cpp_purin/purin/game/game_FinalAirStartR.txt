@@ -5,8 +5,7 @@ unsafe fn game_finalairstartr(fighter: &mut L2CAgentBase) {
         macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
         macros::SLOW_OPPONENT(fighter, 7, 120);
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-    if(0xf85d0(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         if macros::is_excute(fighter) {
             macros::FT_SET_FINAL_FEAR_FACE(fighter, 60);
             macros::REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04finalstartr.nuanmb"), false);

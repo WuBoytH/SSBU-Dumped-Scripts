@@ -7,8 +7,7 @@ unsafe fn game_final(fighter: &mut L2CAgentBase) {
         camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 2);
         macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 14, 0, 0);
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(fighter.lua_state_agent, 5.0);
         if macros::is_excute(fighter) {
             macros::FT_SET_FINAL_FEAR_FACE(fighter, 60);

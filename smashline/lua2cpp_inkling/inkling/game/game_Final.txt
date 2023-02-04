@@ -13,8 +13,7 @@ unsafe fn game_final(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_MEGAPHONELASER, true);
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(fighter.lua_state_agent, 10.0);
         if macros::is_excute(fighter) {
             macros::FT_SET_FINAL_FEAR_FACE(fighter, 60);

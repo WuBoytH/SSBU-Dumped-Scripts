@@ -5,8 +5,7 @@ unsafe fn game_speciallwhit(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         shield!(fighter, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_SHIELD, 0, *FIGHTER_EDGE_SHIELD_GROUP_KIND_SPECIAL_LW);
     }
-    WorkModule::is_flag(boma, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+    if WorkModule::is_flag(boma, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD) {
         if is_excute(fighter) {
             SET_SPEED_EX(fighter, 0, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
             WHOLE_HIT(fighter, *HIT_STATUS_XLU);
@@ -28,8 +27,7 @@ unsafe fn game_speciallwhit(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         WorkModule::on_flag(boma, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_ENABLE_FALL_SPEED);
     }
-    WorkModule::is_flag(boma, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD) {
         frame(lua_state, 1.0);
         FT_MOTION_RATE(fighter, 2);
         frame(lua_state, 5.0);

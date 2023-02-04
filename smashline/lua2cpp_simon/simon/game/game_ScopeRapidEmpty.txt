@@ -1,8 +1,7 @@
 #[acmd_script( agent = "simon", script = "game_scoperapidempty", category = ACMD_GAME, low_priority )]
 unsafe fn game_scoperapidempty(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 2.0);
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
         if macros::is_excute(fighter) {
             macros::SHOOT_ITEM_BULLET(fighter);
             WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
