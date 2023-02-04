@@ -1,8 +1,8 @@
 #[acmd_script( agent = "gamewatch", script = "expression_attackhi4", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_attackhi4(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("hand"), Hash40::new("hand_hold_lr"));
-        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("head"), Hash40::new("head_diver"));
+        VisibilityModule::set_int64(fighter.module_accessor, hash40("hand") as i64, hash40("hand_hold_lr") as i64);
+        VisibilityModule::set_int64(fighter.module_accessor, hash40("head") as i64, hash40("head_diver") as i64);
     }
     if macros::is_excute(fighter) {
         slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
@@ -11,8 +11,8 @@ unsafe fn expression_attackhi4(fighter: &mut L2CAgentBase) {
     execute(fighter.lua_state_agent, 16.0);
     if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_SMASH_SMASH_HOLD_TO_ATTACK) {
         if macros::is_excute(fighter) {
-            VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("hand"), Hash40::new("hand_hold_lr"));
-            VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("head"), Hash40::new("head_diver"));
+            VisibilityModule::set_int64(fighter.module_accessor, hash40("hand") as i64, hash40("hand_hold_lr") as i64);
+            VisibilityModule::set_int64(fighter.module_accessor, hash40("head") as i64, hash40("head_diver") as i64);
         }
         if macros::is_excute(fighter) {
             slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);

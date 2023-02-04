@@ -4,7 +4,7 @@ unsafe fn expression_attacks3(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         AttackModule::set_attack_reference_joint_id(boma, Hash40::new("duckhead"), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Y), AttackDirectionAxis(*ATTACK_DIRECTION_Z));
-        VisibilityModule::set_int64(boma, Hash40::new("body"), Hash40::new("body_openwing"));
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_openwing") as i64);
         slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 5);
     }
     frame(lua_state, 6.0);
@@ -21,6 +21,6 @@ unsafe fn expression_attacks3(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 41.0);
     if is_excute(fighter) {
-        VisibilityModule::set_int64(boma, Hash40::new("body"), Hash40::new("body_normal"));
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
     }
 }

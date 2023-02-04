@@ -3,7 +3,7 @@ unsafe fn expression_specialairlw(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        VisibilityModule::set_int64(boma, Hash40::new("hammer"), Hash40::new("hammer_disp_off"));
+        VisibilityModule::set_int64(boma, hash40("hammer") as i64, hash40("hammer_disp_off") as i64);
         ItemModule::set_have_item_visibility(boma, false);
         slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
@@ -22,6 +22,6 @@ unsafe fn expression_specialairlw(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 48.0);
     if is_excute(fighter) {
-        VisibilityModule::set_int64(boma, Hash40::new("hammer"), Hash40::new("hammer_normal"));
+        VisibilityModule::set_int64(boma, hash40("hammer") as i64, hash40("hammer_normal") as i64);
     }
 }

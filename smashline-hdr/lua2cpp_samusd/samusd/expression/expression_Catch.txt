@@ -4,7 +4,7 @@ unsafe fn expression_catch(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        VisibilityModule::set_int64(boma, Hash40::new("body"), Hash40::new("body_hide_gun"));
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_hide_gun") as i64);
         ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN);
         ArticleModule::generate_article(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, true);
         ArticleModule::change_motion(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, Hash40::new("catch"), false, -1.0);
@@ -31,6 +31,6 @@ unsafe fn expression_catch(fighter: &mut L2CAgentBase) {
     frame(lua_state, 80.0);
     if is_excute(fighter) {
         ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN);
-        VisibilityModule::set_int64(boma, Hash40::new("body"), Hash40::new("body_normal"));
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
     }
 }

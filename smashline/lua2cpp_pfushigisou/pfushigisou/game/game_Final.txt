@@ -3,7 +3,7 @@ unsafe fn game_final(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 1, 20, 0, 0, 0);
         macros::SLOW_OPPONENT(fighter, 5, 30);
-        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("weapon"), Hash40::new("weapon_normal"));
+        VisibilityModule::set_int64(fighter.module_accessor, hash40("weapon") as i64, hash40("weapon_normal") as i64);
     }
     if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(fighter.lua_state_agent, 10.0);

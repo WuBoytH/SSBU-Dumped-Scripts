@@ -8,7 +8,7 @@ unsafe fn expression_entryl(fighter: &mut L2CAgentBase) {
     }
     if macros::is_excute(fighter) {
         ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_THROWSWEAT, false);
-        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("swet"), Hash40::new("swet_on"));
+        VisibilityModule::set_int64(fighter.module_accessor, hash40("swet") as i64, hash40("swet_on") as i64);
         notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), false);
         notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), false);
         WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
@@ -26,7 +26,7 @@ unsafe fn expression_entryl(fighter: &mut L2CAgentBase) {
         }
     }
     if macros::is_excute(fighter) {
-        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("swet"), Hash40::new("swet_off"));
+        VisibilityModule::set_int64(fighter.module_accessor, hash40("swet") as i64, hash40("swet_off") as i64);
     }
     if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_LITTLEMAC_INSTANCE_WORK_ID_FLAG_IS_SWEAT_MODEL) {
         if macros::is_excute(fighter) {

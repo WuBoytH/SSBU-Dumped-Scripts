@@ -1,11 +1,11 @@
 #[acmd_script( agent = "gamewatch_parachute", script = "game_specialairhi", category = ACMD_GAME, low_priority )]
 unsafe fn game_specialairhi(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("para3"), Hash40::new("off"));
-        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("para4"), Hash40::new("off"));
+        VisibilityModule::set_int64(fighter.module_accessor, hash40("para3") as i64, hash40("off") as i64);
+        VisibilityModule::set_int64(fighter.module_accessor, hash40("para4") as i64, hash40("off") as i64);
     }
     frame(fighter.lua_state_agent, 32.0);
     if macros::is_excute(fighter) {
-        VisibilityModule::set_int64(fighter.module_accessor, Hash40::new("para3"), Hash40::new("on"));
+        VisibilityModule::set_int64(fighter.module_accessor, hash40("para3") as i64, hash40("on") as i64);
     }
 }
