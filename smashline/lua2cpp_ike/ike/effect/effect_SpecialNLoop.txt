@@ -1,7 +1,7 @@
 #[acmd_script( agent = "ike", script = "effect_specialnloop", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_specialnloop(fighter: &mut L2CAgentBase) {
     wait_loop_sync_mot();
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(*FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL, 0)){
+    if WorkModule::get_int(fighter.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL) == 0 {
         if macros::is_excute(fighter) {
             macros::FLASH(fighter, 0.125, 0.4, 1, 0.1);
         }
@@ -25,7 +25,7 @@ if macros::is_excute(fighter) {
 }
 wait(fighter.lua_state_agent, 2.0);
 }
-if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(*FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL, 1)){
+if WorkModule::get_int(fighter.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL) == 1 {
 if macros::is_excute(fighter) {
     macros::FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -8, 0, 0, 0, 0, 0, 0.72, 15, 0, 4, 0, 0, 0, false);
     macros::FLASH(fighter, 0.125, 0.4, 1, 0.3);
@@ -56,7 +56,7 @@ wait(fighter.lua_state_agent, 2.0);
 if macros::is_excute(fighter) {
 macros::COL_NORMAL(fighter);
 }
-if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(*FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL, 2)){
+if WorkModule::get_int(fighter.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL) == 2 {
 if macros::is_excute(fighter) {
 macros::FLASH(fighter, 0.125, 0.4, 1, 0.4);
 }

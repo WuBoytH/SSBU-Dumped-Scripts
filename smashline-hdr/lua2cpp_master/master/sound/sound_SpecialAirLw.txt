@@ -2,7 +2,7 @@
 unsafe fn sound_specialairlw(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(*FIGHTER_MASTER_STATUS_SPECIAL_LW_INT_VOICE_TYPE, 0)){
+    if WorkModule::get_int(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_INT_VOICE_TYPE) == 0 {
         IS_RANDOM(fighter, 2);
         if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
             if is_excute(fighter) {
@@ -15,7 +15,7 @@ unsafe fn sound_specialairlw(fighter: &mut L2CAgentBase) {
         }
     }
 }
-if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(*FIGHTER_MASTER_STATUS_SPECIAL_LW_INT_VOICE_TYPE, 1)){
+if WorkModule::get_int(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_INT_VOICE_TYPE) == 1 {
     if is_excute(fighter) {
         PLAY_SE(fighter, Hash40::new("vc_master_special_l01"));
     }
