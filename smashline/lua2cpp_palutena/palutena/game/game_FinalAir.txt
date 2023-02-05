@@ -17,7 +17,7 @@ unsafe fn game_finalair(fighter: &mut L2CAgentBase) {
             PostureModule::scale(fighter.module_accessor, 10, 0);
             0xee630(-748688718, 2);
             CAM_ZOOM_IN_arg5(0, 0);
-            camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
+            camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
             macros::FT_START_CUTIN(fighter);
         }
     }
@@ -28,7 +28,7 @@ if macros::is_excute(fighter) {
 }
 frame(fighter.lua_state_agent, 70.0);
 if macros::is_excute(fighter) {
-    camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 25, -10, 10, -15);
+    camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_RECT, 25, -10, 10, -15);
 }
 frame(fighter.lua_state_agent, 90.0);
 macros::FT_MOTION_RATE(fighter, 0.4);

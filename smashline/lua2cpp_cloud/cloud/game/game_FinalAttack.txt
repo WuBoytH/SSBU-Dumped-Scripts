@@ -167,14 +167,14 @@ if(0x1801b0(2001256, 0)){
         PostureModule::scale(fighter.module_accessor, 30, 0);
         0x1801b0(0, 2.4);
         CAM_ZOOM_IN_arg6(0.6, -0.6, true);
-        camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 12);
+        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 12);
     }
     else{
     if macros::is_excute(fighter) {
         PostureModule::scale(fighter.module_accessor, 30, 0);
         0x1801b0(0, 2);
         CAM_ZOOM_IN_arg6(0.2, 0.6, true);
-        camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 12);
+        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 12);
     }
 }
 }
@@ -195,8 +195,8 @@ WorkModule::on_flag(fighter.module_accessor, *FIGHTER_CLOUD_STATUS_FINAL_FLAG_FA
 if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_CLOUD_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT) {
 if macros::is_excute(fighter) {
     macros::CAM_ZOOM_OUT(fighter);
-    camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
-    camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 0, 0, 10, 0);
+    camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+    camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_RECT, 0, 0, 10, 0);
     CAM_ZOOM_IN_arg6(35, 0, 2.2, 0, 0, true);
 }
 }

@@ -25,8 +25,8 @@ unsafe fn game_finalairstart(fighter: &mut L2CAgentBase) {
         0x1462c0(1128533056, 2.0);
         CAM_ZOOM_IN_arg5(-0.1, 0);
         FT_START_CUTIN(fighter);
-        camera(*MA_MSC_CMD_CAMERA_CAM_RECT, 0, 4, 6, 0);
-        camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
+        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_RECT, 0, 4, 6, 0);
+        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
     }
 }
 frame(lua_state, 30.0);
@@ -40,6 +40,6 @@ if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START
     }
 }
 if is_excute(fighter) {
-    camera(*MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+    camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
 }
 }
