@@ -3,7 +3,7 @@ unsafe fn game_specialairhijump(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         JostleModule::set_status(fighter.module_accessor, false);
         WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DIDDY_STATUS_SPECIAL_HI_FLAG_BOBY_ROLL_START);
-        GroundModule::select_cliff_hangdata(fighter.module_accessor, *FIGHTER_DIDDY_CLIFF_HANG_DATA_SPECIAL_HI);
+        GroundModule::select_cliff_hangdata(fighter.module_accessor, *FIGHTER_DIDDY_CLIFF_HANG_DATA_SPECIAL_HI as u32);
     }
     frame(fighter.lua_state_agent, 1.0);
     if macros::is_excute(fighter) {
@@ -29,6 +29,6 @@ unsafe fn game_specialairhijump(fighter: &mut L2CAgentBase) {
         WorkModule::off_flag(fighter.module_accessor, *FIGHTER_DIDDY_STATUS_SPECIAL_HI_FLAG_BOBY_ROLL_START);
         WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DIDDY_STATUS_SPECIAL_HI_FLAG_ROLL_COMP_START);
         JostleModule::set_status(fighter.module_accessor, true);
-        GroundModule::select_cliff_hangdata(fighter.module_accessor, *FIGHTER_CLIFF_HANG_DATA_DEFAULT);
+        GroundModule::select_cliff_hangdata(fighter.module_accessor, *FIGHTER_CLIFF_HANG_DATA_DEFAULT as u32);
     }
 }

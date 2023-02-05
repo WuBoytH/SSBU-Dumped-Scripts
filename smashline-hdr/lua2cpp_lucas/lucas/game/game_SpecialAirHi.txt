@@ -3,7 +3,7 @@ unsafe fn game_specialairhi(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        GroundModule::select_cliff_hangdata(boma, *FIGHTER_LUCAS_CLIFF_HANG_DATA_SPECIAL_HI);
+        GroundModule::select_cliff_hangdata(boma, *FIGHTER_LUCAS_CLIFF_HANG_DATA_SPECIAL_HI as u32);
     }
     frame(lua_state, 1.0);
     if is_excute(fighter) {
@@ -58,6 +58,6 @@ AttackModule::clear_all(boma);
 WorkModule::on_flag(boma, *FIGHTER_LUCAS_STATUS_SPECIAL_HI_FLAG_ATTACK_END);
 WorkModule::on_flag(boma, *FIGHTER_LUCAS_STATUS_SPECIAL_HI_FLAG_LANDING_ENABLE);
 JostleModule::set_status(boma, true);
-GroundModule::select_cliff_hangdata(boma, *FIGHTER_LUCAS_CLIFF_HANG_DATA_START);
+GroundModule::select_cliff_hangdata(boma, *FIGHTER_LUCAS_CLIFF_HANG_DATA_START as u32);
 }
 }

@@ -1,7 +1,7 @@
 #[acmd_script( agent = "ness", script = "game_specialairhi", category = ACMD_GAME, low_priority )]
 unsafe fn game_specialairhi(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        GroundModule::select_cliff_hangdata(fighter.module_accessor, *FIGHTER_NESS_CLIFF_HANG_DATA_SPECIAL_HI);
+        GroundModule::select_cliff_hangdata(fighter.module_accessor, *FIGHTER_NESS_CLIFF_HANG_DATA_SPECIAL_HI as u32);
     }
     frame(fighter.lua_state_agent, 1.0);
     if macros::is_excute(fighter) {
@@ -25,6 +25,6 @@ unsafe fn game_specialairhi(fighter: &mut L2CAgentBase) {
         macros::HIT_NODE(fighter, Hash40::new("head"), *HIT_STATUS_NORMAL);
         WorkModule::on_flag(fighter.module_accessor, *FIGHTER_NESS_STATUS_SPECIAL_HI_FLAG_LANDING_ENABLE);
         JostleModule::set_status(fighter.module_accessor, true);
-        GroundModule::select_cliff_hangdata(fighter.module_accessor, *FIGHTER_NESS_CLIFF_HANG_DATA_DEFAULT);
+        GroundModule::select_cliff_hangdata(fighter.module_accessor, *FIGHTER_NESS_CLIFF_HANG_DATA_DEFAULT as u32);
     }
 }
