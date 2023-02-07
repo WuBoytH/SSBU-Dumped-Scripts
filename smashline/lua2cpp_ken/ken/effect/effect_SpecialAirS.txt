@@ -1,8 +1,10 @@
 #[acmd_script( agent = "ken", script = "effect_specialairs", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_specialairs(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 3.0);
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_S_FLAG_GROUND) {
-        if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
+    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_S_FLAG_GROUND);
+    if(0x16e550(false, true)){
+        WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND);
+        if(0x16e550(false, true)){
             if macros::is_excute(fighter) {
                 macros::FOOT_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), -1, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
                 macros::LAST_EFFECT_SET_ALPHA(fighter, 0.5);

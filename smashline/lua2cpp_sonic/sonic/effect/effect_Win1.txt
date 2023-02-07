@@ -1,7 +1,8 @@
 #[acmd_script( agent = "sonic", script = "effect_win1", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_win1(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 1.0);
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_DISABLE_RUN_TRACE) {
+    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_DISABLE_RUN_TRACE);
+    if(0x12c570(false, false)){
         if macros::is_excute(fighter) {
             EFFECT_FOLLOW_arg11(Hash40::new("sonic_runtrace"), Hash40::new("trans"), 0, 0, 0, 0, 90, 0, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
             macros::LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
