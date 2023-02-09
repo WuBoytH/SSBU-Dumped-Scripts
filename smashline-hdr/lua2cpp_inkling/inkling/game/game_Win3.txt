@@ -3,8 +3,8 @@ unsafe fn game_win3(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        ArticleModule::remove_exist(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_ROLLER);
-        ArticleModule::remove_exist(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SLOSHER);
+        ArticleModule::remove_exist(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_ROLLER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SLOSHER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SLOSHER, false, -1);
         ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SLOSHER, Hash40::new("win_3"), false, -1.0);
     }

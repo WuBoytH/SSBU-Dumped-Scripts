@@ -1,7 +1,7 @@
 #[acmd_script( agent = "master", script = "game_visualscene01", category = ACMD_GAME, low_priority )]
 unsafe fn game_visualscene01(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD);
+        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_BACKGROUND, false, -1);
         ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_BACKGROUND, Hash40::new("visual_scene_01"), false, -1.0);
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD2, false, -1);

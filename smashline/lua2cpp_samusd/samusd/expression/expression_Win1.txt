@@ -1,12 +1,12 @@
 #[acmd_script( agent = "samusd", script = "expression_win1", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_win1(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN);
+        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         VisibilityModule::set_int64(fighter.module_accessor, hash40("body") as i64, hash40("body_normal") as i64);
     }
     if macros::IS_EXIST_ARTICLE(fighter, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN) {
         if macros::is_excute(fighter) {
-            ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN);
+            ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
     }
 }

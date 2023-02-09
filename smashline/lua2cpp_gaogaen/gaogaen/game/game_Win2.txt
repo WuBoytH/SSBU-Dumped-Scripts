@@ -1,7 +1,7 @@
 #[acmd_script( agent = "gaogaen", script = "game_win2", category = ACMD_GAME, low_priority )]
 unsafe fn game_win2(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GAOGAEN_GENERATE_ARTICLE_CHAMPIONBELT);
+        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_GAOGAEN_GENERATE_ARTICLE_CHAMPIONBELT, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_GAOGAEN_GENERATE_ARTICLE_CHAMPIONBELT, false, -1);
         ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_GAOGAEN_GENERATE_ARTICLE_CHAMPIONBELT, Hash40::new("win_2"), false, -1.0);
     }

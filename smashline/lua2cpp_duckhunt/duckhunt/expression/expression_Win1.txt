@@ -2,8 +2,8 @@
 unsafe fn expression_win1(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         VisibilityModule::set_int64(fighter.module_accessor, hash40("body") as i64, hash40("body_openwing") as i64);
-        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GUNMAN);
-        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_CAN);
+        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GUNMAN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_CAN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GRASS, false, -1);
         ArticleModule::set_pos(fighter.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GRASS, 0, 0, 6);
         article(*MA_MSC_CMD_ARTICLE_SET_ROT_ARTICLE, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GRASS, 0, 90, 0);

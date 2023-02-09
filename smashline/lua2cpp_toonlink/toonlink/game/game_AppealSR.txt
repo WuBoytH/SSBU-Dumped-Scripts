@@ -1,7 +1,7 @@
 #[acmd_script( agent = "toonlink", script = "game_appealsr", category = ACMD_GAME, low_priority )]
 unsafe fn game_appealsr(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_FAIRY);
+        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_FAIRY, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_FAIRY, true);
         ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_TOONLINK_GENERATE_ARTICLE_FAIRY, Hash40::new("appeal_s_r"), false, -1.0);
     }

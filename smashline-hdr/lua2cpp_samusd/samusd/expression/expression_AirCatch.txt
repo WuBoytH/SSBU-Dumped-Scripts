@@ -4,7 +4,7 @@ unsafe fn expression_aircatch(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if is_excute(fighter) {
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_hide_gun") as i64);
-        ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN);
+        ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, true);
         ArticleModule::change_motion(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, Hash40::new("air_catch"), false, -1.0);
         ArticleModule::generate_article(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM, false, -1);
@@ -44,6 +44,6 @@ unsafe fn expression_aircatch(fighter: &mut L2CAgentBase) {
     }
     frame(lua_state, 50.0);
     if is_excute(fighter) {
-        ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM);
+        ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

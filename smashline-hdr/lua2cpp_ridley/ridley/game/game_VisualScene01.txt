@@ -3,7 +3,7 @@ unsafe fn game_visualscene01(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if is_excute(fighter) {
-        ArticleModule::remove_exist(boma, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP);
+        ArticleModule::remove_exist(boma, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(boma, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, false, -1);
         ArticleModule::set_pos(boma, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, 0, 1500, 0);
         ArticleModule::change_motion(boma, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, Hash40::new("visual_scene_01"), false, -1.0);
