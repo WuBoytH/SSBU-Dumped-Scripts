@@ -2,7 +2,7 @@
 unsafe fn expression_specialhi(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         AttackModule::set_attack_reference_joint_id(fighter.module_accessor, Hash40::new("haver"), AttackDirectionAxis(*ATTACK_DIRECTION_Z), AttackDirectionAxis(*ATTACK_DIRECTION_Y), AttackDirectionAxis(*ATTACK_DIRECTION_X));
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
         slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(fighter.lua_state_agent, 7.0);
@@ -24,6 +24,6 @@ unsafe fn expression_specialhi(fighter: &mut L2CAgentBase) {
     }
     frame(fighter.lua_state_agent, 45.0);
     if macros::is_excute(fighter) {
-        ItemModule::set_have_item_visibility(fighter.module_accessor, true);
+        ItemModule::set_have_item_visibility(fighter.module_accessor, true, 0);
     }
 }

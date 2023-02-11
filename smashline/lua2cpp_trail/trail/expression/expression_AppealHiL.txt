@@ -1,10 +1,10 @@
 #[acmd_script( agent = "trail", script = "expression_appealhil", category = ACMD_EXPRESSION, low_priority )]
 unsafe fn expression_appealhil(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
     }
     if macros::is_excute(fighter) {
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false);
+        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
         slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     if(0x4ae890(*FIGHTER_TRAIL_INSTANCE_WORK_ID_INT_APPEAL_HI_KIND, 1)){
@@ -56,7 +56,7 @@ macros::FT_MOTION_INTP_WAIT_ITEM(fighter, true, 0.07);
 }
 frame(fighter.lua_state_agent, 66.0);
 if macros::is_excute(fighter) {
-ItemModule::set_have_item_visibility(fighter.module_accessor, true);
+ItemModule::set_have_item_visibility(fighter.module_accessor, true, 0);
 }
 frame(fighter.lua_state_agent, 70.0);
 if macros::is_excute(fighter) {
