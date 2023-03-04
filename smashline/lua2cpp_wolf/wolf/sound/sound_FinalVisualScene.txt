@@ -3,11 +3,11 @@ unsafe fn sound_finalvisualscene(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 1.0);
     if macros::is_excute(fighter) {
         macros::STOP_SE(fighter, Hash40::new("se_wolf_final02"));
-        PLAY_SE_NO_3D(Hash40::new("se_wolf_final03"));
+        macros::PLAY_SE_NO_3D(fighter, Hash40::new("se_wolf_final03"));
     }
     frame(fighter.lua_state_agent, 40.0);
     if macros::is_excute(fighter) {
-        PLAY_SE_NO_3D(Hash40::new("se_wolf_final_noise_start"));
+        macros::PLAY_SE_NO_3D(fighter, Hash40::new("se_wolf_final_noise_start"));
     }
     frame(fighter.lua_state_agent, 51.0);
     WorkModule::is_flag(fighter.module_accessor, *FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_SPECIAL_CAPTION);
@@ -23,6 +23,6 @@ unsafe fn sound_finalvisualscene(fighter: &mut L2CAgentBase) {
 }
 frame(fighter.lua_state_agent, 210.0);
 if macros::is_excute(fighter) {
-    PLAY_SE_NO_3D(Hash40::new("se_wolf_final_noise_end"));
+    macros::PLAY_SE_NO_3D(fighter, Hash40::new("se_wolf_final_noise_end"));
 }
 }
