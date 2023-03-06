@@ -5,7 +5,7 @@ unsafe fn game_attacks4(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         WorkModule::set_int(fighter.module_accessor, -1, *FIGHTER_DEMON_STATUS_ATTACK_S4_WORK_INT_CRITICAL_HIT_NO);
     }
-    macros::FT_MOTION_RATE(fighter, 1);
+    macros::FT_MOTION_RATE(fighter, 1.0);
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
         WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -23,7 +23,7 @@ unsafe fn game_attacks4(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 14.0);
     FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 3);
     frame(fighter.lua_state_agent, 21.0);
-    macros::FT_MOTION_RATE(fighter, 1);
+    macros::FT_MOTION_RATE(fighter, 1.0);
     frame(fighter.lua_state_agent, 25.0);
     if macros::is_excute(fighter) {
         damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
@@ -36,7 +36,7 @@ unsafe fn game_attacks4(fighter: &mut L2CAgentBase) {
         macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 1, 1.75);
     }
     wait(fighter.lua_state_agent, 2.0);
-    macros::FT_MOTION_RATE(fighter, 1);
+    macros::FT_MOTION_RATE(fighter, 1.0);
     if macros::is_excute(fighter) {
         AttackModule::clear_all(fighter.module_accessor);
     }
