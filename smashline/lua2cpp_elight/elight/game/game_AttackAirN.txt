@@ -1,7 +1,7 @@
 #[acmd_script( agent = "elight", script = "game_attackairn", category = ACMD_GAME, low_priority )]
 unsafe fn game_attackairn(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 1.0);
-    macros::FT_MOTION_RATE(fighter, 4);
+    macros::FT_MOTION_RATE(fighter, 4.0);
     frame(fighter.lua_state_agent, 2.0);
     macros::FT_MOTION_RATE(fighter, 0.5);
     frame(fighter.lua_state_agent, 3.0);
@@ -15,7 +15,7 @@ unsafe fn game_attackairn(fighter: &mut L2CAgentBase) {
             WorkModule::on_flag(fighter.module_accessor, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_FLAG_ADD_PARTIAL_MTION_SWORD_WHEN_CHANGEING);
         }
     }
-    macros::FT_MOTION_RATE(fighter, 0, 1);
+    macros::FT_MOTION_RATE(fighter, 1.0);
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
         WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
