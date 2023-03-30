@@ -14,8 +14,7 @@ unsafe fn effect_attackdash(fighter: &mut L2CAgentBase) {
                 LAST_EFFECT_SET_RATE(fighter, 1.5);
             }
             else{
-            get_value_float(*EF_FLIP_YZ);
-            if(0x304a00(70377603622, 0)){
+            if get_value_float(fighter.lua_state_agent, *EF_FLIP_YZ) < 0.0 {
                 if is_excute(fighter) {
                     EFFECT_FOLLOW_FLIP(fighter, Hash40::new("jack_attack_arc"), Hash40::new("jack_attack_arc"), Hash40::new("top"), 2, 8, 2, -38, -31.5, 40.5, 0.85, true, *EF_FLIP_YZ);
                     LAST_EFFECT_SET_RATE(fighter, 1.5);
@@ -40,11 +39,9 @@ frame(lua_state, 12.0);
 if is_excute(fighter) {
 FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 3, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
 }
-WorkModule::is_flag(boma, *FIGHTER_JACK_INSTANCE_WORK_ID_FLAG_DOYLE);
-if(0x304a00(false, true)){
+if WorkModule::is_flag(boma, *FIGHTER_JACK_INSTANCE_WORK_ID_FLAG_DOYLE) {
 frame(lua_state, 14.0);
-get_value_float(*SO_VAR_FLOAT_LR);
-if(0x304a00(64549653000, 0)){
+if get_value_float(fighter.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
 if is_excute(fighter) {
     EFFECT_FOLLOW(fighter, Hash40::new("jack_doyle_attack_arc2"), Hash40::new("top"), -6, 16, -6, 13, -60, 98, 1.1, true);
     LAST_EFFECT_SET_RATE(fighter, 1);

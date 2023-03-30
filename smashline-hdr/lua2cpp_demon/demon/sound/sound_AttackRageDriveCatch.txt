@@ -4,8 +4,7 @@ unsafe fn sound_attackragedrivecatch(fighter: &mut L2CAgentBase) {
     let boma = fighter.boma();
     if !WorkModule::is_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ATTACK_RAGE_CAPTURE) {
         frame(lua_state, 2.0);
-        FighterCutInManager::is_play_motion_camera(boma);
-        if(0x3cfb70(false, true)){
+        if FighterCutInManager::is_play_motion_camera(boma) {
             if is_excute(fighter) {
                 PLAY_SE(fighter, Hash40::new("se_demon_commandsuccess"));
                 PLAY_SE(fighter, Hash40::new("se_demon_ragedrive"));

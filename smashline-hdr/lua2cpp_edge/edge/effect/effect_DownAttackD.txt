@@ -23,8 +23,7 @@ unsafe fn effect_downattackd(fighter: &mut L2CAgentBase) {
     }
 }
 frame(lua_state, 23.0);
-get_value_float(*SO_VAR_FLOAT_LR);
-if(0x24aec0(432, 0)){
+if get_value_float(fighter.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
     if is_excute(fighter) {
         EFFECT_FOLLOW_COLOR(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 3.861, 5, 1, 24.489, 190.356, 1, true, 0.75, 0.5, 1.5);
         LAST_EFFECT_SET_ALPHA(fighter, 0.5);

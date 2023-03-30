@@ -27,8 +27,7 @@ unsafe fn effect_finalfinish(fighter: &mut L2CAgentBase) {
     }
 }
 frame(fighter.lua_state_agent, 50.0);
-get_value_float(*SO_VAR_FLOAT_LR);
-if(0x12e770(1325460, 0)){
+if get_value_float(fighter.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
     if macros::is_excute(fighter) {
         macros::EFFECT_FLW_POS(fighter, Hash40::new("metaknight_final_last_trace_l"), Hash40::new("top"), 0, 0, -32.859, 0, 180, 0, 1, true);
         EffectModule::set_disable_render_offset_last(fighter.module_accessor);

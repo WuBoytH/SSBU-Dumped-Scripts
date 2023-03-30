@@ -13,8 +13,7 @@ unsafe fn game_final(fighter: &mut L2CAgentBase) {
                 camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -5, 5);
             }
             else{
-            get_value_float(*MA_MSC_CMD_CAMERA_CAM_OFFSET);
-            if(0x3cfb70(0, 0)){
+            if get_value_float(fighter.lua_state_agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET) < 0.0 {
                 if macros::is_excute(fighter) {
                     PostureModule::scale(fighter.module_accessor, 1, 0);
                     0x3cfb70(-1037516665, 2);

@@ -23,16 +23,13 @@ methodlib::L2CValue::L2CValue(void*)();
 methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 methodlib::L2CValue::as_pointer()const();
 check_disabled_motion_camera_of_stage();
-WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ENABLE_THROW_MOTION_CAMERA);
-if(0x3cfb70(false, true)){
+if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ENABLE_THROW_MOTION_CAMERA) {
 if macros::is_excute(fighter) {
     macros::CHECK_VALID_START_CAMERA(fighter, 0, 7, 0, 50, 30, 0, true);
 }
 }
-WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_DISABLE_THROW_MOTION_CAMERA);
-if(0x3cfb70(false, false)){
-WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-if(0x3cfb70(false, false)){
+if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_DISABLE_THROW_MOTION_CAMERA) {
+if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
     if macros::is_excute(fighter) {
         macros::REQ_MOTION_CAMERA(fighter, 0x163d9703b0, false);
     }
@@ -64,8 +61,7 @@ macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 13.0, 19, 50, 0, 45, 6.0, 0.0,
 macros::ATTACK(fighter, 1, 0, Hash40::new("top"), 13.0, 19, 50, 0, 45, 4.0, 0.0, 8.0, -6.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_DEMON_THROWCOMMAND, *ATTACK_REGION_KICK);
 AttackModule::set_catch_only_all(fighter.module_accessor, true, false);
 }
-WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_STATUS_THROW_COMMAND_FLAG_USE_OTHER_PARAM);
-if(0x3cfb70(false, false)){
+if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_STATUS_THROW_COMMAND_FLAG_USE_OTHER_PARAM) {
 if macros::is_excute(fighter) {
     macros::CHECK_FINISH_CAMERA(fighter, 18, 2);
 }

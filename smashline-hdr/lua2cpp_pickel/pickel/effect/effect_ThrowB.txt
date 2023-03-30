@@ -24,8 +24,7 @@ unsafe fn effect_throwb(fighter: &mut L2CAgentBase) {
     }
 }
 frame(lua_state, 9.0);
-get_value_float(*SO_VAR_FLOAT_LR);
-if(0x370870(66012196486, 0)){
+if get_value_float(fighter.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
     if is_excute(fighter) {
         EFFECT_ALPHA(fighter, Hash40::new("sys_spin_wind_s"), Hash40::new("rot"), 0, 15, -3, 0, 40, -10, 1.25, 0, 0, 0, 0, 0, 0, true, 0.3);
         LAST_EFFECT_SET_RATE(fighter, 1.4);

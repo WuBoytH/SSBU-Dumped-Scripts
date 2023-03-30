@@ -2,8 +2,7 @@
 unsafe fn effect_rebirth(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    FighterManager::is_homerun_versus(boma);
-    if(0x11e570(false, false)){
+    if !FighterManager::is_homerun_versus(singletons::FighterManager()) {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("rosetta_tico_birth"), Hash40::new("trans"), 0, 1, 0, 0, 0, 0, 1, false);
         }

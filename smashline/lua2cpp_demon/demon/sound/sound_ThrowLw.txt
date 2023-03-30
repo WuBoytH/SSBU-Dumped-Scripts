@@ -1,8 +1,7 @@
 #[acmd_script( agent = "demon", script = "sound_throwlw", category = ACMD_SOUND, low_priority )]
 unsafe fn sound_throwlw(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 2.0);
-    FighterCutInManager::is_play_motion_camera(fighter.module_accessor);
-    if(0x3cfb70(false, true)){
+    if FighterCutInManager::is_play_motion_camera(fighter.module_accessor) {
         if macros::is_excute(fighter) {
             macros::PLAY_SE(fighter, Hash40::new("se_demon_throw_l01"));
         }

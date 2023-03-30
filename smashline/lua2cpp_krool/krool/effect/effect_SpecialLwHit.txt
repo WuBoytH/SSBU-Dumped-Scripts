@@ -35,8 +35,7 @@ if macros::is_excute(fighter) {
     macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     macros::LAST_EFFECT_SET_RATE(fighter, 0.7);
 }
-get_value_float(*SO_VAR_FLOAT_LR);
-if(0x124880(768, 0)){
+if get_value_float(fighter.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
     if macros::is_excute(fighter) {
         macros::EFFECT_FOLLOW(fighter, Hash40::new("krool_counter_attack_body_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
         macros::EFFECT(fighter, Hash40::new("krool_counter_attack"), Hash40::new("top"), 6, 14, 16, -90, 30, 0, 0.8, 0, 0, 0, 0, 0, 0, true);

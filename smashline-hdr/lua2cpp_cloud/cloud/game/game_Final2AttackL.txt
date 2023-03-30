@@ -23,8 +23,7 @@ unsafe fn game_final2attackl(fighter: &mut L2CAgentBase) {
                     WorkModule::off_flag(boma, *FIGHTER_CLOUD_STATUS_FINAL_FLAG_DISP_WINDOW);
                 }
                 else{
-                get_value_float(*FIGHTER_CLOUD_STATUS_FINAL_FLAG_DISP_WINDOW);
-                if(0x1801b0(2001248, 0)){
+                if get_value_float(fighter.lua_state_agent, *FIGHTER_CLOUD_STATUS_FINAL_FLAG_DISP_WINDOW) < 0.0 {
                     if is_excute(fighter) {
                         REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04finalattackl.nuanmb"), true);
                     }
