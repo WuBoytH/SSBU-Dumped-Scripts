@@ -1,5 +1,6 @@
 # SSBU Dumped Scripts
 Dumped using Rubendal's script dumping tool: https://github.com/rubendal/SSBU-Dump-Scripts
+Make an issue or DM WuBoy#0238 on Discord if any script is incorrect!
 
 # Usage
 Scripts in the `smashline` and `smashline-hdr` folder are in a (mostly) usable state right out of the gate.
