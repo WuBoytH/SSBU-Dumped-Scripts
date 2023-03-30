@@ -7,8 +7,7 @@ unsafe fn effect_attacklw3(fighter: &mut L2CAgentBase) {
         FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 6.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x10d030(96, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW_arg11(Hash40::new("fox_tail_attack_01"), Hash40::new("top"), -1, 4, 2, 7, -40, 170, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
         }

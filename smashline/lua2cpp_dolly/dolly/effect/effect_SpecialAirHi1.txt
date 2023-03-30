@@ -1,8 +1,7 @@
 #[acmd_script( agent = "dolly", script = "effect_specialairhi1", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_specialairhi1(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 9.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x2508e0(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("dolly_roll_l_color1"), Hash40::new("throw"), 0, 2.5, 0, 0, 0, 0, 1, true, 0.5);
         }

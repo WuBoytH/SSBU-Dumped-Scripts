@@ -13,8 +13,7 @@ unsafe fn effect_attacks4lw(fighter: &mut L2CAgentBase) {
         EFFECT_FOLLOW(fighter, Hash40::new("koopajr_attack_s4"), Hash40::new("clownhandr"), 10, 0, 0, 0, 0, 90, 0.465, true);
         LAST_EFFECT_SET_RATE(fighter, 1.5);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x11ab40(74958320818, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         frame(lua_state, 18.0);
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 5, 0, 0, 0, 0, 90, 0.15, true);

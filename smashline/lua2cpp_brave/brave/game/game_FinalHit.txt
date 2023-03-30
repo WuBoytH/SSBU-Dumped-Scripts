@@ -1,7 +1,6 @@
 #[acmd_script( agent = "brave", script = "game_finalhit", category = ACMD_GAME, low_priority )]
 unsafe fn game_finalhit(fighter: &mut L2CAgentBase) {
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x23a020(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             CAM_ZOOM_IN_arg5(1, 0, 2.2, 0, 0);
             camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -10, 8);

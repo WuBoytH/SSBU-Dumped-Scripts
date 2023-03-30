@@ -12,8 +12,7 @@ unsafe fn effect_palutenaspecialn(fighter: &mut L2CAgentBase) {
     frame(lua_state, 8.0);
     WorkModule::is_flag(boma, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_TARGET_EXIST);
     if(0x543c60(false, true)){
-        get_value_float(*SO_VAR_FLOAT_LR);
-        if(0x543c60(160, 0)){
+        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
             if is_excute(fighter) {
                 EFFECT_FOLLOW(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11.5, -1.5, 0, 65, 0, 1.1, true);
             }
@@ -24,8 +23,7 @@ unsafe fn effect_palutenaspecialn(fighter: &mut L2CAgentBase) {
                 EFFECT_FOLLOW(fighter, Hash40::new("palutena_wand_light2"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.9, true);
             }
             frame(lua_state, 13.0);
-            get_value_float(*SO_VAR_FLOAT_LR);
-            if(0x543c60(160, 0)){
+            if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
                 if is_excute(fighter) {
                     EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11, -1.5, 0, 65, 0, 1.1, true, 0.8);
                 }

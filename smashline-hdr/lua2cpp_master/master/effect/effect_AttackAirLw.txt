@@ -3,8 +3,7 @@ unsafe fn effect_attackairlw(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     frame(lua_state, 3.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x333080(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 5, 8, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }

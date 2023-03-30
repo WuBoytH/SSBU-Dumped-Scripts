@@ -1,8 +1,7 @@
 #[acmd_script( agent = "jack", script = "effect_specialairhi", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_specialairhi(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 20.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x304a00(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW(fighter, Hash40::new("jack_wire_line"), Hash40::new("throw"), 0, 0, 0, 115.5, 0, -1, 0.6, true);
         }

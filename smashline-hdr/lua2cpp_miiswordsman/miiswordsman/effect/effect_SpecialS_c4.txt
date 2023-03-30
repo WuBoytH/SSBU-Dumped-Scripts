@@ -12,8 +12,7 @@ unsafe fn effect_specials_c4(fighter: &mut L2CAgentBase) {
         LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), -1.5, 0, 2, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 14.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x191390(256, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("miiswordsman_reflect1_l"), Hash40::new("top"), -3, 0, 14, 0, 0.0, 0, 1.1, true);
             LAST_EFFECT_SET_RATE(fighter, 1.2);

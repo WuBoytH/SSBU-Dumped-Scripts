@@ -12,8 +12,7 @@ unsafe fn effect_specialsspin(fighter: &mut L2CAgentBase) {
         EffectModule::enable_sync_init_pos_last(boma);
     }
     for _ in 0..3 {
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x12c570(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spinwind_oneshot"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.85, true);
             LAST_EFFECT_SET_COLOR(fighter, 0.711, 0.931, 1);

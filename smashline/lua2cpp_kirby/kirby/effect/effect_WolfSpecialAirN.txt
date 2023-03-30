@@ -1,8 +1,7 @@
 #[acmd_script( agent = "kirby", script = "effect_wolfspecialairn", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_wolfspecialairn(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 13.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x543c60(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT(fighter, Hash40::new("wolf_blaster_shot"), Hash40::new("top"), 1, 9.35, 13.6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }

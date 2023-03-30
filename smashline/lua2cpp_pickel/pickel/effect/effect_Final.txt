@@ -1,7 +1,6 @@
 #[acmd_script( agent = "pickel", script = "effect_final", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_final(fighter: &mut L2CAgentBase) {
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x370870(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_pickel_final_l"), false, false, false);
         }

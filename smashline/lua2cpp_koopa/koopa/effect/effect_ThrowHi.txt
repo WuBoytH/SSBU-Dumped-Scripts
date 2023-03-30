@@ -2,8 +2,7 @@
 unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 15.0);
     for _ in 0..5 {
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0xe76f0(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FLW_POS(fighter, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 3.5, -1, 0, 0, 0, 1.1, true);
         }

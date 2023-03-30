@@ -13,8 +13,7 @@ unsafe fn game_finalattackcommon(fighter: &mut L2CAgentBase) {
         if(0x357740(false, true)){
             WorkModule::is_flag(fighter.module_accessor, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_TRAINING_ZOOM);
             if(0x357740(false, false)){
-                get_value_float(*SO_VAR_FLOAT_LR);
-                if(0x357740(1984, 0)){
+                if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
                     if macros::is_excute(fighter) {
                         PostureModule::scale(fighter.module_accessor, 1, 0);
                         0x357740(-1178691668, 5);
@@ -29,8 +28,7 @@ unsafe fn game_finalattackcommon(fighter: &mut L2CAgentBase) {
                     }
                     WorkModule::is_flag(fighter.module_accessor, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_TRAINING_ZOOM);
                     if(0x357740(false, false)){
-                        get_value_float(*SO_VAR_FLOAT_LR);
-                        if(0x357740(1984, 0)){
+                        if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
                             if macros::is_excute(fighter) {
                                 camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -40, 25);
                             }

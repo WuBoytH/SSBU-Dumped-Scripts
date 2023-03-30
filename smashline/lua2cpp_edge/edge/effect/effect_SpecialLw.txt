@@ -5,8 +5,7 @@ unsafe fn effect_speciallw(fighter: &mut L2CAgentBase) {
         macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_senkou_start"), Hash40::new("waist"), 2, 0, 0, 0, 0, 0, 1, true);
     }
     frame(fighter.lua_state_agent, 6.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x24aec0(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW(fighter, Hash40::new("edge_senkou_shield"), Hash40::new("top"), 0, 13, 9, 0, -55, 0, 0.85, true);
         }

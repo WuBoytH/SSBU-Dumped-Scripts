@@ -7,8 +7,7 @@ unsafe fn effect_specialairlw(fighter: &mut L2CAgentBase) {
         EFFECT_FOLLOW(fighter, Hash40::new("edge_senkou_start"), Hash40::new("waist"), 2, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 6.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x24aec0(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("edge_senkou_shield"), Hash40::new("top"), 0, 13, 9, 0, -55, 0, 0.85, true);
         }

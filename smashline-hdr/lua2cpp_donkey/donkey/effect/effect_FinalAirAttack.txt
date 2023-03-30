@@ -6,8 +6,7 @@ unsafe fn effect_finalairattack(fighter: &mut L2CAgentBase) {
         EffectModule::remove_screen(boma, Hash40::new("bg_donkey_final"), -1);
         FT_REMOVE_FINAL_AURA(fighter, true);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x120890(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EffectModule::req_screen(boma, Hash40::new("bg_donkey_final2"), false, false, false);
         }

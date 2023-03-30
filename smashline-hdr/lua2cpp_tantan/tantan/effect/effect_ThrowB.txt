@@ -7,8 +7,7 @@ unsafe fn effect_throwb(fighter: &mut L2CAgentBase) {
         LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 2, 0, 0, 0, 180, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 26.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x3a02e0(128, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), -13, 25, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, false);
             LAST_EFFECT_SET_RATE(fighter, 0.8);

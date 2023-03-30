@@ -10,8 +10,7 @@ unsafe fn effect_finalairend(fighter: &mut L2CAgentBase) {
         EFFECT(fighter, Hash40::new("lucina_final_hit"), Hash40::new("top"), 0, 12, 15, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 3.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x13b380(1652648, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT(fighter, Hash40::new("lucina_final_shockwave"), Hash40::new("top"), 0, 10, 0, 5, 0, -5, 3, 0, 0, 0, 0, 0, 0, true);
         }

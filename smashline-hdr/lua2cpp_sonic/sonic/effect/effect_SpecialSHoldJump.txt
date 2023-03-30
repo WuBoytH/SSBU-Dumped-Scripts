@@ -9,8 +9,7 @@ unsafe fn effect_specialsholdjump(fighter: &mut L2CAgentBase) {
     }
     WorkModule::is_flag(boma, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_SPECIAL_S_HOLD_JUMP_EFFECT);
     if(0x12c570(false, false)){
-        get_value_float(*SO_VAR_FLOAT_LR);
-        if(0x12c570(107048047716, 0)){
+        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
             if is_excute(fighter) {
                 EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spindash_hold"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 1, true);
             }

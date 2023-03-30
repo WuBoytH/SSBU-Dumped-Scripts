@@ -5,8 +5,7 @@ unsafe fn effect_flame(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         EFFECT_OFF_KIND(fighter, Hash40::new("packun_final_atk_wind"), false, true);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x1646b0(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             LANDING_EFFECT(fighter, Hash40::new("null"), Hash40::new("hip"), 0, -7, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
             EFFECT(fighter, Hash40::new("packun_final_landing_smoke"), Hash40::new("hip"), 0, -7, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);

@@ -12,8 +12,7 @@ unsafe fn expression_sleeploop(fighter: &mut L2CAgentBase) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_sleep"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
         VisibilityModule::set_int64(boma, hash40("head") as i64, hash40("head_close") as i64);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x102320(480, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             VisibilityModule::set_int64(boma, hash40("zzz") as i64, hash40("r_zzz_5") as i64);
         }

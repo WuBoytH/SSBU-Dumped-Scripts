@@ -8,8 +8,7 @@ unsafe fn effect_slipattack(fighter: &mut L2CAgentBase) {
         LAST_EFFECT_SET_RATE(fighter, 1.4);
     }
     frame(lua_state, 18.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x3a02e0(160, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("tantan_attack_arc_weak"), Hash40::new("top"), -2.5, 4, -2, -177, -55, -7, 1, true);
             LAST_EFFECT_SET_COLOR(fighter, 3, 1.2, 0.5);

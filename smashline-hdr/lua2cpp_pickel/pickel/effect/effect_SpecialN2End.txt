@@ -3,8 +3,7 @@ unsafe fn effect_specialn2end(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     frame(lua_state, 15.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x370870(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT(fighter, Hash40::new("pickel_craft_end"), Hash40::new("haver"), 0, 6.2, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
         }

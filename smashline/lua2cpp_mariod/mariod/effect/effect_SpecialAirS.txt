@@ -1,8 +1,7 @@
 #[acmd_script( agent = "mariod", script = "effect_specialairs", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_specialairs(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 10.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0xda370(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW_FLIP(fighter, Hash40::new("mariod_supermant_wind_r"), Hash40::new("mariod_supermant_wind_l"), Hash40::new("top"), 1, 7.5, 5, 0, 35, 0, 1.2, true, *EF_FLIP_NONE);
         }

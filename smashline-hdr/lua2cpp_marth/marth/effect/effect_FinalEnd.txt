@@ -13,8 +13,7 @@ unsafe fn effect_finalend(fighter: &mut L2CAgentBase) {
         LAST_EFFECT_SET_RATE(fighter, 0.7);
     }
     frame(lua_state, 3.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x137f20(1640952, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT(fighter, Hash40::new("marth_final_shockwave"), Hash40::new("top"), 0, 10, 0, 5, 0, -5, 3, 0, 0, 0, 0, 0, 0, true);
         }

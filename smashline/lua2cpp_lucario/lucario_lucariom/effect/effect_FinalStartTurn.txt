@@ -4,8 +4,7 @@ unsafe fn effect_finalstartturn(fighter: &mut L2CAgentBase) {
         EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_lucario_final"), false, false, false);
     }
     frame(fighter.lua_state_agent, 25.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x1035e0(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("havel"), 0, 0, 1, 0, 0, 0, 1, false);
             macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("haver"), 1, 0, 0, 0, 0, 0, 1, false);

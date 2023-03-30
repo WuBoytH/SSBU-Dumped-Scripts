@@ -1,7 +1,6 @@
 #[acmd_script( agent = "lucario", script = "effect_hadoum_l", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_hadoum_l(fighter: &mut L2CAgentBase) {
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x1035e0(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             battle_object();
             methodlib::L2CValue::L2CValue(void*)();

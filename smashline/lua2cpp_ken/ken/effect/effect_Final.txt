@@ -8,8 +8,7 @@ unsafe fn effect_final(fighter: &mut L2CAgentBase) {
         macros::EFFECT_FOLLOW(fighter, Hash40::new("ken_final_shippu_hold"), Hash40::new("top"), 0, 12, -1, 0, 0, 0, 1, true);
     }
     frame(fighter.lua_state_agent, 10.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x16e550(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW(fighter, Hash40::new("ken_final_shippu_start"), Hash40::new("top"), -10, 15, 0, 0, 0, 0, 0.6, true);
         }

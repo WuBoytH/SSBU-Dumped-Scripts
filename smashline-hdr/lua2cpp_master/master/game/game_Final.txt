@@ -14,8 +14,7 @@ unsafe fn game_final(fighter: &mut L2CAgentBase) {
             FT_SET_FINAL_FEAR_FACE(fighter, 50);
         }
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x333080(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04finalstart02.nuanmb"), false);
         }

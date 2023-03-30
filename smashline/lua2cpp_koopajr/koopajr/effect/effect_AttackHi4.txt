@@ -9,8 +9,7 @@ unsafe fn effect_attackhi4(fighter: &mut L2CAgentBase) {
         macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
     }
     frame(fighter.lua_state_agent, 9.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x11ab40(416, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW_COLOR(fighter, Hash40::new("sys_spin_wind"), Hash40::new("top"), -1.5, 18.5, 1.5, -20, 180, 20, 0.7, true, 0.3, 0.6, 0.2);
             macros::LAST_EFFECT_SET_RATE(fighter, 1.5);

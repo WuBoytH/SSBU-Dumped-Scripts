@@ -4,8 +4,7 @@ unsafe fn effect_pitspecialairnholds(fighter: &mut L2CAgentBase) {
         macros::EFFECT_OFF_KIND(fighter, Hash40::new("pit_pa_hold_bow"), true, true);
         macros::EFFECT_OFF_KIND(fighter, Hash40::new("pit_pa_hold_bow2"), true, true);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x543c60(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW(fighter, Hash40::new("pit_pa_hold_bow"), Hash40::new("havel"), 1, 2.5, 1, -1, -20, 180, 1, true);
         }

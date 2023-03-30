@@ -3,8 +3,7 @@ unsafe fn effect_attack(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     frame(lua_state, 6.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x11d6f0(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("shizue_bucket_splash"), Hash40::new("bucket"), 0, 0, 0, 0, 90, -15, 1, true);
         }

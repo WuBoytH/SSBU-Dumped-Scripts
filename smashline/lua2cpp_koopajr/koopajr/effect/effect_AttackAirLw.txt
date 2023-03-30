@@ -6,8 +6,7 @@ unsafe fn effect_attackairlw(fighter: &mut L2CAgentBase) {
         macros::LAST_EFFECT_SET_RATE(fighter, 2);
     }
     frame(fighter.lua_state_agent, 16.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x11ab40(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW_RND(fighter, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachl2"), 4.5, 0, 0, 0, 0, 90, 0.25, 3, 2, 2, 10, 360, 10, true);
             macros::LAST_EFFECT_SET_RATE(fighter, 1.5);

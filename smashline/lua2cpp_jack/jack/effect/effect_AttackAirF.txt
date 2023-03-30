@@ -9,8 +9,7 @@ unsafe fn effect_attackairf(fighter: &mut L2CAgentBase) {
         }
     }
     frame(fighter.lua_state_agent, 11.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x304a00(70377603750, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW(fighter, Hash40::new("jack_smash_arc"), Hash40::new("top"), -11, 16, -3, -75, -79.5, 31, 0.8, true);
             macros::LAST_EFFECT_SET_RATE(fighter, 1.5);

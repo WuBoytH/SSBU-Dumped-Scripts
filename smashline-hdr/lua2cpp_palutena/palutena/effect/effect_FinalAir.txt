@@ -5,8 +5,7 @@ unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         EffectModule::req_screen(boma, Hash40::new("bg_palutena_final"), false, false, false);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0xee630(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FLW_POS(fighter, Hash40::new("palutena_final_ripple"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, true);
         }

@@ -8,8 +8,7 @@ unsafe fn effect_ganonspecialn(fighter: &mut L2CAgentBase) {
         LAST_EFFECT_SET_RATE(fighter, 0.7);
     }
     frame(lua_state, 34.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x543c60(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("ganon_majinken_flash"), Hash40::new("havel"), 3, 2, 0, 0, 0, 0, 1, true);
         }

@@ -1,8 +1,7 @@
 #[acmd_script( agent = "koopajr", script = "effect_attackairn", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_attackairn(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 5.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x11ab40(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW_RND(fighter, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 1, -0.5, 180, 0, 0, 1.45, 0, 3, 0, 5, 0, 5, true);
             macros::LAST_EFFECT_SET_ALPHA(fighter, 0.4);

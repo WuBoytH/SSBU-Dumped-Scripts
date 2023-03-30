@@ -1,7 +1,6 @@
 #[acmd_script( agent = "snake", script = "effect_downattacku", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_downattacku(fighter: &mut L2CAgentBase) {
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x114600(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         frame(fighter.lua_state_agent, 14.0);
         if macros::is_excute(fighter) {
             macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 180, 0, 0.3, 0, 0, 0, 0, 0, 0, true);

@@ -4,8 +4,7 @@ unsafe fn effect_ganonspecialairn(fighter: &mut L2CAgentBase) {
         macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_majinken_start"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(fighter.lua_state_agent, 34.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x543c60(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW(fighter, Hash40::new("ganon_majinken_flash"), Hash40::new("havel"), 3, 2, 0, 0, 0, 0, 1, true);
         }

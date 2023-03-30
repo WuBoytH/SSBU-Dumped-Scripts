@@ -2,8 +2,7 @@
 unsafe fn effect_catchattack(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x12e770(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("metaknight_catch_impact"), Hash40::new("top"), 0.4, 12, 10, 20, 0, 0, 1, true);
             EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("metaknight_catch_line"), Hash40::new("top"), 0, 14, 0, 8, 0, 0, 1, true);

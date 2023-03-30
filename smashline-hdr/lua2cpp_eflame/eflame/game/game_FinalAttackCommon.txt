@@ -3,8 +3,7 @@ unsafe fn game_finalattackcommon(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     frame(lua_state, 1.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x3de840(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             PostureModule::scale(boma, 1, 0);
             0x3de840(-1268740023, 2.9);

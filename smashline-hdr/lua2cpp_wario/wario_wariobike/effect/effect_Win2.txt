@@ -6,8 +6,7 @@ unsafe fn effect_win2(fighter: &mut L2CAgentBase) {
         EFFECT_FOLLOW(fighter, Hash40::new("wario_bike_smoke"), Hash40::new("muffler1"), 0, 0, 0, 0, 0, 0, 1, false);
     }
     frame(lua_state, 32.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x105d70(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 8, 0, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, true);
             LAST_EFFECT_SET_RATE(fighter, 0.6);

@@ -9,8 +9,7 @@ unsafe fn effect_finalattack(fighter: &mut L2CAgentBase) {
         effect(*MA_MSC_CMD_EFFECT_AFTER_IMAGE3_ON, Hash40::new("tex_gekkouga_sword1"), Hash40::new("tex_gekkouga_sword1"), 8, Hash40::new("haver"), 0, -1.7, 0, Hash40::new("haver"), -0.0, -11.7, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 180, -90, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_BLEND_SRC_ONE, 1001);
         methodlib::L2CAgent::pop();
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x141380(1016, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("bust"), 0, 0, 0, 0, 75, 0, 1, true);
         }

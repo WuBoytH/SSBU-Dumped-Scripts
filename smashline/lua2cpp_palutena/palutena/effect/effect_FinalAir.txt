@@ -3,8 +3,7 @@ unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_palutena_final"), false, false, false);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0xee630(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FLW_POS(fighter, Hash40::new("palutena_final_ripple"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, true);
         }

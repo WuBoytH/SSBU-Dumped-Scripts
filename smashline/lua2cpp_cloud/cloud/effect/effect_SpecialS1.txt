@@ -12,8 +12,7 @@ unsafe fn effect_specials1(fighter: &mut L2CAgentBase) {
         macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
     frame(fighter.lua_state_agent, 10.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x1801b0(720, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT(fighter, Hash40::new("cloud_kyogiri_stroke1_l"), Hash40::new("top"), 0, 10, 17, 0, 100, 0, 1, 0, 0, 0, 0, 0, 0, true);
             macros::LAST_EFFECT_SET_WORK_INT(fighter, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_KYOU_EFFECT);

@@ -8,8 +8,7 @@ unsafe fn effect_trailspecialn1(fighter: &mut L2CAgentBase) {
         macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -1.5, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
     frame(fighter.lua_state_agent, 1.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x543c60(112, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("trail_fire_impact"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
         }

@@ -11,8 +11,7 @@ unsafe fn game_finalattack(fighter: &mut L2CAgentBase) {
             macros::CAM_ZOOM_OUT(fighter);
         }
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x1801b0(2001248, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             PostureModule::scale(fighter.module_accessor, 220, 0);
             0x1801b0(0, 2.8);

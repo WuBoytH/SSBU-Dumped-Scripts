@@ -6,8 +6,7 @@ unsafe fn effect_downattackd(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, -2, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, true);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x114600(112, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc"), Hash40::new("top"), 1, 7.75, 0.5, -4, -25, -10, 0.9, true);
             LAST_EFFECT_SET_RATE(fighter, 1.8);

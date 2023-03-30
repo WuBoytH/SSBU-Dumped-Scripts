@@ -42,8 +42,7 @@ unsafe fn effect_speciallw(fighter: &mut L2CAgentBase) {
         COL_NORMAL(fighter);
     }
     frame(lua_state, 10.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0xe77b0(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("mewtwo_kanasibari_eye"), Hash40::new("head"), 0.7, 1.9, 1.4, 0, 0, 0, 0.5, true);
         }

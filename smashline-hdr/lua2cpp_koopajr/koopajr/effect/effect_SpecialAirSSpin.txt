@@ -2,8 +2,7 @@
 unsafe fn effect_specialairsspin(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x11ab40(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         frame(lua_state, 16.0);
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1.1, true);

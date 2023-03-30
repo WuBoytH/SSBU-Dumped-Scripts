@@ -5,8 +5,7 @@ unsafe fn effect_specialhi(fighter: &mut L2CAgentBase) {
         macros::LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(fighter.lua_state_agent, 13.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x1646b0(160, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_spin_wind_s"), Hash40::new("neck"), 1, 0, 0, 0, 90, -100, 1.1, true, 0.5);
             macros::EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_spin_wind_s"), Hash40::new("neck"), 1, 0, 0, 0, 270, -100, 1.1, true, 0.5);

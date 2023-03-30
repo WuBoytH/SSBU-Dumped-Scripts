@@ -7,8 +7,7 @@ unsafe fn effect_packunspecialnshootf(fighter: &mut L2CAgentBase) {
         LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -1, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 14.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x543c60(96, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT(fighter, Hash40::new("packun_spikeball_shoot"), Hash40::new("top"), 4.75, 11.25, 9.75, 50, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
         }

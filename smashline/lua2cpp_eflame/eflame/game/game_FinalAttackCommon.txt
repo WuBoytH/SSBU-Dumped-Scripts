@@ -1,8 +1,7 @@
 #[acmd_script( agent = "eflame", script = "game_finalattackcommon", category = ACMD_GAME, low_priority )]
 unsafe fn game_finalattackcommon(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 1.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x3de840(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             PostureModule::scale(fighter.module_accessor, 1, 0);
             0x3de840(-1268740023, 2.9);

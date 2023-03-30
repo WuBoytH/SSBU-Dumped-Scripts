@@ -3,8 +3,7 @@ unsafe fn effect_final(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     if WorkModule::get_int(boma, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 0 {
-        get_value_float(*SO_VAR_FLOAT_LR);
-        if(0x13d500(0, 0)){
+        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
             if is_excute(fighter) {
                 EffectModule::req_screen(boma, Hash40::new("bg_inkling_final_l"), false, false, false);
             }
@@ -16,8 +15,7 @@ unsafe fn effect_final(fighter: &mut L2CAgentBase) {
     }
 }
 if WorkModule::get_int(boma, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 1 {
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x13d500(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EffectModule::req_screen(boma, Hash40::new("bg_inkling_final_l2"), false, false, false);
         }

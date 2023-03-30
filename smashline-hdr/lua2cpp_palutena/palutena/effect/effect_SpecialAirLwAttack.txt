@@ -15,8 +15,7 @@ unsafe fn effect_specialairlwattack(fighter: &mut L2CAgentBase) {
     if is_excute(fighter) {
         EFFECT_DETACH_KIND(fighter, Hash40::new("palutena_backlight"), 0);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0xee630(256, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FLW_POS(fighter, Hash40::new("palutena_backlight"), Hash40::new("waist"), 8, -3, 0, 0, 90, 0, 1, true);
             EffectModule::set_disable_render_offset_last(boma);

@@ -16,8 +16,7 @@ unsafe fn effect_trailspecialn2(fighter: &mut L2CAgentBase) {
         EFFECT_FOLLOW(fighter, Hash40::new("trail_ice_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
     }
     frame(lua_state, 25.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x543c60(128, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, 0x1067ddad8a, Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
         }

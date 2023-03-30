@@ -3,8 +3,7 @@ unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     frame(lua_state, 9.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x3a02e0(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("tantan_attack_dash"), Hash40::new("top"), -1.5, 23.6, 1.5, -90, 0, 0, 1, true, 0.6);
             LAST_EFFECT_SET_COLOR(fighter, 3, 1.2, 0.5);

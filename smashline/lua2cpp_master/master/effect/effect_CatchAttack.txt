@@ -1,7 +1,6 @@
 #[acmd_script( agent = "master", script = "effect_catchattack", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_catchattack(fighter: &mut L2CAgentBase) {
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x333080(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         frame(fighter.lua_state_agent, 1.0);
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), -1.5, 7.6, -5, -14.5, 0, 0, 0.7, true);

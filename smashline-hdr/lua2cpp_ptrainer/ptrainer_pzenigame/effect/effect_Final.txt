@@ -16,8 +16,7 @@ unsafe fn effect_final(fighter: &mut L2CAgentBase) {
         COL_NORMAL(fighter);
     }
     frame(lua_state, 29.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x43c10(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("finptrainer_hydro_pump"), Hash40::new("top"), 3, 3.4, 5.6, 0, 0, 180, 1, true);
         }

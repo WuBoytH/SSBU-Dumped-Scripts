@@ -12,8 +12,7 @@ unsafe fn effect_wolfspecialn(fighter: &mut L2CAgentBase) {
         AFTER_IMAGE_OFF(fighter, 4);
         EFFECT_OFF_KIND(fighter, Hash40::new("wolf_bayonet"), false, false);
     }
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x543c60(6946864, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT(fighter, Hash40::new("wolf_blaster_shot"), Hash40::new("top"), 1, 9.35, 13.6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }

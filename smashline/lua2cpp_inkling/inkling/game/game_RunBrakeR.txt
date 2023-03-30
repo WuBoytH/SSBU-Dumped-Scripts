@@ -1,7 +1,6 @@
 #[acmd_script( agent = "inkling", script = "game_runbraker", category = ACMD_GAME, low_priority )]
 unsafe fn game_runbraker(fighter: &mut L2CAgentBase) {
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x13d500(0, 0)){
+    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(fighter) {
             WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_NO_FLIP_SQUID);
         }

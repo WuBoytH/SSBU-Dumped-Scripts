@@ -3,8 +3,7 @@ unsafe fn effect_attackairb(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     frame(lua_state, 9.0);
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x11e570(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FLW_POS(fighter, Hash40::new("rosetta_blackhole"), Hash40::new("footl"), 4, -2.5, 0, 30, 90, 0, 1, true);
             LAST_EFFECT_SET_RATE(fighter, 1.4);

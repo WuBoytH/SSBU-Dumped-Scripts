@@ -19,8 +19,7 @@ unsafe fn game_finalair(fighter: &mut L2CAgentBase) {
         if is_excute(fighter) {
             FT_START_CUTIN(fighter);
         }
-        get_value_float(*SO_VAR_FLOAT_LR);
-        if(0x16e550(0, 0)){
+        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
             if is_excute(fighter) {
                 camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
                 PostureModule::scale(boma, 3, 0);

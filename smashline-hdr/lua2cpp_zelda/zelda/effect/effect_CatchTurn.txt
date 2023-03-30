@@ -2,8 +2,7 @@
 unsafe fn effect_catchturn(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    get_value_float(*SO_VAR_FLOAT_LR);
-    if(0x10db70(0, 0)){
+    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("zelda_catch_flash"), Hash40::new("haver"), -0.5, 0, 0.5, 0, 0, 0, 0.95, true);
             EFFECT_FOLLOW(fighter, Hash40::new("zelda_catch_flash"), Hash40::new("havel"), 0.5, 0, -0.5, 0, 0, 0, 0.95, true);

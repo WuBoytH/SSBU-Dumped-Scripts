@@ -26,8 +26,7 @@ unsafe fn game_finalairstart(fighter: &mut L2CAgentBase) {
     }
     WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
     if(0x3cfb70(false, false)){
-        get_value_float(*SO_VAR_FLOAT_LR);
-        if(0x3cfb70(1344, 0)){
+        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
             if is_excute(fighter) {
                 REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalstart.nuanmb"), true, false);
             }
