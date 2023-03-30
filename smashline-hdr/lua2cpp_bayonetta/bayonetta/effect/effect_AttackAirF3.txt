@@ -3,7 +3,7 @@ unsafe fn effect_attackairf3(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     frame(lua_state, 11.0);
-    if(0x1cb400(*FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_COSTUME_KIND, FIGHTER_BAYONETTA_COSTUME_KIND_BAYONETTA_1)){
+    if WorkModule::get_int(boma, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_COSTUME_KIND) != *FIGHTER_BAYONETTA_COSTUME_KIND_BAYONETTA_1 {
         if is_excute(fighter) {
             EFFECT_FOLLOW(fighter, Hash40::new("bayonetta_attack_arc4_blue"), Hash40::new("top"), -1, 11, 0.5, -20, 90, -83, 1.15, true);
             LAST_EFFECT_SET_RATE(fighter, 1.4);
