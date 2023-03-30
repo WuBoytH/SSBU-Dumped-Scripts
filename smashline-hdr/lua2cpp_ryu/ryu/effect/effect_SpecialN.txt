@@ -3,15 +3,13 @@ unsafe fn effect_specialn(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
     frame(lua_state, 3.0);
-    WorkModule::is_flag(boma, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND);
-    if(0x183460(false, true)){
+    if WorkModule::is_flag(boma, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
         if is_excute(fighter) {
             EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 11, -7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     }
     frame(lua_state, 4.0);
-    WorkModule::is_flag(boma, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED);
-    if(0x183460(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED) {
         if(0x183460(*FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_INT_TYPE, 0)){
             if is_excute(fighter) {
                 EFFECT_FOLLOW(fighter, Hash40::new("ryu_hadoken_hold"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, true);

@@ -5,14 +5,12 @@ unsafe fn expression_specialairn(fighter: &mut L2CAgentBase) {
         ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
     }
     frame(fighter.lua_state_agent, 11.0);
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED);
-    if(0x183460(false, true)){
+    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED) {
         if macros::is_excute(fighter) {
             ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         else{
-        WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND);
-        if(0x183460(false, false)){
+        if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
             if macros::is_excute(fighter) {
                 ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
             }

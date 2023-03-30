@@ -1,8 +1,7 @@
 #[acmd_script( agent = "ryu", script = "sound_specialn", category = ACMD_SOUND, low_priority )]
 unsafe fn sound_specialn(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 1.0);
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED);
-    if(0x183460(false, true)){
+    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED) {
         wait(fighter.lua_state_agent, 10.0);
         if macros::is_excute(fighter) {
             macros::PLAY_SE(fighter, Hash40::new("se_ryu_special_n03"));
@@ -13,8 +12,7 @@ unsafe fn sound_specialn(fighter: &mut L2CAgentBase) {
         macros::PLAY_SE(fighter, Hash40::new("vc_ryu_special_n03"));
     }
     else{
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND);
-    if(0x183460(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
         if macros::is_excute(fighter) {
             macros::PLAY_SE(fighter, Hash40::new("se_ryu_special_n01"));
         }

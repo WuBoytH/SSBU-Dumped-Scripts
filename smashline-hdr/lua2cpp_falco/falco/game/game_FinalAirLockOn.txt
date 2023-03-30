@@ -21,8 +21,7 @@ unsafe fn game_finalairlockon(fighter: &mut L2CAgentBase) {
         ArticleModule::set_visibility_whole(boma, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         SLOW_OPPONENT(fighter, 4, 30);
     }
-    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-    if(0x11d3a0(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(lua_state, 5.0);
         if is_excute(fighter) {
             SlowModule::set_whole(boma, 2, 0);

@@ -2,8 +2,7 @@
 unsafe fn effect_attackragedrivefall(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    WorkModule::is_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ATTACK_RAGE_CAPTURE);
-    if(0x3cfb70(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ATTACK_RAGE_CAPTURE) {
         if is_excute(fighter) {
             EffectModule::req_screen(boma, Hash40::new("demon_ragedrive_bg"), true, false, false);
             FLASH(fighter, 0.45, 0.45, 2, 0.1);

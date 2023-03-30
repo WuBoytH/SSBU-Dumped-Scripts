@@ -1,8 +1,7 @@
 #[acmd_script( agent = "link", script = "game_scopeairrapidemptyaerial", category = ACMD_GAME, low_priority )]
 unsafe fn game_scopeairrapidemptyaerial(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 2.0);
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
-    if(0x11e440(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
         if macros::is_excute(fighter) {
             macros::SHOOT_ITEM_BULLET(fighter);
             WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);

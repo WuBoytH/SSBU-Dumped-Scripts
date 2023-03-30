@@ -1,7 +1,6 @@
 #[acmd_script( agent = "sonic", script = "effect_specialsdashlw", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_specialsdashlw(fighter: &mut L2CAgentBase) {
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SONIC_STATUS_SPECIAL_S_DASH_FLAG_MAX_CHARGE);
-    if(0x12c570(false, true)){
+    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SONIC_STATUS_SPECIAL_S_DASH_FLAG_MAX_CHARGE) {
         if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(fighter) {
                 macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.8, true);

@@ -10,8 +10,7 @@ unsafe fn game_final(fighter: &mut L2CAgentBase) {
         camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_RECT, -5, -5, 15, -10);
         SLOW_OPPONENT(fighter, 15, 30);
     }
-    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-    if(0x18cc20(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(lua_state, 5.0);
         if is_excute(fighter) {
             FT_SET_FINAL_FEAR_FACE(fighter, 75);

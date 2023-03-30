@@ -5,8 +5,7 @@ unsafe fn game_finalstartr(fighter: &mut L2CAgentBase) {
         macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 12, 0, 0);
         macros::SLOW_OPPONENT(fighter, 10, 65);
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
-    if(0x12e770(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(fighter.lua_state_agent, 10.0);
         if macros::is_excute(fighter) {
             ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));

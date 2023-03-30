@@ -3,8 +3,7 @@ unsafe fn effect_specialsstart(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         macros::FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -11, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_S_FLAG_FAIL);
-    if(0x18cc20(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_S_FLAG_FAIL) {
         if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(fighter) {
                 macros::EFFECT_FOLLOW(fighter, Hash40::new("buddy_special_s_start"), Hash40::new("top"), -2, 9, -14, 0, 0, 0, 1.2, true);

@@ -2,8 +2,7 @@
 unsafe fn game_win1(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE);
-    if(0x3de840(false, false)){
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
         if is_excute(fighter) {
             ArticleModule::generate_article(boma, *FIGHTER_EFLAME_GENERATE_ARTICLE_DIVER, false, -1);
             ArticleModule::change_motion(boma, *FIGHTER_EFLAME_GENERATE_ARTICLE_DIVER, Hash40::new("f_win_1"), false, -1.0);

@@ -1,7 +1,6 @@
 #[acmd_script( agent = "ken_hadoken", script = "effect_movew", category = ACMD_EFFECT, low_priority )]
 unsafe fn effect_movew(fighter: &mut L2CAgentBase) {
-    WorkModule::is_flag(fighter.module_accessor, *WEAPON_RYU_HADOKEN_INSTANCE_WORK_ID_FLAG_COMMAND);
-    if(0x16e550(false, false)){
+    if !WorkModule::is_flag(fighter.module_accessor, *WEAPON_RYU_HADOKEN_INSTANCE_WORK_ID_FLAG_COMMAND) {
         if macros::is_excute(fighter) {
             macros::EFFECT_FOLLOW(fighter, Hash40::new("ken_hadoken_bullet"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
         }

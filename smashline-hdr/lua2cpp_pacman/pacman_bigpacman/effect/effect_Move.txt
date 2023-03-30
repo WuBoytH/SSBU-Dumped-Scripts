@@ -2,8 +2,7 @@
 unsafe fn effect_move(fighter: &mut L2CAgentBase) {
     let lua_state = fighter.lua_state_agent;
     let boma = fighter.boma();
-    WorkModule::is_flag(boma, *WEAPON_PACMAN_BIGPACMAN_INSTANCE_WORK_ID_FLAG_FLASH);
-    if(0x11a0d0(false, false)){
+    if !WorkModule::is_flag(boma, *WEAPON_PACMAN_BIGPACMAN_INSTANCE_WORK_ID_FLAG_FLASH) {
         if is_excute(fighter) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_55_pizza_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
         }
