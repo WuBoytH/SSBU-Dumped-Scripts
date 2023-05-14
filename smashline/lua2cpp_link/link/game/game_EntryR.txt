@@ -1,7 +1,7 @@
 #[acmd_script( agent = "link", script = "game_entryr", category = ACMD_GAME, low_priority )]
 unsafe fn game_entryr(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_LINK_GENERATE_ARTICLE_PARASAIL, true);
+        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_LINK_GENERATE_ARTICLE_PARASAIL, true, -1);
         ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_LINK_GENERATE_ARTICLE_PARASAIL, Hash40::new("entry_r"), false, -1.0);
     }
     frame(fighter.lua_state_agent, 100.0);
