@@ -1,11 +1,11 @@
 #[acmd_script( agent = "samusd", script = "effect_finalairstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
+unsafe fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
         EFFECT_FOLLOW_arg11(Hash40::new("samusd_gbeam_flash_01"), Hash40::new("armr"), 8, 0, 0, 0, 0, 0, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_samusd_final"), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_samusd_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 22.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("samusd_final_start"), Hash40::new("top"), 0, 12.5, 19, 0, 0, 0, 1, false);
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("samusd_final_start"), Hash40::new("top"), 0, 12.5, 19, 0, 0, 0, 1, false);
     }
 }

@@ -1,18 +1,18 @@
 #[acmd_script( agent = "ryu", script = "sound_specialsstart", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialsstart(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
-        wait(fighter.lua_state_agent, 7.0);
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("vc_ryu_special_s01"));
+unsafe fn sound_specialsstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
+        wait(agent.lua_state_agent, 7.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_ryu_special_s01"));
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("se_ryu_command_success"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_ryu_command_success"));
         }
-        wait(fighter.lua_state_agent, 7.0);
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("vc_ryu_special_s01_command"));
+        wait(agent.lua_state_agent, 7.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_ryu_special_s01_command"));
         }
     }
 }

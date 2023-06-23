@@ -1,68 +1,68 @@
 #[acmd_script( agent = "ganon_ganond", script = "game_start", category = ACMD_GAME, low_priority )]
-unsafe fn game_start(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 18.0);
-    if macros::is_excute(fighter) {
-        macros::CAM_ZOOM_OUT(fighter);
+unsafe fn game_start(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::CAM_ZOOM_OUT(agent);
     }
-    frame(fighter.lua_state_agent, 19.0);
-    frame(fighter.lua_state_agent, 23.0);
-    if macros::is_excute(fighter) {
-        AttackModule::clear_all(fighter.module_accessor);
+    frame(agent.lua_state_agent, 19.0);
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 48.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *WEAPON_GANON_GANOND_INSTANCE_WORK_ID_FLAG_HIT_RUMBLE_CHECK);
-        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitll_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_GANON_GANOND_INSTANCE_WORK_ID_FLAG_HIT_RUMBLE_CHECK);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
-    frame(fighter.lua_state_agent, 50.0);
-    if macros::is_excute(fighter) {
-        macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
-        macros::ATTACK(fighter, 0, 1, Hash40::new("top"), 10.0, 270, 100, 250, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
-        AttackModule::set_final_finish_cut_in(fighter.module_accessor, 0, true, true, -1, false);
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        macros::ATTACK(agent, 0, 1, Hash40::new("top"), 10.0, 270, 100, 250, 0, 25.0, 0.0, 25.0, 50.0, Some(0.0), Some(25.0), Some(18.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, false);
     }
-    wait(fighter.lua_state_agent, 5.0);
-    if macros::is_excute(fighter) {
-        AttackModule::clear_all(fighter.module_accessor);
+    wait(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 55.0);
-    if macros::is_excute(fighter) {
-        macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 2, 50, 0, 0, 0);
+    frame(agent.lua_state_agent, 55.0);
+    if macros::is_excute(agent) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 2, 50, 0, 0, 0);
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
-        PostureModule::scale(fighter.module_accessor);
+        PostureModule::scale(agent.module_accessor);
         0xffe90(1095804846, 0.5);
         get_value_float(*SO_VAR_FLOAT_LR);
         if(methodlib::L2CValue::operator<(lib::L2CValueconst&)const(35264, 0)){
-            if macros::is_excute(fighter) {
+            if macros::is_excute(agent) {
                 CAM_ZOOM_IN_arg5(10, 0, 1.2, 0.1, -0.3);
-                camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 10);
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 10);
             }
             else{
-            if macros::is_excute(fighter) {
+            if macros::is_excute(agent) {
                 CAM_ZOOM_IN_arg5(10, 0, 1.2, 0.1, 0.3);
-                camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 10);
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 10);
             }
         }
     }
 }
-frame(fighter.lua_state_agent, 60.0);
-if macros::is_excute(fighter) {
-    WorkModule::off_flag(fighter.module_accessor, *WEAPON_GANON_GANOND_INSTANCE_WORK_ID_FLAG_HIT_RUMBLE_CHECK);
+frame(agent.lua_state_agent, 60.0);
+if macros::is_excute(agent) {
+    WorkModule::off_flag(agent.module_accessor, *WEAPON_GANON_GANOND_INSTANCE_WORK_ID_FLAG_HIT_RUMBLE_CHECK);
 }
-wait(fighter.lua_state_agent, 35.0);
-if macros::is_excute(fighter) {
-    macros::CAM_ZOOM_OUT(fighter);
+wait(agent.lua_state_agent, 35.0);
+if macros::is_excute(agent) {
+    macros::CAM_ZOOM_OUT(agent);
 }
-frame(fighter.lua_state_agent, 96.0);
-macros::FT_MOTION_RATE(fighter, 2.0);
-frame(fighter.lua_state_agent, 105.0);
-macros::FT_MOTION_RATE(fighter, 1.0);
-if macros::is_excute(fighter) {
-    macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 0.0, 20, 70, 220, 40, 20.0, 0.0, 20.0, 0.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+frame(agent.lua_state_agent, 96.0);
+macros::FT_MOTION_RATE(agent, 2.0);
+frame(agent.lua_state_agent, 105.0);
+macros::FT_MOTION_RATE(agent, 1.0);
+if macros::is_excute(agent) {
+    macros::ATTACK(agent, 0, 0, Hash40::new("top"), 0.0, 20, 70, 220, 40, 20.0, 0.0, 20.0, 0.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
 }
-wait(fighter.lua_state_agent, 10.0);
-if macros::is_excute(fighter) {
-    AttackModule::clear_all(fighter.module_accessor);
+wait(agent.lua_state_agent, 10.0);
+if macros::is_excute(agent) {
+    AttackModule::clear_all(agent.module_accessor);
 }
 }

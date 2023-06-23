@@ -1,13 +1,13 @@
 #[acmd_script( agent = "wolf", script = "effect_specialairsend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairsend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("wolf_slash_scratch"), Hash40::new("top"), 5, 13, 0, -40, 0, 0, 0.6, true);
-        macros::LAST_EFFECT_SET_RATE(fighter, 2);
+unsafe fn effect_specialairsend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_slash_scratch"), Hash40::new("top"), 5, 13, 0, -40, 0, 0, 0.6, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 2);
     }
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_DETACH_KIND(fighter, Hash40::new("wolf_slash_rush"), -1);
-        macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 1.5, 10, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
-        macros::LAST_EFFECT_SET_RATE(fighter, 1.8);
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("wolf_slash_rush"), -1);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 1.5, 10, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.8);
     }
 }

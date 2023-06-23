@@ -1,20 +1,20 @@
 #[acmd_script( agent = "trail", script = "expression_appealhi1", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_appealhi1(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_TRAIL_GENERATE_ARTICLE_FLOWER, true, -1);
+unsafe fn expression_appealhi1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_TRAIL_GENERATE_ARTICLE_FLOWER, true, -1);
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_TRAIL_GENERATE_ARTICLE_FLOWER, Hash40::new("appeal_hi_l"), false, -1.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_TRAIL_GENERATE_ARTICLE_FLOWER, Hash40::new("appeal_hi_l"), false, -1.0);
         }
         else{
-        if macros::is_excute(fighter) {
-            ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_TRAIL_GENERATE_ARTICLE_FLOWER, Hash40::new("appeal_hi_r"), false, -1.0);
+        if macros::is_excute(agent) {
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_TRAIL_GENERATE_ARTICLE_FLOWER, Hash40::new("appeal_hi_r"), false, -1.0);
         }
     }
 }
-frame(fighter.lua_state_agent, 29.0);
-if macros::is_excute(fighter) {
-    ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_81_appealhi1"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+frame(agent.lua_state_agent, 29.0);
+if macros::is_excute(agent) {
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_appealhi1"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
 }
 }

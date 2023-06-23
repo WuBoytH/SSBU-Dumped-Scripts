@@ -1,12 +1,12 @@
 #[acmd_script( agent = "ryu", script = "sound_attackdash", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_attackdash(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 7.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_ryu_swing_kick_l"));
-        macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_ryu_rnd_attack_l"));
+unsafe fn sound_attackdash(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_ryu_swing_kick_l"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_ryu_rnd_attack_l"));
     }
-    wait(fighter.lua_state_agent, 25.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_LANDING_SE(fighter, Hash40::new("se_ryu_landing01"));
+    wait(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_LANDING_SE(agent, Hash40::new("se_ryu_landing01"));
     }
 }

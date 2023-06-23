@@ -1,14 +1,14 @@
 #[acmd_script( agent = "samusd", script = "sound_cliffwait", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_cliffwait(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::STOP_SE(fighter, Hash40::new("se_samusd_catch"));
+unsafe fn sound_cliffwait(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_samusd_catch"));
     }
     get_value_int(*SO_VAR_INT_PREV_STATUS);
     if(0x112510(0, *FIGHTER_STATUS_KIND_AIR_LASSO_REWIND)){
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("se_common_cliff_catch"));
-            macros::SET_PLAY_INHIVIT(fighter, Hash40::new("se_common_cliff_catch"), 5);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_common_cliff_catch"), 5);
         }
     }
 }

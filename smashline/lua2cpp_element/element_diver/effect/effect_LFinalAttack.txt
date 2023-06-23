@@ -1,33 +1,33 @@
 #[acmd_script( agent = "element_diver", script = "effect_lfinalattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_lfinalattack(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 100.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("elight_final_aura"), false, false);
+unsafe fn effect_lfinalattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 100.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("elight_final_aura"), false, false);
     }
-    frame(fighter.lua_state_agent, 160.0);
-    if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    frame(agent.lua_state_agent, 160.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
     }
-    frame(fighter.lua_state_agent, 185.0);
-    if macros::is_excute(fighter) {
-        macros::FLASH(fighter, 0.5, 0.5, 0.8, 0);
-        macros::BURN_COLOR(fighter, 0.8, 1.5, 1.5, 0);
-        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
+    frame(agent.lua_state_agent, 185.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.5, 0.5, 0.8, 0);
+        macros::BURN_COLOR(agent, 0.8, 1.5, 1.5, 0);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
     }
-    frame(fighter.lua_state_agent, 188.0);
-    if macros::is_excute(fighter) {
-        macros::FLASH_FRM(fighter, 15, 0.45, 0.45, 1, 0.4);
-        macros::BURN_COLOR_FRAME(fighter, 13, 3.8, 22, 32, 1);
-        macros::EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("eflame_appeal_vanish2"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+    frame(agent.lua_state_agent, 188.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 15, 0.45, 0.45, 1, 0.4);
+        macros::BURN_COLOR_FRAME(agent, 13, 3.8, 22, 32, 1);
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("eflame_appeal_vanish2"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
     }
-    frame(fighter.lua_state_agent, 201.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("eflame_appeal_vanish"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+    frame(agent.lua_state_agent, 201.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("eflame_appeal_vanish"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
     }
-    frame(fighter.lua_state_agent, 206.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_DETACH_KIND(fighter, Hash40::new("eflame_appeal_vanish2"), -1);
-        macros::EFFECT_DETACH_KIND(fighter, Hash40::new("eflame_appeal_vanish"), -1);
-        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
+    frame(agent.lua_state_agent, 206.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("eflame_appeal_vanish2"), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("eflame_appeal_vanish"), -1);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, false);
     }
 }

@@ -1,11 +1,11 @@
 #[acmd_script( agent = "wiifit", script = "expression_sleepend", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_sleepend(fighter: &mut L2CAgentBase) {
+unsafe fn expression_sleepend(agent: &mut L2CAgentBase) {
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SleepEndRumble()();
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
     }
-    frame(fighter.lua_state_agent, 46.0);
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 10);
+    frame(agent.lua_state_agent, 46.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 10);
     }
 }

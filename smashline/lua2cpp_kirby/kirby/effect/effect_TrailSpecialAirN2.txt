@@ -1,30 +1,30 @@
 #[acmd_script( agent = "kirby", script = "effect_trailspecialairn2", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_trailspecialairn2(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_sword_ice"), Hash40::new("haver"), 0, 0, 0, -90, 0, 0, 1, true);
+unsafe fn effect_trailspecialairn2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("trail_sword_ice"), Hash40::new("haver"), 0, 0, 0, -90, 0, 0, 1, true);
     }
-    frame(fighter.lua_state_agent, 13.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_ice_hold"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("trail_ice_hold"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
     }
-    frame(fighter.lua_state_agent, 24.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("trail_ice_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("trail_ice_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
     }
-    frame(fighter.lua_state_agent, 25.0);
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, 0x1067ddad8a, Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+    frame(agent.lua_state_agent, 25.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, 0x1067ddad8a, Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, 0x1067ddad8a, Hash40::new("haver"), 0, 10, -1, -90, 180, 0, 1, true);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, 0x1067ddad8a, Hash40::new("haver"), 0, 10, -1, -90, 180, 0, 1, true);
         }
     }
 }
-frame(fighter.lua_state_agent, 40.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_DETACH_KIND(fighter, Hash40::new("trail_sword_ice"), -1);
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("trail_sword_ice"), false, true);
+frame(agent.lua_state_agent, 40.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_DETACH_KIND(agent, Hash40::new("trail_sword_ice"), -1);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_sword_ice"), false, true);
 }
 }

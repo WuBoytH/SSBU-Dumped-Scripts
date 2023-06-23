@@ -1,79 +1,79 @@
 #[acmd_script( agent = "bayonetta", script = "effect_specials", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specials(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 9.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("bayonetta_butterfly_walk"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_specials(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("bayonetta_butterfly_walk"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
-    frame(fighter.lua_state_agent, 14.0);
-    if macros::is_excute(fighter) {
-        macros::FOOT_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
-    frame(fighter.lua_state_agent, 15.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("bayonetta_heelslide_burst"), Hash40::new("kneer"), 9.5, 0, 0, 0, 90, 0, 1.2, true);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("bayonetta_heelslide_burst"), Hash40::new("kneer"), 9.5, 0, 0, 0, 90, 0, 1.2, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
-    if WorkModule::get_int(fighter.module_accessor, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_COSTUME_KIND) != *FIGHTER_BAYONETTA_COSTUME_KIND_BAYONETTA_1 {
-        if macros::is_excute(fighter) {
-            macros::LAST_PARTICLE_SET_COLOR(fighter, 0.048, 0.452, 1);
+    if WorkModule::get_int(agent.module_accessor, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_COSTUME_KIND) != *FIGHTER_BAYONETTA_COSTUME_KIND_BAYONETTA_1 {
+        if macros::is_excute(agent) {
+            macros::LAST_PARTICLE_SET_COLOR(agent, 0.048, 0.452, 1);
         }
     }
-    frame(fighter.lua_state_agent, 16.0);
+    frame(agent.lua_state_agent, 16.0);
     for _ in 0..6 {
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_S_FLAG_NEAR_CLIFF) {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_COLOR(fighter, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, 0.048, 0.262, 1);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_S_FLAG_NEAR_CLIFF) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_COLOR(agent, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, 0.048, 0.262, 1);
         }
     }
-    wait(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_COLOR(fighter, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, 0.048, 0.262, 1);
-        macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1.4, 1, 0, 3, 0, 0, 0, false);
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_COLOR(agent, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, 0.048, 0.262, 1);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1.4, 1, 0, 3, 0, 0, 0, false);
     }
     else{
-    if macros::is_excute(fighter) {
-        macros::EFFECT_COLOR(fighter, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, 0.048, 0.262, 1);
+    if macros::is_excute(agent) {
+        macros::EFFECT_COLOR(agent, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, 0.048, 0.262, 1);
     }
 }
-wait(fighter.lua_state_agent, 2.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_COLOR(fighter, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, 0.048, 0.262, 1);
-    macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 1, 0, 3, 0, 0, 0, false);
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_COLOR(agent, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, 0.048, 0.262, 1);
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 1, 0, 3, 0, 0, 0, false);
 }
-wait(fighter.lua_state_agent, 2.0);
+wait(agent.lua_state_agent, 2.0);
 }
-if macros::is_excute(fighter) {
-macros::LAST_PARTICLE_SET_COLOR(fighter, 1.5, 0.095, 0.163);
+if macros::is_excute(agent) {
+macros::LAST_PARTICLE_SET_COLOR(agent, 1.5, 0.095, 0.163);
 }
-frame(fighter.lua_state_agent, 16.0);
+frame(agent.lua_state_agent, 16.0);
 for _ in 0..6 {
-if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_S_FLAG_NEAR_CLIFF) {
-if macros::is_excute(fighter) {
-    macros::EFFECT_COLOR(fighter, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), 8, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, 0.863, 0, 0.118);
+if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_S_FLAG_NEAR_CLIFF) {
+if macros::is_excute(agent) {
+    macros::EFFECT_COLOR(agent, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), 8, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, 0.863, 0, 0.118);
 }
 }
-wait(fighter.lua_state_agent, 2.0);
-if macros::is_excute(fighter) {
-macros::EFFECT_COLOR(fighter, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), 8, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, 0.863, 0, 0.118);
-macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1.4, 1, 0, 3, 0, 0, 0, false);
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+macros::EFFECT_COLOR(agent, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), 8, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, 0.863, 0, 0.118);
+macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1.4, 1, 0, 3, 0, 0, 0, false);
 }
 else{
-if macros::is_excute(fighter) {
-macros::EFFECT_COLOR(fighter, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, 0.863, 0, 0.118);
+if macros::is_excute(agent) {
+macros::EFFECT_COLOR(agent, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, 0.863, 0, 0.118);
 }
 }
-wait(fighter.lua_state_agent, 2.0);
-if macros::is_excute(fighter) {
-macros::EFFECT_COLOR(fighter, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, 0.863, 0, 0.118);
-macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 1, 0, 3, 0, 0, 0, false);
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+macros::EFFECT_COLOR(agent, Hash40::new("bayonetta_heelslide_trace"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, 0.863, 0, 0.118);
+macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 1, 0, 3, 0, 0, 0, false);
 }
-wait(fighter.lua_state_agent, 2.0);
+wait(agent.lua_state_agent, 2.0);
 }
-if macros::is_excute(fighter) {
-macros::EFFECT_OFF_KIND(fighter, Hash40::new("bayonetta_heelslide_burst"), false, false);
+if macros::is_excute(agent) {
+macros::EFFECT_OFF_KIND(agent, Hash40::new("bayonetta_heelslide_burst"), false, false);
 }
-frame(fighter.lua_state_agent, 59.0);
-if macros::is_excute(fighter) {
-macros::EFFECT(fighter, Hash40::new("bayonetta_butterfly_walk"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+frame(agent.lua_state_agent, 59.0);
+if macros::is_excute(agent) {
+macros::EFFECT(agent, Hash40::new("bayonetta_butterfly_walk"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
 }
 }

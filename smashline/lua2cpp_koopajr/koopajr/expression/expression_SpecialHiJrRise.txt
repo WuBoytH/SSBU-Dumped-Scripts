@@ -1,15 +1,15 @@
 #[acmd_script( agent = "koopajr", script = "expression_specialhijrrise", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialhijrrise(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
-        macros::HIT_NODE(fighter, Hash40::new("clownhip"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("kneer"), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(fighter, Hash40::new("kneel"), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(fighter, Hash40::new("legr"), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(fighter, Hash40::new("legl"), *HIT_STATUS_NORMAL);
+unsafe fn expression_specialhijrrise(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        macros::HIT_NODE(agent, Hash40::new("clownhip"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_NORMAL);
     }
-    frame(fighter.lua_state_agent, 6.0);
-    if macros::is_excute(fighter) {
-        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

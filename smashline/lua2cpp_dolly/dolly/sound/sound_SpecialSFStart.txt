@@ -1,22 +1,22 @@
 #[acmd_script( agent = "dolly", script = "sound_specialsfstart", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialsfstart(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND) {
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("se_dolly_command_success"));
+unsafe fn sound_specialsfstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_dolly_command_success"));
         }
     }
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_dolly_special_sf01"));
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dolly_special_sf01"));
     }
-    frame(fighter.lua_state_agent, 7.0);
+    frame(agent.lua_state_agent, 7.0);
     if(0x2508e0(*FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_INT_STRENGTH, *FIGHTER_DOLLY_STRENGTH_W)){
-        if macros::is_excute(fighter) {
-            macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_dolly_rnd_special_f01"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_dolly_rnd_special_f01"));
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_dolly_rnd_special_f02"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_dolly_rnd_special_f02"));
         }
     }
 }

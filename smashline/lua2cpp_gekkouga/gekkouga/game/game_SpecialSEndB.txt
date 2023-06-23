@@ -1,11 +1,11 @@
 #[acmd_script( agent = "gekkouga", script = "game_specialsendb", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialsendb(fighter: &mut L2CAgentBase) {
-    macros::FT_MOTION_RATE(fighter, 0.66);
-    if macros::is_excute(fighter) {
-        JostleModule::set_status(fighter.module_accessor, false);
+unsafe fn game_specialsendb(agent: &mut L2CAgentBase) {
+    macros::FT_MOTION_RATE(agent, 0.66);
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, false);
     }
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        JostleModule::set_status(fighter.module_accessor, true);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, true);
     }
 }

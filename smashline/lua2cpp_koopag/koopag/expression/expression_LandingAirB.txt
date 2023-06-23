@@ -1,15 +1,15 @@
 #[acmd_script( agent = "koopag", script = "expression_landingairb", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_landingairb(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
-        macros::RUMBLE_ALL(fighter, Hash40::new("rbkind_stg_impact_m"), 0);
+unsafe fn expression_landingairb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_stg_impact_m"), 0);
     }
-    frame(fighter.lua_state_agent, 26.0);
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
+    frame(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
     }
-    frame(fighter.lua_state_agent, 28.0);
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    frame(agent.lua_state_agent, 28.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
 }

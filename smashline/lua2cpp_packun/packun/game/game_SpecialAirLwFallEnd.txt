@@ -1,10 +1,10 @@
 #[acmd_script( agent = "packun", script = "game_specialairlwfallend", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlwfallend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        KineticModule::add_speed(fighter.module_accessor, &Vector3f{x: 0.0, y: 0.7, z: 0.0});
+unsafe fn game_specialairlwfallend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        KineticModule::add_speed(agent.module_accessor, &Vector3f{x: 0.0, y: 0.7, z: 0.0});
     }
-    wait(fighter.lua_state_agent, 18.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_LW_FLAG_END_CHANGE_KINETIC);
+    wait(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_LW_FLAG_END_CHANGE_KINETIC);
     }
 }

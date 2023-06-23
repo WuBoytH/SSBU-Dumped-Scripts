@@ -1,17 +1,17 @@
 #[acmd_script( agent = "dolly", script = "sound_speciallwend", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_speciallwend(fighter: &mut L2CAgentBase) {
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND) {
-        frame(fighter.lua_state_agent, 1.0);
-        if macros::is_excute(fighter) {
-            macros::STOP_SE(fighter, Hash40::new("se_dolly_special_l05"));
-            macros::PLAY_SE(fighter, Hash40::new("se_dolly_special_l06"));
+unsafe fn sound_speciallwend(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND) {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_dolly_special_l05"));
+            macros::PLAY_SE(agent, Hash40::new("se_dolly_special_l06"));
         }
         else{
-        frame(fighter.lua_state_agent, 0.0);
-        if macros::is_excute(fighter) {
-            macros::STOP_SE(fighter, Hash40::new("se_dolly_special_l01"));
-            macros::STOP_SE(fighter, Hash40::new("se_dolly_special_l02"));
-            macros::PLAY_SE(fighter, Hash40::new("se_dolly_special_l03"));
+        frame(agent.lua_state_agent, 0.0);
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_dolly_special_l01"));
+            macros::STOP_SE(agent, Hash40::new("se_dolly_special_l02"));
+            macros::PLAY_SE(agent, Hash40::new("se_dolly_special_l03"));
         }
     }
 }

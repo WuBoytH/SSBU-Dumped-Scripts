@@ -1,15 +1,15 @@
 #[acmd_script( agent = "miiswordsman", script = "game_specialairs3_1hi", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairs3_1hi(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_REQUEST_GENERATE);
+unsafe fn game_specialairs3_1hi(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_REQUEST_GENERATE);
     }
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_CHECK_MOTION_HI_LW);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_CHECK_MOTION_HI_LW);
     }
-    frame(fighter.lua_state_agent, 18.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::shoot_exist(fighter.module_accessor, *FIGHTER_MIISWORDSMAN_GENERATE_ARTICLE_CHAKRAM, *ARTICLE_OPE_TARGET_ALL, false);
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_MIISWORDSMAN_GENERATE_ARTICLE_CHAKRAM, *ARTICLE_OPE_TARGET_ALL, false);
     }
-    macros::FT_MOTION_RATE(fighter, 1.22);
+    macros::FT_MOTION_RATE(agent, 1.22);
 }

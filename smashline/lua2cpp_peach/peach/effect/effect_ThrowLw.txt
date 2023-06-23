@@ -1,24 +1,24 @@
 #[acmd_script( agent = "peach", script = "effect_throwlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwlw(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 32.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FLIP(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 12, 0, -90, 0, 0, 1, 0, 1, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+unsafe fn effect_throwlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLIP(agent, Hash40::new("sys_attack_speedline"), Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 12, 0, -90, 0, 0, 1, 0, 1, 0, 0, 0, 0, true, *EF_FLIP_YZ);
     }
-    frame(fighter.lua_state_agent, 34.0);
-    if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    frame(agent.lua_state_agent, 34.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        frame(fighter.lua_state_agent, 53.0);
-        if macros::is_excute(fighter) {
-            macros::EFFECT(fighter, Hash40::new("sys_erace_smoke"), Hash40::new("top"), 3, 26, 3, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
-            macros::LAST_EFFECT_SET_RATE(fighter, 1.2);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        frame(agent.lua_state_agent, 53.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_erace_smoke"), Hash40::new("top"), 3, 26, 3, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.2);
         }
         else{
-        frame(fighter.lua_state_agent, 0.0);
-        if macros::is_excute(fighter) {
-            macros::EFFECT(fighter, Hash40::new("sys_erace_smoke"), Hash40::new("top"), -3, 26, 3, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
-            macros::LAST_EFFECT_SET_RATE(fighter, 1.2);
+        frame(agent.lua_state_agent, 0.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_erace_smoke"), Hash40::new("top"), -3, 26, 3, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.2);
         }
     }
 }

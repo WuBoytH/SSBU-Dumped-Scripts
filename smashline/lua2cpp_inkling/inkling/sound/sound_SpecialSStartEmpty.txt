@@ -1,11 +1,11 @@
 #[acmd_script( agent = "inkling", script = "sound_specialsstartempty", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialsstartempty(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        WorkModule::set_float(fighter.module_accessor, 1200.0, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_ROLLER_SE_MAX_PITCH);
-        WorkModule::set_float(fighter.module_accessor, 1000.0, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_ROLLER_EMPTY_SE_MAX_PITCH);
+unsafe fn sound_specialsstartempty(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::set_float(agent.module_accessor, 1200.0, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_ROLLER_SE_MAX_PITCH);
+        WorkModule::set_float(agent.module_accessor, 1000.0, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_ROLLER_EMPTY_SE_MAX_PITCH);
     }
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_inkling_special_s01"));
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_special_s01"));
     }
 }

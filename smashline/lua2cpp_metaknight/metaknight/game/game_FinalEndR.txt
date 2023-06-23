@@ -1,11 +1,11 @@
 #[acmd_script( agent = "metaknight", script = "game_finalendr", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalendr(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+unsafe fn game_finalendr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
     }
-    frame(fighter.lua_state_agent, 3.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

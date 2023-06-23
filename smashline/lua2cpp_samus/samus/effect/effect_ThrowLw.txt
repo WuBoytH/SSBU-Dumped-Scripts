@@ -1,19 +1,19 @@
 #[acmd_script( agent = "samus", script = "effect_throwlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwlw(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
+unsafe fn effect_throwlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
     for _ in 0..4 {
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 10, 0, 0, 0, 0, 0, 1.5, 4, 4, 4, 0, 0, 0, false);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 10, 0, 0, 0, 0, 0, 1.5, 4, 4, 4, 0, 0, 0, false);
     }
-    wait(fighter.lua_state_agent, 4.0);
+    wait(agent.lua_state_agent, 4.0);
 }
-frame(fighter.lua_state_agent, 20.0);
-if macros::is_excute(fighter) {
-    macros::LANDING_EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 15, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-    macros::EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1.5, 4, 4, 4, 0, 0, 0, false);
+frame(agent.lua_state_agent, 20.0);
+if macros::is_excute(agent) {
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 15, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1.5, 4, 4, 4, 0, 0, 0, false);
 }
-frame(fighter.lua_state_agent, 49.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_FOLLOW(fighter, Hash40::new("samus_gbeam_vanish"), Hash40::new("armr"), 7, 0, 0, 0, 0, 0, 0.6, true);
+frame(agent.lua_state_agent, 49.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("samus_gbeam_vanish"), Hash40::new("armr"), 7, 0, 0, 0, 0, 0, 0.6, true);
 }
 }

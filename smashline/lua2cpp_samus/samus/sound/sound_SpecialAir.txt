@@ -1,9 +1,9 @@
 #[acmd_script( agent = "samus", script = "sound_specialair", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialair(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 18.0);
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SAMUS_STATUS_SPECIAL_S_WORK_FLAG_GENERATE_SUCCESS);
+unsafe fn sound_specialair(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 18.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_SAMUS_STATUS_SPECIAL_S_WORK_FLAG_GENERATE_SUCCESS);
     0x112630(false, true);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_samus_special_s03"));
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_samus_special_s03"));
     }
 }

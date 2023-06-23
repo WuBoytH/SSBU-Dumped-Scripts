@@ -1,27 +1,27 @@
 #[acmd_script( agent = "nana", script = "game_specialairhistart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairhistart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_CHECK_COUPLE);
+unsafe fn game_specialairhistart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_CHECK_COUPLE);
     }
-    frame(fighter.lua_state_agent, 5.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_CHECK_COUPLE);
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_CHECK_COUPLE);
     }
-    frame(fighter.lua_state_agent, 6.0);
-    macros::FT_MOTION_RATE(fighter, 0.5);
-    frame(fighter.lua_state_agent, 12.0);
-    macros::FT_MOTION_RATE(fighter, 1.0);
-    frame(fighter.lua_state_agent, 15.0);
+    frame(agent.lua_state_agent, 6.0);
+    macros::FT_MOTION_RATE(agent, 0.5);
+    frame(agent.lua_state_agent, 12.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    frame(agent.lua_state_agent, 15.0);
     get_value_float(*FT_VAR_FLOAT_STICK_X_BACK);
-    WorkModule::get_param_float(fighter.module_accessor, 0, Hash40::new("param_special_hi"), Hash40::new("start_turn_cont_x"));
+    WorkModule::get_param_float(agent.module_accessor, 0, Hash40::new("param_special_hi"), Hash40::new("start_turn_cont_x"));
     if(0x1478c0(32)){
-        if macros::is_excute(fighter) {
-            macros::STICK_LR(fighter);
-            macros::UPDATE_ROT(fighter);
+        if macros::is_excute(agent) {
+            macros::STICK_LR(agent);
+            macros::UPDATE_ROT(agent);
         }
     }
-    frame(fighter.lua_state_agent, 16.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_DETACH_PARTNER);
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_DETACH_PARTNER);
     }
 }

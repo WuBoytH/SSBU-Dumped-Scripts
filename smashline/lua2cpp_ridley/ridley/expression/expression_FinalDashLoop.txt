@@ -1,10 +1,10 @@
 #[acmd_script( agent = "ridley", script = "expression_finaldashloop", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finaldashloop(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
+unsafe fn expression_finaldashloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
     }
-    frame(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attack_critical"), 0);
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attack_critical"), 0);
     }
 }

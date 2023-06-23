@@ -1,10 +1,10 @@
 #[acmd_script( agent = "falco", script = "game_specialnend", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnend(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    macros::FT_MOTION_RATE(fighter, 0.75);
-    if macros::IS_EXIST_ARTICLE(fighter, *FIGHTER_FALCO_GENERATE_ARTICLE_BLASTER) {
-        if macros::is_excute(fighter) {
-            ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_FALCO_GENERATE_ARTICLE_BLASTER, Hash40::new("close"), false, -1.0);
+unsafe fn game_specialnend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.75);
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_FALCO_GENERATE_ARTICLE_BLASTER) {
+        if macros::is_excute(agent) {
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_FALCO_GENERATE_ARTICLE_BLASTER, Hash40::new("close"), false, -1.0);
         }
     }
 }

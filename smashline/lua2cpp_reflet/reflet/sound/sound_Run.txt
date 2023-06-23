@@ -1,10 +1,10 @@
 #[acmd_script( agent = "reflet", script = "sound_run", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_run(fighter: &mut L2CAgentBase) {
+unsafe fn sound_run(agent: &mut L2CAgentBase) {
     wait_loop_sync_mot();
-    frame(fighter.lua_state_agent, 3.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_STEP(fighter, Hash40::new("se_reflet_step_right_l"));
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_reflet_step_right_l"));
     }
-    wait(fighter.lua_state_agent, 18.0);
-    macros::PLAY_STEP(fighter, 0x15fc91ccd7);
+    wait(agent.lua_state_agent, 18.0);
+    macros::PLAY_STEP(agent, 0x15fc91ccd7);
 }

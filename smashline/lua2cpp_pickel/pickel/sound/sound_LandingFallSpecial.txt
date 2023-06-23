@@ -1,15 +1,15 @@
 #[acmd_script( agent = "pickel", script = "sound_landingfallspecial", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_landingfallspecial(fighter: &mut L2CAgentBase) {
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_PICKEL_STATUS_LANDING_FLAG_HIGH_PLACE) {
-        frame(fighter.lua_state_agent, 3.0);
-        if macros::is_excute(fighter) {
-            macros::PLAY_LANDING_SE(fighter, Hash40::new("invalid"));
-            macros::PLAY_SE(fighter, Hash40::new("se_pickel_landing_high_place"));
+unsafe fn sound_landingfallspecial(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PICKEL_STATUS_LANDING_FLAG_HIGH_PLACE) {
+        frame(agent.lua_state_agent, 3.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_LANDING_SE(agent, Hash40::new("invalid"));
+            macros::PLAY_SE(agent, Hash40::new("se_pickel_landing_high_place"));
         }
         else{
-        frame(fighter.lua_state_agent, 0.0);
-        if macros::is_excute(fighter) {
-            macros::PLAY_LANDING_SE(fighter, Hash40::new("se_pickel_landing03"));
+        frame(agent.lua_state_agent, 0.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_LANDING_SE(agent, Hash40::new("se_pickel_landing03"));
         }
     }
 }

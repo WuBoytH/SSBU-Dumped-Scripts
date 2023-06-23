@@ -1,17 +1,17 @@
 #[acmd_script( agent = "metaknight", script = "game_screwair", category = ACMD_GAME, low_priority )]
-unsafe fn game_screwair(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
+unsafe fn game_screwair(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
     for _ in 0..10 {
     methodlua2cpp::L2CFighterAnimcmdGameCommon::game_ScrewCommon()();
-    if macros::is_excute(fighter) {
-        attack!(fighter, *MA_MSC_CMD_ATTACK_NODE, 0, Hash40::new("top"), 0, 0, 5.2);
-        attack!(fighter, *MA_MSC_CMD_ATTACK_NODE, 1, Hash40::new("top"), 0, 0, -5.2);
-        attack!(fighter, *MA_MSC_CMD_ATTACK_NODE, 2, Hash40::new("top"), 0, 10, 5.2);
-        attack!(fighter, *MA_MSC_CMD_ATTACK_NODE, 3, Hash40::new("top"), 0, 10, -5.2);
+    if macros::is_excute(agent) {
+        attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 0, Hash40::new("top"), 0, 0, 5.2);
+        attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 1, Hash40::new("top"), 0, 0, -5.2);
+        attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 2, Hash40::new("top"), 0, 10, 5.2);
+        attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 3, Hash40::new("top"), 0, 10, -5.2);
     }
-    wait(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        AttackModule::clear_all(fighter.module_accessor);
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
     }
 }
 }

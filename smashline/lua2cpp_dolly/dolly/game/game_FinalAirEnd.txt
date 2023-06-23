@@ -1,12 +1,12 @@
 #[acmd_script( agent = "dolly", script = "game_finalairend", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
-        macros::ATTACK_ABS(fighter, *FIGHTER_DOLLY_ATTACK_ABSOLUTE_KIND_FINAL, 0, 10.0, 60, 144, 0, 58, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DOLLY_STATUS_FINAL_WORK_FLAG_ABS_SET);
+unsafe fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::ATTACK_ABS(agent, *FIGHTER_DOLLY_ATTACK_ABSOLUTE_KIND_FINAL, 0, 10.0, 60, 144, 0, 58, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_FINAL_WORK_FLAG_ABS_SET);
     }
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
     }
 }

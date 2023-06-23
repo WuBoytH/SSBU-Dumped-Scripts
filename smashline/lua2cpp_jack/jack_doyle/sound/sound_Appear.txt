@@ -1,14 +1,14 @@
 #[acmd_script( agent = "jack_doyle", script = "sound_appear", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_appear(fighter: &mut L2CAgentBase) {
-    WorkModule::is_flag(fighter.module_accessor, *WEAPON_JACK_DOYLE_INSTANCE_WORK_ID_FLAG_MUTE_VOICE);
+unsafe fn sound_appear(agent: &mut L2CAgentBase) {
+    WorkModule::is_flag(agent.module_accessor, *WEAPON_JACK_DOYLE_INSTANCE_WORK_ID_FLAG_MUTE_VOICE);
     0x304a00(false, true);
-    if macros::IS_RANDOM(fighter, 2) {
-        if macros::is_excute(fighter) {
+    if macros::IS_RANDOM(agent, 2) {
+        if macros::is_excute(agent) {
             battle_object();
             methodlib::L2CValue::L2CValue(void*)();
         }
         else{
-        if macros::is_excute(fighter) {
+        if macros::is_excute(agent) {
             battle_object();
             methodlib::L2CValue::L2CValue(void*)();
         }
@@ -17,7 +17,7 @@ unsafe fn sound_appear(fighter: &mut L2CAgentBase) {
         methodlib::L2CValue::as_pointer()const(Hash40::new("vc_jack_doyle_call02"));
         methodlib::L2CValue::as_hash()const();
         play_se_jack();
-        macros::PLAY_SE(fighter, Hash40::new("se_jack_doyle_entry02"));
+        macros::PLAY_SE(agent, Hash40::new("se_jack_doyle_entry02"));
     }
 }
 }

@@ -1,12 +1,12 @@
 #[acmd_script( agent = "tantan", script = "expression_damagelw1", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_damagelw1(fighter: &mut L2CAgentBase) {
-    if macros::IS_EXIST_ARTICLE(fighter, *FIGHTER_TANTAN_GENERATE_ARTICLE_SPIRALLEFT) {
-        if macros::is_excute(fighter) {
-            ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
+unsafe fn expression_damagelw1(agent: &mut L2CAgentBase) {
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_TANTAN_GENERATE_ARTICLE_SPIRALLEFT) {
+        if macros::is_excute(agent) {
+            ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
         }
     }
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
     }
 }

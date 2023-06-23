@@ -1,18 +1,18 @@
 #[acmd_script( agent = "yoshi", script = "sound_jumpfront", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_jumpfront(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING) {
-        wait(fighter.lua_state_agent, 3.0);
-        if macros::is_excute(fighter) {
-            macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_yoshi_rnd_jump01"));
+unsafe fn sound_jumpfront(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING) {
+        wait(agent.lua_state_agent, 3.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_yoshi_rnd_jump01"));
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("se_yoshi_jump01"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_yoshi_jump01"));
         }
-        wait(fighter.lua_state_agent, 3.0);
-        if macros::is_excute(fighter) {
-            macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_yoshi_rnd_jump01"));
+        wait(agent.lua_state_agent, 3.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_yoshi_rnd_jump01"));
         }
     }
 }

@@ -1,14 +1,14 @@
 #[acmd_script( agent = "gekkouga", script = "expression_finalend", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
+unsafe fn expression_finalend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
     }
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_GEKKOUGA_GENERATE_ARTICLE_GEKKOUGAS, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_GEKKOUGA_GENERATE_ARTICLE_GEKKOUGAS, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_whole(fighter.module_accessor, true);
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
     }
 }

@@ -1,11 +1,11 @@
 #[acmd_script( agent = "szerosuit_laser", script = "effect_end", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_end(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("szero_final_shot_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.85, true);
+unsafe fn effect_end(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("szero_final_shot_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.85, true);
     }
-    wait(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_DETACH_KIND(fighter, Hash40::new("szero_final_shot_b"), -1);
-        macros::EFFECT_DETACH_KIND(fighter, Hash40::new("szero_final_beam_b"), -1);
+    wait(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("szero_final_shot_b"), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("szero_final_beam_b"), -1);
     }
 }

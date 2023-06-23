@@ -1,13 +1,13 @@
 #[acmd_script( agent = "pzenigame", script = "game_firebarswing4", category = ACMD_GAME, low_priority )]
-unsafe fn game_firebarswing4(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 7.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SWING_WORK_FLAG_START_SMASH_HOLD);
+unsafe fn game_firebarswing4(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SWING_WORK_FLAG_START_SMASH_HOLD);
     }
-    frame(fighter.lua_state_agent, 15.0);
+    frame(agent.lua_state_agent, 15.0);
     methodlua2cpp::L2CFighterAnimcmdGameCommon::game_FirebarSwing4Common()();
-    frame(fighter.lua_state_agent, 16.0);
-    if macros::is_excute(fighter) {
-        AttackModule::clear_all(fighter.module_accessor);
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
     }
 }

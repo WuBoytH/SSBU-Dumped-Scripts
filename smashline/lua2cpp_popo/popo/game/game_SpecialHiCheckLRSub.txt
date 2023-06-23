@@ -1,11 +1,11 @@
 #[acmd_script( agent = "popo", script = "game_specialhichecklrsub", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialhichecklrsub(fighter: &mut L2CAgentBase) {
+unsafe fn game_specialhichecklrsub(agent: &mut L2CAgentBase) {
     get_value_float(*FT_VAR_FLOAT_STICK_X_BACK);
-    WorkModule::get_param_float(fighter.module_accessor, 0, Hash40::new("param_special_hi"), Hash40::new("start_turn_cont_x"));
+    WorkModule::get_param_float(agent.module_accessor, 0, Hash40::new("param_special_hi"), Hash40::new("start_turn_cont_x"));
     if(0x19e320(32)){
-        if macros::is_excute(fighter) {
-            macros::STICK_LR(fighter);
-            macros::UPDATE_ROT(fighter);
+        if macros::is_excute(agent) {
+            macros::STICK_LR(agent);
+            macros::UPDATE_ROT(agent);
         }
     }
 }

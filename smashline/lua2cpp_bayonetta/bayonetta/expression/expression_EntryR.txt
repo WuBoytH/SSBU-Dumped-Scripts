@@ -1,23 +1,23 @@
 #[acmd_script( agent = "bayonetta", script = "expression_entryr", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_entryr(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
+unsafe fn expression_entryr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
         AREA_WIND_2ND_arg10(0, 1, 210, 2, 1, 0, 10, 20, 20, 10);
-        VisibilityModule::set_whole(fighter.module_accessor, false);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), false);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), false);
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
     }
-    frame(fighter.lua_state_agent, 16.0);
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_whole(fighter.module_accessor, true);
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
     }
-    frame(fighter.lua_state_agent, 29.0);
-    if macros::is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), true);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), true);
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
     }
-    frame(fighter.lua_state_agent, 105.0);
-    if macros::is_excute(fighter) {
-        WorkModule::off_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    frame(agent.lua_state_agent, 105.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
     }
 }

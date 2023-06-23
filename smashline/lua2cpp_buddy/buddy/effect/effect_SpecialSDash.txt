@@ -1,52 +1,52 @@
 #[acmd_script( agent = "buddy", script = "effect_specialsdash", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialsdash(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("buddy_special_s_flash1"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::EFFECT_FLW_POS(fighter, Hash40::new("buddy_special_s_flash2"), Hash40::new("k_head"), -4, 0, 0, 0, 0, 0, 1, true);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+unsafe fn effect_specialsdash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("buddy_special_s_flash1"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("buddy_special_s_flash2"), Hash40::new("k_head"), -4, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("buddy_special_s_impact"), Hash40::new("throw"), 2, 0, 3, 0, 0, 0, 1, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("buddy_special_s_wind"), Hash40::new("top"), 2, 6, 0, 0, 0, 0, 1.1, true);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("buddy_special_s_impact"), Hash40::new("throw"), 2, 0, 3, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("buddy_special_s_wind"), Hash40::new("top"), 2, 6, 0, 0, 0, 0, 1.1, true);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("buddy_special_s_impact"), Hash40::new("throw"), -2, 0, 3, 0, 0, 0, 1, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("buddy_special_s_wind"), Hash40::new("top"), -2, 6, 0, 0, 0, 0, 1.1, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("buddy_special_s_impact"), Hash40::new("throw"), -2, 0, 3, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("buddy_special_s_wind"), Hash40::new("top"), -2, 6, 0, 0, 0, 0, 1.1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
         }
     }
 }
-if macros::is_excute(fighter) {
-    macros::EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-    macros::LANDING_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-    macros::FLASH(fighter, 1, 1, 0.6, 0.3);
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    macros::FLASH(agent, 1, 1, 0.6, 0.3);
 }
-frame(fighter.lua_state_agent, 3.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_FOLLOW(fighter, Hash40::new("buddy_special_s_after_image"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
-    EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-    macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
-    macros::FLASH(fighter, 1, 0.3, 0, 0.4);
+frame(agent.lua_state_agent, 3.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("buddy_special_s_after_image"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+    EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    macros::FLASH(agent, 1, 0.3, 0, 0.4);
 }
-wait(fighter.lua_state_agent, 2.0);
-if macros::is_excute(fighter) {
-    macros::FLASH(fighter, 1, 1, 0.6, 0.3);
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 1, 1, 0.6, 0.3);
 }
-wait(fighter.lua_state_agent, 2.0);
-if macros::is_excute(fighter) {
-    macros::FLASH(fighter, 1, 0.4, 0, 0.05);
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 1, 0.4, 0, 0.05);
 }
-wait(fighter.lua_state_agent, 2.0);
-if macros::is_excute(fighter) {
-    macros::FLASH(fighter, 1, 1, 0.6, 0.3);
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 1, 1, 0.6, 0.3);
 }
-wait(fighter.lua_state_agent, 2.0);
-if macros::is_excute(fighter) {
-    macros::FLASH(fighter, 1, 1, 0.6, 0.3);
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 1, 1, 0.6, 0.3);
 }
-wait(fighter.lua_state_agent, 2.0);
+wait(agent.lua_state_agent, 2.0);
 }

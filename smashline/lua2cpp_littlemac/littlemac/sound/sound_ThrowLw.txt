@@ -1,12 +1,12 @@
 #[acmd_script( agent = "littlemac", script = "sound_throwlw", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_throwlw(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_common_throw_01"));
+unsafe fn sound_throwlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_01"));
     }
-    wait(fighter.lua_state_agent, 11.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_littlemac_rnd_attack"));
-        macros::PLAY_SE(fighter, Hash40::new("se_littlemac_swing_ll"));
+    wait(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_littlemac_rnd_attack"));
+        macros::PLAY_SE(agent, Hash40::new("se_littlemac_swing_ll"));
     }
 }

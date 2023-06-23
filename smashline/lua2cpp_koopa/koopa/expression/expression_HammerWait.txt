@@ -1,6 +1,6 @@
 #[acmd_script( agent = "koopa", script = "expression_hammerwait", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_hammerwait(fighter: &mut L2CAgentBase) {
+unsafe fn expression_hammerwait(agent: &mut L2CAgentBase) {
     wait_loop_sync_mot();
-    frame(fighter.lua_state_agent, 4.0);
-    ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    frame(agent.lua_state_agent, 4.0);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
 }

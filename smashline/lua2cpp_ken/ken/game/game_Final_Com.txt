@@ -1,32 +1,32 @@
 #[acmd_script( agent = "ken", script = "game_final_com", category = ACMD_GAME, low_priority )]
-unsafe fn game_final_com(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 0, 20, 0, 0, 0);
-        macros::SLOW_OPPONENT(fighter, 10, 70);
+unsafe fn game_final_com(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 0, 20, 0, 0, 0);
+        macros::SLOW_OPPONENT(agent, 10, 70);
     }
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
-        frame(fighter.lua_state_agent, 5.0);
-        if macros::is_excute(fighter) {
-            macros::FT_SET_FINAL_FEAR_FACE(fighter, 40);
-            macros::REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04final.nuanmb"), true);
-            macros::FT_START_CUTIN(fighter);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(agent.lua_state_agent, 5.0);
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 40);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final.nuanmb"), true);
+            macros::FT_START_CUTIN(agent);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::FT_START_CUTIN(fighter);
+        if macros::is_excute(agent) {
+            macros::FT_START_CUTIN(agent);
         }
-        if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-            if macros::is_excute(fighter) {
-                camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
-                PostureModule::scale(fighter.module_accessor, 3, 0);
+        if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if macros::is_excute(agent) {
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+                PostureModule::scale(agent.module_accessor, 3, 0);
                 0x16e550(1760657085, 1.8);
                 CAM_ZOOM_IN_arg5(0, 0);
             }
             else{
-            if macros::is_excute(fighter) {
-                camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
-                PostureModule::scale(fighter.module_accessor, 3, 0);
+            if macros::is_excute(agent) {
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+                PostureModule::scale(agent.module_accessor, 3, 0);
                 0x16e550(1760657085, 1.8);
                 CAM_ZOOM_IN_arg5(0, 0);
             }

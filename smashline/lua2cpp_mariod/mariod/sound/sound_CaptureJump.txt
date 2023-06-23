@@ -1,10 +1,10 @@
 #[acmd_script( agent = "mariod", script = "sound_capturejump", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_capturejump(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_mariod_landing01"));
+unsafe fn sound_capturejump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_mariod_landing01"));
     }
-    wait(fighter.lua_state_agent, 9.0);
-    if macros::is_excute(fighter) {
-        macros::STOP_SE(fighter, Hash40::new("se_mariod_landing01"));
+    wait(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_mariod_landing01"));
     }
 }

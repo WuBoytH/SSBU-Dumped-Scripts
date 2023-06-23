@@ -1,14 +1,14 @@
 #[acmd_script( agent = "metaknight", script = "expression_camerahit", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_camerahit(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_status_default_int64(fighter.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+unsafe fn expression_camerahit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_status_default_int64(agent.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
     }
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
         physics(*MA_MSC_CMD_PHYSICS_PH_SWING_STOP, true);
     }
-    frame(fighter.lua_state_agent, 46.0);
-    if macros::is_excute(fighter) {
+    frame(agent.lua_state_agent, 46.0);
+    if macros::is_excute(agent) {
         physics(*MA_MSC_CMD_PHYSICS_PH_SWING_STOP, false);
     }
 }

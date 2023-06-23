@@ -1,10 +1,10 @@
 #[acmd_script( agent = "inkling", script = "game_specialairlwempty", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlwempty(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 12.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::shoot(fighter.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SPLASHBOMB, *ARTICLE_OPE_TARGET_ALL, false);
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INKLING_STATUS_SPECIAL_LW_FLAG_THROW);
+unsafe fn game_specialairlwempty(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        ArticleModule::shoot(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SPLASHBOMB, *ARTICLE_OPE_TARGET_ALL, false);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INKLING_STATUS_SPECIAL_LW_FLAG_THROW);
     }
-    frame(fighter.lua_state_agent, 13.0);
-    macros::FT_MOTION_RATE(fighter, 0.8);
+    frame(agent.lua_state_agent, 13.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
 }

@@ -1,14 +1,14 @@
 #[acmd_script( agent = "miifighter", script = "game_specialairlw3catch", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlw3catch(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+unsafe fn game_specialairlw3catch(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
     }
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::SEARCH(fighter, 0, 0, Hash40::new("top"), 15.0, 0.0, 5.0, 10.5, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FI, *COLLISION_PART_MASK_ALL, false);
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::SEARCH(agent, 0, 0, Hash40::new("top"), 15.0, 0.0, 5.0, 10.5, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FI, *COLLISION_PART_MASK_ALL, false);
     }
-    frame(fighter.lua_state_agent, 6.0);
-    if macros::is_excute(fighter) {
-        search!(fighter, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
     }
 }

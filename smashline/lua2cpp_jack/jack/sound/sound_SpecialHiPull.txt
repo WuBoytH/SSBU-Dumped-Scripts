@@ -1,11 +1,11 @@
 #[acmd_script( agent = "jack", script = "sound_specialhipull", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialhipull(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::STOP_SE(fighter, Hash40::new("se_jack_special_h01"));
+unsafe fn sound_specialhipull(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_jack_special_h01"));
     }
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_JACK_STATUS_SPECIAL_HI_FLAG_HIT) {
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("se_common_cliff_catch"));
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_JACK_STATUS_SPECIAL_HI_FLAG_HIT) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
         }
     }
 }

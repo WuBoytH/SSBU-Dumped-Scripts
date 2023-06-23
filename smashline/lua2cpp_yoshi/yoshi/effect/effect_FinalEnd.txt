@@ -1,10 +1,10 @@
 #[acmd_script( agent = "yoshi", script = "effect_finalend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::FILL_SCREEN_MODEL_COLOR(fighter, 1, 0, 0.2, 0.2, 0.2, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+unsafe fn effect_finalend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 0.2, 0.2, 0.2, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
     }
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        macros::CANCEL_FILL_SCREEN(fighter, 1, 40);
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 1, 40);
     }
 }

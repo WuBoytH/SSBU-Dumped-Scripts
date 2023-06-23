@@ -1,7 +1,7 @@
 #[acmd_script( agent = "gamewatch", script = "expression_passivewalljump", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_passivewalljump(fighter: &mut L2CAgentBase) {
+unsafe fn expression_passivewalljump(agent: &mut L2CAgentBase) {
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_PassiveWallJumpRumble()();
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("head") as i64, hash40("head_close") as i64);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("head") as i64, hash40("head_close") as i64);
     }
 }

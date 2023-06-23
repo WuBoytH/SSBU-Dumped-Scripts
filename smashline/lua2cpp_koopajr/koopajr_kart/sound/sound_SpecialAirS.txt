@@ -1,12 +1,12 @@
 #[acmd_script( agent = "koopajr_kart", script = "sound_specialairs", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialairs(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::STOP_SE(fighter, Hash40::new("se_koopajr_special_s02"));
-        macros::STOP_SE(fighter, Hash40::new("se_koopajr_special_s02_03"));
+unsafe fn sound_specialairs(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02"));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02_03"));
     }
-    if WorkModule::is_flag(fighter.module_accessor, *WEAPON_KOOPAJR_KART_INSTANCE_WORK_ID_FLAG_NO_FLOOR) {
-        if macros::is_excute(fighter) {
-            macros::PLAY_STATUS(fighter, Hash40::new("se_koopajr_special_s02_01"));
+    if WorkModule::is_flag(agent.module_accessor, *WEAPON_KOOPAJR_KART_INSTANCE_WORK_ID_FLAG_NO_FLOOR) {
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_koopajr_special_s02_01"));
         }
     }
 }

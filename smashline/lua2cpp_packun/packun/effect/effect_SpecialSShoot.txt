@@ -1,27 +1,27 @@
 #[acmd_script( agent = "packun", script = "effect_specialsshoot", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialsshoot(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_specialsshoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
-    frame(fighter.lua_state_agent, 6.0);
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_S_FLAG_FAILURE);
+    frame(agent.lua_state_agent, 6.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_S_FLAG_FAILURE);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if macros::is_excute(fighter) {
-            macros::EFFECT(fighter, Hash40::new("packun_poison_breath2"), Hash40::new("mouth"), 3, -0.6, 0, 0, 90, -100, 1, 0, 0, 0, 0, 0, 0, true);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("packun_poison_breath2"), Hash40::new("mouth"), 3, -0.6, 0, 0, 90, -100, 1, 0, 0, 0, 0, 0, 0, true);
         }
     }
-    frame(fighter.lua_state_agent, 29.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("packun_poison_mouth2"), Hash40::new("mouth"), 4, -2, 0, 0, 90, -125, 1, true);
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("packun_poison_mouth2"), Hash40::new("mouth"), 4, -2, 0, 0, 90, -125, 1, true);
     }
     else{
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("packun_poison_breath"), Hash40::new("mouth"), 3, -0.6, 0, 0, 90, -100, 0.6, 0, 0, 0, 0, 0, 0, true);
-        macros::LAST_EFFECT_SET_RATE(fighter, 1.4);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("packun_poison_breath"), Hash40::new("mouth"), 3, -0.6, 0, 0, 90, -100, 0.6, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.4);
     }
 }
-frame(fighter.lua_state_agent, 29.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("packun_poison_mouth"), Hash40::new("mouth"), 6, -0.6, 0, 0, 90, -130, 1, true);
+frame(agent.lua_state_agent, 29.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("packun_poison_mouth"), Hash40::new("mouth"), 6, -0.6, 0, 0, 90, -130, 1, true);
 }
 }

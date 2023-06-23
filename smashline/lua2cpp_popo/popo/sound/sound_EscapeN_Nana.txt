@@ -1,11 +1,11 @@
 #[acmd_script( agent = "popo", script = "sound_escapen_nana", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_escapen_nana(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_popo_escapeair"));
+unsafe fn sound_escapen_nana(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_popo_escapeair"));
     }
-    wait(fighter.lua_state_agent, 29.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_popo_step_left_m"), Hash40::new("se_popo_step_right_m"));
+    wait(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_popo_step_left_m"), Hash40::new("se_popo_step_right_m"));
     }
 }

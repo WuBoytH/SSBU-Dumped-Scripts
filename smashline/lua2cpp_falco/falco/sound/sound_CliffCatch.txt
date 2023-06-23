@@ -1,13 +1,13 @@
 #[acmd_script( agent = "falco", script = "sound_cliffcatch", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_cliffcatch(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 3.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_common_cliff_catch"));
+unsafe fn sound_cliffcatch(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
     }
-    wait(fighter.lua_state_agent, 2.0);
-    if macros::IS_RANDOM(fighter, 2) {
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("vc_falco_cliffcatch"));
+    wait(agent.lua_state_agent, 2.0);
+    if macros::IS_RANDOM(agent, 2) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_falco_cliffcatch"));
         }
     }
 }

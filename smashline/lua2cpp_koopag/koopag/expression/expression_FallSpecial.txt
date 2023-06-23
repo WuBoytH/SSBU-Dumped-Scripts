@@ -1,10 +1,10 @@
 #[acmd_script( agent = "koopag", script = "expression_fallspecial", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_fallspecial(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        ItemModule::set_attach_item_visibility(fighter.module_accessor, false);
+unsafe fn expression_fallspecial(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
     }
-    frame(fighter.lua_state_agent, 0.0);
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("body") as i64, hash40("body_shell") as i64);
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_shell") as i64);
     }
 }

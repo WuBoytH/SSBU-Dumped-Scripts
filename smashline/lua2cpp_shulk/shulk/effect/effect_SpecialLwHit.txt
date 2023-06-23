@@ -1,23 +1,23 @@
 #[acmd_script( agent = "shulk", script = "effect_speciallwhit", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_speciallwhit(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FLW_POS(fighter, Hash40::new("shulk_counter_success"), Hash40::new("head"), 2, -1, 0, 0, 0, 0, 1, false);
+unsafe fn effect_speciallwhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("shulk_counter_success"), Hash40::new("head"), 2, -1, 0, 0, 0, 0, 1, false);
         methodlib::L2CValue::as_hash()const(Hash40::new("critical_hit"), Hash40::new("hip"), 30, 30, 0, 0, 0, true);
         methodlib::L2CValue::as_hash()const();
-        EffectModule::request_post_effect_line_circle(fighter.module_accessor);
+        EffectModule::request_post_effect_line_circle(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("shulk_vision"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("shulk_vision"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SHULK_STATUS_SPECIAL_LW_FLAG_SPECIAL_EFFECT) {
-        if macros::is_excute(fighter) {
-            macros::EFFECT(fighter, Hash40::new("sys_counter_flash"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_SHULK_STATUS_SPECIAL_LW_FLAG_SPECIAL_EFFECT) {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_counter_flash"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
     }
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("shulk_monad_sword3"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
-        EffectModule::remove_post_effect_line(fighter.module_accessor, 2, true);
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("shulk_monad_sword3"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::remove_post_effect_line(agent.module_accessor, 2, true);
     }
 }

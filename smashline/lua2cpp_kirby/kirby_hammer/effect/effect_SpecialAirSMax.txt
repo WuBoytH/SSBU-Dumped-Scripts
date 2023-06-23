@@ -1,19 +1,19 @@
 #[acmd_script( agent = "kirby_hammer", script = "effect_specialairsmax", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairsmax(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("kirby_onigoroshi_body"), Hash40::new("have"), 0, 10, 0, 0, 0, 0, 1, false);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+unsafe fn effect_specialairsmax(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("kirby_onigoroshi_body"), Hash40::new("have"), 0, 10, 0, 0, 0, 0, 1, false);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("kirby_onigoroshi_smoke"), Hash40::new("have"), 0, 10, 0, 0, 0, 0, 1, false);
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("kirby_onigoroshi_smoke"), Hash40::new("have"), 0, 10, 0, 0, 0, 0, 1, false);
     }
-    frame(fighter.lua_state_agent, 25.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("kirby_onigoroshi_body"), false, false);
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("kirby_onigoroshi_body"), false, false);
     }
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("kirby_onigoroshi_light"), false, true);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("kirby_onigoroshi_light"), false, true);
     }
 }

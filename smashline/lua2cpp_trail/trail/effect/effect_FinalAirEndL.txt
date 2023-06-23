@@ -1,13 +1,13 @@
 #[acmd_script( agent = "trail", script = "effect_finalairendl", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairendl(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("trail_final_gradation"), true, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("trail_final_bg_smoke"), true, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("trail_final_blast_smoke"), true, true);
-        macros::FILL_SCREEN_MODEL_COLOR(fighter, 0, 0, 0.14, 0.16, 0.18, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+unsafe fn effect_finalairendl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_final_gradation"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_final_bg_smoke"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_final_blast_smoke"), true, true);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 0, 0.14, 0.16, 0.18, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
     }
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        macros::CANCEL_FILL_SCREEN(fighter, 0, 30);
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 0, 30);
     }
 }

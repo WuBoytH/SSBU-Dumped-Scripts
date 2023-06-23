@@ -1,13 +1,13 @@
 #[acmd_script( agent = "shizue", script = "game_speciallwset", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallwset(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        JostleModule::set_status(fighter.module_accessor, false);
+unsafe fn game_speciallwset(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, false);
     }
-    macros::FT_MOTION_RATE(fighter, 1.208);
-    frame(fighter.lua_state_agent, 25.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_SHIZUE_STATUS_WORK_ID_SPECIAL_LW_FLAG_SET);
+    macros::FT_MOTION_RATE(agent, 1.208);
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_SHIZUE_STATUS_WORK_ID_SPECIAL_LW_FLAG_SET);
     }
-    macros::FT_MOTION_RATE(fighter, 1.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
 }

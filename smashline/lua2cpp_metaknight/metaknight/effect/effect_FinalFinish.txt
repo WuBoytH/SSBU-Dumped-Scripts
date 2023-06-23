@@ -1,50 +1,50 @@
 #[acmd_script( agent = "metaknight", script = "effect_finalfinish", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalfinish(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_bg_black"), false, false);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("metaknight_sword"), false, false);
+unsafe fn effect_finalfinish(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_bg_black"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("metaknight_sword"), false, false);
     }
-    frame(fighter.lua_state_agent, 43.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0, 14, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    frame(agent.lua_state_agent, 43.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0, 14, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
     }
-    frame(fighter.lua_state_agent, 49.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("metaknight_sword"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+    frame(agent.lua_state_agent, 49.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("metaknight_sword"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
             methodlib::L2CValue::as_hash()const(Hash40::new("critical_hit"), Hash40::new("top"), 3, 3, 0, 6, -15, true);
             methodlib::L2CValue::as_hash()const();
-            EffectModule::request_post_effect_line_circle(fighter.module_accessor);
+            EffectModule::request_post_effect_line_circle(agent.module_accessor);
         }
         else{
-        if macros::is_excute(fighter) {
+        if macros::is_excute(agent) {
             methodlib::L2CValue::as_hash()const(Hash40::new("critical_hit"), Hash40::new("top"), 3, 3, 0, 6, 20, true);
             methodlib::L2CValue::as_hash()const(0);
-            EffectModule::request_post_effect_line_circle(fighter.module_accessor);
+            EffectModule::request_post_effect_line_circle(agent.module_accessor);
         }
     }
 }
-frame(fighter.lua_state_agent, 50.0);
-if get_value_float(fighter.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FLW_POS(fighter, Hash40::new("metaknight_final_last_trace_l"), Hash40::new("top"), 0, 0, -32.859, 0, 180, 0, 1, true);
-        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
-        macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("metaknight_final_hit"), Hash40::new("top"), -4.65, -2.883, -19, -162.6, 67.7, -138.2, 1, true);
+frame(agent.lua_state_agent, 50.0);
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("metaknight_final_last_trace_l"), Hash40::new("top"), 0, 0, -32.859, 0, 180, 0, 1, true);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("metaknight_final_hit"), Hash40::new("top"), -4.65, -2.883, -19, -162.6, 67.7, -138.2, 1, true);
     }
     else{
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FLW_POS(fighter, Hash40::new("metaknight_final_last_trace_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
-        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
-        macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("metaknight_final_hit"), Hash40::new("top"), -12.857, 0, 18, 70, 42.5, -46, 1, true);
-        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("metaknight_final_last_trace_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("metaknight_final_hit"), Hash40::new("top"), -12.857, 0, 18, 70, 42.5, -46, 1, true);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
     }
 }
 }
-frame(fighter.lua_state_agent, 54.0);
-if macros::is_excute(fighter) {
-EffectModule::remove_post_effect_line(fighter.module_accessor, 3, true);
-macros::EFFECT_OFF_KIND(fighter, Hash40::new("metaknight_sword"), false, false);
+frame(agent.lua_state_agent, 54.0);
+if macros::is_excute(agent) {
+EffectModule::remove_post_effect_line(agent.module_accessor, 3, true);
+macros::EFFECT_OFF_KIND(agent, Hash40::new("metaknight_sword"), false, false);
 }
 }

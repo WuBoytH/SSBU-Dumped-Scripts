@@ -1,26 +1,26 @@
 #[acmd_script( agent = "koopajr_kart", script = "effect_specialairsspin", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairsspin(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("koopajr_kart_jet"), false, true);
+unsafe fn effect_specialairsspin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, 3.8, 0, 0, -95, 0.8, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, 3.8, 0, 0, -95, 0.8, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
         }
     }
-    frame(fighter.lua_state_agent, 17.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("koopajr_kart_jet"), false, true);
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
     }
     else{
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, -3.8, 0, 0, -95, 0.8, true);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, -3.8, 0, 0, -95, 0.8, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
 }
-frame(fighter.lua_state_agent, 17.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("koopajr_kart_jet"), false, true);
+frame(agent.lua_state_agent, 17.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
 }
 }

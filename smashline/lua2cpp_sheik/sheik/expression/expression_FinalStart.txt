@@ -1,12 +1,12 @@
 #[acmd_script( agent = "sheik", script = "expression_finalstart", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalstart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::START_INFO_FLASH_EYE(fighter);
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false, -1);
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+unsafe fn expression_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false, -1);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
-    frame(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
     }
 }

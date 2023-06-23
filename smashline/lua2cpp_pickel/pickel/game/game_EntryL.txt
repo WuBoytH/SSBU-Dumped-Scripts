@@ -1,11 +1,11 @@
 #[acmd_script( agent = "pickel", script = "game_entryl", category = ACMD_GAME, low_priority )]
-unsafe fn game_entryl(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        WorkModule::set_int(fighter.module_accessor, *FIGHTER_PICKEL_CRAFT_WEAPON_KIND_PICK, *FIGHTER_PICKEL_INSTANCE_WORK_ID_INT_REQUEST_HAVE_CRAFT_WEAPON_KIND);
+unsafe fn game_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::set_int(agent.module_accessor, *FIGHTER_PICKEL_CRAFT_WEAPON_KIND_PICK, *FIGHTER_PICKEL_INSTANCE_WORK_ID_INT_REQUEST_HAVE_CRAFT_WEAPON_KIND);
     }
-    frame(fighter.lua_state_agent, 90.0);
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_IS_SUPER_SUDDEN_DEATH) {
-        if macros::is_excute(fighter) {
+    frame(agent.lua_state_agent, 90.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_IS_SUPER_SUDDEN_DEATH) {
+        if macros::is_excute(agent) {
             methodlib::L2CValue::L2CValue(void*)();
         }
         else{
@@ -14,9 +14,9 @@ unsafe fn game_entryl(fighter: &mut L2CAgentBase) {
 }
 methodlib::L2CValue::as_pointer()const();
 create_table();
-frame(fighter.lua_state_agent, 118.0);
-if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_IS_SUPER_SUDDEN_DEATH) {
-    if macros::is_excute(fighter) {
+frame(agent.lua_state_agent, 118.0);
+if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_IS_SUPER_SUDDEN_DEATH) {
+    if macros::is_excute(agent) {
         methodlib::L2CValue::L2CValue(void*)();
     }
     else{
@@ -25,8 +25,8 @@ if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_I
 }
 methodlib::L2CValue::as_pointer()const();
 create_table();
-frame(fighter.lua_state_agent, 119.0);
-if macros::is_excute(fighter) {
-WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+frame(agent.lua_state_agent, 119.0);
+if macros::is_excute(agent) {
+WorkModule::on_flag(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
 }
 }

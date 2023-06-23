@@ -1,14 +1,14 @@
 #[acmd_script( agent = "falco", script = "effect_finalvisualscene", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalvisualscene(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::CANCEL_FILL_SCREEN(fighter, 0, 5);
+unsafe fn effect_finalvisualscene(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 0, 5);
     }
-    frame(fighter.lua_state_agent, 222.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("falco_final_explosion"), Hash40::new("throw"), 0, 0, 0, 0, 0, -40, 35, 0, 0, 0, 0, 0, 0, true);
+    frame(agent.lua_state_agent, 222.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("falco_final_explosion"), Hash40::new("throw"), 0, 0, 0, 0, 0, -40, 35, 0, 0, 0, 0, 0, 0, true);
     }
-    frame(fighter.lua_state_agent, 235.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("falco_final_explosion"), false, false);
+    frame(agent.lua_state_agent, 235.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("falco_final_explosion"), false, false);
     }
 }

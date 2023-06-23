@@ -1,24 +1,24 @@
 #[acmd_script( agent = "mario", script = "effect_win2", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_win2(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 22.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("mario_final_handfire"), Hash40::new("haver"), 1, 0, 1, 0, 0, 0, 0.6, true);
+unsafe fn effect_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("mario_final_handfire"), Hash40::new("haver"), 1, 0, 1, 0, 0, 0, 0.6, true);
     }
-    frame(fighter.lua_state_agent, 40.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("mario_final_handfire"), false, false);
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("mario_final_handfire"), false, false);
     }
     for _ in 0..8 {
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("sys_flame"), Hash40::new("haver"), 1, 0, 2.0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, true);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_flame"), Hash40::new("haver"), 1, 0, 2.0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, true);
     }
-    wait(fighter.lua_state_agent, 10.0);
+    wait(agent.lua_state_agent, 10.0);
 }
-if macros::is_excute(fighter) {
-    macros::EFFECT_FOLLOW(fighter, Hash40::new("mario_fb_shoot"), Hash40::new("havel"), 0, 0, 0, 0, 45, 0, 0.5, true);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("mario_fb_shoot"), Hash40::new("havel"), 0, 0, 0, 0, 45, 0, 0.5, true);
 }
-frame(fighter.lua_state_agent, 128.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("mario_fb_shoot"), false, false);
+frame(agent.lua_state_agent, 128.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("mario_fb_shoot"), false, false);
 }
 }

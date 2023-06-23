@@ -1,18 +1,18 @@
 #[acmd_script( agent = "master_sword", script = "game_specialhi", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialhi(fighter: &mut L2CAgentBase) {
-    macros::FT_MOTION_RATE(fighter, 0.3);
-    if macros::is_excute(fighter) {
-        WorkModule::set_float(fighter.module_accessor, 8.0, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLOAT_2ND_GRAVITY);
-        WorkModule::set_float(fighter.module_accessor, 0.0, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLOAT_2ND_AIR_RESISTANCE);
+unsafe fn game_specialhi(agent: &mut L2CAgentBase) {
+    macros::FT_MOTION_RATE(agent, 0.3);
+    if macros::is_excute(agent) {
+        WorkModule::set_float(agent.module_accessor, 8.0, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLOAT_2ND_GRAVITY);
+        WorkModule::set_float(agent.module_accessor, 0.0, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLOAT_2ND_AIR_RESISTANCE);
     }
-    frame(fighter.lua_state_agent, 3.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLAG_PHYSICS);
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLAG_PHYSICS);
     }
-    frame(fighter.lua_state_agent, 9.0);
-    macros::FT_MOTION_RATE(fighter, 1.0);
-    frame(fighter.lua_state_agent, 11.0);
-    if macros::is_excute(fighter) {
-        WorkModule::off_flag(fighter.module_accessor, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLAG_PHYSICS);
+    frame(agent.lua_state_agent, 9.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_FLAG_PHYSICS);
     }
 }

@@ -1,20 +1,20 @@
 #[acmd_script( agent = "sheik", script = "effect_finalairstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::FT_REMOVE_FINAL_AURA(fighter, false);
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_sheik_final"), false, false, false);
+unsafe fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FT_REMOVE_FINAL_AURA(agent, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_sheik_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 27.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("sheik_final_knife"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, false);
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sheik_final_knife"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, false);
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("sheik_final_flash_l"), Hash40::new("top"), -1.8, 1.6, 11.5, 0, 0, 0, 1, false);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("sheik_final_flash_l"), Hash40::new("top"), -1.8, 1.6, 11.5, 0, 0, 0, 1, false);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("sheik_final_flash_r"), Hash40::new("top"), -1.8, 1.6, 11.5, 0, 0, 0, 1, false);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("sheik_final_flash_r"), Hash40::new("top"), -1.8, 1.6, 11.5, 0, 0, 0, 1, false);
         }
     }
 }

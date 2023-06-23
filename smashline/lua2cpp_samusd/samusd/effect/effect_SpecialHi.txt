@@ -1,16 +1,16 @@
 #[acmd_script( agent = "samusd", script = "effect_specialhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialhi(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_specialhi(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW_LIGHT(fighter, Hash40::new("samusd_screwattack"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 0.6, true, 0.471, 0.471, 0.471, 16, 1, 1, 0);
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_LIGHT(agent, Hash40::new("samusd_screwattack"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 0.6, true, 0.471, 0.471, 0.471, 16, 1, 1, 0);
     }
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("samusd_screwattack"), false, true);
-        macros::EFFECT_LIGHT_END(fighter, 3, *EFFECT_SUB_ATTRIBUTE_FOLLOW);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("samusd_screwattack"), false, true);
+        macros::EFFECT_LIGHT_END(agent, 3, *EFFECT_SUB_ATTRIBUTE_FOLLOW);
     }
 }

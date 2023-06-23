@@ -1,60 +1,60 @@
 #[acmd_script( agent = "demon", script = "game_attacks4", category = ACMD_GAME, low_priority )]
-unsafe fn game_attacks4(fighter: &mut L2CAgentBase) {
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 10);
-    frame(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        WorkModule::set_int(fighter.module_accessor, -1, *FIGHTER_DEMON_STATUS_ATTACK_S4_WORK_INT_CRITICAL_HIT_NO);
+unsafe fn game_attacks4(agent: &mut L2CAgentBase) {
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 10);
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        WorkModule::set_int(agent.module_accessor, -1, *FIGHTER_DEMON_STATUS_ATTACK_S4_WORK_INT_CRITICAL_HIT_NO);
     }
-    macros::FT_MOTION_RATE(fighter, 1.0);
-    frame(fighter.lua_state_agent, 6.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
     }
-    frame(fighter.lua_state_agent, 7.0);
-    if macros::is_excute(fighter) {
-        damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 10);
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        damage!(agent, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 10);
     }
-    frame(fighter.lua_state_agent, 10.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 7);
-    frame(fighter.lua_state_agent, 11.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 5);
-    frame(fighter.lua_state_agent, 13.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 4);
-    frame(fighter.lua_state_agent, 14.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 3);
-    frame(fighter.lua_state_agent, 21.0);
-    macros::FT_MOTION_RATE(fighter, 1.0);
-    frame(fighter.lua_state_agent, 25.0);
-    if macros::is_excute(fighter) {
-        damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
-        WorkModule::set_int(fighter.module_accessor, 1, *FIGHTER_DEMON_STATUS_ATTACK_S4_WORK_INT_CRITICAL_HIT_NO);
-        macros::ATTACK(fighter, 0, 0, Hash40::new("top"), 23.0, 361, 63, 0, 50, 3.0, 0.0, 8.5, 4.0, Some(0.0), Some(13.5), Some(4.0), 0.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DEMON_PUNCH02, *ATTACK_REGION_PUNCH);
-        macros::ATTACK(fighter, 1, 0, Hash40::new("handl"), 26.0, 361, 73, 0, 50, 4.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DEMON_PUNCH02, *ATTACK_REGION_PUNCH);
-        AttackModule::set_attack_camera_quake_forced(fighter.module_accessor, 0, *CAMERA_QUAKE_KIND_L, false);
-        AttackModule::set_attack_camera_quake_forced(fighter.module_accessor, 1, *CAMERA_QUAKE_KIND_L, false);
-        macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 0.1);
-        macros::ATK_SET_SHIELD_SETOFF_MUL(fighter, 1, 1.75);
+    frame(agent.lua_state_agent, 10.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 7);
+    frame(agent.lua_state_agent, 11.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 5);
+    frame(agent.lua_state_agent, 13.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 4);
+    frame(agent.lua_state_agent, 14.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 3);
+    frame(agent.lua_state_agent, 21.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        damage!(agent, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+        WorkModule::set_int(agent.module_accessor, 1, *FIGHTER_DEMON_STATUS_ATTACK_S4_WORK_INT_CRITICAL_HIT_NO);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 23.0, 361, 63, 0, 50, 3.0, 0.0, 8.5, 4.0, Some(0.0), Some(13.5), Some(4.0), 0.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DEMON_PUNCH02, *ATTACK_REGION_PUNCH);
+        macros::ATTACK(agent, 1, 0, Hash40::new("handl"), 26.0, 361, 73, 0, 50, 4.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DEMON_PUNCH02, *ATTACK_REGION_PUNCH);
+        AttackModule::set_attack_camera_quake_forced(agent.module_accessor, 0, *CAMERA_QUAKE_KIND_L, false);
+        AttackModule::set_attack_camera_quake_forced(agent.module_accessor, 1, *CAMERA_QUAKE_KIND_L, false);
+        macros::ATK_SET_SHIELD_SETOFF_MUL(agent, 0, 0.1);
+        macros::ATK_SET_SHIELD_SETOFF_MUL(agent, 1, 1.75);
     }
-    wait(fighter.lua_state_agent, 2.0);
-    macros::FT_MOTION_RATE(fighter, 1.0);
-    if macros::is_excute(fighter) {
-        AttackModule::clear_all(fighter.module_accessor);
+    wait(agent.lua_state_agent, 2.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
     }
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_STATUS_ATTACK_S4_FLAG_HIT) {
-        if macros::is_excute(fighter) {
-            macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_DEMON_STATUS_ATTACK_S4_FLAG_HIT) {
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
         }
     }
-    frame(fighter.lua_state_agent, 51.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 4);
-    frame(fighter.lua_state_agent, 53.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 5);
-    frame(fighter.lua_state_agent, 57.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 6);
-    frame(fighter.lua_state_agent, 58.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 7);
-    frame(fighter.lua_state_agent, 59.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 8);
-    frame(fighter.lua_state_agent, 61.0);
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, false, 0);
+    frame(agent.lua_state_agent, 51.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 4);
+    frame(agent.lua_state_agent, 53.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 5);
+    frame(agent.lua_state_agent, 57.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 6);
+    frame(agent.lua_state_agent, 58.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 7);
+    frame(agent.lua_state_agent, 59.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 8);
+    frame(agent.lua_state_agent, 61.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, false, 0);
 }

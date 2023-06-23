@@ -1,29 +1,29 @@
 #[acmd_script( agent = "sonic", script = "expression_speciallwstart", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_speciallwstart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+unsafe fn expression_speciallwstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
-        ItemModule::set_attach_item_visibility(fighter.module_accessor, false);
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
     }
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("body") as i64, hash40("body_sphere") as i64);
-        macros::HIT_NODE(fighter, Hash40::new("waist"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("head"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("s_stingd1"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("armr"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("legr"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("legl"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("kneer"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("kneel"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("footr"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("footl"), *HIT_STATUS_OFF);
-        macros::HIT_NODE(fighter, Hash40::new("rot"), *HIT_STATUS_NORMAL);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_sphere") as i64);
+        macros::HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("s_stingd1"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("footl"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_NORMAL);
     }
 }

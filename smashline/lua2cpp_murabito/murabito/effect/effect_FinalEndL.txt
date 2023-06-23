@@ -1,12 +1,12 @@
 #[acmd_script( agent = "murabito", script = "effect_finalendl", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalendl(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 8.0);
-    if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_finalendl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
     }
-    frame(fighter.lua_state_agent, 54.0);
-    if macros::is_excute(fighter) {
-        macros::CANCEL_FILL_SCREEN(fighter, 1, 30);
-        EffectModule::remove_screen(fighter.module_accessor, Hash40::new("bg_murabito_final"), -1);
+    frame(agent.lua_state_agent, 54.0);
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 1, 30);
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_murabito_final"), -1);
     }
 }

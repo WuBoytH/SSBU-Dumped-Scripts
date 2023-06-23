@@ -1,23 +1,23 @@
 #[acmd_script( agent = "kirby", script = "expression_finalairstart", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalairstart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::START_INFO_FLASH_EYE(fighter);
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
+unsafe fn expression_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
     }
-    frame(fighter.lua_state_agent, 54.0);
-    if macros::is_excute(fighter) {
-        macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_slash_critical"), 0);
+    frame(agent.lua_state_agent, 54.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_slash_critical"), 0);
     }
-    frame(fighter.lua_state_agent, 55.0);
-    if macros::is_excute(fighter) {
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
-        macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+    frame(agent.lua_state_agent, 55.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
-    frame(fighter.lua_state_agent, 56.0);
-    if macros::is_excute(fighter) {
-        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohitll_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        ModelModule::disable_gold_eye(fighter.module_accessor);
+    frame(agent.lua_state_agent, 56.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ModelModule::disable_gold_eye(agent.module_accessor);
     }
 }

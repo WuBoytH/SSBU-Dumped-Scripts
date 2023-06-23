@@ -1,22 +1,22 @@
 #[acmd_script( agent = "jack", script = "effect_finaldashend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finaldashend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::AFTER_IMAGE_OFF(fighter, 2);
+unsafe fn effect_finaldashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::AFTER_IMAGE_OFF(agent, 2);
     }
     for _ in 0..3 {
-    if macros::is_excute(fighter) {
-        macros::FOOT_EFFECT(fighter, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 7, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 7, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
     }
-    wait(fighter.lua_state_agent, 4.0);
+    wait(agent.lua_state_agent, 4.0);
 }
-wait(fighter.lua_state_agent, 1.0);
-if macros::is_excute(fighter) {
-    macros::FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
-    macros::LAST_EFFECT_SET_RATE(fighter, 0.7);
+wait(agent.lua_state_agent, 1.0);
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+    macros::LAST_EFFECT_SET_RATE(agent, 0.7);
 }
-frame(fighter.lua_state_agent, 15.0);
-if macros::is_excute(fighter) {
-    macros::CANCEL_FILL_SCREEN(fighter, 0, 18);
-    EffectModule::remove_screen(fighter.module_accessor, Hash40::new("bg_jack_final"), -1);
+frame(agent.lua_state_agent, 15.0);
+if macros::is_excute(agent) {
+    macros::CANCEL_FILL_SCREEN(agent, 0, 18);
+    EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_jack_final"), -1);
 }
 }

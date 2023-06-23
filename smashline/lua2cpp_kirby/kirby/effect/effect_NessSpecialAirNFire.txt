@@ -1,25 +1,25 @@
 #[acmd_script( agent = "kirby", script = "effect_nessspecialairnfire", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_nessspecialairnfire(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FLW_POS(fighter, Hash40::new("ness_pkfl_hold"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 0.9, true);
-        macros::EFFECT(fighter, Hash40::new("sys_flash"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_nessspecialairnfire(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("ness_pkfl_hold"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 0.9, true);
+        macros::EFFECT(agent, Hash40::new("sys_flash"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
     }
     for _ in 0..5 {
-    if macros::is_excute(fighter) {
-        macros::FLASH(fighter, 0.7, 1, 0.2, 0.4);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.7, 1, 0.2, 0.4);
     }
-    wait(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::FLASH(fighter, 1, 1, 1, 0.6);
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 1, 0.6);
     }
-    wait(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::COL_NORMAL(fighter);
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
     }
-    wait(fighter.lua_state_agent, 3.0);
+    wait(agent.lua_state_agent, 3.0);
 }
-frame(fighter.lua_state_agent, 25.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("ness_pkfl_hold"), false, false);
+frame(agent.lua_state_agent, 25.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("ness_pkfl_hold"), false, false);
 }
 }

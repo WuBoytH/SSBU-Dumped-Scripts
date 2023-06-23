@@ -1,20 +1,20 @@
 #[acmd_script( agent = "eflame", script = "effect_finalattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalattack(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_eflame_final2"), false, false, false);
+unsafe fn effect_finalattack(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_eflame_final2"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 5.0);
-    frame(fighter.lua_state_agent, 8.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_final_sword_arc"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, false);
+    frame(agent.lua_state_agent, 5.0);
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_final_sword_arc"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, false);
     }
-    frame(fighter.lua_state_agent, 36.0);
-    frame(fighter.lua_state_agent, 92.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_aura"), false, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_sword_fire"), false, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_sword_beam"), false, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("eflame_final_sword_body"), false, true);
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("eflame_sword_close"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+    frame(agent.lua_state_agent, 36.0);
+    frame(agent.lua_state_agent, 92.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_aura"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_sword_fire"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_sword_beam"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_sword_body"), false, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_sword_close"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
     }
 }

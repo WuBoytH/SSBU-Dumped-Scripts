@@ -1,15 +1,15 @@
 #[acmd_script( agent = "samusd", script = "effect_finalair", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
+unsafe fn effect_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
         EFFECT_FOLLOW_arg11(Hash40::new("samusd_gbeam_flash_01"), Hash40::new("armr"), 8, 0, 0, 0, 0, 0, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_GLOBAL(fighter, Hash40::new("samusd_final_stone"), 0, 0, 0, 0, 0, 0, 1, false);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_GLOBAL(agent, Hash40::new("samusd_final_stone"), 0, 0, 0, 0, 0, 0, 1, false);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_GLOBAL(fighter, Hash40::new("samusd_final_stone"), 0, 0, 0, 0, 180, 0, 1, false);
+        if macros::is_excute(agent) {
+            macros::EFFECT_GLOBAL(agent, Hash40::new("samusd_final_stone"), 0, 0, 0, 0, 180, 0, 1, false);
         }
     }
 }

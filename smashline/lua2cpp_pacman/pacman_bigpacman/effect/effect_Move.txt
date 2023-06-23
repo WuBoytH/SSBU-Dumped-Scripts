@@ -1,14 +1,14 @@
 #[acmd_script( agent = "pacman_bigpacman", script = "effect_move", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_move(fighter: &mut L2CAgentBase) {
-    if !WorkModule::is_flag(fighter.module_accessor, *WEAPON_PACMAN_BIGPACMAN_INSTANCE_WORK_ID_FLAG_FLASH) {
-        if macros::is_excute(fighter) {
-            ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_55_pizza_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+unsafe fn effect_move(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *WEAPON_PACMAN_BIGPACMAN_INSTANCE_WORK_ID_FLAG_FLASH) {
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_55_pizza_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     }
-    wait(fighter.lua_state_agent, 9.0);
-    if macros::is_excute(fighter) {
-        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_55_pizza_sp2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    wait(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_55_pizza_sp2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
-    wait(fighter.lua_state_agent, 4.0);
-    wait(fighter.lua_state_agent, 2.0);
+    wait(agent.lua_state_agent, 4.0);
+    wait(agent.lua_state_agent, 2.0);
 }

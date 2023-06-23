@@ -1,19 +1,19 @@
 #[acmd_script( agent = "pzenigame", script = "game_specialairnshot", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairnshot(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 5.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
+unsafe fn game_specialairnshot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
     }
-    macros::FT_MOTION_RATE(fighter, 0.85);
-    frame(fighter.lua_state_agent, 7.0);
+    macros::FT_MOTION_RATE(agent, 0.85);
+    frame(agent.lua_state_agent, 7.0);
     for _ in 0..6 {
-    if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_PZENIGAME_GENERATE_ARTICLE_WATER, false, -1);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PZENIGAME_GENERATE_ARTICLE_WATER, false, -1);
     }
-    wait(fighter.lua_state_agent, 4.0);
+    wait(agent.lua_state_agent, 4.0);
 }
-frame(fighter.lua_state_agent, 40.0);
-if macros::is_excute(fighter) {
-    WorkModule::off_flag(fighter.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
+frame(agent.lua_state_agent, 40.0);
+if macros::is_excute(agent) {
+    WorkModule::off_flag(agent.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
 }
 }

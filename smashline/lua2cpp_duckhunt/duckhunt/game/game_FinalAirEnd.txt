@@ -1,15 +1,15 @@
 #[acmd_script( agent = "duckhunt", script = "game_finalairend", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_DUCKHUNT_FINAL, 0, 6.0, 361, 160, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DUCKHUNT_FINAL, *ATTACK_REGION_THROW);
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DUCKHUNT_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
+unsafe fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_DUCKHUNT_FINAL, 0, 6.0, 361, 160, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DUCKHUNT_FINAL, *ATTACK_REGION_THROW);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DUCKHUNT_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
     }
-    frame(fighter.lua_state_agent, 2.0);
-    macros::FT_MOTION_RATE(fighter, 0.7);
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DUCKHUNT_STATUS_WORK_ID_FLAG_FINAL_END_EXIT);
+    frame(agent.lua_state_agent, 2.0);
+    macros::FT_MOTION_RATE(agent, 0.7);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DUCKHUNT_STATUS_WORK_ID_FLAG_FINAL_END_EXIT);
     }
-    frame(fighter.lua_state_agent, 65.0);
-    macros::FT_MOTION_RATE(fighter, 1.2);
+    frame(agent.lua_state_agent, 65.0);
+    macros::FT_MOTION_RATE(agent, 1.2);
 }

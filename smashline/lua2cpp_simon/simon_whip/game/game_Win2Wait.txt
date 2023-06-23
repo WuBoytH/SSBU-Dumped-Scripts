@@ -1,14 +1,14 @@
 #[acmd_script( agent = "simon_whip", script = "game_win2wait", category = ACMD_GAME, low_priority )]
-unsafe fn game_win2wait(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        PhysicsModule::set_2nd_status(fighter.module_accessor, *PH2NDARY_CRAW_MOVE);
+unsafe fn game_win2wait(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_MOVE);
         battle_object();
         methodlib::L2CValue::L2CValue(void*)();
     }
     else{
     methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 }
-let object = sv_system::battle_object(fighter.lua_state_agent) as *mut BattleObject;
+let object = sv_system::battle_object(agent.lua_state_agent) as *mut BattleObject;
 FighterSpecializer_Simon::reset_node_fix_flag_list(object as *mut Fighter);
 battle_object();
 methodlib::L2CValue::L2CValue(void*)();

@@ -1,30 +1,30 @@
 #[acmd_script( agent = "ness", script = "game_clubswing4", category = ACMD_GAME, low_priority )]
-unsafe fn game_clubswing4(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        MotionModule::set_rate(fighter.module_accessor, 0.5);
-        ItemModule::set_have_item_scale_anim(fighter.module_accessor, 6, 1.4);
+unsafe fn game_clubswing4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 0.5);
+        ItemModule::set_have_item_scale_anim(agent.module_accessor, 6, 1.4);
     }
-    frame(fighter.lua_state_agent, 7.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SWING_WORK_FLAG_START_SMASH_HOLD);
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SWING_WORK_FLAG_START_SMASH_HOLD);
     }
-    frame(fighter.lua_state_agent, 14.0);
-    if macros::is_excute(fighter) {
-        ItemModule::set_have_item_action(fighter.module_accessor, *ITEM_SWING_ACTION_BEGIN);
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_action(agent.module_accessor, *ITEM_SWING_ACTION_BEGIN);
     }
-    frame(fighter.lua_state_agent, 15.0);
+    frame(agent.lua_state_agent, 15.0);
     methodlua2cpp::L2CFighterAnimcmdGameCommon::game_ClubSwing4Common()();
-    frame(fighter.lua_state_agent, 16.0);
-    if macros::is_excute(fighter) {
-        MotionModule::set_rate(fighter.module_accessor, 0.8);
-        AttackModule::clear_all(fighter.module_accessor);
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 0.8);
+        AttackModule::clear_all(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 25.0);
-    if macros::is_excute(fighter) {
-        ItemModule::set_have_item_scale_anim(fighter.module_accessor, 12, 1);
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_scale_anim(agent.module_accessor, 12, 1);
     }
-    frame(fighter.lua_state_agent, 26.0);
-    if macros::is_excute(fighter) {
-        macros::SHOOT_ITEM_BULLET_CHARGE(fighter, *FIGHTER_STATUS_ITEM_SWING_WORK_INT_S4_HOLD_FRAME);
+    frame(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        macros::SHOOT_ITEM_BULLET_CHARGE(agent, *FIGHTER_STATUS_ITEM_SWING_WORK_INT_S4_HOLD_FRAME);
     }
 }

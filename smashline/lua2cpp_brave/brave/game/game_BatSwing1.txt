@@ -1,9 +1,9 @@
 #[acmd_script( agent = "brave", script = "game_batswing1", category = ACMD_GAME, low_priority )]
-unsafe fn game_batswing1(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 4.0);
+unsafe fn game_batswing1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
     methodlua2cpp::L2CFighterAnimcmdGameCommon::game_BatSwing1Common()();
-    frame(fighter.lua_state_agent, 6.0);
-    if macros::is_excute(fighter) {
-        AttackModule::clear_all(fighter.module_accessor);
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
     }
 }

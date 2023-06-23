@@ -1,10 +1,10 @@
 #[acmd_script( agent = "kirby", script = "sound_pickelwalkslow", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_pickelwalkslow(fighter: &mut L2CAgentBase) {
+unsafe fn sound_pickelwalkslow(agent: &mut L2CAgentBase) {
     wait_loop_sync_mot();
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_kirby_step_left_s"), Hash40::new("se_kirby_step_right_s"));
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_kirby_step_left_s"), Hash40::new("se_kirby_step_right_s"));
     }
-    frame(fighter.lua_state_agent, 42.0);
-    macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_kirby_step_right_s"), Hash40::new("se_kirby_step_left_s"));
+    frame(agent.lua_state_agent, 42.0);
+    macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_kirby_step_right_s"), Hash40::new("se_kirby_step_left_s"));
 }

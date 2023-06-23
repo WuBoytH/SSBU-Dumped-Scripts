@@ -1,14 +1,14 @@
 #[acmd_script( agent = "gaogaen", script = "game_specialairsend", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairsend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::REVERSE_LR(fighter);
+unsafe fn game_specialairsend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::REVERSE_LR(agent);
     }
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_GAOGAEN_STATUS_SPECIAL_S_FLAG_ENABLE_GRAVITY);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_GAOGAEN_STATUS_SPECIAL_S_FLAG_ENABLE_GRAVITY);
     }
-    frame(fighter.lua_state_agent, 38.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_GAOGAEN_STATUS_SPECIAL_S_WORK_ID_FLAG_AIR_CONTROL);
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_GAOGAEN_STATUS_SPECIAL_S_WORK_ID_FLAG_AIR_CONTROL);
     }
 }

@@ -1,23 +1,23 @@
 #[acmd_script( agent = "koopajr", script = "expression_throwf", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_throwf(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        ArticleModule::generate_article_enable(fighter.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, -1);
-        macros::FT_ATTACK_ABS_CAMERA_QUAKE(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("sholder_l") as i64, hash40("sholder_l_on") as i64);
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("sholder_r") as i64, hash40("sholder_r_on") as i64);
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("item") as i64, hash40("item_glove") as i64);
+unsafe fn expression_throwf(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, -1);
+        macros::FT_ATTACK_ABS_CAMERA_QUAKE(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sholder_l") as i64, hash40("sholder_l_on") as i64);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sholder_r") as i64, hash40("sholder_r_on") as i64);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("item") as i64, hash40("item_glove") as i64);
     }
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
-    frame(fighter.lua_state_agent, 14.0);
-    if macros::is_excute(fighter) {
-        macros::QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
-        macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
     }
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_MAGICHAND, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_MAGICHAND, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

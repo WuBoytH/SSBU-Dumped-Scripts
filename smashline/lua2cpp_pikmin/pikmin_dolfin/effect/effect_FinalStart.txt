@@ -1,19 +1,19 @@
 #[acmd_script( agent = "pikmin_dolfin", script = "effect_finalstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_pikmin_final"), false, false, false);
+unsafe fn effect_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_pikmin_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 37.0);
-    if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
     }
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("pikmin_final_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pikmin_final_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
     }
-    frame(fighter.lua_state_agent, 18.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("pikmin_final_exhaust"), Hash40::new("exhaust1"), 4, -6, 4, 0, 0, 0, 1, true);
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("pikmin_final_exhaust"), Hash40::new("exhaust2"), 4, -6, 4, 0, 0, 0, 1, true);
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pikmin_final_exhaust"), Hash40::new("exhaust1"), 4, -6, 4, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pikmin_final_exhaust"), Hash40::new("exhaust2"), 4, -6, 4, 0, 0, 0, 1, true);
     }
 }

@@ -1,15 +1,15 @@
 #[acmd_script( agent = "rosetta", script = "effect_final", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_final(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_rosetta_final"), false, false, false);
+unsafe fn effect_final(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_rosetta_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_wand_light"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_wand_stardust"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_wand_light"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_wand_stardust"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
     }
-    frame(fighter.lua_state_agent, 40.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("rosetta_final_powerstar_birth"), Hash40::new("top"), 0, 46, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, true);
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("rosetta_final_powerstar_birth"), Hash40::new("top"), 0, 46, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, true);
     }
 }

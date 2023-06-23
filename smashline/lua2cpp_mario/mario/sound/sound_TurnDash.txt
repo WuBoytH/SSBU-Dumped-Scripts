@@ -1,12 +1,12 @@
 #[acmd_script( agent = "mario", script = "sound_turndash", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_turndash(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_mario_dash_start"));
-        macros::SET_PLAY_INHIVIT(fighter, Hash40::new("se_mario_dash_start"), 20);
+unsafe fn sound_turndash(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_mario_dash_start"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_mario_dash_start"), 20);
     }
-    wait(fighter.lua_state_agent, 12.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_mario_step_left_m"), Hash40::new("se_mario_step_right_m"));
+    wait(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_mario_step_left_m"), Hash40::new("se_mario_step_right_m"));
     }
 }

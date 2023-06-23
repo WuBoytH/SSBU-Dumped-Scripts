@@ -1,11 +1,11 @@
 #[acmd_script( agent = "robot", script = "game_final", category = ACMD_GAME, low_priority )]
-unsafe fn game_final(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_RECT, 50, -50, 50, -10);
-        macros::ENABLE_AREA(fighter, *FIHGTER_ROBOT_AREA_KIND_FINAL_ROCK_ON);
+unsafe fn game_final(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 50, -50, 50, -10);
+        macros::ENABLE_AREA(agent, *FIHGTER_ROBOT_AREA_KIND_FINAL_ROCK_ON);
     }
-    frame(fighter.lua_state_agent, 191.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_ROBOT_GENERATE_ARTICLE_MAINLASER, false, -1);
+    frame(agent.lua_state_agent, 191.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_ROBOT_GENERATE_ARTICLE_MAINLASER, false, -1);
     }
 }

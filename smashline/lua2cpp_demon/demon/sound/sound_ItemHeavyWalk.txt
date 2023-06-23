@@ -1,11 +1,11 @@
 #[acmd_script( agent = "demon", script = "sound_itemheavywalk", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_itemheavywalk(fighter: &mut L2CAgentBase) {
+unsafe fn sound_itemheavywalk(agent: &mut L2CAgentBase) {
     wait_loop_sync_mot();
-    frame(fighter.lua_state_agent, 16.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_STEP(fighter, Hash40::new("se_demon_step_right_ll"));
-        macros::SET_PLAY_INHIVIT(fighter, Hash40::new("se_demon_step_right_ll"), 5);
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_demon_step_right_ll"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_demon_step_right_ll"), 5);
     }
-    frame(fighter.lua_state_agent, 33.0);
-    macros::PLAY_STEP(fighter, Hash40::new("se_demon_step_left_ll"));
+    frame(agent.lua_state_agent, 33.0);
+    macros::PLAY_STEP(agent, Hash40::new("se_demon_step_left_ll"));
 }

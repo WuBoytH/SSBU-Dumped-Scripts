@@ -1,20 +1,20 @@
 #[acmd_script( agent = "plizardon", script = "effect_attackairb", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairb(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 13.0);
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("plizardon_atk_fire_air2"), Hash40::new("fire"), 0, 0, 0, 180, 0, 0, 1, true);
-            macros::LAST_EFFECT_SET_RATE(fighter, 1.2);
+unsafe fn effect_attackairb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("plizardon_atk_fire_air2"), Hash40::new("fire"), 0, 0, 0, 180, 0, 0, 1, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.2);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("plizardon_atk_fire_air2"), Hash40::new("fire"), 0, 0, 0, 0, 0, 0, 1, true);
-            macros::LAST_EFFECT_SET_RATE(fighter, 1.2);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("plizardon_atk_fire_air2"), Hash40::new("fire"), 0, 0, 0, 0, 0, 0, 1, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.2);
         }
     }
 }
-frame(fighter.lua_state_agent, 17.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("plizardon_atk_fire_air2"), false, false);
+frame(agent.lua_state_agent, 17.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("plizardon_atk_fire_air2"), false, false);
 }
 }

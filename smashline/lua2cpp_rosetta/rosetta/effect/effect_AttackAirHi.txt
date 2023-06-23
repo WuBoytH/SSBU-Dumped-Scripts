@@ -1,25 +1,25 @@
 #[acmd_script( agent = "rosetta", script = "effect_attackairhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairhi(fighter: &mut L2CAgentBase) {
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        frame(fighter.lua_state_agent, 8.0);
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_ring_flash2"), Hash40::new("throw"), 0, 0, 0, 0, 0, -5, 1, true);
+unsafe fn effect_attackairhi(agent: &mut L2CAgentBase) {
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        frame(agent.lua_state_agent, 8.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_ring_flash2"), Hash40::new("throw"), 0, 0, 0, 0, 0, -5, 1, true);
         }
     }
-    frame(fighter.lua_state_agent, 29.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_ring_erase"), Hash40::new("throw"), 0, 0, 0, 0, 0, -5, 1, false);
-        macros::EFFECT_DETACH_KIND(fighter, Hash40::new("rosetta_ring_erase"), -1);
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_ring_erase"), Hash40::new("throw"), 0, 0, 0, 0, 0, -5, 1, false);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("rosetta_ring_erase"), -1);
     }
     else{
-    frame(fighter.lua_state_agent, 0.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_ring_flash2"), Hash40::new("throw"), 0, 0, 0, 0, 0, 25, 1, true);
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_ring_flash2"), Hash40::new("throw"), 0, 0, 0, 0, 0, 25, 1, true);
     }
 }
-frame(fighter.lua_state_agent, 29.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_FOLLOW(fighter, Hash40::new("rosetta_ring_erase"), Hash40::new("throw"), 0, 0, 0, 0, 0, 25, 1, false);
-    macros::EFFECT_DETACH_KIND(fighter, Hash40::new("rosetta_ring_erase"), -1);
+frame(agent.lua_state_agent, 29.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_ring_erase"), Hash40::new("throw"), 0, 0, 0, 0, 0, 25, 1, false);
+    macros::EFFECT_DETACH_KIND(agent, Hash40::new("rosetta_ring_erase"), -1);
 }
 }

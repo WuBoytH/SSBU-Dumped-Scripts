@@ -1,12 +1,12 @@
 #[acmd_script( agent = "ridley", script = "expression_entryl", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_entryl(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), false);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), false);
+unsafe fn expression_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
     }
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), true);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), true);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
     }
 }

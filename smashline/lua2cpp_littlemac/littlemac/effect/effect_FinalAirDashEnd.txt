@@ -1,20 +1,20 @@
 #[acmd_script( agent = "littlemac", script = "effect_finalairdashend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairdashend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::FT_REMOVE_FINAL_AURA(fighter, true);
+unsafe fn effect_finalairdashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FT_REMOVE_FINAL_AURA(agent, true);
     }
     for _ in 0..3 {
-    if macros::is_excute(fighter) {
-        macros::FOOT_EFFECT(fighter, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
-    wait(fighter.lua_state_agent, 4.0);
+    wait(agent.lua_state_agent, 4.0);
 }
-if macros::is_excute(fighter) {
-    EffectModule::remove_screen(fighter.module_accessor, Hash40::new("bg_littlemac_final"), -1);
+if macros::is_excute(agent) {
+    EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_littlemac_final"), -1);
 }
-wait(fighter.lua_state_agent, 1.0);
-if macros::is_excute(fighter) {
-    macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
-    macros::LAST_EFFECT_SET_RATE(fighter, 0.7);
+wait(agent.lua_state_agent, 1.0);
+if macros::is_excute(agent) {
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    macros::LAST_EFFECT_SET_RATE(agent, 0.7);
 }
 }

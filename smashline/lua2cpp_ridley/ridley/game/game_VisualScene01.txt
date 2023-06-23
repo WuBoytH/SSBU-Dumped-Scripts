@@ -1,17 +1,17 @@
 #[acmd_script( agent = "ridley", script = "game_visualscene01", category = ACMD_GAME, low_priority )]
-unsafe fn game_visualscene01(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, false, -1);
-        ArticleModule::set_pos(fighter.module_accessor, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, 0, 1500, 0);
-        ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, Hash40::new("visual_scene_01"), false, -1.0);
+unsafe fn game_visualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, false, -1);
+        ArticleModule::set_pos(agent.module_accessor, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, 0, 1500, 0);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_RIDLEY_GENERATE_ARTICLE_GUNSHIP, Hash40::new("visual_scene_01"), false, -1.0);
     }
-    frame(fighter.lua_state_agent, 9.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_RIDLEY_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION_01);
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_RIDLEY_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION_01);
     }
-    frame(fighter.lua_state_agent, 15.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_RIDLEY_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION_02);
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_RIDLEY_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION_02);
     }
 }

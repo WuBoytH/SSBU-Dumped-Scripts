@@ -1,9 +1,9 @@
 #[acmd_script( agent = "shulk", script = "expression_specialairsfall", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialairsfall(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        AttackModule::set_attack_reference_joint_id(fighter.module_accessor, Hash40::new("swordr"), AttackDirectionAxis(*ATTACK_DIRECTION_Z), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Y));
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("body") as i64, hash40("body_monad_hand") as i64);
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
-        macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_slashl"), 0);
+unsafe fn expression_specialairsfall(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        AttackModule::set_attack_reference_joint_id(agent.module_accessor, Hash40::new("swordr"), AttackDirectionAxis(*ATTACK_DIRECTION_Z), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Y));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_monad_hand") as i64);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_slashl"), 0);
     }
 }

@@ -1,26 +1,26 @@
 #[acmd_script( agent = "pacman", script = "effect_finalstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_pacman_final"), false, false, false);
+unsafe fn effect_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_pacman_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("finpacman_change_start"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
-        macros::EFFECT_FLW_POS(fighter, Hash40::new("finpacman_change_start_flash"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, false);
-        macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("finpacman_change_start"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("finpacman_change_start_flash"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
     }
-    frame(fighter.lua_state_agent, 50.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FLW_POS(fighter, Hash40::new("finpacman_change_start_ring"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, false);
-        macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("finpacman_change_start_ring"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
     }
-    frame(fighter.lua_state_agent, 70.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_final_aura"), false, false);
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_final_aura"), false, false);
     }
-    frame(fighter.lua_state_agent, 127.0);
-    if macros::is_excute(fighter) {
-        macros::FT_REMOVE_FINAL_AURA(fighter, true);
+    frame(agent.lua_state_agent, 127.0);
+    if macros::is_excute(agent) {
+        macros::FT_REMOVE_FINAL_AURA(agent, true);
     }
 }

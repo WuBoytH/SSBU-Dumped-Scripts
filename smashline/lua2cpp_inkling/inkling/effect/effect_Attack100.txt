@@ -1,22 +1,22 @@
 #[acmd_script( agent = "inkling", script = "effect_attack100", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attack100(fighter: &mut L2CAgentBase) {
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_INK_SUCCESS);
+unsafe fn effect_attack100(agent: &mut L2CAgentBase) {
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_INK_SUCCESS);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if macros::is_excute(fighter) {
-            macros::EFFECT(fighter, Hash40::new("inkling_muzzle_shot"), Hash40::new("muzzle"), -1, 0, 0, 0, 180, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("inkling_muzzle_shot"), Hash40::new("muzzle"), -1, 0, 0, 0, 180, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
         }
     }
-    WorkModule::get_float(fighter.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
-    WorkModule::get_float(fighter.module_accessor, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
-    WorkModule::get_float(fighter.module_accessor, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_B);
-    if macros::is_excute(fighter) {
-        macros::LAST_PARTICLE_SET_COLOR(fighter);
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_B);
+    if macros::is_excute(agent) {
+        macros::LAST_PARTICLE_SET_COLOR(agent);
     }
-    if macros::is_excute(fighter) {
-        macros::LAST_EFFECT_SET_RATE(fighter, 2);
+    if macros::is_excute(agent) {
+        macros::LAST_EFFECT_SET_RATE(agent, 2);
     }
-    if macros::is_excute(fighter) {
-        macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 7, 0, 4, 0, 0, 0, false);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 7, 0, 4, 0, 0, 0, false);
     }
-    wait(fighter.lua_state_agent, 6.0);
+    wait(agent.lua_state_agent, 6.0);
 }

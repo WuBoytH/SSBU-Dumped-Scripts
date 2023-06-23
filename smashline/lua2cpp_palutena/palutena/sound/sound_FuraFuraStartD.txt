@@ -1,13 +1,13 @@
 #[acmd_script( agent = "palutena", script = "sound_furafurastartd", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_furafurastartd(fighter: &mut L2CAgentBase) {
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL) {
-        if macros::is_excute(fighter) {
-            macros::SET_PLAY_INHIVIT(fighter, Hash40::new("se_common_dizzy"), 10);
+unsafe fn sound_furafurastartd(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL) {
+        if macros::is_excute(agent) {
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_common_dizzy"), 10);
         }
         else{
-        frame(fighter.lua_state_agent, 10.0);
-        if macros::is_excute(fighter) {
-            macros::PLAY_STATUS(fighter, Hash40::new("se_common_dizzy"));
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_common_dizzy"));
         }
     }
 }

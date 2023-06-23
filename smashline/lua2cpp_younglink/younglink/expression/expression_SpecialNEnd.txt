@@ -1,29 +1,29 @@
 #[acmd_script( agent = "younglink", script = "expression_specialnend", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialnend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
-        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+unsafe fn expression_specialnend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
-    frame(fighter.lua_state_agent, 2.0);
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_LINK_STATUS_BOW_FLAG_CHARGE_MAX) {
-        if macros::is_excute(fighter) {
-            ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    frame(agent.lua_state_agent, 2.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_LINK_STATUS_BOW_FLAG_CHARGE_MAX) {
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         else{
-        if macros::is_excute(fighter) {
-            ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     }
 }
-frame(fighter.lua_state_agent, 20.0);
-if macros::is_excute(fighter) {
-    VisibilityModule::set_int64(fighter.module_accessor, hash40("sword") as i64, hash40("sword_normal") as i64);
+frame(agent.lua_state_agent, 20.0);
+if macros::is_excute(agent) {
+    VisibilityModule::set_int64(agent.module_accessor, hash40("sword") as i64, hash40("sword_normal") as i64);
 }
-frame(fighter.lua_state_agent, 22.0);
-if macros::is_excute(fighter) {
-    ItemModule::set_have_item_visibility(fighter.module_accessor, true, 0);
-    ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_YOUNGLINK_GENERATE_ARTICLE_BOW, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-    VisibilityModule::set_int64(fighter.module_accessor, hash40("shield") as i64, hash40("shield_normal") as i64);
+frame(agent.lua_state_agent, 22.0);
+if macros::is_excute(agent) {
+    ItemModule::set_have_item_visibility(agent.module_accessor, true, 0);
+    ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_YOUNGLINK_GENERATE_ARTICLE_BOW, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    VisibilityModule::set_int64(agent.module_accessor, hash40("shield") as i64, hash40("shield_normal") as i64);
 }
 }

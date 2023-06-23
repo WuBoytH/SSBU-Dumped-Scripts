@@ -1,15 +1,15 @@
 #[acmd_script( agent = "metaknight", script = "game_downeatu", category = ACMD_GAME, low_priority )]
-unsafe fn game_downeatu(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 3.0);
-    if macros::is_excute(fighter) {
-        ItemModule::pickup_item(fighter.module_accessor, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+unsafe fn game_downeatu(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
     }
     frame(false, 6);
-    if macros::is_excute(fighter) {
-        ItemModule::use_item(fighter.module_accessor, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+    if macros::is_excute(agent) {
+        ItemModule::use_item(agent.module_accessor, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
     }
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_CHANGE_STATUS_DLAY_MOTION);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_CHANGE_STATUS_DLAY_MOTION);
     }
 }

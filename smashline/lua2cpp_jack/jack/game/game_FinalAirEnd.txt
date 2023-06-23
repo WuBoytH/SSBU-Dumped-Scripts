@@ -1,17 +1,17 @@
 #[acmd_script( agent = "jack", script = "game_finalairend", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::CANCEL_FILL_SCREEN(fighter, 0, 0);
-        macros::CANCEL_FILL_SCREEN(fighter, 1, 0);
-        macros::ATTACK_ABS(fighter, *FIGHTER_JACK_ATTACK_ABSOLUTE_KIND_FINAL, 0, 13.0, 60, 100, 0, 73, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_JACK_STATUS_FINAL_FLAG_ABS_SET);
+unsafe fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 0, 0);
+        macros::CANCEL_FILL_SCREEN(agent, 1, 0);
+        macros::ATTACK_ABS(agent, *FIGHTER_JACK_ATTACK_ABSOLUTE_KIND_FINAL, 0, 13.0, 60, 100, 0, 73, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_JACK_STATUS_FINAL_FLAG_ABS_SET);
     }
-    frame(fighter.lua_state_agent, 15.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_JACK_STATUS_FINAL_FLAG_END_FINAL);
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_JACK_STATUS_FINAL_FLAG_END_FINAL);
     }
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
     }
 }

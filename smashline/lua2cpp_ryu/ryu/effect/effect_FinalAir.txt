@@ -1,33 +1,33 @@
 #[acmd_script( agent = "ryu", script = "effect_finalair", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_ryu_final_shinsyoryu"), false, false, false);
+unsafe fn effect_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_ryu_final_shinsyoryu"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 27.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("ryu_final_shinsyoryu_start"), Hash40::new("top"), -5, 6.5, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("ryu_final_shinsyoryu_start"), Hash40::new("top"), -5, 6.5, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("ryu_final_shinsyoryu_aura"), Hash40::new("handr"), 1, 0, 0, 0, 90, 0, 1, true);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("ryu_final_shinsyoryu_aura"), Hash40::new("handr"), 1, 0, 0, 0, 90, 0, 1, true);
     }
-    frame(fighter.lua_state_agent, 47.0);
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("ryu_final_shinsyoryu_arc"), Hash40::new("trans"), 8, 4, 0, 17, -22, 25, 0.7, true);
+    frame(agent.lua_state_agent, 47.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("ryu_final_shinsyoryu_arc"), Hash40::new("trans"), 8, 4, 0, 17, -22, 25, 0.7, true);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("ryu_final_shinsyoryu_arc"), Hash40::new("trans"), -8, 4, 0, 17, 22, -25, 0.7, true);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("ryu_final_shinsyoryu_arc"), Hash40::new("trans"), -8, 4, 0, 17, 22, -25, 0.7, true);
         }
     }
 }
-frame(fighter.lua_state_agent, 50.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("ryu_final_shinsyoryu_aura"), false, false);
+frame(agent.lua_state_agent, 50.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("ryu_final_shinsyoryu_aura"), false, false);
 }
-frame(fighter.lua_state_agent, 53.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("ryu_final_shinsyoryu_arc"), false, true);
+frame(agent.lua_state_agent, 53.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("ryu_final_shinsyoryu_arc"), false, true);
 }
 }

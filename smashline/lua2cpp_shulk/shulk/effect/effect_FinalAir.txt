@@ -1,21 +1,21 @@
 #[acmd_script( agent = "shulk", script = "effect_finalair", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_shulk_final"), false, false, false);
+unsafe fn effect_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_shulk_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 5.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("shulk_final_screen_effect"), Hash40::new("top"), 0.5, 13, 24, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("shulk_final_screen_effect"), Hash40::new("top"), 0.5, 13, 24, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
-    frame(fighter.lua_state_agent, 27.0);
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SHULK_STATUS_WORK_ID_FLAG_FINAL_SUCCESS) {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_OFF_KIND(fighter, Hash40::new("shulk_final_screen_effect"), false, false);
-            macros::EFFECT(fighter, Hash40::new("shulk_final_flash"), Hash40::new("top"), 0.5, 13, 24, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    frame(agent.lua_state_agent, 27.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_SHULK_STATUS_WORK_ID_FLAG_FINAL_SUCCESS) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_OFF_KIND(agent, Hash40::new("shulk_final_screen_effect"), false, false);
+            macros::EFFECT(agent, Hash40::new("shulk_final_flash"), Hash40::new("top"), 0.5, 13, 24, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
         }
     }
 }

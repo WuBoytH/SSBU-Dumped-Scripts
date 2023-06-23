@@ -1,9 +1,9 @@
 #[acmd_script( agent = "buddy", script = "game_specialsstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialsstart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        FighterAreaModuleImpl::enable_fix_jostle_area(fighter.module_accessor, 4.0, 6.0);
+unsafe fn game_specialsstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 4.0, 6.0);
     }
-    macros::FT_MOTION_RATE(fighter, 0.8);
-    frame(fighter.lua_state_agent, 10.0);
-    macros::FT_MOTION_RATE(fighter, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+    frame(agent.lua_state_agent, 10.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
 }

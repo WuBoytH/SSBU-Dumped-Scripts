@@ -1,8 +1,8 @@
 #[acmd_script( agent = "demon", script = 0x1a5ac0ea0c, category = ACMD_GAME, low_priority )]
-unsafe fn hash_0x1a5ac0ea0c(fighter: &mut L2CAgentBase) {
-    FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 5);
-    if macros::is_excute(fighter) {
-        macros::WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
+unsafe fn hash_0x1a5ac0ea0c(agent: &mut L2CAgentBase) {
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 5);
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
     }
     is_vr_mode();
     if(0x3cfb70(false, false)){
@@ -15,7 +15,7 @@ unsafe fn hash_0x1a5ac0ea0c(fighter: &mut L2CAgentBase) {
 methodlib::L2CValue::as_pointer()const();
 is_one_on_one_including_thrown();
 if(0x3cfb70(false, true)){
-    if macros::is_excute(fighter) {
+    if macros::is_excute(agent) {
         battle_object_module_accessor();
         methodlib::L2CValue::L2CValue(void*)();
     }
@@ -30,26 +30,26 @@ methodlib::L2CValue::L2CValue(void*)();
 methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 methodlib::L2CValue::as_pointer()const();
 check_disabled_motion_camera_of_stage();
-if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ENABLE_THROW_MOTION_CAMERA) {
-if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_ENABLE_MOTION_CAMERA) {
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_DISABLE_THROW_MOTION_CAMERA) {
-        if macros::is_excute(fighter) {
-            macros::REQ_MOTION_CAMERA(fighter, 0x1857a8bd1d, false);
+if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ENABLE_THROW_MOTION_CAMERA) {
+if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_ENABLE_MOTION_CAMERA) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_DISABLE_THROW_MOTION_CAMERA) {
+        if macros::is_excute(agent) {
+            macros::REQ_MOTION_CAMERA(agent, 0x1857a8bd1d, false);
         }
     }
 }
 }
-if macros::is_excute(fighter) {
-macros::ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+if macros::is_excute(agent) {
+macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
 }
-frame(fighter.lua_state_agent, 3.0);
+frame(agent.lua_state_agent, 3.0);
 battle_object_module_accessor();
 methodlib::L2CValue::L2CValue(void*)();
 methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
-FighterSpecializer_Demon::set_devil(fighter.module_accessor, true, 3);
-frame(fighter.lua_state_agent, 30.0);
-if macros::is_excute(fighter) {
-WorkModule::set_int(fighter.module_accessor, *HIT_STATUS_INVINCIBLE, *FIGHTER_DEMON_STATUS_ATTACK_RAGE_DRIVE_INT_TARGET_HIT_STATUS);
-WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_CHECK_DAMAGE);
+FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 3);
+frame(agent.lua_state_agent, 30.0);
+if macros::is_excute(agent) {
+WorkModule::set_int(agent.module_accessor, *HIT_STATUS_INVINCIBLE, *FIGHTER_DEMON_STATUS_ATTACK_RAGE_DRIVE_INT_TARGET_HIT_STATUS);
+WorkModule::on_flag(agent.module_accessor, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_CHECK_DAMAGE);
 }
 }

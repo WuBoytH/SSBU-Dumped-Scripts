@@ -1,10 +1,10 @@
 #[acmd_script( agent = "link", script = "effect_finalair", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_link_final"), false, false, false);
+unsafe fn effect_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_link_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 63.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_DETACH_KIND(fighter, Hash40::new("link_final_arrow_flare"), -1);
+    frame(agent.lua_state_agent, 63.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("link_final_arrow_flare"), -1);
     }
 }

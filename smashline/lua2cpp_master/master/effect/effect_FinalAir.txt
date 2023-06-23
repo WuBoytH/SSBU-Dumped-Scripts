@@ -1,11 +1,11 @@
 #[acmd_script( agent = "master", script = "effect_finalair", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalair(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_master_final"), false, false, false);
+unsafe fn effect_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_master_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 43.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("master_final_start_slash"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+    frame(agent.lua_state_agent, 43.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("master_final_start_slash"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
     }
 }

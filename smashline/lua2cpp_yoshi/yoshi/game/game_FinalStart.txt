@@ -1,26 +1,26 @@
 #[acmd_script( agent = "yoshi", script = "game_finalstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalstart(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
-        macros::SLOW_OPPONENT(fighter, 12, 44);
+unsafe fn game_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        macros::SLOW_OPPONENT(agent, 12, 44);
     }
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
-        frame(fighter.lua_state_agent, 10.0);
-        if macros::is_excute(fighter) {
-            macros::FT_SET_FINAL_FEAR_FACE(fighter, 60);
-            macros::REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04finalstart.nuanmb"), false);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
         }
         else{
-        if macros::is_excute(fighter) {
-            PostureModule::scale(fighter.module_accessor, 3, 0);
+        if macros::is_excute(agent) {
+            PostureModule::scale(agent.module_accessor, 3, 0);
             0x101bd0(1097732885, 2);
             CAM_ZOOM_IN_arg5(0, 0);
-            macros::FT_START_CUTIN(fighter);
+            macros::FT_START_CUTIN(agent);
         }
     }
 }
-frame(fighter.lua_state_agent, 25.0);
-if macros::is_excute(fighter) {
-    macros::CAM_ZOOM_OUT(fighter);
+frame(agent.lua_state_agent, 25.0);
+if macros::is_excute(agent) {
+    macros::CAM_ZOOM_OUT(agent);
 }
 }

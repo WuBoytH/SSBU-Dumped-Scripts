@@ -1,11 +1,11 @@
 #[acmd_script( agent = "gamewatch_food", script = "game_stop", category = ACMD_GAME, low_priority )]
-unsafe fn game_stop(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_whole(fighter.module_accessor, false);
+unsafe fn game_stop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
     }
-    wait(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_whole(fighter.module_accessor, true);
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
     }
-    wait(fighter.lua_state_agent, 2.0);
+    wait(agent.lua_state_agent, 2.0);
 }

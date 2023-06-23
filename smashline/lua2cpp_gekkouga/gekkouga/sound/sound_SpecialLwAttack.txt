@@ -1,11 +1,11 @@
 #[acmd_script( agent = "gekkouga", script = "sound_speciallwattack", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_speciallwattack(fighter: &mut L2CAgentBase) {
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_GEKKOUGA_STATUS_SPECIAL_LW_FLAG_APPEAR_SOUND) {
-        frame(fighter.lua_state_agent, 2.0);
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("vc_gekkouga_004"));
-            macros::PLAY_SE(fighter, Hash40::new("se_gekkouga_special_l03"));
-            WorkModule::on_flag(fighter.module_accessor, *FIGHTER_GEKKOUGA_STATUS_SPECIAL_LW_FLAG_APPEAR_SOUND);
+unsafe fn sound_speciallwattack(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_GEKKOUGA_STATUS_SPECIAL_LW_FLAG_APPEAR_SOUND) {
+        frame(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_gekkouga_004"));
+            macros::PLAY_SE(agent, Hash40::new("se_gekkouga_special_l03"));
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_GEKKOUGA_STATUS_SPECIAL_LW_FLAG_APPEAR_SOUND);
         }
     }
 }

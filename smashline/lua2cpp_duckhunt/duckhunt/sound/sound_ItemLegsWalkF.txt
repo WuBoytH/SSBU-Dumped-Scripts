@@ -1,10 +1,10 @@
 #[acmd_script( agent = "duckhunt", script = "sound_itemlegswalkf", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_itemlegswalkf(fighter: &mut L2CAgentBase) {
+unsafe fn sound_itemlegswalkf(agent: &mut L2CAgentBase) {
     wait_loop_sync_mot();
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_duckhunt_step_left_m"), Hash40::new("se_duckhunt_step_right_m"));
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_duckhunt_step_left_m"), Hash40::new("se_duckhunt_step_right_m"));
     }
-    frame(fighter.lua_state_agent, 18.0);
-    macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_duckhunt_step_right_m"), Hash40::new("se_duckhunt_step_left_m"));
+    frame(agent.lua_state_agent, 18.0);
+    macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_duckhunt_step_right_m"), Hash40::new("se_duckhunt_step_left_m"));
 }

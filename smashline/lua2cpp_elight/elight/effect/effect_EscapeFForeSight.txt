@@ -1,27 +1,27 @@
 #[acmd_script( agent = "elight", script = "effect_escapefforesight", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_escapefforesight(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, true);
-        macros::COL_PRI(fighter, 250);
-        macros::FLASH(fighter, 0, 0.1, 0.6, 0.8);
-        macros::FLASH_SET_DIRECTION(fighter, -1, 0, 0);
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("elight_foresight_move"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
-        macros::EFFECT(fighter, Hash40::new("elight_foresight"), Hash40::new("top"), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT(fighter, Hash40::new("elight_foresight_lensflare"), Hash40::new("top"), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("elight_foresight_body"), Hash40::new("hip"), 2, 0, 0, 0, 0, 90, 1, true);
+unsafe fn effect_escapefforesight(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+        macros::COL_PRI(agent, 250);
+        macros::FLASH(agent, 0, 0.1, 0.6, 0.8);
+        macros::FLASH_SET_DIRECTION(agent, -1, 0, 0);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_foresight_move"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT(agent, Hash40::new("elight_foresight"), Hash40::new("top"), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("elight_foresight_lensflare"), Hash40::new("top"), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_foresight_body"), Hash40::new("hip"), 2, 0, 0, 0, 0, 90, 1, true);
     }
-    wait(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
     }
-    wait(fighter.lua_state_agent, 12.0);
-    if macros::is_excute(fighter) {
-        macros::FLASH_FRM(fighter, 6, 0, 0.1, 0.6, 0);
-        macros::FLASH_SET_DIRECTION(fighter, -1, 0, 0);
+    wait(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 6, 0, 0.1, 0.6, 0);
+        macros::FLASH_SET_DIRECTION(agent, -1, 0, 0);
     }
-    wait(fighter.lua_state_agent, 6.0);
-    if macros::is_excute(fighter) {
-        macros::COL_NORMAL(fighter);
-        ColorBlendModule::set_disable_camera_depth_influence(fighter.module_accessor, false);
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, false);
     }
 }

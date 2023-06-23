@@ -1,63 +1,63 @@
 #[acmd_script( agent = "kirby", script = "effect_ryuspecialn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_ryuspecialn(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 3.0);
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
-        if macros::is_excute(fighter) {
-            macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 7, -8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_ryuspecialn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 7, -8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     }
-    frame(fighter.lua_state_agent, 4.0);
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED) {
+    frame(agent.lua_state_agent, 4.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED) {
         if(0x543c60(*FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_INT_TYPE, 0)){
-            if macros::is_excute(fighter) {
-                macros::EFFECT_FOLLOW(fighter, Hash40::new("ryu_hadoken_hold"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, true);
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW(agent, Hash40::new("ryu_hadoken_hold"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, true);
             }
         }
-        wait(fighter.lua_state_agent, 6.0);
-        if macros::is_excute(fighter) {
-            macros::FLASH(fighter, 0.392, 1, 1, 0.353);
+        wait(agent.lua_state_agent, 6.0);
+        if macros::is_excute(agent) {
+            macros::FLASH(agent, 0.392, 1, 1, 0.353);
         }
-        wait(fighter.lua_state_agent, 2.0);
-        if macros::is_excute(fighter) {
-            macros::COL_NORMAL(fighter);
+        wait(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::COL_NORMAL(agent);
         }
-        wait(fighter.lua_state_agent, 1.0);
-        if macros::is_excute(fighter) {
-            macros::EFFECT(fighter, Hash40::new("ryu_hadoken_shot"), Hash40::new("top"), 0, 5, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("ryu_hadoken_shot"), Hash40::new("top"), 0, 5, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("ryu_syakunetsu_hold"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, true);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("ryu_syakunetsu_hold"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, true);
         }
     }
-    wait(fighter.lua_state_agent, 6.0);
-    if macros::is_excute(fighter) {
-        macros::FLASH(fighter, 1, 0.863, 0.235, 0.51);
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 0.863, 0.235, 0.51);
     }
-    wait(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::COL_NORMAL(fighter);
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
     }
-    wait(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("ryu_syakunetsu_shot"), Hash40::new("top"), 0, 5, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("ryu_syakunetsu_shot"), Hash40::new("top"), 0, 5, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
-    if macros::is_excute(fighter) {
-        macros::FOOT_EFFECT(fighter, Hash40::new("ryu_hadoken_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("ryu_hadoken_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
     }
 }
-frame(fighter.lua_state_agent, 13.0);
-if macros::is_excute(fighter) {
-    macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+frame(agent.lua_state_agent, 13.0);
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
 }
 else{
-frame(fighter.lua_state_agent, 14.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT(fighter, Hash40::new("sys_misfire"), Hash40::new("throw"), 0, -1, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+frame(agent.lua_state_agent, 14.0);
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, Hash40::new("sys_misfire"), Hash40::new("throw"), 0, -1, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
 }
 }
-frame(fighter.lua_state_agent, 14.0);
-if macros::is_excute(fighter) {
-macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 6, 0, -4, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+frame(agent.lua_state_agent, 14.0);
+if macros::is_excute(agent) {
+macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 6, 0, -4, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
 }
 }

@@ -1,12 +1,12 @@
 #[acmd_script( agent = "daisy", script = "game_catchcut", category = ACMD_GAME, low_priority )]
-unsafe fn game_catchcut(fighter: &mut L2CAgentBase) {
-    if macros::IS_EXIST_ARTICLE(fighter, *FIGHTER_DAISY_GENERATE_ARTICLE_KINOPIO) {
-        if macros::is_excute(fighter) {
-            ArticleModule::change_motion(fighter.module_accessor, *FIGHTER_DAISY_GENERATE_ARTICLE_KINOPIO, Hash40::new("catch_cut"), false, -1.0);
+unsafe fn game_catchcut(agent: &mut L2CAgentBase) {
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_DAISY_GENERATE_ARTICLE_KINOPIO) {
+        if macros::is_excute(agent) {
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_DAISY_GENERATE_ARTICLE_KINOPIO, Hash40::new("catch_cut"), false, -1.0);
         }
     }
-    frame(fighter.lua_state_agent, 17.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_DAISY_GENERATE_ARTICLE_KINOPIO, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DAISY_GENERATE_ARTICLE_KINOPIO, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

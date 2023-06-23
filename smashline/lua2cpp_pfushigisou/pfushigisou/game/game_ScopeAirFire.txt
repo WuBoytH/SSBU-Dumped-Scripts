@@ -1,13 +1,13 @@
 #[acmd_script( agent = "pfushigisou", script = "game_scopeairfire", category = ACMD_GAME, low_priority )]
-unsafe fn game_scopeairfire(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("weapon") as i64, hash40("weapon_normal") as i64);
+unsafe fn game_scopeairfire(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon") as i64, hash40("weapon_normal") as i64);
     }
-    frame(fighter.lua_state_agent, 3.0);
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
-        if macros::is_excute(fighter) {
-            macros::SHOOT_ITEM_BULLET_CHARGE(fighter, *FIGHTER_STATUS_ITEM_SHOOT_WORK_INT_SSCOPE_CHARGE);
-            WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+    frame(agent.lua_state_agent, 3.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
+        if macros::is_excute(agent) {
+            macros::SHOOT_ITEM_BULLET_CHARGE(agent, *FIGHTER_STATUS_ITEM_SHOOT_WORK_INT_SSCOPE_CHARGE);
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
         }
     }
 }

@@ -1,18 +1,18 @@
 #[acmd_script( agent = "cloud", script = "effect_attack12", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attack12(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::FOOT_EFFECT(fighter, Hash40::new("top"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_attack12(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("top"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
             EFFECT_FOLLOW_arg11(Hash40::new("sys_attack_arc_b"), Hash40::new("top"), 0, 9.5, 2.5, -15, -70, 35, 0.9, true, 1);
-            macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.5);
         }
         else{
-        if macros::is_excute(fighter) {
+        if macros::is_excute(agent) {
             EFFECT_FOLLOW_arg11(Hash40::new("sys_attack_arc_b"), Hash40::new("top"), 0, 9, 3, -14, -67, 33, 0.9, true, 1);
-            macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.5);
         }
     }
 }

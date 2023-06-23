@@ -1,52 +1,52 @@
 #[acmd_script( agent = "master", script = "effect_specialsfdash", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialsfdash(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_spear_aura"), false, true);
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("master_spear_aura"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+unsafe fn effect_specialsfdash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("master_spear_aura"), false, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("master_spear_aura"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 6.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("master_spear_scrape"), Hash40::new("top"), -16, 0, 8, 0, 18, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT(fighter, Hash40::new("master_spear_scrape_ground"), Hash40::new("top"), -6, 0, -15, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("master_spear_scrape_dash"), Hash40::new("top"), -6, 0, -15, 0, 0, 0, 0.5, true);
-        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("master_spear_scrape"), Hash40::new("top"), -16, 0, 8, 0, 18, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("master_spear_scrape_ground"), Hash40::new("top"), -6, 0, -15, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("master_spear_scrape_dash"), Hash40::new("top"), -6, 0, -15, 0, 0, 0, 0.5, true);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 8.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("master_spear_slash"), Hash40::new("top"), 2, 15, 8, 8, -5, 68, 0.95, true);
-        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("master_spear_slash_particle_end"), Hash40::new("top"), 2, 15, 8, 8, -5, 68, 0.95, true);
-        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-        macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("master_spear_slash_particle"), Hash40::new("top"), 2, 14, 8, 8, -5, 68, 0.85, true);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-        macros::EFFECT(fighter, Hash40::new("master_spear_scrape_ground"), Hash40::new("top"), -6, 0, -10, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("master_spear_scrape_dash"), Hash40::new("top"), -6, 0, -10, 0, 0, 0, 0.7, true);
-        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
-        macros::EFFECT(fighter, Hash40::new("master_spear_scrape_ground"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("master_spear_scrape_dash"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 0.8, true);
-        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("master_spear_slash"), Hash40::new("top"), 2, 15, 8, 8, -5, 68, 0.95, true);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("master_spear_slash_particle_end"), Hash40::new("top"), 2, 15, 8, 8, -5, 68, 0.95, true);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("master_spear_slash_particle"), Hash40::new("top"), 2, 14, 8, 8, -5, 68, 0.85, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT(agent, Hash40::new("master_spear_scrape_ground"), Hash40::new("top"), -6, 0, -10, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("master_spear_scrape_dash"), Hash40::new("top"), -6, 0, -10, 0, 0, 0, 0.7, true);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
+        macros::EFFECT(agent, Hash40::new("master_spear_scrape_ground"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("master_spear_scrape_dash"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 0.8, true);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 9.0);
-    if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT(fighter, Hash40::new("master_spear_scrape_ground"), Hash40::new("top"), -6, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("master_spear_scrape_dash"), Hash40::new("top"), -6, 0, 5, 0, 0, 0, 0.9, true);
-        EffectModule::set_disable_render_offset_last(fighter.module_accessor);
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("master_spear_scrape_ground"), Hash40::new("top"), -6, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("master_spear_scrape_dash"), Hash40::new("top"), -6, 0, 5, 0, 0, 0, 0.9, true);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FLW_POS(fighter, Hash40::new("master_spear_aura_particle"), Hash40::new("haver"), -8, 6, 0, 0, 0, 0, 1, true);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("master_spear_aura_particle"), Hash40::new("haver"), -8, 6, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 12.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_spear_scrape"), false, true);
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("master_spear_scrape"), false, true);
     }
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("master_spear_slash_particle"), false, true);
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("master_spear_slash_particle"), false, true);
     }
 }

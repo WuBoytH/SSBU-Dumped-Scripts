@@ -1,12 +1,12 @@
 #[acmd_script( agent = "zelda", script = "sound_attacklw3", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_attacklw3(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_zelda_rnd_attack"));
-        macros::PLAY_SE(fighter, Hash40::new("se_zelda_ware01"));
+unsafe fn sound_attacklw3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_zelda_rnd_attack"));
+        macros::PLAY_SE(agent, Hash40::new("se_zelda_ware01"));
     }
-    wait(fighter.lua_state_agent, 3.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_zelda_attackhard_l01"));
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_zelda_attackhard_l01"));
     }
 }

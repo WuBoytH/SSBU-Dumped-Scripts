@@ -1,41 +1,41 @@
 #[acmd_script( agent = "captain", script = "effect_specialhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialhi(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("captain_fd_hold"), Hash40::new("havel"), 0, 0, 0, 0, 45, 0, 0.35, true);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-        macros::LANDING_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_specialhi(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("captain_fd_hold"), Hash40::new("havel"), 0, 0, 0, 0, 45, 0, 0.35, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     for _ in 0..4 {
-    if macros::is_excute(fighter) {
-        macros::FLASH(fighter, 1, 1, 0.392, 0.392);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 0.392, 0.392);
     }
-    wait(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::FLASH(fighter, 1, 0.392, 0, 0.353);
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 0.392, 0, 0.353);
     }
-    wait(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::COL_NORMAL(fighter);
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
     }
-    wait(fighter.lua_state_agent, 1.0);
+    wait(agent.lua_state_agent, 1.0);
 }
 for _ in 0..3 {
-if macros::is_excute(fighter) {
-    macros::FLASH(fighter, 1, 1, 0.392, 0.392);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 1, 1, 0.392, 0.392);
 }
-wait(fighter.lua_state_agent, 1.0);
-if macros::is_excute(fighter) {
-    macros::FLASH(fighter, 1, 0.392, 0, 0.353);
+wait(agent.lua_state_agent, 1.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 1, 0.392, 0, 0.353);
 }
-wait(fighter.lua_state_agent, 1.0);
-if macros::is_excute(fighter) {
-    macros::COL_NORMAL(fighter);
+wait(agent.lua_state_agent, 1.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
 }
-wait(fighter.lua_state_agent, 1.0);
+wait(agent.lua_state_agent, 1.0);
 }
-frame(fighter.lua_state_agent, 30.0);
-if macros::is_excute(fighter) {
-macros::EFFECT_OFF_KIND(fighter, Hash40::new("captain_fd_hold"), false, true);
+frame(agent.lua_state_agent, 30.0);
+if macros::is_excute(agent) {
+macros::EFFECT_OFF_KIND(agent, Hash40::new("captain_fd_hold"), false, true);
 }
 }

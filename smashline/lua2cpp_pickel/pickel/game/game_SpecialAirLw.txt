@@ -1,12 +1,12 @@
 #[acmd_script( agent = "pickel", script = "game_specialairlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlw(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+unsafe fn game_specialairlw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
     }
-    frame(fighter.lua_state_agent, 18.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PICKEL_STATUS_SPECIAL_LW_FLAG_GENERATE_BOMB);
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PICKEL_STATUS_SPECIAL_LW_FLAG_GENERATE_BOMB);
     }
-    frame(fighter.lua_state_agent, 23.0);
-    macros::FT_MOTION_RATE(fighter, 0.5);
+    frame(agent.lua_state_agent, 23.0);
+    macros::FT_MOTION_RATE(agent, 0.5);
 }

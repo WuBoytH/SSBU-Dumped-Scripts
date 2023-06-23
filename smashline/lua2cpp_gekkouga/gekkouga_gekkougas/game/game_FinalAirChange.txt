@@ -1,9 +1,9 @@
 #[acmd_script( agent = "gekkouga_gekkougas", script = "game_finalairchange", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairchange(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 15.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_TATAMI, false, -1);
-        ArticleModule::change_motion(fighter.module_accessor, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_TATAMI, Hash40::new("final_start"), false, -1.0);
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_TATAMI, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+unsafe fn game_finalairchange(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_TATAMI, false, -1);
+        ArticleModule::change_motion(agent.module_accessor, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_TATAMI, Hash40::new("final_start"), false, -1.0);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_TATAMI, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

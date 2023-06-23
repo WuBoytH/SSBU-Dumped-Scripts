@@ -1,30 +1,30 @@
 #[acmd_script( agent = "popo", script = "game_finalair1l", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalair1l(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
-        macros::FT_SET_FINAL_SMASH_LIGHT(fighter, true);
-        macros::FT_REMOVE_FINAL_AURA(fighter, false);
-        PostureModule::scale(fighter.module_accessor, 20, 0);
+unsafe fn game_finalair1l(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::FT_SET_FINAL_SMASH_LIGHT(agent, true);
+        macros::FT_REMOVE_FINAL_AURA(agent, false);
+        PostureModule::scale(agent.module_accessor, 20, 0);
         0x19e320(-395664327, 2.1);
         CAM_ZOOM_IN_arg5(0, 0);
-        macros::FT_START_CUTIN(fighter);
-        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
-        macros::SLOW_OPPONENT(fighter, 10, 60);
+        macros::FT_START_CUTIN(agent);
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+        macros::SLOW_OPPONENT(agent, 10, 60);
     }
-    frame(fighter.lua_state_agent, 40.0);
-    if macros::is_excute(fighter) {
-        macros::CAM_ZOOM_OUT(fighter);
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::CAM_ZOOM_OUT(agent);
     }
-    frame(fighter.lua_state_agent, 51.0);
-    if macros::is_excute(fighter) {
-        macros::CANCEL_FILL_SCREEN(fighter, 0, 0);
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG, false, -1);
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG_HIT, false, -1);
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_WHITEBEAR, false, -1);
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_CONDOR, false, -1);
+    frame(agent.lua_state_agent, 51.0);
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 0, 0);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG_HIT, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_WHITEBEAR, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_CONDOR, false, -1);
     }
-    frame(fighter.lua_state_agent, 52.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_POPO_STATUS_FINAL_FLAG_FINAL_CAMERA);
+    frame(agent.lua_state_agent, 52.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_POPO_STATUS_FINAL_FLAG_FINAL_CAMERA);
     }
 }

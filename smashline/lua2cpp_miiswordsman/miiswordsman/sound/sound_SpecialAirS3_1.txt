@@ -1,18 +1,18 @@
 #[acmd_script( agent = "miiswordsman", script = "sound_specialairs3_1", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialairs3_1(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 15.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_miiswordsman_rnd_special_c3_s01"));
+unsafe fn sound_specialairs3_1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_miiswordsman_rnd_special_c3_s01"));
     }
-    wait(fighter.lua_state_agent, 3.0);
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_FLICK);
+    wait(agent.lua_state_agent, 3.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_FLICK);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("se_miiswordsman_special_c3_s03"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c3_s03"));
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("se_miiswordsman_special_c3_s01"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c3_s01"));
         }
     }
 }

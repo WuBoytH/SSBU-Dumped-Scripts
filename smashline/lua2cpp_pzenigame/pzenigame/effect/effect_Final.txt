@@ -1,16 +1,16 @@
 #[acmd_script( agent = "pzenigame", script = "effect_final", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_final(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_ptrainer_final"), false, false, false);
+unsafe fn effect_final(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_ptrainer_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 60.0);
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("finptrainer_hydro_pump"), Hash40::new("top"), 3, 3.4, 16.4, 0, 0, 180, 1, true);
+    frame(agent.lua_state_agent, 60.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("finptrainer_hydro_pump"), Hash40::new("top"), 3, 3.4, 16.4, 0, 0, 180, 1, true);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("finptrainer_hydro_pump"), Hash40::new("top"), -2.5, 3.4, 16.4, 0, 0, 0, 1, true);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("finptrainer_hydro_pump"), Hash40::new("top"), -2.5, 3.4, 16.4, 0, 0, 0, 1, true);
         }
     }
 }

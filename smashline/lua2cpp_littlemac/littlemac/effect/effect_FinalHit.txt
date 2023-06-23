@@ -1,24 +1,24 @@
 #[acmd_script( agent = "littlemac", script = "effect_finalhit", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalhit(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::set_visible_kind(fighter.module_accessor, Hash40::new("sys_final_aura"), false);
-        macros::EFFECT_STENCIL_ON(fighter);
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_littlemac_final2"), false, false, false);
+unsafe fn effect_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::set_visible_kind(agent.module_accessor, Hash40::new("sys_final_aura"), false);
+        macros::EFFECT_STENCIL_ON(agent);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_littlemac_final2"), false, false, false);
         methodlib::L2CValue::as_hash()const(Hash40::new("critical_hit"), Hash40::new("top"), 10, 8, 0, 8, 15, true);
         methodlib::L2CValue::as_hash()const();
-        EffectModule::request_post_effect_line_circle(fighter.module_accessor);
-        macros::FOOT_EFFECT(fighter, 0, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::LAST_EFFECT_SET_RATE(fighter, 0.3);
-        macros::EFFECT(fighter, Hash40::new("sys_hit_normal"), Hash40::new("top"), 0, 11, 18, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("littlemac_counter_arc"), Hash40::new("top"), -3, 14, 6, 10, -40, 70, 1.4, true);
+        EffectModule::request_post_effect_line_circle(agent.module_accessor);
+        macros::FOOT_EFFECT(agent, 0, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.3);
+        macros::EFFECT(agent, Hash40::new("sys_hit_normal"), Hash40::new("top"), 0, 11, 18, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("littlemac_counter_arc"), Hash40::new("top"), -3, 14, 6, 10, -40, 70, 1.4, true);
     }
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
-        macros::LAST_EFFECT_SET_RATE(fighter, 0.3);
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.3);
     }
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        EffectModule::remove_post_effect_line(fighter.module_accessor, 6, true);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        EffectModule::remove_post_effect_line(agent.module_accessor, 6, true);
     }
 }

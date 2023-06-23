@@ -1,33 +1,33 @@
 #[acmd_script( agent = "palutena", script = "effect_specialairn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairn(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 7.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_SIGHT_EFFECT_ON);
+unsafe fn effect_specialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_SIGHT_EFFECT_ON);
     }
-    frame(fighter.lua_state_agent, 8.0);
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_TARGET_EXIST) {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), -0.2, 22, -1, 10, 90, 0, 1, true);
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("palutena_wand_light_trace"), Hash40::new("stick"), 0, 8.65, 0, 0, 0, 0, 1, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("palutena_lockon"), Hash40::new("stick"), 0, 0, 0, 0, 0, 0, 1, true);
+    frame(agent.lua_state_agent, 8.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_TARGET_EXIST) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), -0.2, 22, -1, 10, 90, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_wand_light_trace"), Hash40::new("stick"), 0, 8.65, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_lockon"), Hash40::new("stick"), 0, 0, 0, 0, 0, 0, 1, true);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("palutena_wand_light_trace"), Hash40::new("stick"), 0, 8.65, 0, 0, 0, 0, 1, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("palutena_wand_light2"), Hash40::new("stick"), 0, 8.65, 0, 0, 0, 0, 1, true);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_wand_light_trace"), Hash40::new("stick"), 0, 8.65, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_wand_light2"), Hash40::new("stick"), 0, 8.65, 0, 0, 0, 0, 1, true);
         }
-        frame(fighter.lua_state_agent, 13.0);
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), -0.2, 22, -1, 10, 90, 0, 1, true);
+        frame(agent.lua_state_agent, 13.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), -0.2, 22, -1, 10, 90, 0, 1, true);
         }
     }
 }
-frame(fighter.lua_state_agent, 50.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("palutena_wand_light_trace"), false, false);
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("palutena_wand_light2"), false, false);
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("palutena_lockon"), false, false);
+frame(agent.lua_state_agent, 50.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_wand_light_trace"), false, false);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_wand_light2"), false, false);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_lockon"), false, false);
 }
 }

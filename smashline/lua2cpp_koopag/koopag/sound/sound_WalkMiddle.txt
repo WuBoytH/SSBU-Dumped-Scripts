@@ -1,11 +1,11 @@
 #[acmd_script( agent = "koopag", script = "sound_walkmiddle", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_walkmiddle(fighter: &mut L2CAgentBase) {
+unsafe fn sound_walkmiddle(agent: &mut L2CAgentBase) {
     wait_loop_sync_mot();
-    frame(fighter.lua_state_agent, 22.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_STEP(fighter, Hash40::new("se_koopag_step_right_s"));
-        macros::SET_PLAY_INHIVIT(fighter, Hash40::new("se_koopag_step_right_s"), 20);
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_right_s"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_koopag_step_right_s"), 20);
     }
-    wait(fighter.lua_state_agent, 49.0);
-    macros::PLAY_STEP(fighter, Hash40::new("se_koopag_step_left_m"));
+    wait(agent.lua_state_agent, 49.0);
+    macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_left_m"));
 }

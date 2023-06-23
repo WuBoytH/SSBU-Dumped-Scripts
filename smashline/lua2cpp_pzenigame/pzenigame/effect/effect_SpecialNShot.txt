@@ -1,24 +1,24 @@
 #[acmd_script( agent = "pzenigame", script = "effect_specialnshot", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialnshot(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::COL_NORMAL(fighter);
+unsafe fn effect_specialnshot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
     }
-    frame(fighter.lua_state_agent, 5.0);
-    if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FLW_POS(fighter, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("head"), -0.5, 2.7, 0, 0, 0, -13, 0.8, true);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("head"), -0.5, 2.7, 0, 0, 0, -13, 0.8, true);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FLW_POS(fighter, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("head"), -0.5, 2.7, 0, 0, 0, 13, 0.8, true);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("head"), -0.5, 2.7, 0, 0, 0, 13, 0.8, true);
         }
     }
 }
-frame(fighter.lua_state_agent, 39.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("pzenigame_mizuteppo_shoot"), false, false);
+frame(agent.lua_state_agent, 39.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("pzenigame_mizuteppo_shoot"), false, false);
 }
 }

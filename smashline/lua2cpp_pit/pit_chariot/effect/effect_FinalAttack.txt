@@ -1,25 +1,25 @@
 #[acmd_script( agent = "pit_chariot", script = "effect_finalattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalattack(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("pit_final_enter"), true, true);
+unsafe fn effect_finalattack(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pit_final_enter"), true, true);
         BattleObjectWorld__scale_z();
         if(methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(0, 1.0)){
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("pit_final_attack"), Hash40::new("trans"), 0, 15, 40, 0, 0, 0, 1, false);
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("pit_final_attack_line"), Hash40::new("trans"), 0, 15, 40, 0, 0, 0, 1, false);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("pit_final_attack"), Hash40::new("trans"), 0, 15, 40, 0, 0, 0, 1, false);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("pit_final_attack_line"), Hash40::new("trans"), 0, 15, 40, 0, 0, 0, 1, false);
         }
         else{
-        macros::EFFECT_FOLLOW(fighter, 0x057021206d, Hash40::new("trans"), 0, 15, 5, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, 0x057021206d, Hash40::new("trans"), 0, 15, 5, 0, 0, 0, 1, false);
     }
 }
-frame(fighter.lua_state_agent, 15.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_DETACH_KIND(fighter, Hash40::new("pit_final_attack"), -1);
-    macros::EFFECT_DETACH_KIND(fighter, Hash40::new("pit_final_attack_line"), -1);
+frame(agent.lua_state_agent, 15.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_DETACH_KIND(agent, Hash40::new("pit_final_attack"), -1);
+    macros::EFFECT_DETACH_KIND(agent, Hash40::new("pit_final_attack_line"), -1);
 }
-frame(fighter.lua_state_agent, 24.0);
+frame(agent.lua_state_agent, 24.0);
 BattleObjectWorld__scale_z();
 methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(0, 1.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT_OFF_KIND(fighter, Hash40::new("pit_final_attack"), false, true);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("pit_final_attack"), false, true);
 }
 }

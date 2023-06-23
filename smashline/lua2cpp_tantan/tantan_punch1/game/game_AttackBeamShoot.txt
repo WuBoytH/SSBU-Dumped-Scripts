@@ -1,13 +1,13 @@
 #[acmd_script( agent = "tantan_punch1", script = "game_attackbeamshoot", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackbeamshoot(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 0.0);
-    if macros::is_excute(fighter) {
-        MotionModule::set_rate(fighter.module_accessor, 1.5);
-        macros::SEARCH(fighter, 0, 0, Hash40::new("top"), 23.0, -30.0, 4.0, 0.0, -30.0, -4.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIEB, *COLLISION_PART_MASK_BODY_HEAD, false);
+unsafe fn game_attackbeamshoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 1.5);
+        macros::SEARCH(agent, 0, 0, Hash40::new("top"), 23.0, -30.0, 4.0, 0.0, -30.0, -4.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIEB, *COLLISION_PART_MASK_BODY_HEAD, false);
     }
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        MotionModule::set_rate(fighter.module_accessor, 1);
-        search!(fighter, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 1);
+        search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
     }
 }

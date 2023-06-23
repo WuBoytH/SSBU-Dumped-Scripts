@@ -1,13 +1,13 @@
 #[acmd_script( agent = "diddy", script = "game_win1wait", category = ACMD_GAME, low_priority )]
-unsafe fn game_win1wait(fighter: &mut L2CAgentBase) {
-    if !macros::IS_EXIST_ARTICLE(fighter, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN) {
-        if macros::is_excute(fighter) {
-            ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-            ArticleModule::remove_exist(fighter.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-            WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_GUN_LEFT);
-            ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, false, -1);
-            WorkModule::on_flag(fighter.module_accessor, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_GUN_RIGHT);
-            ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, false, -1);
+unsafe fn game_win1wait(agent: &mut L2CAgentBase) {
+    if !macros::IS_EXIST_ARTICLE(agent, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN) {
+        if macros::is_excute(agent) {
+            ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_GUN_LEFT);
+            ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, false, -1);
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_GUN_RIGHT);
+            ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, false, -1);
         }
     }
 }

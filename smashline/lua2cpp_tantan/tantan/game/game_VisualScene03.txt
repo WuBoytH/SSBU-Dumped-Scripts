@@ -1,12 +1,12 @@
 #[acmd_script( agent = "tantan", script = "game_visualscene03", category = ACMD_GAME, low_priority )]
-unsafe fn game_visualscene03(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::ATTACK_ABS(fighter, *FIGHTER_TANTAN_ATTACK_ABSOLUTE_KIND_FINAL, 0, 15.0, 55, 120, 0, 78, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
-        AttackModule::set_no_dead_all(fighter.module_accessor, true, true);
+unsafe fn game_visualscene03(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_TANTAN_ATTACK_ABSOLUTE_KIND_FINAL, 0, 15.0, 55, 120, 0, 78, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, true);
     }
-    frame(fighter.lua_state_agent, 96.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_TANTAN_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION);
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_TANTAN_STATUS_FINAL_FLAG_ABS_HIT);
+    frame(agent.lua_state_agent, 96.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_TANTAN_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_TANTAN_STATUS_FINAL_FLAG_ABS_HIT);
     }
 }

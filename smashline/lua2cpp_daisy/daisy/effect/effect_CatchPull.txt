@@ -1,21 +1,21 @@
 #[acmd_script( agent = "daisy", script = "effect_catchpull", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_catchpull(fighter: &mut L2CAgentBase) {
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 3, 4, -1, 0, 0, 0, 1.6, true);
+unsafe fn effect_catchpull(agent: &mut L2CAgentBase) {
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 3, 4, -1, 0, 0, 0, 1.6, true);
         }
     }
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::FOOT_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 5, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 5, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
     }
     else{
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), -3, 4, -1, 0, 0, 0, 1.6, true);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), -3, 4, -1, 0, 0, 0, 1.6, true);
     }
 }
-frame(fighter.lua_state_agent, 2.0);
-if macros::is_excute(fighter) {
-    macros::FOOT_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 5, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+frame(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 5, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
 }
 }

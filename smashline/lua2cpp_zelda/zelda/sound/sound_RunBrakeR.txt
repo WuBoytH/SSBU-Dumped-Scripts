@@ -1,12 +1,12 @@
 #[acmd_script( agent = "zelda", script = "sound_runbraker", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_runbraker(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 6.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_zelda_dash_stop"));
-        macros::SET_PLAY_INHIVIT(fighter, Hash40::new("se_zelda_dash_stop"), 10);
+unsafe fn sound_runbraker(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_zelda_dash_stop"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_zelda_dash_stop"), 10);
     }
-    wait(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_zelda_step_right_l"), Hash40::new("se_zelda_step_left_l"));
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_zelda_step_right_l"), Hash40::new("se_zelda_step_left_l"));
     }
 }

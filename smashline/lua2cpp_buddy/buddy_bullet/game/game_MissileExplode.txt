@@ -1,10 +1,10 @@
 #[acmd_script( agent = "buddy_bullet", script = "game_missileexplode", category = ACMD_GAME, low_priority )]
-unsafe fn game_missileexplode(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_whole(fighter.module_accessor, false);
+unsafe fn game_missileexplode(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
     }
-    frame(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x199c462b5d));
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x199c462b5d));
     }
 }

@@ -1,12 +1,12 @@
 #[acmd_script( agent = "pacman", script = "expression_win3", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_win3(fighter: &mut L2CAgentBase) {
-    if !WorkModule::is_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
-        if macros::is_excute(fighter) {
-            ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+unsafe fn expression_win3(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        if macros::is_excute(agent) {
+            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
     }
-    frame(fighter.lua_state_agent, 35.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

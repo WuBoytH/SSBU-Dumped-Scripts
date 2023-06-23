@@ -1,27 +1,27 @@
 #[acmd_script( agent = "ptrainer_ptrainer", script = "game_finall", category = ACMD_GAME, low_priority )]
-unsafe fn game_finall(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, -1);
-        ArticleModule::generate_article(fighter.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, -1);
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("weapon") as i64, hash40("m_ball_lr") as i64);
+unsafe fn game_finall(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, -1);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon") as i64, hash40("m_ball_lr") as i64);
     }
-    frame(fighter.lua_state_agent, 5.0);
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_int64(fighter.module_accessor, hash40("weapon") as i64, hash40("none") as i64);
-        ArticleModule::set_visibility_whole(fighter.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::shoot(fighter.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, *ARTICLE_OPE_TARGET_ALL, false);
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon") as i64, hash40("none") as i64);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::shoot(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, *ARTICLE_OPE_TARGET_ALL, false);
     }
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        WorkModule::set_int(fighter.module_accessor, *WEAPON_PTRAINER_PTRAINER_FINAL_WINDOW_KIND_ON, *WEAPON_PTRAINER_PTRAINER_STATUS_WORK_INT_FINAL_WINDOW_KIND);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        WorkModule::set_int(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_FINAL_WINDOW_KIND_ON, *WEAPON_PTRAINER_PTRAINER_STATUS_WORK_INT_FINAL_WINDOW_KIND);
     }
-    frame(fighter.lua_state_agent, 20.0);
-    if macros::is_excute(fighter) {
-        WorkModule::set_int(fighter.module_accessor, *WEAPON_PTRAINER_PTRAINER_FINAL_WINDOW_KIND_MSG_1, *WEAPON_PTRAINER_PTRAINER_STATUS_WORK_INT_FINAL_WINDOW_KIND);
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        WorkModule::set_int(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_FINAL_WINDOW_KIND_MSG_1, *WEAPON_PTRAINER_PTRAINER_STATUS_WORK_INT_FINAL_WINDOW_KIND);
     }
-    frame(fighter.lua_state_agent, 30.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *WEAPON_PTRAINER_PTRAINER_STATUS_WORK_FLAG_FINAL_TURN);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_STATUS_WORK_FLAG_FINAL_TURN);
     }
 }

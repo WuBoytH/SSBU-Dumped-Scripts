@@ -1,14 +1,14 @@
 #[acmd_script( agent = "nana", script = "sound_throwhi", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_throwhi(fighter: &mut L2CAgentBase) {
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA);
+unsafe fn sound_throwhi(agent: &mut L2CAgentBase) {
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA);
     0x1478c0(false, true);
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("se_common_throw_01"));
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_01"));
     }
-    frame(fighter.lua_state_agent, 22.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SE(fighter, Hash40::new("vc_popo_attack03"));
-        macros::PLAY_SE(fighter, Hash40::new("se_popo_swing_ll"));
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_popo_attack03"));
+        macros::PLAY_SE(agent, Hash40::new("se_popo_swing_ll"));
     }
 }

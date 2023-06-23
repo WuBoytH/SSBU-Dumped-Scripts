@@ -1,21 +1,21 @@
 #[acmd_script( agent = "simon_whip", script = "game_attackairbhi", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackairbhi(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    macros::FT_MOTION_RATE(fighter, 0.5);
-    if macros::is_excute(fighter) {
-        PhysicsModule::set_2nd_status(fighter.module_accessor, *PH2NDARY_CRAW_NONE);
+unsafe fn game_attackairbhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.5);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_NONE);
         battle_object();
         methodlib::L2CValue::L2CValue(void*)();
     }
     else{
     methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 }
-let object = sv_system::battle_object(fighter.lua_state_agent) as *mut BattleObject;
+let object = sv_system::battle_object(agent.lua_state_agent) as *mut BattleObject;
 FighterSpecializer_Simon::reset_node_fix_flag_list(object as *mut Fighter);
-frame(fighter.lua_state_agent, 4.0);
-macros::FT_MOTION_RATE(fighter, 1.0);
-frame(fighter.lua_state_agent, 14.0);
-if macros::is_excute(fighter) {
-    PhysicsModule::set_2nd_status(fighter.module_accessor, *PH2NDARY_CRAW_COLLIDE);
+frame(agent.lua_state_agent, 4.0);
+macros::FT_MOTION_RATE(agent, 1.0);
+frame(agent.lua_state_agent, 14.0);
+if macros::is_excute(agent) {
+    PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_COLLIDE);
 }
 }

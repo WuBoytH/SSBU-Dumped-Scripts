@@ -1,17 +1,17 @@
 #[acmd_script( agent = "reflet", script = "sound_attackairf", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_attackairf(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_reflet_rnd_attack"));
+unsafe fn sound_attackairf(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_reflet_rnd_attack"));
     }
-    WorkModule::is_flag(fighter.module_accessor, *FIGHTER_REFLET_INSTANCE_WORK_ID_FLAG_THUNDER_SWORD_ON);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_REFLET_INSTANCE_WORK_ID_FLAG_THUNDER_SWORD_ON);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("se_reflet_attackair_f02"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_reflet_attackair_f02"));
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::PLAY_SE(fighter, Hash40::new("se_reflet_attackair_f01"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_reflet_attackair_f01"));
         }
     }
 }

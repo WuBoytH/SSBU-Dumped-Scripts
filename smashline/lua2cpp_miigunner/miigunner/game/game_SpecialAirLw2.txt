@@ -1,13 +1,13 @@
 #[acmd_script( agent = "miigunner", script = "game_specialairlw2", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlw2(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    macros::FT_MOTION_RATE(fighter, 1.15);
-    frame(fighter.lua_state_agent, 8.0);
-    if macros::is_excute(fighter) {
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_MIIGUNNER_STATUS_GROUND_BOMB_FLAG_EXIST_BOMB_BURST);
+unsafe fn game_specialairlw2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 1.15);
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MIIGUNNER_STATUS_GROUND_BOMB_FLAG_EXIST_BOMB_BURST);
     }
-    frame(fighter.lua_state_agent, 12.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::generate_article(fighter.module_accessor, *FIGHTER_MIIGUNNER_GENERATE_ARTICLE_GROUNDBOMB, false, -1);
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_MIIGUNNER_GENERATE_ARTICLE_GROUNDBOMB, false, -1);
     }
 }

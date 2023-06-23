@@ -1,16 +1,16 @@
 #[acmd_script( agent = "pikmin", script = "effect_attackairlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairlw(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 2.0);
-    if WorkModule::get_int(fighter.module_accessor, *FIGHTER_PIKMIN_STATUS_ATTACK_AIR_WORK_INT_HAVE_PIKMIN) == 1 {
-        frame(fighter.lua_state_agent, 3.0);
-        if macros::is_excute(fighter) {
-            macros::EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, -7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
-            macros::LAST_EFFECT_SET_RATE(fighter, 2);
+unsafe fn effect_attackairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if WorkModule::get_int(agent.module_accessor, *FIGHTER_PIKMIN_STATUS_ATTACK_AIR_WORK_INT_HAVE_PIKMIN) == 1 {
+        frame(agent.lua_state_agent, 3.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, -7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 2);
         }
     }
-    frame(fighter.lua_state_agent, 7.0);
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, -12, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 360, false);
+    frame(agent.lua_state_agent, 7.0);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, -12, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 360, false);
     }
 }

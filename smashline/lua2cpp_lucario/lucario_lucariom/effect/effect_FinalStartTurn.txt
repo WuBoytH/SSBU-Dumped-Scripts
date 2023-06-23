@@ -1,23 +1,23 @@
 #[acmd_script( agent = "lucario_lucariom", script = "effect_finalstartturn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalstartturn(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        EffectModule::req_screen(fighter.module_accessor, Hash40::new("bg_lucario_final"), false, false, false);
+unsafe fn effect_finalstartturn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_lucario_final"), false, false, false);
     }
-    frame(fighter.lua_state_agent, 25.0);
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("havel"), 0, 0, 1, 0, 0, 0, 1, false);
-            macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("haver"), 1, 0, 0, 0, 0, 0, 1, false);
+    frame(agent.lua_state_agent, 25.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("lucario_final_hadou_l"), Hash40::new("havel"), 0, 0, 1, 0, 0, 0, 1, false);
+            macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("lucario_final_hadou_l"), Hash40::new("haver"), 1, 0, 0, 0, 0, 0, 1, false);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("havel"), 0, 0, 1, 180, 0, 180, 1, false);
-            macros::EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("lucario_final_hadou_l"), Hash40::new("haver"), 1, 0, 0, 180, 0, 180, 1, false);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("lucario_final_hadou_l"), Hash40::new("havel"), 0, 0, 1, 180, 0, 180, 1, false);
+            macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("lucario_final_hadou_l"), Hash40::new("haver"), 1, 0, 0, 180, 0, 180, 1, false);
         }
     }
 }
-frame(fighter.lua_state_agent, 32.0);
-if macros::is_excute(fighter) {
-    macros::EFFECT(fighter, Hash40::new("lucario_final_megasymbol"), Hash40::new("top"), 6, 23, -13, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+frame(agent.lua_state_agent, 32.0);
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, Hash40::new("lucario_final_megasymbol"), Hash40::new("top"), 6, 23, -13, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
 }
 }

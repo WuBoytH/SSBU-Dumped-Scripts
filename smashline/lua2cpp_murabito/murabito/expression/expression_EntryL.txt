@@ -1,43 +1,43 @@
 #[acmd_script( agent = "murabito", script = "expression_entryl", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_entryl(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
+unsafe fn expression_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
         article(*MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, 0, 0, -10);
-        ArticleModule::set_visibility(fighter.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step1"), Hash40::new("step1_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::set_visibility(fighter.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step2"), Hash40::new("step2_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::set_visibility(fighter.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ItemModule::set_attach_item_visibility(fighter.module_accessor, false);
-        WorkModule::on_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), false);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), false);
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step1"), Hash40::new("step1_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step2"), Hash40::new("step2_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
     }
-    frame(fighter.lua_state_agent, 5.0);
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
-    frame(fighter.lua_state_agent, 10.0);
-    if macros::is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), true);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), true);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
     }
-    frame(fighter.lua_state_agent, 11.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::set_visibility(fighter.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step3"), Hash40::new("step3_on_3"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ItemModule::set_attach_item_visibility(fighter.module_accessor, true, *ATTACH_ITEM_GROUP_BADGE);
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step3"), Hash40::new("step3_on_3"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, *ATTACH_ITEM_GROUP_BADGE);
     }
-    frame(fighter.lua_state_agent, 14.0);
-    if macros::is_excute(fighter) {
-        ItemModule::set_attach_item_visibility(fighter.module_accessor, true, *ATTACH_ITEM_GROUP_HAT);
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, *ATTACH_ITEM_GROUP_HAT);
     }
-    frame(fighter.lua_state_agent, 18.0);
-    if macros::is_excute(fighter) {
-        ItemModule::set_attach_item_visibility(fighter.module_accessor, true);
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true);
     }
-    frame(fighter.lua_state_agent, 81.0);
-    if macros::is_excute(fighter) {
-        ArticleModule::set_visibility(fighter.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    frame(agent.lua_state_agent, 81.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
-    frame(fighter.lua_state_agent, 95.0);
-    if macros::is_excute(fighter) {
-        WorkModule::off_flag(fighter.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    frame(agent.lua_state_agent, 95.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
     }
 }

@@ -1,48 +1,48 @@
 #[acmd_script( agent = "sonic", script = "effect_specialsdashhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialsdashhi(fighter: &mut L2CAgentBase) {
-    if WorkModule::is_flag(fighter.module_accessor, *FIGHTER_SONIC_STATUS_SPECIAL_S_DASH_FLAG_MAX_CHARGE) {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("sonic_spintrace_max"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-            macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("sonic_spinblur_max"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+unsafe fn effect_specialsdashhi(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_SONIC_STATUS_SPECIAL_S_DASH_FLAG_MAX_CHARGE) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sonic_spintrace_max"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sonic_spinblur_max"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
         }
     }
-    if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spinwind_oneshot"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 1, true);
-            macros::LAST_EFFECT_SET_COLOR(fighter, 1, 0.928, 0.65);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind_oneshot"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 1, true);
+            macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.928, 0.65);
         }
         else{
-        if macros::is_excute(fighter) {
-            macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("sonic_spintrace"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-            macros::EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("sonic_spinblur"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
-            EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sonic_spintrace"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sonic_spinblur"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
         }
-        if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-            if macros::is_excute(fighter) {
-                macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.8, true);
-                macros::LAST_EFFECT_SET_COLOR(fighter, 0.711, 0.931, 1);
+        if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.8, true);
+                macros::LAST_EFFECT_SET_COLOR(agent, 0.711, 0.931, 1);
             }
             else{
-            if macros::is_excute(fighter) {
-                macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spinwind_oneshot"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 1, true);
-                macros::LAST_EFFECT_SET_COLOR(fighter, 1, 0.928, 0.65);
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind_oneshot"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 1, true);
+                macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.928, 0.65);
             }
-            if get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-                if macros::is_excute(fighter) {
-                    macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.8, true);
-                    macros::LAST_EFFECT_SET_COLOR(fighter, 1, 0.928, 0.65);
+            if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+                if macros::is_excute(agent) {
+                    macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.8, true);
+                    macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.928, 0.65);
                 }
-                wait(fighter.lua_state_agent, 5.0);
-                if macros::is_excute(fighter) {
-                    macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+                wait(agent.lua_state_agent, 5.0);
+                if macros::is_excute(agent) {
+                    macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
                 }
                 else{
-                if macros::is_excute(fighter) {
-                    macros::EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 0.8, true);
-                    macros::LAST_EFFECT_SET_COLOR(fighter, 1, 0.928, 0.65);
+                if macros::is_excute(agent) {
+                    macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 0.8, true);
+                    macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.928, 0.65);
                 }
             }
         }
@@ -50,24 +50,24 @@ unsafe fn effect_specialsdashhi(fighter: &mut L2CAgentBase) {
 }
 }
 }
-if macros::is_excute(fighter) {
-macros::FLASH(fighter, 1, 1, 1, 0.13);
-macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+if macros::is_excute(agent) {
+macros::FLASH(agent, 1, 1, 1, 0.13);
+macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
 }
-wait(fighter.lua_state_agent, 4.0);
-if macros::is_excute(fighter) {
-macros::COL_NORMAL(fighter);
-macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+wait(agent.lua_state_agent, 4.0);
+if macros::is_excute(agent) {
+macros::COL_NORMAL(agent);
+macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
 }
-wait(fighter.lua_state_agent, 4.0);
-if macros::is_excute(fighter) {
-macros::FLASH(fighter, 1, 1, 0.275, 0.196);
-macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+wait(agent.lua_state_agent, 4.0);
+if macros::is_excute(agent) {
+macros::FLASH(agent, 1, 1, 0.275, 0.196);
+macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
 }
-wait(fighter.lua_state_agent, 4.0);
-if macros::is_excute(fighter) {
-macros::COL_NORMAL(fighter);
-macros::LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+wait(agent.lua_state_agent, 4.0);
+if macros::is_excute(agent) {
+macros::COL_NORMAL(agent);
+macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
 }
-wait(fighter.lua_state_agent, 4.0);
+wait(agent.lua_state_agent, 4.0);
 }

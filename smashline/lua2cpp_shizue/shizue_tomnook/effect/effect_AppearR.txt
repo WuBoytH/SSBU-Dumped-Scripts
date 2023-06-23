@@ -1,14 +1,14 @@
 #[acmd_script( agent = "shizue_tomnook", script = "effect_appearr", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_appearr(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_whole(fighter.module_accessor, false);
+unsafe fn effect_appearr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
     }
-    frame(fighter.lua_state_agent, 3.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT(fighter, Hash40::new("shizue_final_appearance_smoke"), Hash40::new("rot"), 0, 10, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, true);
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("shizue_final_appearance_smoke"), Hash40::new("rot"), 0, 10, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, true);
     }
-    frame(fighter.lua_state_agent, 6.0);
-    if macros::is_excute(fighter) {
-        VisibilityModule::set_whole(fighter.module_accessor, true);
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
     }
 }

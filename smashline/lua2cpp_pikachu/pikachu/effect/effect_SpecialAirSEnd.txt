@@ -1,15 +1,15 @@
 #[acmd_script( agent = "pikachu", script = "effect_specialairsend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairsend(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FLW_POS(fighter, Hash40::new("pikachu_rocket_aura"), Hash40::new("head"), 4, 0, 0, 90, 0, 0, 1, true);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
-        macros::EFFECT_FLW_POS_NO_STOP(fighter, Hash40::new("pikachu_rocket_jet"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1.1, true);
-        EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
+unsafe fn effect_specialairsend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("pikachu_rocket_aura"), Hash40::new("head"), 4, 0, 0, 90, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT_FLW_POS_NO_STOP(agent, Hash40::new("pikachu_rocket_jet"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1.1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
-    frame(fighter.lua_state_agent, 2.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("pikachu_rocket_aura"), false, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("pikachu_rocket_jet"), false, true);
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pikachu_rocket_aura"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pikachu_rocket_jet"), false, true);
     }
 }

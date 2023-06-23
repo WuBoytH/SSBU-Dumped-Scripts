@@ -1,14 +1,14 @@
 #[acmd_script( agent = "duckhunt", script = "effect_visualscene04", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_visualscene04(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_final_can"), true, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_final_hit"), true, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_final_hit2"), true, true);
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("duckhunt_final_hit3"), true, true);
+unsafe fn effect_visualscene04(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_can"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_hit"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_hit2"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_hit3"), true, true);
     }
-    frame(fighter.lua_state_agent, 49.0);
-    if macros::is_excute(fighter) {
+    frame(agent.lua_state_agent, 49.0);
+    if macros::is_excute(agent) {
         methodlib::L2CValue::as_hash()const(Hash40::new("dead_area_out"), 0, 0, 1, 0, 0, 0, 0, 0);
-        EffectModule::request_post_effect_line_parallel_2d(fighter.module_accessor);
+        EffectModule::request_post_effect_line_parallel_2d(agent.module_accessor);
     }
 }

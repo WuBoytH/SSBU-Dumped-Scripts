@@ -1,11 +1,11 @@
 #[acmd_script( agent = "yoshi", script = "effect_finalhit", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalhit(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("yoshi_final_speedline"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 0.7, true);
-        macros::EFFECT(fighter, Hash40::new("yoshi_final_hit"), Hash40::new("top"), 0, 12, 15, 0, 0, 0, 1.3, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_final_speedline"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 0.7, true);
+        macros::EFFECT(agent, Hash40::new("yoshi_final_hit"), Hash40::new("top"), 0, 12, 15, 0, 0, 0, 1.3, 0, 0, 0, 0, 0, 0, true);
     }
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("yoshi_final_speedline"), false, true);
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("yoshi_final_speedline"), false, true);
     }
 }

@@ -1,13 +1,13 @@
 #[acmd_script( agent = "littlemac", script = "expression_attack12", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_attack12(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        camera!(fighter, *MA_MSC_CMD_CAMERA_SET_UPDATE_POS, *CAMERA_UPDATE_POS_XYZ);
-        ItemModule::set_have_item_visibility(fighter.module_accessor, false, 0);
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+unsafe fn expression_attack12(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        camera!(agent, *MA_MSC_CMD_CAMERA_SET_UPDATE_POS, *CAMERA_UPDATE_POS_XYZ);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
-    frame(fighter.lua_state_agent, 1.0);
-    if macros::is_excute(fighter) {
-        macros::RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 0);
-        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_nohits"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

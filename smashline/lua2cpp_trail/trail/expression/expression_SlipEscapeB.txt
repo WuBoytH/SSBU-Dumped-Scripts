@@ -1,25 +1,25 @@
 #[acmd_script( agent = "trail", script = "expression_slipescapeb", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_slipescapeb(fighter: &mut L2CAgentBase) {
+unsafe fn expression_slipescapeb(agent: &mut L2CAgentBase) {
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SlipEscapeBRumble()();
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
     }
-    frame(fighter.lua_state_agent, 15.0);
-    if macros::is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
     }
-    frame(fighter.lua_state_agent, 32.0);
-    if ItemModule::is_have_item(fighter.module_accessor, 0) {
-        if macros::is_excute(fighter) {
-            macros::FT_MOTION_INTP_WAIT_ITEM(fighter, true, 0.015);
+    frame(agent.lua_state_agent, 32.0);
+    if ItemModule::is_have_item(agent.module_accessor, 0) {
+        if macros::is_excute(agent) {
+            macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0.015);
         }
     }
-    frame(fighter.lua_state_agent, 38.0);
-    if macros::is_excute(fighter) {
-        macros::FT_MOTION_INTP_WAIT_ITEM(fighter, true, 0.08);
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0.08);
     }
-    frame(fighter.lua_state_agent, 48.0);
-    if macros::is_excute(fighter) {
-        macros::FT_MOTION_INTP_WAIT_ITEM(fighter, true, 0);
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0);
     }
 }

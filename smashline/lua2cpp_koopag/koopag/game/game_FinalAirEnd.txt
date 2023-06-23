@@ -1,12 +1,12 @@
 #[acmd_script( agent = "koopag", script = "game_finalairend", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairend(fighter: &mut L2CAgentBase) {
-    if macros::is_excute(fighter) {
-        macros::WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+unsafe fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
     }
-    macros::FT_MOTION_RATE(fighter, 0.5);
-    frame(fighter.lua_state_agent, 40.0);
-    macros::FT_MOTION_RATE(fighter, 1.0);
-    if macros::is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1bcd6668a0));
+    macros::FT_MOTION_RATE(agent, 0.5);
+    frame(agent.lua_state_agent, 40.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1bcd6668a0));
     }
 }
