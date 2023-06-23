@@ -1,16 +1,16 @@
 #[acmd_script( agent = "wario", script = "game_specialairnbiteend", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairnbiteend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialairnbiteend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 10.0);
-    if is_excute(fighter) {
-        CHECK_FINISH_CAMERA(fighter, 12, 3);
+    if is_excute(agent) {
+        CHECK_FINISH_CAMERA(agent, 12, 3);
     }
     frame(lua_state, 11.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         let target = WorkModule::get_int64(boma, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_OBJECT);
         let target_group = WorkModule::get_int64(boma, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_GROUP);
         let target_no = WorkModule::get_int64(boma, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_NO);
-        ATK_HIT_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), target, target_group, target_no);
+        ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), target, target_group, target_no);
     }
 }

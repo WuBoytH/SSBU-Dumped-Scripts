@@ -1,20 +1,20 @@
 #[acmd_script( agent = "dedede", script = "expression_specialneatjump2", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialneatjump2(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_specialneatjump2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_swell") as i64);
-        HIT_NODE(fighter, Hash40::new("footr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("footl"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("waist"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("head"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("armr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("virtualwaist"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("footl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("virtualwaist"), *HIT_STATUS_NORMAL);
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_jump"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

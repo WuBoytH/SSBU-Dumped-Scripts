@@ -1,39 +1,39 @@
 #[acmd_script( agent = "demon", script = "effect_throwcommand", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwcommand(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -3.5, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
-        EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sys_catch"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_aura"), Hash40::new("handl"), 1, 0, 0, 0, 0, 0, 0.5, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.5);
-        EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 0.7, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.5);
+unsafe fn effect_throwcommand(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -3.5, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sys_catch"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("demon_devil_aura"), Hash40::new("handl"), 1, 0, 0, 0, 0, 0, 0.5, true);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
+        EFFECT_FOLLOW(agent, Hash40::new("demon_devil_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 0.7, true);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
     }
     frame(lua_state, 13.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("demon_devil_aura"), false, false);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("demon_devil_aura"), false, false);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -2.9, 0, -1, 0, 180, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -2.9, 0, -1, 0, 180, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 32.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("demon_hit_normal_m"), Hash40::new("top"), 3, 11, -4, 0, 0, 0, 1, false);
-        EFFECT_FOLLOW(fighter, Hash40::new("demon_hit_jigokumon"), Hash40::new("top"), 3, 11, -4, -120, 0, 0, 1, false);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("demon_hit_normal_m"), Hash40::new("top"), 3, 11, -4, 0, 0, 0, 1, false);
+        EFFECT_FOLLOW(agent, Hash40::new("demon_hit_jigokumon"), Hash40::new("top"), 3, 11, -4, -120, 0, 0, 1, false);
     }
     frame(lua_state, 58.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 2.7, 0, -5.5, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 2.7, 0, -5.5, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 75.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("demon_hit_normal_m"), Hash40::new("top"), 1, 9, -13, 0, 0, 0, 1, false);
-        EFFECT_FOLLOW(fighter, Hash40::new("demon_hit_jigokumon"), Hash40::new("top"), 1, 9, -13, -170, 0, 0, 1, false);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("demon_hit_normal_m"), Hash40::new("top"), 1, 9, -13, 0, 0, 0, 1, false);
+        EFFECT_FOLLOW(agent, Hash40::new("demon_hit_jigokumon"), Hash40::new("top"), 1, 9, -13, -170, 0, 0, 1, false);
     }
     frame(lua_state, 78.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
 }

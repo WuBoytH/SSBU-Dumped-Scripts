@@ -1,24 +1,24 @@
 #[acmd_script( agent = "dedede", script = "game_specialairhiturnl", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairhiturnl(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        SET_SPEED_EX(fighter, 0, 0.2, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
-        damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+unsafe fn game_specialairhiturnl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        SET_SPEED_EX(agent, 0, 0.2, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+        damage!(agent, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
     }
-    if is_excute(fighter) {
-        HIT_NODE(fighter, Hash40::new("footr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("footl"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("waist"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("head"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("armr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("virtualwaist"), *HIT_STATUS_OFF);
+    if is_excute(agent) {
+        HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("footl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("virtualwaist"), *HIT_STATUS_OFF);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
     }
 }

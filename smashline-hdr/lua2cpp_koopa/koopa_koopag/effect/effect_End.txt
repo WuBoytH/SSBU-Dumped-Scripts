@@ -1,12 +1,12 @@
 #[acmd_script( agent = "koopa_koopag", script = "effect_end", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_end(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("koopa_final_disappear"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, false);
+unsafe fn effect_end(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("koopa_final_disappear"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, false);
     }
     frame(lua_state, 50.0);
-    if is_excute(fighter) {
-        EFFECT_DETACH_KIND(fighter, Hash40::new("koopa_final_disappear"), -1);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("koopa_final_disappear"), -1);
     }
 }

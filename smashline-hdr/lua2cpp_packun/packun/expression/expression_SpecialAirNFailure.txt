@@ -1,13 +1,13 @@
 #[acmd_script( agent = "packun", script = "expression_specialairnfailure", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialairnfailure(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_specialairnfailure(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 44.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

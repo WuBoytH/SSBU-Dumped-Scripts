@@ -1,25 +1,25 @@
 #[acmd_script( agent = "daisy", script = "game_speciallw", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if WorkModule::get_int(boma, *FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_IS_DAIKON_GENERATABLE) == 1 {
         if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(*FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_UNIQ_ITEM_KIND, *ITEM_KIND_NONE)){
-            if is_excute(fighter) {
+            if is_excute(agent) {
                 ArticleModule::generate_article(boma, *FIGHTER_DAISY_GENERATE_ARTICLE_DAIKON, false, -1);
             }
         }
         if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(*FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_UNIQ_ITEM_KIND, *ITEM_KIND_BOMBHEI)){
-            if is_excute(fighter) {
+            if is_excute(agent) {
                 ItemModule::have_item(boma, *ITEM_KIND_BOMBHEI);
             }
         }
         if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, *FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_UNIQ_ITEM_KIND, *ITEM_KIND_DOSEISAN)){
-            if is_excute(fighter) {
+            if is_excute(agent) {
                 ItemModule::have_item(boma, *ITEM_KIND_DOSEISAN);
             }
         }
         if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, *FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_UNIQ_ITEM_KIND, *ITEM_KIND_BEAMSWORD)){
-            if is_excute(fighter) {
+            if is_excute(agent) {
                 ItemModule::have_item(boma, *ITEM_KIND_BEAMSWORD);
             }
         }

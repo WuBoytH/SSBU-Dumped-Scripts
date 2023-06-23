@@ -1,22 +1,22 @@
 #[acmd_script( agent = "samusd", script = "game_guardon", category = ACMD_GAME, low_priority )]
-unsafe fn game_guardon(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_guardon(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        HIT_NODE(fighter, Hash40::new("head"), *HIT_STATUS_XLU);
-        HIT_NODE(fighter, Hash40::new("shoulderpadr"), *HIT_STATUS_XLU);
-        HIT_NODE(fighter, Hash40::new("shoulderpadl"), *HIT_STATUS_XLU);
-        HIT_NODE(fighter, Hash40::new("armr"), *HIT_STATUS_XLU);
+    if is_excute(agent) {
+        HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_XLU);
+        HIT_NODE(agent, Hash40::new("shoulderpadr"), *HIT_STATUS_XLU);
+        HIT_NODE(agent, Hash40::new("shoulderpadl"), *HIT_STATUS_XLU);
+        HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_XLU);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
-        HIT_NODE(fighter, Hash40::new("armr"), *HIT_STATUS_NORMAL);
+    if is_excute(agent) {
+        HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_NORMAL);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        HIT_NODE(fighter, Hash40::new("head"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("shoulderpadr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("shoulderpadl"), *HIT_STATUS_NORMAL);
+    if is_excute(agent) {
+        HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderpadr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderpadl"), *HIT_STATUS_NORMAL);
     }
 }

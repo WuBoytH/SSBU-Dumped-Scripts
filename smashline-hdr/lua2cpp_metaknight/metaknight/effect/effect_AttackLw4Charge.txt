@@ -1,14 +1,14 @@
 #[acmd_script( agent = "metaknight", script = "effect_attacklw4charge", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attacklw4charge(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0.01, 10.0, -0.071, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_attacklw4charge(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0.01, 10.0, -0.071, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 1, 12, 0, 4, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 1, 12, 0, 4, 0, 0, 0, false);
     }
     wait(lua_state, 5.0);
-    EFFECT_FOLLOW(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0.01, 10.0, -0.071, -0.407, -0.035, -0.057, 1, false);
+    EFFECT_FOLLOW(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0.01, 10.0, -0.071, -0.407, -0.035, -0.057, 1, false);
 }

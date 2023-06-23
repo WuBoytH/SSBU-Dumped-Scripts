@@ -1,26 +1,26 @@
 #[acmd_script( agent = "buddy", script = "expression_win3", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_win3(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_PIECE, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::remove_exist(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::remove_exist(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
-    if !IS_EXIST_ARTICLE(fighter, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS) {
-        if is_excute(fighter) {
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS) {
+        if is_excute(agent) {
             ArticleModule::generate_article(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS, false, -1);
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::change_motion(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS, Hash40::new("win_3"), false, -1.0);
     }
-    if !IS_EXIST_ARTICLE(fighter, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN) {
-        if is_excute(fighter) {
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN) {
+        if is_excute(agent) {
             ArticleModule::generate_article(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN, false, -1);
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::change_motion(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN, Hash40::new("win_3"), false, -1.0);
     }
 }

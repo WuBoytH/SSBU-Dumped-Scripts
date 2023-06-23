@@ -1,30 +1,30 @@
 #[acmd_script( agent = "robot", script = "effect_specialairn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_specialairn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("robot_robobeam"), Hash40::new("head1"), 1.5, 3.75, 0.0, -97.5, -90, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("robot_robobeam"), Hash40::new("head1"), 1.5, 3.75, 0.0, -97.5, -90, 0, 1, true);
     }
     frame(lua_state, 21.0);
-    if is_excute(fighter) {
-        FLASH(fighter, 1, 0.376, 0.502, 0.314);
+    if is_excute(agent) {
+        FLASH(agent, 1, 0.376, 0.502, 0.314);
     }
     frame(lua_state, 25.0);
     WorkModule::get_float(boma, *FIGHTER_ROBOT_STATUS_BEAM_WORK_FLOAT_ENERGY_VALUE);
     WorkModule::get_param_float(boma, -460405772, Hash40::new("param_special_n"), Hash40::new("miss_shoot_energy"));
     if(0x1050b0(144)){
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("robot_robobeam_shot"), Hash40::new("head1"), 0, 2, 0.0, -97.5, -90, 0, 1, true);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("robot_robobeam_shot"), Hash40::new("head1"), 0, 2, 0.0, -97.5, -90, 0, 1, true);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("robot_robobeam_miss"), Hash40::new("head1"), 1.5, 3.75, 0.0, -97.5, -90, 0, 1, true);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("robot_robobeam_miss"), Hash40::new("head1"), 1.5, 3.75, 0.0, -97.5, -90, 0, 1, true);
         }
     }
 }
 frame(lua_state, 26.0);
-if is_excute(fighter) {
-    COL_NORMAL(fighter);
+if is_excute(agent) {
+    COL_NORMAL(agent);
 }
 }

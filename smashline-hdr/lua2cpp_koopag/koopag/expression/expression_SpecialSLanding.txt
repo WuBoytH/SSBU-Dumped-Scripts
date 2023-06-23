@@ -1,16 +1,16 @@
 #[acmd_script( agent = "koopag", script = "expression_specialslanding", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialslanding(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_L);
+unsafe fn expression_specialslanding(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_L);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        RUMBLE_ALL(fighter, Hash40::new("rbkind_stg_impact_l"), 0);
+    if is_excute(agent) {
+        RUMBLE_ALL(agent, Hash40::new("rbkind_stg_impact_l"), 0);
     }
     frame(lua_state, 32.0);
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
     }
 }

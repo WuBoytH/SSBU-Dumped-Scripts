@@ -1,33 +1,33 @@
 #[acmd_script( agent = "link_ancientbowarrow", script = "game_stick", category = ACMD_GAME, low_priority )]
-unsafe fn game_stick(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        CAM_ZOOM_OUT_FINAL(fighter);
+unsafe fn game_stick(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CAM_ZOOM_OUT_FINAL(agent);
     }
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
             PostureModule::scale(boma, 3, 0);
             0x11e440(-872975833, 2);
             CAM_ZOOM_IN_FINAL_arg13(1, 0, -1, -10, 10, true, *WEAPON_LINK_ANCIENTBOWARROW_INSTANCE_WORK_ID_INT_HIT_OBJECT_ID, 0, 10, 0);
         }
         else{
-        if is_excute(fighter) {
+        if is_excute(agent) {
             CAM_ZOOM_IN_FINAL_arg13(3, 0, 2, -1, 0, 1, -10, 10, true, *WEAPON_LINK_ANCIENTBOWARROW_INSTANCE_WORK_ID_INT_HIT_OBJECT_ID, 0, -10, 0);
         }
     }
 }
-if is_excute(fighter) {
-    ATTACK(fighter, 0, 0, Hash40::new("top"), 35.0, 60, 46, 0, 102, 25.0, 0.0, 0.0, 0.0, None, None, None, 0.3, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+if is_excute(agent) {
+    ATTACK(agent, 0, 0, Hash40::new("top"), 35.0, 60, 46, 0, 102, 25.0, 0.0, 0.0, 0.0, None, None, None, 0.3, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
     AttackModule::set_force_reaction(boma, 0, true, false);
 }
 frame(lua_state, 2.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     AttackModule::clear_all(boma);
-    CAM_ZOOM_OUT_FINAL(fighter);
+    CAM_ZOOM_OUT_FINAL(agent);
 }
 frame(lua_state, 15.0);
-if is_excute(fighter) {
-    notify_event_msc_cmd!(fighter, Hash40::new_raw(0x199c462b5d));
+if is_excute(agent) {
+    notify_event_msc_cmd!(agent, Hash40::new_raw(0x199c462b5d));
 }
 }

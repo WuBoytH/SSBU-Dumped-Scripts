@@ -1,20 +1,20 @@
 #[acmd_script( agent = "captain", script = "game_guardoff", category = ACMD_GAME, low_priority )]
-unsafe fn game_guardoff(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_guardoff(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        HIT_NODE(fighter, Hash40::new("head"), *HIT_STATUS_XLU);
-        HIT_NODE(fighter, Hash40::new("armr"), *HIT_STATUS_XLU);
-        HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_XLU);
+    if is_excute(agent) {
+        HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_XLU);
+        HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_XLU);
+        HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_XLU);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        HIT_NODE(fighter, Hash40::new("shoulderr"), *HIT_STATUS_XLU);
-        HIT_NODE(fighter, Hash40::new("shoulderl"), *HIT_STATUS_XLU);
+    if is_excute(agent) {
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_XLU);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_XLU);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         HitModule::set_status_all(boma, HitStatus(*HIT_STATUS_NORMAL), 0);
     }
 }

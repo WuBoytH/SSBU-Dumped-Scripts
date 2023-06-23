@@ -1,19 +1,19 @@
 #[acmd_script( agent = "gaogaen", script = "game_specialairsthrow", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairsthrow(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 11.99);
+unsafe fn game_specialairsthrow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        damage!(agent, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 11.99);
     }
     frame(lua_state, 1.0);
-    FT_MOTION_RATE(fighter, 0.75);
+    FT_MOTION_RATE(agent, 0.75);
     frame(lua_state, 20.0);
-    FT_MOTION_RATE(fighter, 0.5);
+    FT_MOTION_RATE(agent, 0.5);
     frame(lua_state, 37.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_GAOGAEN_STATUS_SPECIAL_S_FLAG_THROW_ROPE);
     }
     frame(lua_state, 60.0);
-    FT_MOTION_RATE(fighter, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
     frame(lua_state, 95.0);
 }

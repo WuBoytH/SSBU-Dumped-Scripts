@@ -1,42 +1,42 @@
 #[acmd_script( agent = "sonic", script = "effect_specialsholdjump", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialsholdjump(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("sonic_spindash_hold_blur"), true, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sonic_spindash_hold_blur"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
-        EFFECT_OFF_KIND(fighter, Hash40::new("sys_dash_smoke"), false, true);
+unsafe fn effect_specialsholdjump(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("sonic_spindash_hold_blur"), true, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sonic_spindash_hold_blur"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("sys_dash_smoke"), false, true);
     }
     if !WorkModule::is_flag(boma, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_SPECIAL_S_HOLD_JUMP_EFFECT) {
-        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-            if is_excute(fighter) {
-                EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spindash_hold"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 1, true);
+        if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if is_excute(agent) {
+                EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spindash_hold"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 1, true);
             }
             else{
-            if is_excute(fighter) {
-                EFFECT_FOLLOW_NO_SCALE(fighter, Hash40::new("sonic_spindash_hold"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 1, true);
+            if is_excute(agent) {
+                EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spindash_hold"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 1, true);
             }
         }
     }
 }
 frame(lua_state, 2.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     WorkModule::on_flag(boma, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_SPECIAL_S_HOLD_JUMP_EFFECT);
 }
-if is_excute(fighter) {
-    FLASH(fighter, 1, 1, 1, 0.13);
+if is_excute(agent) {
+    FLASH(agent, 1, 1, 1, 0.13);
 }
 wait(lua_state, 3.0);
-if is_excute(fighter) {
-    COL_NORMAL(fighter);
+if is_excute(agent) {
+    COL_NORMAL(agent);
 }
 wait(lua_state, 4.0);
-if is_excute(fighter) {
-    FLASH(fighter, 1, 1, 0.275, 0.196);
+if is_excute(agent) {
+    FLASH(agent, 1, 1, 0.275, 0.196);
 }
 wait(lua_state, 3.0);
-if is_excute(fighter) {
-    COL_NORMAL(fighter);
+if is_excute(agent) {
+    COL_NORMAL(agent);
 }
 wait(lua_state, 2.0);
 }

@@ -1,16 +1,16 @@
 #[acmd_script( agent = "tantan_punch1", script = "game_attackbeamloop", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackbeamloop(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if IS_EXIST_ARTICLE(fighter, *WEAPON_TANTAN_PUNCH1_GENERATE_ARTICLE_BEAM) {
-        if is_excute(fighter) {
+unsafe fn game_attackbeamloop(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *WEAPON_TANTAN_PUNCH1_GENERATE_ARTICLE_BEAM) {
+        if is_excute(agent) {
             ArticleModule::remove_exist(boma, *WEAPON_TANTAN_PUNCH1_GENERATE_ARTICLE_BEAM, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *WEAPON_TANTAN_PUNCH1_GENERATE_ARTICLE_BEAM);
         ArticleModule::shoot_exist(boma, *WEAPON_TANTAN_PUNCH1_GENERATE_ARTICLE_BEAM, *ARTICLE_OPE_TARGET_ALL, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_76_dragonbeam"), 30, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
+        QUAKE(agent, *CAMERA_QUAKE_KIND_S);
     }
 }

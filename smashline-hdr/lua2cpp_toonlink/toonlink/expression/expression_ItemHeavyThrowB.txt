@@ -1,18 +1,18 @@
 #[acmd_script( agent = "toonlink", script = "expression_itemheavythrowb", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_itemheavythrowb(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+unsafe fn expression_itemheavythrowb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
         VisibilityModule::set_int64(boma, hash40("shield") as i64, hash40("shield_back") as i64);
         VisibilityModule::set_int64(boma, hash40("sword") as i64, hash40("sword_back") as i64);
     }
     frame(lua_state, 34.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("shield") as i64, hash40("shield_normal") as i64);
     }
     frame(lua_state, 38.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("sword") as i64, hash40("sword_normal") as i64);
     }
 }

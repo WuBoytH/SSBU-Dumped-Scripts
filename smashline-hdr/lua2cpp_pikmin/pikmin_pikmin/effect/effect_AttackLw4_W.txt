@@ -1,24 +1,24 @@
 #[acmd_script( agent = "pikmin_pikmin", script = "effect_attacklw4_w", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attacklw4_w(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_COLOR(fighter, Hash40::new("pikmin_smash_dash"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1, true, 1, 1, 1);
-        LAST_EFFECT_SET_ALPHA(fighter, 0.8);
-        FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 8, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_attacklw4_w(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW_COLOR(agent, Hash40::new("pikmin_smash_dash"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1, true, 1, 1, 1);
+        LAST_EFFECT_SET_ALPHA(agent, 0.8);
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 8, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
     }
     for _ in 0..3 {
-    if is_excute(fighter) {
-        FLASH(fighter, 0.8, 1, 0.5, 0);
-        FLASH_FRM(fighter, 2, 0.8, 1, 0.5, 0.3);
+    if is_excute(agent) {
+        FLASH(agent, 0.8, 1, 0.5, 0);
+        FLASH_FRM(agent, 2, 0.8, 1, 0.5, 0.3);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 2, 0.8, 1, 0.5, 0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 2, 0.8, 1, 0.5, 0);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
 }
 }

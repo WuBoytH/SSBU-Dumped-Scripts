@@ -1,22 +1,22 @@
 #[acmd_script( agent = "pikachu", script = "effect_entryr", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_entryr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        FLASH(fighter, 0.9, 1, 1, 0.9);
+unsafe fn effect_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FLASH(agent, 0.9, 1, 1, 0.9);
     }
     wait(lua_state, 30.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 15, 0.9, 1, 1, 0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 15, 0.9, 1, 1, 0);
     }
     wait(lua_state, 15.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
     frame(lua_state, 80.0);
     for _ in 0..6 {
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_damage_elec"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, 10, 12, 10, 0, 0, 360, false);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_damage_elec"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, 10, 12, 10, 0, 0, 360, false);
     }
     wait(lua_state, 7.0);
 }

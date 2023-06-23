@@ -1,16 +1,16 @@
 #[acmd_script( agent = "kirby", script = "game_pickelspecialn3", category = ACMD_GAME, low_priority )]
-unsafe fn game_pickelspecialn3(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_pickelspecialn3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_SPECIAL_N3_FLAG_GENERATE_ENABLE);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_SPECIAL_N3_FLAG_GENERATE_OBJECT_FALL);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_SPECIAL_N3_FLAG_GENERATE_OBJECT);
     }
 }

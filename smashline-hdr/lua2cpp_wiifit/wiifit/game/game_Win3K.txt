@@ -1,8 +1,8 @@
 #[acmd_script( agent = "wiifit", script = "game_win3k", category = ACMD_GAME, low_priority )]
-unsafe fn game_win3k(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_win3k(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_TOWEL, false, -1);
         ArticleModule::change_motion(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_TOWEL, Hash40::new("win3"), false, -1.0);
     }

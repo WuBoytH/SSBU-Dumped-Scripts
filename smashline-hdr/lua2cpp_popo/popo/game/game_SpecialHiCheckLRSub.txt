@@ -1,13 +1,13 @@
 #[acmd_script( agent = "popo", script = "game_specialhichecklrsub", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialhichecklrsub(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialhichecklrsub(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     get_value_float(*FT_VAR_FLOAT_STICK_X_BACK);
     WorkModule::get_param_float(boma, 0, Hash40::new("param_special_hi"), Hash40::new("start_turn_cont_x"));
     if(0x19e320(32)){
-        if is_excute(fighter) {
-            STICK_LR(fighter);
-            UPDATE_ROT(fighter);
+        if is_excute(agent) {
+            STICK_LR(agent);
+            UPDATE_ROT(agent);
         }
     }
 }

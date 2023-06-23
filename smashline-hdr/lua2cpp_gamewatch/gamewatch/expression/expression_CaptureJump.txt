@@ -1,9 +1,9 @@
 #[acmd_script( agent = "gamewatch", script = "expression_capturejump", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_capturejump(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_capturejump(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_CaptureJumpRumble()();
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("hand") as i64, hash40("hand_hold_lr") as i64);
     }
 }

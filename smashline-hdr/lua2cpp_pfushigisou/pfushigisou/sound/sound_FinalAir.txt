@@ -1,14 +1,14 @@
 #[acmd_script( agent = "pfushigisou", script = "sound_finalair", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_finalair(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_finalair(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 60.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("vc_pfushigisou_final01"));
-        PLAY_STATUS(fighter, Hash40::new("se_pfushigisou_final_lp"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_pfushigisou_final01"));
+        PLAY_STATUS(agent, Hash40::new("se_pfushigisou_final_lp"));
     }
     frame(lua_state, 245.0);
-    if is_excute(fighter) {
-        sound!(fighter, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+    if is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
     }
 }

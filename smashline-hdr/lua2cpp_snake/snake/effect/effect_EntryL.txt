@@ -1,28 +1,28 @@
 #[acmd_script( agent = "snake", script = "effect_entryl", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_entryl(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("snake_r5"), Hash40::new("top"), 3, -1, 0, 0, 180, 0, 0.75, true);
+unsafe fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("snake_r5"), Hash40::new("top"), 3, -1, 0, 0, 180, 0, 0.75, true);
     }
     frame(lua_state, 13.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ColorBlendModule::set_disable_camera_depth_influence(boma, true);
     }
     for _ in 0..9 {
-    if is_excute(fighter) {
-        BURN_COLOR(fighter, 0.4, 0.6, 4, 0.7);
+    if is_excute(agent) {
+        BURN_COLOR(agent, 0.4, 0.6, 4, 0.7);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        BURN_COLOR_FRAME(fighter, 4, 0.4, 0.6, 4, 0);
+    if is_excute(agent) {
+        BURN_COLOR_FRAME(agent, 4, 0.4, 0.6, 4, 0);
     }
     wait(lua_state, 4.0);
-    if is_excute(fighter) {
-        BURN_COLOR_NORMAL(fighter);
+    if is_excute(agent) {
+        BURN_COLOR_NORMAL(agent);
     }
 }
-if is_excute(fighter) {
+if is_excute(agent) {
     ColorBlendModule::set_disable_camera_depth_influence(boma, false);
 }
 }

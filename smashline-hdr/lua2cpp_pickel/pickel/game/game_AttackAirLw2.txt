@@ -1,8 +1,8 @@
 #[acmd_script( agent = "pickel", script = "game_attackairlw2", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackairlw2(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_attackairlw2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
         WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_AIR_FLAG_LANDING_CLEAR_SPEED);
         WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_NO_SPEED_OPERATION_CHK);
@@ -10,7 +10,7 @@ unsafe fn game_attackairlw2(fighter: &mut L2CAgentBase) {
         KineticModule::suspend_energy(boma, *FIGHTER_KINETIC_ENERGY_ID_CONTROL);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         KineticModule::resume_energy(boma, *FIGHTER_KINETIC_ENERGY_ID_CONTROL);
     }
 }

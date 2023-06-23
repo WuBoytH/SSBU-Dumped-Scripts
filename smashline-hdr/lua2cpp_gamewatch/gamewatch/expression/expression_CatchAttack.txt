@@ -1,11 +1,11 @@
 #[acmd_script( agent = "gamewatch", script = "expression_catchattack", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_catchattack(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_catchattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("head") as i64, hash40("head_close") as i64);
         VisibilityModule::set_int64(boma, hash40("hand") as i64, hash40("hand_hold_l") as i64);
         VisibilityModule::set_int64(boma, hash40("lhand") as i64, hash40("lhand_alarm") as i64);
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 0);
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 0);
     }
 }

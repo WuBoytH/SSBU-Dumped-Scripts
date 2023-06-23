@@ -1,21 +1,21 @@
 #[acmd_script( agent = "brave", script = "game_specialhi2", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialhi2(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialhi2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_BRAVE_GENERATE_ARTICLE_TORNADO, false, -1);
     }
     wait(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_BRAVE_STATUS_SPECIAL_HI_FLAG_JUMP_START);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
     }
     frame(lua_state, 40.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_BRAVE_STATUS_SPECIAL_HI_FLAG_REVERT_ANGLE);
     }
 }

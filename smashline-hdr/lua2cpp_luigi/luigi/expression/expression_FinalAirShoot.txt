@@ -1,18 +1,18 @@
 #[acmd_script( agent = "luigi", script = "expression_finalairshoot", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalairshoot(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_finalairshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
         ItemModule::set_have_item_visibility(boma, false, 0);
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_beamm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

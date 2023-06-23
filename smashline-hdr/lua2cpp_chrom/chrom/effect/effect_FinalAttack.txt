@@ -1,34 +1,34 @@
 #[acmd_script( agent = "chrom", script = "effect_finalattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalattack(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("chrom_sword2"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+unsafe fn effect_finalattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("chrom_sword2"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
-        LAST_EFFECT_SET_RATE(fighter, 0.5);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 0.5);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("chrom_final_sword_trace2"), Hash40::new("top"), 0, 16, 0, 0, 0, 80, 1, 0, 0, 0, 0, 0, 0, true);
-        EFFECT(fighter, Hash40::new("chrom_final_hit_first"), Hash40::new("top"), 0, 7, 21, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("chrom_final_sword_trace2"), Hash40::new("top"), 0, 16, 0, 0, 0, 80, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT(agent, Hash40::new("chrom_final_hit_first"), Hash40::new("top"), 0, 7, 21, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 12.0);
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("chrom_sword2"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("chrom_sword2"), false, true);
     }
     frame(lua_state, 45.0);
     WorkModule::is_flag(boma, *FIGHTER_ROY_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if is_excute(fighter) {
-            LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 90, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 90, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
         }
         else{
-        if is_excute(fighter) {
-            LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
         }
     }
 }
@@ -37,112 +37,112 @@ WorkModule::is_flag(boma, *FIGHTER_ROY_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT);
 if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
     WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
-        if is_excute(fighter) {
+        if is_excute(agent) {
             EffectModule::remove_screen(boma, Hash40::new("bg_chrom_final2"), -1);
             EffectModule::req_screen(boma, Hash40::new("bg_chrom_final1"), false, false, false);
-            EFFECT(fighter, Hash40::new("chrom_final_speedline3"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+            EFFECT(agent, Hash40::new("chrom_final_speedline3"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     }
 }
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("chrom_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("chrom_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
 }
 frame(lua_state, 64.0);
-if is_excute(fighter) {
-    LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 4, 0, 0, 0, 180, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 4, 0, 0, 0, 180, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
 }
 frame(lua_state, 78.0);
-if is_excute(fighter) {
-    LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 2, 0, 0, 0, 180, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 2, 0, 0, 0, 180, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
 }
 wait(lua_state, 2.0);
-if is_excute(fighter) {
-    FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -1, 0, 0, 0, 180, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -1, 0, 0, 0, 180, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
 }
 wait(lua_state, 2.0);
-if is_excute(fighter) {
-    FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 180, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 180, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
 }
 wait(lua_state, 3.0);
 WorkModule::is_flag(boma, *FIGHTER_ROY_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT);
 if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 90, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
-        LAST_EFFECT_SET_RATE(fighter, 0.5);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 90, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 0.5);
     }
     else{
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
-        LAST_EFFECT_SET_RATE(fighter, 0.5);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 0.5);
     }
 }
 }
 frame(lua_state, 111.0);
 WorkModule::is_flag(boma, *FIGHTER_ROY_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT);
 if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("chrom_final_light2"), Hash40::new("sword1"), 0, 0, 6, 0, 0, 0, 0.7, true);
-    LAST_EFFECT_SET_RATE(fighter, 0.85);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("chrom_final_light2"), Hash40::new("sword1"), 0, 0, 6, 0, 0, 0, 0.7, true);
+    LAST_EFFECT_SET_RATE(agent, 0.85);
 }
 else{
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("chrom_final_light2"), Hash40::new("sword1"), 0, 0, 6, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("chrom_final_light2"), Hash40::new("sword1"), 0, 0, 6, 0, 0, 0, 1, true);
 }
 }
 }
 frame(lua_state, 125.0);
-if is_excute(fighter) {
-EFFECT_DETACH_KIND(fighter, Hash40::new("chrom_final_light2"), -1);
+if is_excute(agent) {
+EFFECT_DETACH_KIND(agent, Hash40::new("chrom_final_light2"), -1);
 }
 frame(lua_state, 132.0);
-if is_excute(fighter) {
-EFFECT_FLW_POS(fighter, Hash40::new("chrom_final_speedline2"), Hash40::new("top"), 0, 4, -2, 0, 0, 0, 1, true);
-LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_a"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+EFFECT_FLW_POS(agent, Hash40::new("chrom_final_speedline2"), Hash40::new("top"), 0, 4, -2, 0, 0, 0, 1, true);
+LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_a"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, false);
 }
 wait(lua_state, 1.0);
-if is_excute(fighter) {
-LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
 }
 wait(lua_state, 1.0);
-if is_excute(fighter) {
-LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
 }
 frame(lua_state, 133.0);
 frame(lua_state, 134.0);
-if is_excute(fighter) {
-EFFECT(fighter, Hash40::new("chrom_final_sword_trace"), Hash40::new("top"), 1, 12, 32, 0, -50, -74, 1, 0, 0, 0, 0, 0, 0, true);
-LAST_EFFECT_SET_RATE(fighter, 0.7);
+if is_excute(agent) {
+EFFECT(agent, Hash40::new("chrom_final_sword_trace"), Hash40::new("top"), 1, 12, 32, 0, -50, -74, 1, 0, 0, 0, 0, 0, 0, true);
+LAST_EFFECT_SET_RATE(agent, 0.7);
 }
 frame(lua_state, 135.0);
 WorkModule::is_flag(boma, *FIGHTER_ROY_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT);
 if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-if is_excute(fighter) {
-EFFECT(fighter, Hash40::new("chrom_final_hit"), Hash40::new("top"), 0, 8, -8, 0, 90, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
-LAST_EFFECT_SET_RATE(fighter, 0.85);
-EFFECT(fighter, Hash40::new("chrom_final_flash"), Hash40::new("top"), 0, 7, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+EFFECT(agent, Hash40::new("chrom_final_hit"), Hash40::new("top"), 0, 8, -8, 0, 90, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+LAST_EFFECT_SET_RATE(agent, 0.85);
+EFFECT(agent, Hash40::new("chrom_final_flash"), Hash40::new("top"), 0, 7, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
 }
 else{
-if is_excute(fighter) {
-EFFECT(fighter, Hash40::new("chrom_final_hit"), Hash40::new("top"), 0, 8, -4, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
-EFFECT(fighter, Hash40::new("chrom_final_flash"), Hash40::new("top"), 0, 7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+EFFECT(agent, Hash40::new("chrom_final_hit"), Hash40::new("top"), 0, 8, -4, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+EFFECT(agent, Hash40::new("chrom_final_flash"), Hash40::new("top"), 0, 7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
 }
 }
 }
 frame(lua_state, 140.0);
-if is_excute(fighter) {
-EFFECT_OFF_KIND(fighter, Hash40::new("chrom_final_speedline2"), false, true);
+if is_excute(agent) {
+EFFECT_OFF_KIND(agent, Hash40::new("chrom_final_speedline2"), false, true);
 }
 frame(lua_state, 160.0);
 frame(lua_state, 166.0);
-if is_excute(fighter) {
-FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 6, 0, -2, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 6, 0, -2, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
 }
 wait(lua_state, 6.0);
-if is_excute(fighter) {
-FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 4, 0, -2, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 4, 0, -2, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
 }
 wait(lua_state, 6.0);
-if is_excute(fighter) {
-FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 4, 0, -2, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 4, 0, -2, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, false);
 }
 }

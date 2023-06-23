@@ -1,34 +1,34 @@
 #[acmd_script( agent = "ken", script = "effect_specialairhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_specialairhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 5.0);
     0x16e550(*FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_INT_STRENGTH, *FIGHTER_RYU_STRENGTH_W);
     0x16e550(*FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_INT_STRENGTH, *FIGHTER_RYU_STRENGTH_M);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("ken_syoryuken_fire"), Hash40::new("handr"), 0, 0, 0, 0, 0, 0, 1, false);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("ken_syoryuken_fire"), Hash40::new("handr"), 0, 0, 0, 0, 0, 0, 1, false);
         EffectModule::enable_sync_init_pos_last(boma);
     }
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("ken_syoryuken_firearc"), Hash40::new("trans"), 3, 2, 2, 5, 0, 5, 1, false);
-            EFFECT_FOLLOW(fighter, Hash40::new("ken_syoryuken_firearc2"), Hash40::new("trans"), 3, 2, 2, 5, 0, 5, 1, false);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("ken_syoryuken_firearc"), Hash40::new("trans"), 3, 2, 2, 5, 0, 5, 1, false);
+            EFFECT_FOLLOW(agent, Hash40::new("ken_syoryuken_firearc2"), Hash40::new("trans"), 3, 2, 2, 5, 0, 5, 1, false);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("ken_syoryuken_firearc"), Hash40::new("trans"), -3, 2, 2, 5, 0, -5, 1, false);
-            EFFECT_FOLLOW(fighter, Hash40::new("ken_syoryuken_firearc2"), Hash40::new("trans"), -3, 2, 2, 5, 0, -5, 1, false);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("ken_syoryuken_firearc"), Hash40::new("trans"), -3, 2, 2, 5, 0, -5, 1, false);
+            EFFECT_FOLLOW(agent, Hash40::new("ken_syoryuken_firearc2"), Hash40::new("trans"), -3, 2, 2, 5, 0, -5, 1, false);
             EffectModule::enable_sync_init_pos_last(boma);
         }
     }
 }
 frame(lua_state, 9.0);
-if is_excute(fighter) {
-    EFFECT_DETACH_KIND(fighter, Hash40::new("ken_syoryuken_firearc"), -1);
-    EFFECT(fighter, Hash40::new("ken_syoryuken_aerial"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+if is_excute(agent) {
+    EFFECT_DETACH_KIND(agent, Hash40::new("ken_syoryuken_firearc"), -1);
+    EFFECT(agent, Hash40::new("ken_syoryuken_aerial"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
 }
 frame(lua_state, 21.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("ken_syoryuken_fire"), false, true);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("ken_syoryuken_fire"), false, true);
 }
 }

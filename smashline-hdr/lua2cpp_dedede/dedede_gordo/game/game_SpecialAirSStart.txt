@@ -1,12 +1,12 @@
 #[acmd_script( agent = "dedede_gordo", script = "game_specialairsstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairsstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        WHOLE_HIT(fighter, *HIT_STATUS_OFF);
+unsafe fn game_specialairsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_OFF);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *WEAPON_DEDEDE_GORDO_STATUS_WORK_FLAG_VISIBILITY_ON);
     }
 }

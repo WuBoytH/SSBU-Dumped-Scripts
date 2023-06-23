@@ -1,14 +1,14 @@
 #[acmd_script( agent = "wario_wariobike", script = "game_specialsitem", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialsitem(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialsitem(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if WorkModule::is_flag(boma, *WEAPON_WARIO_WARIOBIKE_INSTANCE_WORK_ID_FLAG_BROKEN_ATTACK) {
-        if is_excute(fighter) {
-            ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.0, 70, 68, 0, 74, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+        if is_excute(agent) {
+            ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.0, 70, 68, 0, 74, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
             let target = WorkModule::get_int64(boma, *WEAPON_WARIO_WARIOBIKE_STATUS_WORK_INT_TARGET_OBJECT);
         let target_group = WorkModule::get_int64(boma, *WEAPON_WARIO_WARIOBIKE_STATUS_WORK_INT_TARGET_HIT_GROUP);
         let target_no = WorkModule::get_int64(boma, *WEAPON_WARIO_WARIOBIKE_STATUS_WORK_INT_TARGET_HIT_NO);
-        ATK_HIT_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("top"), target, target_group, target_no);
+        ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("top"), target, target_group, target_no);
         }
     }
 }

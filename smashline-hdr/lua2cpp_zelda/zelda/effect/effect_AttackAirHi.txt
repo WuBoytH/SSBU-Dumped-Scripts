@@ -1,25 +1,25 @@
 #[acmd_script( agent = "zelda", script = "effect_attackairhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attackairhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("zelda_atk_flash_s"), Hash40::new("havel"), 0, 0, 1, 0, 0, 0, 0.7, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 23.5, 0.5, 0, 0, 0, 0.7, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.2);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("zelda_atk_flash_s"), Hash40::new("havel"), 0, 0, 1, 0, 0, 0, 0.7, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 23.5, 0.5, 0, 0, 0, 0.7, true);
+        LAST_EFFECT_SET_RATE(agent, 1.2);
     }
     frame(lua_state, 14.0);
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("zelda_atk_air_hi_bomb"), Hash40::new("top"), 0, 23.5, 0.5, 0, 0, 0, 0.7, true);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("zelda_atk_air_hi_bomb"), Hash40::new("top"), 0, 23.5, 0.5, 0, 0, 0, 0.7, true);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("zelda_atk_air_hi_bomb"), Hash40::new("top"), 0, 23.5, 0.5, 0, 180, 0, 0.7, true);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("zelda_atk_air_hi_bomb"), Hash40::new("top"), 0, 23.5, 0.5, 0, 180, 0, 0.7, true);
         }
     }
 }
-if is_excute(fighter) {
-    EFFECT(fighter, Hash40::new("zelda_atk_air_hi_impact"), Hash40::new("top"), 0, 23.5, 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("zelda_atk_air_hi_impact"), Hash40::new("top"), 0, 23.5, 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
 }
 }

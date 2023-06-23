@@ -1,16 +1,16 @@
 #[acmd_script( agent = "plizardon", script = "sound_capturepulledhi", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_capturepulledhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_capturepulledhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_CAPTURE_PULLED_SE);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if is_excute(fighter) {
-            SET_PLAY_INHIVIT(fighter, Hash40::new("se_common_cliff_catch"), 5);
+        if is_excute(agent) {
+            SET_PLAY_INHIVIT(agent, Hash40::new("se_common_cliff_catch"), 5);
         }
         else{
         frame(lua_state, 3.0);
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_common_cliff_catch"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
         }
     }
 }

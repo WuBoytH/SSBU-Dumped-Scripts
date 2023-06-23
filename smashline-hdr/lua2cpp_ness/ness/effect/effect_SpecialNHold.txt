@@ -1,21 +1,21 @@
 #[acmd_script( agent = "ness", script = "effect_specialnhold", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialnhold(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FLW_POS(fighter, Hash40::new("ness_pkfl_hold"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, true);
+unsafe fn effect_specialnhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FLW_POS(agent, Hash40::new("ness_pkfl_hold"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, true);
     }
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 9, 0, 9, 0, 0, 0, false);
-        FLASH(fighter, 0.7, 1, 0.2, 0.4);
-    }
-    wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        FLASH(fighter, 0.8, 1, 1, 0.6);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 9, 0, 9, 0, 0, 0, false);
+        FLASH(agent, 0.7, 1, 0.2, 0.4);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        FLASH(agent, 0.8, 1, 1, 0.6);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
     wait(lua_state, 1.0);
 }

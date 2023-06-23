@@ -1,9 +1,9 @@
 #[acmd_script( agent = "gamewatch", script = "game_itemheavyget", category = ACMD_GAME, low_priority )]
-unsafe fn game_itemheavyget(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_itemheavyget(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::pickup_item(boma, *ITEM_SIZE_HEAVY);
     }
 }

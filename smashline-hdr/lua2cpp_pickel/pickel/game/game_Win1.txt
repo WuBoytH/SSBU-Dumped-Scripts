@@ -1,8 +1,8 @@
 #[acmd_script( agent = "pickel", script = "game_win1", category = ACMD_GAME, low_priority )]
-unsafe fn game_win1(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_PICKEL_GENERATE_ARTICLE_SCARIER, false, -1);
         ArticleModule::change_motion(boma, *FIGHTER_PICKEL_GENERATE_ARTICLE_SCARIER, Hash40::new("win_1"), false, -1.0);
     }

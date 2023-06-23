@@ -1,23 +1,23 @@
 #[acmd_script( agent = "master", script = "effect_attackairn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attackairn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("master_atk_air_n"), Hash40::new("haver"), 0, 4, -1, -90, 90, 0, 1, true);
-        EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("master_bowflare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true, 0.6);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("master_atk_air_n"), Hash40::new("haver"), 0, 4, -1, -90, 90, 0, 1, true);
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("master_bowflare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true, 0.6);
     }
     frame(lua_state, 26.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("master_atk_air_n"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("master_atk_air_n"), false, true);
     }
     frame(lua_state, 28.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), -5, 5, -5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.5);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), -5, 5, -5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("master_bowflare"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("master_bowflare"), false, true);
     }
 }

@@ -1,36 +1,36 @@
 #[acmd_script( agent = "lucas", script = "effect_specialairhiend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairhiend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("lucas_pkt_hold"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 0.8, true);
+unsafe fn effect_specialairhiend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("lucas_pkt_hold"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 0.8, true);
     }
     for _ in 0..3 {
-    if is_excute(fighter) {
-        BURN_COLOR(fighter, 0.7, 0.2, 1, 0.6);
+    if is_excute(agent) {
+        BURN_COLOR(agent, 0.7, 0.2, 1, 0.6);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        BURN_COLOR_FRAME(fighter, 1, 0.7, 0.2, 1, 0);
-        BURN_COLOR_NORMAL(fighter);
+    if is_excute(agent) {
+        BURN_COLOR_FRAME(agent, 1, 0.7, 0.2, 1, 0);
+        BURN_COLOR_NORMAL(agent);
     }
     wait(lua_state, 3.0);
-    if is_excute(fighter) {
-        FLASH(fighter, 0.8, 0.7, 1, 0.5);
+    if is_excute(agent) {
+        FLASH(agent, 0.8, 0.7, 1, 0.5);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 1, 0.8, 0.7, 1, 0);
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 1, 0.8, 0.7, 1, 0);
+        COL_NORMAL(agent);
     }
     wait(lua_state, 3.0);
 }
 frame(lua_state, 10.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("lucas_pkt_hold"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("lucas_pkt_hold"), false, false);
 }
 frame(lua_state, 22.0);
-if is_excute(fighter) {
-    LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
 }
 }

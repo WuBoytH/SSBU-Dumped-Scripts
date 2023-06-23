@@ -1,17 +1,17 @@
 #[acmd_script( agent = "falco", script = "game_finalairlockon", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairlockon(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 15, 0, 0);
-        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_RECT, -5, -5, 20, -20);
+unsafe fn game_finalairlockon(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 15, 0, 0);
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, -5, -5, 20, -20);
     }
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING) {
-        if is_excute(fighter) {
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING) {
+        if is_excute(agent) {
             ArticleModule::remove_exist(boma, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, false, -1);
         ArticleModule::generate_article(boma, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, false, -1);
         ArticleModule::generate_article(boma, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, false, -1);
@@ -19,53 +19,53 @@ unsafe fn game_finalairlockon(fighter: &mut L2CAgentBase) {
         BattleObjectWorld__scale_z();
         methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(0, 1.0);
         ArticleModule::set_visibility_whole(boma, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        SLOW_OPPONENT(fighter, 4, 30);
+        SLOW_OPPONENT(agent, 4, 30);
     }
     if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(lua_state, 5.0);
-        if is_excute(fighter) {
+        if is_excute(agent) {
             SlowModule::set_whole(boma, 2, 0);
-            FT_SET_FINAL_FEAR_FACE(fighter, 25);
+            FT_SET_FINAL_FEAR_FACE(agent, 25);
         }
     }
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
             REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finallockon02.nuanmb"), false, false);
         }
         else{
-        if is_excute(fighter) {
+        if is_excute(agent) {
             PostureModule::scale(boma, 4, 0);
             0x11d3a0(149605315, 1.2);
             CAM_ZOOM_IN_arg5(0, 0);
         }
         else{
-        if is_excute(fighter) {
+        if is_excute(agent) {
             REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finallockon.nuanmb"), false, false);
         }
-        if is_excute(fighter) {
-            FT_START_CUTIN(fighter);
+        if is_excute(agent) {
+            FT_START_CUTIN(agent);
         }
     }
 }
 }
 frame(lua_state, 25.0);
-if is_excute(fighter) {
+if is_excute(agent) {
 SlowModule::clear_whole(boma);
-CAM_ZOOM_OUT(fighter);
+CAM_ZOOM_OUT(agent);
 }
 frame(lua_state, 28.0);
-if is_excute(fighter) {
-ATTACK(fighter, 0, 0, Hash40::new("top"), 3.0, 80, 100, 200, 0, 17.0, 0.0, 14.0, 20.0, Some(0.0), Some(14.0), Some(36.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_SPEED, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+if is_excute(agent) {
+ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 80, 100, 200, 0, 17.0, 0.0, 14.0, 20.0, Some(0.0), Some(14.0), Some(36.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_SPEED, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
 AttackModule::set_no_dead_all(boma, true, false);
 }
 wait(lua_state, 4.0);
-if is_excute(fighter) {
+if is_excute(agent) {
 AttackModule::clear_all(boma);
-REMOVE_FINAL_SCREEN_EFFECT(fighter, 0);
+REMOVE_FINAL_SCREEN_EFFECT(agent, 0);
 }
 frame(lua_state, 34.0);
-if is_excute(fighter) {
-CAM_ZOOM_OUT(fighter);
-camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+if is_excute(agent) {
+CAM_ZOOM_OUT(agent);
+camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
 }
 }

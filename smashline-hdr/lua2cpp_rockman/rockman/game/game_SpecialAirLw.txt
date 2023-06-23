@@ -1,11 +1,11 @@
 #[acmd_script( agent = "rockman", script = "game_specialairlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    FT_MOTION_RATE(fighter, 2.5);
+unsafe fn game_specialairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    FT_MOTION_RATE(agent, 2.5);
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article_enable(boma, *FIGHTER_ROCKMAN_GENERATE_ARTICLE_LEAFSHIELD, false, -1);
     }
-    FT_MOTION_RATE(fighter, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
 }

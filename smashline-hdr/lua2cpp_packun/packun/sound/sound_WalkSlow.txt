@@ -1,12 +1,12 @@
 #[acmd_script( agent = "packun", script = "sound_walkslow", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_walkslow(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_walkslow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     wait_loop_sync_mot();
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
-        PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_packun_step_left_s"), Hash40::new("se_packun_step_right_s"));
+    if is_excute(agent) {
+        PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_packun_step_left_s"), Hash40::new("se_packun_step_right_s"));
     }
     frame(lua_state, 29.0);
-    PLAY_STEP_FLIPPABLE(fighter, Hash40::new("se_packun_step_right_s"), Hash40::new("se_packun_step_left_s"));
+    PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_packun_step_right_s"), Hash40::new("se_packun_step_left_s"));
 }

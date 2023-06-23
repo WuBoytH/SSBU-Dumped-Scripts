@@ -1,17 +1,17 @@
 #[acmd_script( agent = "pikmin", script = "game_specialnstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialnstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_PIKMIN_GENERATE_ARTICLE_PIKMIN, false, -1);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::get_float(boma, *FIGHTER_PIKMIN_STATUS_PULL_OUT_WORK_FLOAT_MOT_RATE);
         MotionModule::set_rate(boma, -378992935);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         MotionModule::set_rate(boma, 1);
     }
 }

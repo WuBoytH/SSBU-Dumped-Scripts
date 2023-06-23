@@ -1,11 +1,11 @@
 #[acmd_script( agent = "elight", script = "game_scopeairrapidfly1", category = ACMD_GAME, low_priority )]
-unsafe fn game_scopeairrapidfly1(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_scopeairrapidfly1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
     if !WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
-        if is_excute(fighter) {
-            SHOOT_ITEM_BULLET(fighter);
+        if is_excute(agent) {
+            SHOOT_ITEM_BULLET(agent);
             WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
         }
     }

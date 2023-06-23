@@ -1,15 +1,15 @@
 #[acmd_script( agent = "snake_c4", script = "effect_explosion", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_explosion(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_explosion(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     WorkModule::is_flag(boma, *WEAPON_SNAKE_C4_INSTANCE_WORK_ID_FLAG_GROUND);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("sys_bomb_b"), Hash40::new("top"), 0, 0, 0, 90, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_bomb_b"), Hash40::new("top"), 0, 0, 0, 90, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("sys_bomb_a"), Hash40::new("stick"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_bomb_a"), Hash40::new("stick"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
     }
 }

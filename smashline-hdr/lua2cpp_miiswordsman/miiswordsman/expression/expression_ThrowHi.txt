@@ -1,27 +1,27 @@
 #[acmd_script( agent = "miiswordsman", script = "expression_throwhi", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_throwhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        FT_ATTACK_ABS_CAMERA_QUAKE(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+unsafe fn expression_throwhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FT_ATTACK_ABS_CAMERA_QUAKE(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 19.0);
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
     }
     frame(lua_state, 21.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_slashm"), 0);
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_slashm"), 0);
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x26769bd1de), 0, 30, 8);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x26769bd1de), 0, 30, 8);
     }
 }

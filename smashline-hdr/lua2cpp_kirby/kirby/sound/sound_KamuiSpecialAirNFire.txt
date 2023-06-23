@@ -1,29 +1,29 @@
 #[acmd_script( agent = "kirby", script = "sound_kamuispecialairnfire", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_kamuispecialairnfire(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_kamuispecialairnfire(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 7.0);
     WorkModule::get_float(boma, *FIGHTER_KAMUI_STATUS_SPECIAL_N_WORK_FLOAT_HOLD_RATE);
     if(0x543c60(-1165490952, 0.35)){
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("vc_kirby_copy_kamui_01"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("vc_kirby_copy_kamui_01"));
         }
         else{
         WorkModule::get_float(boma, *FIGHTER_KAMUI_STATUS_SPECIAL_N_WORK_FLOAT_HOLD_RATE);
         if(0x543c60(-1165490952, 0.95)){
-            if is_excute(fighter) {
-                PLAY_SE(fighter, Hash40::new("vc_kirby_copy_kamui_01"));
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("vc_kirby_copy_kamui_01"));
             }
             else{
-            if is_excute(fighter) {
-                PLAY_SE(fighter, Hash40::new("vc_kirby_copy_kamui_02"));
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("vc_kirby_copy_kamui_02"));
             }
         }
     }
 }
 }
 frame(lua_state, 13.0);
-if is_excute(fighter) {
-PLAY_SE(fighter, Hash40::new("se_kamui_special_n06"));
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_kamui_special_n06"));
 }
 }

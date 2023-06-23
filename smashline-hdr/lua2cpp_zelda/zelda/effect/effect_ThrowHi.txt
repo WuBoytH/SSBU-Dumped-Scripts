@@ -1,20 +1,20 @@
 #[acmd_script( agent = "zelda", script = "effect_throwhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("zelda_throw_trace"), Hash40::new("zelda_throw_trace"), Hash40::new("havel"), -0.5, 0, 0, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+unsafe fn effect_throwhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("zelda_throw_trace"), Hash40::new("zelda_throw_trace"), Hash40::new("havel"), -0.5, 0, 0, 0, 0, 0, 1, true, *EF_FLIP_YZ);
     }
     frame(lua_state, 1.0);
     for _ in 0..6 {
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_flash"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 0.5, 8, 8, 8, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.2);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_flash"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 0.5, 8, 8, 8, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.2);
     }
     wait(lua_state, 4.0);
 }
 frame(lua_state, 30.0);
-if is_excute(fighter) {
-    EFFECT(fighter, Hash40::new("zelda_throw_flash"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1.1, 5, 5, 5, 0, 0, 0, true);
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("zelda_throw_flash"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1.1, 5, 5, 5, 0, 0, 0, true);
 }
 }

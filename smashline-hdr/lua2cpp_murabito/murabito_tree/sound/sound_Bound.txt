@@ -1,16 +1,16 @@
 #[acmd_script( agent = "murabito_tree", script = "sound_bound", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_bound(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_bound(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 0.0);
     if(0x13aec0(*WEAPON_MURABITO_TREE_STATUS_FALLEN_WORK_INT_HIT_NUM, 1)){
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_murabito_special_l08"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_murabito_special_l08"));
         }
         else{
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_murabito_special_l09"));
-            SET_PLAY_INHIVIT(fighter, Hash40::new("se_murabito_special_l09"), 60);
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_murabito_special_l09"));
+            SET_PLAY_INHIVIT(agent, Hash40::new("se_murabito_special_l09"), 60);
         }
     }
 }

@@ -1,28 +1,28 @@
 #[acmd_script( agent = "robot", script = "expression_entryr", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_entryr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_BADGE);
         ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_BACK);
         ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_HAT);
         WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
     }
     frame(lua_state, 36.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_attach_item_visibility(boma, true, *ATTACH_ITEM_GROUP_BADGE);
         ItemModule::set_attach_item_visibility(boma, true, *ATTACH_ITEM_GROUP_BACK);
     }
     frame(lua_state, 56.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_attach_item_visibility(boma, true, *ATTACH_ITEM_GROUP_HAT);
     }
     frame(lua_state, 95.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::off_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
     }
     frame(lua_state, 110.0);
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TPART, 5);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TPART, 5);
     }
 }

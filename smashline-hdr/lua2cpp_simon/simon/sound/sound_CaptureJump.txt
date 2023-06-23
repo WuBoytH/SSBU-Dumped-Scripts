@@ -1,12 +1,12 @@
 #[acmd_script( agent = "simon", script = "sound_capturejump", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_capturejump(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_simon_landing01"));
+unsafe fn sound_capturejump(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_simon_landing01"));
     }
     wait(lua_state, 9.0);
-    if is_excute(fighter) {
-        STOP_SE(fighter, Hash40::new("se_simon_landing01"));
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_simon_landing01"));
     }
 }

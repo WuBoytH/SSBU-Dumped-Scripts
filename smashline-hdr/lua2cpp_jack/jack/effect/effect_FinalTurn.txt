@@ -1,15 +1,15 @@
 #[acmd_script( agent = "jack", script = "effect_finalturn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalturn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        AFTER_IMAGE_OFF(fighter, 3);
-        EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 10, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_finalturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        AFTER_IMAGE_OFF(agent, 3);
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 10, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     for _ in 0..3 {
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 10, 0, 0, 0, 180, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
-        LAST_EFFECT_SET_RATE(fighter, 1.4);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 10, 0, 0, 0, 180, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 1.4);
     }
     wait(lua_state, 4.0);
 }

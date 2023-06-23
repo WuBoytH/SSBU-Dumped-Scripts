@@ -1,21 +1,21 @@
 #[acmd_script( agent = "snake", script = "effect_shootlegsslowf", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_shootlegsslowf(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_shootlegsslowf(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
     }
     wait_loop_sync_mot();
     methodlib::L2CAgent::pop();
     wait_loop_sync_mot();
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 18.0);
     loc.imp._Unwind_Resume();

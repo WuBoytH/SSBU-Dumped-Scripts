@@ -1,17 +1,17 @@
 #[acmd_script( agent = "donkey", script = "effect_throwff", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwff(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_throwff(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("donkey_attack_arc_d"), Hash40::new("donkey_attack_arc_d"), Hash40::new("top"), 1, 10, 3, 195, -79.5, 110, 1.6, true, *EF_FLIP_YZ);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("donkey_attack_arc_d"), Hash40::new("donkey_attack_arc_d"), Hash40::new("top"), 1, 10, 3, 195, -79.5, 110, 1.6, true, *EF_FLIP_YZ);
     }
     frame(lua_state, 15.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 7, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 7, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
     }
 }

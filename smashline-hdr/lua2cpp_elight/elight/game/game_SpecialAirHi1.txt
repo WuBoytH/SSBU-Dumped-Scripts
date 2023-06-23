@@ -1,33 +1,33 @@
 #[acmd_script( agent = "elight", script = "game_specialairhi1", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairhi1(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
-        if is_excute(fighter) {
+unsafe fn game_specialairhi1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
+        if is_excute(agent) {
             ArticleModule::add_motion_partial(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 5.0, 5.0, false, false, 0.0, false, true, false);
         }
     }
     if MotionModule::is_changing(boma) {
-        if is_excute(fighter) {
+        if is_excute(agent) {
             WorkModule::on_flag(boma, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_FLAG_ADD_PARTIAL_MTION_SWORD_WHEN_CHANGEING);
         }
     }
     frame(lua_state, 2.0);
-    FT_MOTION_RATE(fighter, 0.75);
+    FT_MOTION_RATE(agent, 0.75);
     frame(lua_state, 10.0);
-    FT_MOTION_RATE(fighter, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
     frame(lua_state, 13.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_EXPROSIVESHOT, false, -1);
     }
     frame(lua_state, 14.0);
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
-        if is_excute(fighter) {
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
+        if is_excute(agent) {
             ArticleModule::add_motion_partial(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_close"), 5.0, 5.0, false, false, 0.0, false, true, false);
         }
     }
     if MotionModule::is_changing(boma) {
-        if is_excute(fighter) {
+        if is_excute(agent) {
             WorkModule::on_flag(boma, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_FLAG_ADD_PARTIAL_MTION_SWORD_WHEN_CHANGEING);
         }
     }

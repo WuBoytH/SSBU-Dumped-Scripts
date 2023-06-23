@@ -1,19 +1,19 @@
 #[acmd_script( agent = "samusd", script = "game_clubswing3", category = ACMD_GAME, low_priority )]
-unsafe fn game_clubswing3(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_clubswing3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         MotionModule::set_rate(boma, 0.5);
         ItemModule::set_have_item_scale_anim(boma, 8, 1.25);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_have_item_action(boma, *ITEM_SWING_ACTION_BEGIN);
     }
     frame(lua_state, 8.0);
     methodlua2cpp::L2CFighterAnimcmdGameCommon::game_ClubSwing3Common()();
     frame(lua_state, 10.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         MotionModule::set_rate(boma, 0.8);
         AttackModule::clear_all(boma);
         ItemModule::set_have_item_scale_anim(boma, 10, 1);

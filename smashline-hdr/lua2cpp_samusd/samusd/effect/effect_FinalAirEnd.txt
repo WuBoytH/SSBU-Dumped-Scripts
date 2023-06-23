@@ -1,22 +1,22 @@
 #[acmd_script( agent = "samusd", script = "effect_finalairend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("sys_final_aura"), false, true);
+unsafe fn effect_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("sys_final_aura"), false, true);
         EFFECT_FOLLOW_arg11(Hash40::new("samusd_gbeam_flash_01"), Hash40::new("armr"), 8, 0, 0, 0, 0, 0, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
         EffectModule::remove_screen(boma, Hash40::new("bg_samusd_final"), -1);
     }
     frame(lua_state, 2.0);
     for _ in 0..11 {
     wait(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("samusd_final_after"), Hash40::new("emit"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 360, 360, 360, true);
-        EFFECT(fighter, Hash40::new("samusd_final_flash"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 360, 360, 360, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("samusd_final_after"), Hash40::new("emit"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 360, 360, 360, true);
+        EFFECT(agent, Hash40::new("samusd_final_flash"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 360, 360, 360, true);
     }
 }
 frame(lua_state, 69.0);
-if is_excute(fighter) {
-    EFFECT(fighter, 0x1b905a71d7, Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+if is_excute(agent) {
+    EFFECT(agent, 0x1b905a71d7, Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
 }
 }

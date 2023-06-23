@@ -1,29 +1,29 @@
 #[acmd_script( agent = "mariod", script = "expression_specials", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specials(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+unsafe fn expression_specials(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(boma, false, 0);
     }
     frame(lua_state, 10.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_01_mantle"), 0);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_01_mantle"), 0);
     }
     frame(lua_state, 13.0);
-    if is_excute(fighter) {
-        AREA_WIND_2ND_arg10(fighter, 0, 1, 0, 300, 0.5, 12, 10, 30, 20, 50);
+    if is_excute(agent) {
+        AREA_WIND_2ND_arg10(agent, 0, 1, 0, 300, 0.5, 12, 10, 30, 20, 50);
     }
     frame(lua_state, 15.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 23.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AreaModule::erase_wind(boma, 0);
     }
 }

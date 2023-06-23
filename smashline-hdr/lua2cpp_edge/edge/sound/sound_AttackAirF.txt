@@ -1,30 +1,30 @@
 #[acmd_script( agent = "edge", script = "sound_attackairf", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_attackairf(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_attackairf(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_edge_attackair_f01"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_edge_attackair_f01"));
     }
     if WorkModule::is_flag(boma, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_ACTIVATED) {
         frame(lua_state, 9.0);
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_edge_attackair_f02"));
-            PLAY_SE(fighter, Hash40::new("se_edge_winged_landing02"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_edge_attackair_f02"));
+            PLAY_SE(agent, Hash40::new("se_edge_winged_landing02"));
         }
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
-        PLAY_SEQUENCE(fighter, Hash40::new("seq_edge_rnd_attack_hard"));
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_edge_rnd_attack_hard"));
     }
     else{
     frame(lua_state, 0.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_edge_attackair_f02"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_edge_attackair_f02"));
     }
 }
 frame(lua_state, 12.0);
-if is_excute(fighter) {
-    PLAY_SEQUENCE(fighter, Hash40::new("seq_edge_rnd_attack_hard"));
+if is_excute(agent) {
+    PLAY_SEQUENCE(agent, Hash40::new("seq_edge_rnd_attack_hard"));
 }
 }

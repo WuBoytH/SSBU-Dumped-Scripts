@@ -1,10 +1,10 @@
 #[acmd_script( agent = "ness_pkflash", script = "effect_bang", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_bang(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_bang(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if WorkModule::is_flag(boma, *WEAPON_NESS_PK_FLASH_INSTANCE_WORK_ID_FLAG_MAX) {
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("ness_pkfl_bomb_max"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("ness_pkfl_bomb_max"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
     }
 }

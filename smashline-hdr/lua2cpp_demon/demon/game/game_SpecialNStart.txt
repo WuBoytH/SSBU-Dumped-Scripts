@@ -1,15 +1,15 @@
 #[acmd_script( agent = "demon", script = "game_specialnstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialnstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     FighterSpecializer_Demon::set_devil(boma, true, 10);
     frame(lua_state, 1.0);
-    FT_MOTION_RATE(fighter, 0.5);
+    FT_MOTION_RATE(agent, 0.5);
     frame(lua_state, 11.0);
     FighterSpecializer_Demon::set_devil(boma, true, 6);
     frame(lua_state, 17.0);
     FighterSpecializer_Demon::set_devil(boma, true, 5);
-    FT_MOTION_RATE(fighter, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
     frame(lua_state, 19.0);
     FighterSpecializer_Demon::set_devil(boma, true, 4);
     frame(lua_state, 23.0);

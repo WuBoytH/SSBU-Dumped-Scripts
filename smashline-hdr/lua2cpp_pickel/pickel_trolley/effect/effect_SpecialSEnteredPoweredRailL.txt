@@ -1,12 +1,12 @@
 #[acmd_script( agent = "pickel_trolley", script = "effect_specialsenteredpoweredraill", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialsenteredpoweredraill(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, -5, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("pickel_rail_spark"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 4, 5, -2, 0, 0, 0, 0.7, false);
-        LAST_EFFECT_SET_RATE(fighter, 1.3);
+unsafe fn effect_specialsenteredpoweredraill(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, -5, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        EFFECT_FOLLOW(agent, Hash40::new("pickel_rail_spark"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 4, 5, -2, 0, 0, 0, 0.7, false);
+        LAST_EFFECT_SET_RATE(agent, 1.3);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_77_accel"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

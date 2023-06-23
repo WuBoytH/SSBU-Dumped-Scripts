@@ -1,13 +1,13 @@
 #[acmd_script( agent = "koopag", script = "expression_attackairlw", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_attackairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_attackairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 13.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_attach_item_visibility(boma, false);
     }
     frame(lua_state, 50.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_attach_item_visibility(boma, true);
     }
 }

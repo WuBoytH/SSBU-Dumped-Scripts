@@ -1,52 +1,52 @@
 #[acmd_script( agent = "miiswordsman", script = "effect_speciallw1hit", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_speciallw1hit(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("sys_guard_mark"), false, true);
-        EFFECT(fighter, Hash40::new("miiswordsman_counter_success"), Hash40::new("top"), 1.5, 11.25, -1, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_speciallw1hit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("sys_guard_mark"), false, true);
+        EFFECT(agent, Hash40::new("miiswordsman_counter_success"), Hash40::new("top"), 1.5, 11.25, -1, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     WorkModule::is_flag(boma, *FIGHTER_MIISWORDSMAN_STATUS_COUNTER_FLAG_SPECIAL_EFFECT);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("sys_counter_flash"), Hash40::new("top"), 1.5, 11.25, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_counter_flash"), Hash40::new("top"), 1.5, 11.25, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
     }
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 1, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.15);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 1, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.15);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_guard_mark"), Hash40::new("top"), 8, 3, 1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_guard_mark"), Hash40::new("top"), 8, 3, 1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 3.0);
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
-        AFTER_IMAGE4_ON_arg29(fighter, Hash40::new("tex_miiswordsman_sword03"), Hash40::new("tex_miiswordsman_sword04"), 8, Hash40::new("haver"), 0, 0.2, 0, Hash40::new("haver"), -0.0, 10.5, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_Y, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.3, 0.2);
+    if is_excute(agent) {
+        AFTER_IMAGE4_ON_arg29(agent, Hash40::new("tex_miiswordsman_sword03"), Hash40::new("tex_miiswordsman_sword04"), 8, Hash40::new("haver"), 0, 0.2, 0, Hash40::new("haver"), -0.0, 10.5, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_Y, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.3, 0.2);
     }
     frame(lua_state, 18.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_WORK(fighter, *FIGHTER_MIISWORDSMAN_INSTANCE_WORK_ID_INT_EFT_ID_SWORD_FLARE, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_WORK(agent, *FIGHTER_MIISWORDSMAN_INSTANCE_WORK_ID_INT_EFT_ID_SWORD_FLARE, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 19.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -1.5, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
-        LAST_EFFECT_SET_RATE(fighter, 0.6);
-        AFTER_IMAGE_OFF(fighter, 2);
-        EFFECT_FOLLOW(fighter, Hash40::new("miiswordsman_counter_arc"), Hash40::new("top"), -1, 10, 6, -10.6, -159.5, 55.3, 1.1, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.4);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -1.5, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 0.6);
+        AFTER_IMAGE_OFF(agent, 2);
+        EFFECT_FOLLOW(agent, Hash40::new("miiswordsman_counter_arc"), Hash40::new("top"), -1, 10, 6, -10.6, -159.5, 55.3, 1.1, true);
+        LAST_EFFECT_SET_RATE(agent, 1.4);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
-        FLASH(fighter, 1, 1, 1, 0);
+    if is_excute(agent) {
+        FLASH(agent, 1, 1, 1, 0);
     }
     frame(lua_state, 24.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
     frame(lua_state, 31.0);
-    if is_excute(fighter) {
-        AFTER_IMAGE_OFF(fighter, 4);
+    if is_excute(agent) {
+        AFTER_IMAGE_OFF(agent, 4);
     }
 }

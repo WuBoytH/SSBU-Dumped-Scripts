@@ -1,13 +1,13 @@
 #[acmd_script( agent = "szerosuit", script = "game_appealsl", category = ACMD_GAME, low_priority )]
-unsafe fn game_appealsl(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_appealsl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP, false, -1);
         ArticleModule::change_motion(boma, *FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP, Hash40::new("appeal_s"), false, -1.0);
     }
     frame(lua_state, 81.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_SZEROSUIT_GENERATE_ARTICLE_WHIP, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

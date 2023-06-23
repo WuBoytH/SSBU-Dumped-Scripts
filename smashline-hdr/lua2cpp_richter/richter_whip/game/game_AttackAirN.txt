@@ -1,8 +1,8 @@
 #[acmd_script( agent = "richter_whip", script = "game_attackairn", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackairn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_attackairn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         PhysicsModule::set_2nd_status(boma, *PH2NDARY_CRAW_NONE);
         battle_object();
         methodlib::L2CValue::L2CValue(void*)();
@@ -10,6 +10,6 @@ unsafe fn game_attackairn(fighter: &mut L2CAgentBase) {
     else{
     methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 }
-let object = sv_system::battle_object(fighter.lua_state_agent) as *mut BattleObject;
+let object = sv_system::battle_object(agent.lua_state_agent) as *mut BattleObject;
 FighterSpecializer_Simon::reset_node_fix_flag_list(object as *mut Fighter);
 }

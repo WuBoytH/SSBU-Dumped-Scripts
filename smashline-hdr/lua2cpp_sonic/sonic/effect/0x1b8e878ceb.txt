@@ -1,15 +1,15 @@
 #[acmd_script( agent = "sonic", script = 0x1b8e878ceb, category = ACMD_EFFECT, low_priority )]
-unsafe fn hash_0x1b8e878ceb(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("sonic_spinwind"), false, false);
+unsafe fn hash_0x1b8e878ceb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("sonic_spinwind"), false, false);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_whirlwind_l"), Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.65, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
+    if is_excute(agent) {
+        LANDING_EFFECT_FLIP(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.65, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
     }
     wait(lua_state, 4.0);
     wait(lua_state, 4.0);
-    LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 5, 0, 180, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+    LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 5, 0, 180, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
 }

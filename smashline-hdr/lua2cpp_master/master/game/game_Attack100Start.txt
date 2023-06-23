@@ -1,8 +1,8 @@
 #[acmd_script( agent = "master", script = "game_attack100start", category = ACMD_GAME, low_priority )]
-unsafe fn game_attack100start(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_attack100start(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD, false, -1);
         ArticleModule::change_motion(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD, Hash40::new("attack_100_start"), false, -1.0);
     }

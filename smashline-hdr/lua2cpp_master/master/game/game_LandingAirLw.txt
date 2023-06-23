@@ -1,14 +1,14 @@
 #[acmd_script( agent = "master", script = "game_landingairlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_landingairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE) {
-        if is_excute(fighter) {
+unsafe fn game_landingairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE) {
+        if is_excute(agent) {
             ArticleModule::change_motion(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, Hash40::new("landing_air_lw"), false, -1.0);
         }
     }
     frame(lua_state, 34.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

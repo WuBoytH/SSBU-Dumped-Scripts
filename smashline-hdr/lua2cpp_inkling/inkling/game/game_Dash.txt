@@ -1,17 +1,17 @@
 #[acmd_script( agent = "inkling", script = "game_dash", category = ACMD_GAME, low_priority )]
-unsafe fn game_dash(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_dash(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
     }
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
             WorkModule::on_flag(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_NO_FLIP_SQUID);
         }
     }
     if !WorkModule::is_flag(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_EXIST_SQUID) {
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ArticleModule::generate_article(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, -1);
         }
     }
@@ -19,7 +19,7 @@ unsafe fn game_dash(fighter: &mut L2CAgentBase) {
     let frame = MotionModule::frame(boma);
     let rate = MotionModule::rate(boma);
     ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(motion), false, -1.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_frame(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, frame);
         ArticleModule::set_rate(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, rate);
         ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
@@ -31,28 +31,28 @@ unsafe fn game_dash(fighter: &mut L2CAgentBase) {
     }
     get_value_float(0, *SO_VAR_FLOAT_LR);
     if(0x13d500(0, 0)){
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("dash_l"), false, -1.0);
         }
         else{
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("dash_r"), false, -1.0);
         }
     }
 }
-if is_excute(fighter) {
+if is_excute(agent) {
     ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 }
 frame(lua_state, 11.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     WorkModule::enable_transition_term(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_DASH_TO_RUN);
 }
 frame(lua_state, 12.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     VisibilityModule::set_whole(boma, true);
 }
 frame(lua_state, 18.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 }
 }

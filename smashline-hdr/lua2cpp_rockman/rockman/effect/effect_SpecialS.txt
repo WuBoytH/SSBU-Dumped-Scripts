@@ -1,26 +1,26 @@
 #[acmd_script( agent = "rockman", script = "effect_specials", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specials(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_specials(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 5.0);
     if !WorkModule::is_flag(boma, *FIGHTER_ROCKMAN_STATUS_SPECIAL_S_WORK_ID_FLAG_ALREADY_EXIST_CRASHBOMB) {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW_FLIP(fighter, Hash40::new("rockman_clashbomb_start"), Hash40::new("rockman_clashbomb_start"), Hash40::new("top"), 0, 7, 11, 0, 0, 0, 0.8, true, *EF_FLIP_YZ);
+        if is_excute(agent) {
+            EFFECT_FOLLOW_FLIP(agent, Hash40::new("rockman_clashbomb_start"), Hash40::new("rockman_clashbomb_start"), Hash40::new("top"), 0, 7, 11, 0, 0, 0, 0.8, true, *EF_FLIP_YZ);
         }
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("rockman_clashbomb_light"), Hash40::new("havel"), 0, 0, 1.2, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("rockman_clashbomb_light"), Hash40::new("havel"), 0, 0, 1.2, 0, 0, 0, 1, true);
     }
     frame(lua_state, 19.0);
     if !WorkModule::is_flag(boma, *FIGHTER_ROCKMAN_STATUS_SPECIAL_S_WORK_ID_FLAG_ALREADY_EXIST_CRASHBOMB) {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW_FLIP(fighter, Hash40::new("rockman_clashbomb_fire"), Hash40::new("rockman_clashbomb_fire"), Hash40::new("top"), 0, 7.3, 9.8, 0, 0, 0, 1, true, *EF_FLIP_YZ);
-            LANDING_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        if is_excute(agent) {
+            EFFECT_FOLLOW_FLIP(agent, Hash40::new("rockman_clashbomb_fire"), Hash40::new("rockman_clashbomb_fire"), Hash40::new("top"), 0, 7.3, 9.8, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+            LANDING_EFFECT(agent, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW_FLIP(fighter, Hash40::new("rockman_clashbomb_misfire"), Hash40::new("rockman_clashbomb_misfire"), Hash40::new("top"), 0, 7.5, 10, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+        if is_excute(agent) {
+            EFFECT_FOLLOW_FLIP(agent, Hash40::new("rockman_clashbomb_misfire"), Hash40::new("rockman_clashbomb_misfire"), Hash40::new("top"), 0, 7.5, 10, 0, 0, 0, 1, true, *EF_FLIP_YZ);
         }
     }
 }

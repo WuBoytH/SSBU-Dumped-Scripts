@@ -1,14 +1,14 @@
 #[acmd_script( agent = "simon", script = "effect_finalairstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::req_screen(boma, Hash40::new("bg_simon_final"), false, false, false);
     }
     frame(lua_state, 60.0);
     WorkModule::is_flag(boma, *FIGHTER_SIMON_INSTANCE_WORK_ID_FLAG_FINAL_HIT);
     methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         EffectModule::remove_screen(boma, Hash40::new("bg_simon_final"), -1);
     }
 }

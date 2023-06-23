@@ -1,18 +1,18 @@
 #[acmd_script( agent = "murabito", script = "game_speciallw1", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallw1(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_speciallw1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    FT_MOTION_RATE(fighter, 0.661);
-    if is_excute(fighter) {
+    FT_MOTION_RATE(agent, 0.661);
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_MURABITO_STATUS_SPECIAL_LW_PLANT_FLAG_CHECK_PLANT);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_MURABITO_GENERATE_ARTICLE_SEED, false, -1);
     }
     frame(lua_state, 18.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_MURABITO_STATUS_SPECIAL_LW_PLANT_FLAG_PLANT);
     }
 }

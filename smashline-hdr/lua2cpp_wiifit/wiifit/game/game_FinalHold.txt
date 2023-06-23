@@ -1,16 +1,16 @@
 #[acmd_script( agent = "wiifit", script = "game_finalhold", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalhold(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_finalhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     wait(lua_state, 1.0);
     for _ in 0..8 {
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_SILHOUETTE, false, -1);
     }
     wait(lua_state, 8.0);
 }
 for _ in 0..10 {
-if is_excute(fighter) {
+if is_excute(agent) {
     ArticleModule::generate_article(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_SILHOUETTE, false, -1);
 }
 wait(lua_state, 6.0);

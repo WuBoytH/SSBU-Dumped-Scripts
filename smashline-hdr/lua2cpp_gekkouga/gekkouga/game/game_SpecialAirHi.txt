@@ -1,16 +1,16 @@
 #[acmd_script( agent = "gekkouga", script = "game_specialairhi", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialairhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         JostleModule::set_status(boma, false);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_GEKKOUGA_GENERATE_ARTICLE_WATER, false, -1);
     }
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_GEKKOUGA_GENERATE_ARTICLE_WATER, false, -1);
     }
 }

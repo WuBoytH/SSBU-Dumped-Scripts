@@ -1,9 +1,9 @@
 #[acmd_script( agent = "gamewatch", script = "game_specialairs3", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairs3(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialairs3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 16.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_S_FLAG_FIX_PANEL);
         VisibilityModule::set_default_int64(boma, Hash40::new("panel"));
     }

@@ -1,31 +1,31 @@
 #[acmd_script( agent = "master", script = "game_specialnstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW) {
-        if is_excute(fighter) {
+unsafe fn game_specialnstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW) {
+        if is_excute(agent) {
             ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW, false, -1);
     }
-    if !IS_EXIST_ARTICLE(fighter, *FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1) {
-        if is_excute(fighter) {
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1) {
+        if is_excute(agent) {
             ArticleModule::generate_article(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1, false, -1);
         }
     }
     frame(lua_state, 28.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_N_FLAG_ENABLE_TURN);
     }
     frame(lua_state, 44.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::off_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_N_FLAG_ENABLE_TURN);
     }
     frame(lua_state, 45.0);
-    FT_MOTION_RATE(fighter, 0.9);
-    if is_excute(fighter) {
+    FT_MOTION_RATE(agent, 0.9);
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_N_FLAG_CAN_SHOOT);
     }
 }

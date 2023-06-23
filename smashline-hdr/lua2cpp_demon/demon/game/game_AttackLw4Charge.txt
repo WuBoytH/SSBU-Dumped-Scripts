@@ -1,7 +1,7 @@
 #[acmd_script( agent = "demon", script = "game_attacklw4charge", category = ACMD_GAME, low_priority )]
-unsafe fn game_attacklw4charge(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_attacklw4charge(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     FighterSpecializer_Demon::set_devil(boma, true, 10);
     frame(lua_state, 28.0);
     FighterSpecializer_Demon::set_devil(boma, true, 9);
@@ -10,7 +10,7 @@ unsafe fn game_attacklw4charge(fighter: &mut L2CAgentBase) {
     frame(lua_state, 32.0);
     FighterSpecializer_Demon::set_devil(boma, true, 7);
     frame(lua_state, 36.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_TRANSFORM);
     }
     FighterSpecializer_Demon::set_devil(boma, true, 6);

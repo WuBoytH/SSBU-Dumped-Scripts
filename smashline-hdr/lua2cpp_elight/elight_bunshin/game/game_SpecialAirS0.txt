@@ -1,14 +1,14 @@
 #[acmd_script( agent = "elight_bunshin", script = "game_specialairs0", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairs0(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if IS_EXIST_ARTICLE(fighter, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD) {
-        if is_excute(fighter) {
+unsafe fn game_specialairs0(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD) {
+        if is_excute(agent) {
             ArticleModule::add_motion_partial(boma, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 10.0, 10.0, false, false, 0.0, false, true, false);
         }
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
     }
 }

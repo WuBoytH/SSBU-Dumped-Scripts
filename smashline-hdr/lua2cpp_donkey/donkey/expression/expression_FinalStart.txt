@@ -1,22 +1,22 @@
 #[acmd_script( agent = "donkey", script = "expression_finalstart", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, false, 0);
-        START_INFO_FLASH_EYE(fighter);
+        START_INFO_FLASH_EYE(agent);
     }
     frame(lua_state, 29.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT_STATUS(fighter, Hash40::new("rbkind_attack_finish"), 0);
+    if is_excute(agent) {
+        RUMBLE_HIT_STATUS(agent, Hash40::new("rbkind_attack_finish"), 0);
     }
     frame(lua_state, 34.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 80.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_ENABLE_FACIAL_ON_FINAL);
-        FT_UPDATE_FACE_MOTION(fighter);
+        FT_UPDATE_FACE_MOTION(agent);
     }
 }

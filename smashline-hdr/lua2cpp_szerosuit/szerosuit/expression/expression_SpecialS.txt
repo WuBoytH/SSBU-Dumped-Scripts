@@ -1,33 +1,33 @@
 #[acmd_script( agent = "szerosuit", script = "expression_specials", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specials(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+unsafe fn expression_specials(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 22.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 4);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 4);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 18, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 25.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 15, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 29.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 11, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 31.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
     }
     frame(lua_state, 36.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_grapplingbeam"), 6, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

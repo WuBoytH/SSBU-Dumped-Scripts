@@ -1,11 +1,11 @@
 #[acmd_script( agent = "samusd", script = "sound_specialair", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialair(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_specialair(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 18.0);
     WorkModule::is_flag(boma, *FIGHTER_SAMUS_STATUS_SPECIAL_S_WORK_FLAG_GENERATE_SUCCESS);
     0x112510(false, true);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_samusd_special_s03"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_samusd_special_s03"));
     }
 }

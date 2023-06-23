@@ -1,10 +1,10 @@
 #[acmd_script( agent = "shulk", script = "expression_speciallwhit", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_speciallwhit(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_speciallwhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_monad_hand") as i64);
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
         ItemModule::set_have_item_visibility(boma, false, 0);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_counter"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }

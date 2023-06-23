@@ -1,24 +1,24 @@
 #[acmd_script( agent = "trail", script = "effect_specialairn1", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairn1(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("trail_fire_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
-        EFFECT_FOLLOW(fighter, Hash40::new("trail_fire_keyblade"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
+unsafe fn effect_specialairn1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
+        EFFECT_FOLLOW(agent, Hash40::new("trail_fire_keyblade"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
     }
     frame(lua_state, 1.0);
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("trail_fire_impact"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_impact"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("trail_fire_impact"), Hash40::new("haver"), 0, 10, -1, -90, 180, 0, 1, false);
+        if is_excute(agent) {
+            EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_impact"), Hash40::new("haver"), 0, 10, -1, -90, 180, 0, 1, false);
         }
     }
 }
 frame(lua_state, 13.0);
-if is_excute(fighter) {
-    EFFECT_DETACH_KIND(fighter, Hash40::new("trail_fire_shot"), -1);
+if is_excute(agent) {
+    EFFECT_DETACH_KIND(agent, Hash40::new("trail_fire_shot"), -1);
 }
 }

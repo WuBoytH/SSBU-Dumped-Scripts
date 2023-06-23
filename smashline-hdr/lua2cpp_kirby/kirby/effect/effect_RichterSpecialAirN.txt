@@ -1,13 +1,13 @@
 #[acmd_script( agent = "kirby", script = "effect_richterspecialairn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_richterspecialairn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_richterspecialairn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("richter_bottle_appear"), Hash40::new("richter_bottle_appear"), Hash40::new("haver"), 2.5, -2.5, 2.5, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("richter_bottle_appear"), Hash40::new("richter_bottle_appear"), Hash40::new("haver"), 2.5, -2.5, 2.5, 0, 0, 0, 1, true, *EF_FLIP_YZ);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }

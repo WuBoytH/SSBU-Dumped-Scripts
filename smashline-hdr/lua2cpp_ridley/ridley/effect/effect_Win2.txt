@@ -1,16 +1,16 @@
 #[acmd_script( agent = "ridley", script = "effect_win2", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_win2(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 46.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("ridley_win2"), Hash40::new("mouth1"), 5, 2, 0, 0, 0, 0, 0.5, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ridley_win2"), Hash40::new("mouth1"), 5, 2, 0, 0, 0, 0, 0.5, true);
     }
     frame(lua_state, 118.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 2, 0, 3, 0, 90, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
-        LAST_EFFECT_SET_DISABLE_SYSTEM_SLOW(fighter, true);
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("ridley_scratch"), Hash40::new("ridley_scratch"), Hash40::new("top"), -4, 19, 18, -2.3, -18, 290, 1.5, true, *EF_FLIP_YZ);
-        LAST_EFFECT_SET_DISABLE_SYSTEM_SLOW(fighter, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 2, 0, 3, 0, 90, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_DISABLE_SYSTEM_SLOW(agent, true);
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("ridley_scratch"), Hash40::new("ridley_scratch"), Hash40::new("top"), -4, 19, 18, -2.3, -18, 290, 1.5, true, *EF_FLIP_YZ);
+        LAST_EFFECT_SET_DISABLE_SYSTEM_SLOW(agent, true);
     }
 }

@@ -1,20 +1,20 @@
 #[acmd_script( agent = "pzenigame", script = "sound_specialnshot", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialnshot(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_specialnshot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 5.0);
     WorkModule::is_flag(boma, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_CHARGE_MAX);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if is_excute(fighter) {
-            PLAY_STATUS(fighter, Hash40::new("se_pzenigame_special_n04"));
+        if is_excute(agent) {
+            PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n04"));
         }
         else{
-        if is_excute(fighter) {
-            PLAY_STATUS(fighter, Hash40::new("se_pzenigame_special_n03"));
+        if is_excute(agent) {
+            PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n03"));
         }
     }
 }
-if is_excute(fighter) {
-    PLAY_SE(fighter, Hash40::new("vc_pzenigame_special_n01"));
+if is_excute(agent) {
+    PLAY_SE(agent, Hash40::new("vc_pzenigame_special_n01"));
 }
 }

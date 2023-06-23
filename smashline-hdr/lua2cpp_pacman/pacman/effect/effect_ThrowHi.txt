@@ -1,17 +1,17 @@
 #[acmd_script( agent = "pacman", script = "effect_throwhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_throwhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 17.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 18.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 22, 0, 90, 0, 0, 1, false, 0.6);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 22, 0, 90, 0, 0, 1, false, 0.6);
     }
     frame(lua_state, 19.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 0, 24, 5, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 0, 24, 5, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
     }
 }

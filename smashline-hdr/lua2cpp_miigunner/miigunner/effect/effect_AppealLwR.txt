@@ -1,20 +1,20 @@
 #[acmd_script( agent = "miigunner", script = "effect_appeallwr", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_appeallwr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_appeallwr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_shield_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 0.8, true);
-        LAST_EFFECT_SET_ALPHA(fighter, 0.5);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sys_shield_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 0.8, true);
+        LAST_EFFECT_SET_ALPHA(agent, 0.5);
     }
     for _ in 0..11 {
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("miigunner_appeal_lw"), Hash40::new("armr"), 5.5, 0, 0, 0, 0, -90, 0.6, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("miigunner_appeal_lw"), Hash40::new("armr"), 5.5, 0, 0, 0, 0, -90, 0.6, 0, 0, 0, 0, 0, 0, true);
     }
     wait(lua_state, 4.0);
 }
 wait(lua_state, 4.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("sys_shield_smoke"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("sys_shield_smoke"), false, false);
 }
 }

@@ -1,23 +1,23 @@
 #[acmd_script( agent = "master", script = "effect_entryr", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_entryr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("master_entry"), Hash40::new("top"), 0, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.2);
-        FLASH(fighter, 0.5, 0.8, 0.7, 0.8);
-        BURN_COLOR(fighter, 0.4, 2, 1.4, 0.9);
+unsafe fn effect_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("master_entry"), Hash40::new("top"), 0, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.2);
+        FLASH(agent, 0.5, 0.8, 0.7, 0.8);
+        BURN_COLOR(agent, 0.4, 2, 1.4, 0.9);
         ColorBlendModule::set_disable_camera_depth_influence(boma, true);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 35, 0.4, 0.8, 0.7, 0);
-        BURN_COLOR_FRAME(fighter, 40, 0.4, 2, 1.4, 0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 35, 0.4, 0.8, 0.7, 0);
+        BURN_COLOR_FRAME(agent, 40, 0.4, 2, 1.4, 0);
     }
     wait(lua_state, 35.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
-        BURN_COLOR_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+        BURN_COLOR_NORMAL(agent);
         ColorBlendModule::set_disable_camera_depth_influence(boma, false);
     }
 }

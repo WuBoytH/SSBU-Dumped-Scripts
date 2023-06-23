@@ -1,25 +1,25 @@
 #[acmd_script( agent = "krool", script = "sound_specialnfire", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialnfire(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_specialnfire(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_krool_special_n08"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_krool_special_n08"));
     }
     frame(lua_state, 31.0);
     WorkModule::is_flag(boma, *FIGHTER_KROOL_STATUS_SPECIAL_N_FLAG_NO_SHOOT_CANCEL);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_krool_special_n07"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_krool_special_n07"));
         }
         else{
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_krool_special_n01"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_krool_special_n01"));
         }
     }
 }
 frame(lua_state, 60.0);
-if is_excute(fighter) {
-    PLAY_SE(fighter, Hash40::new("se_krool_special_n09"));
+if is_excute(agent) {
+    PLAY_SE(agent, Hash40::new("se_krool_special_n09"));
 }
 }

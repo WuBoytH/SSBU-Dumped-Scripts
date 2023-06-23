@@ -1,45 +1,45 @@
 #[acmd_script( agent = "koopajr", script = "effect_entryl", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_entryl(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     for _ in 0..5 {
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_COLOR(fighter, Hash40::new("sys_spin_wind"), Hash40::new("clowncoverf2"), 0, 1.7, 0, 0, 180, 180, 0.3, true, 0.3, 0.6, 0.2);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_COLOR(agent, Hash40::new("sys_spin_wind"), Hash40::new("clowncoverf2"), 0, 1.7, 0, 0, 180, 180, 0.3, true, 0.3, 0.6, 0.2);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_COLOR(fighter, Hash40::new("sys_spin_wind"), Hash40::new("clowncoverf2"), 0, 1.7, 0, 0, 0, 180, 0.4, true, 0.3, 0.6, 0.2);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_COLOR(agent, Hash40::new("sys_spin_wind"), Hash40::new("clowncoverf2"), 0, 1.7, 0, 0, 0, 180, 0.4, true, 0.3, 0.6, 0.2);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_RND(fighter, Hash40::new("sys_spin_wind_s"), Hash40::new("clowncoverf2"), 0, 1.7, 0, 0, 0, 180, 0.6, 1, 1, 1, 0, 0, 0, true);
-        LAST_EFFECT_SET_ALPHA(fighter, 0.5);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clowncoverf2"), 0, 1.7, 0, 0, 0, 180, 0.6, 1, 1, 1, 0, 0, 0, true);
+        LAST_EFFECT_SET_ALPHA(agent, 0.5);
     }
     wait(lua_state, 2.0);
 }
 frame(lua_state, 32.0);
-if is_excute(fighter) {
-    FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -10, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -10, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
 }
 frame(lua_state, 33.0);
-if is_excute(fighter) {
-    LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), -3.5, 0.5, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), -3.5, 0.5, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
 }
 frame(lua_state, 38.0);
-if get_value_float(fighter.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_RND(fighter, Hash40::new("koopajr_zibaku_start_l"), Hash40::new("clownhip"), 4, 0, 0, 30, 0, -90, 0.6, 1, 1, 1, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.3);
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+    if is_excute(agent) {
+        EFFECT_FOLLOW_RND(agent, Hash40::new("koopajr_zibaku_start_l"), Hash40::new("clownhip"), 4, 0, 0, 30, 0, -90, 0.6, 1, 1, 1, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.3);
     }
     else{
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_RND(fighter, Hash40::new("koopajr_zibaku_start_r"), Hash40::new("clownhip"), 4, 0, 0, -30, 0, -90, 0.6, 1, 1, 1, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.3);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_RND(agent, Hash40::new("koopajr_zibaku_start_r"), Hash40::new("clownhip"), 4, 0, 0, -30, 0, -90, 0.6, 1, 1, 1, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.3);
     }
 }
 }
 frame(lua_state, 65.0);
-if is_excute(fighter) {
-LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
 }
 }

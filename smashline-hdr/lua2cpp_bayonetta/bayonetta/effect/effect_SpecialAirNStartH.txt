@@ -1,15 +1,15 @@
 #[acmd_script( agent = "bayonetta", script = "effect_specialairnstarth", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairnstarth(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_specialairnstarth(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("bayonetta_bulletclimax_circle"), Hash40::new("top"), 0, 13, 10, 0, -25, 0, 0.9, false);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("bayonetta_bulletclimax_circle"), Hash40::new("top"), 0, 13, 10, 0, -25, 0, 0.9, false);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("bayonetta_bulletclimax_circle"), Hash40::new("top"), 0, 13, 10, 0, 25, 0, 0.9, false);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("bayonetta_bulletclimax_circle"), Hash40::new("top"), 0, 13, 10, 0, 25, 0, 0.9, false);
         }
     }
 }

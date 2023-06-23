@@ -1,15 +1,15 @@
 #[acmd_script( agent = "brave", script = "game_specialairlw5", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlw5(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialairlw5(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_BRAVE_STATUS_SPECIAL_LW_START_FLAG_STRENGTH);
         ArticleModule::generate_article(boma, *FIGHTER_BRAVE_GENERATE_ARTICLE_EXPLOSION, false, -1);
         WorkModule::on_flag(boma, *FIGHTER_BRAVE_STATUS_SPECIAL_LW_FLAG_ENABLE_CONTROL_ENERGY);
     }
     frame(lua_state, 12.0);
-    FT_MOTION_RATE(fighter, 1.2);
+    FT_MOTION_RATE(agent, 1.2);
     frame(lua_state, 42.0);
-    FT_MOTION_RATE(fighter, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
 }

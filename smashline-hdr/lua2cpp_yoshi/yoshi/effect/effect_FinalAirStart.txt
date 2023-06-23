@@ -1,12 +1,12 @@
 #[acmd_script( agent = "yoshi", script = "effect_finalairstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::req_screen(boma, Hash40::new("bg_yoshi_final"), false, false, false);
     }
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("yoshi_final_flash"), Hash40::new("top"), 0, 9, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("yoshi_final_flash"), Hash40::new("top"), 0, 9, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }

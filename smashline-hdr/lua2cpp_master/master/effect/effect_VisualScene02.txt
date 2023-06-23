@@ -1,20 +1,20 @@
 #[acmd_script( agent = "master", script = "effect_visualscene02", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_visualscene02(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_visualscene02(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
-        EFFECT_FOLLOW(fighter, Hash40::new("master_final_sword_spark"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("master_final_sword_charge2"), Hash40::new("sword1"), 2.5, 0, 0, 0, 0, 0, 1, true);
-        EFFECT_GLOBAL(fighter, Hash40::new("master_final_screen1"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("master_final_sword_spark"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("master_final_sword_charge2"), Hash40::new("sword1"), 2.5, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_GLOBAL(agent, Hash40::new("master_final_screen1"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("master_final_bg_twincle"), false, true);
-        EFFECT_OFF_KIND(fighter, Hash40::new("master_final_sword_spark"), true, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("master_final_bg_twincle"), false, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("master_final_sword_spark"), true, true);
     }
     frame(lua_state, 70.0);
-    if is_excute(fighter) {
-        EFFECT_GLOBAL(fighter, Hash40::new("master_final_sword_front"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_GLOBAL(agent, Hash40::new("master_final_sword_front"), 0, 0, 0, 0, 0, 0, 1, true);
     }
 }

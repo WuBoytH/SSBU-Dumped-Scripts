@@ -1,13 +1,13 @@
 #[acmd_script( agent = "master_swordflare", script = "effect_specialhifailure", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialhifailure(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_specialhifailure(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("flare") as i64, hash40("flare_on") as i64);
         VisibilityModule::set_int64(boma, hash40("flare2") as i64, hash40("flare2_on") as i64);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         battle_object();
         methodlib::L2CValue::L2CValue(void*)();
     }

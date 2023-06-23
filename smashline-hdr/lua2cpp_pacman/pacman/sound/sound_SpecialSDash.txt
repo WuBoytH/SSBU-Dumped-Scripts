@@ -1,12 +1,12 @@
 #[acmd_script( agent = "pacman", script = "sound_specialsdash", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialsdash(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_specialsdash(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
     if WorkModule::is_flag(boma, *FIGHTER_PACMAN_STATUS_SPECIAL_S_WORK_FLAG_EAT_POWER_ESA) {
         wait(lua_state, 3.0);
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_pacman_special_s04"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_pacman_special_s04"));
         }
     }
 }

@@ -1,11 +1,11 @@
 #[acmd_script( agent = "ridley", script = "expression_specialhilandinglw", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialhilandinglw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+unsafe fn expression_specialhilandinglw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -1,10 +1,10 @@
 #[acmd_script( agent = "demon", script = 0x21a88aed8d, category = ACMD_EXPRESSION, low_priority )]
-unsafe fn hash_0x21a88aed8d(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn hash_0x21a88aed8d(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, false, 0);
-        QUAKE(fighter, *CAMEA_QUAKE_KIND_XXL);
+        QUAKE(agent, *CAMEA_QUAKE_KIND_XXL);
         ControlModule::set_rumble(boma, Hash40::new_raw(0x15793001e0), 0, false, BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

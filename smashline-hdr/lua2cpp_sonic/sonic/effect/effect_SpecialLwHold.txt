@@ -1,28 +1,28 @@
 #[acmd_script( agent = "sonic", script = "effect_speciallwhold", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_speciallwhold(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("sonic_spincharge_hold"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+unsafe fn effect_speciallwhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sonic_spincharge_hold"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sonic_spinblur"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sonic_spinblur"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
         EffectModule::enable_sync_init_pos_last(boma);
     }
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, -4, 0, 0, 0, 1, 0, 0, 5, 0, 0, 0, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sonic_idling"), Hash40::new("top"), 0, 4.5, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, -4, 0, 0, 0, 1, 0, 0, 5, 0, 0, 0, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sonic_idling"), Hash40::new("top"), 0, 4.5, 0, 0, 0, 0, 1, true);
     }
     wait(lua_state, 17.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, -12, 0, 0, 0, 0.8, 5, 0, 15, 0, 0, 0, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sonic_idling"), Hash40::new("top"), 0, 4.5, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, -12, 0, 0, 0, 0.8, 5, 0, 15, 0, 0, 0, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sonic_idling"), Hash40::new("top"), 0, 4.5, 0, 0, 0, 0, 1, true);
     }
     wait(lua_state, 17.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("sonic_idling"), Hash40::new("top"), 0, 4.5, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sonic_idling"), Hash40::new("top"), 0, 4.5, 0, 0, 0, 0, 1, true);
     }
     wait(lua_state, 10.0);
 }

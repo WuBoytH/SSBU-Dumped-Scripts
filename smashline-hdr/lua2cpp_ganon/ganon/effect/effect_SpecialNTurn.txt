@@ -1,29 +1,29 @@
 #[acmd_script( agent = "ganon", script = "effect_specialnturn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialnturn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("ganon_majinken_start"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+unsafe fn effect_specialnturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ganon_majinken_start"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
         EffectModule::enable_sync_init_pos_last(boma);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_shield_smoke"), Hash40::new("top"), 0, 0, 2, 0, 0, 0, 1.1, true);
-        LAST_EFFECT_SET_RATE(fighter, 0.7);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_shield_smoke"), Hash40::new("top"), 0, 0, 2, 0, 0, 0, 1.1, true);
+        LAST_EFFECT_SET_RATE(agent, 0.7);
     }
     frame(lua_state, 34.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("ganon_majinken_flash"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ganon_majinken_flash"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 50.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("sys_shield_smoke"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("sys_shield_smoke"), false, true);
     }
     frame(lua_state, 64.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("ganon_majinken_hold"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ganon_majinken_hold"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 70.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("ganon_majinken"), Hash40::new("top"), 0, 12.5, -22.5, 0, 170, 0, 1, true);
-        LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        LAST_EFFECT_SET_RATE(fighter, 0.7);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ganon_majinken"), Hash40::new("top"), 0, 12.5, -22.5, 0, 170, 0, 1, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 0.7);
     }
 }

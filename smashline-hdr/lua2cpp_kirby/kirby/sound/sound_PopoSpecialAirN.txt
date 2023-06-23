@@ -1,22 +1,22 @@
 #[acmd_script( agent = "kirby", script = "sound_popospecialairn", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_popospecialairn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_popospecialairn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 8.0);
     if WorkModule::is_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_N_FLAG_GENERATE_ARTICLE_SUCCESS) {
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_popo_special_n01"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_popo_special_n01"));
         }
     }
     wait(lua_state, 8.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("vc_kirby_copy_popo_01"));
-        PLAY_SE(fighter, Hash40::new("se_popo_swing_s"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_kirby_copy_popo_01"));
+        PLAY_SE(agent, Hash40::new("se_popo_swing_s"));
     }
     wait(lua_state, 3.0);
     if WorkModule::is_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_N_FLAG_GENERATE_ARTICLE_SUCCESS) {
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_popo_special_n02"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_popo_special_n02"));
         }
     }
 }

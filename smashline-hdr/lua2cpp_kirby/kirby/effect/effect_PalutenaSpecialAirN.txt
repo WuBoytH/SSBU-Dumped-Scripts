@@ -1,40 +1,40 @@
 #[acmd_script( agent = "kirby", script = "effect_palutenaspecialairn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_palutenaspecialairn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_palutenaspecialairn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_SIGHT_EFFECT_ON);
     }
     frame(lua_state, 8.0);
     if WorkModule::is_flag(boma, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_TARGET_EXIST) {
-        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-            if is_excute(fighter) {
-                EFFECT_FOLLOW(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11.5, -1.5, 0, 65, 0, 1.1, true);
+        if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11.5, -1.5, 0, 65, 0, 1.1, true);
             }
             else{
-            if is_excute(fighter) {
-                EFFECT_FOLLOW(fighter, Hash40::new("palutena_wand_light_trace"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.9, true);
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("palutena_wand_light_trace"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.9, true);
                 EffectModule::enable_sync_init_pos_last(boma);
-                EFFECT_FOLLOW(fighter, Hash40::new("palutena_wand_light2"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.9, true);
+                EFFECT_FOLLOW(agent, Hash40::new("palutena_wand_light2"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.9, true);
             }
             frame(lua_state, 13.0);
-            if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-                if is_excute(fighter) {
-                    EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11, -1.5, 0, 65, 0, 1.1, true, 0.8);
+            if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+                if is_excute(agent) {
+                    EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11, -1.5, 0, 65, 0, 1.1, true, 0.8);
                 }
                 else{
-                if is_excute(fighter) {
-                    EFFECT_FOLLOW(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11.5, -1.5, 0, -65, 0, 1.1, true);
+                if is_excute(agent) {
+                    EFFECT_FOLLOW(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11.5, -1.5, 0, -65, 0, 1.1, true);
                 }
-                if is_excute(fighter) {
-                    EFFECT_FOLLOW(fighter, Hash40::new("palutena_wand_light_trace"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.95, true);
+                if is_excute(agent) {
+                    EFFECT_FOLLOW(agent, Hash40::new("palutena_wand_light_trace"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.95, true);
                     EffectModule::enable_sync_init_pos_last(boma);
-                    EFFECT_FOLLOW(fighter, Hash40::new("palutena_lockon"), Hash40::new("havel"), 0, -3.6, 0, 0, 0, 0, 1.2, true);
+                    EFFECT_FOLLOW(agent, Hash40::new("palutena_lockon"), Hash40::new("havel"), 0, -3.6, 0, 0, 0, 0, 1.2, true);
                 }
                 else{
-                if is_excute(fighter) {
-                    EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11, -1.5, 0, -65, 0, 1.1, true, 0.8);
+                if is_excute(agent) {
+                    EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11, -1.5, 0, -65, 0, 1.1, true, 0.8);
                 }
             }
         }
@@ -43,12 +43,12 @@ unsafe fn effect_palutenaspecialairn(fighter: &mut L2CAgentBase) {
 }
 }
 frame(lua_state, 50.0);
-if is_excute(fighter) {
-EFFECT_OFF_KIND(fighter, Hash40::new("palutena_wand_light2"), false, false);
-EFFECT_OFF_KIND(fighter, Hash40::new("palutena_lockon"), false, false);
+if is_excute(agent) {
+EFFECT_OFF_KIND(agent, Hash40::new("palutena_wand_light2"), false, false);
+EFFECT_OFF_KIND(agent, Hash40::new("palutena_lockon"), false, false);
 }
 frame(lua_state, 52.0);
-if is_excute(fighter) {
-EFFECT_OFF_KIND(fighter, Hash40::new("palutena_wand_light_trace"), false, false);
+if is_excute(agent) {
+EFFECT_OFF_KIND(agent, Hash40::new("palutena_wand_light_trace"), false, false);
 }
 }

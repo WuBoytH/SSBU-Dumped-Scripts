@@ -1,15 +1,15 @@
 #[acmd_script( agent = "wolf", script = "game_finalend", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        CAM_ZOOM_OUT(fighter);
-        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
-        ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_FOX_FINAL, 0, 10.0, 60, 160, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+unsafe fn game_finalend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CAM_ZOOM_OUT(agent);
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+        ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_FOX_FINAL, 0, 10.0, 60, 160, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
         WorkModule::on_flag(boma, *FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_FOX_STATUS_WORK_ID_FLAG_FINAL_END_EXIT);
     }
 }

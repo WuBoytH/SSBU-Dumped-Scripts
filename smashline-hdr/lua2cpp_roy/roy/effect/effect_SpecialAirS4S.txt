@@ -1,19 +1,19 @@
 #[acmd_script( agent = "roy", script = "effect_specialairs4s", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairs4s(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_specialairs4s(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("roy_sword_red"), Hash40::new("sword1"), -0.0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("roy_sword_red"), Hash40::new("sword1"), -0.0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        EFFECT_FOLLOW(fighter, Hash40::new("roy_mc_4s"), Hash40::new("top"), -0.0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        EFFECT_FOLLOW(agent, Hash40::new("roy_mc_4s"), Hash40::new("top"), -0.0, 0, 0, 0, 0, 0, 1, true);
         EffectModule::set_disable_render_offset_last(boma);
     }
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("roy_sword_red"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("roy_sword_red"), false, true);
     }
 }

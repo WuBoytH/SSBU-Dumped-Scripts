@@ -1,8 +1,8 @@
 #[acmd_script( agent = "bayonetta", script = "effect_final", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_final(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_final(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::req_screen(boma, Hash40::new("bg_bayonetta_final"), false, false, false);
         WorkModule::on_flag(boma, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_FLAG_START_SCREEN_EFFECT);
     }

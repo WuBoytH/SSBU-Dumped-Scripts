@@ -1,18 +1,18 @@
 #[acmd_script( agent = "lucario", script = "game_specialairlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         KineticModule::add_speed(boma, &Vector3f{x: 0.0, y: 0.4, z: 0.0});
     }
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
-        shield!(fighter, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_SHIELD, *FIGHTER_LUCARIO_SHIELD_KIND_SPLIT, *FIGHTER_LUCARIO_SHIELD_GROUP_KIND_SPLIT);
+    if is_excute(agent) {
+        shield!(agent, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_SHIELD, *FIGHTER_LUCARIO_SHIELD_KIND_SPLIT, *FIGHTER_LUCARIO_SHIELD_GROUP_KIND_SPLIT);
     }
     frame(lua_state, 25.0);
-    if is_excute(fighter) {
-        shield!(fighter, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_SHIELD, *FIGHTER_LUCARIO_SHIELD_KIND_SPLIT, *FIGHTER_LUCARIO_SHIELD_GROUP_KIND_SPLIT);
+    if is_excute(agent) {
+        shield!(agent, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_SHIELD, *FIGHTER_LUCARIO_SHIELD_KIND_SPLIT, *FIGHTER_LUCARIO_SHIELD_GROUP_KIND_SPLIT);
     }
     frame(lua_state, 35.0);
-    FT_MOTION_RATE(fighter, 0.8);
+    FT_MOTION_RATE(agent, 0.8);
 }

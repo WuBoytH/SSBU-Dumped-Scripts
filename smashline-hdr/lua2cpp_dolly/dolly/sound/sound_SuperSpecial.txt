@@ -1,18 +1,18 @@
 #[acmd_script( agent = "dolly", script = "sound_superspecial", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_superspecial(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_superspecial(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_dolly_superspecial_success"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dolly_superspecial_success"));
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        PLAY_SEQUENCE(fighter, Hash40::new("seq_dolly_rnd_special_ss01"));
-        PLAY_SE(fighter, Hash40::new("se_dolly_superspecial01_01"));
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_dolly_rnd_special_ss01"));
+        PLAY_SE(agent, Hash40::new("se_dolly_superspecial01_01"));
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_dolly_superspecial01_02"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dolly_superspecial01_02"));
     }
 }

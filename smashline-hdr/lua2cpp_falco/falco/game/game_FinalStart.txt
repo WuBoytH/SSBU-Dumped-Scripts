@@ -1,14 +1,14 @@
 #[acmd_script( agent = "falco", script = "game_finalstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
         WorkModule::on_flag(boma, *FIGHTER_FALCO_STATUS_WORK_ID_FLAG_FINAL_CLEAR_ATTACK);
     }
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         SlowModule::clear_whole(boma);
     }
 }

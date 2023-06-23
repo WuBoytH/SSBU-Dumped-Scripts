@@ -1,39 +1,39 @@
 #[acmd_script( agent = "trail", script = "effect_specialairlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_specialairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if WorkModule::is_flag(boma, *FIGHTER_TRAIL_STATUS_SPECIAL_LW_FLAG_SPECIAL_EFFECT) {
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("sys_counter_flash"), Hash40::new("top"), 0, 13, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_counter_flash"), Hash40::new("top"), 0, 13, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("trail_keyblade_flare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("trail_keyblade_flare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
-        LAST_EFFECT_SET_RATE(fighter, 0.7);
-        AFTER_IMAGE4_ON_arg29(fighter, Hash40::new("tex_trail_keyblade1"), Hash40::new("tex_trail_keyblade2"), 14, Hash40::new("haver"), 0, 2, 0, Hash40::new("haver"), 0, 13.8, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
+    if is_excute(agent) {
+        LAST_EFFECT_SET_RATE(agent, 0.7);
+        AFTER_IMAGE4_ON_arg29(agent, Hash40::new("tex_trail_keyblade1"), Hash40::new("tex_trail_keyblade2"), 14, Hash40::new("haver"), 0, 2, 0, Hash40::new("haver"), 0, 13.8, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("trail_counter_attack"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
-        AFTER_IMAGE_OFF(fighter, 3);
-        AFTER_IMAGE4_ON_arg29(fighter, Hash40::new("tex_trail_keyblade1"), Hash40::new("tex_trail_keyblade2"), 14, Hash40::new("haver"), 0, 2, 0.5, Hash40::new("haver"), 0, 19, 1, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
-        EFFECT_FOLLOW(fighter, Hash40::new("trail_keyblade_light"), Hash40::new("haver"), 0, 5, 0, 0, 0, 0, 1.25, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("trail_counter_attack"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+        AFTER_IMAGE_OFF(agent, 3);
+        AFTER_IMAGE4_ON_arg29(agent, Hash40::new("tex_trail_keyblade1"), Hash40::new("tex_trail_keyblade2"), 14, Hash40::new("haver"), 0, 2, 0.5, Hash40::new("haver"), 0, 19, 1, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
+        EFFECT_FOLLOW(agent, Hash40::new("trail_keyblade_light"), Hash40::new("haver"), 0, 5, 0, 0, 0, 0, 1.25, true);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
-        AFTER_IMAGE_OFF(fighter, 0);
-        EFFECT_DETACH_KIND(fighter, Hash40::new("trail_counter_attack"), -1);
+    if is_excute(agent) {
+        AFTER_IMAGE_OFF(agent, 0);
+        EFFECT_DETACH_KIND(agent, Hash40::new("trail_counter_attack"), -1);
     }
     frame(lua_state, 17.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("trail_keyblade_light"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("trail_keyblade_light"), false, true);
     }
     frame(lua_state, 18.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("trail_keyblade_flare"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("trail_keyblade_flare"), false, true);
     }
 }

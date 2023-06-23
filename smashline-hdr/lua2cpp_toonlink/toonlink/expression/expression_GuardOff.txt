@@ -1,9 +1,9 @@
 #[acmd_script( agent = "toonlink", script = "expression_guardoff", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_guardoff(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_guardoff(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_GuardOffRumble()();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
     }
 }

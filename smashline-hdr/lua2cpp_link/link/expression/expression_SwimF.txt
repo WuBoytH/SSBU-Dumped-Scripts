@@ -1,9 +1,9 @@
 #[acmd_script( agent = "link", script = "expression_swimf", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_swimf(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_swimf(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     wait_loop_sync_mot();
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("shield") as i64, hash40("shield_back") as i64);
         VisibilityModule::set_int64(boma, hash40("sword") as i64, hash40("sword_back") as i64);
     }

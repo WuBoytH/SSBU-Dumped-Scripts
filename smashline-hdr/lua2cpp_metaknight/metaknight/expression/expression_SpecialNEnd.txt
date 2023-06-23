@@ -1,15 +1,15 @@
 #[acmd_script( agent = "metaknight", script = "expression_specialnend", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialnend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+unsafe fn expression_specialnend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         VisibilityModule::set_status_default_int64(boma, Hash40::new("mantle"), Hash40::new("mantle_normal"));
         ControlModule::set_rumble(boma, Hash40::new("rbkind_27_spinslash"), 16, true, *BATTLE_OBJECT_ID_INVALID as u32);
-        AREA_WIND_2ND_RAD_arg9(fighter, 1, 2, 0.05, 200, 1, 0, 8, 25, 80);
+        AREA_WIND_2ND_RAD_arg9(agent, 1, 2, 0.05, 200, 1, 0, 8, 25, 80);
     }
     frame(lua_state, 16.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AreaModule::erase_wind(boma, 1);
     }
 }

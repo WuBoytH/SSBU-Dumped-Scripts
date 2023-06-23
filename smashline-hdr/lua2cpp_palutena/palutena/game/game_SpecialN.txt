@@ -1,13 +1,13 @@
 #[acmd_script( agent = "palutena", script = "game_specialn", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
-        SEARCH(fighter, 0, 0, Hash40::new("bust"), 120.0, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIEB, *COLLISION_PART_MASK_BODY_HEAD, false);
+    if is_excute(agent) {
+        SEARCH(agent, 0, 0, Hash40::new("bust"), 120.0, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIEB, *COLLISION_PART_MASK_BODY_HEAD, false);
     }
     frame(lua_state, 15.0);
-    if is_excute(fighter) {
-        search!(fighter, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
+    if is_excute(agent) {
+        search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
     }
 }

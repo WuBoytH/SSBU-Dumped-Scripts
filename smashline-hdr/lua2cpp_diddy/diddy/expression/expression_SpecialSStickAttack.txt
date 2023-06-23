@@ -1,14 +1,14 @@
 #[acmd_script( agent = "diddy", script = "expression_specialsstickattack", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialsstickattack(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_specialsstickattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 16.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 18.0);
-    if is_excute(fighter) {
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
     }
 }

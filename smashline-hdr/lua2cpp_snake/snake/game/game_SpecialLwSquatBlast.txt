@@ -1,23 +1,23 @@
 #[acmd_script( agent = "snake", script = "game_speciallwsquatblast", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallwsquatblast(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        CORRECT(fighter, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP);
+unsafe fn game_speciallwsquatblast(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CORRECT(agent, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        CORRECT(fighter, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP_ATTACK);
+    if is_excute(agent) {
+        CORRECT(agent, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP_ATTACK);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_SNAKE_GENERATE_ARTICLE_C4_SWITCH);
     }
     frame(lua_state, 16.0);
-    FT_MOTION_RATE(fighter, 0.5);
+    FT_MOTION_RATE(agent, 0.5);
     frame(lua_state, 24.0);
-    FT_MOTION_RATE(fighter, 1.0);
-    if is_excute(fighter) {
+    FT_MOTION_RATE(agent, 1.0);
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_SNAKE_STATUS_SPECIAL_LW_EXPLODING_FLAG_C4_STARTUP);
     }
     frame(lua_state, 29.0);

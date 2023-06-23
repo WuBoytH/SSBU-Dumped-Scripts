@@ -1,14 +1,14 @@
 #[acmd_script( agent = "gekkouga_gekkougas", script = "game_finalattack", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalattack(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        CAM_ZOOM_OUT(fighter);
+unsafe fn game_finalattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CAM_ZOOM_OUT(agent);
     }
     frame(lua_state, 2.0);
     get_fov();
     if(0x141380(1, 25.0)){
-        if is_excute(fighter) {
+        if is_excute(agent) {
             get_fov(5, 0);
             0x141380(0, 60);
             CAM_ZOOM_IN_arg5(0.1, 0);
@@ -17,7 +17,7 @@ unsafe fn game_finalattack(fighter: &mut L2CAgentBase) {
     frame(lua_state, 3.0);
     get_fov();
     if(0x141380(1, 5.0)){
-        if is_excute(fighter) {
+        if is_excute(agent) {
             get_fov(5, 0);
             0x141380(0, 90);
             CAM_ZOOM_IN_arg5(0.1, 0);
@@ -26,263 +26,263 @@ unsafe fn game_finalattack(fighter: &mut L2CAgentBase) {
     frame(lua_state, 4.0);
     get_fov();
     if(methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(1, 5.0)){
-        if is_excute(fighter) {
+        if is_excute(agent) {
             CAM_ZOOM_IN_arg5(5, 0, 10, 0, 0);
         }
     }
-    camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 15);
+    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 15);
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_slashs"), 19, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         WorkModule::off_flag(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_INSTANCE_WORK_ID_FLAG_REQUEST_LOOP_DAMAGE_MOTION);
     }
     frame(lua_state, 11.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 22.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
     }
     frame(lua_state, 26.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attacks"), 5, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 27.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 28.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, true);
     }
     frame(lua_state, 32.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_slashs"), 16, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 33.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 43.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 46.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 49.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         VisibilityModule::set_whole(boma, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attackm"), 5, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 50.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 51.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, true);
     }
     frame(lua_state, 55.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attacks"), 9, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 56.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
     }
     frame(lua_state, 57.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 59.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 65.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_slashm"), 14, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 66.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 73.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
     }
     frame(lua_state, 77.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, true);
     }
     frame(lua_state, 80.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attacks"), 11, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 81.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 82.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 85.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 88.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
     }
     frame(lua_state, 92.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_slashm"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 93.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 95.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, true);
     }
     frame(lua_state, 97.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attacks"), 17, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 98.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 105.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
     }
     frame(lua_state, 106.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 107.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, true);
     }
     frame(lua_state, 112.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_slashm"), 5, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 113.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 115.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 118.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attacks"), 17, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 119.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 125.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 128.3);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
     }
     frame(lua_state, 133.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, true);
     }
     frame(lua_state, 136.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attackm"), 8, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 137.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 139.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 144.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
     }
     frame(lua_state, 145.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attacks"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 146.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 150.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, true);
     }
     frame(lua_state, 155.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 157.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_slashs"), 9, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 158.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 161.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 167.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 90, 100, 40, 0, 25.0, 0.0, 10.0, 30.0, None, None, None, 0.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(boma, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_slashs"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         WorkModule::on_flag(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_INSTANCE_WORK_ID_FLAG_ATTACK_END);
@@ -290,43 +290,43 @@ unsafe fn game_finalattack(fighter: &mut L2CAgentBase) {
         WorkModule::set_int64(boma, hash40("fall_damage") as i64, *WEAPON_GEKKOUGA_GEKKOUGAS_INSTANCE_WORK_ID_INT_REQUEST_LOOP_DAMAGE_MOTION);
     }
     frame(lua_state, 168.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 172.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
     }
     frame(lua_state, 184.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, true);
     }
     frame(lua_state, 188.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 190.0);
-    if is_excute(fighter) {
-        FILL_SCREEN_MODEL_COLOR(fighter, 0, 30, 0.65, 0.65, 0.65, 0, 0, 0, 0.6, 2.7, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
+    if is_excute(agent) {
+        FILL_SCREEN_MODEL_COLOR(agent, 0, 30, 0.65, 0.65, 0.65, 0, 0, 0, 0.6, 2.7, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
     }
     frame(lua_state, 242.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_INSTANCE_WORK_ID_FLAG_TARGET_NOREAC_OFF);
     }
     frame(lua_state, 243.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 15.0, 275, 125, 0, 65, 30.0, 0.0, -10.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 15.0, 275, 125, 0, 65, 30.0, 0.0, -10.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
         AttackModule::set_force_reaction(boma, 0, true, false);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attack_finish"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         AttackModule::set_final_finish_cut_in(boma, 0, true, true, 93, false);
     }
     frame(lua_state, 244.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
         WorkModule::off_flag(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_INSTANCE_WORK_ID_FLAG_ATTACK_END);
     }
     frame(lua_state, 255.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_GEKKOUGA_GEKKOUGAS_GENERATE_ARTICLE_BUNSHIN, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

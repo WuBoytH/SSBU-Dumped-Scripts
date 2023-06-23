@@ -1,14 +1,14 @@
 #[acmd_script( agent = "marth", script = "sound_appealhir", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_appealhir(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_appealhir(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("vc_marth_appeal02"));
-        PLAY_SE(fighter, Hash40::new("se_marth_appeal_h01"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_marth_appeal02"));
+        PLAY_SE(agent, Hash40::new("se_marth_appeal_h01"));
     }
     wait(lua_state, 36.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_marth_swing_s"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_marth_swing_s"));
     }
 }

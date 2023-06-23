@@ -1,34 +1,34 @@
 #[acmd_script( agent = "littlemac", script = "effect_specialn2", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialn2(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FLW_POS(fighter, Hash40::new("littlemac_ko_uppercut_start"), Hash40::new("handr"), 0, 10, 0, 0, 0, 0, 1, true);
-        EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("littlemac_ko_uppercut"), Hash40::new("handr"), 0.5, 0, 0, 0, 0, 0, 1, true);
+unsafe fn effect_specialn2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FLW_POS(agent, Hash40::new("littlemac_ko_uppercut_start"), Hash40::new("handr"), 0, 10, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("littlemac_ko_uppercut"), Hash40::new("handr"), 0.5, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 7.0);
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("littlemac_ko_uppercut_arc"), Hash40::new("rot"), -4, 1, -3, -15, -60, 90, 1, true);
-            EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("littlemac_ko_uppercut_arc_splash"), Hash40::new("rot"), -4, 1, -3, -15, -60, 90, 1, false);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("littlemac_ko_uppercut_arc"), Hash40::new("rot"), -4, 1, -3, -15, -60, 90, 1, true);
+            EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("littlemac_ko_uppercut_arc_splash"), Hash40::new("rot"), -4, 1, -3, -15, -60, 90, 1, false);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("littlemac_ko_uppercut_arc"), Hash40::new("rot"), 0.5, 1, -3, 0, -60, 70, 1, true);
-            EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("littlemac_ko_uppercut_arc_splash"), Hash40::new("rot"), 0.5, 1, -3, 0, -60, 70, 1, false);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("littlemac_ko_uppercut_arc"), Hash40::new("rot"), 0.5, 1, -3, 0, -60, 70, 1, true);
+            EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("littlemac_ko_uppercut_arc_splash"), Hash40::new("rot"), 0.5, 1, -3, 0, -60, 70, 1, false);
         }
     }
 }
 frame(lua_state, 12.0);
-if is_excute(fighter) {
-    LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 6, 0, 0, 0, 180, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 6, 0, 0, 0, 180, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
 }
 frame(lua_state, 19.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("littlemac_ko_uppercut"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("littlemac_ko_uppercut"), false, false);
 }
 }

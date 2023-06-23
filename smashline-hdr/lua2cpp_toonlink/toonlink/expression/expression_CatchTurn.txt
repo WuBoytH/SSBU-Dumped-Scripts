@@ -1,24 +1,24 @@
 #[acmd_script( agent = "toonlink", script = "expression_catchturn", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_catchturn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+unsafe fn expression_catchturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("shield") as i64, hash40("shield_back") as i64);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 8, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 42.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 59.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("shield") as i64, hash40("shield_normal") as i64);
     }
 }

@@ -1,21 +1,21 @@
 #[acmd_script( agent = "kirby", script = "effect_mewtwospecialairnmax", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_mewtwospecialairnmax(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FLW_POS(fighter, Hash40::new("mewtwo_shadowball_max_sign"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1.2, true);
+unsafe fn effect_mewtwospecialairnmax(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FLW_POS(agent, Hash40::new("mewtwo_shadowball_max_sign"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1.2, true);
         EffectModule::enable_sync_init_pos_last(boma);
     }
-    if is_excute(fighter) {
-        FLASH(fighter, 0.9, 0.7, 1, 0.5);
+    if is_excute(agent) {
+        FLASH(agent, 0.9, 0.7, 1, 0.5);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 5, 0.9, 0.4, 1, 0.1);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 5, 0.9, 0.4, 1, 0.1);
     }
     wait(lua_state, 8.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
     wait(lua_state, 1.0);
 }

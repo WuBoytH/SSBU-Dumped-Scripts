@@ -1,19 +1,19 @@
 #[acmd_script( agent = "master", script = "game_specialnmax", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnmax(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1) {
-        if is_excute(fighter) {
+unsafe fn game_specialnmax(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1) {
+        if is_excute(agent) {
             ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_ARROW1, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_ARROW2, false, -1);
         ArticleModule::shoot_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_ARROW2, *ARTICLE_OPE_TARGET_ALL, false);
-        SET_SPEED_EX(fighter, -1, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+        SET_SPEED_EX(agent, -1, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
     }
     frame(lua_state, 48.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_BOW, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

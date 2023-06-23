@@ -1,13 +1,13 @@
 #[acmd_script( agent = "koopajr", script = "game_turnrun", category = ACMD_GAME, low_priority )]
-unsafe fn game_turnrun(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_turnrun(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 15.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_STATUS_RUN_BRAKE_FLAG_STOP);
     }
     frame(lua_state, 28.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_STATUS_TURN_RUN_FLAG_TO_RUN);
     }
 }

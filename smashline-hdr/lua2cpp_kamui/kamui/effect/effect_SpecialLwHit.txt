@@ -1,53 +1,53 @@
 #[acmd_script( agent = "kamui", script = "effect_speciallwhit", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_speciallwhit(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("sys_guard_mark"), true, true);
-        EFFECT(fighter, Hash40::new("kamui_counter_success"), Hash40::new("top"), 0, 14, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        EFFECT(fighter, Hash40::new("kamui_water_hamon"), Hash40::new("top"), 0, 0.5, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        LAST_EFFECT_SET_RATE(fighter, 1.2);
+unsafe fn effect_speciallwhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("sys_guard_mark"), true, true);
+        EFFECT(agent, Hash40::new("kamui_counter_success"), Hash40::new("top"), 0, 14, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT(agent, Hash40::new("kamui_water_hamon"), Hash40::new("top"), 0, 0.5, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 1.2);
     }
     WorkModule::is_flag(boma, *FIGHTER_KAMUI_STATUS_SPECIAL_LW_FLAG_SPECIAL_EFFECT);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("sys_counter_flash"), Hash40::new("top"), 0, 14.8, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_counter_flash"), Hash40::new("top"), 0, 14.8, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("kamui_water_splash"), Hash40::new("top"), 0, 0, -2, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("kamui_water_splash"), Hash40::new("top"), 0, 0, -2, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 10.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
     }
     frame(lua_state, 26.0);
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("kamui_counter_splash"), Hash40::new("top"), -7, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-            EFFECT(fighter, Hash40::new("kamui_counter_splash"), Hash40::new("top"), -7, 0, -12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("kamui_counter_splash"), Hash40::new("top"), -7, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+            EFFECT(agent, Hash40::new("kamui_counter_splash"), Hash40::new("top"), -7, 0, -12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("kamui_counter_splash"), Hash40::new("top"), 7, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-            EFFECT(fighter, Hash40::new("kamui_counter_splash"), Hash40::new("top"), 7, 0, -12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("kamui_counter_splash"), Hash40::new("top"), 7, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+            EFFECT(agent, Hash40::new("kamui_counter_splash"), Hash40::new("top"), 7, 0, -12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     }
 }
-if is_excute(fighter) {
-    EFFECT(fighter, Hash40::new("kamui_counter_ripple"), Hash40::new("top"), 0, 0.5, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("kamui_counter_ripple"), Hash40::new("top"), 0, 0.5, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
 }
 frame(lua_state, 38.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
 }
 frame(lua_state, 47.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
     WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
 }
 }

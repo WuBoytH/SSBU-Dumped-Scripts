@@ -1,31 +1,31 @@
 #[acmd_script( agent = "ken_hadoken", script = "effect_movem", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_movem(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_movem(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if !WorkModule::is_flag(boma, *WEAPON_RYU_HADOKEN_INSTANCE_WORK_ID_FLAG_COMMAND) {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("ken_hadoken_bullet"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("ken_hadoken_bullet"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
         }
     }
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("ken_hadoken_bullethand_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("ken_hadoken_bullethand_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("ken_hadoken_bullet2"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, false);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("ken_hadoken_bullet2"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, false);
         }
-        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-            if is_excute(fighter) {
-                EFFECT_FOLLOW(fighter, Hash40::new("ken_hadoken_bullethand_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
+        if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("ken_hadoken_bullethand_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
             }
             else{
-            if is_excute(fighter) {
-                EFFECT_FOLLOW(fighter, Hash40::new("ken_hadoken_bullethand_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("ken_hadoken_bullethand_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
             }
             else{
-            if is_excute(fighter) {
-                EFFECT_FOLLOW(fighter, Hash40::new("ken_hadoken_bullethand_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("ken_hadoken_bullethand_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, false);
             }
         }
     }

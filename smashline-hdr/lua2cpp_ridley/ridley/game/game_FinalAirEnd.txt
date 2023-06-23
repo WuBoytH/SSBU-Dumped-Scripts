@@ -1,18 +1,18 @@
 #[acmd_script( agent = "ridley", script = "game_finalairend", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        SET_SPEED_EX(fighter, 3, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+    if is_excute(agent) {
+        SET_SPEED_EX(agent, 3, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
         AttackModule::clear_all(boma);
-        ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_DEDEDE_FINAL, 0, 15.0, 60, 80, 0, 45, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_DEDEDE_FINAL, 0, 15.0, 60, 80, 0, 45, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
         WorkModule::on_flag(boma, *FIGHTER_RIDLEY_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
     }
     frame(lua_state, 2.0);
-    FT_MOTION_RATE(fighter, 0.9);
+    FT_MOTION_RATE(agent, 0.9);
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
     }
 }

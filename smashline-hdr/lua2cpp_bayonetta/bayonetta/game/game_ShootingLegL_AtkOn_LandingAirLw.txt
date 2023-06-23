@@ -1,15 +1,15 @@
 #[acmd_script( agent = "bayonetta", script = "game_shootinglegl_atkon_landingairlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_shootinglegl_atkon_landingairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_shootinglegl_atkon_landingairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if !WorkModule::is_flag(boma, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_FLAG_SHOOTING_DISABLE_ROOT_ATTACK) {
-        if is_excute(fighter) {
-            ATTACK(fighter, FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_00, 0, Hash40::new("top"), 0.5, 361, 100, 0, 10, 2.5, 0.0, 2.5, 11.5, Some(0.0), Some(2.5), Some(15.5), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal_bullet"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_BAYONETTA_HIT_01, *ATTACK_REGION_NONE);
+        if is_excute(agent) {
+            ATTACK(agent, FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_00, 0, Hash40::new("top"), 0.5, 361, 100, 0, 10, 2.5, 0.0, 2.5, 11.5, Some(0.0), Some(2.5), Some(15.5), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal_bullet"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_BAYONETTA_HIT_01, *ATTACK_REGION_NONE);
         }
     }
-    if is_excute(fighter) {
-        ATTACK(fighter, FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_01, 0, Hash40::new("top"), 0.5, 361, 0, 0, 0, 2.5, 0.0, 2.5, 11.5, Some(0.0), Some(2.5), Some(71.5), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal_bullet"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_BAYONETTA_HIT_01, *ATTACK_REGION_NONE);
+    if is_excute(agent) {
+        ATTACK(agent, FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_01, 0, Hash40::new("top"), 0.5, 361, 0, 0, 0, 2.5, 0.0, 2.5, 11.5, Some(0.0), Some(2.5), Some(71.5), 0.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal_bullet"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_BAYONETTA_HIT_01, *ATTACK_REGION_NONE);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_63_bullet"), 4, true, *BATTLE_OBJECT_ID_INVALID as u32);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x36db1a34c9), FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_01, 10, 4);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x36db1a34c9), FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_01, 10, 4);
     }
 }

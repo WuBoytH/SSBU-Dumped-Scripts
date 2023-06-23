@@ -1,13 +1,13 @@
 #[acmd_script( agent = "pacman", script = "effect_appealsr", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_appealsr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_appealsr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 13.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("pacman_change_start"), Hash40::new("pizzapacman"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("pacman_change_start"), Hash40::new("pizzapacman"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 87.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("pacman_change_end"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("pacman_change_end"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, true);
     }
 }

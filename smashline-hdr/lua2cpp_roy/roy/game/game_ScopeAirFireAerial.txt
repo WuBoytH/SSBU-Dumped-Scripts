@@ -1,12 +1,12 @@
 #[acmd_script( agent = "roy", script = "game_scopeairfireaerial", category = ACMD_GAME, low_priority )]
-unsafe fn game_scopeairfireaerial(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_scopeairfireaerial(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 3.0);
     WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
-        if is_excute(fighter) {
-            SHOOT_ITEM_BULLET_CHARGE(fighter, *FIGHTER_STATUS_ITEM_SHOOT_WORK_INT_SSCOPE_CHARGE);
+        if is_excute(agent) {
+            SHOOT_ITEM_BULLET_CHARGE(agent, *FIGHTER_STATUS_ITEM_SHOOT_WORK_INT_SSCOPE_CHARGE);
             WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
         }
     }

@@ -1,10 +1,10 @@
 #[acmd_script( agent = "packun", script = "game_specialairnend", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairnend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialairnend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_PACKUN_GENERATE_ARTICLE_SPIKEBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
-    FT_MOTION_RATE(fighter, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
 }

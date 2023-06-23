@@ -1,11 +1,11 @@
 #[acmd_script( agent = "tantan_punch3", script = "effect_attackshort", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackshort(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("tantan_wepon3_wind_s"), Hash40::new("cakram1"), 0, 0, 0, 0, 0, 0, 1, true);
-        LAST_EFFECT_SET_WORK_INT(fighter, *WEAPON_TANTAN_PUNCH1_INSTANCE_WORK_ID_INT_PUNCH3_WIND_EFFECT_HANDLE);
-        LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(fighter, 0.05);
+unsafe fn effect_attackshort(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("tantan_wepon3_wind_s"), Hash40::new("cakram1"), 0, 0, 0, 0, 0, 0, 1, true);
+        LAST_EFFECT_SET_WORK_INT(agent, *WEAPON_TANTAN_PUNCH1_INSTANCE_WORK_ID_INT_PUNCH3_WIND_EFFECT_HANDLE);
+        LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(agent, 0.05);
         EffectModule::enable_sync_init_pos_last(boma);
     }
 }

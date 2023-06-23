@@ -1,18 +1,18 @@
 #[acmd_script( agent = "rosetta_tico", script = "effect_attack13", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attack13(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attack13(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_attack_arc"), Hash40::new("top"), -1, 6, 5, 0, -15, 90, 0.7, 0, 0, 0, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 2);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_attack_arc"), Hash40::new("top"), -1, 6, 5, 0, -15, 90, 0.7, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 2);
     }
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *WEAPON_ROSETTA_TICO_INSTANCE_WORK_ID_FLAG_TOGGLE_TWINKLE_EFFECT);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *WEAPON_ROSETTA_TICO_INSTANCE_WORK_ID_FLAG_TOGGLE_TWINKLE_EFFECT);
     }
 }

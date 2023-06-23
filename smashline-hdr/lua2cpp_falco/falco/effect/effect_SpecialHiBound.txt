@@ -1,26 +1,26 @@
 #[acmd_script( agent = "falco", script = "effect_specialhibound", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialhibound(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        BURN_COLOR(fighter, 2, 0.1, 0, 0.4);
+unsafe fn effect_specialhibound(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        BURN_COLOR(agent, 2, 0.1, 0, 0.4);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 11.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
-        BURN_COLOR_FRAME(fighter, 2, 1, 0.2, 0.1, 0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+        BURN_COLOR_FRAME(agent, 2, 1, 0.2, 0.1, 0);
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
-        BURN_COLOR_NORMAL(fighter);
+    if is_excute(agent) {
+        BURN_COLOR_NORMAL(agent);
     }
 }

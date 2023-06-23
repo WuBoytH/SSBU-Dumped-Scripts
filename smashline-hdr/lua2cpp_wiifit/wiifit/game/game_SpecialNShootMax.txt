@@ -1,9 +1,9 @@
 #[acmd_script( agent = "wiifit", script = "game_specialnshootmax", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnshootmax(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialnshootmax(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::shoot_exist(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_SUNBULLET, *ARTICLE_OPE_TARGET_LAST, false);
     }
 }

@@ -1,18 +1,18 @@
 #[acmd_script( agent = "kamui", script = "game_specialairlwhit", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlwhit(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialairlwhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, false, -1);
         ArticleModule::set_visibility_whole(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
         ArticleModule::set_visibility_whole(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 40.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         VisibilityModule::set_whole(boma, true);
     }

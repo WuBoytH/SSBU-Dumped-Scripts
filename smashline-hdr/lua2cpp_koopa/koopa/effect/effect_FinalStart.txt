@@ -1,10 +1,10 @@
 #[acmd_script( agent = "koopa", script = "effect_finalstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::req_screen(boma, Hash40::new("bg_koopa_final"), false, false, false);
-        EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("koopa_final_start"), Hash40::new("top"), 0, 20, 0, 0, 0, 0, 1, true);
-        LAST_EFFECT_SET_RATE(fighter, 0.6);
+        EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("koopa_final_start"), Hash40::new("top"), 0, 20, 0, 0, 0, 0, 1, true);
+        LAST_EFFECT_SET_RATE(agent, 0.6);
     }
 }

@@ -1,15 +1,15 @@
 #[acmd_script( agent = "mewtwo", script = "game_specialnshoot", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnshoot(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        CORRECT(fighter, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP);
+unsafe fn game_specialnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CORRECT(agent, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP);
     }
     frame(lua_state, 2.0);
-    FT_MOTION_RATE(fighter, 0.5);
+    FT_MOTION_RATE(agent, 0.5);
     frame(lua_state, 6.0);
-    FT_MOTION_RATE(fighter, 1.0);
-    if is_excute(fighter) {
+    FT_MOTION_RATE(agent, 1.0);
+    if is_excute(agent) {
         ArticleModule::shoot(boma, *FIGHTER_MEWTWO_GENERATE_ARTICLE_SHADOWBALL, *ARTICLE_OPE_TARGET_LAST, false);
     }
 }

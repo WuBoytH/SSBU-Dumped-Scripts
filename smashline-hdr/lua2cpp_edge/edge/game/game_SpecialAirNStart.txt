@@ -1,33 +1,33 @@
 #[acmd_script( agent = "edge", script = "game_specialairnstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairnstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialairnstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::set_int(boma, *FIGHTER_EDGE_SPECIAL_N_S, *FIGHTER_EDGE_STATUS_SPECIAL_N_WORK_INT_CHARGE_KIND);
     }
     frame(lua_state, 32.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::set_int(boma, *FIGHTER_EDGE_SPECIAL_N_M, *FIGHTER_EDGE_STATUS_SPECIAL_N_WORK_INT_CHARGE_KIND);
     }
     frame(lua_state, 79.0);
-    FT_MOTION_RATE(fighter, 1.2);
+    FT_MOTION_RATE(agent, 1.2);
     frame(lua_state, 99.0);
-    FT_MOTION_RATE(fighter, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
     frame(lua_state, 100.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::set_int(boma, *FIGHTER_EDGE_SPECIAL_N_L, *FIGHTER_EDGE_STATUS_SPECIAL_N_WORK_INT_CHARGE_KIND);
     }
     frame(lua_state, 105.0);
-    FT_MOTION_RATE(fighter, 1.6);
+    FT_MOTION_RATE(agent, 1.6);
     frame(lua_state, 115.0);
-    FT_MOTION_RATE(fighter, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
     frame(lua_state, 120.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_EDGE_GENERATE_ARTICLE_FIRE, false, -1);
     }
     frame(lua_state, 140.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_EDGE_STATUS_SPECIAL_N_FLAG_ENABLE_FALL_SPEED);
     }
 }

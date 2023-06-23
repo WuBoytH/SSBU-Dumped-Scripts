@@ -1,19 +1,19 @@
 #[acmd_script( agent = "younglink", script = "expression_entryr", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_entryr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("sword") as i64, hash40("sword_back") as i64);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), false);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x1f20a9d549), true);
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x24772eddef), true);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
     }
     frame(lua_state, 57.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("sword") as i64, hash40("sword_normal") as i64);
     }
 }

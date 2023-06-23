@@ -1,23 +1,23 @@
 #[acmd_script( agent = "kirby", script = "expression_robotspecialairn", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_robotspecialairn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_robotspecialairn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 23.0);
     WorkModule::get_float(boma, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE);
     WorkModule::get_param_float(boma, -1165490952, Hash40::new("param_special_n"), Hash40::new("strong_shoot_energy"));
     if(0x543c60(368)){
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_beaml"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         else{
         WorkModule::get_float(boma, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE);
         WorkModule::get_param_float(boma, -1165490952, Hash40::new("param_special_n"), Hash40::new("miss_shoot_energy"));
         if(0x543c60(368)){
-            if is_excute(fighter) {
+            if is_excute(agent) {
                 ControlModule::set_rumble(boma, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
             }
             else{
-            if is_excute(fighter) {
+            if is_excute(agent) {
                 ControlModule::set_rumble(boma, Hash40::new("rbkind_blank"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
             }
         }
@@ -25,8 +25,8 @@ unsafe fn expression_robotspecialairn(fighter: &mut L2CAgentBase) {
 }
 }
 frame(lua_state, 25.0);
-if is_excute(fighter) {
-QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
-RUMBLE_HIT(fighter, Hash40::new("rbkind_explosion"), 0);
+if is_excute(agent) {
+QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+RUMBLE_HIT(agent, Hash40::new("rbkind_explosion"), 0);
 }
 }

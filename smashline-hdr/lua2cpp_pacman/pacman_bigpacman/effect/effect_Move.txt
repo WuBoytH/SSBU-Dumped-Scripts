@@ -1,14 +1,14 @@
 #[acmd_script( agent = "pacman_bigpacman", script = "effect_move", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_move(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_move(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if !WorkModule::is_flag(boma, *WEAPON_PACMAN_BIGPACMAN_INSTANCE_WORK_ID_FLAG_FLASH) {
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_55_pizza_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     }
     wait(lua_state, 9.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_55_pizza_sp2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     wait(lua_state, 4.0);

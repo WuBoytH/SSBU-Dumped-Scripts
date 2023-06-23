@@ -1,19 +1,19 @@
 #[acmd_script( agent = "inkling", script = "effect_attack12", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attack12(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_attack12(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 5.5, 4, -13, -20, 23, 0.91, true);
-            LAST_EFFECT_SET_RATE(fighter, 1.5);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 5.5, 4, -13, -20, 23, 0.91, true);
+            LAST_EFFECT_SET_RATE(agent, 1.5);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 6.5, 4, -8, -20, 10, 0.91, true);
-            LAST_EFFECT_SET_RATE(fighter, 1.5);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 6.5, 4, -8, -20, 10, 0.91, true);
+            LAST_EFFECT_SET_RATE(agent, 1.5);
         }
     }
 }

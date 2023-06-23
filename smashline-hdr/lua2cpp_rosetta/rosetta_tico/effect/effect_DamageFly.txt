@@ -1,10 +1,10 @@
 #[acmd_script( agent = "rosetta_tico", script = "effect_damagefly", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_damagefly(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_damagefly(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if WorkModule::is_flag(boma, *WEAPON_ROSETTA_TICO_INSTANCE_WORK_ID_FLAG_DEAD_DAMAGE) {
-        if is_excute(fighter) {
-            QUAKE(fighter, *CAMERA_QUAKE_KIND_S);
+        if is_excute(agent) {
+            QUAKE(agent, *CAMERA_QUAKE_KIND_S);
         }
     }
 }

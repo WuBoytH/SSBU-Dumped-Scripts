@@ -1,24 +1,24 @@
 #[acmd_script( agent = "edge", script = "game_attackairfwalljump", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackairfwalljump(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_NONE);
+unsafe fn game_attackairfwalljump(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_NONE);
     }
     frame(lua_state, 11.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_EDGE_STATUS_ATTACK_AIR_F_WORK_FLAG_MOVE_KINETIC_PARAM);
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_EDGE_STATUS_ATTACK_AIR_F_WORK_FLAG_JUMP_CONTROL);
     }
     frame(lua_state, 15.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_EDGE_STATUS_ATTACK_AIR_F_WORK_FLAG_CHANGE_JUMP_ACCEL_Y);
     }
     frame(lua_state, 26.0);
-    if is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS);
     }
 }

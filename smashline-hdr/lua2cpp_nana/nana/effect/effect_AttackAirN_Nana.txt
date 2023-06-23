@@ -1,11 +1,11 @@
 #[acmd_script( agent = "nana", script = "effect_attackairn_nana", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairn_nana(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attackairn_nana(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 7.0);
     for _ in 0..3 {
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_RND(fighter, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 7, 2, 20, 0, 5, 1.2, 1, 3, 1, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 7, 2, 20, 0, 5, 1.2, 1, 3, 1, 0, 0, 0, true);
     }
     wait(lua_state, 5.0);
 }

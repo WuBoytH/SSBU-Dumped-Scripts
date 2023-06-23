@@ -1,26 +1,26 @@
 #[acmd_script( agent = "demon", script = "game_attackragedriveground", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackragedriveground(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_attackragedriveground(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if !WorkModule::is_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ATTACK_RAGE_CAPTURE) {
         battle_object_module_accessor();
         methodlib::L2CValue::L2CValue(void*)();
         methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
         FighterSpecializer_Demon::set_devil(boma, true, 2);
-        if is_excute(fighter) {
-            WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
+        if is_excute(agent) {
+            WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
         }
         frame(lua_state, 1.0);
-        if is_excute(fighter) {
+        if is_excute(agent) {
             WorkModule::set_int(boma, *HIT_STATUS_NORMAL, *FIGHTER_DEMON_STATUS_ATTACK_RAGE_DRIVE_INT_TARGET_HIT_STATUS);
-            ATTACK(fighter, 0, 0, Hash40::new("top"), 13.0, 100, 100, 100, 50, 6.5, 0.0, 1.0, 5.0, Some(10.0), Some(1.0), Some(5.0), 1.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 4, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
+            ATTACK(agent, 0, 0, Hash40::new("top"), 13.0, 100, 100, 100, 50, 6.5, 0.0, 1.0, 5.0, Some(10.0), Some(1.0), Some(5.0), 1.5, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 4, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
             AttackModule::set_no_dead_all(boma, true, false);
             AttackModule::set_catch_only_all(boma, true, false);
-            ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 16.0, 60, 95, 0, 55, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
+            ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 16.0, 60, 95, 0, 55, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
             AttackModule::set_attack_camera_quake_forced(boma, 0, *CAMERA_QUAKE_KIND_NONE, true);
             AttackModule::set_no_finish_camera(boma, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, true, true);
-            ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
-            ATTACK_IGNORE_THROW(fighter, 1, 0, Hash40::new("top"), 18.0, 361, 80, 0, 80, 7.5, 0.0, 7.5, -10.0, Some(0.0), Some(7.5), Some(14.0), 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DEMON_KICK, *ATTACK_REGION_PUNCH);
+            ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
+            ATTACK_IGNORE_THROW(agent, 1, 0, Hash40::new("top"), 18.0, 361, 80, 0, 80, 7.5, 0.0, 7.5, -10.0, Some(0.0), Some(7.5), Some(14.0), 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DEMON_KICK, *ATTACK_REGION_PUNCH);
             AttackModule::set_no_finish_camera(boma, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, true, true);
             battle_object_module_accessor();
             methodlib::L2CValue::L2CValue(void*)();
@@ -31,15 +31,15 @@ unsafe fn game_attackragedriveground(fighter: &mut L2CAgentBase) {
     methodlib::L2CValue::as_pointer()const();
     clear_past_log_throw();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::off_flag(boma, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_CHECK_DAMAGE);
         AttackModule::clear_all(boma);
         WorkModule::on_flag(boma, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_HIT);
-        CAM_ZOOM_OUT(fighter);
+        CAM_ZOOM_OUT(agent);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
-        WHOLE_HIT(fighter, *HIT_STATUS_NORMAL);
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_NORMAL);
     }
     frame(lua_state, 35.0);
     FighterSpecializer_Demon::set_devil(boma, true, 3);
@@ -57,20 +57,20 @@ battle_object_module_accessor(0);
 methodlib::L2CValue::L2CValue(void*)();
 methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 FighterSpecializer_Demon::set_devil(boma, true, 2);
-if is_excute(fighter) {
-    WHOLE_HIT(fighter, *HIT_STATUS_INVINCIBLE);
+if is_excute(agent) {
+    WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
 }
 frame(lua_state, 1.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     WorkModule::set_int(boma, *HIT_STATUS_NORMAL, *FIGHTER_DEMON_STATUS_ATTACK_RAGE_DRIVE_INT_TARGET_HIT_STATUS);
-    ATTACK(fighter, 0, 0, Hash40::new("top"), 11.5, 100, 100, 100, 50, 6.5, 0.0, 1.0, 5.0, Some(10.0), Some(1.0), Some(5.0), 1.4, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 4, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
+    ATTACK(agent, 0, 0, Hash40::new("top"), 11.5, 100, 100, 100, 50, 6.5, 0.0, 1.0, 5.0, Some(10.0), Some(1.0), Some(5.0), 1.4, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 4, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
     AttackModule::set_no_dead_all(boma, true, false);
     AttackModule::set_catch_only_all(boma, true, false);
-    ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 13.0, 60, 95, 0, 67, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
+    ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 13.0, 60, 95, 0, 67, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
     AttackModule::set_attack_camera_quake_forced(boma, 0, *CAMERA_QUAKE_KIND_NONE, true);
     AttackModule::set_no_finish_camera(boma, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, true, true);
-    ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
-    ATTACK_IGNORE_THROW(fighter, 1, 0, Hash40::new("top"), 15.0, 361, 80, 0, 80, 5.0, 0.0, 5.0, -8.5, Some(0.0), Some(5.0), Some(12.5), 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DEMON_KICK, *ATTACK_REGION_PUNCH);
+    ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
+    ATTACK_IGNORE_THROW(agent, 1, 0, Hash40::new("top"), 15.0, 361, 80, 0, 80, 5.0, 0.0, 5.0, -8.5, Some(0.0), Some(5.0), Some(12.5), 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DEMON_KICK, *ATTACK_REGION_PUNCH);
     AttackModule::set_no_finish_camera(boma, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, true, true);
     battle_object_module_accessor();
     methodlib::L2CValue::L2CValue(void*)();
@@ -81,15 +81,15 @@ methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 methodlib::L2CValue::as_pointer()const();
 clear_past_log_throw();
 frame(lua_state, 2.0);
-if is_excute(fighter) {
+if is_excute(agent) {
 WorkModule::off_flag(boma, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_CHECK_DAMAGE);
 AttackModule::clear_all(boma);
 WorkModule::on_flag(boma, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_HIT);
-CAM_ZOOM_OUT(fighter);
+CAM_ZOOM_OUT(agent);
 }
 frame(lua_state, 4.0);
-if is_excute(fighter) {
-WHOLE_HIT(fighter, *HIT_STATUS_NORMAL);
+if is_excute(agent) {
+WHOLE_HIT(agent, *HIT_STATUS_NORMAL);
 }
 frame(lua_state, 35.0);
 battle_object_module_accessor();

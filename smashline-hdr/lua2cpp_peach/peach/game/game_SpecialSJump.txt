@@ -1,17 +1,17 @@
 #[acmd_script( agent = "peach", script = "game_specialsjump", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialsjump(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialsjump(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         JostleModule::set_status(boma, false);
-        SEARCH(fighter, 0, 0, Hash40::new("hip"), 3.5, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+        SEARCH(agent, 0, 0, Hash40::new("hip"), 3.5, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         KineticModule::change_kinetic(boma, *FIGHTER_KINETIC_TYPE_PEACH_SPECIAL_S_BRAKE);
     }
     frame(lua_state, 25.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::enable_transition_term(boma, *FIGHTER_PEACH_STATUS_SPECIAL_S_JUMP_ID_TIME_OUT);
     }
 }

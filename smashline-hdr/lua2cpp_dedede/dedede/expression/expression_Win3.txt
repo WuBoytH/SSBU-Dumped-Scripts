@@ -1,18 +1,18 @@
 #[acmd_script( agent = "dedede", script = "expression_win3", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_win3(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER) {
-        if is_excute(fighter) {
+unsafe fn expression_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER) {
+        if is_excute(agent) {
             ArticleModule::remove_exist(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, false, -1);
         ArticleModule::change_motion(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, Hash40::new("win_3"), false, -1.0);
     }
     frame(lua_state, 76.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("hammer") as i64, hash40("hammer_disp_off") as i64);
     }
 }

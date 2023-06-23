@@ -1,13 +1,13 @@
 #[acmd_script( agent = "kirby", script = "effect_pacmanspecialnhold", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_pacmanspecialnhold(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FLW_POS(fighter, Hash40::new("pacman_fruit_change"), Hash40::new("top"), 1, 16, 8.5, 0, 0, 0, 1, true);
+unsafe fn effect_pacmanspecialnhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FLW_POS(agent, Hash40::new("pacman_fruit_change"), Hash40::new("top"), 1, 16, 8.5, 0, 0, 0, 1, true);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1, 2, 0, 4, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1, 2, 0, 4, 0, 0, 0, false);
     }
     wait(lua_state, 10.0);
 }

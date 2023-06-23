@@ -1,9 +1,9 @@
 #[acmd_script( agent = "ptrainer_mball", script = "effect_finalopen", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalopen(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_finalopen(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("ptrainer_change_beam"), Hash40::new("all"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ptrainer_change_beam"), Hash40::new("all"), 0, 0, 0, 0, 0, 0, 1, true);
     }
 }

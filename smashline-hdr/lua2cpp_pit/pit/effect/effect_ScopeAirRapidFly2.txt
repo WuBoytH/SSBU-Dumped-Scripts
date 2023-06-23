@@ -1,12 +1,12 @@
 #[acmd_script( agent = "pit", script = "effect_scopeairrapidfly2", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_scopeairrapidfly2(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_scopeairrapidfly2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_EFFECT) {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("pit_feather"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, false);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("pit_feather"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, false);
         }
-        if is_excute(fighter) {
+        if is_excute(agent) {
             WorkModule::off_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_EFFECT);
         }
     }

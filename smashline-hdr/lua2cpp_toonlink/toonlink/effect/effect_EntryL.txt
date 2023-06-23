@@ -1,18 +1,18 @@
 #[acmd_script( agent = "toonlink", script = "effect_entryl", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_entryl(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        FLASH(fighter, 0.1, 0, 0, 0.7);
-        EFFECT(fighter, Hash40::new("toonlink_entry"), Hash40::new("waist"), -1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        EFFECT(fighter, Hash40::new("toonlink_entry_bomb"), Hash40::new("top"), 0, 5.5, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FLASH(agent, 0.1, 0, 0, 0.7);
+        EFFECT(agent, Hash40::new("toonlink_entry"), Hash40::new("waist"), -1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT(agent, Hash40::new("toonlink_entry_bomb"), Hash40::new("top"), 0, 5.5, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
     }
     wait(lua_state, 45.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 20, 0.1, 0, 0, 0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 20, 0.1, 0, 0, 0);
     }
     wait(lua_state, 20.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
 }

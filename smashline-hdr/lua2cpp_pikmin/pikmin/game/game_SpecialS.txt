@@ -1,16 +1,16 @@
 #[acmd_script( agent = "pikmin", script = "game_specials", category = ACMD_GAME, low_priority )]
-unsafe fn game_specials(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specials(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     WorkModule::is_flag(boma, *FIGHTER_PIKMIN_STATUS_SPECIAL_S_FLAG_IS_HOLD);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
         frame(lua_state, 9.0);
-        if is_excute(fighter) {
+        if is_excute(agent) {
             WorkModule::on_flag(boma, *FIGHTER_PIKMIN_STATUS_SPECIAL_S_FLAG_THROW);
         }
         else{
         frame(lua_state, 378992935.0);
-        if is_excute(fighter) {
+        if is_excute(agent) {
             MotionModule::set_rate(boma, 0.6);
         }
     }

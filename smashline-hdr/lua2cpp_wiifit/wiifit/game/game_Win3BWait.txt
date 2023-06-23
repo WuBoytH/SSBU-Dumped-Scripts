@@ -1,13 +1,13 @@
 #[acmd_script( agent = "wiifit", script = "game_win3bwait", category = ACMD_GAME, low_priority )]
-unsafe fn game_win3bwait(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if !IS_EXIST_ARTICLE(fighter, *FIGHTER_WIIFIT_GENERATE_ARTICLE_TOWEL) {
-        if is_excute(fighter) {
+unsafe fn game_win3bwait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_WIIFIT_GENERATE_ARTICLE_TOWEL) {
+        if is_excute(agent) {
             ArticleModule::generate_article(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_TOWEL, false, -1);
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::change_motion(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_TOWEL, Hash40::new("win3_wait"), false, -1.0);
     }
 }

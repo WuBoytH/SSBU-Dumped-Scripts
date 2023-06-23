@@ -1,13 +1,13 @@
 #[acmd_script( agent = "brave", script = "effect_win2wait", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_win2wait(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_win2wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("brave_lightning3_sword"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("brave_lightning3_sword"), false, true);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND_WORK(fighter, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_LIGHTNING_SWORD_FLARE, false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND_WORK(agent, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_LIGHTNING_SWORD_FLARE, false, true);
     }
 }

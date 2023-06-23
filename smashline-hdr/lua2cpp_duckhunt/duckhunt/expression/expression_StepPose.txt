@@ -1,10 +1,10 @@
 #[acmd_script( agent = "duckhunt", script = "expression_steppose", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_steppose(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_steppose(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_StepPoseRumble()();
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 2);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 2);
     }
 }

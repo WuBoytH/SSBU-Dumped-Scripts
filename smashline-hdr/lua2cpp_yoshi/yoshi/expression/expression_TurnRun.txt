@@ -1,25 +1,25 @@
 #[acmd_script( agent = "yoshi", script = "expression_turnrun", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_turnrun(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+unsafe fn expression_turnrun(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x23c33f3bdc));
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x23c33f3bdc));
         ControlModule::set_rumble(boma, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_walk"), 2, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 23.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -1,47 +1,47 @@
 #[acmd_script( agent = "kamui", script = "expression_specialhi", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+unsafe fn expression_specialhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         VisibilityModule::set_int64(boma, hash40("dragon") as i64, hash40("dragon_wing_no_horn") as i64);
         VisibilityModule::set_int64(boma, hash40("dragon") as i64, hash40("dragon_wing") as i64);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("front_hair") as i64, hash40("front_hair_hide") as i64);
     }
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("hair") as i64, hash40("hair_hide") as i64);
     }
     frame(lua_state, 17.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_spinattacks"), 20, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 18.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 0);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 0);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_spinattack"), 4);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_spinattack"), 4);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_spinattacks"), 17, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 29.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attackm"), 0);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
     }
     frame(lua_state, 48.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("hair") as i64, hash40("hair_normal") as i64);
     }
     frame(lua_state, 49.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("front_hair") as i64, hash40("front_hair_normal") as i64);
     }
     frame(lua_state, 52.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("dragon") as i64, hash40("dragon_wing_no_horn") as i64);
     }
 }

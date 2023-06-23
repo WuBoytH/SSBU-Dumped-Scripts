@@ -1,53 +1,53 @@
 #[acmd_script( agent = "reflet", script = "game_finalstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+unsafe fn game_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 40, 0, 0, 0);
-        SLOW_OPPONENT(fighter, 8, 50);
+    if is_excute(agent) {
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 40, 0, 0, 0);
+        SLOW_OPPONENT(agent, 8, 50);
     }
     WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
         frame(lua_state, 5.0);
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ArticleModule::generate_article(boma, *FIGHTER_REFLET_GENERATE_ARTICLE_CHROM, false, -1);
-            FT_SET_FINAL_FEAR_FACE(fighter, 30);
-            REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04finalstart.nuanmb"), false);
-            FT_START_CUTIN(fighter);
+            FT_SET_FINAL_FEAR_FACE(agent, 30);
+            REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
+            FT_START_CUTIN(agent);
         }
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         SlowModule::set_whole(boma, 6, 0);
     }
     else{
-    if is_excute(fighter) {
+    if is_excute(agent) {
         PostureModule::scale(boma, 3, 0);
         0x144300(1831911710, 2);
         CAM_ZOOM_IN_arg5(0, 0);
-        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
-        FT_START_CUTIN(fighter);
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
+        FT_START_CUTIN(agent);
     }
 }
 frame(lua_state, 5.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     ArticleModule::generate_article(boma, *FIGHTER_REFLET_GENERATE_ARTICLE_CHROM, false, -1);
 }
 frame(lua_state, 25.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     SlowModule::clear_whole(boma);
-    CAM_ZOOM_OUT(fighter);
+    CAM_ZOOM_OUT(agent);
 }
 frame(lua_state, 28.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     WorkModule::on_flag(boma, *FIGHTER_REFLET_STATUS_FINAL_FLAG_SWORD_THROW_START);
 }
 frame(lua_state, 45.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     WorkModule::on_flag(boma, *FIGHTER_REFLET_STATUS_FINAL_FLAG_GOTO_MOVE);
 }
 }

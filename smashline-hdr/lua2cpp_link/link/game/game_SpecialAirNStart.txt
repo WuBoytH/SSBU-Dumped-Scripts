@@ -1,14 +1,14 @@
 #[acmd_script( agent = "link", script = "game_specialairnstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairnstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialairnstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_LINK_GENERATE_ARTICLE_BOWARROW, false, -1);
     }
-    FT_MOTION_RATE(fighter, 0.8);
+    FT_MOTION_RATE(agent, 0.8);
     frame(lua_state, 18.0);
-    FT_MOTION_RATE(fighter, 1.0);
-    if is_excute(fighter) {
+    FT_MOTION_RATE(agent, 1.0);
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_LINK_STATUS_BOW_FLAG_CHARGE);
     }
 }

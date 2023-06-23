@@ -1,9 +1,9 @@
 #[acmd_script( agent = "ridley", script = "expression_specialairhichargeb", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialairhichargeb(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+unsafe fn expression_specialairhichargeb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_fly"), 12, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

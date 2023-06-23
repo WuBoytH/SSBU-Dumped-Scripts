@@ -1,13 +1,13 @@
 #[acmd_script( agent = "ganon", script = "game_itemlightthrowairb4", category = ACMD_GAME, low_priority )]
-unsafe fn game_itemlightthrowairb4(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_itemlightthrowairb4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
-        REVERSE_LR(fighter);
+    if is_excute(agent) {
+        REVERSE_LR(agent);
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         THROW_ITEM_arg3(*ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_ANGLE, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_SPEED, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_POWER);
     }
 }

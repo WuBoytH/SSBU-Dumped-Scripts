@@ -1,39 +1,39 @@
 #[acmd_script( agent = "lucas", script = "expression_attacks4", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_attacks4(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_attacks4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, false, 0);
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
     }
     frame(lua_state, 8.0);
     execute(lua_state, 8.0);
     WorkModule::is_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_SMASH_SMASH_HOLD_TO_ATTACK);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ItemModule::set_have_item_visibility(boma, false, 0);
-            slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
         }
     }
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
-        AREA_WIND_2ND_arg10(fighter, 0, 1, 0, 3, 0.2, 12, 5, 24, 10, 80);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
+        AREA_WIND_2ND_arg10(agent, 0, 1, 0, 3, 0.2, 12, 5, 24, 10, 80);
     }
     frame(lua_state, 22.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AreaModule::erase_wind(boma, 0);
     }
     frame(lua_state, 45.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, true, 0);
     }
 }

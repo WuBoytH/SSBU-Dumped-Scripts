@@ -1,11 +1,11 @@
 #[acmd_script( agent = "purin", script = "game_finalairendr", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairendr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        WHOLE_HIT(fighter, *HIT_STATUS_XLU);
-        EFFECT_REMOVE_ATTR(fighter, *EFFECT_SUB_ATTRIBUTE_EMIT);
+unsafe fn game_finalairendr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        EFFECT_REMOVE_ATTR(agent, *EFFECT_SUB_ATTRIBUTE_EMIT);
     }
     frame(lua_state, 90.0);
-    FT_MOTION_RATE(fighter, 0.4);
+    FT_MOTION_RATE(agent, 0.4);
 }

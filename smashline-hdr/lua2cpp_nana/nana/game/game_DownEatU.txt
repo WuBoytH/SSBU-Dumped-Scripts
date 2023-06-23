@@ -1,16 +1,16 @@
 #[acmd_script( agent = "nana", script = "game_downeatu", category = ACMD_GAME, low_priority )]
-unsafe fn game_downeatu(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_downeatu(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ItemModule::pickup_item(boma, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
     }
     frame(false, 9);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::use_item(boma, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_CHANGE_STATUS_DLAY_MOTION);
     }
 }

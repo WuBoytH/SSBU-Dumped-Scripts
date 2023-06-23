@@ -1,40 +1,40 @@
 #[acmd_script( agent = "kamui", script = "effect_specialairlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("kamui_transform_splash_start"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+unsafe fn effect_specialairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_start"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("kamui_counter"), Hash40::new("top"), -7.5, 8, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        FLASH(fighter, 1, 1, 1, 0.75);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("kamui_counter"), Hash40::new("top"), -7.5, 8, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        FLASH(agent, 1, 1, 1, 0.75);
     }
     wait(lua_state, 1.0);
     for _ in 0..3 {
-    if is_excute(fighter) {
-        FLASH(fighter, 0.7, 0.7, 0.7, 0.5);
+    if is_excute(agent) {
+        FLASH(agent, 0.7, 0.7, 0.7, 0.5);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        FLASH(fighter, 0.67, 0, 0.78, 0.31);
+    if is_excute(agent) {
+        FLASH(agent, 0.67, 0, 0.78, 0.31);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
     wait(lua_state, 2.0);
 }
-if is_excute(fighter) {
-    FLASH(fighter, 0.7, 0.7, 0.7, 0.5);
+if is_excute(agent) {
+    FLASH(agent, 0.7, 0.7, 0.7, 0.5);
 }
 wait(lua_state, 2.0);
-if is_excute(fighter) {
-    COL_NORMAL(fighter);
+if is_excute(agent) {
+    COL_NORMAL(agent);
 }
 wait(lua_state, 2.0);
 frame(lua_state, 40.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
 }
 }

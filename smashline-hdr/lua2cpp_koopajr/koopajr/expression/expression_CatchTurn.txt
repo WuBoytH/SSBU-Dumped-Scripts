@@ -1,21 +1,21 @@
 #[acmd_script( agent = "koopajr", script = "expression_catchturn", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_catchturn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_catchturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article_enable(boma, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, -1);
         ArticleModule::set_visibility_whole(boma, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 29.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

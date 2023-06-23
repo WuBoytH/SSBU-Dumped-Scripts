@@ -1,17 +1,17 @@
 #[acmd_script( agent = "samus", script = "effect_specialairhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_specialairhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_LIGHT(fighter, Hash40::new("samus_screwattack"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 0.6, true, 0.471, 0.471, 0.471, 16, 1, 1, 0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_LIGHT(agent, Hash40::new("samus_screwattack"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 0.6, true, 0.471, 0.471, 0.471, 16, 1, 1, 0);
     }
     frame(lua_state, 33.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("samus_screwattack"), false, true);
-        EFFECT_LIGHT_END(fighter, 3, *EFFECT_SUB_ATTRIBUTE_FOLLOW);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("samus_screwattack"), false, true);
+        EFFECT_LIGHT_END(agent, 3, *EFFECT_SUB_ATTRIBUTE_FOLLOW);
     }
 }

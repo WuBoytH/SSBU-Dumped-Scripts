@@ -1,31 +1,31 @@
 #[acmd_script( agent = "miifighter", script = "expression_specialairn3turn", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialairn3turn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_specialairn3turn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 47.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 48.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, false, 0);
     }
     frame(lua_state, 50.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attackll"), 0);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackll"), 0);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
     frame(lua_state, 77.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, true, 0);
     }
     frame(lua_state, 77.0);
-    if is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x23c33f3bdc));
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x23c33f3bdc));
     }
 }

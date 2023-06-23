@@ -1,25 +1,25 @@
 #[acmd_script( agent = "duckhunt", script = "effect_attackdash", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackdash(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attackdash(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("duckhunt_attack_line"), Hash40::new("duckhunt_attack_line"), Hash40::new("top"), 0, 6.4, -3, 0, 0, 0, 1.1, true, *EF_FLIP_YZ);
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("duckhunt_attack_line"), Hash40::new("duckhunt_attack_line"), Hash40::new("top"), 0, 6.4, -3, 0, 0, 0, 1, true, *EF_FLIP_YZ);
-        LAST_EFFECT_SET_COLOR(fighter, 1, 0.941, 0.392);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("duckhunt_attack_line"), Hash40::new("duckhunt_attack_line"), Hash40::new("top"), 0, 6.4, -3, 0, 0, 0, 1.1, true, *EF_FLIP_YZ);
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("duckhunt_attack_line"), Hash40::new("duckhunt_attack_line"), Hash40::new("top"), 0, 6.4, -3, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+        LAST_EFFECT_SET_COLOR(agent, 1, 0.941, 0.392);
     }
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_line_b"), Hash40::new("sys_attack_line_b"), Hash40::new("top"), 0, 7, -4, 0, 0, 0, 1, true, *EF_FLIP_YZ);
-        LAST_EFFECT_SET_COLOR(fighter, 1, 0.941, 0.392);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("sys_attack_line_b"), Hash40::new("sys_attack_line_b"), Hash40::new("top"), 0, 7, -4, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+        LAST_EFFECT_SET_COLOR(agent, 1, 0.941, 0.392);
     }
     for _ in 0..3 {
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, false);
     }
     wait(lua_state, 4.0);
 }
-if is_excute(fighter) {
-    FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
 }
 }

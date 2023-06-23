@@ -1,28 +1,28 @@
 #[acmd_script( agent = "gamewatch_oil", script = "game_speciallwshoot", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallwshoot(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_speciallwshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("oil_a") as i64, hash40("off") as i64);
         VisibilityModule::set_int64(boma, hash40("oil_b") as i64, hash40("off") as i64);
         VisibilityModule::set_int64(boma, hash40("oil_c") as i64, hash40("off") as i64);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("oil_a") as i64, hash40("on") as i64);
     }
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("oil_a") as i64, hash40("off") as i64);
         VisibilityModule::set_int64(boma, hash40("oil_b") as i64, hash40("on") as i64);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("oil_b") as i64, hash40("off") as i64);
         VisibilityModule::set_int64(boma, hash40("oil_c") as i64, hash40("on") as i64);
     }
     frame(lua_state, 27.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("oil_a") as i64, hash40("off") as i64);
         VisibilityModule::set_int64(boma, hash40("oil_b") as i64, hash40("off") as i64);
         VisibilityModule::set_int64(boma, hash40("oil_c") as i64, hash40("off") as i64);

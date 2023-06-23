@@ -1,19 +1,19 @@
 #[acmd_script( agent = "ptrainer_ptrainer", script = "game_entry", category = ACMD_GAME, low_priority )]
-unsafe fn game_entry(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_entry(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, -1);
         ArticleModule::set_visibility_whole(boma, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("weapon") as i64, hash40("none") as i64);
         ArticleModule::set_visibility_whole(boma, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::shoot(boma, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, *ARTICLE_OPE_TARGET_ALL, false);
     }
     frame(lua_state, 90.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("weapon") as i64, hash40("m_ball_r") as i64);
     }
 }

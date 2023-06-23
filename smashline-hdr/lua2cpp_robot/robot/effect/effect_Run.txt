@@ -1,13 +1,13 @@
 #[acmd_script( agent = "robot", script = "effect_run", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_run(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("robot_nozzle"), Hash40::new("knee1"), 1.2, 0, 0, 90, -90, 0, 1, true);
+unsafe fn effect_run(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("robot_nozzle"), Hash40::new("knee1"), 1.2, 0, 0, 90, -90, 0, 1, true);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("robot_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, 1, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("robot_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, 1, 0, 0, 0, 0, 0, false);
     }
     wait(lua_state, 10.0);
 }

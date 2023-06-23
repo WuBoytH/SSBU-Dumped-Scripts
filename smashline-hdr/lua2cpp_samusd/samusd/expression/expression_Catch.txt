@@ -1,9 +1,9 @@
 #[acmd_script( agent = "samusd", script = "expression_catch", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_catch(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+unsafe fn expression_catch(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_hide_gun") as i64);
         ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, true, -1);
@@ -13,23 +13,23 @@ unsafe fn expression_catch(fighter: &mut L2CAgentBase) {
         ArticleModule::set_visibility_whole(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 10, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 23.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 19, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 41.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GBEAM, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 80.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
     }

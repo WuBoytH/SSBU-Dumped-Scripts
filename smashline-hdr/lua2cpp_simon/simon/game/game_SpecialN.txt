@@ -1,12 +1,12 @@
 #[acmd_script( agent = "simon", script = "game_specialn", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_SIMON_GENERATE_ARTICLE_AXE, false, -1);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::shoot(boma, *FIGHTER_SIMON_GENERATE_ARTICLE_AXE, *ARTICLE_OPE_TARGET_LAST, false);
     }
 }

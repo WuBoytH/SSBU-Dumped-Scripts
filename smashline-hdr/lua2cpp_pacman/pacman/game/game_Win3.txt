@@ -1,9 +1,9 @@
 #[acmd_script( agent = "pacman", script = "game_win3", category = ACMD_GAME, low_priority )]
-unsafe fn game_win3(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ArticleModule::generate_article(boma, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, false, -1);
             ArticleModule::change_motion(boma, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, Hash40::new("win3"), false, -1.0);
             ArticleModule::generate_article(boma, *FIGHTER_PACMAN_GENERATE_ARTICLE_FAIRY, false, -1);

@@ -1,12 +1,12 @@
 #[acmd_script( agent = "kamui", script = "game_jumpbackmini", category = ACMD_GAME, low_priority )]
-unsafe fn game_jumpbackmini(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_jumpbackmini(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_SPECIAL_S_DISABLE_FOR_JUMP);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::off_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_SPECIAL_S_DISABLE_FOR_JUMP);
     }
 }

@@ -1,17 +1,17 @@
 #[acmd_script( agent = "ness", script = "effect_specialairlwend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairlwend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("ness_psimagnet_end"), Hash40::new("trans"), 0, 6.5, 0, 0, 0, 0, 1, false);
-        FLASH(fighter, 0.5, 1, 1, 0.4);
+unsafe fn effect_specialairlwend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ness_psimagnet_end"), Hash40::new("trans"), 0, 6.5, 0, 0, 0, 0, 1, false);
+        FLASH(agent, 0.5, 1, 1, 0.4);
     }
     wait(lua_state, 5.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 10, 0, 1, 1, 0.1);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 10, 0, 1, 1, 0.1);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
 }

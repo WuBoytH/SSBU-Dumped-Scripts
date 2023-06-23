@@ -1,22 +1,22 @@
 #[acmd_script( agent = "elight", script = "effect_escapeairforesight", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_escapeairforesight(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_escapeairforesight(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ColorBlendModule::set_disable_camera_depth_influence(boma, true);
-        COL_PRI(fighter, 250);
-        FLASH(fighter, 0, 0.1, 0.6, 0.95);
-        EFFECT(fighter, Hash40::new("elight_foresight2"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, true);
-        EFFECT(fighter, Hash40::new("elight_foresight_lensflare"), Hash40::new("top"), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("elight_foresight_body"), Hash40::new("hip"), 2, 0, 0, 0, 0, 90, 1, true);
+        COL_PRI(agent, 250);
+        FLASH(agent, 0, 0.1, 0.6, 0.95);
+        EFFECT(agent, Hash40::new("elight_foresight2"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT(agent, Hash40::new("elight_foresight_lensflare"), Hash40::new("top"), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT_FOLLOW(agent, Hash40::new("elight_foresight_body"), Hash40::new("hip"), 2, 0, 0, 0, 0, 90, 1, true);
     }
     wait(lua_state, 18.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 6, 0, 0.1, 0.6, 0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 6, 0, 0.1, 0.6, 0);
     }
     wait(lua_state, 6.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
         ColorBlendModule::set_disable_camera_depth_influence(boma, false);
     }
 }

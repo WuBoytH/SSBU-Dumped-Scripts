@@ -1,18 +1,18 @@
 #[acmd_script( agent = "palutena", script = "sound_specialn", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_specialn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 8.0);
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_PALUTENA_GENERATE_ARTICLE_AUTORETICLE) {
-        if is_excute(fighter) {
-            PLAY_SEQUENCE(fighter, Hash40::new("seq_palutena_rnd_special_n"));
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_PALUTENA_GENERATE_ARTICLE_AUTORETICLE) {
+        if is_excute(agent) {
+            PLAY_SEQUENCE(agent, Hash40::new("seq_palutena_rnd_special_n"));
         }
     }
-    if is_excute(fighter) {
-        PLAY_STATUS(fighter, Hash40::new("se_palutena_special_n01"));
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_palutena_special_n01"));
     }
     wait(lua_state, 40.0);
-    if is_excute(fighter) {
-        sound!(fighter, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+    if is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
     }
 }

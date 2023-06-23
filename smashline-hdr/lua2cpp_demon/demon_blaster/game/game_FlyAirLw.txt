@@ -1,18 +1,18 @@
 #[acmd_script( agent = "demon_blaster", script = "game_flyairlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_flyairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 9.0, 60, 35, 0, 80, 1.0, 0.0, 0.0, 0.0, None, None, None, 0.25, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_ENERGY);
-        ATTACK(fighter, 1, 0, Hash40::new("top"), 9.0, 50, 35, 0, 80, 7.0, 0.0, -3.0, 6.0, None, None, None, 0.25, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_ENERGY);
-        ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 1.1);
-        ATK_SET_SHIELD_SETOFF_MUL(fighter, 1, 1.1);
+unsafe fn game_flyairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 9.0, 60, 35, 0, 80, 1.0, 0.0, 0.0, 0.0, None, None, None, 0.25, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_ENERGY);
+        ATTACK(agent, 1, 0, Hash40::new("top"), 9.0, 50, 35, 0, 80, 7.0, 0.0, -3.0, 6.0, None, None, None, 0.25, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_ENERGY);
+        ATK_SET_SHIELD_SETOFF_MUL(agent, 0, 1.1);
+        ATK_SET_SHIELD_SETOFF_MUL(agent, 1, 1.1);
         AttackModule::set_add_reaction_frame_revised(boma, 1, 0.1, false);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear(boma, 1, false);
-        ATTACK(fighter, 0, 0, Hash40::new("top"), 9.0, 60, 35, 0, 80, 2.5, 0.0, -1.0, 0.8, None, None, None, 0.25, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_ENERGY);
+        ATTACK(agent, 0, 0, Hash40::new("top"), 9.0, 60, 35, 0, 80, 2.5, 0.0, -1.0, 0.8, None, None, None, 0.25, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_ENERGY);
         AttackModule::set_add_reaction_frame_revised(boma, 0, 10.0, false);
     }
 }

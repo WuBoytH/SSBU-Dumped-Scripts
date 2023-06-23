@@ -1,22 +1,22 @@
 #[acmd_script( agent = "koopa", script = "effect_specialsjump", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialsjump(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_specialsjump(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("koopa_wait_breath"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 2, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("koopa_wait_breath"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 2, true);
     }
     for _ in 0..2 {
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("koopa_diving"), Hash40::new("rot"), 0, 0, 0, 90, 0, 0, 2, true, 1);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("koopa_diving"), Hash40::new("rot"), 0, 0, 0, 90, 0, 0, 2, true, 1);
     }
     wait(lua_state, 8.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("koopa_diving"), Hash40::new("rot"), 5, 0, 0, 90, 0, 0, 1.7, true, 0.8);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("koopa_diving"), Hash40::new("rot"), 5, 0, 0, 90, 0, 0, 1.7, true, 0.8);
     }
     wait(lua_state, 6.0);
 }
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("koopa_wait_breath"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("koopa_wait_breath"), false, false);
 }
 }

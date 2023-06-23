@@ -1,10 +1,10 @@
 #[acmd_script( agent = "link_ancientbowarrow", script = "effect_fly", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_fly(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_fly(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT_DETACH_KIND(fighter, Hash40::new("link_final_arrow_flare"), -1);
-        EFFECT_OFF_KIND(fighter, Hash40::new("link_final_arrow_flare"), false, false);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("link_final_arrow_flare"), -1);
+        EFFECT_OFF_KIND(agent, Hash40::new("link_final_arrow_flare"), false, false);
     }
 }

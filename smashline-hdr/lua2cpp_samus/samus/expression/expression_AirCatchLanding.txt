@@ -1,22 +1,22 @@
 #[acmd_script( agent = "samus", script = "expression_aircatchlanding", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_aircatchlanding(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_aircatchlanding(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_hide_gun") as i64);
         ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, false, -1);
         ArticleModule::change_motion(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, Hash40::new("air_catch_pose"), false, -1.0);
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(boma, false, 0);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::change_status_exist(boma, *FIGHTER_SAMUS_GENERATE_ARTICLE_GBEAM, *WEAPON_SAMUS_GBEAM_STATUS_KIND_REWIND);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_SAMUS_GENERATE_ARTICLE_GBEAM, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

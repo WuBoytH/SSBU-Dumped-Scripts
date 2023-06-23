@@ -1,23 +1,23 @@
 #[acmd_script( agent = "szerosuit", script = "effect_attacklw3", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attacklw3(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attacklw3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("szero_smash_fire"), Hash40::new("toel"), 0, -0.7, 0, 0, 0, 0, 0.6, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("szero_smash_fire"), Hash40::new("toel"), 0, -0.7, 0, 0, 0, 0, 0.6, true);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 4, 0, -8.5, -32.5, -160.1, 1, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.3);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 4, 0, -8.5, -32.5, -160.1, 1, true);
+        LAST_EFFECT_SET_RATE(agent, 1.3);
     }
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        LAST_EFFECT_SET_ALPHA(fighter, 0.6);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_ALPHA(agent, 0.6);
     }
     frame(lua_state, 29.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("szero_smash_fire"), true, false);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("szero_smash_fire"), true, false);
     }
 }

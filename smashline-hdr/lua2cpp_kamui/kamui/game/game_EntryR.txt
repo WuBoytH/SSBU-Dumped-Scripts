@@ -1,14 +1,14 @@
 #[acmd_script( agent = "kamui", script = "game_entryr", category = ACMD_GAME, low_priority )]
-unsafe fn game_entryr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
         ArticleModule::generate_article(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, false, -1);
         ArticleModule::change_motion(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, Hash40::new("entry_r"), false, -1.0);
     }
     frame(lua_state, 52.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON);
         VisibilityModule::set_whole(boma, true);
     }

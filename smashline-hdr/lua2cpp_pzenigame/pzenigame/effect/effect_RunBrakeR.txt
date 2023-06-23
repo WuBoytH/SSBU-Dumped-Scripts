@@ -1,12 +1,12 @@
 #[acmd_script( agent = "pzenigame", script = "effect_runbraker", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_runbraker(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("pzenigame_brake"), Hash40::new("top"), 0, 0, 2, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_runbraker(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("pzenigame_brake"), Hash40::new("top"), 0, 0, 2, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 10.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }

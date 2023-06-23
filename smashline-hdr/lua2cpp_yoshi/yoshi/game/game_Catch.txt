@@ -1,29 +1,29 @@
 #[acmd_script( agent = "yoshi", script = "game_catch", category = ACMD_GAME, low_priority )]
-unsafe fn game_catch(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_catch(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 13.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         GrabModule::set_rebound(boma, true);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
-        CATCH(fighter, 0, Hash40::new("mouth2"), 3.5, -2.0, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_A);
-        CATCH(fighter, 1, Hash40::new("mouth2"), 2.8, 1.2, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_G);
-        CATCH(fighter, 2, Hash40::new("top"), 5.5, 0.0, 6.0, 7.5, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_GA);
+    if is_excute(agent) {
+        CATCH(agent, 0, Hash40::new("mouth2"), 3.5, -2.0, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_A);
+        CATCH(agent, 1, Hash40::new("mouth2"), 2.8, 1.2, -0.5, 0.0, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 2, Hash40::new("top"), 5.5, 0.0, 6.0, 7.5, *FIGHTER_STATUS_KIND_CAPTURE_PULLED_YOSHI, *COLLISION_SITUATION_MASK_GA);
     }
-    game_CaptureCutCommon(fighter);
+    game_CaptureCutCommon(agent);
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR, 2);
+    if is_excute(agent) {
+        grab!(agent, *MA_MSC_CMD_GRAB_CLEAR, 2);
     }
     frame(lua_state, 22.0);
-    if is_excute(fighter) {
-        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
+    if is_excute(agent) {
+        grab!(agent, *MA_MSC_CMD_GRAB_CLEAR_ALL);
         GrabModule::set_rebound(boma, false);
     }
     frame(lua_state, 48.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
     }
 }

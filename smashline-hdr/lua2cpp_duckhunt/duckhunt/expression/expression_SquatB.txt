@@ -1,14 +1,14 @@
 #[acmd_script( agent = "duckhunt", script = "expression_squatb", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_squatb(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_squatb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     wait_loop_sync_mot();
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, 0x11699da2fd, 1, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 34.0);

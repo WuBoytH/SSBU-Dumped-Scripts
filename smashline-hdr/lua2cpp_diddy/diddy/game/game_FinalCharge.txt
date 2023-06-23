@@ -1,16 +1,16 @@
 #[acmd_script( agent = "diddy", script = "game_finalcharge", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalcharge(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_finalcharge(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         PostureModule::scale(boma, 10, 0);
         0x148390(95671436, 2.1);
         CAM_ZOOM_IN_arg5(0, 0);
-        SLOW_OPPONENT(fighter, 30, 60);
+        SLOW_OPPONENT(agent, 30, 60);
     }
     frame(lua_state, 40.0);
-    if is_excute(fighter) {
-        CAM_ZOOM_OUT(fighter);
+    if is_excute(agent) {
+        CAM_ZOOM_OUT(agent);
         WorkModule::on_flag(boma, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_END_CHARGE_ZOOM);
     }
 }

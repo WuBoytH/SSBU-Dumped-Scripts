@@ -1,20 +1,20 @@
 #[acmd_script( agent = "demon", script = "game_specialairnhi", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairnhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialairnhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     FighterSpecializer_Demon::set_devil(boma, true, 2);
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_DEMON_GENERATE_ARTICLE_BLASTER, false, -1);
         ArticleModule::shoot_exist(boma, *FIGHTER_DEMON_GENERATE_ARTICLE_BLASTER, *ARTICLE_OPE_TARGET_ALL, false);
         WorkModule::on_flag(boma, *FIGHTER_DEMON_STATUS_SPECIAL_N_FLAG_FOLLOW_NODE);
     }
     frame(lua_state, 28.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_DEMON_STATUS_SPECIAL_N_FLAG_ENABLE_CONTROL_ENERGY);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::off_flag(boma, *FIGHTER_DEMON_STATUS_SPECIAL_N_FLAG_FOLLOW_NODE);
     }
     frame(lua_state, 43.0);

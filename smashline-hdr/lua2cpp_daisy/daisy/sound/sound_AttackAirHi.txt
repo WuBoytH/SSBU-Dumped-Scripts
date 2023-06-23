@@ -1,13 +1,13 @@
 #[acmd_script( agent = "daisy", script = "sound_attackairhi", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_attackairhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_attackairhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        PLAY_SEQUENCE(fighter, Hash40::new("seq_daisy_rnd_attack"));
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_daisy_rnd_attack"));
     }
     wait(lua_state, 7.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_daisy_attackair_h01"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_daisy_attackair_h01"));
     }
 }

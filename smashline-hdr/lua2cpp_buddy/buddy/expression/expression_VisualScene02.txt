@@ -1,21 +1,21 @@
 #[acmd_script( agent = "buddy", script = "expression_visualscene02", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_visualscene02(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_visualscene02(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_73_statue_v2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
-        RUMBLE_FINAL_TARGET(fighter, Hash40::new("rbkind_damage_lv1"), 6);
+    if is_excute(agent) {
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_lv1"), 6);
     }
     frame(lua_state, 28.0);
-    if is_excute(fighter) {
-        RUMBLE_FINAL_TARGET(fighter, Hash40::new("rbkind_damage_visual"), 45);
+    if is_excute(agent) {
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_visual"), 45);
     }
     frame(lua_state, 77.0);
-    if is_excute(fighter) {
-        RUMBLE_FINAL_TARGET(fighter, Hash40::new("rbkind_damage_lv4"), 0);
+    if is_excute(agent) {
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_lv4"), 0);
     }
 }

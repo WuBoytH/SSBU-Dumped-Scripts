@@ -1,29 +1,29 @@
 #[acmd_script( agent = "packun", script = "effect_speciallwbite", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_speciallwbite(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_speciallwbite(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_v_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_v_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("packun_longrange_start"), Hash40::new("mouth"), 0, 0, 0, 180, 0, 0, 0.85, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("packun_longrange_start"), Hash40::new("mouth"), 0, 0, 0, 180, 0, 0, 0.85, true);
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("packun_longrange_bite_line"), Hash40::new("mouth"), 6, 0, 0, 0, 90, 0, 0.8, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("packun_longrange_bite_line"), Hash40::new("mouth"), 6, 0, 0, 0, 90, 0, 0.8, true);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("packun_longrange_bite"), Hash40::new("mouth"), 0, 0, 0, 180, 0, 0, 0.85, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("packun_longrange_bite"), Hash40::new("mouth"), 0, 0, 0, 180, 0, 0, 0.85, true);
     }
     frame(lua_state, 15.0);
-    if is_excute(fighter) {
-        EFFECT_DETACH_KIND(fighter, Hash40::new("packun_longrange_bite"), -1);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("packun_longrange_bite"), -1);
     }
     frame(lua_state, 17.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("packun_longrange_bite_line2"), Hash40::new("mouth"), 5, 0, 0, 0, 90, 0, 0.9, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("packun_longrange_bite_line2"), Hash40::new("mouth"), 5, 0, 0, 0, 90, 0, 0.9, true);
     }
 }

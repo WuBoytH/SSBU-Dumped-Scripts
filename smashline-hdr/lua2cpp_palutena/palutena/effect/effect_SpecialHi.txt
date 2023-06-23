@@ -1,35 +1,35 @@
 #[acmd_script( agent = "palutena", script = "effect_specialhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("palutena_teleport_end"), Hash40::new("rot"), 0, 4, 0, 0, 0, 0, 1, false);
-        FLASH(fighter, 1, 1, 1, 1);
+unsafe fn effect_specialhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("palutena_teleport_end"), Hash40::new("rot"), 0, 4, 0, 0, 0, 0, 1, false);
+        FLASH(agent, 1, 1, 1, 1);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 21.5, 0, 0, 90, 0, 1, true);
-        LAST_EFFECT_SET_RATE(fighter, 4);
-        FLASH(fighter, 1, 1, 1, 0.3);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 21.5, 0, 0, 90, 0, 1, true);
+        LAST_EFFECT_SET_RATE(agent, 4);
+        FLASH(agent, 1, 1, 1, 0.3);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        FLASH(fighter, 0.25, 1, 1, 0.2);
+    if is_excute(agent) {
+        FLASH(agent, 0.25, 1, 1, 0.2);
     }
     wait(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("palutena_backlight"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("palutena_backlight"), false, true);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        FLASH(fighter, 1, 1, 1, 0.15);
+    if is_excute(agent) {
+        FLASH(agent, 1, 1, 1, 0.15);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
     wait(lua_state, 5.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
     }
 }

@@ -1,21 +1,21 @@
 #[acmd_script( agent = "gamewatch", script = "sound_specialhiclose", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialhiclose(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_specialhiclose(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_gamewatch_wave10_hi"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_gamewatch_wave10_hi"));
     }
     wait(lua_state, 4.0);
-    if is_excute(fighter) {
-        STOP_SE(fighter, Hash40::new("se_gamewatch_wave10_hi"));
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_gamewatch_wave10_hi"));
     }
     wait(lua_state, 4.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_gamewatch_wave10_lo"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_gamewatch_wave10_lo"));
     }
     wait(lua_state, 6.0);
-    if is_excute(fighter) {
-        STOP_SE(fighter, Hash40::new("se_gamewatch_wave10_lo"));
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_gamewatch_wave10_lo"));
     }
 }

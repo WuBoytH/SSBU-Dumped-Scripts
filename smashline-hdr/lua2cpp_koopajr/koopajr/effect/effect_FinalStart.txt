@@ -1,19 +1,19 @@
 #[acmd_script( agent = "koopajr", script = "effect_finalstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::req_screen(boma, Hash40::new("bg_koopajr_final"), false, false, false);
-        COL_PRI(fighter, 105);
-        BURN_COLOR(fighter, 0.5, 3, 3, 0);
-        EFFECT_FLW_UNSYNC_VIS(fighter, Hash40::new("koopajr_final_change"), Hash40::new("rot"), 0, -2, 0, 0, 0, 0, 1, true);
+        COL_PRI(agent, 105);
+        BURN_COLOR(agent, 0.5, 3, 3, 0);
+        EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("koopajr_final_change"), Hash40::new("rot"), 0, -2, 0, 0, 0, 0, 1, true);
     }
     wait(lua_state, 5.0);
-    if is_excute(fighter) {
-        BURN_COLOR_FRAME(fighter, 8, 0.5, 3, 3, 0.6);
+    if is_excute(agent) {
+        BURN_COLOR_FRAME(agent, 8, 0.5, 3, 3, 0.6);
     }
     wait(lua_state, 2.0);
-    if is_excute(fighter) {
-        BURN_COLOR_NORMAL(fighter);
+    if is_excute(agent) {
+        BURN_COLOR_NORMAL(agent);
     }
 }

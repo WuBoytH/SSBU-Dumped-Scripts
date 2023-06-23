@@ -1,10 +1,10 @@
 #[acmd_script( agent = "ridley", script = "expression_specialairsdragjump", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialairsdragjump(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_specialairsdragjump(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -1,41 +1,41 @@
 #[acmd_script( agent = "koopajr_remainclown", script = "effect_specialhiclownfall", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialhiclownfall(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("koopajr_zibaku_start_l"), Hash40::new("koopajr_zibaku_start_r"), Hash40::new("top"), 0, 2, 0, 0, 0, 0, 0.8, true, *EF_FLIP_NONE);
+unsafe fn effect_specialhiclownfall(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("koopajr_zibaku_start_l"), Hash40::new("koopajr_zibaku_start_r"), Hash40::new("top"), 0, 2, 0, 0, 0, 0, 0.8, true, *EF_FLIP_NONE);
         EffectModule::enable_sync_init_pos_last(boma);
     }
     for _ in 0..7 {
-    if is_excute(fighter) {
-        FLASH(fighter, 1, 0.5, 0.3, 0.7);
+    if is_excute(agent) {
+        FLASH(agent, 1, 0.5, 0.3, 0.7);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
     }
     wait(lua_state, 1.0);
 }
 frame(lua_state, 13.0);
-if is_excute(fighter) {
-    EFFECT_FLW_POS(fighter, Hash40::new("koopajr_zibaku_black_smoke"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FLW_POS(agent, Hash40::new("koopajr_zibaku_black_smoke"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, true);
     EffectModule::enable_sync_init_pos_last(boma);
 }
-if is_excute(fighter) {
-    BURN_COLOR(fighter, 2, 0.1, 0, 0.8);
+if is_excute(agent) {
+    BURN_COLOR(agent, 2, 0.1, 0, 0.8);
 }
 wait(lua_state, 2.0);
-if is_excute(fighter) {
-    BURN_COLOR_FRAME(fighter, 2, 1, 0.2, 0.1, 0);
+if is_excute(agent) {
+    BURN_COLOR_FRAME(agent, 2, 1, 0.2, 0.1, 0);
 }
 wait(lua_state, 1.0);
-if is_excute(fighter) {
-    BURN_COLOR_NORMAL(fighter);
-    FLASH(fighter, 1, 0.5, 0.3, 0.5);
+if is_excute(agent) {
+    BURN_COLOR_NORMAL(agent);
+    FLASH(agent, 1, 0.5, 0.3, 0.5);
 }
 wait(lua_state, 1.0);
-if is_excute(fighter) {
-    COL_NORMAL(fighter);
+if is_excute(agent) {
+    COL_NORMAL(agent);
 }
 wait(lua_state, 1.0);
 }

@@ -1,63 +1,63 @@
 #[acmd_script( agent = "dolly", script = "effect_finalstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::req_screen(boma, Hash40::new("bg_dolly_final"), false, false, false);
-        FILL_SCREEN_MODEL_COLOR(fighter, 0, 0, 1, 0.95, 0.9, 0, 0, 0, 1, 1.2, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("hip"), 1, 0, 0, 0, 0, 0, 1.4, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 0.7, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("handl"), 1, 0, 0, 0, 0, 0, 0.7, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("footr"), 1, 0, 0, 0, 0, 0, 0.8, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("footl"), 1, 0, 0, 0, 0, 0, 0.8, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("head"), 1, 0, 0, 0, 0, 0, 0.9, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("kneel"), 1, 0, 0, 0, 0, 0, 0.9, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("sys_final_aura"), Hash40::new("kneer"), 1, 0, 0, 0, 0, 0, 0.9, true);
+        FILL_SCREEN_MODEL_COLOR(agent, 0, 0, 1, 0.95, 0.9, 0, 0, 0, 1, 1.2, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura"), Hash40::new("hip"), 1, 0, 0, 0, 0, 0, 1.4, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 0.7, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura"), Hash40::new("handl"), 1, 0, 0, 0, 0, 0, 0.7, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura"), Hash40::new("footr"), 1, 0, 0, 0, 0, 0, 0.8, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura"), Hash40::new("footl"), 1, 0, 0, 0, 0, 0, 0.8, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura"), Hash40::new("head"), 1, 0, 0, 0, 0, 0, 0.9, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura"), Hash40::new("kneel"), 1, 0, 0, 0, 0, 0, 0.9, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura"), Hash40::new("kneer"), 1, 0, 0, 0, 0, 0, 0.9, true);
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("dolly_wave_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("dolly_wave_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 28.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("sys_final_aura"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("sys_final_aura"), false, true);
     }
     frame(lua_state, 38.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("dolly_wave_arc"), Hash40::new("dolly_wave_arc"), Hash40::new("top"), 0, 10, 4, 69, -46, -45, 1.2, true, *EF_FLIP_YZ);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("dolly_wave_arc"), Hash40::new("dolly_wave_arc"), Hash40::new("top"), 0, 10, 4, 69, -46, -45, 1.2, true, *EF_FLIP_YZ);
     }
     frame(lua_state, 43.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("dolly_wave_aura"), false, true);
-        LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("dolly_wave_aura"), false, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 46.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("dolly_wave_aura"), Hash40::new("handl"), 1, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("dolly_wave_aura"), Hash40::new("handl"), 1, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 58.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("dolly_wave_arc"), Hash40::new("dolly_wave_arc"), Hash40::new("top"), 0, 10, 4, -55, -31, -137, 1.2, true, *EF_FLIP_YZ);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("dolly_wave_arc"), Hash40::new("dolly_wave_arc"), Hash40::new("top"), 0, 10, 4, -55, -31, -137, 1.2, true, *EF_FLIP_YZ);
     }
     frame(lua_state, 63.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("dolly_wave_aura"), false, true);
-        LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("dolly_wave_aura"), false, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 70.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("dolly_wave_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("dolly_wave_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 88.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("dolly_wave_arc"), Hash40::new("dolly_wave_arc"), Hash40::new("top"), 0, 10, 4, 69, -46, -45, 1.2, true, *EF_FLIP_YZ);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("dolly_wave_arc"), Hash40::new("dolly_wave_arc"), Hash40::new("top"), 0, 10, 4, 69, -46, -45, 1.2, true, *EF_FLIP_YZ);
     }
     frame(lua_state, 90.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 100.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("dolly_wave_aura"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("dolly_wave_aura"), false, true);
     }
 }

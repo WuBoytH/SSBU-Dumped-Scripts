@@ -1,15 +1,15 @@
 #[acmd_script( agent = "kirby", script = "effect_trailspecialn12", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_trailspecialn12(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("trail_sword_fire"), true, true);
-        EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("trail_fire_hold"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
-        EFFECT_FOLLOW(fighter, 0x0e75cf6f7f, Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("trail_sword_fire"), Hash40::new("haver"), 0, 0, 0, -90, 0, 0, 1, true);
+unsafe fn effect_trailspecialn12(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("trail_sword_fire"), true, true);
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_hold"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, 0x0e75cf6f7f, Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("trail_sword_fire"), Hash40::new("haver"), 0, 0, 0, -90, 0, 0, 1, true);
     }
     frame(lua_state, 29.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("trail_fire_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
     }
 }

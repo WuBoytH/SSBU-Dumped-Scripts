@@ -1,18 +1,18 @@
 #[acmd_script( agent = "miienemyf", script = "effect_cliffattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_cliffattack(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_cliffattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 18.0);
-    if is_excute(fighter) {
-        EFFECT_FLIP(fighter, Hash40::new("sys_smash_flash"), Hash40::new("sys_smash_flash"), Hash40::new("handl"), 2, 0.5, 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+    if is_excute(agent) {
+        EFFECT_FLIP(agent, Hash40::new("sys_smash_flash"), Hash40::new("sys_smash_flash"), Hash40::new("handl"), 2, 0.5, 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
     }
     frame(lua_state, 21.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 22.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("sys_attack_arc_b"), Hash40::new("top"), 0, 3, 3, 0, 0, 10, 1.1, true, *EF_FLIP_YZ);
-        LAST_EFFECT_SET_RATE(fighter, 0.8);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("sys_attack_arc_b"), Hash40::new("top"), 0, 3, 3, 0, 0, 10, 1.1, true, *EF_FLIP_YZ);
+        LAST_EFFECT_SET_RATE(agent, 0.8);
     }
 }

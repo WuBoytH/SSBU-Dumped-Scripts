@@ -1,15 +1,15 @@
 #[acmd_script( agent = "packun", script = "effect_attackairn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attackairn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 8.0);
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("packun_atk_air_n"), Hash40::new("neck"), 0, 0, 0, 0, 30, 80, 1.1, true);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("packun_atk_air_n"), Hash40::new("neck"), 0, 0, 0, 0, 30, 80, 1.1, true);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("packun_atk_air_n"), Hash40::new("neck"), 0, 0, 0, -180, -30, 80, 1.1, true);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("packun_atk_air_n"), Hash40::new("neck"), 0, 0, 0, -180, -30, 80, 1.1, true);
         }
     }
 }

@@ -1,9 +1,9 @@
 #[acmd_script( agent = "kamui_waterdragon", script = "game_finalvisualscene02", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalvisualscene02(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_finalvisualscene02(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 70.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, true);
         WorkModule::on_flag(boma, *WEAPON_KAMUI_WATERDRAGON_INSTANCE_WORK_ID_FLAG_SYNC_SPYCLOAK);
     }

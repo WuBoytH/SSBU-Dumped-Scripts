@@ -1,228 +1,228 @@
 #[acmd_script( agent = "gekkouga_gekkougas", script = "effect_finalattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalattack(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_finalattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_sword"), Hash40::new("haver"), -0.0, 0, 0, 180, -90, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("gekkouga_sword"), Hash40::new("haver"), -0.0, 0, 0, 180, -90, 0, 1, true);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         effect(*MA_MSC_CMD_EFFECT_AFTER_IMAGE3_ON, Hash40::new("tex_gekkouga_sword1"), Hash40::new("tex_gekkouga_sword1"), 8, Hash40::new("haver"), 0, -1.7, 0, Hash40::new("haver"), -0.0, -11.7, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 180, -90, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_BLEND_SRC_ONE, 1001);
         methodlib::L2CAgent::pop();
     }
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("bust"), 0, 0, 0, 0, 75, 0, 1, true);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("bust"), 0, 0, 0, 0, 75, 0, 1, true);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("bust"), 0, 0, 0, 0, 105, 0, 1, true);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("bust"), 0, 0, 0, 0, 105, 0, 1, true);
         }
     }
 }
 frame(lua_state, 8.0);
-if is_excute(fighter) {
-    EFFECT_FLIP(fighter, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 5, 15, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+if is_excute(agent) {
+    EFFECT_FLIP(agent, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 5, 15, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
 }
 frame(lua_state, 20.0);
-if is_excute(fighter) {
-    AFTER_IMAGE_OFF(fighter, 4);
+if is_excute(agent) {
+    AFTER_IMAGE_OFF(agent, 4);
 }
 frame(lua_state, 22.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_hiougi_line"), false, false);
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_sword"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_hiougi_line"), false, false);
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_sword"), false, false);
 }
 frame(lua_state, 28.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_shadow_b"), Hash40::new("rot"), 0, -6.7, -5.5, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_shadow_b"), Hash40::new("rot"), 0, -6.7, -5.5, 0, 0, 0, 1, true);
 }
 frame(lua_state, 29.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_sword"), Hash40::new("haver"), -0.0, 0, 0, 180, -90, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_sword"), Hash40::new("haver"), -0.0, 0, 0, 180, -90, 0, 1, true);
 }
 frame(lua_state, 30.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     effect(*MA_MSC_CMD_EFFECT_AFTER_IMAGE3_ON, Hash40::new("tex_gekkouga_sword1"), Hash40::new("tex_gekkouga_sword1"), 8, Hash40::new("haver"), 0, -1.7, 0, Hash40::new("haver"), -0.0, -11.7, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 180, -90, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_BLEND_SRC_ONE, 1001);
     methodlib::L2CAgent::pop();
 }
 frame(lua_state, 35.0);
-if is_excute(fighter) {
-    EFFECT(fighter, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
 }
 frame(lua_state, 43.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_shadow_b"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_shadow_b"), false, false);
 }
 frame(lua_state, 44.0);
-if is_excute(fighter) {
-    AFTER_IMAGE_OFF(fighter, 3);
+if is_excute(agent) {
+    AFTER_IMAGE_OFF(agent, 3);
 }
 frame(lua_state, 45.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_hiougi_line"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_hiougi_line"), false, false);
 }
 frame(lua_state, 49.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_sword"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_sword"), false, false);
 }
 frame(lua_state, 51.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_shadow_b"), Hash40::new("rot"), 0, -10, 1, 10, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_shadow_b"), Hash40::new("rot"), 0, -10, 1, 10, 0, 0, 1, true);
 }
 frame(lua_state, 52.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, -2, 0, 10, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, -2, 0, 10, 0, 0, 1, true);
 }
 frame(lua_state, 60.0);
-if is_excute(fighter) {
-    EFFECT_FLIP(fighter, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 10, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+if is_excute(agent) {
+    EFFECT_FLIP(agent, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 10, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
 }
 frame(lua_state, 70.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_shadow_b"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_shadow_b"), false, false);
 }
 frame(lua_state, 71.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_hiougi_line"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_hiougi_line"), false, false);
 }
 frame(lua_state, 77.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_shadow_j"), Hash40::new("rot"), 0, -10, -5, 45, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_shadow_j"), Hash40::new("rot"), 0, -10, -5, 45, 0, 0, 1, true);
 }
 frame(lua_state, 78.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, 25, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, 25, 0, 0, 1, true);
 }
 frame(lua_state, 83.0);
-if is_excute(fighter) {
-    EFFECT_FLIP(fighter, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 25, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+if is_excute(agent) {
+    EFFECT_FLIP(agent, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 25, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
 }
 frame(lua_state, 87.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_shadow_j"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_shadow_j"), false, false);
 }
 frame(lua_state, 88.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_hiougi_line"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_hiougi_line"), false, false);
 }
 frame(lua_state, 94.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 3, 0, 0, 180, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 3, 0, 0, 180, 0, 1, true);
 }
 frame(lua_state, 95.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_shadow_j"), Hash40::new("rot"), 0, -10, -2, 180, 0, 180, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_shadow_j"), Hash40::new("rot"), 0, -10, -2, 180, 0, 180, 1, true);
 }
 frame(lua_state, 100.0);
-if is_excute(fighter) {
-    EFFECT_FLIP(fighter, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+if is_excute(agent) {
+    EFFECT_FLIP(agent, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
 }
 frame(lua_state, 104.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_hiougi_line"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_hiougi_line"), false, false);
 }
 frame(lua_state, 105.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_shadow_j"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_shadow_j"), false, false);
 }
 frame(lua_state, 106.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_shadow_f"), Hash40::new("rot"), 0, -4.5, 11, -60, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_shadow_f"), Hash40::new("rot"), 0, -4.5, 11, -60, 0, 0, 1, true);
 }
 frame(lua_state, 107.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, -65, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, -65, 0, 0, 1, true);
 }
 frame(lua_state, 108.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_sword"), Hash40::new("haver"), -0.0, 0, 0, 180, -90, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_sword"), Hash40::new("haver"), -0.0, 0, 0, 180, -90, 0, 1, true);
     effect(*MA_MSC_CMD_EFFECT_AFTER_IMAGE3_ON, Hash40::new("tex_gekkouga_sword1"), Hash40::new("tex_gekkouga_sword1"), 8, Hash40::new("haver"), 0, -1.7, 0, Hash40::new("haver"), -0.0, -11.7, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 180, -90, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_BLEND_SRC_ONE, 1001);
     methodlib::L2CAgent::pop();
 }
 frame(lua_state, 112.0);
-if is_excute(fighter) {
-    AFTER_IMAGE_OFF(fighter, 2);
+if is_excute(agent) {
+    AFTER_IMAGE_OFF(agent, 2);
 }
 frame(lua_state, 115.0);
-if is_excute(fighter) {
-    EFFECT_FLIP(fighter, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, -65, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+if is_excute(agent) {
+    EFFECT_FLIP(agent, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, -65, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
 }
 frame(lua_state, 121.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_shadow_f"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_shadow_f"), false, false);
 }
 frame(lua_state, 122.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_hiougi_line"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_hiougi_line"), false, false);
 }
 frame(lua_state, 123.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_sword"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_sword"), false, false);
 }
 frame(lua_state, 133.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
 }
 frame(lua_state, 134.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_shadow_j"), Hash40::new("rot"), 0, -11, 0, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_shadow_j"), Hash40::new("rot"), 0, -11, 0, 0, 0, 0, 1, true);
 }
 frame(lua_state, 139.0);
-if is_excute(fighter) {
-    EFFECT_FLIP(fighter, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+if is_excute(agent) {
+    EFFECT_FLIP(agent, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
 }
 frame(lua_state, 142.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_hiougi_line"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_hiougi_line"), false, false);
 }
 frame(lua_state, 143.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_shadow_j"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_shadow_j"), false, false);
 }
 frame(lua_state, 153.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_shadow_f"), Hash40::new("rot"), 0, -11, 0, 0, 0, 0, 1, true);
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_shadow_f"), Hash40::new("rot"), 0, -11, 0, 0, 0, 0, 1, true);
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_final_hiougi_line"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
 }
 frame(lua_state, 154.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("gekkouga_sword"), Hash40::new("haver"), -0.0, 0, 0, 180, -90, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("gekkouga_sword"), Hash40::new("haver"), -0.0, 0, 0, 180, -90, 0, 1, true);
 }
 frame(lua_state, 155.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     effect(*MA_MSC_CMD_EFFECT_AFTER_IMAGE3_ON, Hash40::new("tex_gekkouga_sword1"), Hash40::new("tex_gekkouga_sword1"), 8, Hash40::new("haver"), 0, -1.7, 0, Hash40::new("haver"), -0.0, -11.7, 0, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 180, -90, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_BLEND_SRC_ONE, 1001);
     methodlib::L2CAgent::pop();
 }
 frame(lua_state, 160.0);
-if is_excute(fighter) {
-    EFFECT_FLIP(fighter, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+if is_excute(agent) {
+    EFFECT_FLIP(agent, Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("gekkouga_final_hiougi_hit"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
 }
 frame(lua_state, 164.0);
-if is_excute(fighter) {
-    AFTER_IMAGE_OFF(fighter, 2);
+if is_excute(agent) {
+    AFTER_IMAGE_OFF(agent, 2);
 }
 frame(lua_state, 169.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_shadow_f"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_shadow_f"), false, false);
 }
 frame(lua_state, 170.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("gekkouga_final_hiougi_line"), false, false);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_final_hiougi_line"), false, false);
 }
 frame(lua_state, 190.0);
 frame(lua_state, 220.0);
-if is_excute(fighter) {
-    EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("handl"), 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("handl"), 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
 }
 frame(lua_state, 239.0);
-if is_excute(fighter) {
-    EFFECT(fighter, Hash40::new("sys_attack_line"), Hash40::new("top"), 0, 30, 0, 90, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("sys_attack_line"), Hash40::new("top"), 0, 30, 0, 90, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
 }
 frame(lua_state, 242.0);
-if is_excute(fighter) {
-    EFFECT(fighter, Hash40::new("gekkouga_final_hiougi_finish"), Hash40::new("top"), 0, 0, 0, 90, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("gekkouga_final_hiougi_finish"), Hash40::new("top"), 0, 0, 0, 90, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
 }
 }

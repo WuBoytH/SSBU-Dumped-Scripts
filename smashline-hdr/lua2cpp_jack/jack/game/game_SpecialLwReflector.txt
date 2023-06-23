@@ -1,17 +1,17 @@
 #[acmd_script( agent = "jack", script = "game_speciallwreflector", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallwreflector(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_speciallwreflector(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        shield!(fighter, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_JACK_REFLECTOR_KIND_SPECIAL_LW, *FIGHTER_REFLECTOR_GROUP_EXTEND);
-        HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_XLU);
-        HIT_NODE(fighter, Hash40::new("shoulderl"), *HIT_STATUS_XLU);
+    if is_excute(agent) {
+        shield!(agent, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_JACK_REFLECTOR_KIND_SPECIAL_LW, *FIGHTER_REFLECTOR_GROUP_EXTEND);
+        HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_XLU);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_XLU);
     }
     frame(lua_state, 30.0);
-    if is_excute(fighter) {
-        HIT_NODE(fighter, Hash40::new("arml"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
-        shield!(fighter, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_REFLECTOR, *FIGHTER_PALUTENA_REFLECTOR_KIND_REFLECTOR, *FIGHTER_REFLECTOR_GROUP_EXTEND);
+    if is_excute(agent) {
+        HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
+        shield!(agent, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_REFLECTOR, *FIGHTER_PALUTENA_REFLECTOR_KIND_REFLECTOR, *FIGHTER_REFLECTOR_GROUP_EXTEND);
     }
 }

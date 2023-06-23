@@ -1,74 +1,74 @@
 #[acmd_script( agent = "demon", script = 0x15cb9d3406, category = ACMD_GAME, low_priority )]
-unsafe fn hash_0x15cb9d3406(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn hash_0x15cb9d3406(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     FighterSpecializer_Demon::set_devil(boma, true, 10);
-    FT_MOTION_RATE(fighter, 0.7);
-    if is_excute(fighter) {
-        ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+    FT_MOTION_RATE(agent, 0.7);
+    if is_excute(agent) {
+        ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
-        damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_ALWAYS, 0);
+    if is_excute(agent) {
+        damage!(agent, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_ALWAYS, 0);
     }
     frame(lua_state, 10.0);
-    FT_MOTION_RATE(fighter, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
     frame(lua_state, 11.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         GrabModule::set_rebound(boma, true);
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
-        CATCH(fighter, 0, Hash40::new("top"), 5.0, 0.0, 8.0, 5.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
-        CATCH(fighter, 1, Hash40::new("top"), 4.5, 0.0, 6.0, 8.5, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
-        CATCH(fighter, 2, Hash40::new("top"), 4.0, 0.0, 8.0, 5.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
-        CATCH(fighter, 3, Hash40::new("top"), 3.5, 0.0, 6.0, 8.5, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
+    if is_excute(agent) {
+        CATCH(agent, 0, Hash40::new("top"), 5.0, 0.0, 8.0, 5.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 1, Hash40::new("top"), 4.5, 0.0, 6.0, 8.5, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 2, Hash40::new("top"), 4.0, 0.0, 8.0, 5.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
+        CATCH(agent, 3, Hash40::new("top"), 3.5, 0.0, 6.0, 8.5, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
         GrabModule::set_constraint(boma, 0, true);
         GrabModule::set_constraint(boma, false, 1, true);
         GrabModule::set_constraint(boma, false, 2, true);
         GrabModule::set_constraint(boma, false, 3, true);
     }
     frame(false, 13);
-    if is_excute(fighter) {
-        damage!(fighter, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
-        CATCH(fighter, 0, Hash40::new("top"), 5.0, 0.0, 9.5, 5.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
-        CATCH(fighter, 1, Hash40::new("top"), 4.5, 0.0, 8.5, 12.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
-        CATCH(fighter, 2, Hash40::new("top"), 4.0, 0.0, 9.5, 5.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
-        CATCH(fighter, 3, Hash40::new("top"), 3.5, 0.0, 8.5, 12.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
+    if is_excute(agent) {
+        damage!(agent, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_NORMAL, 0);
+        CATCH(agent, 0, Hash40::new("top"), 5.0, 0.0, 9.5, 5.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 1, Hash40::new("top"), 4.5, 0.0, 8.5, 12.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 2, Hash40::new("top"), 4.0, 0.0, 9.5, 5.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
+        CATCH(agent, 3, Hash40::new("top"), 3.5, 0.0, 8.5, 12.0, *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
         GrabModule::set_constraint(boma, 0, true);
         GrabModule::set_constraint(boma, false, 1, true);
         GrabModule::set_constraint(boma, false, 2, true);
         GrabModule::set_constraint(boma, false, 3, true);
     }
     frame(false, 14);
-    if is_excute(fighter) {
-        CATCH(fighter, 0, Hash40::new("top"), 5.0, 0.0, 14.0, 5.0, Some(0.0), Some(9.5), Some(5.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
-        CATCH(fighter, 1, Hash40::new("top"), 4.5, 0.0, 19.0, 9.0, Some(0.0), Some(8.5), Some(12.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
-        CATCH(fighter, 2, Hash40::new("top"), 4.0, 0.0, 14.0, 5.0, Some(0.0), Some(9.5), Some(5.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
-        CATCH(fighter, 3, Hash40::new("top"), 3.5, 0.0, 21.0, 8.5, Some(0.0), Some(8.5), Some(12.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
+    if is_excute(agent) {
+        CATCH(agent, 0, Hash40::new("top"), 5.0, 0.0, 14.0, 5.0, Some(0.0), Some(9.5), Some(5.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 1, Hash40::new("top"), 4.5, 0.0, 19.0, 9.0, Some(0.0), Some(8.5), Some(12.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 2, Hash40::new("top"), 4.0, 0.0, 14.0, 5.0, Some(0.0), Some(9.5), Some(5.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
+        CATCH(agent, 3, Hash40::new("top"), 3.5, 0.0, 21.0, 8.5, Some(0.0), Some(8.5), Some(12.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
         GrabModule::set_constraint(boma, 0, true);
         GrabModule::set_constraint(boma, false, 1, true);
         GrabModule::set_constraint(boma, false, 2, true);
         GrabModule::set_constraint(boma, false, 3, true);
     }
     frame(false, 15);
-    if is_excute(fighter) {
-        CATCH(fighter, 0, Hash40::new("top"), 5.0, 0.0, 14.0, 5.0, Some(0.0), Some(9.5), Some(5.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
-        CATCH(fighter, 1, Hash40::new("top"), 4.5, 0.0, 22.0, 7.0, Some(0.0), Some(8.5), Some(10.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
-        CATCH(fighter, 2, Hash40::new("top"), 4.0, 0.0, 14.0, 5.0, Some(0.0), Some(9.5), Some(5.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
-        CATCH(fighter, 3, Hash40::new("top"), 3.5, 0.0, 24.0, 6.5, Some(0.0), Some(8.5), Some(10.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
+    if is_excute(agent) {
+        CATCH(agent, 0, Hash40::new("top"), 5.0, 0.0, 14.0, 5.0, Some(0.0), Some(9.5), Some(5.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 1, Hash40::new("top"), 4.5, 0.0, 22.0, 7.0, Some(0.0), Some(8.5), Some(10.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 2, Hash40::new("top"), 4.0, 0.0, 14.0, 5.0, Some(0.0), Some(9.5), Some(5.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
+        CATCH(agent, 3, Hash40::new("top"), 3.5, 0.0, 24.0, 6.5, Some(0.0), Some(8.5), Some(10.0), *FIGHTER_STATUS_KIND_DEMON_DIVED, *COLLISION_SITUATION_MASK_A);
         GrabModule::set_constraint(boma, 0, true);
         GrabModule::set_constraint(boma, false, 1, true);
         GrabModule::set_constraint(boma, false, 2, true);
         GrabModule::set_constraint(boma, false, 3, true);
     }
     frame(false, 16);
-    if is_excute(fighter) {
-        grab!(fighter, *MA_MSC_CMD_GRAB_CLEAR_ALL);
+    if is_excute(agent) {
+        grab!(agent, *MA_MSC_CMD_GRAB_CLEAR_ALL);
         GrabModule::set_rebound(boma, false);
     }
     frame(lua_state, 38.0);
-    FT_MOTION_RATE(fighter, 1.3);
+    FT_MOTION_RATE(agent, 1.3);
     frame(lua_state, 52.0);
     FighterSpecializer_Demon::set_devil(boma, false, 0);
 }

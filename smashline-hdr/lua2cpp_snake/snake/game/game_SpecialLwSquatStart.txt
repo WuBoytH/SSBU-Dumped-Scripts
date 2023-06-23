@@ -1,16 +1,16 @@
 #[acmd_script( agent = "snake", script = "game_speciallwsquatstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallwsquatstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        CORRECT(fighter, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP);
+unsafe fn game_speciallwsquatstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CORRECT(agent, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        CORRECT(fighter, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP_ATTACK);
+    if is_excute(agent) {
+        CORRECT(agent, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP_ATTACK);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_SNAKE_GENERATE_ARTICLE_C4, false, -1);
     }
 }

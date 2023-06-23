@@ -1,22 +1,22 @@
 #[acmd_script( agent = "pickel_forge", script = "effect_throwlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_throwlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT_FLW_POS_NO_STOP(fighter, Hash40::new("pickel_forge_fall"), Hash40::new("trans"), 0, -2, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FLW_POS_NO_STOP(agent, Hash40::new("pickel_forge_fall"), Hash40::new("trans"), 0, -2, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("pickel_piston_impact"), Hash40::new("trans"), 0, -2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("pickel_piston_impact"), Hash40::new("trans"), 0, -2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 16.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("pickel_forge_fall"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("pickel_forge_fall"), false, true);
     }
     frame(lua_state, 18.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        LANDING_EFFECT(fighter, Hash40::new("pickel_forge_ground"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        LANDING_EFFECT(agent, Hash40::new("pickel_forge_ground"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
 }

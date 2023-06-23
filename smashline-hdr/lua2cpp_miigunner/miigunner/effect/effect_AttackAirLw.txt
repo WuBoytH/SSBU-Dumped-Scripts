@@ -1,21 +1,21 @@
 #[acmd_script( agent = "miigunner", script = "effect_attackairlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attackairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("armr"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.3);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("armr"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.3);
     }
     frame(lua_state, 20.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("miigunner_atk_shot5"), Hash40::new("haver"), 0, 0, -3, 0, 0, 0, 1.1, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.3);
-        EFFECT_DETACH_KIND(fighter, Hash40::new("miigunner_atk_shot5"), -1);
-        EFFECT_FOLLOW(fighter, Hash40::new("miigunner_atk_shot4"), Hash40::new("haver"), 0, 0, 2.5, 90, 0, 0, 0.3, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("miigunner_atk_shot5"), Hash40::new("haver"), 0, 0, -3, 0, 0, 0, 1.1, true);
+        LAST_EFFECT_SET_RATE(agent, 1.3);
+        EFFECT_DETACH_KIND(agent, Hash40::new("miigunner_atk_shot5"), -1);
+        EFFECT_FOLLOW(agent, Hash40::new("miigunner_atk_shot4"), Hash40::new("haver"), 0, 0, 2.5, 90, 0, 0, 0.3, true);
     }
     frame(lua_state, 25.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("miigunner_atk_shot_after"), Hash40::new("armr"), 6, 0, 0, 0, 0, -90, 0.75, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("miigunner_atk_shot_after"), Hash40::new("armr"), 6, 0, 0, 0, 0, -90, 0.75, true);
     }
 }

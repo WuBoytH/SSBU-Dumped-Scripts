@@ -1,15 +1,15 @@
 #[acmd_script( agent = "samusd", script = "expression_aircatchhang", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_aircatchhang(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_aircatchhang(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_hide_gun") as i64);
         ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, true, -1);
         ArticleModule::change_motion(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, Hash40::new("air_catch_hang"), false, -1.0);
     }
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_grapple"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

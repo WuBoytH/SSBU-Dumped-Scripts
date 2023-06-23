@@ -1,28 +1,28 @@
 #[acmd_script( agent = "rosetta_tico", script = "game_attackhi4", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackhi4(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        SEARCH(fighter, *WEAPON_ROSETTA_TICO_SEARCH_KIND_FREE_ATTACK_LR, 0, Hash40::new("top"), 7.0, 0.0, 6.0, 3.0, 0.0, 6.0, -3.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 60, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false);
+unsafe fn game_attackhi4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        SEARCH(agent, *WEAPON_ROSETTA_TICO_SEARCH_KIND_FREE_ATTACK_LR, 0, Hash40::new("top"), 7.0, 0.0, 6.0, 3.0, 0.0, 6.0, -3.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 60, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        search!(fighter, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
+    if is_excute(agent) {
+        search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *WEAPON_ROSETTA_TICO_STATUS_ATTACK_4_WORK_FLAG_START_SMASH_HOLD);
     }
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("legr"), 6.0, 85, 142, 0, 65, 5.5, 3.0, 0.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("legr"), 6.0, 85, 142, 0, 65, 5.5, 3.0, 0.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
     }
     wait(lua_state, 3.0);
-    if is_excute(fighter) {
-        ATTACK(fighter, 0, 0, Hash40::new("legr"), 5.0, 85, 142, 0, 65, 5.5, 3.0, 0.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("legr"), 5.0, 85, 142, 0, 65, 5.5, 3.0, 0.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
     }
     wait(lua_state, 5.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
 }

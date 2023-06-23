@@ -1,12 +1,12 @@
 #[acmd_script( agent = "dedede", script = "game_speciallwfall", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallwfall(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_speciallwfall(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         GroundModule::set_shape_flag(boma, *GROUND_CORRECT_SHAPE_RHOMBUS_MODIFY_FLAG_FIX, true);
     }
     wait(lua_state, 5.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         GroundModule::set_shape_flag(boma, *GROUND_CORRECT_SHAPE_RHOMBUS_MODIFY_FLAG_FIX, false);
     }
 }

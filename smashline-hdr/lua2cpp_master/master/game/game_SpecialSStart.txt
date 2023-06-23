@@ -1,9 +1,9 @@
 #[acmd_script( agent = "master", script = "game_specialsstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialsstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_SPEAR, false, -1);
     }
-    FT_MOTION_RATE(fighter, 0.8);
+    FT_MOTION_RATE(agent, 0.8);
 }

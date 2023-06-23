@@ -1,33 +1,33 @@
 #[acmd_script( agent = "wolf", script = "effect_speciallwhit", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_speciallwhit(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
+unsafe fn effect_speciallwhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
             EffectModule::preset_limit_num(boma, 2);
-            EFFECT_FOLLOW(fighter, Hash40::new("wolf_ref_flash"), Hash40::new("reflector"), -0.5, 0, 0, 0, 0, 0, 1, true);
+            EFFECT_FOLLOW(agent, Hash40::new("wolf_ref_flash"), Hash40::new("reflector"), -0.5, 0, 0, 0, 0, 0, 1, true);
             EffectModule::preset_limit_num(boma, 2);
-            EFFECT_FLW_POS(fighter, Hash40::new("wolf_ref_ref"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 0, 1, true);
+            EFFECT_FLW_POS(agent, Hash40::new("wolf_ref_ref"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 0, 1, true);
         }
         else{
-        if is_excute(fighter) {
+        if is_excute(agent) {
             EffectModule::preset_limit_num(boma, 2);
-            EFFECT_FOLLOW(fighter, Hash40::new("wolf_ref_flash"), Hash40::new("reflector"), -0.5, 0, 0, 0, 0, 0, 1, true);
+            EFFECT_FOLLOW(agent, Hash40::new("wolf_ref_flash"), Hash40::new("reflector"), -0.5, 0, 0, 0, 0, 0, 1, true);
             EffectModule::preset_limit_num(boma, 2);
-            EFFECT_FLW_POS(fighter, Hash40::new("wolf_ref_ref"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 0, 1, true);
+            EFFECT_FLW_POS(agent, Hash40::new("wolf_ref_ref"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 0, 1, true);
         }
     }
 }
-if is_excute(fighter) {
-    FLASH(fighter, 1, 0.6, 0.8, 0.7);
+if is_excute(agent) {
+    FLASH(agent, 1, 0.6, 0.8, 0.7);
 }
 wait(lua_state, 1.0);
-if is_excute(fighter) {
-    FLASH_FRM(fighter, 3, 1, 0, 0.2, 0);
+if is_excute(agent) {
+    FLASH_FRM(agent, 3, 1, 0, 0.2, 0);
 }
 wait(lua_state, 3.0);
-if is_excute(fighter) {
-    COL_NORMAL(fighter);
+if is_excute(agent) {
+    COL_NORMAL(agent);
 }
 wait(lua_state, 1.0);
 }

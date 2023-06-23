@@ -1,14 +1,14 @@
 #[acmd_script( agent = "gaogaen", script = "effect_finalairdashend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairdashend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_finalairdashend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     for _ in 0..3 {
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
     wait(lua_state, 4.0);
 }
-if is_excute(fighter) {
-    FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), -1, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+if is_excute(agent) {
+    FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -1, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
 }
 }

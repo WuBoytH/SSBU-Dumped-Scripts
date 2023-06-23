@@ -1,12 +1,12 @@
 #[acmd_script( agent = "dedede", script = "effect_specialnshotobjecthit", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialnshotobjecthit(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("dedede_vacuum"), Hash40::new("virtualmouth"), 0, -6, 0, 5, 0, 0, 0.9, true);
+unsafe fn effect_specialnshotobjecthit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("dedede_vacuum"), Hash40::new("virtualmouth"), 0, -6, 0, 5, 0, 0, 0.9, true);
     }
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 15, 0, 4, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 15, 0, 4, 0, 0, 0, false);
     }
     wait(lua_state, 8.0);
 }

@@ -1,14 +1,14 @@
 #[acmd_script( agent = "ryu_shinkuhadoken", script = "effect_move", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_move(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_move(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::req_screen(boma, Hash40::new("bg_ryu_final_shinkuhado2"), false, false, false);
-        EFFECT_FOLLOW(fighter, Hash40::new("ryu_final_shinkuhado_bullet"), Hash40::new("top"), 0, 0, 1, 0, 0, 0, 1.2, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("ryu_final_shinkuhado_bullet2"), Hash40::new("top"), 0, 0, 2, 0, 0, 0, 1.5, true);
+        EFFECT_FOLLOW(agent, Hash40::new("ryu_final_shinkuhado_bullet"), Hash40::new("top"), 0, 0, 1, 0, 0, 0, 1.2, true);
+        EFFECT_FOLLOW(agent, Hash40::new("ryu_final_shinkuhado_bullet2"), Hash40::new("top"), 0, 0, 2, 0, 0, 0, 1.5, true);
     }
     frame(lua_state, 90.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("ryu_final_shinkuhado_finish"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("ryu_final_shinkuhado_finish"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }

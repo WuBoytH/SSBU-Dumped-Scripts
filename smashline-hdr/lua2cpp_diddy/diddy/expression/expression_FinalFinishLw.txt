@@ -1,12 +1,12 @@
 #[acmd_script( agent = "diddy", script = "expression_finalfinishlw", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalfinishlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_finalfinishlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
         ItemModule::set_have_item_visibility(boma, false, 0);
         ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_BACK);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_rush"), 12, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attack_critical"), 0);
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attack_critical"), 0);
     }
 }

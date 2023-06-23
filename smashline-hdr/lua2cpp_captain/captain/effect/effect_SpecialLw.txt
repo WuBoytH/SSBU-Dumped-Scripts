@@ -1,24 +1,24 @@
 #[acmd_script( agent = "captain", script = "effect_speciallw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_speciallw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("captain_fk_hold"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 0.7, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("captain_fk_hold"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 0.7, true);
         EffectModule::enable_sync_init_pos_last(boma);
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("captain_fk"), Hash40::new("top"), 0, 8, 17, -90, 0, 160, 0.7, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("captain_fk"), Hash40::new("top"), 0, 8, 17, -90, 0, 160, 0.7, true);
         EffectModule::enable_sync_init_pos_last(boma);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("captain_fk_groundflame"), Hash40::new("top"), 4, 0, -4, 0, 0, 0, 1, 2, 0, 5, 0, 0, 0, false);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("captain_fk_groundflame"), Hash40::new("top"), 4, 0, -4, 0, 0, 0, 1, 2, 0, 5, 0, 0, 0, false);
     }
     wait(lua_state, 6.0);
 }

@@ -1,26 +1,26 @@
 #[acmd_script( agent = "pickel", script = "game_finalstart_com", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalstart_com(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_finalstart_com(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
-        CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 7, 20, 0, 0, 0);
-        SLOW_OPPONENT(fighter, 30, 25);
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        SLOW_OPPONENT(agent, 30, 25);
     }
     frame(lua_state, 3.0);
     frame(lua_state, 5.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_PICKEL_GENERATE_ARTICLE_PUSHFINAL, false, -1);
-        FT_SET_FINAL_FEAR_FACE(fighter, 50);
-        FT_START_CUTIN(fighter);
+        FT_SET_FINAL_FEAR_FACE(agent, 50);
+        FT_START_CUTIN(agent);
     }
     if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
-        if is_excute(fighter) {
-            REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04final.nuanmb"), false);
+        if is_excute(agent) {
+            REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final.nuanmb"), false);
             SlowModule::set_whole(boma, 3, 0);
         }
         else{
-        if is_excute(fighter) {
+        if is_excute(agent) {
             PostureModule::scale(boma, 4, 0);
             0x370870(189281854, 2.1);
             CAM_ZOOM_IN_arg5(0, 0);
@@ -28,11 +28,11 @@ unsafe fn game_finalstart_com(fighter: &mut L2CAgentBase) {
     }
 }
 frame(lua_state, 20.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     SlowModule::clear_whole(boma);
 }
 frame(lua_state, 25.0);
-if is_excute(fighter) {
-    CAM_ZOOM_OUT(fighter);
+if is_excute(agent) {
+    CAM_ZOOM_OUT(agent);
 }
 }

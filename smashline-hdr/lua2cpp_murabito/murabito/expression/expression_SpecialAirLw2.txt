@@ -1,23 +1,23 @@
 #[acmd_script( agent = "murabito", script = "expression_specialairlw2", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialairlw2(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+unsafe fn expression_specialairlw2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("item") as i64, hash40("item_sprinkling") as i64);
     }
     frame(lua_state, 4.0);
     for _ in 0..5 {
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 30, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     wait(lua_state, 7.0);
 }
 frame(lua_state, 47.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     VisibilityModule::set_int64(boma, hash40("item") as i64, hash40("item_none") as i64);
 }
 }

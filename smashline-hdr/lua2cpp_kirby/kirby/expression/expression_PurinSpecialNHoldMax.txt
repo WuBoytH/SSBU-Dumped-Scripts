@@ -1,14 +1,14 @@
 #[acmd_script( agent = "kirby", script = "expression_purinspecialnholdmax", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_purinspecialnholdmax(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_purinspecialnholdmax(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
         ItemModule::set_have_item_visibility(boma, false, 0);
     }
     wait(lua_state, 1.0);
     wait_loop_sync_mot();
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, false, 0);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }

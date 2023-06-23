@@ -1,15 +1,15 @@
 #[acmd_script( agent = "inkling", script = "expression_specialairsrun", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialairsrun(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_specialairsrun(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     wait_loop_sync_mot();
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
         ItemModule::set_have_item_visibility(boma, false, 0);
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attackl"), 0);
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 5, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(lua_state, 16.0);

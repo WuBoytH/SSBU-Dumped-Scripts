@@ -1,40 +1,40 @@
 #[acmd_script( agent = "demon", script = "effect_speciallwground", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_speciallwground(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("demon_ragedrive_hit_m"), Hash40::new("top"), 2, 7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
-        EFFECT(fighter, 0x1bd461a12d, Hash40::new("top"), 2, 7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_speciallwground(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("demon_ragedrive_hit_m"), Hash40::new("top"), 2, 7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        EFFECT(agent, 0x1bd461a12d, Hash40::new("top"), 2, 7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
     }
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            DOWN_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 2, 0, 0, 0, -90, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
-            EFFECT(fighter, Hash40::new("demon_heavens_impact"), Hash40::new("top"), 2, 0, 0, 0, 180, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            DOWN_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 2, 0, 0, 0, -90, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+            EFFECT(agent, Hash40::new("demon_heavens_impact"), Hash40::new("top"), 2, 0, 0, 0, 180, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
         }
         else{
-        if is_excute(fighter) {
-            DOWN_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 2, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false);
-            EFFECT(fighter, Hash40::new("demon_heavens_impact"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            DOWN_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 2, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            EFFECT(agent, Hash40::new("demon_heavens_impact"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
         }
     }
 }
 frame(lua_state, 35.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     ColorBlendModule::set_disable_camera_depth_influence(boma, true);
-    FLASH(fighter, 0.097, 0.006, 0.238, 0.15);
-    BURN_COLOR(fighter, 6, 0, 40, 0.045);
-    FLASH_FRM(fighter, 2, 0.097, 0.006, 0.238, 0.45);
-    BURN_COLOR_FRAME(fighter, 2, 6, 0, 40, 0.13);
+    FLASH(agent, 0.097, 0.006, 0.238, 0.15);
+    BURN_COLOR(agent, 6, 0, 40, 0.045);
+    FLASH_FRM(agent, 2, 0.097, 0.006, 0.238, 0.45);
+    BURN_COLOR_FRAME(agent, 2, 6, 0, 40, 0.13);
 }
 frame(lua_state, 36.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("demon_devil_end"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("demon_devil_end"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, true);
 }
 frame(lua_state, 38.0);
-if is_excute(fighter) {
-    FLASH(fighter, 0.097, 0.006, 0.238, 0.45);
-    BURN_COLOR(fighter, 6, 0, 40, 0.13);
-    FLASH_FRM(fighter, 8, 0.097, 0.006, 0.238, 0);
-    BURN_COLOR_FRAME(fighter, 8, 6, 0, 40, 0);
+if is_excute(agent) {
+    FLASH(agent, 0.097, 0.006, 0.238, 0.45);
+    BURN_COLOR(agent, 6, 0, 40, 0.13);
+    FLASH_FRM(agent, 8, 0.097, 0.006, 0.238, 0);
+    BURN_COLOR_FRAME(agent, 8, 6, 0, 40, 0);
 }
 }

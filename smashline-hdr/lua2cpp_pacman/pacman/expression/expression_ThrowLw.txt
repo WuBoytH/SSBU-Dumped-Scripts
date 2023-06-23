@@ -1,71 +1,71 @@
 #[acmd_script( agent = "pacman", script = "expression_throwlw", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_throwlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        FT_ATTACK_ABS_CAMERA_QUAKE(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 5);
+unsafe fn expression_throwlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FT_ATTACK_ABS_CAMERA_QUAKE(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 5);
     }
     frame(lua_state, 12.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, false, 0);
         ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_ALL);
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_none") as i64);
         VisibilityModule::set_int64(boma, hash40("pizza") as i64, hash40("pizza_normal") as i64);
-        HIT_NODE(fighter, Hash40::new("waist"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("handr"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("handl"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("legr"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("legl"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("kneer"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("kneel"), *HIT_STATUS_OFF);
-        HIT_NODE(fighter, Hash40::new("pizzapacman"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("handr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("handl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("pizzapacman"), *HIT_STATUS_NORMAL);
     }
     frame(lua_state, 16.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 6);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 6);
     }
     frame(lua_state, 17.0);
-    if is_excute(fighter) {
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
     frame(lua_state, 24.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 6);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 6);
     }
     frame(lua_state, 25.0);
-    if is_excute(fighter) {
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
     frame(lua_state, 32.0);
-    if is_excute(fighter) {
-        RUMBLE_HIT(fighter, Hash40::new("rbkind_attacks"), 0);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 0);
     }
     frame(lua_state, 38.0);
-    if is_excute(fighter) {
-        QUAKE(fighter, *CAMERA_QUAKE_KIND_M);
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
     }
     frame(lua_state, 42.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, true, 0);
         ItemModule::set_attach_item_visibility(boma, true, *ATTACH_ITEM_GROUP_ALL);
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
         VisibilityModule::set_int64(boma, hash40("pizza") as i64, hash40("pizza_none") as i64);
-        HIT_NODE(fighter, Hash40::new("waist"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("handr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("handl"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("legr"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("legl"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("kneer"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("kneel"), *HIT_STATUS_NORMAL);
-        HIT_NODE(fighter, Hash40::new("pizzapacman"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("handr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("handl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("pizzapacman"), *HIT_STATUS_OFF);
     }
-    if is_excute(fighter) {
-        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
     }
 }

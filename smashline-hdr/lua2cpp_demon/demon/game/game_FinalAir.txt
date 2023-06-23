@@ -1,40 +1,40 @@
 #[acmd_script( agent = "demon", script = "game_finalair", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalair(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+unsafe fn game_finalair(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
     }
     frame(lua_state, 1.0);
     if WorkModule::is_flag(boma, *FIGHTER_DEMON_STATUS_FINAL_FLAG_DEMON_DOJO_ZOOM) {
-        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-            if is_excute(fighter) {
+        if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if is_excute(agent) {
                 PostureModule::scale(boma, 1, 0);
                 0x3cfb70(-1037516665, 2);
                 CAM_ZOOM_IN_arg5(0, -0.1);
-                camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -5, 5);
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -5, 5);
             }
             else{
-            if get_value_float(fighter.lua_state_agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET) < 0.0 {
-                if is_excute(fighter) {
+            if get_value_float(agent.lua_state_agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET) < 0.0 {
+                if is_excute(agent) {
                     PostureModule::scale(boma, 1, 0);
                     0x3cfb70(-1037516665, 2);
                     CAM_ZOOM_IN_arg5(0, -0.3);
-                    camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -5, 5);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -5, 5);
                 }
                 else{
-                if is_excute(fighter) {
+                if is_excute(agent) {
                     PostureModule::scale(boma, 1, 0);
                     0x3cfb70(-1037516665, 2);
                     CAM_ZOOM_IN_arg5(0, 0.1);
-                    camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 5, 5);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 5, 5);
                 }
                 else{
-                if is_excute(fighter) {
+                if is_excute(agent) {
                     PostureModule::scale(boma, 1, 0);
                     0x3cfb70(-1037516665, 2);
                     CAM_ZOOM_IN_arg5(0, 0.3);
-                    camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 5, 5);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 5, 5);
                 }
             }
         }
@@ -43,15 +43,15 @@ unsafe fn game_finalair(fighter: &mut L2CAgentBase) {
 }
 }
 frame(lua_state, 3.0);
-if is_excute(fighter) {
+if is_excute(agent) {
 WorkModule::on_flag(boma, *FIGHTER_DEMON_STATUS_FINAL_FLAG_END_FINAL);
 }
 frame(lua_state, 5.0);
-if is_excute(fighter) {
-CAM_ZOOM_OUT(fighter);
+if is_excute(agent) {
+CAM_ZOOM_OUT(agent);
 }
 frame(lua_state, 15.0);
-if is_excute(fighter) {
+if is_excute(agent) {
 WorkModule::on_flag(boma, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
 }
 }

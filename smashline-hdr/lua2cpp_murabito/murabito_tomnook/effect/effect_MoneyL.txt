@@ -1,13 +1,13 @@
 #[acmd_script( agent = "murabito_tomnook", script = "effect_moneyl", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_moneyl(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_moneyl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 19.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_MURABITO_TOMNOOK_GENERATE_ARTICLE_MONEYBAG, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 40.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *WEAPON_MURABITO_TOMNOOK_GENERATE_ARTICLE_MONEYBAG, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

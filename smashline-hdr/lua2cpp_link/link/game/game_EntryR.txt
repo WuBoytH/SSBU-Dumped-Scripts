@@ -1,13 +1,13 @@
 #[acmd_script( agent = "link", script = "game_entryr", category = ACMD_GAME, low_priority )]
-unsafe fn game_entryr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_LINK_GENERATE_ARTICLE_PARASAIL, true, -1);
         ArticleModule::change_motion(boma, *FIGHTER_LINK_GENERATE_ARTICLE_PARASAIL, Hash40::new("entry_r"), false, -1.0);
     }
     frame(lua_state, 100.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_LINK_GENERATE_ARTICLE_PARASAIL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
 }

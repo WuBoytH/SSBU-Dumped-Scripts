@@ -1,16 +1,16 @@
 #[acmd_script( agent = "wolf", script = "game_specials", category = ACMD_GAME, low_priority )]
-unsafe fn game_specials(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specials(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         JostleModule::set_status(boma, false);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_WOLF_GENERATE_ARTICLE_ILLUSION, false, -1);
     }
     frame(lua_state, 4.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_WOLF_GENERATE_ARTICLE_ILLUSION, false, -1);
     }
 }

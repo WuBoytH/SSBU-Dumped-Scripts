@@ -1,32 +1,32 @@
 #[acmd_script( agent = "younglink", script = "game_clubswing4", category = ACMD_GAME, low_priority )]
-unsafe fn game_clubswing4(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_clubswing4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         MotionModule::set_rate(boma, 0.5);
         ItemModule::set_have_item_scale_anim(boma, 6, 1.4);
     }
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SWING_WORK_FLAG_START_SMASH_HOLD);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_have_item_action(boma, *ITEM_SWING_ACTION_BEGIN);
     }
     frame(lua_state, 15.0);
     methodlua2cpp::L2CFighterAnimcmdGameCommon::game_ClubSwing4Common()();
     frame(lua_state, 16.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         MotionModule::set_rate(boma, 0.8);
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 25.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ItemModule::set_have_item_scale_anim(boma, 12, 1);
     }
     frame(lua_state, 26.0);
-    if is_excute(fighter) {
-        SHOOT_ITEM_BULLET_CHARGE(fighter, *FIGHTER_STATUS_ITEM_SWING_WORK_INT_S4_HOLD_FRAME);
+    if is_excute(agent) {
+        SHOOT_ITEM_BULLET_CHARGE(agent, *FIGHTER_STATUS_ITEM_SWING_WORK_INT_S4_HOLD_FRAME);
     }
 }

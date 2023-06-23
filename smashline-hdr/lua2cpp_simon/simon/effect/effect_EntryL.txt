@@ -1,24 +1,24 @@
 #[acmd_script( agent = "simon", script = "effect_entryl", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_entryl(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("simon_entry"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        FLASH(fighter, 1, 1, 1, 0.502);
+unsafe fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("simon_entry"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        FLASH(agent, 1, 1, 1, 0.502);
         ColorBlendModule::set_disable_camera_depth_influence(boma, true);
     }
     wait(lua_state, 1.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 12, 1, 0.784, 0.627, 0.118);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 12, 1, 0.784, 0.627, 0.118);
     }
     wait(lua_state, 12.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
         ColorBlendModule::set_disable_camera_depth_influence(boma, false);
     }
     frame(lua_state, 35.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 0.7);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 0.7);
     }
 }

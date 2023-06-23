@@ -1,10 +1,10 @@
 #[acmd_script( agent = "jack", script = "effect_visualscene", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_visualscene(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::remove_screen(boma, Hash40::new("bg_jack_final"), -1);
-        CANCEL_FILL_SCREEN(fighter, 0, 0);
-        CANCEL_FILL_SCREEN(fighter, 1, 0);
+        CANCEL_FILL_SCREEN(agent, 0, 0);
+        CANCEL_FILL_SCREEN(agent, 1, 0);
     }
 }

@@ -1,11 +1,11 @@
 #[acmd_script( agent = "mewtwo", script = "effect_final", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_final(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_final(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::req_screen(boma, Hash40::new("bg_mewtwo_final"), false, false, false);
-        FILL_SCREEN_MODEL_COLOR(fighter, 1, 0, 0.15, 0.15, 0.15, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
-        EFFECT_FLW_POS_UNSYNC_VIS(fighter, Hash40::new("mewtwo_final_megasinka"), Hash40::new("top"), 0, 9, 0, 0, 0, 0, 1, false);
-        LAST_EFFECT_SET_RATE(fighter, 1.5);
+        FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 0.15, 0.15, 0.15, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+        EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("mewtwo_final_megasinka"), Hash40::new("top"), 0, 9, 0, 0, 0, 0, 1, false);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
     }
 }

@@ -1,11 +1,11 @@
 #[acmd_script( agent = "demon", script = "game_speciallwcatch", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallwcatch(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_speciallwcatch(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     FighterSpecializer_Demon::set_devil(boma, true, 5);
-    if is_excute(fighter) {
-        FT_CATCH_STOP(fighter, 2, 1);
-        ATTACK_ABS(fighter, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+    if is_excute(agent) {
+        FT_CATCH_STOP(agent, 2, 1);
+        ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
     }
     frame(lua_state, 2.0);
     is_vr_mode();
@@ -19,7 +19,7 @@ unsafe fn game_speciallwcatch(fighter: &mut L2CAgentBase) {
 methodlib::L2CValue::as_pointer()const();
 is_one_on_one_including_thrown();
 if(0x3cfb70(false, true)){
-    if is_excute(fighter) {
+    if is_excute(agent) {
         battle_object_module_accessor();
         methodlib::L2CValue::L2CValue(void*)();
     }
@@ -37,8 +37,8 @@ check_disabled_motion_camera_of_stage();
 if WorkModule::is_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ENABLE_THROW_MOTION_CAMERA) {
 if WorkModule::is_flag(boma, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_ENABLE_MOTION_CAMERA) {
     if !WorkModule::is_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_DISABLE_THROW_MOTION_CAMERA) {
-        if is_excute(fighter) {
-            REQ_MOTION_CAMERA(fighter, 0x1857a8bd1d, false);
+        if is_excute(agent) {
+            REQ_MOTION_CAMERA(agent, 0x1857a8bd1d, false);
         }
     }
 }

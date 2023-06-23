@@ -1,9 +1,9 @@
 #[acmd_script( agent = "zelda", script = "effect_finalairend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         EffectModule::remove_screen(boma, Hash40::new("bg_zelda_final"), -1);
     }
 }

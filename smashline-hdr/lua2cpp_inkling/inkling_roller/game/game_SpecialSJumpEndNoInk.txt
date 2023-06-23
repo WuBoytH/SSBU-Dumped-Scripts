@@ -1,12 +1,12 @@
 #[acmd_script( agent = "inkling_roller", script = "game_specialsjumpendnoink", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialsjumpendnoink(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialsjumpendnoink(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     frame(lua_state, 19.0);
-    if is_excute(fighter) {
-        notify_event_msc_cmd!(fighter, Hash40::new_raw(0x199c462b5d));
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x199c462b5d));
     }
 }

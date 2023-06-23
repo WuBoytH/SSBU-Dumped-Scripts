@@ -1,20 +1,20 @@
 #[acmd_script( agent = "pickel", script = "game_visualscene", category = ACMD_GAME, low_priority )]
-unsafe fn game_visualscene(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_PICKEL_GENERATE_ARTICLE_MASKFINAL, false, -1);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION_1);
     }
     frame(lua_state, 16.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION_2);
     }
     frame(lua_state, 100.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_FINAL_FLAG_SCENE01_SYNC);
     }
 }

@@ -1,12 +1,12 @@
 #[acmd_script( agent = "zelda", script = "effect_catchattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_catchattack(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("zelda_catch_flash"), true, true);
+unsafe fn effect_catchattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("zelda_catch_flash"), true, true);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("zelda_atk_flash2"), Hash40::new("zelda_atk_flash2"), Hash40::new("havel"), -0.5, 0, 0, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("zelda_atk_flash2"), Hash40::new("zelda_atk_flash2"), Hash40::new("havel"), -0.5, 0, 0, 0, 0, 0, 1, true, *EF_FLIP_YZ);
     }
 }

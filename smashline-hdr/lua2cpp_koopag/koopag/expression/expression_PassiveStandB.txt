@@ -1,14 +1,14 @@
 #[acmd_script( agent = "koopag", script = "expression_passivestandb", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_passivestandb(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_passivestandb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_PassiveStandBRumble()();
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_shell") as i64);
     }
     frame(lua_state, 19.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
     }
 }

@@ -1,11 +1,11 @@
 #[acmd_script( agent = "miigunner", script = "game_specialairs31", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairs31(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialairs31(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    FT_MOTION_RATE(fighter, 1.15);
+    FT_MOTION_RATE(agent, 1.15);
     frame(lua_state, 23.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_MIIGUNNER_STATUS_MIIMISSILE_FLAG_WEAPON);
     }
 }

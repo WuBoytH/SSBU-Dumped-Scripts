@@ -1,13 +1,13 @@
 #[acmd_script( agent = "robot", script = "effect_appeallwr", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_appeallwr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_appeallwr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 52.0);
     for _ in 0..5 {
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_spin_wind_s"), Hash40::new("body"), 0.5, 0, 0, 0, 0, 89, 1.1, 2, 2, 2, 0, 0, 0, true);
-        LAST_EFFECT_SET_ALPHA(fighter, 0.4);
-        LAST_EFFECT_SET_RATE(fighter, 1.2);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("body"), 0.5, 0, 0, 0, 0, 89, 1.1, 2, 2, 2, 0, 0, 0, true);
+        LAST_EFFECT_SET_ALPHA(agent, 0.4);
+        LAST_EFFECT_SET_RATE(agent, 1.2);
     }
     wait(lua_state, 3.0);
 }

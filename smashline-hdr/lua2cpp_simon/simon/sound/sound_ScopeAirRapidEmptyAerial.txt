@@ -1,12 +1,12 @@
 #[acmd_script( agent = "simon", script = "sound_scopeairrapidemptyaerial", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_scopeairrapidemptyaerial(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_scopeairrapidemptyaerial(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 3.0);
     WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
-        if is_excute(fighter) {
-            PLAY_SE(fighter, Hash40::new("se_simon_jump02"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_simon_jump02"));
             WorkModule::off_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND);
         }
     }

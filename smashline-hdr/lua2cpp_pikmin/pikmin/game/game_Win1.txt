@@ -1,12 +1,12 @@
 #[acmd_script( agent = "pikmin", script = "game_win1", category = ACMD_GAME, low_priority )]
-unsafe fn game_win1(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1, false, -1);
     }
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1) {
-        if is_excute(fighter) {
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1) {
+        if is_excute(agent) {
             ArticleModule::change_motion(boma, *FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN1, Hash40::new("win1"), false, -1.0);
         }
     }

@@ -1,12 +1,12 @@
 #[acmd_script( agent = "lucario", script = "game_specialhimove", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialhimove(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_specialhimove(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         JostleModule::set_status(boma, false);
     }
     frame(lua_state, 15.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         GroundModule::set_passable_check(boma, true);
     }
 }

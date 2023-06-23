@@ -1,13 +1,13 @@
 #[acmd_script( agent = "mariod", script = "sound_slipdown", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_slipdown(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_slipdown(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_common_slip_01"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_slip_01"));
     }
     wait(lua_state, 12.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_common_falldown_01"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_falldown_01"));
     }
 }

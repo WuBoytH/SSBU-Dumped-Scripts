@@ -1,8 +1,8 @@
 #[acmd_script( agent = "wolf", script = "game_entryl", category = ACMD_GAME, low_priority )]
-unsafe fn game_entryl(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_WOLF_GENERATE_ARTICLE_WOLFEN, true, -1);
         ArticleModule::change_motion(boma, *FIGHTER_WOLF_GENERATE_ARTICLE_WOLFEN, Hash40::new("entry_l"), false, -1.0);
     }

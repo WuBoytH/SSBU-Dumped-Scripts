@@ -1,8 +1,8 @@
 #[acmd_script( agent = "simon_whip", script = "game_win2", category = ACMD_GAME, low_priority )]
-unsafe fn game_win2(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         PhysicsModule::set_2nd_status(boma, *PH2NDARY_CRAW_MOVE);
         battle_object();
         methodlib::L2CValue::L2CValue(void*)();
@@ -10,7 +10,7 @@ unsafe fn game_win2(fighter: &mut L2CAgentBase) {
     else{
     methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 }
-let object = sv_system::battle_object(fighter.lua_state_agent) as *mut BattleObject;
+let object = sv_system::battle_object(agent.lua_state_agent) as *mut BattleObject;
 FighterSpecializer_Simon::reset_node_fix_flag_list(object as *mut Fighter);
 battle_object();
 methodlib::L2CValue::L2CValue(void*)();
@@ -18,15 +18,15 @@ methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 methodlib::L2CValue::as_pointer()const(5, 11, 12);
 set_node_fix_flag_list();
 frame(lua_state, 73.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     PhysicsModule::set_2nd_status(boma, *PH2NDARY_CRAW_NONE);
 }
 frame(lua_state, 140.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     PhysicsModule::set_2nd_status(boma, *PH2NDARY_CRAW_COLLIDE);
 }
 frame(lua_state, 145.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     PhysicsModule::set_2nd_status(boma, *PH2NDARY_CRAW_MOVE);
     battle_object();
     methodlib::L2CValue::L2CValue(void*)();
@@ -34,6 +34,6 @@ if is_excute(fighter) {
 else{
 methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
 }
-let object = sv_system::battle_object(fighter.lua_state_agent) as *mut BattleObject;
+let object = sv_system::battle_object(agent.lua_state_agent) as *mut BattleObject;
 FighterSpecializer_Simon::reset_node_fix_flag_list(object as *mut Fighter);
 }

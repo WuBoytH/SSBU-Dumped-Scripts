@@ -1,9 +1,9 @@
 #[acmd_script( agent = "diddy", script = "game_win1wait", category = ACMD_GAME, low_priority )]
-unsafe fn game_win1wait(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if !IS_EXIST_ARTICLE(fighter, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN) {
-        if is_excute(fighter) {
+unsafe fn game_win1wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN) {
+        if is_excute(agent) {
             ArticleModule::remove_exist(boma, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
             ArticleModule::remove_exist(boma, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
             WorkModule::on_flag(boma, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_GUN_LEFT);

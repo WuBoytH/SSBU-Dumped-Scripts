@@ -1,24 +1,24 @@
 #[acmd_script( agent = "mariod", script = "effect_specialairlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_specialairlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     wait(lua_state, 4.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0, 0, 2, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0, 0, 2, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("mariod_cyclone_r"), Hash40::new("mariod_cyclone_l"), Hash40::new("top"), 0, -1.5, 0, 0, 180, 0, 0.8, true, *EF_FLIP_NONE);
-        LAST_EFFECT_SET_RATE(fighter, 1.4);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("mariod_cyclone_r"), Hash40::new("mariod_cyclone_l"), Hash40::new("top"), 0, -1.5, 0, 0, 180, 0, 0.8, true, *EF_FLIP_NONE);
+        LAST_EFFECT_SET_RATE(agent, 1.4);
     }
     frame(lua_state, 35.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("mariod_cyclone_r"), false, true);
-        EFFECT_OFF_KIND(fighter, Hash40::new("mariod_cyclone_l"), false, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("mariod_cyclone_r"), false, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("mariod_cyclone_l"), false, true);
     }
     frame(lua_state, 40.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("mariod_cyclone_impact"), Hash40::new("mariod_cyclone_impact"), Hash40::new("top"), 3, 9.5, 0, 0, 0, 0, 1.2, true, *EF_FLIP_YZ);
-        EFFECT_DETACH_KIND(fighter, Hash40::new("mariod_cyclone_impact"), -1);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("mariod_cyclone_impact"), Hash40::new("mariod_cyclone_impact"), Hash40::new("top"), 3, 9.5, 0, 0, 0, 0, 1.2, true, *EF_FLIP_YZ);
+        EFFECT_DETACH_KIND(agent, Hash40::new("mariod_cyclone_impact"), -1);
     }
 }

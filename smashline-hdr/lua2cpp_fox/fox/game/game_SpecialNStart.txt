@@ -1,10 +1,10 @@
 #[acmd_script( agent = "fox", script = "game_specialnstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_specialnstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 4.0);
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_FOX_GENERATE_ARTICLE_BLASTER) {
-        if is_excute(fighter) {
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_FOX_GENERATE_ARTICLE_BLASTER) {
+        if is_excute(agent) {
             ArticleModule::change_motion(boma, *FIGHTER_FOX_GENERATE_ARTICLE_BLASTER, Hash40::new("open"), false, -1.0);
         }
     }

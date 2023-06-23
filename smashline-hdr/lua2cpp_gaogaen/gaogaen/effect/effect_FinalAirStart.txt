@@ -1,22 +1,22 @@
 #[acmd_script( agent = "gaogaen", script = "effect_finalairstart", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalairstart(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::req_screen(boma, Hash40::new("bg_gaogaen_final"), false, false, false);
-        FT_REMOVE_FINAL_AURA(fighter, false);
+        FT_REMOVE_FINAL_AURA(agent, false);
     }
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("gaogaen_final_ground"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
-        EFFECT_FOLLOW(fighter, Hash40::new("gaogaen_final_start"), Hash40::new("feelerca"), 0, 0, 2.5, 0, 0, 0, 1, false);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("gaogaen_final_ground"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+        EFFECT_FOLLOW(agent, Hash40::new("gaogaen_final_start"), Hash40::new("feelerca"), 0, 0, 2.5, 0, 0, 0, 1, false);
     }
     frame(lua_state, 22.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_FLIP(fighter, Hash40::new("gaogaen_final_symbol"), Hash40::new("gaogaen_final_symbol"), Hash40::new("top"), -4, 8, 4, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("gaogaen_final_symbol"), Hash40::new("gaogaen_final_symbol"), Hash40::new("top"), -4, 8, 4, 0, 0, 0, 1, true, *EF_FLIP_YZ);
     }
 }

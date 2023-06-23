@@ -1,13 +1,13 @@
 #[acmd_script( agent = "robot", script = "game_final", category = ACMD_GAME, low_priority )]
-unsafe fn game_final(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_RECT, 50, -50, 50, -10);
-        ENABLE_AREA(fighter, *FIHGTER_ROBOT_AREA_KIND_FINAL_ROCK_ON);
+unsafe fn game_final(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 50, -50, 50, -10);
+        ENABLE_AREA(agent, *FIHGTER_ROBOT_AREA_KIND_FINAL_ROCK_ON);
     }
     frame(lua_state, 191.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_ROBOT_GENERATE_ARTICLE_MAINLASER, false, -1);
     }
 }

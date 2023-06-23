@@ -1,29 +1,29 @@
 #[acmd_script( agent = "krool", script = "effect_throwhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwhi(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_throwhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 10.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
-        LAST_EFFECT_SET_RATE(fighter, 0.8);
+    if is_excute(agent) {
+        LANDING_EFFECT_FLIP(agent, Hash40::new("sys_landing_smoke"), Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
+        LAST_EFFECT_SET_RATE(agent, 0.8);
     }
     frame(lua_state, 13.0);
-    if is_excute(fighter) {
-        EFFECT_ALPHA(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 0, 0, -90, 0, 0, 1.6, 0, 1, 0, 0, 0, 0, true, 0.4);
-        EFFECT(fighter, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 0.6);
+    if is_excute(agent) {
+        EFFECT_ALPHA(agent, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 0, 0, -90, 0, 0, 1.6, 0, 1, 0, 0, 0, 0, true, 0.4);
+        EFFECT(agent, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 0.6);
     }
     frame(lua_state, 43.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("krool_speedline"), Hash40::new("top"), 0, 8, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("krool_speedline"), Hash40::new("top"), 0, 8, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 47.0);
-    if is_excute(fighter) {
-        LANDING_EFFECT_FLIP(fighter, Hash40::new("sys_landing_smoke"), Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
-        LAST_EFFECT_SET_RATE(fighter, 0.8);
-        LANDING_EFFECT(fighter, Hash40::new("sys_quake"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        EFFECT(fighter, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        EFFECT(fighter, Hash40::new("sys_hit_cut"), Hash40::new("top"), 2, 20, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, false);
-        EFFECT_FLIP_ALPHA(fighter, Hash40::new("krool_attack_s3_impact"), Hash40::new("krool_attack_s3_impact"), Hash40::new("top"), 8, 20, 2, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ, 1);
+    if is_excute(agent) {
+        LANDING_EFFECT_FLIP(agent, Hash40::new("sys_landing_smoke"), Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
+        LAST_EFFECT_SET_RATE(agent, 0.8);
+        LANDING_EFFECT(agent, Hash40::new("sys_quake"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, -3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        EFFECT(agent, Hash40::new("sys_hit_cut"), Hash40::new("top"), 2, 20, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, false);
+        EFFECT_FLIP_ALPHA(agent, Hash40::new("krool_attack_s3_impact"), Hash40::new("krool_attack_s3_impact"), Hash40::new("top"), 8, 20, 2, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ, 1);
     }
 }

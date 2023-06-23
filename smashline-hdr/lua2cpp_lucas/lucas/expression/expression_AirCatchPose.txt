@@ -1,8 +1,8 @@
 #[acmd_script( agent = "lucas", script = "expression_aircatchpose", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_aircatchpose(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn expression_aircatchpose(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         ItemModule::set_have_item_visibility(boma, false, 0);
         ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }

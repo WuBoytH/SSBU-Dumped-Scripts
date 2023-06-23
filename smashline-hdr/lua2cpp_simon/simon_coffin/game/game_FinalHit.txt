@@ -1,17 +1,17 @@
 #[acmd_script( agent = "simon_coffin", script = "game_finalhit", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalhit(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 10.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         MotionModule::set_rate(boma, 6);
     }
     frame(lua_state, 130.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         MotionModule::set_rate(boma, 1);
     }
     frame(lua_state, 179.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         MotionModule::set_rate(boma, 0);
     }
 }

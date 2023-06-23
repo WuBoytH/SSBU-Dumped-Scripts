@@ -1,15 +1,15 @@
 #[acmd_script( agent = "duckhunt", script = "expression_visualscene05", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_visualscene05(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn expression_visualscene05(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_spinattack"), 32, true, *BATTLE_OBJECT_ID_INVALID as u32);
-        RUMBLE_FINAL_TARGET(fighter, Hash40::new("rbkind_spinattack"), 32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_spinattack"), 32);
     }
     frame(lua_state, 35.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ControlModule::set_rumble(boma, Hash40::new("rbkind_loopattack"), 26, true, *BATTLE_OBJECT_ID_INVALID as u32);
-        RUMBLE_FINAL_TARGET(fighter, Hash40::new("rbkind_loopattack"), 26);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_loopattack"), 26);
     }
 }

@@ -1,45 +1,45 @@
 #[acmd_script( agent = "ness", script = "effect_entryl", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_entryl(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FLW_POS(fighter, Hash40::new("ness_entry"), Hash40::new("waist"), 2, -2, 2, 0, 55, 0, 1, true);
-        FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("toel"), -6, 0, -2, 0, 26, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FLW_POS(agent, Hash40::new("ness_entry"), Hash40::new("waist"), 2, -2, 2, 0, 55, 0, 1, true);
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("toel"), -6, 0, -2, 0, 26, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
     }
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("toel"), -6, 0, -2, 0, 26, 0, 1, 0, 0, 2, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("toel"), -6, 0, -2, 0, 26, 0, 1, 0, 0, 2, 0, 0, 0, false);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("toel"), -6, 0, -2, 0, 26, 0, 1.1, 0, 0, 2, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("toel"), -6, 0, -2, 0, 26, 0, 1.1, 0, 0, 2, 0, 0, 0, false);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("toel"), -6, 0, -2, 0, 26, 0, 0.9, 0, 0, 2, 0, 0, 0, false);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("toel"), -6, 0, -2, 0, 26, 0, 0.9, 0, 0, 2, 0, 0, 0, false);
     }
     frame(lua_state, 6.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("ness_entry_smoke"), Hash40::new("top"), 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("ness_black_face"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("ness_entry_smoke"), Hash40::new("top"), 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT_FOLLOW(agent, Hash40::new("ness_black_face"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
-        FLASH(fighter, 0, 0, 0, 1);
+    if is_excute(agent) {
+        FLASH(agent, 0, 0, 0, 1);
         ColorBlendModule::set_disable_camera_depth_influence(boma, true);
     }
     wait(lua_state, 20.0);
-    if is_excute(fighter) {
-        FLASH_FRM(fighter, 40, 0, 0, 0, 1);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 40, 0, 0, 0, 1);
     }
     wait(lua_state, 20.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("ness_black_face"), false, false);
-        FLASH_FRM(fighter, 40, 0, 0, 0, 0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("ness_black_face"), false, false);
+        FLASH_FRM(agent, 40, 0, 0, 0, 0);
     }
     wait(lua_state, 40.0);
-    if is_excute(fighter) {
-        COL_NORMAL(fighter);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
         ColorBlendModule::set_disable_camera_depth_influence(boma, false);
     }
 }

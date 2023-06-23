@@ -1,19 +1,19 @@
 #[acmd_script( agent = "dolly", script = "effect_speciallwend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_speciallwend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        LANDING_EFFECT(fighter, Hash40::new("null"), Hash40::new("top"), 11, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+unsafe fn effect_speciallwend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 11, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     if WorkModule::is_flag(boma, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND) {
-        if is_excute(fighter) {
-            EFFECT_DETACH_KIND(fighter, Hash40::new("dolly_down_s"), -1);
-            EFFECT(fighter, Hash40::new("dolly_down_ground_s"), Hash40::new("top"), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        if is_excute(agent) {
+            EFFECT_DETACH_KIND(agent, Hash40::new("dolly_down_s"), -1);
+            EFFECT(agent, Hash40::new("dolly_down_ground_s"), Hash40::new("top"), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT_DETACH_KIND(fighter, Hash40::new("dolly_down_n"), -1);
-            EFFECT(fighter, Hash40::new("dolly_down_ground_n"), Hash40::new("top"), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        if is_excute(agent) {
+            EFFECT_DETACH_KIND(agent, Hash40::new("dolly_down_n"), -1);
+            EFFECT(agent, Hash40::new("dolly_down_ground_n"), Hash40::new("top"), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     }
 }

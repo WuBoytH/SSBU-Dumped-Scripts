@@ -1,15 +1,15 @@
 #[acmd_script( agent = "pitb", script = "sound_throwlw", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_throwlw(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn sound_throwlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_common_swing_09"));
-        PLAY_SEQUENCE(fighter, Hash40::new("seq_pitb_rnd_attack"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_swing_09"));
+        PLAY_SEQUENCE(agent, Hash40::new("seq_pitb_rnd_attack"));
     }
     wait(lua_state, 12.0);
-    if is_excute(fighter) {
-        PLAY_SE(fighter, Hash40::new("se_common_down_soil_s"));
-        PLAY_SE(fighter, Hash40::new("se_common_kick_hit_m"));
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_down_soil_s"));
+        PLAY_SE(agent, Hash40::new("se_common_kick_hit_m"));
     }
 }

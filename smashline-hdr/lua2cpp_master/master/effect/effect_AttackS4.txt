@@ -1,42 +1,42 @@
 #[acmd_script( agent = "master", script = "effect_attacks4", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attacks4(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), -20, 18, 13.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+unsafe fn effect_attacks4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), -20, 18, 13.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
         else{
-        if is_excute(fighter) {
-            EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), -8, 17, 13.25, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), -8, 17, 13.25, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     }
 }
 frame(lua_state, 24.0);
-if is_excute(fighter) {
-    LANDING_EFFECT(fighter, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
-    EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("master_spearflare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true, 2);
-    LAST_EFFECT_SET_RATE(fighter, 0.9);
-    EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("master_smash_s_wind"), Hash40::new("top"), 0, 10, 35, 0, 0, 0, 1, true);
+if is_excute(agent) {
+    LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    EFFECT_FOLLOW_ALPHA(agent, Hash40::new("master_spearflare"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true, 2);
+    LAST_EFFECT_SET_RATE(agent, 0.9);
+    EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("master_smash_s_wind"), Hash40::new("top"), 0, 10, 35, 0, 0, 0, 1, true);
     EffectModule::enable_sync_init_pos_last(boma);
 }
 frame(lua_state, 25.0);
-if is_excute(fighter) {
-    EFFECT_FOLLOW(fighter, Hash40::new("master_smash_s_speedline"), Hash40::new("haver"), 0, 26, 0, -90, 0, 0, 0.7, true);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("master_smash_s_speedline"), Hash40::new("haver"), 0, 26, 0, -90, 0, 0, 0.7, true);
     EffectModule::enable_sync_init_pos_last(boma);
-    EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("master_smash_s_line"), Hash40::new("haver"), 0, 26, 0, -90, 0, 0, 0.7, true);
+    EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("master_smash_s_line"), Hash40::new("haver"), 0, 26, 0, -90, 0, 0, 0.7, true);
     EffectModule::enable_sync_init_pos_last(boma);
-    EFFECT_FOLLOW(fighter, Hash40::new("master_smash_s_flash"), Hash40::new("haver"), 0, 28, -1.25, 0, 0, 0, 1.3, true);
+    EFFECT_FOLLOW(agent, Hash40::new("master_smash_s_flash"), Hash40::new("haver"), 0, 28, -1.25, 0, 0, 0, 1.3, true);
     EffectModule::enable_sync_init_pos_last(boma);
 }
 frame(lua_state, 28.0);
-if is_excute(fighter) {
-    EFFECT_DETACH_KIND(fighter, Hash40::new("master_smash_s_line"), -1);
-    EFFECT_DETACH_KIND(fighter, Hash40::new("master_smash_s_speedline"), -1);
+if is_excute(agent) {
+    EFFECT_DETACH_KIND(agent, Hash40::new("master_smash_s_line"), -1);
+    EFFECT_DETACH_KIND(agent, Hash40::new("master_smash_s_speedline"), -1);
 }
 frame(lua_state, 29.0);
-if is_excute(fighter) {
-    EFFECT_OFF_KIND(fighter, Hash40::new("master_smash_s_line"), false, true);
-    EFFECT_OFF_KIND(fighter, Hash40::new("master_smash_s_wind"), false, true);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("master_smash_s_line"), false, true);
+    EFFECT_OFF_KIND(agent, Hash40::new("master_smash_s_wind"), false, true);
 }
 }

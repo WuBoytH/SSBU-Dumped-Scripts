@@ -1,19 +1,19 @@
 #[acmd_script( agent = "master", script = "effect_attack12", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attack12(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attack12(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        FOOT_EFFECT(fighter, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 1, 0, 1, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
-        LAST_EFFECT_SET_RATE(fighter, 1.2);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 1, 0, 1, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 1.2);
     }
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 2, 10.5, 5.5, -20, 0, 22, 0.8, true, 0.5);
-        LAST_EFFECT_SET_RATE(fighter, 1.5);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 2, 10.5, 5.5, -20, 0, 22, 0.8, true, 0.5);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
     }
     frame(lua_state, 8.0);
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("sys_attack_arc_d"), true, true);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("sys_attack_arc_d"), true, true);
     }
 }

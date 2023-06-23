@@ -1,9 +1,9 @@
 #[acmd_script( agent = "inkling", script = "game_attackdash", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackdash(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_attackdash(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if !WorkModule::is_flag(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_EXIST_SQUID) {
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ArticleModule::generate_article(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, -1);
         }
     }
@@ -11,7 +11,7 @@ unsafe fn game_attackdash(fighter: &mut L2CAgentBase) {
     let frame = MotionModule::frame(boma);
     let rate = MotionModule::rate(boma);
     ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(motion), false, -1.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_frame(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, frame);
         ArticleModule::set_rate(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, rate);
         ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
@@ -23,36 +23,36 @@ unsafe fn game_attackdash(fighter: &mut L2CAgentBase) {
     }
     get_value_float(0, *SO_VAR_FLOAT_LR);
     if(0x13d500(0, 0)){
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("attack_dash_l"), false, -1.0);
         }
         else{
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("attack_dash_r"), false, -1.0);
         }
     }
 }
 frame(lua_state, 1.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     VisibilityModule::set_whole(boma, true);
     ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 }
 frame(lua_state, 6.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
 }
 frame(lua_state, 8.0);
-if is_excute(fighter) {
-    ATTACK(fighter, 0, 0, Hash40::new("top"), 8.0, 60, 43, 0, 110, 4.0, 0.0, 7.0, 4.0, Some(0.0), Some(7.0), Some(6.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_ELBOW);
-    ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 1.5);
+if is_excute(agent) {
+    ATTACK(agent, 0, 0, Hash40::new("top"), 8.0, 60, 43, 0, 110, 4.0, 0.0, 7.0, 4.0, Some(0.0), Some(7.0), Some(6.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_ELBOW);
+    ATK_SET_SHIELD_SETOFF_MUL(agent, 0, 1.5);
 }
 wait(lua_state, 2.0);
-if is_excute(fighter) {
-    ATTACK(fighter, 0, 0, Hash40::new("top"), 6.0, 60, 43, 0, 100, 3.0, 0.0, 7.0, 4.0, Some(0.0), Some(7.0), Some(6.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_ELBOW);
-    ATK_SET_SHIELD_SETOFF_MUL(fighter, 0, 1.5);
+if is_excute(agent) {
+    ATTACK(agent, 0, 0, Hash40::new("top"), 6.0, 60, 43, 0, 100, 3.0, 0.0, 7.0, 4.0, Some(0.0), Some(7.0), Some(6.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_ELBOW);
+    ATK_SET_SHIELD_SETOFF_MUL(agent, 0, 1.5);
 }
 wait(lua_state, 4.0);
-if is_excute(fighter) {
+if is_excute(agent) {
     AttackModule::clear_all(boma);
 }
 }

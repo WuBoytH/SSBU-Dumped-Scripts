@@ -1,9 +1,9 @@
 #[acmd_script( agent = "inkling", script = "game_run", category = ACMD_GAME, low_priority )]
-unsafe fn game_run(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_run(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     if !WorkModule::is_flag(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_EXIST_SQUID) {
-        if is_excute(fighter) {
+        if is_excute(agent) {
             ArticleModule::generate_article(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, -1);
         }
     }
@@ -11,7 +11,7 @@ unsafe fn game_run(fighter: &mut L2CAgentBase) {
     let frame = MotionModule::frame(boma);
     let rate = MotionModule::rate(boma);
     ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(motion), false, -1.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_frame(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, frame);
         ArticleModule::set_rate(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, rate);
         ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
@@ -21,7 +21,7 @@ unsafe fn game_run(fighter: &mut L2CAgentBase) {
             WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_FORCE_LOUPE);
         }
     }
-    if is_excute(fighter) {
+    if is_excute(agent) {
         VisibilityModule::set_whole(boma, false);
         ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }

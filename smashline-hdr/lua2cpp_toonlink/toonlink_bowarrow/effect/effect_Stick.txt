@@ -1,13 +1,13 @@
 #[acmd_script( agent = "toonlink_bowarrow", script = "effect_stick", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_stick(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_OFF_KIND(fighter, Hash40::new("toonlink_arrow_trace"), true, true);
-        EFFECT_OFF_KIND(fighter, Hash40::new("toonlink_arrow"), true, true);
+unsafe fn effect_stick(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("toonlink_arrow_trace"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("toonlink_arrow"), true, true);
     }
     frame(lua_state, 110.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_erace_smoke"), Hash40::new("top"), 0, 0, -7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_erace_smoke"), Hash40::new("top"), 0, 0, -7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }

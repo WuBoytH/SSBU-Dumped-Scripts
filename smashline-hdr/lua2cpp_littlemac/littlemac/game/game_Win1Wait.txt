@@ -1,11 +1,11 @@
 #[acmd_script( agent = "littlemac", script = "game_win1wait", category = ACMD_GAME, low_priority )]
-unsafe fn game_win1wait(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_win1wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE);
     methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
-    if IS_EXIST_ARTICLE(fighter, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_DOCLOUIS) {
-        if is_excute(fighter) {
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_DOCLOUIS) {
+        if is_excute(agent) {
             ArticleModule::change_motion(boma, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_DOCLOUIS, Hash40::new("win1_wait"), false, -1.0);
         }
     }

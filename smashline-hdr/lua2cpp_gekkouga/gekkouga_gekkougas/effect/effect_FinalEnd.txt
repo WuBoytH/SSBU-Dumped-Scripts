@@ -1,12 +1,12 @@
 #[acmd_script( agent = "gekkouga_gekkougas", script = "effect_finalend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn effect_finalend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         EffectModule::remove_screen(boma, Hash40::new("bg_gekkouga_final"), -1);
     }
     frame(lua_state, 19.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("gekkouga_kageuchi_warp_end"), Hash40::new("top"), 0, 34, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("gekkouga_kageuchi_warp_end"), Hash40::new("top"), 0, 34, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }

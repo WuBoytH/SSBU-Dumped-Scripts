@@ -1,25 +1,25 @@
 #[acmd_script( agent = "ness", script = "game_attackhi4", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackhi4(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_attackhi4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    FT_MOTION_RATE(fighter, 0.74);
+    FT_MOTION_RATE(agent, 0.74);
     frame(lua_state, 3.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::set_visibility_whole(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::set_visibility_whole(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(lua_state, 10.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::shoot(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, *ARTICLE_OPE_TARGET_ALL, false);
     }
     frame(lua_state, 12.0);
-    FT_MOTION_RATE(fighter, 1.0);
-    if is_excute(fighter) {
+    FT_MOTION_RATE(agent, 1.0);
+    if is_excute(agent) {
         WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
     }
     frame(lua_state, 56.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::remove_exist(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::remove_exist(boma, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }

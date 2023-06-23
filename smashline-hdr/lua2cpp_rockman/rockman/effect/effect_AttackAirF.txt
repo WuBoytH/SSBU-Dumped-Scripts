@@ -1,22 +1,22 @@
 #[acmd_script( agent = "rockman", script = "effect_attackairf", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairf(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_attackairf(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("handr"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("handr"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(lua_state, 7.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("rockman_flamesword"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("rockman_flamesword"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 9.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("rockman_flamesword_ptc"), Hash40::new("top"), 0, 9, 0, 0, 0, 0, 1, true);
-        EFFECT_FOLLOW(fighter, Hash40::new("rockman_flamesword_arc"), Hash40::new("top"), 0, 9, 0, 0, 0, 0, 1, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("rockman_flamesword_ptc"), Hash40::new("top"), 0, 9, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("rockman_flamesword_arc"), Hash40::new("top"), 0, 9, 0, 0, 0, 0, 1, true);
     }
     frame(lua_state, 18.0);
-    if is_excute(fighter) {
-        EFFECT_DETACH_KIND(fighter, Hash40::new("rockman_flamesword"), -1);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("rockman_flamesword"), -1);
     }
 }

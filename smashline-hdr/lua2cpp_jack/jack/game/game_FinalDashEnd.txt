@@ -1,14 +1,14 @@
 #[acmd_script( agent = "jack", script = "game_finaldashend", category = ACMD_GAME, low_priority )]
-unsafe fn game_finaldashend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        WHOLE_HIT(fighter, *HIT_STATUS_XLU);
+unsafe fn game_finaldashend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
     }
     frame(lua_state, 1.0);
-    FT_MOTION_RATE(fighter, 0.6);
+    FT_MOTION_RATE(agent, 0.6);
     frame(lua_state, 21.0);
-    FT_MOTION_RATE(fighter, 1.1);
+    FT_MOTION_RATE(agent, 1.1);
     frame(lua_state, 42.0);
-    FT_MOTION_RATE(fighter, 0.8);
+    FT_MOTION_RATE(agent, 0.8);
 }

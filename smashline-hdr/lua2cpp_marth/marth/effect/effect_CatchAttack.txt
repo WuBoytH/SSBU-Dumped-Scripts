@@ -1,10 +1,10 @@
 #[acmd_script( agent = "marth", script = "effect_catchattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_catchattack(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn effect_catchattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        EFFECT_FOLLOW_NO_STOP(fighter, Hash40::new("sys_attack_speedline"), Hash40::new("top"), -1, 8, -3, -15, 0, 0, 0.7, true);
-        LAST_EFFECT_SET_RATE(fighter, 0.8);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_attack_speedline"), Hash40::new("top"), -1, 8, -3, -15, 0, 0, 0.7, true);
+        LAST_EFFECT_SET_RATE(agent, 0.8);
     }
 }

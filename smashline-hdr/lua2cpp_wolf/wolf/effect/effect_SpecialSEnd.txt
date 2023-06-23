@@ -1,15 +1,15 @@
 #[acmd_script( agent = "wolf", script = "effect_specialsend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialsend(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
-        EFFECT_FOLLOW(fighter, Hash40::new("wolf_slash_scratch"), Hash40::new("top"), 5, 13, 0, -40, 0, 0, 0.6, true);
-        LAST_EFFECT_SET_RATE(fighter, 2);
+unsafe fn effect_specialsend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("wolf_slash_scratch"), Hash40::new("top"), 5, 13, 0, -40, 0, 0, 0.6, true);
+        LAST_EFFECT_SET_RATE(agent, 2);
     }
     frame(lua_state, 2.0);
-    if is_excute(fighter) {
-        EFFECT_DETACH_KIND(fighter, Hash40::new("wolf_slash_rush"), -1);
-        EFFECT(fighter, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 1.5, 10, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
-        LAST_EFFECT_SET_RATE(fighter, 1.8);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("wolf_slash_rush"), -1);
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 1.5, 10, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.8);
     }
 }

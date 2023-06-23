@@ -1,33 +1,33 @@
 #[acmd_script( agent = "ken", script = "game_final_com", category = ACMD_GAME, low_priority )]
-unsafe fn game_final_com(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
+unsafe fn game_final_com(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
     frame(lua_state, 1.0);
-    if is_excute(fighter) {
-        CHECK_VALID_FINAL_START_CAMERA(fighter, 0, 0, 20, 0, 0, 0);
-        SLOW_OPPONENT(fighter, 10, 70);
+    if is_excute(agent) {
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 0, 20, 0, 0, 0);
+        SLOW_OPPONENT(agent, 10, 70);
     }
     if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(lua_state, 5.0);
-        if is_excute(fighter) {
-            FT_SET_FINAL_FEAR_FACE(fighter, 40);
-            REQ_FINAL_START_CAMERA(fighter, Hash40::new("d04final.nuanmb"), true);
-            FT_START_CUTIN(fighter);
+        if is_excute(agent) {
+            FT_SET_FINAL_FEAR_FACE(agent, 40);
+            REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final.nuanmb"), true);
+            FT_START_CUTIN(agent);
         }
         else{
-        if is_excute(fighter) {
-            FT_START_CUTIN(fighter);
+        if is_excute(agent) {
+            FT_START_CUTIN(agent);
         }
-        if sv_animcmd::get_value_float(fighter, *SO_VAR_FLOAT_LR) < 0.0 {
-            if is_excute(fighter) {
-                camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+        if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if is_excute(agent) {
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
                 PostureModule::scale(boma, 3, 0);
                 0x16e550(1760657085, 1.8);
                 CAM_ZOOM_IN_arg5(0, 0);
             }
             else{
-            if is_excute(fighter) {
-                camera!(fighter, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+            if is_excute(agent) {
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
                 PostureModule::scale(boma, 3, 0);
                 0x16e550(1760657085, 1.8);
                 CAM_ZOOM_IN_arg5(0, 0);

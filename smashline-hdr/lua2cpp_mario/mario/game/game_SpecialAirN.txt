@@ -1,10 +1,10 @@
 #[acmd_script( agent = "mario", script = "game_specialairn", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairn(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    FT_MOTION_RATE(fighter, 1.15);
+unsafe fn game_specialairn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    FT_MOTION_RATE(agent, 1.15);
     frame(lua_state, 14.0);
-    if is_excute(fighter) {
+    if is_excute(agent) {
         ArticleModule::generate_article(boma, *FIGHTER_MARIO_GENERATE_ARTICLE_FIREBALL, false, -1);
     }
 }

@@ -1,16 +1,16 @@
 #[acmd_script( agent = "tantan", script = "game_attackbothendr", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackbothendr(fighter: &mut L2CAgentBase) {
-    let lua_state = fighter.lua_state_agent;
-    let boma = fighter.boma();
-    if is_excute(fighter) {
+unsafe fn game_attackbothendr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
         AttackModule::clear_all(boma);
     }
     if WorkModule::is_flag(boma, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_BLOCKED_PUNCH_L) {
         if WorkModule::is_flag(boma, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_DRAGONIZE_L) {
             if WorkModule::is_flag(boma, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_REINFORCE_L) {
                 frame(lua_state, 1.0);
-                if is_excute(fighter) {
-                    ATTACK(fighter, 0, 0, Hash40::new("arml"), 15.0, 361, 75, 0, 40, 5.5, 4.0, 2.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_TANTAN_PUNCH01, *ATTACK_REGION_PUNCH);
+                if is_excute(agent) {
+                    ATTACK(agent, 0, 0, Hash40::new("arml"), 15.0, 361, 75, 0, 40, 5.5, 4.0, 2.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_TANTAN_PUNCH01, *ATTACK_REGION_PUNCH);
                     AttackModule::set_damage_shake_scale(boma, 0.5);
                     ControlModule::set_rumble(boma, Hash40::new("rbkind_76_dragonarm"), 9, false, *BATTLE_OBJECT_ID_INVALID as u32);
                 }
@@ -20,8 +20,8 @@ unsafe fn game_attackbothendr(fighter: &mut L2CAgentBase) {
             else{
             if WorkModule::is_flag(boma, *LUA_SCRIPT_LINE_MAX) {
                 frame(lua_state, 1.0);
-                if is_excute(fighter) {
-                    ATTACK(fighter, 0, 0, Hash40::new("arml"), 13.8, 361, 75, 0, 40, 5.5, 4.0, 2.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_TANTAN_PUNCH01, *ATTACK_REGION_PUNCH);
+                if is_excute(agent) {
+                    ATTACK(agent, 0, 0, Hash40::new("arml"), 13.8, 361, 75, 0, 40, 5.5, 4.0, 2.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_TANTAN_PUNCH01, *ATTACK_REGION_PUNCH);
                     AttackModule::set_damage_shake_scale(boma, 0.5);
                     ControlModule::set_rumble(boma, Hash40::new("rbkind_76_dragonarm"), 9, false, *BATTLE_OBJECT_ID_INVALID as u32);
                 }
@@ -30,8 +30,8 @@ unsafe fn game_attackbothendr(fighter: &mut L2CAgentBase) {
             }
             else{
             frame(lua_state, 1.0);
-            if is_excute(fighter) {
-                ATTACK(fighter, 0, 0, Hash40::new("arml"), 8.0, 361, 90, 0, 50, 5.5, 4.0, 2.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_TANTAN_PUNCH01, *ATTACK_REGION_PUNCH);
+            if is_excute(agent) {
+                ATTACK(agent, 0, 0, Hash40::new("arml"), 8.0, 361, 90, 0, 50, 5.5, 4.0, 2.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_TANTAN_PUNCH01, *ATTACK_REGION_PUNCH);
                 AttackModule::set_damage_shake_scale(boma, 0.5);
                 ControlModule::set_rumble(boma, Hash40::new("rbkind_76_dragonarm"), 9, false, *BATTLE_OBJECT_ID_INVALID as u32);
             }
