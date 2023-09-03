@@ -1,0 +1,117 @@
+-- lc file decompiled with special DSLuaDecompiler build by katalash, jam1garner, & Coolsonickirby
+
+-- Decimal      -> Hexadecimal   -> Label
+-- 13402447818  -> 0x031ED91FCA  -> top
+-- 92925133491  -> 0x15A2C502B3  -> collision_attr_normal
+
+game_Jump = function ()
+    sv_animcmd.frame(4)
+    if sv_animcmd.is_excute() then
+        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+    end
+    return 
+end
+
+game_JumpAir = function ()
+    sv_animcmd.frame(4)
+    if sv_animcmd.is_excute() then
+        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+    end
+    return 
+end
+
+game_StaffCombo = function ()
+    sv_animcmd.frame(7)
+    if sv_animcmd.is_excute() then
+        sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 4, 58, 100, 35, 0, 4, 0, 3, 13, 0, 13, 13, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 3, 45, 100, 38, 0, 4, 0, 4.5, 9, 0, 10.5, 9, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(2, 0, 0x031ED91FCA, 3, 40, 100, 40, 0, 4, 0, 6, 5, 0, 8, 5, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(3, 0, 0x031ED91FCA, 3, 30, 100, 65, 0, 6, 0, 6, 1, 0, 6, 1, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+    end
+    sv_animcmd.wait(2)
+    if sv_animcmd.is_excute() then
+        AttackModule.clear_all()
+    end
+    sv_animcmd.frame(19)
+    if sv_animcmd.is_excute() then
+        sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 5, 75, 100, 35, 0, 4, 0, 6, 13, 0, 16, 13, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 4, 45, 100, 38, 0, 4, 0, 6, 9, 0, 12, 9, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(2, 0, 0x031ED91FCA, 4, 40, 100, 40, 0, 4, 0, 6, 5, 0, 10, 5, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(3, 0, 0x031ED91FCA, 3, 30, 100, 65, 0, 6, 0, 6, 1, 0, 6, 1, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+    end
+    sv_animcmd.wait(2)
+    if sv_animcmd.is_excute() then
+        AttackModule.clear_all()
+    end
+    sv_animcmd.frame(34)
+    if sv_animcmd.is_excute() then
+        sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 12, 46, 130, 0, 60, 4, 0, 3, 13, 0, 13, 13, 1.2000000476837158, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 11, 46, 130, 0, 60, 4, 0, 4, 9, 0, 10.5, 9, 1.2000000476837158, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(2, 0, 0x031ED91FCA, 11, 46, 130, 0, 60, 4, 0, 6, 5, 0, 8, 5, 1.2000000476837158, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(3, 0, 0x031ED91FCA, 11, 30, 100, 65, 0, 6, 0, 6, 1, 0, 6, 1, 1.2000000476837158, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+    end
+    sv_animcmd.wait(2)
+    if sv_animcmd.is_excute() then
+        AttackModule.clear_all()
+    end
+    return 
+end
+
+game_StaffComboAir = function ()
+    sv_animcmd.frame(7)
+    if sv_animcmd.is_excute() then
+        sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 4, 45, 100, 35, 0, 4, 0, 3, 13, 0, 13, 13, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 3, 45, 100, 38, 0, 4, 0, 4.5, 9, 0, 10.5, 9, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(2, 0, 0x031ED91FCA, 3, 40, 100, 40, 0, 4, 0, 6, 5, 0, 8, 5, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(3, 0, 0x031ED91FCA, 3, 30, 100, 65, 0, 6, 0, 6, 1, 0, 6, 1, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+    end
+    sv_animcmd.wait(2)
+    if sv_animcmd.is_excute() then
+        AttackModule.clear_all()
+    end
+    sv_animcmd.frame(19)
+    if sv_animcmd.is_excute() then
+        sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 5, 30, 100, 35, 0, 4, 0, 6, 13, 0, 16, 13, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 4, 30, 100, 38, 0, 4, 0, 6, 9, 0, 12, 9, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(2, 0, 0x031ED91FCA, 4, 30, 100, 40, 0, 4, 0, 6, 5, 0, 10, 5, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(3, 0, 0x031ED91FCA, 3, 30, 100, 65, 0, 6, 0, 6, 1, 0, 6, 1, 0.6000000238418579, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+    end
+    sv_animcmd.wait(2)
+    if sv_animcmd.is_excute() then
+        AttackModule.clear_all()
+    end
+    sv_animcmd.frame(34)
+    if sv_animcmd.is_excute() then
+        sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 12, 46, 130, 0, 60, 4, 0, 3, 13, 0, 13, 13, 1.2000000476837158, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 11, 46, 130, 0, 60, 4, 0, 4, 9, 0, 10.5, 9, 1.2000000476837158, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(2, 0, 0x031ED91FCA, 11, 46, 130, 0, 60, 4, 0, 6, 5, 0, 8, 5, 1.2000000476837158, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+        sv_animcmd.ATTACK(3, 0, 0x031ED91FCA, 11, 46, 100, 65, 0, 6, 0, 6, 1, 0, 6, 1, 1.2000000476837158, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
+    end
+    sv_animcmd.wait(2)
+    if sv_animcmd.is_excute() then
+        AttackModule.clear_all()
+    end
+    return 
+end
+
+game_Escape = function ()
+    sv_animcmd.frame(1)
+    if sv_animcmd.is_excute() then
+        sv_animcmd:WHOLE_HIT(HIT_STATUS_XLU)
+    end
+    sv_animcmd.wait(19)
+    if sv_animcmd.is_excute() then
+        sv_animcmd:WHOLE_HIT(HIT_STATUS_NORMAL)
+    end
+    return 
+end
+
+game_EscapeJump = function ()
+    sv_animcmd.frame(4)
+    if sv_animcmd.is_excute() then
+        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+    end
+    return 
+end
+
+return
