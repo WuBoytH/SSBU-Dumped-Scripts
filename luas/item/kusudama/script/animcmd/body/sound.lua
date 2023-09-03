@@ -8,7 +8,7 @@
 -- 83910429885  -> 0x1389738CBD  -> se_item_kusudama_02
 
 sound_Born = function ()
-    if WorkModule:is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil then
+    if WorkModule.is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
         end

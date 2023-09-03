@@ -70,7 +70,7 @@ end
 effect_AttackConsecutiveStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0DA24C4420, 0x06B66091F2, 0, 0, 5, 0, 0, 90, 1, true)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
     end
     return 
 end
@@ -78,7 +78,7 @@ end
 effect_AttackConsecutive = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0DA24C4420, 0x06B66091F2, 0, 0, 5, 0, 0, 90, 1, true)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
     end
     return 
 end
@@ -86,7 +86,7 @@ end
 effect_AttackConsecutiveFinish = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x14F8EF19BB, 0x06B66091F2, 0, 0, -12, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.75)
     end
     return 
@@ -127,7 +127,7 @@ effect_EscapeMistLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0C74C2255A, 0x031ED91FCA, 0, 6, 0, 0, 0, 0, 0.800000011920929, true)
         sv_animcmd.LAST_EFFECT_SET_COLOR(1.2000000476837158, 1.2000000476837158, 1.2000000476837158)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_MIST_LOOP_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_MIST_LOOP_EFFECT_HANDLE)
     end
     return 
 end

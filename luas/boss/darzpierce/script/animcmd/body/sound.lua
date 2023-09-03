@@ -8,7 +8,7 @@
 -- 114820121266 -> 0x1ABBD002B2  -> se_boss_darz_pierce_return
 
 sound_PierceStart = function ()
-    if WorkModule:is_flag(ITEM_DARZPIERCE_INSTANCE_WORK_FLAG_ODD) == nil then
+    if WorkModule.is_flag(ITEM_DARZPIERCE_INSTANCE_WORK_FLAG_ODD) == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE(0x1DF95A37AE)
         end

@@ -22,7 +22,7 @@ end
 
 game_Landing = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
         sv_animcmd.ATTACK_FP(0, 1, 0x031ED91FCA, 1, 361, 100, 0, 50, 15, 0, 0, 0, 0x15A2C502B3, 0, 1, 1, false, false, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, true, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
     sv_animcmd.wait(5)

@@ -14,11 +14,11 @@ game_Throw = function ()
 end
 
 game_Born = function ()
-    if WorkModule:is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil then
+    if WorkModule.is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.AREA_WIND_2ND_RAD(0, 1, 0.019999999552965164, 1000, 1, 0, 0, 60)
             sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 22, 90, 90, 0, 30, 9.600000381469727, 0, -4, 0, 0x13BEB18342, 0, 0.5, 1, false, false, 2, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 16, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
         end
         sv_animcmd.wait(1)
         if sv_animcmd.is_excute() then

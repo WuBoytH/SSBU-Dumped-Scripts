@@ -187,7 +187,7 @@ effect_AttackRushStart = function ()
         sv_animcmd.LANDING_EFFECT(0x0EB968E28A, 0x031ED91FCA, 3, 0, -5, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
     end
     local f18_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f18_local0 = false
     else
         f18_local0 = true
@@ -272,7 +272,7 @@ effect_AttackRushAirStart = function ()
     end
     sv_animcmd.frame(8)
     local f21_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f21_local0 = false
     else
         f21_local0 = true
@@ -373,7 +373,7 @@ effect_Guard = function ()
         sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, 2, 0, 0, 0, 0, 0, 0.9200000166893005, 0, 0, 0, 0, 0, 0, false)
     end
     local f27_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f27_local0 = false
     else
         f27_local0 = true

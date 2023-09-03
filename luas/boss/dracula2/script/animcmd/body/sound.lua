@@ -41,11 +41,11 @@ end
 sound_Dead = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
     end
     sv_animcmd.frame(235)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
     return 
 end

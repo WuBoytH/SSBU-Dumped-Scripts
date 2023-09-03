@@ -7,7 +7,7 @@
 
 game_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.IT_SET_PARENT_RUMBLE(0x10EAA9BFF4, 0)
         sv_animcmd.AREA_WIND_2ND_RAD(0, 1, 0.019999999552965164, 1000, 1, 0, 0, 50)
     end
@@ -30,7 +30,7 @@ game_Born = function ()
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        WorkModule:on_flag(ITEM_YOUNGLINKBOMB_INSTANCE_WORK_FLAG_LOST)
+        WorkModule.on_flag(ITEM_YOUNGLINKBOMB_INSTANCE_WORK_FLAG_LOST)
     end
     return 
 end

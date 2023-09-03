@@ -66,10 +66,10 @@
 -- 123959970210 -> 0x1CDC9709A2  -> se_boss_ganonboss_down_flash
 -- 118921581402 -> 0x1BB047535A  -> se_boss_ganonboss_down_slow
 
-Warning: Function 19 using already codegened block basicblock_3:
+Warning. Function 19 using already codegened block basicblock_3.
 sound_Entry = function ()
     local f1_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_BOSS_MODE) ~= ITEM_BOSS_MODE_STANDARD_SERIES then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_BOSS_MODE) ~= ITEM_BOSS_MODE_STANDARD_SERIES then
         f1_local0 = false
     else
         f1_local0 = true
@@ -457,11 +457,11 @@ end
 sound_Dead = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
     end
     sv_animcmd.frame(300)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
     return 
 end

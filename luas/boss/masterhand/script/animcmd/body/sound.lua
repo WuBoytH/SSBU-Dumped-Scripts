@@ -261,7 +261,7 @@ end
 sound_DeadFinish = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
     end
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then
@@ -273,7 +273,7 @@ sound_DeadFinish = function ()
     end
     sv_animcmd.frame(270)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
     return 
 end
@@ -551,7 +551,7 @@ sound_WFingerBeamStart = function ()
     end
     sv_animcmd.frame(257)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MASTERHAND_INSTANCE_WORK_FLAG_WYUBIBEAM_SE_STOP)
+        WorkModule.on_flag(ITEM_MASTERHAND_INSTANCE_WORK_FLAG_WYUBIBEAM_SE_STOP)
     end
     sv_animcmd.frame(263)
     if sv_animcmd.is_excute() then

@@ -197,7 +197,7 @@ end
 
 sound_DownBound = function ()
     local f24_local0
-    if WorkModule:get_int64(ITEM_SUKAPON_INSTANCE_WORK_INT_DOWN_BOUND_COUNT) ~= 1 then
+    if WorkModule.get_int64(ITEM_SUKAPON_INSTANCE_WORK_INT_DOWN_BOUND_COUNT) ~= 1 then
         f24_local0 = false
     else
         f24_local0 = true
@@ -209,7 +209,7 @@ sound_DownBound = function ()
         end
     else
         f24_local0
-        if WorkModule:get_int64(ITEM_SUKAPON_INSTANCE_WORK_INT_DOWN_BOUND_COUNT) ~= 2 then
+        if WorkModule.get_int64(ITEM_SUKAPON_INSTANCE_WORK_INT_DOWN_BOUND_COUNT) ~= 2 then
             f24_local0 = false
         else
             f24_local0 = true
@@ -221,7 +221,7 @@ sound_DownBound = function ()
             end
         else
             f24_local0
-            if WorkModule:get_int64(ITEM_SUKAPON_INSTANCE_WORK_INT_DOWN_BOUND_COUNT) ~= 3 then
+            if WorkModule.get_int64(ITEM_SUKAPON_INSTANCE_WORK_INT_DOWN_BOUND_COUNT) ~= 3 then
                 f24_local0 = false
             else
                 f24_local0 = true

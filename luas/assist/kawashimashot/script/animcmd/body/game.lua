@@ -20,7 +20,7 @@ end
 
 game_BigBomb = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_KS)
         sv_animcmd.AREA_WIND_2ND_RAD(0, 1, 0.019999999552965164, 1000, 1, 0, 0, 60)
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 1, 160, 100, 0, 50, 10, 0, 0, 0, 0x13BEB18342, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_NO_ITEM, false, COLLISION_PART_MASK_ALL, false, false, false, false, 4, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
@@ -118,7 +118,7 @@ game_BigBomb = function ()
     sv_animcmd.wait(2)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        sv_animcmd:QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
     return 
 end

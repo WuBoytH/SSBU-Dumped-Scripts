@@ -8,11 +8,11 @@
 
 game_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_KS)
         AttackModule.set_no_dead_damage_fly_effect(false)
         sv_animcmd.AREA_WIND_2ND_RAD(0, 2, 0.019999999552965164, 1000, 1, 0, 0, 60)
-        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 0.10000000149011612, 0.20000000298023224, 90, 60, 70, 0, 0, 50, 80, 15, 15, 0, 0, 0, 0x13BEB18342, 0, 15, 4, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 12, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(1, 1, 0x031ED91FCA, 0.20000000298023224, 0.4000000059604645, 160, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, -10, 0x13BEB18342, 0, 0.10000000149011612, 0.5, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 12, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 0, 10, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 0.10000000149011612, 0.20000000298023224, 90, 60, 70, 0, 0, 50, 80, 15, 15, 0, 0, 0, 0x13BEB18342, 0, 15, 4, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 12, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(1, 1, 0x031ED91FCA, 0.20000000298023224, 0.4000000059604645, 160, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, -10, 0x13BEB18342, 0, 0.10000000149011612, 0.5, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 12, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 0, 10, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.RUMBLE_ALL(0x10455D7D08, 0)
     end
     sv_animcmd.wait(6)
@@ -171,13 +171,13 @@ game_Born = function ()
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then
         AttackModule.set_no_dead_damage_fly_effect(true)
-        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 15, 28, 90, 70, 35, 0, 0, 30, 60, 63.5, 63.5, 0, 0, 0, 0x13BEB18342, 0, 0, 0.5, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 15, 28, 90, 70, 35, 0, 0, 30, 60, 63.5, 63.5, 0, 0, 0, 0x13BEB18342, 0, 0, 0.5, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.wait(2)
     if sv_animcmd.is_excute() then
         AttackModule.clear(0)
         AreaModule.erase_wind(0)
-        sv_animcmd:QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
         sv_animcmd.RUMBLE_ALL(0x0F9E179B21, 0)
     end
     return 

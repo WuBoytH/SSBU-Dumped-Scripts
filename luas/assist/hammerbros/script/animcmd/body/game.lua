@@ -3,7 +3,7 @@
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

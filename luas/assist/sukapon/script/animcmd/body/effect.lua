@@ -71,7 +71,7 @@ end
 effect_AttackRollingMain = function ()
     sv_animcmd.frame(1)
     local f8_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f8_local0 = false
     else
         f8_local0 = true
@@ -97,7 +97,7 @@ end
 effect_AttackRollingAirMain = function ()
     sv_animcmd.frame(1)
     local f9_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f9_local0 = false
     else
         f9_local0 = true
@@ -123,7 +123,7 @@ end
 effect_AttackRolling2Main = function ()
     sv_animcmd.frame(1)
     local f10_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f10_local0 = false
     else
         f10_local0 = true
@@ -149,7 +149,7 @@ end
 effect_AttackRolling2AirStart = function ()
     sv_animcmd.frame(1)
     local f11_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f11_local0 = false
     else
         f11_local0 = true
@@ -174,7 +174,7 @@ end
 
 effect_AttackRollingHop = function ()
     local f12_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f12_local0 = false
     else
         f12_local0 = true

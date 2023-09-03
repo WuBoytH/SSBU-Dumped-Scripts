@@ -19,7 +19,7 @@ end
 
 sound_HaveAttack = function ()
     local f2_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 5 then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 5 then
         f2_local0 = false
     else
         f2_local0 = true
@@ -30,7 +30,7 @@ sound_HaveAttack = function ()
         end
     else
         f2_local0
-        if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 4 then
+        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 4 then
             f2_local0 = false
         else
             f2_local0 = true
@@ -41,7 +41,7 @@ sound_HaveAttack = function ()
             end
         else
             f2_local0
-            if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 3 then
+            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 3 then
                 f2_local0 = false
             else
                 f2_local0 = true
@@ -52,7 +52,7 @@ sound_HaveAttack = function ()
                 end
             else
                 f2_local0
-                if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 2 then
+                if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 2 then
                     f2_local0 = false
                 else
                     f2_local0 = true
@@ -63,7 +63,7 @@ sound_HaveAttack = function ()
                     end
                 else
                     f2_local0
-                    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 1 then
+                    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 1 then
                         f2_local0 = false
                     else
                         f2_local0 = true

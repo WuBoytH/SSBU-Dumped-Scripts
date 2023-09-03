@@ -17,14 +17,14 @@ end
 game_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 7, 52, 115, 0, 60, 14, 0, 0, 0, 0, 0, 0, 0.800000011920929, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, true, true, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_BOMB, ATTACK_REGION_BOMB)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.AREA_WIND_2ND_RAD(0, 1, 0.019999999552965164, 1000, 1, 0, 0, 50)
         sv_animcmd.IT_SET_PARENT_RUMBLE(0x10EAA9BFF4, 0)
     end
     sv_animcmd.wait(2)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        WorkModule:on_flag(ITEM_LINKBOMB_INSTANCE_WORK_FLAG_LOST)
+        WorkModule.on_flag(ITEM_LINKBOMB_INSTANCE_WORK_FLAG_LOST)
     end
     return 
 end

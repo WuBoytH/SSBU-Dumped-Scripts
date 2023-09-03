@@ -8,9 +8,9 @@
 effect_InitAura = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0F175D8D71, 0x09D8997220, 0, 0, 0, 0, 0, 0, 1, false)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_KIILA_INSTANCE_WORK_INT_EFFECT_AURA)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_KIILA_INSTANCE_WORK_INT_EFFECT_AURA)
         sv_animcmd.EFFECT_FOLLOW(0x1571AE5FD6, 0x09D8997220, 0, 0, 0, 0, 0, 0, 1, false)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_KIILA_INSTANCE_WORK_INT_EFFECT_AURA_ANGER)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_KIILA_INSTANCE_WORK_INT_EFFECT_AURA_ANGER)
     end
     return 
 end

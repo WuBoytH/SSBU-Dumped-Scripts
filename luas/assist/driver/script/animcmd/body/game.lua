@@ -24,11 +24,11 @@ game_Turn = function ()
     end
     sv_animcmd.frame(14)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_DRIVER_INSTANCE_WORK_FLAG_REVERSE_FIGHTER)
+        WorkModule.on_flag(ITEM_DRIVER_INSTANCE_WORK_FLAG_REVERSE_FIGHTER)
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_DRIVER_INSTANCE_WORK_FLAG_REVERSE_LR)
+        WorkModule.on_flag(ITEM_DRIVER_INSTANCE_WORK_FLAG_REVERSE_LR)
     end
     return 
 end
@@ -49,7 +49,7 @@ end
 game_CarryTurn = function ()
     sv_animcmd.frame(14)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_DRIVER_INSTANCE_WORK_FLAG_REVERSE_FIGHTER)
+        WorkModule.on_flag(ITEM_DRIVER_INSTANCE_WORK_FLAG_REVERSE_FIGHTER)
     end
     return 
 end
@@ -62,7 +62,7 @@ end
 game_TurnShort = function ()
     sv_animcmd.frame(14)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_DRIVER_INSTANCE_WORK_FLAG_REVERSE_FIGHTER)
+        WorkModule.on_flag(ITEM_DRIVER_INSTANCE_WORK_FLAG_REVERSE_FIGHTER)
     end
     return 
 end
@@ -71,7 +71,7 @@ game_Jump = function ()
     game_Run()
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -80,7 +80,7 @@ game_JumpStep = function ()
     game_Run()
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

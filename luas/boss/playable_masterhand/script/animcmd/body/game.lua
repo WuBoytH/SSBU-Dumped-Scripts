@@ -95,7 +95,7 @@ end
 game_DrillEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(1, 1, 0x031D39A761, 1, -90, 100, 50, 20, 13, 0, -25, 0, 0x15A2C502B3, 0, 0.10000000149011612, 2.5, false, true, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 3, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, COLLISION_SHAPE_TYPE_CAPSULE)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 1, 0x042762428F, 1, -90, 100, 50, 20, 12, 55, 0, 0, 0x15A2C502B3, 0, 0.10000000149011612, 2.5, false, true, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 3, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, 35, 0, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 1, 0x042762428F, 1, -90, 100, 50, 20, 12, 55, 0, 0, 0x15A2C502B3, 0, 0.10000000149011612, 2.5, false, true, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 3, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, 35, 0, 0)
         sv_animcmd.RUMBLE_ALL(0x10455D7D08, 40)
     end
     sv_animcmd.wait(35)
@@ -131,7 +131,7 @@ end
 game_Yubideppou = function ()
     sv_animcmd.IT_JUST_FRAME(2)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIDEPPOU)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIDEPPOU)
     end
     sv_animcmd.frame(3)
     if sv_animcmd.is_excute() then
@@ -143,15 +143,15 @@ end
 game_YubideppouRensha = function ()
     sv_animcmd.IT_JUST_FRAME(3)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIDEPPOU)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIDEPPOU)
     end
     sv_animcmd.IT_JUST_FRAME(15)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIDEPPOU)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIDEPPOU)
     end
     sv_animcmd.IT_JUST_FRAME(27)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIDEPPOU)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIDEPPOU)
     end
     return 
 end
@@ -177,11 +177,11 @@ game_YubiBeam = function ()
     end
     sv_animcmd.frame(79)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
     end
     sv_animcmd.frame(83)
     if sv_animcmd.is_excute() then
@@ -189,11 +189,11 @@ game_YubiBeam = function ()
     end
     sv_animcmd.frame(84)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x15A2C502B3, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x15A2C502B3, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x15A2C502B3, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x15A2C502B3, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x15A2C502B3, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x15A2C502B3, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x15A2C502B3, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x15A2C502B3, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
     end
     sv_animcmd.frame(152)
     if sv_animcmd.is_excute() then
@@ -201,11 +201,11 @@ game_YubiBeam = function ()
     end
     sv_animcmd.frame(153)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
     end
     sv_animcmd.frame(210)
     if sv_animcmd.is_excute() then
@@ -213,11 +213,11 @@ game_YubiBeam = function ()
     end
     sv_animcmd.frame(211)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
     end
     sv_animcmd.frame(429)
     if sv_animcmd.is_excute() then
@@ -225,11 +225,11 @@ game_YubiBeam = function ()
     end
     sv_animcmd.frame(430)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 1)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 1)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
     end
     sv_animcmd.frame(524)
     if sv_animcmd.is_excute() then
@@ -237,11 +237,11 @@ game_YubiBeam = function ()
     end
     sv_animcmd.frame(525)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 1)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_MOVE_ENABLE)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 1, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 1)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, true, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 1.399999976158142, 366, 100, 70, 0, 3.5999999046325684, 300, -2, 0, 0x13462FCFE4, 0, 0, 0, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 10, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
     end
     sv_animcmd.frame(619)
     if sv_animcmd.is_excute() then
@@ -249,10 +249,10 @@ game_YubiBeam = function ()
     end
     sv_animcmd.frame(620)
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 20, 125, 40, 0, 90, 7.199999809265137, 300, -2, 1, 0x13462FCFE4, 0, 0.5, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 20, 125, 40, 0, 90, 7.199999809265137, 300, -2, 0, 0x13462FCFE4, 0, 0.5, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 20, 125, 40, 0, 90, 7.199999809265137, 300, -2, 0, 0x13462FCFE4, 0, 0.5, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 20, 125, 40, 0, 90, 7.199999809265137, 300, -2, 0, 0x13462FCFE4, 0, 0.5, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x061A55CD6A, 20, 125, 40, 0, 90, 7.199999809265137, 300, -2, 1, 0x13462FCFE4, 0, 0.5, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 1)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x076697D1A0, 20, 125, 40, 0, 90, 7.199999809265137, 300, -2, 0, 0x13462FCFE4, 0, 0.5, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 3, 0, 0x05D43B8667, 20, 125, 40, 0, 90, 7.199999809265137, 300, -2, 0, 0x13462FCFE4, 0, 0.5, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x06F094BE06, 20, 125, 40, 0, 90, 7.199999809265137, 300, -2, 0, 0x13462FCFE4, 0, 0.5, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_B, false, false, false, false, false, 8, -2, 0)
     end
     sv_animcmd.frame(680)
     if sv_animcmd.is_excute() then
@@ -299,7 +299,7 @@ end
 game_IronBallStart = function ()
     sv_animcmd.frame(48)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_IRON_BALL_CREATE)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_IRON_BALL_CREATE)
     end
     return 
 end
@@ -307,7 +307,7 @@ end
 game_IronBall = function ()
     sv_animcmd.IT_JUST_FRAME(37)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_IRON_BALL_THROW)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_IRON_BALL_THROW)
         sv_animcmd.RUMBLE_ALL(0x0DC5701E41, 0)
     end
     return 
@@ -320,12 +320,12 @@ game_ChakramStart = function ()
     end
     sv_animcmd.frame(41)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_CREATE)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_CREATE)
     end
     sv_animcmd.frame(42)
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x054F934137, 0, 0, 35, 0, 50, 2, 0, 0, 12, 0x14860B063A, 0, 0.5, 0, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, 0, 0, -12)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x06A2278843, 0, 0, 35, 0, 50, 2, 12, 0, 5, 0x14860B063A, 0, 0.5, 0, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -12, 0, -5)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x054F934137, 0, 0, 35, 0, 50, 2, 0, 0, 12, 0x14860B063A, 0, 0.5, 0, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, 0, 0, -12)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x06A2278843, 0, 0, 35, 0, 50, 2, 12, 0, 5, 0x14860B063A, 0, 0.5, 0, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -12, 0, -5)
     end
     sv_animcmd.frame(90)
     if sv_animcmd.is_excute() then
@@ -335,7 +335,7 @@ game_ChakramStart = function ()
     end
     sv_animcmd.frame(101)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_THROW)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_THROW)
         AttackModule.clear_all()
     end
     return 
@@ -344,12 +344,12 @@ end
 game_ChakramStartReverse = function ()
     sv_animcmd.frame(44)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_CREATE)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_CREATE)
     end
     sv_animcmd.frame(45)
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x054F934137, 0, 0, 35, 0, 50, 2, 0, 0, 12, 0x14860B063A, 0, 0.5, 0, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, 0, 0, -12)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x06A2278843, 0, 0, 35, 0, 50, 2, 12, 0, 5, 0x14860B063A, 0, 0.5, 0, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -12, 0, -5)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x054F934137, 0, 0, 35, 0, 50, 2, 0, 0, 12, 0x14860B063A, 0, 0.5, 0, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, 0, 0, -12)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x06A2278843, 0, 0, 35, 0, 50, 2, 12, 0, 5, 0x14860B063A, 0, 0.5, 0, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -12, 0, -5)
     end
     sv_animcmd.frame(58)
     if sv_animcmd.is_excute() then
@@ -367,7 +367,7 @@ game_ChakramStartReverse = function ()
     end
     sv_animcmd.frame(90)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_THROW)
+        WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_THROW)
         AttackModule.clear_all()
     end
     return 

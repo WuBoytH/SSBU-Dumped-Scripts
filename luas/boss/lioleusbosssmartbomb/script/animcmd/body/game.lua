@@ -7,7 +7,7 @@
 
 game_SetCategory = function ()
     local f1_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_SMARTBOMB_PLAYABLEROLL then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_SMARTBOMB_PLAYABLEROLL then
         f1_local0 = false
     else
         f1_local0 = true
@@ -28,7 +28,7 @@ end
 
 game_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_KS)
         AttackModule.set_no_dead_damage_fly_effect(false)
         sv_animcmd.AREA_WIND_2ND_RAD(0, 2, 0.019999999552965164, 1000, 1, 0, 0, 60)
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 3, 160, 100, 0, 50, 10, 0, 0, 0, 0x13BEB18342, 0, 2, 0.5, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 12, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
@@ -134,7 +134,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
         AreaModule.erase_wind(0)
-        sv_animcmd:QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
     return 
 end

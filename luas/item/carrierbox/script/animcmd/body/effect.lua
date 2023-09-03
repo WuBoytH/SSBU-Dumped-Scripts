@@ -9,7 +9,7 @@
 
 effect_Born = function ()
     local f1_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
         f1_local0 = false
     else
         f1_local0 = true
@@ -20,7 +20,7 @@ effect_Born = function ()
         end
     else
         f1_local0
-        if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
+        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
             f1_local0 = false
         else
             f1_local0 = true
@@ -31,7 +31,7 @@ effect_Born = function ()
             end
         else
             f1_local0
-            if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
+            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
                 f1_local0 = false
             else
                 f1_local0 = true
@@ -41,7 +41,7 @@ effect_Born = function ()
             end
         end
     end
-    if WorkModule:is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     return 

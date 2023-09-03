@@ -10,7 +10,7 @@
 game_Jump = function ()
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -18,7 +18,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -26,7 +26,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -34,7 +34,7 @@ end
 game_AttackStraight = function ()
     sv_animcmd.frame(0)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_SPAWN_ARM_STRAIGHT)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_SPAWN_ARM_STRAIGHT)
     end
     return 
 end
@@ -42,11 +42,11 @@ end
 game_AttackOneTwo = function ()
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_SPAWN_ARM_LEFT)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_SPAWN_ARM_LEFT)
     end
     sv_animcmd.frame(30)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_SPAWN_ARM_RIGHT)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_SPAWN_ARM_RIGHT)
     end
     return 
 end
@@ -54,7 +54,7 @@ end
 game_AttackUpper = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_SPAWN_ARM_UPPER)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_SPAWN_ARM_UPPER)
     end
     return 
 end
@@ -72,7 +72,7 @@ game_AttackTrample = function ()
     sv_animcmd.frame(22)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        HitModule:set_status_all(HIT_STATUS_NORMAL)
+        HitModule.set_status_all(HIT_STATUS_NORMAL)
     end
     return 
 end
@@ -80,8 +80,8 @@ end
 game_AttackHeelDrop = function ()
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_HEEL_DROP_START)
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_LANDING_CHECK_ENABLE)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_HEEL_DROP_START)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_LANDING_CHECK_ENABLE)
     end
     sv_animcmd.frame(23)
     if sv_animcmd.is_excute() then
@@ -108,15 +108,15 @@ end
 game_AttackKickUp = function ()
     sv_animcmd.frame(11)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_LANDING_CHECK_ENABLE)
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_WALL_CHECK_ENABLE)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_LANDING_CHECK_ENABLE)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_WALL_CHECK_ENABLE)
         sv_animcmd.HIT_NODE(0x051BA4B748, HIT_STATUS_XLU)
         sv_animcmd.ATTACK(0, 0, 0x0505C6B25A, 18, 45, 65, 0, 70, 4, -2, 0, 3, -12, 0, 6, 0.800000011920929, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_KICK)
     end
     sv_animcmd.frame(23)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        HitModule:set_status_all(HIT_STATUS_NORMAL)
+        HitModule.set_status_all(HIT_STATUS_NORMAL)
     end
     return 
 end
@@ -124,15 +124,15 @@ end
 game_AttackKickDown = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_LANDING_CHECK_ENABLE)
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_WALL_CHECK_ENABLE)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_LANDING_CHECK_ENABLE)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_WALL_CHECK_ENABLE)
         sv_animcmd.HIT_NODE(0x051BA4B748, HIT_STATUS_XLU)
         sv_animcmd.ATTACK(0, 0, 0x0505C6B25A, 18, 45, 65, 0, 70, 4, -3, 0, 3, -12, 0, 6, 0.800000011920929, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_KICK)
     end
     sv_animcmd.frame(23)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        HitModule:set_status_all(HIT_STATUS_NORMAL)
+        HitModule.set_status_all(HIT_STATUS_NORMAL)
     end
     return 
 end
@@ -140,11 +140,11 @@ end
 game_ItemThrow = function ()
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_ITEM_CREATE)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_ITEM_CREATE)
     end
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_ITEM_THROW)
+        WorkModule.on_flag(ITEM_RODIN_INSTANCE_WORK_FLAG_ITEM_THROW)
     end
     return 
 end

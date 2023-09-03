@@ -10,7 +10,7 @@ game_Slip = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 0, 0, 0, 0, 100, 45, 0, 7.400000095367432, 0, 0x131B56C975, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, true, false, COLLISION_SHAPE_TYPE_SPHERE)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.wait(25)
     if sv_animcmd.is_excute() then

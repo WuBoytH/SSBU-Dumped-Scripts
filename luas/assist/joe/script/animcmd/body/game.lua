@@ -35,7 +35,7 @@ game_Attack2 = function ()
     end
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         local f2_local0, f2_local1, f2_local2 = nil
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 20, 80, 40, 0, 60, 10, 0, 7, 3, f2_local0, f2_local1, f2_local2, 1, 1, ATTACK_SETOFF_KIND_ON, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_PUNCH)
         sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 20, 80, 40, 0, 60, 10, 0, -3, 4, 0, 7, 12, 1, 1, ATTACK_SETOFF_KIND_ON, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_PUNCH)
@@ -50,7 +50,7 @@ end
 game_Attack3 = function ()
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     return 
 end
@@ -58,7 +58,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

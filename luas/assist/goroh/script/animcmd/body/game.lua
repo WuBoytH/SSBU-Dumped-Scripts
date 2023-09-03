@@ -49,7 +49,7 @@ end
 game_Jump = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     sv_animcmd.frame(7)
     game_AttackAirSub()
@@ -70,7 +70,7 @@ end
 
 game_Landing = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 10, 270, 100, 50, 0, 3, 0, 0, 9, 0x15A2C502B3, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 40, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, 0, 0, -9)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 10, 270, 100, 50, 0, 3, 0, 0, 9, 0x15A2C502B3, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 40, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, 0, 0, -9)
     end
     sv_animcmd.wait(3)
     if sv_animcmd.is_excute() then
@@ -88,7 +88,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

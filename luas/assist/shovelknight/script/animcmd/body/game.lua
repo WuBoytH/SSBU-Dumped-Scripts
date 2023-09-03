@@ -8,7 +8,7 @@
 game_Jump = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -16,7 +16,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -24,7 +24,7 @@ end
 game_Turn = function ()
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SHOVELKNIGHT_INSTANCE_WORK_FLAG_TURN_VISIBILITY_CHANGE)
+        WorkModule.on_flag(ITEM_SHOVELKNIGHT_INSTANCE_WORK_FLAG_TURN_VISIBILITY_CHANGE)
     end
     return 
 end
@@ -32,7 +32,7 @@ end
 game_RunTurn = function ()
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SHOVELKNIGHT_INSTANCE_WORK_FLAG_TURN_VISIBILITY_CHANGE)
+        WorkModule.on_flag(ITEM_SHOVELKNIGHT_INSTANCE_WORK_FLAG_TURN_VISIBILITY_CHANGE)
     end
     return 
 end
@@ -40,7 +40,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -57,7 +57,7 @@ game_DigGround = function ()
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SHOVELKNIGHT_INSTANCE_WORK_FLAG_DIG_GROUND_OBJECT_CREATE)
+        WorkModule.on_flag(ITEM_SHOVELKNIGHT_INSTANCE_WORK_FLAG_DIG_GROUND_OBJECT_CREATE)
     end
     sv_animcmd.frame(23)
     if sv_animcmd.is_excute() then
@@ -98,7 +98,7 @@ end
 game_ShovelReflectGround = function ()
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, ITEM_SHOVELKNIGHT_REFLECTOR_KIND_SHOVEL, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, ITEM_SHOVELKNIGHT_REFLECTOR_KIND_SHOVEL, 0)
     end
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then
@@ -111,7 +111,7 @@ game_ShovelReflectGround = function ()
     end
     sv_animcmd.frame(18)
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_OFF, COLLISION_KIND_REFLECTOR, ITEM_SHOVELKNIGHT_REFLECTOR_KIND_SHOVEL, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_OFF, COLLISION_KIND_REFLECTOR, ITEM_SHOVELKNIGHT_REFLECTOR_KIND_SHOVEL, 0)
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
@@ -123,7 +123,7 @@ end
 game_ShovelReflectAir = function ()
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, ITEM_SHOVELKNIGHT_REFLECTOR_KIND_SHOVEL, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, ITEM_SHOVELKNIGHT_REFLECTOR_KIND_SHOVEL, 0)
     end
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then
@@ -136,7 +136,7 @@ game_ShovelReflectAir = function ()
     end
     sv_animcmd.frame(18)
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_OFF, COLLISION_KIND_REFLECTOR, ITEM_SHOVELKNIGHT_REFLECTOR_KIND_SHOVEL, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_OFF, COLLISION_KIND_REFLECTOR, ITEM_SHOVELKNIGHT_REFLECTOR_KIND_SHOVEL, 0)
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then

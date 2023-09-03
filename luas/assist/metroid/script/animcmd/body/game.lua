@@ -15,7 +15,7 @@ game_Suck = function ()
     while true do
         if sv_animcmd.is_excute() then
             sv_animcmd.ATTACK_ABS_LEGACY(0, 0, 2, 0, 0, 0, 0, 0x15A2C502B3, 0, 1, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, ATTACK_LR_CHECK_POS, true, true, ATTACK_REGION_NONE)
-            sv_animcmd.IT_HIT_ABSOLUTE(0, sv_animcmd:get_value_int(IT_VAR_INT_HAVED_TASK), 0, sv_animcmd:get_value_int(IT_VAR_INT_HAVED_FIGHTER_HIT_NO_HIGH))
+            sv_animcmd.IT_HIT_ABSOLUTE(0, sv_animcmd.get_value_int(IT_VAR_INT_HAVED_TASK), 0, sv_animcmd.get_value_int(IT_VAR_INT_HAVED_FIGHTER_HIT_NO_HIGH))
         end
         sv_animcmd.wait(1)
         if sv_animcmd.is_excute() then

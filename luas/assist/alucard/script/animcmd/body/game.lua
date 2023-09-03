@@ -13,7 +13,7 @@
 game_Jump = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -21,7 +21,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -29,7 +29,7 @@ end
 game_Turn = function ()
     sv_animcmd.frame(12)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_TURN_MOVE_ENERGY_APPLICATE)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_TURN_MOVE_ENERGY_APPLICATE)
     end
     return 
 end
@@ -37,7 +37,7 @@ end
 game_RunStart = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_RUN_START)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_RUN_START)
     end
     return 
 end
@@ -45,11 +45,11 @@ end
 game_RunTurn = function ()
     sv_animcmd.frame(15)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_VALMECEU_DIR_CHANGE)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_VALMECEU_DIR_CHANGE)
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_TURN_MOVE_ENERGY_APPLICATE)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_TURN_MOVE_ENERGY_APPLICATE)
     end
     return 
 end
@@ -57,14 +57,14 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
 
 game_AttackConsecutiveStart = function ()
     if sv_animcmd.is_excute() then
-        WorkModule:off_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
+        WorkModule.off_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
         sv_animcmd.ATTACK(0, 0, 0x06B66091F2, 2.4000000953674316, 25, 60, 0, 32, 5, 0, 5.5, 11, 0, -7.5, 11, 0.5, 1.5, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(1, 0, 0x06B66091F2, 2, 25, 20, 0, 15, 8, 0, -1, 25, 0, -1, 20, 0.30000001192092896, 1.2999999523162842, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(2, 0, 0x06B66091F2, 1.7999999523162842, 25, 10, 0, 15, 8, 0, -1, 38, 0, -1, 36, 0.10000000149011612, 1.2999999523162842, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, ATTACK_REGION_NONE)
@@ -75,14 +75,14 @@ game_AttackConsecutiveStart = function ()
     end
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
     end
     return 
 end
 
 game_AttackConsecutive = function ()
     if sv_animcmd.is_excute() then
-        WorkModule:off_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
+        WorkModule.off_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
         sv_animcmd.ATTACK(0, 0, 0x06B66091F2, 2.4000000953674316, 25, 60, 0, 32, 5, 0, 5.5, 11, 0, -7.5, 11, 0.5, 1.5, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(1, 0, 0x06B66091F2, 2, 25, 20, 0, 15, 8, 0, -1, 25, 0, -1, 20, 0.30000001192092896, 1.2999999523162842, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(2, 0, 0x06B66091F2, 1.7999999523162842, 25, 10, 0, 15, 8, 0, -1, 38, 0, -1, 36, 0.10000000149011612, 1.2999999523162842, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, ATTACK_REGION_NONE)
@@ -93,21 +93,21 @@ game_AttackConsecutive = function ()
     end
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
     end
     return 
 end
 
 game_AttackConsecutiveFinish = function ()
     if sv_animcmd.is_excute() then
-        WorkModule:off_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_FINISH_END)
+        WorkModule.off_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_FINISH_END)
         sv_animcmd.ATTACK(0, 0, 0x06B66091F2, 11, 45, 95, 0, 50, 6, 0, 6, 12, 0, -6, 12, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(1, 0, 0x06B66091F2, 11, 45, 95, 0, 50, 6, 0, 5, 23, 0, -5, 23, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, ATTACK_REGION_NONE)
     end
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_FINISH_END)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_FINISH_END)
     end
     return 
 end
@@ -115,11 +115,11 @@ end
 game_TransformBat = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_CHANGE_FORM)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_CHANGE_FORM)
     end
     sv_animcmd.frame(25)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_TRANSFORM_END_READY)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_TRANSFORM_END_READY)
     end
     return 
 end
@@ -127,11 +127,11 @@ end
 game_TransformHuman = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_CHANGE_FORM)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_CHANGE_FORM)
     end
     sv_animcmd.frame(35)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_TRANSFORM_END_READY)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_TRANSFORM_END_READY)
     end
     return 
 end
@@ -147,7 +147,7 @@ end
 
 game_BackDash = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:WHOLE_HIT(HIT_STATUS_XLU)
+        sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
     sv_animcmd.wait(4)
     if sv_animcmd.is_excute() then
@@ -158,7 +158,7 @@ game_BackDash = function ()
     end
     sv_animcmd.wait(25)
     if sv_animcmd.is_excute() then
-        HitModule:set_status_all(HIT_STATUS_NORMAL)
+        HitModule.set_status_all(HIT_STATUS_NORMAL)
     end
     return 
 end
@@ -166,7 +166,7 @@ end
 game_AttackDiveKick = function ()
     sv_animcmd.wait(10)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_DIVE_KICK_ENERGY_START)
+        WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_DIVE_KICK_ENERGY_START)
         sv_animcmd.ATTACK(0, 0, 0x05FFC98F39, 18, 50, 80, 0, 40, 4, 0, 0, 0, 0, 0, 0, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(1, 0, 0x05E1AB8A2B, 16, 50, 80, 0, 40, 3.200000047683716, -10, 0, 2, 2, 0, 2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(2, 0, 0x05E1AB8A2B, 16, 50, 80, 0, 40, 3.200000047683716, -10, 0, -2, 2, 0, -2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_NONE)
@@ -178,7 +178,7 @@ end
 
 game_EscapeMistStart = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:WHOLE_HIT(HIT_STATUS_XLU)
+        sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
     return 
 end

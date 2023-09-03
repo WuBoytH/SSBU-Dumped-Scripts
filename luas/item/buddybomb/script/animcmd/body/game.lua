@@ -18,7 +18,7 @@ end
 
 game_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         local f2_local0, f2_local1, f2_local2 = nil
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 8, 72, 46, 0, 72, 9.800000190734863, 0, 0, 0, f2_local0, f2_local1, f2_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, true, true, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, true, 0x13BEB18342, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_BOMB, ATTACK_REGION_BOMB)
         ControlModule.set_rumble(0x0CC5A0D007, 0, false)

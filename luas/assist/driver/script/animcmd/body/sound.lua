@@ -38,7 +38,7 @@ sound_AppearRunStartTurn = function ()
     end
     sv_animcmd.wait(21)
     local f4_local0
-    if sv_module_access:sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
+    if sv_module_access.sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
         f4_local0 = false
     else
         f4_local0 = true
@@ -52,7 +52,7 @@ end
 sound_Run1 = function ()
     sv_animcmd.wait(5)
     local f5_local0
-    if sv_module_access:sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
+    if sv_module_access.sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
         f5_local0 = false
     else
         f5_local0 = true
@@ -74,7 +74,7 @@ sound_Turn = function ()
     end
     sv_animcmd.wait(44)
     local f6_local0
-    if sv_module_access:sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
+    if sv_module_access.sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
         f6_local0 = false
     else
         f6_local0 = true
@@ -88,7 +88,7 @@ end
 sound_CarryRun = function ()
     sv_animcmd.wait(5)
     local f7_local0
-    if sv_module_access:sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
+    if sv_module_access.sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
         f7_local0 = false
     else
         f7_local0 = true
@@ -135,7 +135,7 @@ sound_TurnShort = function ()
     end
     sv_animcmd.wait(44)
     local f11_local0
-    if sv_module_access:sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
+    if sv_module_access.sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
         f11_local0 = false
     else
         f11_local0 = true
@@ -223,7 +223,7 @@ end
 
 sound_play_se_assist_driver_run = function ()
     local f19_local0
-    if sv_module_access:sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
+    if sv_module_access.sound(MA_MSC_CMD_SOUND_IS_PLAYING, 0x1405AD9468) ~= nil then
         f19_local0 = false
     else
         f19_local0 = true

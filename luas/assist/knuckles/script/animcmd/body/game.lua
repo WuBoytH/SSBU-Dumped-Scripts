@@ -13,7 +13,7 @@
 
 game_Exit2 = function ()
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_EXIT_FLIP_OFF)
+        WorkModule.on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_EXIT_FLIP_OFF)
     end
     return 
 end
@@ -21,17 +21,17 @@ end
 game_Jump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     sv_animcmd.frame(10)
     for f2_local0 = 1, 5, 1 do
         local f2_local1 = f2_local0
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
+            WorkModule.on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
         end
         sv_animcmd.wait(3)
         if sv_animcmd.is_excute() then
-            WorkModule:off_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
+            WorkModule.off_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
         end
         sv_animcmd.wait(3)
     end
@@ -41,16 +41,16 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     for f3_local0 = 1, 5, 1 do
         local f3_local1 = f3_local0
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
+            WorkModule.on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
         end
         sv_animcmd.wait(3)
         if sv_animcmd.is_excute() then
-            WorkModule:off_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
+            WorkModule.off_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
         end
         sv_animcmd.wait(3)
     end
@@ -100,7 +100,7 @@ game_PunchCombo = function ()
     end
     sv_animcmd.frame(28)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     sv_animcmd.frame(39)
     if sv_animcmd.is_excute() then
@@ -152,7 +152,7 @@ game_PunchCombo2 = function ()
     end
     sv_animcmd.frame(28)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     sv_animcmd.frame(39)
     if sv_animcmd.is_excute() then
@@ -189,7 +189,7 @@ game_JumpingOutUpper = function ()
     end
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
@@ -201,7 +201,7 @@ game_JumpingOutUpper = function ()
     sv_animcmd.frame(35)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        HitModule:set_status_all(HIT_STATUS_NORMAL)
+        HitModule.set_status_all(HIT_STATUS_NORMAL)
     end
     return 
 end
@@ -234,7 +234,7 @@ game_JumpingOutUpper2 = function ()
     end
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
@@ -246,14 +246,14 @@ game_JumpingOutUpper2 = function ()
     sv_animcmd.frame(35)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        HitModule:set_status_all(HIT_STATUS_NORMAL)
+        HitModule.set_status_all(HIT_STATUS_NORMAL)
     end
     return 
 end
 
 game_SpinAttackSpin = function ()
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
+        WorkModule.on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
         sv_animcmd.SEARCH(0, 0, 0x031ED91FCA, 75, 0, 10, 10, 0, 0, 0, COLLISION_KIND_MASK_HIT, HIT_STATUS_MASK_NORMAL, 1, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_FEB, COLLISION_PART_MASK_BODY_HEAD, false)
         MotionModule.set_rate(50)
     end
@@ -262,7 +262,7 @@ end
 
 game_SpinAttackHomingStart = function ()
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
+        WorkModule.on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
         MotionModule.set_rate(80)
     end
     return 
@@ -282,16 +282,16 @@ end
 game_SpinAttackHit = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     for f11_local0 = 1, 4, 1 do
         local f11_local1 = f11_local0
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
+            WorkModule.on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
         end
         sv_animcmd.wait(3)
         if sv_animcmd.is_excute() then
-            WorkModule:off_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
+            WorkModule.off_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
         end
         sv_animcmd.wait(3)
     end
@@ -301,7 +301,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

@@ -7,7 +7,7 @@
 
 effect_Born = function ()
     local f1_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f1_local0 = false
     else
         f1_local0 = true

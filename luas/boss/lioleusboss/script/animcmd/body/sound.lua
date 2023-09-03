@@ -788,7 +788,7 @@ sound_BossStop = function ()
         sv_animcmd.PLAY_SE(0x1D5FBE19DE)
     end
     local f62_local0
-    if WorkModule:get_int64(ITEM_LIOLEUSBOSS_INSTANCE_WORK_INT_DEAD_KIND) ~= ITEM_LIOLEUSBOSS_DEAD_KIND_GROUND then
+    if WorkModule.get_int64(ITEM_LIOLEUSBOSS_INSTANCE_WORK_INT_DEAD_KIND) ~= ITEM_LIOLEUSBOSS_DEAD_KIND_GROUND then
         f62_local0 = false
     else
         f62_local0 = true
@@ -799,7 +799,7 @@ sound_BossStop = function ()
         end
     else
         f62_local0
-        if WorkModule:get_int64(ITEM_LIOLEUSBOSS_INSTANCE_WORK_INT_DEAD_KIND) ~= ITEM_LIOLEUSBOSS_DEAD_KIND_AIR then
+        if WorkModule.get_int64(ITEM_LIOLEUSBOSS_INSTANCE_WORK_INT_DEAD_KIND) ~= ITEM_LIOLEUSBOSS_DEAD_KIND_AIR then
             f62_local0 = false
         else
             f62_local0 = true
@@ -818,11 +818,11 @@ end
 sound_Dead = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
     end
     sv_animcmd.frame(140)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
     return 
 end
@@ -834,11 +834,11 @@ sound_DeadAir = function ()
     end
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
     end
     sv_animcmd.frame(230)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
     return 
 end
@@ -846,11 +846,11 @@ end
 sound_HoleDead = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
     end
     sv_animcmd.frame(140)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
     return 
 end

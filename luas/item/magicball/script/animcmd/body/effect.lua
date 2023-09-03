@@ -21,7 +21,7 @@ effect_Throw = function ()
 end
 
 effect_NormalToMagic = function ()
-    if WorkModule:is_flag(ITEM_MAGICBALL_INSTANCE_WORK_FLAG_THROW_UPDOWN) == nil then
+    if WorkModule.is_flag(ITEM_MAGICBALL_INSTANCE_WORK_FLAG_THROW_UPDOWN) == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.EFFECT(0x1C650CD0BD, 0x031ED91FCA, 0, 0, 0, 90, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         end

@@ -154,7 +154,7 @@ sound_DamageAir = function ()
 end
 
 sound_DamageFly = function ()
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_IS_SMASH_DAMAGE) == nil then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_IS_SMASH_DAMAGE) == nil then
         sv_animcmd.frame(0)
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE(0x1BD99D6733)

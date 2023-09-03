@@ -25,7 +25,7 @@ sound_Appear = function ()
 end
 
 sound_Landing = function ()
-    if WorkModule:is_flag(ITEM_KRYSTAL_INSTANCE_WORK_FLAG_IS_FIRST_LANDING) == nil then
+    if WorkModule.is_flag(ITEM_KRYSTAL_INSTANCE_WORK_FLAG_IS_FIRST_LANDING) == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE(0x19A16FBFFE)
         end
@@ -141,7 +141,7 @@ sound_IceBrastAir = function ()
 end
 
 sound_DamageFly = function ()
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_IS_SMASH_DAMAGE) == nil then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_IS_SMASH_DAMAGE) == nil then
         sv_animcmd.frame(0)
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE_REMAIN(0x19A4C3F852)

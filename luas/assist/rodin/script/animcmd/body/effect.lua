@@ -120,7 +120,7 @@ end
 
 effect_HeelDropLanding = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT_OFF_KIND(0x111CB6A9CA, true, true)
         sv_animcmd.EFFECT_FOLLOW(0x13C848A8D3, 0x031ED91FCA, 0, 0.009999999776482582, 0, 0, 0, 0, 1.5, true)
         sv_animcmd.EFFECT_FOLLOW(0x0D28141C03, 0x031ED91FCA, 0, 0.009999999776482582, 0, 0, 0, 0, 1, true)

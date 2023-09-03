@@ -4,14 +4,14 @@
 -- 85750405016  -> 0x13F71F5798  -> sys_boomerang_trace
 -- 13876359645  -> 0x033B1871DD  -> all
 
-Warning: Function 6 using already codegened block basicblock_3:
-Warning: Function 7 using already codegened block basicblock_3:
-Warning: Function 8 using already codegened block basicblock_3:
-Warning: Function 9 using already codegened block basicblock_3:
-Warning: Function 10 using already codegened block basicblock_3:
-Warning: Function 11 using already codegened block basicblock_3:
-Warning: Function 12 using already codegened block basicblock_3:
-Warning: Function 13 using already codegened block basicblock_3:
+Warning. Function 6 using already codegened block basicblock_3.
+Warning. Function 7 using already codegened block basicblock_3.
+Warning. Function 8 using already codegened block basicblock_3.
+Warning. Function 9 using already codegened block basicblock_3.
+Warning. Function 10 using already codegened block basicblock_3.
+Warning. Function 11 using already codegened block basicblock_3.
+Warning. Function 12 using already codegened block basicblock_3.
+Warning. Function 13 using already codegened block basicblock_3.
 effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()

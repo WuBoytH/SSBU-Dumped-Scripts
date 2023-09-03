@@ -7,7 +7,7 @@
 -- 107267244479 -> 0x18F9A041BF  -> se_item_magicball_warpin
 
 sound_Throw = function ()
-    if WorkModule:is_flag(ITEM_MAGICBALL_INSTANCE_WORK_FLAG_SOUND_THROW_FIRE) == nil then
+    if WorkModule.is_flag(ITEM_MAGICBALL_INSTANCE_WORK_FLAG_SOUND_THROW_FIRE) == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_STATUS(0x161C6E6439)
         end

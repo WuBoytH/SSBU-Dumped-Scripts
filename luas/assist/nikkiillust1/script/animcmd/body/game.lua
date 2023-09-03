@@ -10,14 +10,14 @@ game_Wait = function ()
     sv_animcmd.frame(135)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        WorkModule:inc_int(ITEM_NIKKIILLUST1_INSTANCE_WORK_INT_ATTACK_COUNT)
+        WorkModule.inc_int(ITEM_NIKKIILLUST1_INSTANCE_WORK_INT_ATTACK_COUNT)
     end
     sv_animcmd.frame(165)
     game_Flame()
     sv_animcmd.frame(285)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        WorkModule:inc_int(ITEM_NIKKIILLUST1_INSTANCE_WORK_INT_ATTACK_COUNT)
+        WorkModule.inc_int(ITEM_NIKKIILLUST1_INSTANCE_WORK_INT_ATTACK_COUNT)
     end
     sv_animcmd.frame(315)
     game_Flame()

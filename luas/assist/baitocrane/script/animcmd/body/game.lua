@@ -16,11 +16,11 @@ end
 game_Close = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_BAITOCRANE_INSTANCE_WORK_FLAG_GRAB)
+        WorkModule.on_flag(ITEM_BAITOCRANE_INSTANCE_WORK_FLAG_GRAB)
     end
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        sv_module_access:grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
+        sv_module_access.grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
     return 
 end

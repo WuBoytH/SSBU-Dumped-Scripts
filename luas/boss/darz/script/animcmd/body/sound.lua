@@ -62,7 +62,7 @@ end
 
 sound_Dead = function ()
     local f4_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_PARAMETER_ITEM_KIND) ~= ITEM_KIND_DARZ then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_PARAMETER_ITEM_KIND) ~= ITEM_KIND_DARZ then
         f4_local0 = false
     else
         f4_local0 = true
@@ -70,21 +70,21 @@ sound_Dead = function ()
     if f4_local0 == nil then
         sv_animcmd.frame(60)
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+            WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
         end
         sv_animcmd.frame(310)
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE(0x1ADC772760)
-            WorkModule:on_flag(ITEM_DARZ_INSTANCE_WORK_FLAG_STOP_STAGE_SOUND)
+            WorkModule.on_flag(ITEM_DARZ_INSTANCE_WORK_FLAG_STOP_STAGE_SOUND)
         end
         sv_animcmd.frame(600)
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+            WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
         end
     else
         sv_animcmd.frame(60)
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+            WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
         end
         sv_animcmd.frame(310)
         if sv_animcmd.is_excute() then
@@ -92,7 +92,7 @@ sound_Dead = function ()
         end
         sv_animcmd.frame(600)
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+            WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
         end
     end
     return 

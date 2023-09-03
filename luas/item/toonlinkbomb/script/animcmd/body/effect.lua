@@ -16,9 +16,9 @@ end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    if WorkModule:is_flag(ITEM_LINKBOMB_INSTANCE_WORK_FLAG_IS_RIGHT) == nil then
+    if WorkModule.is_flag(ITEM_LINKBOMB_INSTANCE_WORK_FLAG_IS_RIGHT) == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.EFFECT(0x0DF4BC0AC4, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
         end

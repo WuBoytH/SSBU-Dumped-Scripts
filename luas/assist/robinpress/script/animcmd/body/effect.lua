@@ -23,7 +23,7 @@ end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
         sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(3)

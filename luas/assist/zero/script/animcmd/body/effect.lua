@@ -189,7 +189,7 @@ effect_DashStart = function ()
     end
     sv_animcmd.frame(8)
     local f13_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f13_local0 = false
     else
         f13_local0 = true
@@ -213,7 +213,7 @@ effect_DashStartAir = function ()
     end
     sv_animcmd.frame(8)
     local f14_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f14_local0 = false
     else
         f14_local0 = true
@@ -233,7 +233,7 @@ end
 
 effect_Dash = function ()
     local f15_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f15_local0 = false
     else
         f15_local0 = true
@@ -271,7 +271,7 @@ effect_DashEndAir = function ()
     end
     sv_animcmd.frame(2)
     local f17_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f17_local0 = false
     else
         f17_local0 = true

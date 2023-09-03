@@ -8,15 +8,15 @@
 game_Jump = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 7)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 7)
     end
     sv_animcmd.frame(12)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
     sv_animcmd.frame(14)
     if sv_animcmd.is_excute() then
@@ -119,7 +119,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -146,11 +146,11 @@ game_BiteFinish = function ()
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_ABS(0, 0, 12, 55, 85, 0, 85, 1.5, 1, ATTACK_LR_CHECK_FORWARD, 0, true, 0x15A2C502B3, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_CUTUP, ATTACK_REGION_NONE)
-        sv_animcmd.IT_HIT_ABSOLUTE(0, sv_animcmd:get_value_int(IT_VAR_INT_HAVED_TASK), 0, sv_animcmd:get_value_int(IT_VAR_INT_HAVED_FIGHTER_HIT_NO_HIGH))
+        sv_animcmd.IT_HIT_ABSOLUTE(0, sv_animcmd.get_value_int(IT_VAR_INT_HAVED_TASK), 0, sv_animcmd.get_value_int(IT_VAR_INT_HAVED_FIGHTER_HIT_NO_HIGH))
     end
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_CRAPTRAP_INSTANCE_WORK_FLAG_BITE_RELEASE)
+        WorkModule.on_flag(ITEM_CRAPTRAP_INSTANCE_WORK_FLAG_BITE_RELEASE)
     end
     return 
 end
@@ -158,7 +158,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

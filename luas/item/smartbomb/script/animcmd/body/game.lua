@@ -9,7 +9,7 @@
 
 game_SetCategory = function ()
     local f1_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_SMARTBOMB_PLAYABLEROLL then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_SMARTBOMB_PLAYABLEROLL then
         f1_local0 = false
     else
         f1_local0 = true
@@ -31,7 +31,7 @@ end
 
 game_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_KS)
         AttackModule.set_no_dead_damage_fly_effect(false)
         sv_animcmd.AREA_WIND_2ND_RAD(0, 2, 0.019999999552965164, 1000, 1, 0, 0, 60)
         sv_animcmd.IT_SET_PARENT_RUMBLE(0x10301A69BD, 132)
@@ -141,7 +141,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
         AreaModule.erase_wind(0)
-        sv_animcmd:QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
     return 
 end

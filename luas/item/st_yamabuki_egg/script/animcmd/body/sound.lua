@@ -18,7 +18,7 @@ sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x15BFA5CA01)
     end
-    if WorkModule:is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
     return 

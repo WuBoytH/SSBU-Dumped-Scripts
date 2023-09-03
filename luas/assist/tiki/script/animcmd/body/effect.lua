@@ -108,7 +108,7 @@ end
 effect_DragonBreath = function ()
     sv_animcmd.frame(22)
     local f7_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f7_local0 = false
     else
         f7_local0 = true

@@ -13,12 +13,12 @@
 effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x15D0A20F73, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_DARZSPACERUSH_INSTANCE_WORK_INT_ENTRANCE_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_DARZSPACERUSH_INSTANCE_WORK_INT_ENTRANCE_EFFECT_HANDLE)
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x15D0A20F73, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_DARZSPACERUSH_INSTANCE_WORK_INT_EXIT_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_DARZSPACERUSH_INSTANCE_WORK_INT_EXIT_EFFECT_HANDLE)
     end
     return 
 end
@@ -36,41 +36,41 @@ effect_SpaceRush = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x19E21E0375, 0x0570211EBD, 0, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x19E21E0375, 0x0570211EBD, -25, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x19E21E0375, 0x0570211EBD, -40, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     return 

@@ -21,7 +21,7 @@ game_Born = function ()
         sv_animcmd.AREA_WIND_2ND_RAD(0, 2, 0.019999999552965164, 1000, 1, 0, 0, 100)
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 30, 361, 60, 0, 50, 15, 0, 0, 0, 0x13BEB18342, 0, 0.6000000238418579, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 16, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.ATTACK_FP(1, 0, 0x031ED91FCA, 18, 78, 60, 0, 65, 25, 0, 0, 0, 0x13BEB18342, 0, 0.800000011920929, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 16, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
         sv_animcmd.IT_SET_PARENT_RUMBLE(0x10EAA9BFF4, 0)
     end
     sv_animcmd.wait(2)

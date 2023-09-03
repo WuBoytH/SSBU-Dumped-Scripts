@@ -7,7 +7,7 @@
 game_Jump = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -15,7 +15,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -23,14 +23,14 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
 
 game_SlashDown = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
     end
     sv_animcmd.frame(38)
     if sv_animcmd.is_excute() then
@@ -54,7 +54,7 @@ game_SlashDown = function ()
     sv_animcmd.frame(41)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
     sv_animcmd.frame(54)
     return 
@@ -62,7 +62,7 @@ end
 
 game_SlashDown1st = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
     end
     sv_animcmd.frame(39)
     if sv_animcmd.is_excute() then
@@ -89,18 +89,18 @@ game_SlashDown1st = function ()
     sv_animcmd.frame(41)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
     sv_animcmd.frame(54)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_DARKKNIGHT_INSTANCE_WORK_FLAG_IS_SLASHDOWN_CANCEL_FRAME)
+        WorkModule.on_flag(ITEM_DARKKNIGHT_INSTANCE_WORK_FLAG_IS_SLASHDOWN_CANCEL_FRAME)
     end
     return 
 end
 
 game_SlashUp2nd = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
     end
     sv_animcmd.frame(17)
     if sv_animcmd.is_excute() then
@@ -119,14 +119,14 @@ game_SlashUp2nd = function ()
     sv_animcmd.frame(19)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
     return 
 end
 
 game_SlashUp = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
     end
     sv_animcmd.frame(19)
     if sv_animcmd.is_excute() then
@@ -145,14 +145,14 @@ game_SlashUp = function ()
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
     return 
 end
 
 game_SlashUpAir = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
     end
     sv_animcmd.frame(19)
     if sv_animcmd.is_excute() then
@@ -171,14 +171,14 @@ game_SlashUpAir = function ()
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
     return 
 end
 
 game_SlashUp1st = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
     end
     sv_animcmd.frame(19)
     if sv_animcmd.is_excute() then
@@ -197,18 +197,18 @@ game_SlashUp1st = function ()
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
     sv_animcmd.frame(45)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_DARKKNIGHT_INSTANCE_WORK_FLAG_IS_SLASHUP_CANCEL_FRAME)
+        WorkModule.on_flag(ITEM_DARKKNIGHT_INSTANCE_WORK_FLAG_IS_SLASHUP_CANCEL_FRAME)
     end
     return 
 end
 
 game_SlashDown2nd = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
     end
     sv_animcmd.frame(33)
     if sv_animcmd.is_excute() then
@@ -232,7 +232,7 @@ game_SlashDown2nd = function ()
     sv_animcmd.frame(36)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        sv_module_access:damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
+        sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
     return 
 end

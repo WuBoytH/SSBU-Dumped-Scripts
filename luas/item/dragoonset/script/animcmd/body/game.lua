@@ -24,15 +24,15 @@ game_Attack = function ()
         ControlModule.set_rumble(0x0EB4BFE6D1, 0, false)
         sv_animcmd.IT_SLOW_WHOLE(120)
     end
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_2) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_2) == nil and sv_animcmd.is_excute() then
         sv_animcmd.CAM_ZOOM_IN_arg5(1, 0, 2.5, 28.5, 60)
     end
     sv_animcmd.frame(8.300000190734863)
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_2) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_2) == nil and sv_animcmd.is_excute() then
         sv_animcmd.CAM_ZOOM_IN_arg5(1, 0, 2.5, -28.5, -60)
     end
     sv_animcmd.frame(8.600000381469727)
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_2) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_2) == nil and sv_animcmd.is_excute() then
         sv_animcmd.CAM_ZOOM_OUT()
     end
     sv_animcmd.frame(8.899999618530273)

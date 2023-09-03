@@ -7,7 +7,7 @@
 game_Jump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -15,7 +15,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -97,11 +97,11 @@ end
 game_Escape = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        sv_animcmd:WHOLE_HIT(HIT_STATUS_XLU)
+        sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
     sv_animcmd.wait(19)
     if sv_animcmd.is_excute() then
-        sv_animcmd:WHOLE_HIT(HIT_STATUS_NORMAL)
+        sv_animcmd.WHOLE_HIT(HIT_STATUS_NORMAL)
     end
     return 
 end
@@ -109,7 +109,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

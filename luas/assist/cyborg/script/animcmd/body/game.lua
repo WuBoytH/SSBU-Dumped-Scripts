@@ -8,14 +8,14 @@
 game_Appear = function ()
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     return 
 end
 
 game_Fall = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
         local f2_local0, f2_local1, f2_local2 = nil
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 5.599999904632568, 270, 30, 0, 20, 5, 0, 5, 0, f2_local0, f2_local1, f2_local2, 1, 1, ATTACK_SETOFF_KIND_ON, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_NONE)
     end
@@ -24,14 +24,14 @@ end
 
 game_Landing = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     return 
 end
 
 game_Wait = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     return 
 end
@@ -70,57 +70,57 @@ end
 
 game_RunStart = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     return 
 end
 
 game_Run = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     return 
 end
 
 game_RunTurn = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     return 
 end
 
 game_Turn = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     return 
 end
 
 game_Jump = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
 
 game_JumpAir = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
 
 game_Attack = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     sv_animcmd.frame(5)
     game_AttackSub()
@@ -162,7 +162,7 @@ end
 
 game_AttackAir = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
+        sv_module_access.shield(MA_MSC_CMD_SHIELD_ON, COLLISION_KIND_REFLECTOR, 0, 0)
     end
     sv_animcmd.frame(7)
     game_AttackAirSub()
@@ -188,7 +188,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

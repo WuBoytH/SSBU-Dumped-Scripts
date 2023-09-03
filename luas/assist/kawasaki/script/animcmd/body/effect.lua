@@ -56,7 +56,7 @@ effect_Swing = function ()
     end
     sv_animcmd.frame(74)
     local f5_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f5_local0 = false
     else
         f5_local0 = true
@@ -74,7 +74,7 @@ end
 effect_CookMain = function ()
     sv_animcmd.frame(51)
     local f6_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f6_local0 = false
     else
         f6_local0 = true

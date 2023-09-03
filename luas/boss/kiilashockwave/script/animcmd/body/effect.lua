@@ -27,7 +27,7 @@ effect_Throw = function ()
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 1, 0.699999988079071, 0.05000000074505806, 0.10000000149011612, 0, 0, 0, 1, 1.100000023841858, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
         sv_animcmd.EFFECT_FOLLOW(0x166C01CA99, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.600000023841858, true)
         sv_animcmd.EFFECT_FOLLOW(0x154B2F01A0, 0x031ED91FCA, 14, 0, 0, 0, 0, 0, 1, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then

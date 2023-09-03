@@ -36,20 +36,20 @@ game_Appear = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_HAVE_STICK) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_HAVE_STICK) == nil and sv_animcmd.is_excute() then
         sv_animcmd.CATCH_FIGHTER(0, 0x031ED91FCA, 17, 0, 15, 0, 0, 15, 0, FIGHTER_STATUS_KIND_CAPTURE_NABBIT, COLLISION_SITUATION_MASK_GA)
         GrabModule.set_constraint(0, true)
     end
     sv_animcmd.frame(38)
     if sv_animcmd.is_excute() then
-        sv_module_access:grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
+        sv_module_access.grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
     return 
 end
 
 game_Have = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 1, 361, 0, 0, 0, 1, 0, -15, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, true, true, 0, -21.5, 0)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 1, 361, 0, 0, 0, 1, 0, -15, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, true, true, 0, -21.5, 0)
     end
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then

@@ -26,7 +26,7 @@ end
 
 effect_HaveAttack = function ()
     local f2_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 5 then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 5 then
         f2_local0 = false
     else
         f2_local0 = true
@@ -38,7 +38,7 @@ effect_HaveAttack = function ()
         end
     else
         f2_local0
-        if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 4 then
+        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 4 then
             f2_local0 = false
         else
             f2_local0 = true
@@ -50,7 +50,7 @@ effect_HaveAttack = function ()
             end
         else
             f2_local0
-            if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 3 then
+            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 3 then
                 f2_local0 = false
             else
                 f2_local0 = true
@@ -62,7 +62,7 @@ effect_HaveAttack = function ()
                 end
             else
                 f2_local0
-                if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 2 then
+                if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 2 then
                     f2_local0 = false
                 else
                     f2_local0 = true
@@ -74,7 +74,7 @@ effect_HaveAttack = function ()
                     end
                 else
                     f2_local0
-                    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 1 then
+                    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 1 then
                         f2_local0 = false
                     else
                         f2_local0 = true
@@ -92,7 +92,7 @@ end
 
 effect_ChangeEffect = function ()
     local f3_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 5 then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 5 then
         f3_local0 = false
     else
         f3_local0 = true
@@ -100,11 +100,11 @@ effect_ChangeEffect = function ()
     if f3_local0 == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0C91E9FC14, 0x047506D366, 0, 0, 0, 0, 0, 0, 1, false)
-            sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
+            sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
         end
     else
         f3_local0
-        if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 4 then
+        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 4 then
             f3_local0 = false
         else
             f3_local0 = true
@@ -112,11 +112,11 @@ effect_ChangeEffect = function ()
         if f3_local0 == nil then
             if sv_animcmd.is_excute() then
                 sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0CE6EECC82, 0x047506D366, 0, 0, 0, 0, 0, 0, 1, false)
-                sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
+                sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
             end
         else
             f3_local0
-            if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 3 then
+            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 3 then
                 f3_local0 = false
             else
                 f3_local0 = true
@@ -124,11 +124,11 @@ effect_ChangeEffect = function ()
             if f3_local0 == nil then
                 if sv_animcmd.is_excute() then
                     sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0C788A5921, 0x047506D366, 0, 0, 0, 0, 0, 0, 1, false)
-                    sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
+                    sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
                 end
             else
                 f3_local0
-                if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 2 then
+                if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 2 then
                     f3_local0 = false
                 else
                     f3_local0 = true
@@ -136,18 +136,18 @@ effect_ChangeEffect = function ()
                 if f3_local0 == nil then
                     if sv_animcmd.is_excute() then
                         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0C0F8D69B7, 0x047506D366, 0, 0, 0, 0, 0, 0, 1, false)
-                        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
+                        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
                     end
                 else
                     f3_local0
-                    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 1 then
+                    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VALUE_2) ~= 1 then
                         f3_local0 = false
                     else
                         f3_local0 = true
                     end
                     if f3_local0 == nil and sv_animcmd.is_excute() then
                         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0B82FAF35D, 0x047506D366, 0, 0, 0, 0, 0, 0, 1, false)
-                        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
+                        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_FIREBAR_INSTANCE_WORK_INT_EFFECT_ID)
                     end
                 end
             end

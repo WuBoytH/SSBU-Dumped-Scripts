@@ -65,7 +65,7 @@ effect_Attack = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1C18CD11FA, 0x030886299D, 2, 0, 7, 0, 0, 0, 1, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     return 
 end

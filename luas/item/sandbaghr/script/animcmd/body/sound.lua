@@ -184,7 +184,7 @@ end
 sound_DownWaitD = function ()
     sv_animcmd.frame(2)
     local f20_local0
-    if WorkModule:get_int64(ITEM_STATUS_WORK_INT_4) ~= 1 then
+    if WorkModule.get_int64(ITEM_STATUS_WORK_INT_4) ~= 1 then
         f20_local0 = false
     else
         f20_local0 = true
@@ -198,7 +198,7 @@ end
 sound_DownWaitU = function ()
     sv_animcmd.frame(2)
     local f21_local0
-    if WorkModule:get_int64(ITEM_STATUS_WORK_INT_4) ~= 1 then
+    if WorkModule.get_int64(ITEM_STATUS_WORK_INT_4) ~= 1 then
         f21_local0 = false
     else
         f21_local0 = true
@@ -212,7 +212,7 @@ end
 sound_SlidingD = function ()
     sv_animcmd.frame(2)
     local f22_local0
-    if WorkModule:get_int64(ITEM_STATUS_WORK_INT_4) ~= 1 then
+    if WorkModule.get_int64(ITEM_STATUS_WORK_INT_4) ~= 1 then
         f22_local0 = false
     else
         f22_local0 = true
@@ -226,7 +226,7 @@ end
 sound_SlidingU = function ()
     sv_animcmd.frame(2)
     local f23_local0
-    if WorkModule:get_int64(ITEM_STATUS_WORK_INT_4) ~= 1 then
+    if WorkModule.get_int64(ITEM_STATUS_WORK_INT_4) ~= 1 then
         f23_local0 = false
     else
         f23_local0 = true

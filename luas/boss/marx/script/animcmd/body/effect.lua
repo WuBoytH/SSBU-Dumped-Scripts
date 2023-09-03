@@ -154,8 +154,8 @@ effect_TeleportStart = function ()
         sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, -1)
     end
     sv_animcmd.frame(6)
-    if WorkModule:is_flag(ITEM_MARX_INSTANCE_WORK_FLAG_IS_CAMERANGE_INSIDE_TELEPORT_READY) == nil and sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+    if WorkModule.is_flag(ITEM_MARX_INSTANCE_WORK_FLAG_IS_CAMERANGE_INSIDE_TELEPORT_READY) == nil and sv_animcmd.is_excute() then
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     if sv_animcmd.is_excute() then
         sv_animcmd.FLASH_FRM(6, 1.2999999523162842, 0.8999999761581421, 1, 0.8999999761581421)
@@ -172,7 +172,7 @@ effect_TeleportEndRepeat = function ()
     end
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.FLASH_FRM(5, 0, 0, 0, 0)
     end
     return 
@@ -187,7 +187,7 @@ effect_TeleportEnd = function ()
     end
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.FLASH_FRM(5, 0, 0, 0, 0)
     end
     return 
@@ -199,7 +199,7 @@ effect_FourCutter = function ()
     end
     sv_animcmd.frame(41)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     return 
 end
@@ -240,7 +240,7 @@ effect_FlyOut = function ()
     end
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
         sv_animcmd.EFFECT(0x0BB16548E6, 0x031ED91FCA, 0, 18, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.frame(10)
@@ -258,7 +258,7 @@ end
 effect_ThickLaserStart = function ()
     effect_OffWing()
     local f15_local0
-    if WorkModule:get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
+    if WorkModule.get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
         f15_local0 = false
     else
         f15_local0 = true
@@ -278,21 +278,21 @@ effect_ThickLaserLoop = function ()
     end
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(28)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(35)
     for f16_local0 = 1, 11, 1 do
         local f16_local1 = f16_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
         end
         sv_animcmd.wait(19)
     end
@@ -300,12 +300,12 @@ effect_ThickLaserLoop = function ()
 end
 
 effect_ThickLaserShootSign = function ()
-    sv_animcmd.frame(WorkModule:get_int64(ITEM_MARX_INSTANCE_WORK_INT_THICK_LASER_SIGN_WAIT_FRAME))
+    sv_animcmd.frame(WorkModule.get_int64(ITEM_MARX_INSTANCE_WORK_INT_THICK_LASER_SIGN_WAIT_FRAME))
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_DETACH_KIND(0x110E42A598, -1)
     end
     local f17_local0
-    if WorkModule:get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
+    if WorkModule.get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
         f17_local0 = false
     else
         f17_local0 = true
@@ -328,7 +328,7 @@ effect_ThickLaserEnd = function ()
     end
     sv_animcmd.frame(4)
     local f18_local0
-    if WorkModule:get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
+    if WorkModule.get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
         f18_local0 = false
     else
         f18_local0 = true
@@ -337,18 +337,18 @@ effect_ThickLaserEnd = function ()
         if sv_animcmd.is_excute() then
             sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x1153A7FE74, 0x031D39A761, -5, 15, 25, 0, 0, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x0F72CE2FF0, 0x031ED91FCA, 8, 15, 0, 0, 0, 0, 1, true)
-            sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_THICK_LASER_EFFECT)
+            sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_THICK_LASER_EFFECT)
         end
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x1153A7FE74, 0x031D39A761, 0, 15, 25, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x0F72CE2FF0, 0x031ED91FCA, -8, 15, 0, 0, 0, 0, 1, true)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_THICK_LASER_EFFECT)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_THICK_LASER_EFFECT)
     end
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     f18_local0
-    if WorkModule:get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
+    if WorkModule.get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
         f18_local0 = false
     else
         f18_local0 = true
@@ -365,7 +365,7 @@ effect_ThickLaserEnd = function ()
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 15, 0.20000000298023224, 0.10000000149011612, 0.30000001192092896, 0, -0.05000000074505806, 0, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
     f18_local0
-    if WorkModule:get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
+    if WorkModule.get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
         f18_local0 = false
     else
         f18_local0 = true
@@ -379,11 +379,11 @@ effect_ThickLaserEnd = function ()
     end
     sv_animcmd.frame(28)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(56)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(70)
     if sv_animcmd.is_excute() then
@@ -396,7 +396,7 @@ effect_ThickLaserEnd = function ()
     end
     sv_animcmd.frame(190)
     f18_local0
-    if WorkModule:get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
+    if WorkModule.get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
         f18_local0 = false
     else
         f18_local0 = true
@@ -414,7 +414,7 @@ end
 effect_ThickLaserEndGround = function ()
     sv_animcmd.frame(10)
     local f19_local0
-    if WorkModule:get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
+    if WorkModule.get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
         f19_local0 = false
     else
         f19_local0 = true
@@ -438,7 +438,7 @@ effect_BlackHole = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 10, 0.10000000149011612, 0.10000000149011612, 0.10000000149011612, 0, 0, 0, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
         sv_animcmd.EFFECT(0x0E0C6D76D4, 0x031ED91FCA, 0, 20, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_BLACK_HOLE_EFFECT)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_BLACK_HOLE_EFFECT)
     end
     sv_animcmd.frame(132)
     if sv_animcmd.is_excute() then
@@ -449,17 +449,17 @@ effect_BlackHole = function ()
     end
     sv_animcmd.frame(111)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
     sv_animcmd.frame(120)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(130)
     for f20_local0 = 1, 15, 1 do
         local f20_local1 = f20_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         end
         sv_animcmd.wait(7)
     end
@@ -479,7 +479,7 @@ effect_BlackHoleStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 10, 0.10000000149011612, 0.10000000149011612, 0.10000000149011612, 0, 0, 0, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
         sv_animcmd.EFFECT(0x0E0C6D76D4, 0x031ED91FCA, 0, 20, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_BLACK_HOLE_EFFECT)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_BLACK_HOLE_EFFECT)
     end
     sv_animcmd.frame(132)
     if sv_animcmd.is_excute() then
@@ -493,17 +493,17 @@ end
 
 effect_BlackHoleLoop = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
     sv_animcmd.frame(120)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(130)
     for f22_local0 = 1, 15, 1 do
         local f22_local1 = f22_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         end
         sv_animcmd.wait(7)
     end
@@ -522,11 +522,11 @@ effect_CapillaryLoop = function ()
     for f24_local0 = 1, 6, 1 do
         local f24_local1 = f24_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         end
         sv_animcmd.wait(14)
         if sv_animcmd.is_excute() then
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         end
         sv_animcmd.wait(50)
     end
@@ -542,7 +542,7 @@ effect_FacetEyeLaser = function ()
     for f25_local0 = 1, 15, 1 do
         local f25_local1 = f25_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         end
         sv_animcmd.wait(20)
     end
@@ -594,7 +594,7 @@ effect_Dead = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04A7F3F69C, 39.130001068115234, 0, 31.125, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.5)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
     sv_animcmd.frame(41)
     if sv_animcmd.is_excute() then
@@ -629,12 +629,12 @@ effect_DeadReaction = function ()
     end
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(9)
     if sv_animcmd.is_excute() then
@@ -642,11 +642,11 @@ effect_DeadReaction = function ()
     end
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(16)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(18)
     if sv_animcmd.is_excute() then
@@ -655,61 +655,61 @@ effect_DeadReaction = function ()
     sv_animcmd.frame(25)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(29)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(35)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     effect_ReqFollowWingDead()
     effect_OffWing()
     sv_animcmd.frame(42)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(47)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     effect_ReqFollowWingDead()
     sv_animcmd.frame(51)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(56)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     effect_ReqFollowWingDead()
     sv_animcmd.frame(61)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(67)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     effect_ReqFollowWingDead()
     sv_animcmd.frame(71)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(77)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     effect_ReqFollowWingDead()
     if sv_animcmd.is_excute() then
@@ -717,12 +717,12 @@ effect_DeadReaction = function ()
     end
     sv_animcmd.frame(81)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(85)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0EF953025E, false, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(87)
     if sv_animcmd.is_excute() then
@@ -731,16 +731,16 @@ effect_DeadReaction = function ()
     sv_animcmd.frame(90)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(96)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC15E7E0D, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 0.800000011920929, 50, 15, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(101)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
         sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, 4, -64, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 4, -64, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.699999988079071)
@@ -759,7 +759,7 @@ effect_DeadReaction = function ()
     end
     sv_animcmd.frame(174)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x0E963002D8, 0x031ED91FCA, -20, -64.5, 8, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.699999988079071)
     end
@@ -769,7 +769,7 @@ effect_DeadReaction = function ()
     end
     sv_animcmd.frame(210)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
     sv_animcmd.frame(211)
     if sv_animcmd.is_excute() then

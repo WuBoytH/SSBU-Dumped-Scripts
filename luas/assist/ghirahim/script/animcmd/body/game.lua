@@ -101,11 +101,11 @@ end
 game_Jump = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_GHIRAHIM_INSTANCE_WORK_FLAG_CHANGE_ATTACK)
+        WorkModule.on_flag(ITEM_GHIRAHIM_INSTANCE_WORK_FLAG_CHANGE_ATTACK)
     end
     return 
 end
@@ -113,7 +113,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -121,11 +121,11 @@ end
 game_JumpVertical = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_GHIRAHIM_INSTANCE_WORK_FLAG_CHANGE_ATTACK)
+        WorkModule.on_flag(ITEM_GHIRAHIM_INSTANCE_WORK_FLAG_CHANGE_ATTACK)
     end
     return 
 end
@@ -133,7 +133,7 @@ end
 game_BackJump = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -141,7 +141,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

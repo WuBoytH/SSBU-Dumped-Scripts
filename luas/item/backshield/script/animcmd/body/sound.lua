@@ -16,7 +16,7 @@ sound_Appear = function ()
 end
 
 sound_Have = function ()
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_HAVE_SILENT) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_HAVE_SILENT) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x16DB12B0B3)
     end
     return 

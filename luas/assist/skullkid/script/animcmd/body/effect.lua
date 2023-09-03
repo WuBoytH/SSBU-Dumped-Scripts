@@ -46,7 +46,7 @@ effect_AttackEnd = function ()
     end
     sv_animcmd.frame(30)
     if sv_animcmd.is_excute() then
-        sv_animcmd:EFFECT_REMOVE_ATTR(EFFECT_SUB_ATTRIBUTE_NONE)
+        sv_animcmd.EFFECT_REMOVE_ATTR(EFFECT_SUB_ATTRIBUTE_NONE)
     end
     return 
 end

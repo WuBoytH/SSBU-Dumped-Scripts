@@ -1,6 +1,6 @@
 -- lc file decompiled with special DSLuaDecompiler build by katalash, jam1garner, & Coolsonickirby
 
-Warning: Function 2 using already codegened block basicblock_16:
+Warning. Function 2 using already codegened block basicblock_16.
 effect_Danger = function ()
     sv_animcmd.wait(1)
     while true do

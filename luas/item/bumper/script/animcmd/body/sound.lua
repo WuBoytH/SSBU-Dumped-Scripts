@@ -29,7 +29,7 @@ sound_SetAir = function ()
 end
 
 sound_SetGround = function ()
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12955528CA)
     end
     return 

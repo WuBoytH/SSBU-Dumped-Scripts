@@ -7,7 +7,7 @@
 game_TransformDragonEnd = function ()
     sv_animcmd.frame(70)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_HIT_ENABLE)
+        WorkModule.on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_HIT_ENABLE)
     end
     return 
 end
@@ -15,7 +15,7 @@ end
 game_DragonBreath = function ()
     sv_animcmd.frame(15)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_BREATH_READY)
+        WorkModule.on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_BREATH_READY)
     end
     sv_animcmd.frame(22)
     if sv_animcmd.is_excute() then
@@ -57,7 +57,7 @@ game_DragonBreath = function ()
         sv_animcmd.ATTACK(0, 0, 0x098058C786, 28, 55, 50, 0, 80, 11, 12, 0, 0, 25, 0, 0, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13BEB18342, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(1, 0, 0x098058C786, 26, 55, 50, 0, 80, 18, 42, 0, 0, 75, 0, 0, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13BEB18342, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(2, 0, 0x098058C786, 26, 55, 45, 0, 80, 26, 90, 0, 0, 130, 0, 0, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13BEB18342, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, ATTACK_REGION_NONE)
-        WorkModule:on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_BREATH_EMBERS_START_EFFECT)
+        WorkModule.on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_BREATH_EMBERS_START_EFFECT)
     end
     sv_animcmd.frame(37)
     if sv_animcmd.is_excute() then
@@ -86,7 +86,7 @@ game_DragonBreath = function ()
         sv_animcmd.ATTACK(1, 0, 0x098058C786, 26, 55, 50, 0, 80, 18, 42, 0, 0, 75, 0, 0, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13BEB18342, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(2, 0, 0x098058C786, 26, 55, 45, 0, 80, 26, 90, 0, 0, 130, 0, 0, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13BEB18342, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, ATTACK_REGION_NONE)
         sv_animcmd.ATTACK(3, 0, 0x098058C786, 26, 55, 40, 0, 80, 36, 150, 0, 0, 190, 0, 0, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13BEB18342, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, ATTACK_REGION_NONE)
-        WorkModule:off_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_SPREAD_STOP)
+        WorkModule.off_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_SPREAD_STOP)
     end
     sv_animcmd.frame(75)
     if sv_animcmd.is_excute() then
@@ -98,7 +98,7 @@ game_DragonBreath = function ()
     sv_animcmd.frame(76)
     if sv_animcmd.is_excute() then
         AttackModule.clear(0)
-        WorkModule:on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_SPREAD_STOP)
+        WorkModule.on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_SPREAD_STOP)
     end
     sv_animcmd.frame(77)
     if sv_animcmd.is_excute() then
@@ -126,11 +126,11 @@ game_DragonBreath = function ()
     sv_animcmd.frame(82)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        WorkModule:on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_NECK_RETURN_START)
+        WorkModule.on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_NECK_RETURN_START)
     end
     sv_animcmd.frame(104)
     if sv_animcmd.is_excute() then
-        WorkModule:off_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_BREATH_READY)
+        WorkModule.off_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_BREATH_READY)
     end
     return 
 end

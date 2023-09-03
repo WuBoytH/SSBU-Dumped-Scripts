@@ -46,11 +46,11 @@ sound_MoveGround = function ()
 end
 
 sound_TimeUp = function ()
-    if WorkModule:is_flag(ITEM_BOMBER_INSTANCE_WORK_FLAG_TIME_UP_SE_PLAYED) == nil then
+    if WorkModule.is_flag(ITEM_BOMBER_INSTANCE_WORK_FLAG_TIME_UP_SE_PLAYED) == nil then
         sv_animcmd.frame(20)
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE(0x18985DBEF8)
-            WorkModule:on_flag(ITEM_BOMBER_INSTANCE_WORK_FLAG_TIME_UP_SE_PLAYED)
+            WorkModule.on_flag(ITEM_BOMBER_INSTANCE_WORK_FLAG_TIME_UP_SE_PLAYED)
         end
     end
     return 

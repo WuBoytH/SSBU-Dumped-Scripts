@@ -8,7 +8,7 @@
 game_MoveRight = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 1, 0x031ED91FCA, 3, 25, 100, 0, 30, 3, 0, 0, 7, 0x14860B063A, 0, 1, 1.7999999523162842, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, true, false, 4, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 1, 0x031ED91FCA, 3, 20, 100, 0, 30, 3.5, 0, -2, 0.5, 0x14860B063A, 0, 1, 1.7999999523162842, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, true, false, 4, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, 0, 2, 0.5)
+        sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 1, 0x031ED91FCA, 3, 20, 100, 0, 30, 3.5, 0, -2, 0.5, 0x14860B063A, 0, 1, 1.7999999523162842, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, true, false, 4, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, 0, 2, 0.5)
     end
     return 
 end

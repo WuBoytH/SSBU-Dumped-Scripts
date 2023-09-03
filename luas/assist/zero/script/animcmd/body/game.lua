@@ -11,7 +11,7 @@
 game_Jump = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -19,7 +19,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -27,7 +27,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -78,7 +78,7 @@ game_AttackRyuuenjin = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 6, 60, 100, 120, 0, 8, 0, 5, 6, 0x13BEB18342, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.ATTACK_FP(1, 0, 0x031ED91FCA, 6, 86, 100, 120, 0, 7, 0, 5, 11, 0x13BEB18342, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.ATTACK_FP(2, 0, 0x031ED91FCA, 6, 100, 100, 120, 0, 6, 0, 5, 16, 0x13BEB18342, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
-        WorkModule:on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_IS_TRANS_MOVE)
+        WorkModule.on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_IS_TRANS_MOVE)
     end
     sv_animcmd.wait(2)
     if sv_animcmd.is_excute() then
@@ -100,11 +100,11 @@ game_AttackRyuuenjin = function ()
     end
     sv_animcmd.frame(27)
     if sv_animcmd.is_excute() then
-        WorkModule:off_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_IS_TRANS_MOVE)
+        WorkModule.off_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_IS_TRANS_MOVE)
     end
     sv_animcmd.frame(38)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_CAN_LANDING)
+        WorkModule.on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_CAN_LANDING)
     end
     return 
 end
@@ -138,7 +138,7 @@ game_AttackKuuenzan = function ()
     end
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_CAN_LANDING)
+        WorkModule.on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_CAN_LANDING)
         AttackModule.clear_all()
     end
     return 
@@ -147,7 +147,7 @@ end
 game_AttackGenmuzero = function ()
     sv_animcmd.frame(34)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_SHOT_START)
+        WorkModule.on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_SHOT_START)
     end
     return 
 end
@@ -155,7 +155,7 @@ end
 game_AttackGenmuzeroAir = function ()
     sv_animcmd.frame(18)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_SHOT_START)
+        WorkModule.on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_SHOT_START)
     end
     sv_animcmd.frame(20)
     return 

@@ -17,11 +17,11 @@
 game_Entry = function ()
     sv_animcmd.frame(110)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_INITIALIZE_CHECK_GROUND)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_INITIALIZE_CHECK_GROUND)
     end
     sv_animcmd.frame(145)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_INITIALIZE_ATTACH_GROUND)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_INITIALIZE_ATTACH_GROUND)
     end
     return 
 end
@@ -29,7 +29,7 @@ end
 game_Flight = function ()
     sv_animcmd.frame(53)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -37,7 +37,7 @@ end
 game_Landing = function ()
     sv_animcmd.frame(37)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_CHANGE_MODE_GROUND_ATTACH)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_CHANGE_MODE_GROUND_ATTACH)
     end
     return 
 end
@@ -56,7 +56,7 @@ game_FireballShot = function ()
     end
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
     return 
 end
@@ -67,7 +67,7 @@ game_FireballShot3Start = function ()
     end
     sv_animcmd.frame(63)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
     return 
 end
@@ -78,7 +78,7 @@ game_FireballShot3 = function ()
     end
     sv_animcmd.frame(23)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
     return 
 end
@@ -93,7 +93,7 @@ end
 game_BackJumpFire = function ()
     sv_animcmd.frame(30)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
     sv_animcmd.frame(30)
     sv_animcmd.frame(40)
@@ -208,7 +208,7 @@ end
 game_LowFireballShot = function ()
     sv_animcmd.frame(84)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
     return 
 end
@@ -216,7 +216,7 @@ end
 game_LowFireballShot3Start = function ()
     sv_animcmd.frame(78)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
     return 
 end
@@ -224,7 +224,7 @@ end
 game_LowFireballShot3 = function ()
     sv_animcmd.frame(33)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
     return 
 end
@@ -232,7 +232,7 @@ end
 game_Nail = function ()
     sv_animcmd.frame(67)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
     sv_animcmd.frame(72)
     if sv_animcmd.is_excute() then
@@ -253,11 +253,11 @@ game_Nail = function ()
     sv_animcmd.frame(87)
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_START_BRAKE)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_START_BRAKE)
     end
     sv_animcmd.frame(110)
     if sv_animcmd.is_excute() then
-        WorkModule:off_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.off_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
     return 
 end
@@ -282,7 +282,7 @@ end
 game_ChargeFireballRise = function ()
     sv_animcmd.frame(110)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -290,7 +290,7 @@ end
 game_ChargeFireballRiseL = function ()
     sv_animcmd.frame(110)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -298,7 +298,7 @@ end
 game_AirDownStart = function ()
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_START_ENERGY)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_START_ENERGY)
     end
     return 
 end
@@ -306,7 +306,7 @@ end
 game_TailCutDownStart = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_TAIL_CUT_CREATE_ITEM)
+        WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_TAIL_CUT_CREATE_ITEM)
     end
     return 
 end

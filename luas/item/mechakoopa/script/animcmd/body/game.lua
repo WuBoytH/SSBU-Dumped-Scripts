@@ -35,12 +35,12 @@ game_Throw = function ()
 end
 
 game_Born = function ()
-    if WorkModule:is_flag(ITEM_MECHAKOOPA_INSTANCE_WORK_FLAG_TEAM_ATTACK) == nil then
+    if WorkModule.is_flag(ITEM_MECHAKOOPA_INSTANCE_WORK_FLAG_TEAM_ATTACK) == nil then
         if sv_animcmd.is_excute() then
             local f6_local0, f6_local1, f6_local2 = nil
             sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 7, 50, 70, 0, 70, 10, 0, 3, 0, f6_local0, f6_local1, f6_local2, 1, 1, ATTACK_SETOFF_KIND_ON, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, true, 0x13BEB18342, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_BOMB, ATTACK_REGION_BOMB)
         end
-    elseif WorkModule:is_flag(ITEM_MECHAKOOPA_INSTANCE_WORK_FLAG_THROW) == nil then
+    elseif WorkModule.is_flag(ITEM_MECHAKOOPA_INSTANCE_WORK_FLAG_THROW) == nil then
         if sv_animcmd.is_excute() then
             local f6_local0, f6_local1, f6_local2 = nil
             sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 7, 50, 70, 0, 70, 10, 0, 3, 0, f6_local0, f6_local1, f6_local2, 1, 1, ATTACK_SETOFF_KIND_ON, ATTACK_LR_CHECK_SPEED, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13BEB18342, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_BOMB, ATTACK_REGION_BOMB)

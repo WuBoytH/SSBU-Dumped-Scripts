@@ -19,7 +19,7 @@ sound_SetBoundSE = function ()
         sv_animcmd.IT_SET_SE_arg2(0x14FEF90CB8, 0x0F42052130)
     end
     local f2_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_TABEMONO_MILK then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_TABEMONO_MILK then
         f2_local0 = false
     else
         f2_local0 = true
@@ -30,7 +30,7 @@ sound_SetBoundSE = function ()
         end
     else
         f2_local0
-        if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_TABEMONO_TEA then
+        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_TABEMONO_TEA then
             f2_local0 = false
         else
             f2_local0 = true
@@ -41,7 +41,7 @@ sound_SetBoundSE = function ()
             end
         else
             f2_local0
-            if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_TABEMONO_COLA then
+            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_TABEMONO_COLA then
                 f2_local0 = false
             else
                 f2_local0 = true
@@ -52,7 +52,7 @@ sound_SetBoundSE = function ()
                 end
             else
                 f2_local0
-                if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_TABEMONO_CORNPOTAGE then
+                if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_TABEMONO_CORNPOTAGE then
                     f2_local0 = false
                 else
                     f2_local0 = true

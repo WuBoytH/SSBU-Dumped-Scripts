@@ -153,7 +153,7 @@ end
 
 effect_JumpingOutUpper = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(3)
     if sv_animcmd.is_excute() then
@@ -169,7 +169,7 @@ end
 
 effect_JumpingOutUpper2 = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(3)
     if sv_animcmd.is_excute() then

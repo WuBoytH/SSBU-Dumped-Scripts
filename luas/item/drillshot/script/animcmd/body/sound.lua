@@ -15,17 +15,17 @@ sound_Appear = function ()
 end
 
 sound_MoveRight = function ()
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12C638C3E4)
-        WorkModule:off_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1)
+        WorkModule.off_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1)
     end
     return 
 end
 
 sound_MoveLeft = function ()
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12C638C3E4)
-        WorkModule:off_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1)
+        WorkModule.off_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1)
     end
     return 
 end

@@ -18,16 +18,16 @@ effect_Fall = function ()
     end
     sv_animcmd.frame(50)
     if sv_animcmd.is_excute() then
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MOON_INSTANCE_WORK_SHOCKWAVE_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MOON_INSTANCE_WORK_SHOCKWAVE_EFFECT_HANDLE)
     end
     sv_animcmd.frame(30)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_KS)
     end
     sv_animcmd.frame(150)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_GLOBAL(0x0B3AD39623, 0, 0, 10, 0, 0, 0, 1)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MOON_INSTANCE_WORK_DEBRIS_RISE_EFFECT_HADNLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MOON_INSTANCE_WORK_DEBRIS_RISE_EFFECT_HADNLE)
     end
     return 
 end
@@ -47,9 +47,9 @@ effect_Impact = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FLASH_FRM(10, 1, 1, 1, 1)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(0, 10, 1, 1, 1, 1, 1, 1, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
-        WorkModule:on_flag(ITEM_MOON_INSTANCE_WORK_FLAG_SHOCKWAVE_EFFECT_REMOVE)
-        WorkModule:on_flag(ITEM_MOON_INSTANCE_WORK_FLAG_DEBRIS_RISE_EFFECT_REMOVE)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
+        WorkModule.on_flag(ITEM_MOON_INSTANCE_WORK_FLAG_SHOCKWAVE_EFFECT_REMOVE)
+        WorkModule.on_flag(ITEM_MOON_INSTANCE_WORK_FLAG_DEBRIS_RISE_EFFECT_REMOVE)
     end
     return 
 end
@@ -61,7 +61,7 @@ effect_Lost = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x0E44FA6FEE, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x143A7CA007, false, true)
         sv_animcmd.EFFECT(0x12A75E1CE3, 0x031ED91FCA, 0, 0, 50, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
     return 
 end

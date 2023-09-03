@@ -24,7 +24,7 @@ sound_Appear = function ()
         sv_animcmd.PLAY_SE(0x16878424AB)
     end
     sv_animcmd.wait(28)
-    if fighter:find_fighter_from_kind(FIGHTER_KIND_SNAKE) then
+    if fighter.find_fighter_from_kind(FIGHTER_KIND_SNAKE) then
         if sv_animcmd.IT_IS_RND_PERCENT(50) then
             if sv_animcmd.is_excute() then
                 sv_animcmd.PLAY_SE(0x1CE0EC5101)

@@ -23,7 +23,7 @@
 game_Entry = function ()
     sv_animcmd.frame(136)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_ENTRY_STOP)
+        WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_ENTRY_STOP)
     end
     sv_animcmd.frame(320)
     if sv_animcmd.is_excute() then
@@ -36,7 +36,7 @@ game_Entry = function ()
     end
     sv_animcmd.frame(440)
     if sv_animcmd.is_excute() then
-        WorkModule:off_flag(ITEM_MARX_INSTANCE_WORK_FLAG_ENTRY_STOP)
+        WorkModule.off_flag(ITEM_MARX_INSTANCE_WORK_FLAG_ENTRY_STOP)
     end
     sv_animcmd.frame(461)
     if sv_animcmd.is_excute() then
@@ -54,7 +54,7 @@ end
 game_TeleportStart = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        sv_animcmd:WHOLE_HIT(HIT_STATUS_XLU)
+        sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
     return 
 end
@@ -62,7 +62,7 @@ end
 game_TeleportEnd = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        sv_animcmd:WHOLE_HIT(HIT_STATUS_NORMAL)
+        sv_animcmd.WHOLE_HIT(HIT_STATUS_NORMAL)
     end
     return 
 end
@@ -70,7 +70,7 @@ end
 game_FourCutter = function ()
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_4_CUTTER)
+        WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_4_CUTTER)
     end
     return 
 end
@@ -78,13 +78,13 @@ end
 game_FlyOut = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 11, 22, 70, 50, 20, 0, 0, 80, 100, 15, 15, 0, 5, 0, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, false, 5, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 300, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(1, 0, 0x08F4C1DF96, 5, 10, 70, 75, 50, 0, 0, 80, 100, 10, 10, -4, 7, -10, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, false, 5, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 300, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(2, 0, 0x082080E049, 5, 10, 70, 75, 50, 0, 0, 80, 100, 10, 10, 4, -7, 10, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, false, 5, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 300, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 11, 22, 70, 50, 20, 0, 0, 80, 100, 15, 15, 0, 5, 0, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, false, 5, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 300, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(1, 0, 0x08F4C1DF96, 5, 10, 70, 75, 50, 0, 0, 80, 100, 10, 10, -4, 7, -10, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, false, 5, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 300, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(2, 0, 0x082080E049, 5, 10, 70, 75, 50, 0, 0, 80, 100, 10, 10, 4, -7, 10, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, false, 5, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 300, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_FLY_OUT_HIT_ENABLE)
+        WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_FLY_OUT_HIT_ENABLE)
     end
     sv_animcmd.frame(30)
     if sv_animcmd.is_excute() then
@@ -98,7 +98,7 @@ end
 game_SpewEnd = function ()
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_ICE_BOMB_SHOOT)
+        WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_ICE_BOMB_SHOOT)
     end
     return 
 end
@@ -116,27 +116,27 @@ game_ThickLaserEnd = function ()
     end
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_THICK_LASER_START)
+        WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_THICK_LASER_START)
     end
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(0, 0, 0x031ED91FCA, 18, 25, 60, 20, 20, 0, 0, 125, 120, 1, 1, 0, 0, 0, 0x1569C518B1, 0, 1, 1, false, true, 4, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 300, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, 0, 0, 0, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(0, 0, 0x031ED91FCA, 18, 25, 60, 20, 20, 0, 0, 125, 120, 1, 1, 0, 0, 0, 0x1569C518B1, 0, 1, 1, false, true, 4, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 300, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, 0, 0, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.wait(120)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_THICK_LASER_END)
+        WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_THICK_LASER_END)
     end
     return 
 end
 
 game_BlackHoleStart = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(3, 2, 0x04A7F3F69C, 0, 0, 0, 100, 100, 10, 10, 0, 0, 10, 10, 0, 0, 0, 0x15A2C502B3, 0, 0, 2, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 3, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(3, 2, 0x04A7F3F69C, 0, 0, 0, 100, 100, 10, 10, 0, 0, 10, 10, 0, 0, 0, 0x15A2C502B3, 0, 0, 2, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 3, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(54)
     if sv_animcmd.is_excute() then
         AttackModule.clear(3)
-        sv_animcmd.ATTACK_ABS_STRENGTH(0, 0, 30, 30, 270, 30, 30, 0, 0, 100, 100, 0x1569C518B1, 1, 0, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, ATTACK_LR_CHECK_POS, false, false, ATTACK_REGION_NONE, true, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_ABS_STRENGTH(0, 0, 30, 30, 270, 30, 30, 0, 0, 100, 100, 0x1569C518B1, 1, 0, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, ATTACK_LR_CHECK_POS, false, false, ATTACK_REGION_NONE, true, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(73)
     if sv_animcmd.is_excute() then
@@ -144,31 +144,31 @@ game_BlackHoleStart = function ()
     end
     sv_animcmd.frame(75)
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 0, 15, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(1, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.5, 12.5, 0, -12.5, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(2, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.5, 12.5, 0, 42.5, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 30, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 30, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 0, 15, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(1, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.5, 12.5, 0, -12.5, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(2, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.5, 12.5, 0, 42.5, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 30, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 30, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(85)
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 40, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 40, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 40, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 40, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(95)
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 35, 50, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 35, 50, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(110)
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 35, 50, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 60, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 35, 50, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 60, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(140)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_BLACK_HOLE_VANISH)
+        WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_BLACK_HOLE_VANISH)
         AttackModule.clear(7)
     end
     return 
@@ -176,31 +176,31 @@ end
 
 game_BlackHoleLoop = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 0, 15, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(1, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.5, 12.5, 0, -12.5, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(2, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.5, 12.5, 0, 42.5, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 35, 50, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 60, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 0, 15, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(1, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.5, 12.5, 0, -12.5, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(2, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.5, 12.5, 0, 42.5, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_LEFT, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 35, 50, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 60, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.RUMBLE_ALL(0x10455D7D08, 0)
     end
     sv_animcmd.frame(130)
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 55, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 70, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 55, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 70, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(150)
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 60, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 80, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 60, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 80, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(170)
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 60, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
-        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 100, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(7, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 30, 45, 0, 0, 75, 75, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(8, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 60, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_A, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_STRENGTH(9, 1, 0x031ED91FCA, 0, 0, 180, 100, 100, 40, 100, 0, 0, 200, 200, 0, 20, 0, 0x15A2C502B3, 0, 0, 0, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 1, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(250)
     if sv_animcmd.is_excute() then
@@ -219,14 +219,14 @@ end
 game_FollowEyeStart = function ()
     sv_animcmd.frame(25)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_FOLLOW_EYE_CREATE)
+        WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_FOLLOW_EYE_CREATE)
     end
     return 
 end
 
 game_CapillaryLoop = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(0, 0, 0x031ED91FCA, 0.75, 1.5, 361, 10, 10, 0, 0, 0, 0, 1, 1, 0, 20, 0, 0x13BEB18342, 0, 0, 0, false, true, 0.5, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 12, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, 0, 20, 0, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
+        sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(0, 0, 0x031ED91FCA, 0.75, 1.5, 361, 10, 10, 0, 0, 0, 0, 1, 1, 0, 20, 0, 0x13BEB18342, 0, 0, 0, false, true, 0.5, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 12, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, 0, 20, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     return 
 end
@@ -238,7 +238,7 @@ game_Dead = function ()
     end
     sv_animcmd.frame(36)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_FLIP_RESET)
+        WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_FLIP_RESET)
     end
     return 
 end
@@ -330,7 +330,7 @@ game_DeadReaction = function ()
     end
     sv_animcmd.frame(270)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
     end
     return 
 end

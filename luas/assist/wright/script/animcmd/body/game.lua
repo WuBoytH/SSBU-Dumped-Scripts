@@ -24,7 +24,7 @@ end
 game_Point = function ()
     sv_animcmd.frame(65)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_WRIGHT_INSTANCE_WORK_FLAG_SPAWN_BUILDING)
+        WorkModule.on_flag(ITEM_WRIGHT_INSTANCE_WORK_FLAG_SPAWN_BUILDING)
     end
     return 
 end

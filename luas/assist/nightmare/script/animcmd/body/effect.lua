@@ -37,21 +37,21 @@ effect_Attack = function ()
     sv_animcmd.wait(60)
     if sv_animcmd.is_excute() then
         WorkModule.set_int(4, ITEM_NIGHTMARE_INSTANCE_WORK_INT_SCALING_STATUS)
-        WorkModule:on_flag(ITEM_NIGHTMARE_INSTANCE_WORK_FLAG_START_BLIND)
+        WorkModule.on_flag(ITEM_NIGHTMARE_INSTANCE_WORK_FLAG_START_BLIND)
         VisibilityModule.set_whole(false)
     end
     sv_animcmd.wait(1)
     sv_animcmd.wait(480)
     sv_animcmd.wait(30)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_NIGHTMARE_INSTANCE_WORK_FLAG_END_BLIND)
+        WorkModule.on_flag(ITEM_NIGHTMARE_INSTANCE_WORK_FLAG_END_BLIND)
         sv_animcmd.CANCEL_FILL_SCREEN(0, 210)
         sv_animcmd.CANCEL_FILL_SCREEN(1, 210)
     end
     sv_animcmd.wait(90)
     sv_animcmd.wait(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_NIGHTMARE_INSTANCE_WORK_FLAG_END_ATTACK)
+        WorkModule.on_flag(ITEM_NIGHTMARE_INSTANCE_WORK_FLAG_END_ATTACK)
     end
     sv_animcmd.wait(30)
     return 

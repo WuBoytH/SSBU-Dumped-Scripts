@@ -21,7 +21,7 @@
 -- 52519010824  -> 0x0C3A608208  -> lioleus_dead
 -- 61700144855  -> 0x0E5D9D7ED7  -> sys_assist_out
 
-Warning: Function 11 using already codegened block basicblock_3:
+Warning. Function 11 using already codegened block basicblock_3.
 effect_Entry = function ()
     sv_animcmd.frame(140)
     if sv_animcmd.is_excute() then
@@ -29,7 +29,7 @@ effect_Entry = function ()
     end
     sv_animcmd.frame(141)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
     return 
 end
@@ -38,7 +38,7 @@ effect_Wait = function ()
     while true do
         sv_animcmd.frame(60)
         local f2_local0
-        if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+        if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
             f2_local0 = false
         else
             f2_local0 = true
@@ -57,7 +57,7 @@ end
 effect_Flight = function ()
     sv_animcmd.frame(44)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x0EF7D041DD, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.824999988079071, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.800000011920929)
     end
@@ -67,7 +67,7 @@ end
 effect_Landing = function ()
     sv_animcmd.frame(34)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x0FF0D5CADC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.824999988079071, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.800000011920929)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2000000476837158)
@@ -77,7 +77,7 @@ end
 
 effect_Tail = function ()
     local f5_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f5_local0 = false
     else
         f5_local0 = true
@@ -112,7 +112,7 @@ end
 
 effect_TailShort = function ()
     local f6_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f6_local0 = false
     else
         f6_local0 = true
@@ -152,11 +152,11 @@ effect_Howling = function ()
     end
     sv_animcmd.frame(69)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_KS)
     end
     sv_animcmd.frame(140)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
     return 
 end
@@ -168,11 +168,11 @@ effect_AirHowling = function ()
     end
     sv_animcmd.frame(76)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_KS)
     end
     sv_animcmd.frame(165)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
+        sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
     return 
 end
@@ -213,12 +213,12 @@ effect_BodyAttackLoop = function ()
         sv_animcmd.frame(5)
         if sv_animcmd.is_excute() then
             sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         end
         sv_animcmd.frame(45)
         if sv_animcmd.is_excute() then
             sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         end
         sv_animcmd.wait_loop_sync_mot()
     end
@@ -228,10 +228,10 @@ end
 effect_BodyAttackEnd = function ()
     sv_animcmd.frame(19)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x0CCBBA5B17, 0x031ED91FCA, 10, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.6000000238418579)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
     return 
 end
@@ -263,7 +263,7 @@ end
 
 effect_BackJumpFire = function ()
     local f16_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f16_local0 = false
     else
         f16_local0 = true
@@ -279,7 +279,7 @@ effect_BackJumpFire = function ()
         end
         sv_animcmd.frame(53)
         if sv_animcmd.is_excute() then
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         end
         sv_animcmd.frame(57)
         if sv_animcmd.is_excute() then
@@ -302,7 +302,7 @@ effect_BackJumpFire = function ()
         end
         sv_animcmd.frame(53)
         if sv_animcmd.is_excute() then
-            sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+            sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         end
         sv_animcmd.frame(57)
         if sv_animcmd.is_excute() then
@@ -326,7 +326,7 @@ effect_LowFireballShot = function ()
     end
     sv_animcmd.frame(80)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     return 
 end
@@ -338,7 +338,7 @@ effect_LowFireballShot3Start = function ()
     end
     sv_animcmd.frame(80)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     return 
 end
@@ -346,7 +346,7 @@ end
 effect_LowFireballShot3 = function ()
     sv_animcmd.frame(80)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     return 
 end
@@ -354,7 +354,7 @@ end
 effect_ChargeFireballRise = function ()
     sv_animcmd.frame(110)
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x0EF7D041DD, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.824999988079071, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.800000011920929)
     end
@@ -365,18 +365,18 @@ effect_TailCutDownStart = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(45)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(55)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0CCBBA5B17, 0x031ED91FCA, 10, 0, 0, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.6000000238418579)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
     return 
 end

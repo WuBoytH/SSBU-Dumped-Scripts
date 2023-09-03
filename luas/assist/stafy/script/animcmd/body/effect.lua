@@ -11,8 +11,8 @@
 -- 63360222651  -> 0x0EC09045BB  -> sys_turn_smoke
 -- 73544663182  -> 0x111F9A808E  -> sys_falling_smoke
 
-Warning: block_2 in function 7 was not used in code generation. THIS IS LIKELY A DECOMPILER BUG!
-Warning: block_3 in function 7 was not used in code generation. THIS IS LIKELY A DECOMPILER BUG!
+Warning. block_2 in function 7 was not used in code generation. THIS IS LIKELY A DECOMPILER BUG!
+Warning. block_3 in function 7 was not used in code generation. THIS IS LIKELY A DECOMPILER BUG!
 effect_Attack = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then

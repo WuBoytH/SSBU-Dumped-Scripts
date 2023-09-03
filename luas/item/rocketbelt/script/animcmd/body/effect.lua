@@ -9,7 +9,7 @@
 -- 89683470255  -> 0x14E18D27AF  -> sys_rocketbelt_smoke
 -- 110014543947 -> 0x199D60B84B  -> sys_rocketbelt_smoke_loop
 
-Warning: Function 7 using already codegened block basicblock_3:
+Warning. Function 7 using already codegened block basicblock_3.
 effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_DETACH_KIND(0x12589A5008, -1)
@@ -66,10 +66,10 @@ effect_FallJetSmokeEnd = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x14E18D27AF, false, false)
         sv_animcmd.EFFECT_OFF_KIND(0x199D60B84B, false, false)
         sv_animcmd.EFFECT_FOLLOW(0x199D60B84B, 0x031ED91FCA, 0, -5, -5, 0, 0, 0, 1, true)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_ROCKETBELT_INSTANCE_WORK_SMOKELOOP_REAR_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ROCKETBELT_INSTANCE_WORK_SMOKELOOP_REAR_EFFECT_HANDLE)
         EffectModule.enable_sync_init_pos_last()
         sv_animcmd.EFFECT_FOLLOW(0x199D60B84B, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_ROCKETBELT_INSTANCE_WORK_SMOKELOOP_FRONT_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ROCKETBELT_INSTANCE_WORK_SMOKELOOP_FRONT_EFFECT_HANDLE)
         EffectModule.enable_sync_init_pos_last()
     end
     return 

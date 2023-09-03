@@ -38,7 +38,7 @@ end
 effect_PierceLoop = function ()
     sv_animcmd.frame(0)
     if sv_animcmd.is_excute() then
-        sv_animcmd:IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_L, CAMERA_QUAKE_KIND_M)
+        sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_L, CAMERA_QUAKE_KIND_M)
     end
     for f2_local0 = 1, 8, 1 do
         local f2_local1 = f2_local0

@@ -31,7 +31,7 @@ end
 
 effect_TeleportEnd = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:EFFECT_CONTINUAL_OFF(EFFECT_CONTINUAL_ID_NONE)
+        sv_animcmd.EFFECT_CONTINUAL_OFF(EFFECT_CONTINUAL_ID_NONE)
         sv_animcmd.EFFECT_FOLLOW(0x1729A3B68C, 0x035DBFE258, 0, 0, 0, 0, 90, 0, 1, true)
     end
     return 

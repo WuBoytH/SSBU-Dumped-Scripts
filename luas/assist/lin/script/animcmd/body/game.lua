@@ -9,14 +9,14 @@ game_Wait = function ()
     sv_animcmd.frame(50)
     sv_animcmd.frame(110)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIN_INSTANCE_WORK_FLAG_ENABLE_COUNTER)
+        WorkModule.on_flag(ITEM_LIN_INSTANCE_WORK_FLAG_ENABLE_COUNTER)
     end
     return 
 end
 
 game_Start = function ()
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_LIN_INSTANCE_WORK_FLAG_ENABLE_COUNTER)
+        WorkModule.on_flag(ITEM_LIN_INSTANCE_WORK_FLAG_ENABLE_COUNTER)
     end
     return 
 end

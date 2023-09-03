@@ -13,7 +13,7 @@
 
 sound_Appear = function ()
     local f1_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
         f1_local0 = false
     else
         f1_local0 = true
@@ -24,7 +24,7 @@ sound_Appear = function ()
         end
     else
         f1_local0
-        if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
+        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
             f1_local0 = false
         else
             f1_local0 = true
@@ -35,7 +35,7 @@ sound_Appear = function ()
             end
         else
             f1_local0
-            if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
+            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
                 f1_local0 = false
             else
                 f1_local0 = true
@@ -50,7 +50,7 @@ end
 
 sound_Born = function ()
     local f2_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
         f2_local0 = false
     else
         f2_local0 = true
@@ -61,7 +61,7 @@ sound_Born = function ()
         end
     else
         f2_local0
-        if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
+        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
             f2_local0 = false
         else
             f2_local0 = true
@@ -72,7 +72,7 @@ sound_Born = function ()
             end
         else
             f2_local0
-            if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
+            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
                 f2_local0 = false
             else
                 f2_local0 = true
@@ -82,7 +82,7 @@ sound_Born = function ()
             end
         end
     end
-    if WorkModule:is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
     return 

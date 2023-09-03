@@ -41,7 +41,7 @@ effect_ShotReady = function ()
         sv_animcmd.wait(3)
     end
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_KILLEREYE_INSTANCE_WORK_FLAG_IS_FLASHING_END)
+        WorkModule.on_flag(ITEM_KILLEREYE_INSTANCE_WORK_FLAG_IS_FLASHING_END)
     end
     return 
 end
@@ -59,7 +59,7 @@ effect_AirShotReady = function ()
         sv_animcmd.wait(3)
     end
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_KILLEREYE_INSTANCE_WORK_FLAG_IS_FLASHING_END)
+        WorkModule.on_flag(ITEM_KILLEREYE_INSTANCE_WORK_FLAG_IS_FLASHING_END)
     end
     return 
 end

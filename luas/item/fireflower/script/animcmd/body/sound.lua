@@ -22,14 +22,14 @@ end
 
 sound_Close = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
+        sv_module_access.sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
     return 
 end
 
 sound_Suka = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
+        sv_module_access.sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
     return 
 end

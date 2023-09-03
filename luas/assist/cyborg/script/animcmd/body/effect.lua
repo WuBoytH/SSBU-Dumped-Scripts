@@ -15,7 +15,7 @@
 -- 55914242565  -> 0x0D04BFA205  -> cyborg_slash1
 -- 73544663182  -> 0x111F9A808E  -> sys_falling_smoke
 
-Warning: Function 6 using already codegened block basicblock_3:
+Warning. Function 6 using already codegened block basicblock_3.
 effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)

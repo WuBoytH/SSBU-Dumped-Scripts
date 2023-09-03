@@ -7,7 +7,7 @@
 game_Jump = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -15,7 +15,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -23,7 +23,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -38,7 +38,7 @@ game_AttackGrab = function ()
     end
     sv_animcmd.frame(16)
     if sv_animcmd.is_excute() then
-        sv_module_access:grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
+        sv_module_access.grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
     return 
 end
@@ -46,7 +46,7 @@ end
 game_AttackThrow = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_THROW)
+        WorkModule.on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_THROW)
         sv_animcmd.ATTACK_ABS(0, 0, 22, 135, 100, 0, 60, 0, 0, ATTACK_LR_CHECK_FORWARD, 0, true, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, ATTACK_REGION_NONE)
     end
     return 
@@ -62,7 +62,7 @@ game_AttackGrabAir = function ()
     end
     sv_animcmd.frame(16)
     if sv_animcmd.is_excute() then
-        sv_module_access:grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
+        sv_module_access.grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
     return 
 end
@@ -70,7 +70,7 @@ end
 game_AttackThrowAir = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_THROW)
+        WorkModule.on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_THROW)
         sv_animcmd.ATTACK_ABS(0, 0, 22, 135, 100, 0, 60, 0, 0, ATTACK_LR_CHECK_FORWARD, 0, true, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, ATTACK_REGION_NONE)
     end
     return 
@@ -151,7 +151,7 @@ end
 game_AttackShoot = function ()
     sv_animcmd.frame(16)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_SHOOT)
     end
     return 
 end
@@ -159,7 +159,7 @@ end
 game_AttackShootAir = function ()
     sv_animcmd.frame(16)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_SHOOT)
+        WorkModule.on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_SHOOT)
     end
     return 
 end

@@ -10,28 +10,28 @@
 
 sound_Have = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
+        sv_module_access.sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
     return 
 end
 
 sound_Fall = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
+        sv_module_access.sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
     return 
 end
 
 sound_Throw = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
+        sv_module_access.sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
     return 
 end
 
 sound_Born = function ()
     local f4_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
         f4_local0 = false
     else
         f4_local0 = true
@@ -42,7 +42,7 @@ sound_Born = function ()
         end
     else
         f4_local0
-        if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
+        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
             f4_local0 = false
         else
             f4_local0 = true
@@ -53,7 +53,7 @@ sound_Born = function ()
             end
         else
             f4_local0
-            if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
+            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
                 f4_local0 = false
             else
                 f4_local0 = true
@@ -63,7 +63,7 @@ sound_Born = function ()
             end
         end
     end
-    if WorkModule:is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
     return 
@@ -79,7 +79,7 @@ end
 
 sound_WaitGround = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
+        sv_module_access.sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
     return 
 end

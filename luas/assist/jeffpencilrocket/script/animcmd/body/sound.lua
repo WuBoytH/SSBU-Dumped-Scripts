@@ -18,7 +18,7 @@ end
 sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x107AD5AEBC)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
     return 
 end

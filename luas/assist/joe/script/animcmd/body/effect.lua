@@ -41,7 +41,7 @@ end
 
 effect_Attack1 = function ()
     local f4_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f4_local0 = false
     else
         f4_local0 = true
@@ -73,7 +73,7 @@ effect_Attack2 = function ()
     end
     sv_animcmd.frame(8)
     local f5_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f5_local0 = false
     else
         f5_local0 = true

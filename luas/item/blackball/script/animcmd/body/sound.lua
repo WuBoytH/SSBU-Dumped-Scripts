@@ -35,7 +35,7 @@ sound_Attack = function ()
     end
     sv_animcmd.frame(420)
     if sv_animcmd.is_excute() then
-        sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
+        sv_module_access.sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
     return 
 end

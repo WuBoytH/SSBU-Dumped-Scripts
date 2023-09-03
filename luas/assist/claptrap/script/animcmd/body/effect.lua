@@ -25,7 +25,7 @@ end
 effect_Turn = function ()
     sv_animcmd.frame(23)
     local f2_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f2_local0 = false
     else
         f2_local0 = true

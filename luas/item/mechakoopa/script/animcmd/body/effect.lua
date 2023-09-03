@@ -6,7 +6,7 @@
 -- 45338411590  -> 0x0A8E614246  -> sys_bomb_a
 -- 106585275805 -> 0x18D0FA3D9D  -> koopajr_mekakoopa_zenmai
 
-Warning: Function 1 using already codegened block basicblock_3:
+Warning. Function 1 using already codegened block basicblock_3.
 effect_Flash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x17D9457FCB, 0x031ED91FCA, 0, 3, 0, 0, 0, 0, 1, false)
@@ -44,7 +44,7 @@ end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 2.5, 0.10000000149011612, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x18D0FA3D9D, 0x031ED91FCA, 0, 2.5, 0.10000000149011612, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         VisibilityModule.set_whole(false)

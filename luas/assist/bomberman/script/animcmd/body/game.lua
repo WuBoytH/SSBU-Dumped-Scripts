@@ -7,7 +7,7 @@
 game_Jump = function ()
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -15,7 +15,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -23,7 +23,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -55,11 +55,11 @@ end
 game_BombPut = function ()
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBCREATE)
+        WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBCREATE)
     end
     sv_animcmd.frame(12)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBPUT)
+        WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBPUT)
     end
     return 
 end
@@ -67,11 +67,11 @@ end
 game_BombPutAir = function ()
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBCREATE)
+        WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBCREATE)
     end
     sv_animcmd.frame(12)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBPUT)
+        WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBPUT)
     end
     return 
 end
@@ -79,7 +79,7 @@ end
 game_BombEscape = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -87,7 +87,7 @@ end
 game_RemoconTrigger = function ()
     sv_animcmd.frame(30)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_REMOCON_TRIGGER)
+        WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_REMOCON_TRIGGER)
     end
     return 
 end
@@ -95,7 +95,7 @@ end
 game_RemoconTriggerAir = function ()
     sv_animcmd.frame(30)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_REMOCON_TRIGGER)
+        WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_REMOCON_TRIGGER)
     end
     return 
 end

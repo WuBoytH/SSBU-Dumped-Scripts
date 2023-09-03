@@ -25,7 +25,7 @@ effect_DownBoundD = function ()
     end
     sv_animcmd.frame(19)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
+        WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
     return 
 end
@@ -36,7 +36,7 @@ effect_DownBoundU = function ()
     end
     sv_animcmd.frame(19)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
+        WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
     return 
 end
@@ -48,7 +48,7 @@ effect_SlidingD = function ()
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
-        WorkModule:on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
+        WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
     return 
 end
@@ -60,7 +60,7 @@ effect_SlidingU = function ()
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
-        WorkModule:on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
+        WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
     return 
 end
@@ -91,7 +91,7 @@ end
 effect_DownWaitD = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
+        WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
     return 
 end
@@ -99,14 +99,14 @@ end
 effect_DownWaitU = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
+        WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
     return 
 end
 
 effect_DamageFlyStopStartS = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.RUMBLE_ALL(0x1644B25228, 0)
         sv_animcmd.IT_SLOW_WHOLE_FRAME(3, 10)
     end
@@ -116,7 +116,7 @@ end
 effect_DamageFlyStopStartM = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0C40733A72, 0x031ED91FCA, 0, 16, 12, 90, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
         sv_animcmd.RUMBLE_ALL(0x1495BE43D8, 0)
         sv_animcmd.IT_SLOW_WHOLE_FRAME(5, 10)
     end
@@ -126,7 +126,7 @@ end
 effect_DamageFlyStopStartL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0C40733A72, 0x031ED91FCA, 0, 16, 12, 90, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
+        sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
         sv_animcmd.RUMBLE_ALL(0x1495BE43D8, 0)
         sv_animcmd.IT_SLOW_WHOLE_FRAME(10, 2)
     end
@@ -217,7 +217,7 @@ end
 
 effect_LandingSmoke = function ()
     local f23_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f23_local0 = false
     else
         f23_local0 = true
@@ -234,7 +234,7 @@ end
 
 effect_Sonicboom = function ()
     local f24_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f24_local0 = false
     else
         f24_local0 = true

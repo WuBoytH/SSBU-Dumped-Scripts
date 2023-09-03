@@ -8,7 +8,7 @@
 -- 109184678940 -> 0x196BE9FC1C  -> se_item_rocketbelt_finish
 
 sound_Have = function ()
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_HAVE_SILENT) == nil and sv_animcmd.is_excute() then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_HAVE_SILENT) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x10636413B6)
     end
     return 

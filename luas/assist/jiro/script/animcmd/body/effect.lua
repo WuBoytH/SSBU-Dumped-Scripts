@@ -22,11 +22,11 @@
 -- 66962591666  -> 0x0F97480FB2  -> sys_jump_aerial
 -- 73544663182  -> 0x111F9A808E  -> sys_falling_smoke
 
-Warning: Function 1 using already codegened block basicblock_9:
-Warning: Function 3 using already codegened block basicblock_9:
+Warning. Function 1 using already codegened block basicblock_9.
+Warning. Function 3 using already codegened block basicblock_9.
 effect_Hold = function ()
     local f1_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f1_local0 = false
     else
         f1_local0 = true
@@ -36,7 +36,7 @@ effect_Hold = function ()
             sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, -4.5, 7.599999904632568, -5, 0, 0, 0, 1.100000023841858, true)
             sv_animcmd.EFFECT_FOLLOW(0x0B4DFE5D53, 0x031ED91FCA, 0, 7, 0, 0, 0, 0, 1.100000023841858, true)
             sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, 4.5, 7.599999904632568, -5, 0, 0, 0, 1.100000023841858, true)
-            goto basicblock_9:
+            goto basicblock_9.
         end
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, -4.5, 7.599999904632568, -5, 0, 0, 0, 1.100000023841858, true)
@@ -54,7 +54,7 @@ end
 
 effect_Run = function ()
     local f2_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f2_local0 = false
     else
         f2_local0 = true
@@ -83,7 +83,7 @@ end
 effect_HoldSpecial = function ()
     sv_animcmd.frame(1)
     local f3_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f3_local0 = false
     else
         f3_local0 = true
@@ -93,7 +93,7 @@ effect_HoldSpecial = function ()
             sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0A09020B6B, 0x06E8A81A8D, -4.5, 7.5, -5.5, 0, 0, 0, 1.100000023841858, false)
             sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0B6AF10C9B, 0x031ED91FCA, 0, 7, 0, 0, 0, 0, 1.100000023841858, false)
             sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0A09020B6B, 0x06E8A81A8D, 4.5, 7.5, -5.5, 0, 0, 0, 1.100000023841858, false)
-            goto basicblock_9:
+            goto basicblock_9.
         end
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0A09020B6B, 0x06E8A81A8D, 4.5, 7.5, -5.5, 0, 0, 0, 1.100000023841858, false)
@@ -114,7 +114,7 @@ effect_ExRun = function ()
         sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     local f4_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f4_local0 = false
     else
         f4_local0 = true

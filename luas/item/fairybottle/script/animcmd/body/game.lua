@@ -5,7 +5,7 @@
 -- 92925133491  -> 0x15A2C502B3  -> collision_attr_normal
 
 game_Throw = function ()
-    if WorkModule:is_flag(ITEM_FAIRYBOTTLE_INSTANCE_WORK_FLAG_IS_BOSS) == nil then
+    if WorkModule.is_flag(ITEM_FAIRYBOTTLE_INSTANCE_WORK_FLAG_IS_BOSS) == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 6, 0, 0, 0, COLLISION_KIND_MASK_HIT, COLLISION_CATEGORY_MASK_FI, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_ALL, HIT_STATUS_MASK_NI, false, 1, true, COLLISION_SHAPE_TYPE_SPHERE)
         end

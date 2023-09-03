@@ -226,7 +226,7 @@ sound_DamageFly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x20A0A2E5A6)
     end
-    if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_IS_SMASH_DAMAGE) == nil then
+    if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_IS_SMASH_DAMAGE) == nil then
         sv_animcmd.frame(0)
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE(0x1A1BE562EE)

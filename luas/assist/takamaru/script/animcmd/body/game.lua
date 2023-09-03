@@ -7,7 +7,7 @@
 game_Jump = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -15,7 +15,7 @@ end
 game_JumpAir = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -23,7 +23,7 @@ end
 game_JumpVertical = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end
@@ -59,7 +59,7 @@ end
 game_AttackHisya = function ()
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_TAKAMARU_INSTANCE_WORK_FLAG_SPAWN_SHOT)
+        WorkModule.on_flag(ITEM_TAKAMARU_INSTANCE_WORK_FLAG_SPAWN_SHOT)
     end
     return 
 end
@@ -67,7 +67,7 @@ end
 game_AttackKaku = function ()
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_TAKAMARU_INSTANCE_WORK_FLAG_SPAWN_SHOT)
+        WorkModule.on_flag(ITEM_TAKAMARU_INSTANCE_WORK_FLAG_SPAWN_SHOT)
     end
     return 
 end
@@ -75,7 +75,7 @@ end
 game_AttackHisyaAir = function ()
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_TAKAMARU_INSTANCE_WORK_FLAG_SPAWN_SHOT)
+        WorkModule.on_flag(ITEM_TAKAMARU_INSTANCE_WORK_FLAG_SPAWN_SHOT)
     end
     return 
 end
@@ -83,7 +83,7 @@ end
 game_AttackKakuAir = function ()
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_TAKAMARU_INSTANCE_WORK_FLAG_SPAWN_SHOT)
+        WorkModule.on_flag(ITEM_TAKAMARU_INSTANCE_WORK_FLAG_SPAWN_SHOT)
     end
     return 
 end
@@ -91,7 +91,7 @@ end
 game_EscapeJump = function ()
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
     return 
 end

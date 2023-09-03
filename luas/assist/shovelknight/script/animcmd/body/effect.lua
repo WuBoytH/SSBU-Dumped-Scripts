@@ -76,7 +76,7 @@ effect_DigGround = function ()
     end
     sv_animcmd.frame(18)
     local f8_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f8_local0 = false
     else
         f8_local0 = true
@@ -97,7 +97,7 @@ end
 effect_DigAir = function ()
     sv_animcmd.frame(13)
     local f9_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f9_local0 = false
     else
         f9_local0 = true
@@ -129,7 +129,7 @@ end
 effect_ShovelReflectGround = function ()
     sv_animcmd.frame(18)
     local f11_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f11_local0 = false
     else
         f11_local0 = true
@@ -150,7 +150,7 @@ end
 effect_ShovelReflectAir = function ()
     sv_animcmd.frame(15)
     local f12_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f12_local0 = false
     else
         f12_local0 = true

@@ -34,7 +34,7 @@ effect_Attack = function ()
     sv_animcmd.frame(18)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x16E508EA2D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd:IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_S, CAMERA_QUAKE_KIND_S)
+        sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_S, CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(26)
     if sv_animcmd.is_excute() then

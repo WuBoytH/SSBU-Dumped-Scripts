@@ -34,7 +34,7 @@ effect_AttackGround = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0FBD5E845B, 0x051A07C0E7, 0, 0, 0, 0, 0, 0, 1, false)
     end
     local f2_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f2_local0 = false
     else
         f2_local0 = true
@@ -74,7 +74,7 @@ effect_AttackAir = function ()
         sv_animcmd.AFTER_IMAGE4_ON_arg29(0x144DBDBFC0, 0x14D4B4EE7A, 6, 0x059AE5C70F, 0, 0, 0, 0x059AE5C70F, 0.4000000059604645, 0, 9.800000190734863, true, 0x0425CBFC4F, 0x059AE5C70F, 0, 0, 0, 0, 0, 0, 1, 0, EFFECT_AXIS_X, 0, TRAIL_BLEND_ALPHA, 101, TRAIL_CULL_NONE, 1.2999999523162842, 0.10000000149011612)
     end
     local f3_local0
-    if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
+    if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
         f3_local0 = false
     else
         f3_local0 = true

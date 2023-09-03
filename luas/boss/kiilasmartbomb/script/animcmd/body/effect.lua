@@ -29,7 +29,7 @@ effect_Born = function ()
     sv_animcmd.wait(12)
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 120)
-        sv_animcmd:IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_L, CAMERA_QUAKE_KIND_M)
+        sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_L, CAMERA_QUAKE_KIND_M)
     end
     return 
 end

@@ -9,7 +9,7 @@
 
 effect_Draw = function ()
     local f1_local0
-    if WorkModule:get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 0 then
+    if WorkModule.get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 0 then
         f1_local0 = false
     else
         f1_local0 = true
@@ -21,7 +21,7 @@ effect_Draw = function ()
         end
     else
         f1_local0
-        if WorkModule:get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 1 then
+        if WorkModule.get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 1 then
             f1_local0 = false
         else
             f1_local0 = true
@@ -33,7 +33,7 @@ effect_Draw = function ()
             end
         else
             f1_local0
-            if WorkModule:get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 2 then
+            if WorkModule.get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 2 then
                 f1_local0 = false
             else
                 f1_local0 = true
@@ -45,7 +45,7 @@ effect_Draw = function ()
                 end
             else
                 f1_local0
-                if WorkModule:get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 3 then
+                if WorkModule.get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 3 then
                     f1_local0 = false
                 else
                     f1_local0 = true
@@ -57,7 +57,7 @@ effect_Draw = function ()
                     end
                 else
                     f1_local0
-                    if WorkModule:get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 4 then
+                    if WorkModule.get_int64(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_KIND) ~= 4 then
                         f1_local0 = false
                     else
                         f1_local0 = true
@@ -71,7 +71,7 @@ effect_Draw = function ()
         end
     end
     if sv_animcmd.is_excute() then
-        sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_HANDLE)
+        sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_HANDLE)
     end
     return 
 end

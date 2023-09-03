@@ -79,7 +79,7 @@ sound_Dead = function ()
         sv_animcmd.STOP_SE(0x1AA0C59F6C)
     end
     local f5_local0
-    if WorkModule:get_int64(ITEM_INSTANCE_WORK_INT_PARAMETER_ITEM_KIND) ~= ITEM_KIND_KIILA then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_PARAMETER_ITEM_KIND) ~= ITEM_KIND_KIILA then
         f5_local0 = false
     else
         f5_local0 = true
@@ -87,21 +87,21 @@ sound_Dead = function ()
     if f5_local0 == nil then
         sv_animcmd.frame(60)
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+            WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
         end
         sv_animcmd.frame(210)
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE(0x1B6B6F0715)
-            WorkModule:on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_STOP_STAGE_SOUND)
+            WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_STOP_STAGE_SOUND)
         end
         sv_animcmd.frame(420)
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+            WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
         end
     else
         sv_animcmd.frame(60)
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+            WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
         end
         sv_animcmd.frame(210)
         if sv_animcmd.is_excute() then
@@ -109,7 +109,7 @@ sound_Dead = function ()
         end
         sv_animcmd.frame(420)
         if sv_animcmd.is_excute() then
-            WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+            WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
         end
     end
     return 

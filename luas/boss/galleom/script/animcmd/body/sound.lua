@@ -150,7 +150,7 @@ sound_Anger = function ()
 end
 
 sound_BossStop = function ()
-    if WorkModule:is_flag(ITEM_GALLEOM_INSTANCE_WORK_FLAG_TANK_DEAD) == nil then
+    if WorkModule.is_flag(ITEM_GALLEOM_INSTANCE_WORK_FLAG_TANK_DEAD) == nil then
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE(0x198D205CBB)
             sv_animcmd.PLAY_SE(0x1AAC588FE4)
@@ -167,11 +167,11 @@ end
 sound_Dead = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
     end
     sv_animcmd.frame(186)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
     return 
 end
@@ -179,11 +179,11 @@ end
 sound_DeadTank = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_KEYOFF_BGM)
     end
     sv_animcmd.frame(186)
     if sv_animcmd.is_excute() then
-        WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
+        WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
     return 
 end
