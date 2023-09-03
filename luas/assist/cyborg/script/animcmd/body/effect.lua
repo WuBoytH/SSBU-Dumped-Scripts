@@ -55,7 +55,7 @@ end
 effect_Run = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
-        sv_animcmd.FOOT_EFFECT(0x0D22EE997E, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.FOOT_EFFECT(0x0D22EE997E, 0x031ED91FCA, 0, 0, -3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     while true do
         if sv_animcmd.is_excute() then
@@ -110,7 +110,7 @@ effect_Attack = function ()
     end
     sv_animcmd.frame(9)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, 0xFFFFFFFFFFFFFF74, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, -140, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
         EffectModule.set_disable_render_offset_last()
     end
     sv_animcmd.frame(14)
@@ -120,7 +120,7 @@ effect_Attack = function ()
     end
     sv_animcmd.frame(18)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, 0xFFFFFFFFFFFFFF9C, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, -100, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
         EffectModule.set_disable_render_offset_last()
     end
     sv_animcmd.frame(23)
@@ -130,7 +130,7 @@ effect_Attack = function ()
     end
     sv_animcmd.frame(28)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, 0xFFFFFFFFFFFFFF92, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, -110, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
         EffectModule.set_disable_render_offset_last()
     end
     sv_animcmd.frame(32)
@@ -140,7 +140,7 @@ effect_Attack = function ()
     end
     sv_animcmd.frame(35)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, 0xFFFFFFFFFFFFFF9C, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, -100, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
         EffectModule.set_disable_render_offset_last()
     end
     sv_animcmd.frame(39)
@@ -150,7 +150,7 @@ effect_Attack = function ()
     end
     sv_animcmd.frame(41)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, 0xFFFFFFFFFFFFFF9C, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, -100, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
         EffectModule.set_disable_render_offset_last()
     end
     sv_animcmd.frame(46)
@@ -160,7 +160,7 @@ effect_Attack = function ()
     end
     sv_animcmd.frame(49)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, 0xFFFFFFFFFFFFFF92, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, -110, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
         EffectModule.set_disable_render_offset_last()
     end
     return 
@@ -173,27 +173,27 @@ effect_AttackAir = function ()
     end
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0, 90, 20, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, -5, 0, 90, 20, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
         EffectModule.set_disable_render_offset_last()
     end
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0, 90, 160, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, -5, 0, 90, 160, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
         EffectModule.set_disable_render_offset_last()
     end
     sv_animcmd.frame(23)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0, 90, 200, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, -5, 0, 90, 200, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
         EffectModule.set_disable_render_offset_last()
     end
     sv_animcmd.frame(32)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0, 90, 160, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, -5, 0, 90, 160, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
         EffectModule.set_disable_render_offset_last()
     end
     sv_animcmd.frame(42)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0, 90, 200, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
+        sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, -5, 0, 90, 200, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
         EffectModule.set_disable_render_offset_last()
     end
     return 

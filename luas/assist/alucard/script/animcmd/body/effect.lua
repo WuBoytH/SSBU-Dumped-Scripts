@@ -62,7 +62,7 @@ end
 effect_RunTurn = function ()
     sv_animcmd.frame(15)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFC, 0, 0, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, -4, 0, 0, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -85,7 +85,7 @@ end
 
 effect_AttackConsecutiveFinish = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x14F8EF19BB, 0x06B66091F2, 0, 0, 0xFFFFFFFFFFFFFFF4, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x14F8EF19BB, 0x06B66091F2, 0, 0, -12, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.75)
     end
@@ -102,7 +102,7 @@ end
 effect_TransformHuman = function ()
     sv_animcmd.frame(9)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x151A137BAB, 0x035DBFE258, 3, 0xFFFFFFFFFFFFFFFC, 0, 0, 0, 0, 1.100000023841858, true)
+        sv_animcmd.EFFECT_FOLLOW(0x151A137BAB, 0x035DBFE258, 3, -4, 0, 0, 0, 0, 1.100000023841858, true)
     end
     return 
 end

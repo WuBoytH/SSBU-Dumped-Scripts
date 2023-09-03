@@ -28,7 +28,7 @@ effect_Attack = function ()
     end
     sv_animcmd.wait(4)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x0CE726BC07, 0x031ED91FCA, 0, 2.5, 0, 0, 180, 0xFFFFFFFFFFFFFFFC, 2, false)
+        sv_animcmd.EFFECT_FLW_POS(0x0CE726BC07, 0x031ED91FCA, 0, 2.5, 0, 0, 180, -4, 2, false)
     end
     sv_animcmd.wait(4)
     if sv_animcmd.is_excute() then
@@ -36,7 +36,7 @@ effect_Attack = function ()
     end
     sv_animcmd.wait(4)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x0CE726BC07, 0x031ED91FCA, 0, 2.700000047683716, 0, 0, 180, 0xFFFFFFFFFFFFFFFE, 2, false)
+        sv_animcmd.EFFECT_FLW_POS(0x0CE726BC07, 0x031ED91FCA, 0, 2.700000047683716, 0, 0, 180, -2, 2, false)
     end
     sv_animcmd.wait(4)
     if sv_animcmd.is_excute() then

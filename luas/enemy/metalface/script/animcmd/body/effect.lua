@@ -223,7 +223,7 @@ end
 effect_Attack_1 = function ()
     sv_animcmd.frame(45)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0FDED6C8C2, 0x0461FCCBDD, 0xFFFFFFFFFFFFFFD8, 0xFFFFFFFFFFFFFFD8, 0, 15, 0, 0, 0.8999999761581421, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0FDED6C8C2, 0x0461FCCBDD, -40, -40, 0, 15, 0, 0, 0.8999999761581421, true)
     end
     sv_animcmd.frame(46)
     if sv_animcmd.is_excute() then
@@ -231,7 +231,7 @@ effect_Attack_1 = function ()
     end
     sv_animcmd.frame(86)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x14B9B522B7, 0x049BF3F6BE, 0xFFFFFFFFFFFFFFF1, 0xFFFFFFFFFFFFFFF8, 40, 5, 20, 45, 0.8500000238418579, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14B9B522B7, 0x049BF3F6BE, -15, -8, 40, 5, 20, 45, 0.8500000238418579, true)
     end
     sv_animcmd.frame(87)
     if sv_animcmd.is_excute() then
@@ -243,7 +243,7 @@ end
 effect_Attack_2 = function ()
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x136A1BF48A, 0x06E87110A8, 0, 5, 0xFFFFFFFFFFFFFFEC, 110, 100, 45, 0.8999999761581421, true)
+        sv_animcmd.EFFECT_FOLLOW(0x136A1BF48A, 0x06E87110A8, 0, 5, -20, 110, 100, 45, 0.8999999761581421, true)
     end
     sv_animcmd.frame(42)
     if sv_animcmd.is_excute() then
@@ -255,7 +255,7 @@ end
 effect_Attack_3 = function ()
     sv_animcmd.frame(35)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x15D0086E51, 0x049BF3F6BE, 0xFFFFFFFFFFFFFFF1, 8, 15, 0xFFFFFFFFFFFFFFF8, 0xFFFFFFFFFFFFFFFB, 30, 0.8399999737739563, true)
+        sv_animcmd.EFFECT_FOLLOW(0x15D0086E51, 0x049BF3F6BE, -15, 8, 15, -8, -5, 30, 0.8399999737739563, true)
     end
     sv_animcmd.frame(36)
     if sv_animcmd.is_excute() then
@@ -263,7 +263,7 @@ effect_Attack_3 = function ()
     end
     sv_animcmd.frame(69)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x152A075332, 0x0461FCCBDD, 0xFFFFFFFFFFFFFFD8, 0, 0, 0xFFFFFFFFFFFFFFF8, 0xFFFFFFFFFFFFFFEC, 0xFFFFFFFFFFFFFFE2, 0.800000011920929, true)
+        sv_animcmd.EFFECT_FOLLOW(0x152A075332, 0x0461FCCBDD, -40, 0, 0, -8, -20, -30, 0.800000011920929, true)
     end
     sv_animcmd.frame(70)
     if sv_animcmd.is_excute() then
@@ -275,7 +275,7 @@ end
 effect_Attack_4 = function ()
     sv_animcmd.frame(43)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x13DADDD426, 0x06E87110A8, 0, 0, 0xFFFFFFFFFFFFFFCE, 0, 0, 0, 0.8500000238418579, true)
+        sv_animcmd.EFFECT_FLW_POS(0x13DADDD426, 0x06E87110A8, 0, 0, -50, 0, 0, 0, 0.8500000238418579, true)
     end
     sv_animcmd.frame(45)
     if sv_animcmd.is_excute() then

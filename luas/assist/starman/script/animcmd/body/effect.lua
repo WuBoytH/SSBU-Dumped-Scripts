@@ -39,14 +39,14 @@ end
 
 effect_DamageDead = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0DA28C6CDB, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEC, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0DA28C6CDB, 0x031ED91FCA, -20, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end
 
 effect_DamageDeadR = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0DA28C6CDB, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEC, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0DA28C6CDB, 0x031ED91FCA, -20, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end

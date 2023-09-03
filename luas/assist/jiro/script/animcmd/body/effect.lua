@@ -33,19 +33,19 @@ effect_Hold = function ()
     end
     if f1_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, -4.5, 7.599999904632568, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1.100000023841858, true)
+            sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, -4.5, 7.599999904632568, -5, 0, 0, 0, 1.100000023841858, true)
             sv_animcmd.EFFECT_FOLLOW(0x0B4DFE5D53, 0x031ED91FCA, 0, 7, 0, 0, 0, 0, 1.100000023841858, true)
-            sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, 4.5, 7.599999904632568, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1.100000023841858, true)
+            sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, 4.5, 7.599999904632568, -5, 0, 0, 0, 1.100000023841858, true)
             goto basicblock_9:
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, -4.5, 7.599999904632568, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1.100000023841858, true)
+        sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, -4.5, 7.599999904632568, -5, 0, 0, 0, 1.100000023841858, true)
         sv_animcmd.EFFECT_FOLLOW(0x0B4DFE5D53, 0x031ED91FCA, 0, 7, 0, 0, 0, 0, 1.100000023841858, true)
-        sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, 4.5, 7.599999904632568, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1.100000023841858, true)
+        sv_animcmd.EFFECT_FOLLOW(0x08FE635DBF, 0x06E8A81A8D, 4.5, 7.599999904632568, -5, 0, 0, 0, 1.100000023841858, true)
     end
     while true do
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0F925308AF, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+            sv_animcmd.EFFECT(0x0F925308AF, 0x031ED91FCA, 0, 0, -3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         end
         sv_animcmd.wait(6)
     end
@@ -102,7 +102,7 @@ effect_HoldSpecial = function ()
     end
     while true do
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x0F6E462365, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF4, 0, 0, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x0F6E462365, 0x031ED91FCA, 0, 0, -12, 0, 0, 0, 1, true)
         end
         sv_animcmd.wait(10)
     end
@@ -154,7 +154,7 @@ end
 
 effect_HumanLanding = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 0, 0.6000000238418579, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, -3, 0, 0, 0, 0, 0, 0.6000000238418579, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end

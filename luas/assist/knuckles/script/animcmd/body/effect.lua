@@ -57,7 +57,7 @@ end
 effect_RunStart = function ()
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, -2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -116,17 +116,17 @@ end
 effect_PunchCombo = function ()
     sv_animcmd.frame(3)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0E5254C909, 0x031ED91FCA, 0, 8, 0xFFFFFFFFFFFFFFF7, 0, 0, 0, 1.2000000476837158, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0E5254C909, 0x031ED91FCA, 0, 8, -9, 0, 0, 0, 1.2000000476837158, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2000000476837158)
     end
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0E5254C909, 0x031ED91FCA, 1, 8, 0xFFFFFFFFFFFFFFFA, 0, 0, 0, 1.2000000476837158, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0E5254C909, 0x031ED91FCA, 1, 8, -6, 0, 0, 0, 1.2000000476837158, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1)
     end
     sv_animcmd.frame(26)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x140C3A8A49, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 10, -0.10000000149011612, 16, 20, 89, 1.2000000476837158, true)
+        sv_animcmd.EFFECT_FOLLOW(0x140C3A8A49, 0x031ED91FCA, -2, 10, -0.10000000149011612, 16, 20, 89, 1.2000000476837158, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
     return 
@@ -135,17 +135,17 @@ end
 effect_PunchCombo2 = function ()
     sv_animcmd.frame(3)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0E5254C909, 0x031ED91FCA, 0, 8, 0xFFFFFFFFFFFFFFF7, 0, 0, 0, 1.2000000476837158, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0E5254C909, 0x031ED91FCA, 0, 8, -9, 0, 0, 0, 1.2000000476837158, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2000000476837158)
     end
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0E5254C909, 0x031ED91FCA, 1, 8, 0xFFFFFFFFFFFFFFFA, 0, 0, 0, 1.2000000476837158, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0E5254C909, 0x031ED91FCA, 1, 8, -6, 0, 0, 0, 1.2000000476837158, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1)
     end
     sv_animcmd.frame(26)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x140C3A8A49, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 10, -0.10000000149011612, 16, 20, 89, 1.2000000476837158, true)
+        sv_animcmd.EFFECT_FOLLOW(0x140C3A8A49, 0x031ED91FCA, -2, 10, -0.10000000149011612, 16, 20, 89, 1.2000000476837158, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
     return 

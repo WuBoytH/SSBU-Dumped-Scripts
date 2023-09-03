@@ -97,7 +97,7 @@ end
 effect_Attack3 = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0D22EE997E, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0D22EE997E, 0x031ED91FCA, -5, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT(0x0ED4346BA1, 0x031ED91FCA, 0, 5, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     return 

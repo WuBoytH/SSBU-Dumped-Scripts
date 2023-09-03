@@ -7,8 +7,8 @@
 
 effect_Appear = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0A60AD9B01, 0x05EB263E0D, 10, 0, 0, 0, 90, 0xFFFFFFFFFFFFFFA6, 1, false)
-        sv_animcmd.EFFECT_FOLLOW(0x0A60AD9B01, 0x051129036E, 10, 0, 0, 0, 90, 0xFFFFFFFFFFFFFFA6, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x0A60AD9B01, 0x05EB263E0D, 10, 0, 0, 0, 90, -90, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x0A60AD9B01, 0x051129036E, 10, 0, 0, 0, 90, -90, 1, false)
     end
     return 
 end

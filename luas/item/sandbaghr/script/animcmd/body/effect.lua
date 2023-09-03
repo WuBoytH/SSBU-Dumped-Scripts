@@ -21,7 +21,7 @@
 
 effect_DownBoundD = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x13AB7AAB41, 0x035DBFE258, 0xFFFFFFFFFFFFFFFF, 2, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13AB7AAB41, 0x035DBFE258, -1, 2, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(19)
     if sv_animcmd.is_excute() then
@@ -32,7 +32,7 @@ end
 
 effect_DownBoundU = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x13AB7AAB41, 0x035DBFE258, 0xFFFFFFFFFFFFFFFF, 2, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13AB7AAB41, 0x035DBFE258, -1, 2, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(19)
     if sv_animcmd.is_excute() then
@@ -43,7 +43,7 @@ end
 
 effect_SlidingD = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x114A9D781F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFF, 2, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x114A9D781F, 0x031ED91FCA, -1, 2, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then
@@ -55,7 +55,7 @@ end
 
 effect_SlidingU = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x114A9D781F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFF, 2, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x114A9D781F, 0x031ED91FCA, -1, 2, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then

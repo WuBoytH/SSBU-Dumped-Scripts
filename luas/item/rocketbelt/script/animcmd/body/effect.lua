@@ -12,7 +12,7 @@
 Warning: Function 7 using already codegened block basicblock_3:
 effect_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x12589A5008, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x12589A5008, -1)
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     return 
@@ -21,9 +21,9 @@ end
 effect_FlyJetFireStart = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x12589A5008, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x12589A5008, 0x031ED91FCA, 0, -5, -5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
-        sv_animcmd.EFFECT_FOLLOW(0x12589A5008, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 5, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x12589A5008, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
     return 
@@ -32,9 +32,9 @@ end
 effect_FlyJetFireEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x12589A5008, false, false)
-        sv_animcmd.EFFECT_FOLLOW(0x160A819742, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x160A819742, 0x031ED91FCA, 0, -5, -5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
-        sv_animcmd.EFFECT_FOLLOW(0x160A819742, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 5, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x160A819742, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
     return 
@@ -42,9 +42,9 @@ end
 
 effect_JumpJetFire = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1516238C17, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1516238C17, 0x031ED91FCA, 0, -5, -5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
-        sv_animcmd.EFFECT_FOLLOW(0x1516238C17, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 5, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1516238C17, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
     return 
@@ -53,9 +53,9 @@ end
 effect_FallJetSmokeStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x160A819742, false, false)
-        sv_animcmd.EFFECT_FOLLOW(0x14E18D27AF, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14E18D27AF, 0x031ED91FCA, 0, -5, -5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
-        sv_animcmd.EFFECT_FOLLOW(0x14E18D27AF, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 5, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14E18D27AF, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
     return 
@@ -65,10 +65,10 @@ effect_FallJetSmokeEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x14E18D27AF, false, false)
         sv_animcmd.EFFECT_OFF_KIND(0x199D60B84B, false, false)
-        sv_animcmd.EFFECT_FOLLOW(0x199D60B84B, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x199D60B84B, 0x031ED91FCA, 0, -5, -5, 0, 0, 0, 1, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_ROCKETBELT_INSTANCE_WORK_SMOKELOOP_REAR_EFFECT_HANDLE)
         EffectModule.enable_sync_init_pos_last()
-        sv_animcmd.EFFECT_FOLLOW(0x199D60B84B, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 5, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x199D60B84B, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_ROCKETBELT_INSTANCE_WORK_SMOKELOOP_FRONT_EFFECT_HANDLE)
         EffectModule.enable_sync_init_pos_last()
     end
@@ -77,9 +77,9 @@ end
 
 effect_FlyAway = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x12589A5008, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x12589A5008, 0x031ED91FCA, 0, -5, -5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
-        sv_animcmd.EFFECT_FOLLOW(0x12589A5008, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 5, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x12589A5008, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
         sv_animcmd.COL_NORMAL()
     end

@@ -8,7 +8,7 @@
 effect_Loop = function ()
     while true do
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x1390E1C51F, 0x06B66091F2, 0, 0xFFFFFFFFFFFFFFFF, 0, 0xFFFFFFFFFFFFFFA6, 0, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x1390E1C51F, 0x06B66091F2, 0, -1, 0, -90, 0, 0, 1, true)
         end
         sv_animcmd.wait(6)
     end

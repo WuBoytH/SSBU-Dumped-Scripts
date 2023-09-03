@@ -18,7 +18,7 @@ effect_Born = function ()
     end
     sv_animcmd.wait(5)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x11920708DE, 0x031ED91FCA, 0, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFD3, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x11920708DE, 0x031ED91FCA, 0, 0, 0, 0, 0, -45, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then

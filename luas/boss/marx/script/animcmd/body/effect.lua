@@ -151,7 +151,7 @@ effect_TeleportStart = function ()
     effect_ReqFollowWing()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11F3B8717F, 0x031ED91FCA, 0, 25, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, -1)
     end
     sv_animcmd.frame(6)
     if WorkModule:is_flag(ITEM_MARX_INSTANCE_WORK_FLAG_IS_CAMERANGE_INSIDE_TELEPORT_READY) == nil and sv_animcmd.is_excute() then
@@ -168,7 +168,7 @@ effect_TeleportEndRepeat = function ()
         sv_animcmd.FLASH(1.2999999523162842, 0.8999999761581421, 1, 1)
         sv_animcmd.EFFECT(0x10D255292A, 0x031ED91FCA, 0, 25, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
-        sv_animcmd.EFFECT_DETACH_KIND(0x10D255292A, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x10D255292A, -1)
     end
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
@@ -183,7 +183,7 @@ effect_TeleportEnd = function ()
         sv_animcmd.FLASH(1.2999999523162842, 0.8999999761581421, 1, 1)
         sv_animcmd.EFFECT(0x10D255292A, 0x031ED91FCA, 0, 25, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
-        sv_animcmd.EFFECT_DETACH_KIND(0x10D255292A, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x10D255292A, -1)
     end
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
@@ -225,8 +225,8 @@ end
 
 effect_FlyOut = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x12FB22AF40, 0xFFFFFFFFFFFFFFFF)
-        sv_animcmd.EFFECT_DETACH_KIND(0x16306C5BB7, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x12FB22AF40, -1)
+        sv_animcmd.EFFECT_DETACH_KIND(0x16306C5BB7, -1)
     end
     sv_animcmd.frame(1)
     effect_ReqFollowWing()
@@ -235,7 +235,7 @@ effect_FlyOut = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8500000238418579)
         sv_animcmd.EFFECT_FOLLOW(0x144C1408A0, 0x031ED91FCA, 20, 25, 0, 0, 0, 0, 0.8999999761581421, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8500000238418579)
-        sv_animcmd.EFFECT_FOLLOW(0x144C1408A0, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEC, 25, 0, 0, 0, 0, 0.8999999761581421, true)
+        sv_animcmd.EFFECT_FOLLOW(0x144C1408A0, 0x031ED91FCA, -20, 25, 0, 0, 0, 0, 0.8999999761581421, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8500000238418579)
     end
     sv_animcmd.frame(5)
@@ -302,7 +302,7 @@ end
 effect_ThickLaserShootSign = function ()
     sv_animcmd.frame(WorkModule:get_int64(ITEM_MARX_INSTANCE_WORK_INT_THICK_LASER_SIGN_WAIT_FRAME))
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x110E42A598, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x110E42A598, -1)
     end
     local f17_local0
     if WorkModule:get_float(ITEM_MARX_INSTANCE_WORK_FLOAT_THICK_LASER_MOVE_LR) >= 0 then
@@ -312,7 +312,7 @@ effect_ThickLaserShootSign = function ()
     end
     if f17_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x17CCB0A9AD, 0x031D39A761, 0xFFFFFFFFFFFFFFFB, 20, 20, 0, 0, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, true)
+            sv_animcmd.EFFECT(0x17CCB0A9AD, 0x031D39A761, -5, 20, 20, 0, 0, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, true)
             sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
         end
     elseif sv_animcmd.is_excute() then
@@ -335,13 +335,13 @@ effect_ThickLaserEnd = function ()
     end
     if f18_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x1153A7FE74, 0x031D39A761, 0xFFFFFFFFFFFFFFFB, 15, 25, 0, 0, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x1153A7FE74, 0x031D39A761, -5, 15, 25, 0, 0, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x0F72CE2FF0, 0x031ED91FCA, 8, 15, 0, 0, 0, 0, 1, true)
             sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_THICK_LASER_EFFECT)
         end
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x1153A7FE74, 0x031D39A761, 0, 15, 25, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x0F72CE2FF0, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF8, 15, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0F72CE2FF0, 0x031ED91FCA, -8, 15, 0, 0, 0, 0, 1, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MARX_INSTANCE_WORK_INT_THICK_LASER_EFFECT)
     end
     if sv_animcmd.is_excute() then
@@ -372,7 +372,7 @@ effect_ThickLaserEnd = function ()
     end
     if f18_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x10400A429B, 0x031D39A761, 0xFFFFFFFFFFFFFFFB, 15, 25, 0, 0, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x10400A429B, 0x031D39A761, -5, 15, 25, 0, 0, 0, 1, true)
         end
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x10400A429B, 0x031D39A761, 0, 15, 25, 0, 0, 0, 1, true)
@@ -387,8 +387,8 @@ effect_ThickLaserEnd = function ()
     end
     sv_animcmd.frame(70)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x0CF606FC16, 0xFFFFFFFFFFFFFFFF)
-        sv_animcmd.EFFECT_DETACH_KIND(0x1153A7FE74, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x0CF606FC16, -1)
+        sv_animcmd.EFFECT_DETACH_KIND(0x1153A7FE74, -1)
     end
     sv_animcmd.frame(180)
     if sv_animcmd.is_excute() then
@@ -406,7 +406,7 @@ effect_ThickLaserEnd = function ()
             sv_animcmd.EFFECT(0x0E31183444, 0x031ED91FCA, 10, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0E31183444, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 15, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0E31183444, 0x031ED91FCA, -10, 15, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end
@@ -421,10 +421,10 @@ effect_ThickLaserEndGround = function ()
     end
     if f19_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x11FCD682C4, 0x031ED91FCA, 25, 0xFFFFFFFFFFFFFFF3, 0, 0, 180, 0, 1.75, true)
+            sv_animcmd.EFFECT_FOLLOW(0x11FCD682C4, 0x031ED91FCA, 25, -13, 0, 0, 180, 0, 1.75, true)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x11FCD682C4, 0x031ED91FCA, 0xFFFFFFFFFFFFFFE7, 0xFFFFFFFFFFFFFFF3, 0, 0, 0, 0, 1.75, true)
+        sv_animcmd.EFFECT_FOLLOW(0x11FCD682C4, 0x031ED91FCA, -25, -13, 0, 0, 0, 0, 1.75, true)
     end
     return 
 end
@@ -443,9 +443,9 @@ effect_BlackHole = function ()
     sv_animcmd.frame(132)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11F3B8717F, 0x056F18EE67, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, -1)
         sv_animcmd.EFFECT(0x11F3B8717F, 0x059517D304, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, -1)
     end
     sv_animcmd.frame(111)
     if sv_animcmd.is_excute() then
@@ -484,9 +484,9 @@ effect_BlackHoleStart = function ()
     sv_animcmd.frame(132)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11F3B8717F, 0x056F18EE67, 0, 0, 0, 90, 90, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, -1)
         sv_animcmd.EFFECT(0x11F3B8717F, 0x059517D304, 0, 0, 0, 90, 90, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
-        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, -1)
     end
     return 
 end
@@ -741,8 +741,8 @@ effect_DeadReaction = function ()
     sv_animcmd.frame(101)
     if sv_animcmd.is_excute() then
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
-        sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, 4, 0xFFFFFFFFFFFFFFC0, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 4, 0xFFFFFFFFFFFFFFC0, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, 4, -64, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 4, -64, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.699999988079071)
     end
     sv_animcmd.frame(103)
@@ -760,7 +760,7 @@ effect_DeadReaction = function ()
     sv_animcmd.frame(174)
     if sv_animcmd.is_excute() then
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
-        sv_animcmd.EFFECT(0x0E963002D8, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEC, -64.5, 8, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0E963002D8, 0x031ED91FCA, -20, -64.5, 8, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.699999988079071)
     end
     sv_animcmd.frame(190)
@@ -774,7 +774,7 @@ effect_DeadReaction = function ()
     sv_animcmd.frame(211)
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 45)
-        sv_animcmd.EFFECT_FLW_POS(0x100E80C531, 0x095B6C6856, 0, 0xFFFFFFFFFFFFFFFC, 0, 0, 0, 0, 3, false)
+        sv_animcmd.EFFECT_FLW_POS(0x100E80C531, 0x095B6C6856, 0, -4, 0, 0, 0, 0, 3, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
     sv_animcmd.frame(190)

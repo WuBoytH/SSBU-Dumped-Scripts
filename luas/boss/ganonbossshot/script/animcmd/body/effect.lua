@@ -13,7 +13,7 @@ effect_Throw = function ()
     end
     if f1_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x1D60A11696, 0x031ED91FCA, 0, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFD3, 1.5, false)
+            sv_animcmd.EFFECT_FOLLOW(0x1D60A11696, 0x031ED91FCA, 0, 0, 0, 0, 0, -45, 1.5, false)
         end
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1D60A11696, 0x031ED91FCA, 0, 0, 0, 0, 0, 45, 1.5, false)

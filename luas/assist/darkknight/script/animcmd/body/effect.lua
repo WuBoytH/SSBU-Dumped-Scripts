@@ -96,7 +96,7 @@ effect_SlashUp2nd = function ()
     end
     sv_animcmd.frame(16)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, -3, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
     sv_animcmd.frame(20)
@@ -113,7 +113,7 @@ effect_SlashUp = function ()
     end
     sv_animcmd.frame(15)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, -3, 0, 0, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
     sv_animcmd.frame(20)
@@ -142,7 +142,7 @@ effect_SlashUp1st = function ()
     end
     sv_animcmd.frame(15)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, -3, 0, 0, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
     sv_animcmd.frame(20)

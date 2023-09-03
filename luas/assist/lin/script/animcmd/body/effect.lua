@@ -41,15 +41,15 @@ effect_AttackGround = function ()
     end
     if f2_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x097447E0F8, 0x031ED91FCA, 0xFFFFFFFFFFFFFFE7, 17, 0xFFFFFFFFFFFFFFF6, 0xFFFFFFFFFFFFFFF6, 0, 0xFFFFFFFFFFFFFFEC, 1, true)
-            sv_animcmd.EFFECT_DETACH_KIND(0x097447E0F8, 0xFFFFFFFFFFFFFFFF)
+            sv_animcmd.EFFECT_FOLLOW(0x097447E0F8, 0x031ED91FCA, -25, 17, -10, -10, 0, -20, 1, true)
+            sv_animcmd.EFFECT_DETACH_KIND(0x097447E0F8, -1)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x097447E0F8, 0x031ED91FCA, 0, 18, 0xFFFFFFFFFFFFFFF6, 0xFFFFFFFFFFFFFFFA, 0, 0xFFFFFFFFFFFFFFE7, 1, true)
-        sv_animcmd.EFFECT_DETACH_KIND(0x097447E0F8, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_FOLLOW(0x097447E0F8, 0x031ED91FCA, 0, 18, -10, -6, 0, -25, 1, true)
+        sv_animcmd.EFFECT_DETACH_KIND(0x097447E0F8, -1)
     end
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, -5, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
@@ -81,12 +81,12 @@ effect_AttackAir = function ()
     end
     if f3_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x097447E0F8, 0x031ED91FCA, 0xFFFFFFFFFFFFFFE8, 24, 0xFFFFFFFFFFFFFFF7, 0xFFFFFFFFFFFFFFF6, 0, 0xFFFFFFFFFFFFFFE7, 1, true)
-            sv_animcmd.EFFECT_DETACH_KIND(0x097447E0F8, 0xFFFFFFFFFFFFFFFF)
+            sv_animcmd.EFFECT_FOLLOW(0x097447E0F8, 0x031ED91FCA, -24, 24, -9, -10, 0, -25, 1, true)
+            sv_animcmd.EFFECT_DETACH_KIND(0x097447E0F8, -1)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x097447E0F8, 0x031ED91FCA, 0, 20, 0xFFFFFFFFFFFFFFF6, 0xFFFFFFFFFFFFFFF6, 0, 0xFFFFFFFFFFFFFFE7, 1, true)
-        sv_animcmd.EFFECT_DETACH_KIND(0x097447E0F8, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_FOLLOW(0x097447E0F8, 0x031ED91FCA, 0, 20, -10, -10, 0, -25, 1, true)
+        sv_animcmd.EFFECT_DETACH_KIND(0x097447E0F8, -1)
     end
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
@@ -109,7 +109,7 @@ end
 
 effect_CounterAttack = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x130C4F133B, 0x031ED91FCA, 3, 15, 0xFFFFFFFFFFFFFFFF, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x130C4F133B, 0x031ED91FCA, 3, 15, -1, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end

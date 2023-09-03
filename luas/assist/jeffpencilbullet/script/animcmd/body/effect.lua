@@ -8,7 +8,7 @@
 
 effect_Fly = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x10103A8059, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x10103A8059, 0x031ED91FCA, 0, -3, 0, 0, 0, 0, 1, true)
     end
     return 
 end

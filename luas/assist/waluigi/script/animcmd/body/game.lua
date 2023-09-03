@@ -24,7 +24,7 @@ end
 game_Attack2 = function ()
     sv_animcmd.frame(16)
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 16, 30, 100, 0, 50, 7, 0, 3, 0xFFFFFFFFFFFFFFFE, 0x15A2C502B3, 0, 1, 0, true, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 3, 24)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 16, 30, 100, 0, 50, 7, 0, 3, -2, 0x15A2C502B3, 0, 1, 0, true, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 3, 24)
     end
     sv_animcmd.wait(4)
     if sv_animcmd.is_excute() then
@@ -35,8 +35,8 @@ end
 
 game_AttackSub = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x05FFC98F39, 3, 120, 80, 20, 0, 3, 0xFFFFFFFFFFFFFFFE, 0xFFFFFFFFFFFFFFF8, 0xFFFFFFFFFFFFFFFC, 0x15A2C502B3, 0, 1, 0, true, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0xFFFFFFFFFFFFFFFE, 12, 2)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x05FFC98F39, 6, 270, 90, 0, 30, 6, 0, 0xFFFFFFFFFFFFFFF8, 0xFFFFFFFFFFFFFFFC, 0x15A2C502B3, 0, 1, 0, true, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 12, 2)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x05FFC98F39, 3, 120, 80, 20, 0, 3, -2, -8, -4, 0x15A2C502B3, 0, 1, 0, true, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, -2, 12, 2)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x05FFC98F39, 6, 270, 90, 0, 30, 6, 0, -8, -4, 0x15A2C502B3, 0, 1, 0, true, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 12, 2)
     end
     sv_animcmd.wait(2)
     if sv_animcmd.is_excute() then
@@ -48,8 +48,8 @@ end
 game_StepAir = function ()
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 6, 361, 100, 0, 80, 3, 0xFFFFFFFFFFFFFFFE, 0xFFFFFFFFFFFFFFFB, 11, 0x1330EE124E, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0xFFFFFFFFFFFFFFFE, 0xFFFFFFFFFFFFFFFB, 0xFFFFFFFFFFFFFFF9)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x031ED91FCA, 8, 270, 100, 0, 60, 6, 0, 0xFFFFFFFFFFFFFFFB, 11, 0x15A2C502B3, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 0xFFFFFFFFFFFFFFFB, 0xFFFFFFFFFFFFFFF9)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 6, 361, 100, 0, 80, 3, -2, -5, 11, 0x1330EE124E, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, -2, -5, -7)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x031ED91FCA, 8, 270, 100, 0, 60, 6, 0, -5, 11, 0x15A2C502B3, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, -5, -7)
     end
     sv_animcmd.wait(2)
     if sv_animcmd.is_excute() then
@@ -71,8 +71,8 @@ end
 game_StepGround = function ()
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 6, 361, 100, 0, 80, 3, 0xFFFFFFFFFFFFFFFE, 0, 11, 0x1330EE124E, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0xFFFFFFFFFFFFFFFE, 0, 0xFFFFFFFFFFFFFFF9)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x031ED91FCA, 8, 270, 100, 0, 60, 6, 0, 0, 11, 0x15A2C502B3, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_A, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 0, 0xFFFFFFFFFFFFFFF9)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 6, 361, 100, 0, 80, 3, -2, 0, 11, 0x1330EE124E, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, -2, 0, -7)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x031ED91FCA, 8, 270, 100, 0, 60, 6, 0, 0, 11, 0x15A2C502B3, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_A, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 0, -7)
     end
     sv_animcmd.wait(2)
     game_AttackSub()
@@ -91,7 +91,7 @@ end
 
 game_PreFinishRun = function ()
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 0, 0, 100, 0, 10, 2, 0, 2, 16, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 1, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, true, true, 0, 2, 0xFFFFFFFFFFFFFFFC)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 0, 0, 100, 0, 10, 2, 0, 2, 16, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 1, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, true, true, 0, 2, -4)
     end
     return 
 end

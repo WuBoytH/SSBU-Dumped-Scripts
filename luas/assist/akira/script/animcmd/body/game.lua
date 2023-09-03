@@ -53,11 +53,11 @@ game_AttackTetsuzankou = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_XL)
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 21, 45, 100, 0, 50, 6, 0, 10, 0xFFFFFFFFFFFFFFFE, 0x15A2C502B3, 0, 0.699999988079071, 1, false, false, 8, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, 0, 5, 0xFFFFFFFFFFFFFFFE)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 21, 45, 100, 0, 50, 6, 0, 10, -2, 0x15A2C502B3, 0, 0.699999988079071, 1, false, false, 8, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, 0, 5, -2)
     end
     sv_animcmd.wait(1)
     if sv_animcmd.is_excute() then
-        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 16, 45, 100, 0, 40, 6, 0, 10, 0xFFFFFFFFFFFFFFFE, 0x15A2C502B3, 0, 0.699999988079071, 1, false, false, 8, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, 0, 5, 0xFFFFFFFFFFFFFFFE)
+        sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 16, 45, 100, 0, 40, 6, 0, 10, -2, 0x15A2C502B3, 0, 0.699999988079071, 1, false, false, 8, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, 0, 5, -2)
     end
     sv_animcmd.wait(3)
     if sv_animcmd.is_excute() then

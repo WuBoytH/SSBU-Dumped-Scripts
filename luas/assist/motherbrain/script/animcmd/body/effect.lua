@@ -48,15 +48,15 @@ effect_Exploding = function ()
     end
     while true do
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, 6, 3, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, 6, 3, -10, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
         end
         sv_animcmd.wait(5)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, 0, 0xFFFFFFFFFFFFFFFD, 10, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, 0, -3, 10, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
         end
         sv_animcmd.wait(5)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, 0xFFFFFFFFFFFFFFFC, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, -4, 0, -10, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
         end
         sv_animcmd.wait(5)
         if sv_animcmd.is_excute() then
@@ -64,11 +64,11 @@ effect_Exploding = function ()
         end
         sv_animcmd.wait(5)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, 5, 0xFFFFFFFFFFFFFFFD, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, 5, -3, -10, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
         end
         sv_animcmd.wait(5)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, 0xFFFFFFFFFFFFFFFB, 3, 10, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT_FOLLOW_RND(0x105B54C184, 0x035DBFE258, -5, 3, 10, 0, 0, 0, 0.5, 5, 5, 0, 0, 0, 0, false)
         end
         sv_animcmd.wait(5)
     end

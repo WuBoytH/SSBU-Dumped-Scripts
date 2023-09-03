@@ -32,7 +32,7 @@ effect_Guileshot = function ()
             sv_animcmd.EFFECT(0x131386EFEC, 0x031ED91FCA, 0, 11, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0E9899442A, 0x031ED91FCA, 0, 11.5, 0, 0, 0, 0xFFFFFFFFFFFFFFF6, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0E9899442A, 0x031ED91FCA, 0, 11.5, 0, 0, 0, -10, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.wait(16)
     return 

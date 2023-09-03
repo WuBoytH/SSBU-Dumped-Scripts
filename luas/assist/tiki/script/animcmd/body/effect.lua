@@ -62,7 +62,7 @@ effect_TransformDragonStart = function ()
     end
     sv_animcmd.frame(90)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x14789A329C, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x14789A329C, -1)
     end
     sv_animcmd.frame(110)
     if sv_animcmd.is_excute() then
@@ -75,13 +75,13 @@ effect_TransformDragonEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0C38273D2C, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x14789A329C, false, true)
-        sv_animcmd.EFFECT(0x129446200E, 0x031ED91FCA, 0, 12, 0xFFFFFFFFFFFFFFFC, 0, 0, 0, 1.0499999523162842, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x129446200E, 0x031ED91FCA, 0, 12, -4, 0, 0, 0, 1.0499999523162842, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.FLASH(1, 1, 0.8999999761581421, 1)
         sv_animcmd.FLASH_FRM(15, 1, 1, 1, 0)
     end
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x1303941DC1, 0x0905FE6C9E, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 0, 1, false)
+        sv_animcmd.EFFECT_FLW_POS(0x1303941DC1, 0x0905FE6C9E, -5, 0, 0, 0, 0, 0, 1, false)
     end
     return 
 end
@@ -115,16 +115,16 @@ effect_DragonBreath = function ()
     end
     if f7_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x127F492EF7, 0x076484AAC4, 1, 0.5, 0, 0xFFFFFFFFFFFFFFA6, 0, 0xFFFFFFFFFFFFFFEC, 1.5, true)
-            sv_animcmd.EFFECT_FOLLOW(0x101824AE1C, 0x076484AAC4, 1, 0.5, 0, 0xFFFFFFFFFFFFFFA6, 0, 0xFFFFFFFFFFFFFFEC, 1.5, true)
+            sv_animcmd.EFFECT_FOLLOW(0x127F492EF7, 0x076484AAC4, 1, 0.5, 0, -90, 0, -20, 1.5, true)
+            sv_animcmd.EFFECT_FOLLOW(0x101824AE1C, 0x076484AAC4, 1, 0.5, 0, -90, 0, -20, 1.5, true)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x127F492EF7, 0x076484AAC4, 1, 0.5, 0, 0xFFFFFFFFFFFFFFA6, 0, 0xFFFFFFFFFFFFFFEC, 1.5, true)
-        sv_animcmd.EFFECT_FOLLOW(0x101824AE1C, 0x076484AAC4, 1, 0.5, 0, 0xFFFFFFFFFFFFFFA6, 0, 0xFFFFFFFFFFFFFFEC, 1.5, true)
+        sv_animcmd.EFFECT_FOLLOW(0x127F492EF7, 0x076484AAC4, 1, 0.5, 0, -90, 0, -20, 1.5, true)
+        sv_animcmd.EFFECT_FOLLOW(0x101824AE1C, 0x076484AAC4, 1, 0.5, 0, -90, 0, -20, 1.5, true)
     end
     sv_animcmd.frame(77)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x127F492EF7, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x127F492EF7, -1)
         sv_animcmd.EFFECT_OFF_KIND(0x127F492EF7, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x101824AE1C, false, true)
     end

@@ -25,9 +25,9 @@ end
 effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x093148EBBE, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 10, 0xFFFFFFFFFFFFFFFE, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFE, 5, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 0xFFFFFFFFFFFFFFFE, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 10, -2, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 0, -2, 5, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, -10, -2, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end

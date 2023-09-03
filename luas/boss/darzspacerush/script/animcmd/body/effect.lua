@@ -31,21 +31,21 @@ effect_SpaceRush = function ()
     end
     sv_animcmd.frame(3)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x197B1752CF, 0x031ED91FCA, 0, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x197B1752CF, 0x031ED91FCA, 0, 0, 0, 0, 0, -90, 1, true)
     end
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x19E21E0375, 0x0570211EBD, 0, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x19E21E0375, 0x0570211EBD, 0, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x19E21E0375, 0x0570211EBD, 0xFFFFFFFFFFFFFFE7, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x19E21E0375, 0x0570211EBD, -25, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x19E21E0375, 0x0570211EBD, 0xFFFFFFFFFFFFFFD8, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x19E21E0375, 0x0570211EBD, -40, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)

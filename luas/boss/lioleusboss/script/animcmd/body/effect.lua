@@ -43,98 +43,98 @@ effect_Entry = function ()
     sv_animcmd.frame(260)
     if sv_animcmd.is_excute() then
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 25, 0, 0xFFFFFFFFFFFFFF79, 0, 170, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 25, 0, -135, 0, 170, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
-        sv_animcmd.EFFECT(0x13CFA71D1D, 0x031ED91FCA, 25, 0, 0xFFFFFFFFFFFFFF60, 0, 170, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x13CFA71D1D, 0x031ED91FCA, 25, 0, -160, 0, 170, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.75)
     end
     sv_animcmd.frame(262)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFF6A, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, -150, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
     end
     sv_animcmd.frame(266)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFF74, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, -140, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEC, 0, 0xFFFFFFFFFFFFFF65, 0, 170, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -20, 0, -155, 0, 170, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.6000000238418579)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
-        sv_animcmd.EFFECT(0x13CFA71D1D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEC, 0, 0xFFFFFFFFFFFFFF51, 0, 170, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x13CFA71D1D, 0x031ED91FCA, -20, 0, -175, 0, 170, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.75)
     end
     sv_animcmd.frame(267)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 0xFFFFFFFFFFFFFF74, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, -15, 0, -140, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
     end
     sv_animcmd.frame(268)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFF7E, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, -130, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
     end
     sv_animcmd.frame(270)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 0xFFFFFFFFFFFFFF7E, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, -15, 0, -130, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
-        sv_animcmd.EFFECT(0x178451C7E1, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFF74, 0, 0xFFFFFFFFFFFFFFA6, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x178451C7E1, 0x031ED91FCA, 0, 0, -140, 0, -90, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.6000000238418579)
-        sv_animcmd.EFFECT(0x17D4372BB1, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFF7E, 0, 0xFFFFFFFFFFFFFFA6, 0, 2.5, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x17D4372BB1, 0x031ED91FCA, 0, 0, -130, 0, -90, 0, 2.5, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.4000000059604645)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFF88, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, -120, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
     end
     sv_animcmd.frame(274)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFF92, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, -110, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 0xFFFFFFFFFFFFFF9C, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, -15, 0, -100, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
     end
     sv_animcmd.frame(278)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFF9C, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, -100, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 0xFFFFFFFFFFFFFFA6, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, -15, 0, -90, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
     end
     sv_animcmd.frame(282)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFFA6, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, -90, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 0xFFFFFFFFFFFFFFB0, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, -15, 0, -80, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
     end
     sv_animcmd.frame(286)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFFB0, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, -80, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 0xFFFFFFFFFFFFFFBA, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, -15, 0, -70, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
     end
     sv_animcmd.frame(290)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFFBA, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 15, 0, -70, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
-        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 0xFFFFFFFFFFFFFFC4, 0, 0xFFFFFFFFFFFFFFF6, 0, 2, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x114A9D781F, 0x031ED91FCA, -15, 0, -60, 0, -10, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.5870000123977661, 0.5379999876022339, 0.49399998784065247)
     end
@@ -164,10 +164,10 @@ effect_Wait = function ()
         end
         if f2_local0 == nil then
             if sv_animcmd.is_excute() then
-                sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFDD, 0, 0xFFFFFFFFFFFFFFED, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
+                sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -35, 0, -19, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
             end
         elseif sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFDD, 0, 19, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -35, 0, 19, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.wait_loop_sync_mot()
     end
@@ -223,11 +223,11 @@ end
 effect_BodyAttackStart = function ()
     sv_animcmd.frame(33)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -15, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(36)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFE7, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -25, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -304,12 +304,12 @@ effect_BodyAttackTurn = function ()
         local f10_local1 = f10_local0
         sv_animcmd.wait(5)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EC09045BB, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EC09045BB, 0x031ED91FCA, -3, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false)
         end
     end
     sv_animcmd.frame(36)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0EC09045BB, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0EC09045BB, 0x031ED91FCA, -3, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -344,8 +344,8 @@ effect_BodyAttackJump = function ()
     end
     sv_animcmd.frame(41)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x132FF0AA96, 0xFFFFFFFFFFFFFFFF)
-        sv_animcmd.EFFECT_DETACH_KIND(0x1529E6368D, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x132FF0AA96, -1)
+        sv_animcmd.EFFECT_DETACH_KIND(0x1529E6368D, -1)
     end
     return 
 end
@@ -385,7 +385,7 @@ effect_BackJumpFire = function ()
     if f15_local0 == nil then
         sv_animcmd.frame(35)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 30, 0, 0xFFFFFFFFFFFFFFF1, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 30, 0, -15, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(38)
         if sv_animcmd.is_excute() then
@@ -397,19 +397,19 @@ effect_BackJumpFire = function ()
         end
         sv_animcmd.frame(60)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF8, 0, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -8, 0, -5, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(65)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEF, 0, 5, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -17, 0, 5, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(123)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFB, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, -5, 0, -10, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(137)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEC, 0, 10, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, -20, 0, 10, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
         end
     else
         sv_animcmd.frame(35)
@@ -418,7 +418,7 @@ effect_BackJumpFire = function ()
         end
         sv_animcmd.frame(38)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 15, 0, 0xFFFFFFFFFFFFFFF1, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 15, 0, -15, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(56)
         if sv_animcmd.is_excute() then
@@ -426,19 +426,19 @@ effect_BackJumpFire = function ()
         end
         sv_animcmd.frame(60)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF8, 0, 5, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -8, 0, 5, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(65)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEF, 0, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -17, 0, -5, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(123)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFB, 0, 10, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, -5, 0, 10, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(137)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEC, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, -20, 0, -10, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
         end
     end
     return 
@@ -459,11 +459,11 @@ effect_BackJumpFire2 = function ()
     end
     sv_animcmd.frame(85)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -10, 0, 0, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(92)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFEF, 0, 0, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -17, 0, 0, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -590,9 +590,9 @@ end
 effect_SkySlipStart = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x106F3233DB, 0x04A7F3F69C, 5, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 0, 3.5, true)
+        sv_animcmd.EFFECT_FOLLOW(0x106F3233DB, 0x04A7F3F69C, 5, 0, 0, -90, 0, 0, 3.5, true)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.4000000059604645)
-        sv_animcmd.EFFECT_FLW_POS(0x186303278D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 0, 22.5, 0, 0, 0, 1.100000023841858, true)
+        sv_animcmd.EFFECT_FLW_POS(0x186303278D, 0x031ED91FCA, -10, 0, 22.5, 0, 0, 0, 1.100000023841858, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
         sv_animcmd.EFFECT_FLW_POS(0x186303278D, 0x031ED91FCA, 10, 0, 22.5, 0, 0, 0, 1.100000023841858, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
@@ -602,9 +602,9 @@ end
 
 effect_SkySlipLoop = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x106F3233DB, 0x04A7F3F69C, 5, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 0, 3.5, true)
+        sv_animcmd.EFFECT_FOLLOW(0x106F3233DB, 0x04A7F3F69C, 5, 0, 0, -90, 0, 0, 3.5, true)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.4000000059604645)
-        sv_animcmd.EFFECT_FLW_POS(0x186303278D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 0, 22.5, 0, 0, 0, 1.100000023841858, true)
+        sv_animcmd.EFFECT_FLW_POS(0x186303278D, 0x031ED91FCA, -10, 0, 22.5, 0, 0, 0, 1.100000023841858, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
         sv_animcmd.EFFECT_FLW_POS(0x186303278D, 0x031ED91FCA, 10, 0, 22.5, 0, 0, 0, 1.100000023841858, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
@@ -626,7 +626,7 @@ effect_SkySlipEnd = function ()
         end
         sv_animcmd.frame(23)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 30, 0, 0xFFFFFFFFFFFFFFED, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 30, 0, -19, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
             sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
         end
         sv_animcmd.frame(33)
@@ -646,7 +646,7 @@ effect_SkySlipEnd = function ()
         end
         sv_animcmd.frame(33)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 25, 0, 0xFFFFFFFFFFFFFFED, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 25, 0, -19, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
             sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
         end
     end
@@ -656,14 +656,14 @@ end
 effect_Nail = function ()
     sv_animcmd.frame(70)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1529E6368D, 0x04DA1CD65B, 0xFFFFFFFFFFFFFFFC, 3, 2.5, 90, 0, 20, 1.5, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1529E6368D, 0x04DA1CD65B, -4, 3, 2.5, 90, 0, 20, 1.5, true)
         sv_animcmd.LAST_EFFECT_SET_RATE_STRENGTH(0.3700000047683716, 0.5, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.EFFECT_FOLLOW(0x132FF0AA96, 0x042013EB38, 0, 0, -2.5, 90, 0, 70, 1.5, true)
         sv_animcmd.LAST_EFFECT_SET_RATE_STRENGTH(0.3700000047683716, 0.5, WorkModule:get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
     sv_animcmd.frame(103)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x132FF0AA96, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x132FF0AA96, -1)
     end
     return 
 end
@@ -688,12 +688,12 @@ effect_AssaultStart = function ()
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 0, 0xFFFFFFFFFFFFFFED, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -10, 0, -19, 0, -30, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 10, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -15, 0, 10, 0, -30, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
     sv_animcmd.frame(29)
@@ -708,12 +708,12 @@ effect_AssaultStartReverse = function ()
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 0, 10, 0, 30, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -10, 0, 10, 0, 30, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF1, 0, 0xFFFFFFFFFFFFFFED, 0, 30, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -15, 0, -19, 0, 30, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
     sv_animcmd.frame(29)
@@ -873,9 +873,9 @@ end
 
 effect_HoleDead = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x1743F84EA9, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 0, 1.440000057220459, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x1743F84EA9, 0x031ED91FCA, 0, -10, 0, 0, 0, 0, 1.440000057220459, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2000000476837158)
-        sv_animcmd.EFFECT(0x178451C7E1, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 0, 1.1399999856948853, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x178451C7E1, 0x031ED91FCA, 0, -10, 0, 0, 0, 0, 1.1399999856948853, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
         sv_animcmd.EFFECT(0x16EDDEC462, 0x035DBFE258, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false)
     end
@@ -888,7 +888,7 @@ effect_HoleDead = function ()
     sv_animcmd.frame(71)
     if sv_animcmd.is_excute() then
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
-        sv_animcmd.EFFECT(0x157986B7B8, 0x0AA6E084E2, 0, -7.5, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x157986B7B8, 0x0AA6E084E2, 0, -7.5, -10, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.30000001192092896)
     end
     sv_animcmd.frame(86)

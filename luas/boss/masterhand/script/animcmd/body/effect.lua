@@ -70,7 +70,7 @@
 
 effect_DrillAttack = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1332AF3943, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFCE, 0, 0, 90, 180, 1.7999999523162842, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1332AF3943, 0x031ED91FCA, 0, -50, 0, 0, 90, 180, 1.7999999523162842, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.5)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.5)
     end
@@ -88,7 +88,7 @@ end
 effect_DrillEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
-        sv_animcmd.EFFECT_FOLLOW(0x14481D1687, 0x031D39A761, 0, 0xFFFFFFFFFFFFFFEC, 0, 180, 90, 0, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x14481D1687, 0x031D39A761, 0, -20, 0, 180, 90, 0, 1, false)
         sv_animcmd.EFFECT(0x1D79CCFF4F, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 1.5, 0, 0, 0, 0, 360, 0, false)
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x15248CD552, 0x031ED91FCA, 0, 0.10000000149011612, 0, 0, 0, 0, 0.699999988079071, true)
     end
@@ -166,15 +166,15 @@ end
 effect_HippatakuGround = function ()
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x1255C42543, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x1255C42543, 0x031ED91FCA, -5, 0, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1332AF3943, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 17, 20, 90, 0, 0, 1.7999999523162842, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1332AF3943, 0x031ED91FCA, -10, 17, 20, 90, 0, 0, 1.7999999523162842, true)
     end
     sv_animcmd.frame(12)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x0F968D28D2, 0x031ED91FCA, 0, 17, 0xFFFFFFFFFFFFFFEC, 180, 0, 0, 1.2999999523162842, true)
+        sv_animcmd.EFFECT_FLW_POS(0x0F968D28D2, 0x031ED91FCA, 0, 17, -20, 180, 0, 0, 1.2999999523162842, true)
     end
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then
@@ -194,11 +194,11 @@ end
 effect_HippatakuAir = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1332AF3943, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 17, 20, 90, 0, 0, 1.7999999523162842, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1332AF3943, 0x031ED91FCA, -10, 17, 20, 90, 0, 0, 1.7999999523162842, true)
     end
     sv_animcmd.frame(12)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x0F968D28D2, 0x031ED91FCA, 0, 17, 0xFFFFFFFFFFFFFFEC, 180, 0, 0, 1.2999999523162842, true)
+        sv_animcmd.EFFECT_FLW_POS(0x0F968D28D2, 0x031ED91FCA, 0, 17, -20, 180, 0, 0, 1.2999999523162842, true)
     end
     sv_animcmd.frame(14)
     if sv_animcmd.is_excute() then
@@ -214,12 +214,12 @@ end
 effect_Nigiru = function ()
     sv_animcmd.frame(65)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x0FBCA7EC25, 0x054F934137, 0, 0xFFFFFFFFFFFFFFFB, 0, 45, 45, 0, 1.5, true)
+        sv_animcmd.EFFECT_FLW_POS(0x0FBCA7EC25, 0x054F934137, 0, -5, 0, 45, 45, 0, 1.5, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
     end
     sv_animcmd.frame(125)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x0FBCA7EC25, 0x054F934137, 0, 0xFFFFFFFFFFFFFFFB, 0, 45, 45, 0, 1.5, true)
+        sv_animcmd.EFFECT_FLW_POS(0x0FBCA7EC25, 0x054F934137, 0, -5, 0, 45, 45, 0, 1.5, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
     end
     return 
@@ -228,7 +228,7 @@ end
 effect_NigiruEnd1 = function ()
     sv_animcmd.frame(36)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x1335C2FD5A, 0x054DE8F534, 0xFFFFFFFFFFFFFFF6, 15, 0, 0xFFFFFFFFFFFFFFF1, 180, 0, 3, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x1335C2FD5A, 0x054DE8F534, -10, 15, 0, -15, 180, 0, 3, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -249,8 +249,8 @@ effect_OkuHikouki = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x13A57DE0CB, 0x067CC6B216, 10, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13A57DE0CB, 0x06F094BE06, 10, 0, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x1076FB0230, 0x05589ACC6A, 0xFFFFFFFFFFFFFFF6, 0, 0, 90, 90, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x13DCA1586F, 0x069E801ACF, 80, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 1.5, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1076FB0230, 0x05589ACC6A, -10, 0, 0, 90, 90, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13DCA1586F, 0x069E801ACF, 80, 0, 0, 0, -90, 0, 1.5, true)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.5)
     end
     sv_animcmd.frame(100)
@@ -268,7 +268,7 @@ end
 effect_OkuHikoukiStart = function ()
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1098F5631C, 0x05589ACC6A, 0xFFFFFFFFFFFFFFFA, 0, 0, 90, 90, 0, 1.149999976158142, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1098F5631C, 0x05589ACC6A, -6, 0, 0, 90, 90, 0, 1.149999976158142, true)
     end
     sv_animcmd.frame(55)
     if sv_animcmd.is_excute() then
@@ -319,7 +319,7 @@ end
 effect_PaaTsubushi = function ()
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x0F968D28D2, 0x031ED91FCA, 0, 10, 0, 0xFFFFFFFFFFFFFFA6, 0, 0, 1.2999999523162842, true)
+        sv_animcmd.EFFECT_FLW_POS(0x0F968D28D2, 0x031ED91FCA, 0, 10, 0, -90, 0, 0, 1.2999999523162842, true)
     end
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
@@ -444,31 +444,31 @@ effect_YubiBeam = function ()
     end
     if f18_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x06F094BE06, 7, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-            sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x05D43B8667, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-            sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x076697D1A0, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-            sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x061A55CD6A, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-            sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x06F094BE06, 7, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+            sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x06F094BE06, 7, -2, 0, 0, 90, 0, 0.699999988079071, true)
+            sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x05D43B8667, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
+            sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x076697D1A0, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
+            sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x061A55CD6A, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
+            sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x06F094BE06, 7, -2, 0, 0, 90, 0, 0.699999988079071, true)
             sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_4)
-            sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x05D43B8667, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+            sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x05D43B8667, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
             sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_3)
-            sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x076697D1A0, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+            sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x076697D1A0, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
             sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_2)
-            sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x061A55CD6A, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+            sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x061A55CD6A, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
             sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_1)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x061A55CD6A, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x076697D1A0, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x05D43B8667, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x06F094BE06, 7, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x061A55CD6A, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x061A55CD6A, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x076697D1A0, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x05D43B8667, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x06F094BE06, 7, -2, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x061A55CD6A, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_1)
-        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x076697D1A0, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x076697D1A0, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_2)
-        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x05D43B8667, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x05D43B8667, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_3)
-        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x06F094BE06, 7, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x06F094BE06, 7, -2, 0, 0, 90, 0, 0.699999988079071, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_4)
     end
     if sv_animcmd.is_excute() then
@@ -579,7 +579,7 @@ end
 effect_DownLanding = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x16E1D50A41, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 5, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x16E1D50A41, 0x031ED91FCA, -10, 5, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_XL)
     end
     return 
@@ -633,18 +633,18 @@ end
 effect_SatelliteGunHold = function ()
     sv_animcmd.frame(5)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x1EFAE8EE81, 0x061A55CD6A, 7.5, 0xFFFFFFFFFFFFFFFF, 1, 0, 0, 0, 1.5, true)
+        sv_animcmd.EFFECT_FLW_POS(0x1EFAE8EE81, 0x061A55CD6A, 7.5, -1, 1, 0, 0, 0, 1.5, true)
     end
     sv_animcmd.frame(79)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x1D269FA6AA, 0x061A55CD6A, 7.5, 0xFFFFFFFFFFFFFFFF, 1, 0, 0, 0, 1.25, false)
+        sv_animcmd.EFFECT_FLW_POS(0x1D269FA6AA, 0x061A55CD6A, 7.5, -1, 1, 0, 0, 0, 1.25, false)
     end
     return 
 end
 
 effect_SateliteGunFiring = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1E326D842F, 0x061A55CD6A, 7.5, 0xFFFFFFFFFFFFFFFF, 1, 90, 0, 92, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1E326D842F, 0x061A55CD6A, 7.5, -1, 1, 90, 0, 92, 1, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_M)
     end
     return 
@@ -677,7 +677,7 @@ end
 effect_EnergyShotRush = function ()
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1B1C2EE9AE, 0x069E801ACF, 80, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1B1C2EE9AE, 0x069E801ACF, 80, 0, 0, 0, -90, 0, 1, true)
     end
     sv_animcmd.frame(46)
     if sv_animcmd.is_excute() then
@@ -689,14 +689,14 @@ end
 effect_ElectroshockStart = function ()
     sv_animcmd.frame(45)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1ABF2C0D41, 0x042762428F, 10, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1ABF2C0D41, 0x042762428F, 10, -5, 0, 0, 0, 0, 1, true)
     end
     return 
 end
 
 effect_Electroshock = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1ABF2C0D41, 0x042762428F, 10, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1ABF2C0D41, 0x042762428F, 10, -5, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(29)
     if sv_animcmd.is_excute() then
@@ -734,17 +734,17 @@ effect_WFingerBeamStart = function ()
     sv_animcmd.frame(60)
     if sv_animcmd.is_excute() then
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
-        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x06F094BE06, 7, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x05D43B8667, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x076697D1A0, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x061A55CD6A, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
-        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x06F094BE06, 7, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x06F094BE06, 7, -2, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x05D43B8667, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x076697D1A0, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14B92FD47C, 0x061A55CD6A, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x06F094BE06, 7, -2, 0, 0, 90, 0, 0.699999988079071, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_4)
-        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x05D43B8667, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x05D43B8667, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_3)
-        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x076697D1A0, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x076697D1A0, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_2)
-        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x061A55CD6A, 8, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0F12FF4F7E, 0x061A55CD6A, 8, -2, 0, 0, 90, 0, 0.699999988079071, true)
         sv_animcmd:LAST_EFFECT_SET_WORK_INT(ITEM_MASTERHAND_INSTANCE_WORK_INT_YUBIBEAM_EFFECT_1)
         WorkModule:on_flag(ITEM_MASTERHAND_INSTANCE_WORK_FLAG_YUBIBEAM_BEAMSTART)
     end
@@ -760,14 +760,14 @@ end
 effect_ElectroshockStart_Adventure = function ()
     sv_animcmd.frame(45)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1ABF2C0D41, 0x042762428F, 10, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1ABF2C0D41, 0x042762428F, 10, -5, 0, 0, 0, 0, 1, true)
     end
     return 
 end
 
 effect_Electroshock_Adventure = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1ABF2C0D41, 0x042762428F, 10, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1ABF2C0D41, 0x042762428F, 10, -5, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(29)
     if sv_animcmd.is_excute() then
@@ -828,8 +828,8 @@ end
 effect_PaaTsubushi_Adventure = function ()
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FLW_POS(0x0F968D28D2, 0x031ED91FCA, 0, 10, 0, 0xFFFFFFFFFFFFFFA6, 0, 0, 1.7999999523162842, true)
-        sv_animcmd.EFFECT_FOLLOW(0x1332AF3943, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 17, 20, 90, 0, 0, 1.7999999523162842, true)
+        sv_animcmd.EFFECT_FLW_POS(0x0F968D28D2, 0x031ED91FCA, 0, 10, 0, -90, 0, 0, 1.7999999523162842, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1332AF3943, 0x031ED91FCA, -10, 17, 20, 90, 0, 0, 1.7999999523162842, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(9)

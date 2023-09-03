@@ -24,11 +24,11 @@ Warning: Function 5 using already codegened block basicblock_3:
 Warning: Function 6 using already codegened block basicblock_3:
 effect_AppearLanding = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031D39A761, 10, -3.5, 0xFFFFFFFFFFFFFFF0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031D39A761, 10, -3.5, -16, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031D39A761, 0xFFFFFFFFFFFFFFF9, -3.5, 0xFFFFFFFFFFFFFFE8, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031D39A761, -7, -3.5, -24, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -49,12 +49,12 @@ effect_AppearRunStartTurn = function ()
     for f3_local0 = 1, 10, 1 do
         local f3_local1 = f3_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, 0, 15, 0, 0xFFFFFFFFFFFFFFC4, 0, 0.25, 0, 0, 0, 0, 10, 0, true)
-            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, 0, 0xFFFFFFFFFFFFFFF9, 0, 60, 0, 0.3499999940395355, 0, 0, 0, 0, 20, 0, true)
+            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, -6, 0, 15, 0, -60, 0, 0.25, 0, 0, 0, 0, 10, 0, true)
+            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, -6, 0, -7, 0, 60, 0, 0.3499999940395355, 0, 0, 0, 0, 20, 0, true)
         end
         sv_animcmd.wait(1)
         if sv_animcmd.is_excute() then
-            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, 0, 0xFFFFFFFFFFFFFFF9, 0, 60, 0, 0.3499999940395355, 0, 0, 0, 0, 20, 0, true)
+            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, -6, 0, -7, 0, 60, 0, 0.3499999940395355, 0, 0, 0, 0, 20, 0, true)
         end
         sv_animcmd.wait(1)
     end
@@ -67,10 +67,10 @@ effect_RunStart = function ()
     end
     sv_animcmd.frame(23)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, 0, 15, 0, 15, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, 0, 0xFFFFFFFFFFFFFFF9, 0, 15, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 6, 0, 15, 0, 0xFFFFFFFFFFFFFFEC, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, false)
-        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 6, 0, 0xFFFFFFFFFFFFFFF9, 0, 0xFFFFFFFFFFFFFFD8, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, -6, 0, 15, 0, 15, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, -6, 0, -7, 0, 15, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 6, 0, 15, 0, -20, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 6, 0, -7, 0, -40, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -81,7 +81,7 @@ effect_Run1 = function ()
     end
     while true do
         if sv_animcmd.is_excute() then
-            sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 0, 2.700000047683716, 0, 0, 0, 0.20000000298023224, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, -10, 0, 2.700000047683716, 0, 0, 0, 0.20000000298023224, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.wait(10)
     end
@@ -94,7 +94,7 @@ effect_Run = function ()
     end
     while true do
         if sv_animcmd.is_excute() then
-            sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 0, 2.700000047683716, 0, 0, 0, 0.30000001192092896, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, -10, 0, 2.700000047683716, 0, 0, 0, 0.30000001192092896, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.wait(10)
     end
@@ -110,11 +110,11 @@ effect_Turn = function ()
         local f7_local1 = f7_local0
         if sv_animcmd.is_excute() then
             sv_animcmd.EFFECT(0x0D0679B24D, 0x10BF5BFEA3, 0, -3.4000000953674316, 0, 0, 60, 0, 0.25, 0, 0, 0, 0, 10, 0, true)
-            sv_animcmd.EFFECT(0x0D0679B24D, 0x0F59DC0B25, 0, -3.5, 0, 0, 0xFFFFFFFFFFFFFFC4, 0, 0.30000001192092896, 0, 0, 0, 0, 20, 0, true)
+            sv_animcmd.EFFECT(0x0D0679B24D, 0x0F59DC0B25, 0, -3.5, 0, 0, -60, 0, 0.30000001192092896, 0, 0, 0, 0, 20, 0, true)
         end
         sv_animcmd.wait(1)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0D0679B24D, 0x0F59DC0B25, 0, -3.5, 0, 0, 0xFFFFFFFFFFFFFFC4, 0, 0.30000001192092896, 0, 0, 0, 0, 20, 0, true)
+            sv_animcmd.EFFECT(0x0D0679B24D, 0x0F59DC0B25, 0, -3.5, 0, 0, -60, 0, 0.30000001192092896, 0, 0, 0, 0, 20, 0, true)
         end
         sv_animcmd.wait(2)
     end
@@ -154,9 +154,9 @@ effect_FighterClatterEnd = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x113EE4EF17, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x11D239511E, false, true)
         sv_animcmd.EFFECT_FOLLOW(0x0F68544A21, 0x0C15D5BF39, 0, 0, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, -0.5, 18, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, -6, -0.5, 18, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, 6, -0.5, 18, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, -0.5, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, -6, -0.5, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, 6, -0.5, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FLW_POS(0x0D60B76E36, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
@@ -169,9 +169,9 @@ effect_CarryRunEmpty = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x113EE4EF17, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x11D239511E, false, true)
         sv_animcmd.EFFECT_FOLLOW(0x0F68544A21, 0x0C15D5BF39, 0, 0, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, -0.5, 18, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, -6, -0.5, 18, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, 6, -0.5, 18, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, -0.5, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, -6, -0.5, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x168CC70338, 0x031ED91FCA, 6, -0.5, 0, 0, 0, 0, 1, true)
     end
     return 
@@ -184,7 +184,7 @@ effect_CarryRun = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x11D239511E, false, true)
         sv_animcmd.EFFECT_FOLLOW(0x0F68544A21, 0x0C15D5BF39, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x11D239511E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x113EE4EF17, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, -0.5, 18, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x113EE4EF17, 0x031ED91FCA, -6, -0.5, 18, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x113EE4EF17, 0x031ED91FCA, 6, -0.5, 18, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(1)
@@ -224,11 +224,11 @@ effect_Jump = function ()
     end
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0EC09045BB, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0EC09045BB, 0x031ED91FCA, 0, 0, -7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.frame(7)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0D0679B24D, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF9, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 10, 0, true)
+        sv_animcmd.EFFECT(0x0D0679B24D, 0x031ED91FCA, 0, 0, -7, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 10, 0, true)
     end
     return 
 end
@@ -240,7 +240,7 @@ effect_JumpStep = function ()
     end
     sv_animcmd.frame(4)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0EC09045BB, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF9, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0EC09045BB, 0x031ED91FCA, 0, 0, -7, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end
@@ -260,7 +260,7 @@ effect_Landing = function ()
     end
     sv_animcmd.frame(1)
     if sv_animcmd.is_excute() then
-        sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF9, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, -7, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -273,7 +273,7 @@ effect_Exit = function ()
     for f19_local0 = 1, 9, 1 do
         local f19_local1 = f19_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x0F59DC0B25, 0, -6.099999904632568, 0, 0, 0xFFFFFFFFFFFFFFC4, 0, 0.5, 0, 0, 0, 0, 10, 0, true)
+            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x0F59DC0B25, 0, -6.099999904632568, 0, 0, -60, 0, 0.5, 0, 0, 0, 0, 10, 0, true)
         end
         sv_animcmd.wait(2)
     end
@@ -290,7 +290,7 @@ effect_Exit2 = function ()
     for f20_local0 = 1, 9, 1 do
         local f20_local1 = f20_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x0F59DC0B25, 0, -6.099999904632568, 0, 0, 0xFFFFFFFFFFFFFFC4, 0, 0.5, 0, 0, 0, 0, 10, 0, true)
+            sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x0F59DC0B25, 0, -6.099999904632568, 0, 0, -60, 0, 0.5, 0, 0, 0, 0, 10, 0, true)
         end
         sv_animcmd.wait(2)
     end

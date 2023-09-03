@@ -10,7 +10,7 @@ effect_GroundTrace = function ()
     for f1_local0 = 1, 2, 1 do
         local f1_local1 = f1_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x147E7899CD, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFE, 0, 0, 0, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x147E7899CD, 0x031ED91FCA, 0, -2, 0, 0, 0, 0, 1, true)
             sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
         end
         sv_animcmd.wait(12)
@@ -18,14 +18,14 @@ effect_GroundTrace = function ()
     for f1_local0 = 1, 2, 1 do
         local f1_local1 = f1_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x147E7899CD, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFE, 0, 0, 0, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x147E7899CD, 0x031ED91FCA, 0, -2, 0, 0, 0, 0, 1, true)
             sv_animcmd.LAST_EFFECT_SET_RATE(0.75)
         end
         sv_animcmd.wait(9)
     end
     while true do
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x147E7899CD, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFE, 0, 0, 0, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x147E7899CD, 0x031ED91FCA, 0, -2, 0, 0, 0, 0, 1, true)
         end
         sv_animcmd.wait(6)
     end

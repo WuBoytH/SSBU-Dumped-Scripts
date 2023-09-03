@@ -24,11 +24,11 @@ effect_Attack1 = function ()
     end
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0DDF863B14, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 15.5, 5, 0, 0, 0xFFFFFFFFFFFFFFE2, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x0DDF863B14, 0x031ED91FCA, -2, 15.5, 5, 0, 0, -30, 1, false)
     end
     sv_animcmd.frame(6)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF8, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, -8, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -62,11 +62,11 @@ end
 effect_Run = function ()
     sv_animcmd.frame(10)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, -4.800000190734863, 0, 0xFFFFFFFFFFFFFFFC, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, -4.800000190734863, 0, -4, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(30)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, 0, 2.5, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, -6, 0, 2.5, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.wait_loop_sync_mot()
     return effect_Run()
@@ -90,7 +90,7 @@ effect_PreFinishRun = function ()
     end
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 8, 0, 0xFFFFFFFFFFFFFFFC, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 8, 0, -4, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.wait_loop_sync_mot()
     return effect_PreFinishRun()

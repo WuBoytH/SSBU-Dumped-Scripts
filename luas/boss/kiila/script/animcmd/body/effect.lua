@@ -66,10 +66,10 @@ effect_Entry = function ()
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(0, 90, 1.0499999523162842, 1, 0.949999988079071, 0, 0, 0, 1, 1.0499999523162842, EffectScreenLayer.CHAR, EFFECT_SCREEN_PRIO_FINAL)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 60, 1.600000023841858, 1.2999999523162842, 1, 0, 0, 0, 1, 1.100000023841858, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_FINAL)
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x11A4073697, 0x095A85F2CD, 0, 3, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x081123334A, 0, 0xFFFFFFFFFFFFFFEC, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x085B069936, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x08C5620C95, 0, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x11A4073697, 0x094C3D7CB7, 0, 0xFFFFFFFFFFFFFFF1, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x081123334A, 0, -20, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x085B069936, 0, -10, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x08C5620C95, 0, -5, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x11A4073697, 0x094C3D7CB7, 0, -15, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(90)
     if sv_animcmd.is_excute() then
@@ -80,8 +80,8 @@ effect_Entry = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x0882D60828, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x09F3DAC351, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x095A74D8AD, 0, 0, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x08FC9EFF7C, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x088CF40BF3, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x08FC9EFF7C, 0, -3, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x088CF40BF3, 0, -3, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x11A4073697, 0x086B4C26F4, 0, 3, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x12741ABFDC, 0x082FB204BA, 0, 3, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x11A4073697, 0x095A85F2CD, 0, 0, 0, 0, 0, 0, 1, true)
@@ -95,7 +95,7 @@ effect_Entry = function ()
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 5, 1.5, 0.75, 0.4000000059604645, 0, 0, 0, 0.800000011920929, 1.100000023841858, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_FINAL)
         sv_animcmd.EFFECT_OFF_KIND(0x1681C77E42, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x10C3A20139, false, true)
-        sv_animcmd.EFFECT(0x1505462C71, 0x046B8D854F, 0, 0, 0xFFFFFFFFFFFFFFCE, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x1505462C71, 0x046B8D854F, 0, 0, -50, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x1532DB1652, 0x046B8D854F, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.frame(430)
@@ -111,20 +111,20 @@ end
 effect_Entry2 = function ()
     sv_animcmd.frame(260)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_ATTR(0x1357970FC5, 0x08C5620C95, 0, 0, 0xFFFFFFFFFFFFFFEC, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
+        sv_animcmd.EFFECT_ATTR(0x1357970FC5, 0x08C5620C95, 0, 0, -20, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.6000000238418579)
     end
     sv_animcmd.frame(298)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_ATTR(0x1357970FC5, 0x08FBF33B65, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
+        sv_animcmd.EFFECT_ATTR(0x1357970FC5, 0x08FBF33B65, 0, -3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
     end
     sv_animcmd.frame(305)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_ATTR(0x1357970FC5, 0x08970E63DF, 0, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 3.200000047683716, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
+        sv_animcmd.EFFECT_ATTR(0x1357970FC5, 0x08970E63DF, 0, -5, 0, 0, 0, 0, 3.200000047683716, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
     end
     sv_animcmd.frame(360)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x1603EB12FE, 0x031ED91FCA, 0xFFFFFFFFFFFFFFB0, 65, 0xFFFFFFFFFFFFFFC4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x1603EB12FE, 0x031ED91FCA, -80, 65, -60, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end
@@ -184,13 +184,13 @@ effect_Dead = function ()
     end
     sv_animcmd.frame(47)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0F28C17FEA, 0x08882A62F0, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0F28C17FEA, 0x08882A62F0, 0, -3, 0, 0, 0, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(2)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(68)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0F28C17FEA, 0x081123334A, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0F28C17FEA, 0x081123334A, 0, -3, 0, 0, 0, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(2)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x0F28C17FEA, 0x0870B64ED8, 0, 0, 0, 0, 0, 0, 1.899999976158142, 0, 0, 0, 0, 0, 0, true)
@@ -215,12 +215,12 @@ effect_Dead = function ()
     end
     sv_animcmd.frame(112)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x1954E555B2, 0x0815FD5A49, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x1954E555B2, 0x0815FD5A49, 0, -3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(124)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x105A227414, 0x0828DFC0A3, 0, 0xFFFFFFFFFFFFFFF8, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x105A227414, 0x0828DFC0A3, 0, -8, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(133)
@@ -235,7 +235,7 @@ effect_Dead = function ()
     end
     sv_animcmd.frame(144)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x1954E555B2, 0x08FF2D5266, 0, 0xFFFFFFFFFFFFFFFE, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x1954E555B2, 0x08FF2D5266, 0, -2, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.frame(154)
@@ -278,7 +278,7 @@ effect_Dead = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(0.6000000238418579)
         sv_animcmd.EFFECT_ATTR(0x102D254482, 0x046B8D854F, 0, 0, 0, 0, 0, 0, 2.4000000953674316, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
-        sv_animcmd.EFFECT_ATTR(0x1BCE3DA019, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFF9C, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
+        sv_animcmd.EFFECT_ATTR(0x1BCE3DA019, 0x031ED91FCA, 0, 0, -100, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
     end
@@ -319,12 +319,12 @@ effect_Anger = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x11F5EA5769, 0x0822DA2192, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x104A5AF4B1, 0x046B8D854F, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 30, 1.100000023841858, 1.0499999523162842, 1, 0, 0, 0, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_FINAL)
-        sv_animcmd.EFFECT(0x11C55D5DE5, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFCE, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x11C55D5DE5, 0x031ED91FCA, 0, 0, -50, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.frame(50)
     if sv_animcmd.is_excute() then
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 5, 1.5, 0.75, 0.4000000059604645, 0, 0, 0, 0.800000011920929, 1.100000023841858, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_FINAL)
-        sv_animcmd.EFFECT(0x0B06AF7CC8, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFCE, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0B06AF7CC8, 0x031ED91FCA, 0, 0, -50, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     for f8_local0 = 1, 8, 1 do
         local f8_local1 = f8_local0
@@ -384,7 +384,7 @@ effect_ChaseSpear = function ()
     end
     sv_animcmd.frame(125)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x17A4DA33AF, 0x0A14B4A412, 0, 0, 0xFFFFFFFFFFFFFFCE, 0, 0, 0, 2, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x17A4DA33AF, 0x0A14B4A412, 0, 0, -50, 0, 0, 0, 2, true)
     end
     sv_animcmd.frame(130)
     if sv_animcmd.is_excute() then
@@ -437,21 +437,21 @@ end
 effect_ExplodeBombStart = function ()
     sv_animcmd.frame(50)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x188C18127C, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 30, 0, 0, 0, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x188C18127C, 0x031ED91FCA, -10, 30, 0, 0, 0, 0, 0.699999988079071, true)
     end
     return 
 end
 
 effect_ExplodeBombLoop = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x17AC80B8F6, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 30, 0, 0, 0, 0, 0.699999988079071, true)
+        sv_animcmd.EFFECT_FOLLOW(0x17AC80B8F6, 0x031ED91FCA, -10, 30, 0, 0, 0, 0, 0.699999988079071, true)
     end
     return 
 end
 
 effect_ExplodeBomb = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x136DFE5203, 0x031ED91FCA, 0xFFFFFFFFFFFFFFF6, 30, 0, 0, 1, 45, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x136DFE5203, 0x031ED91FCA, -10, 30, 0, 0, 1, 45, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end
@@ -497,14 +497,14 @@ end
 effect_ThreatLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x165B9CF0BA, 0x09D8997220, 0, 0, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x0862FA6ADF, 0, 0xFFFFFFFFFFFFFFFD, 0, 180, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x08FBF33B65, 0, 0xFFFFFFFFFFFFFFFD, 0, 180, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x08B6BB5500, 0, 0xFFFFFFFFFFFFFFFD, 0, 180, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x082FB204BA, 0, 0xFFFFFFFFFFFFFFFD, 0, 180, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x08882A62F0, 0, 0xFFFFFFFFFFFFFFFD, 0, 180, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x08F69B1E4D, 0, 0xFFFFFFFFFFFFFFFD, 0, 180, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x085C6B5D2F, 0, 0xFFFFFFFFFFFFFFFD, 0, 180, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x0822DA2192, 0, 0xFFFFFFFFFFFFFFFD, 0, 180, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x0862FA6ADF, 0, -3, 0, 180, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x08FBF33B65, 0, -3, 0, 180, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x08B6BB5500, 0, -3, 0, 180, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x082FB204BA, 0, -3, 0, 180, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x08882A62F0, 0, -3, 0, 180, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x08F69B1E4D, 0, -3, 0, 180, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x085C6B5D2F, 0, -3, 0, 180, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x0822DA2192, 0, -3, 0, 180, 0, 0, 1, true)
     end
     return 
 end

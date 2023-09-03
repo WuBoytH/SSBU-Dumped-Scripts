@@ -6,7 +6,7 @@
 
 game_Appear = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.MODIFY_RHOMBUS(4, 0xFFFFFFFFFFFFFFFC, 6.599999904632568)
+        sv_animcmd.MODIFY_RHOMBUS(4, -4, 6.599999904632568)
     end
     return 
 end
@@ -29,7 +29,7 @@ end
 
 game_Landing = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.MODIFY_RHOMBUS(4, 0xFFFFFFFFFFFFFFFA, 6.599999904632568)
+        sv_animcmd.MODIFY_RHOMBUS(4, -6, 6.599999904632568)
     end
     return 
 end

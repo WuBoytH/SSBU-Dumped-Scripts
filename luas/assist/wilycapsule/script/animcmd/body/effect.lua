@@ -18,7 +18,7 @@
 effect_WarpStart = function ()
     sv_animcmd.frame(25)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1028FD9BB9, 0x0BBCABD35A, 0, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 0.800000011920929, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1028FD9BB9, 0x0BBCABD35A, 0, -5, 0, 0, 0, 0, 0.800000011920929, true)
     end
     sv_animcmd.frame(35)
     if sv_animcmd.is_excute() then
@@ -30,7 +30,7 @@ end
 effect_WarpEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x19135EB962, true, true)
-        sv_animcmd.EFFECT_FOLLOW(0x1028FD9BB9, 0x0BBCABD35A, 0, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1028FD9BB9, 0x0BBCABD35A, 0, -5, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
@@ -65,15 +65,15 @@ effect_Rush = function ()
     sv_animcmd.frame(54)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x15106D97D0, 0x0BBCABD35A, 0, 0, 0, 0, 0, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x19135EB962, 0x086FE6C49E, 10, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 0.25, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x19135EB962, 0x086FE6C49E, 10, 0, 0, 0, 0, -90, 0.25, true)
     end
     sv_animcmd.frame(56)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x19135EB962, 0x086FE6C49E, 6, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 0.3499999940395355, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x19135EB962, 0x086FE6C49E, 6, 0, 0, 0, 0, -90, 0.3499999940395355, true)
     end
     sv_animcmd.frame(58)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x19135EB962, 0x086FE6C49E, 2, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 0.5, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x19135EB962, 0x086FE6C49E, 2, 0, 0, 0, 0, -90, 0.5, true)
     end
     return 
 end

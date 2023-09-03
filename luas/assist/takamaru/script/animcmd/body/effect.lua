@@ -63,7 +63,7 @@ end
 effect_AttackSword = function ()
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0E3A97BE34, 0x031ED91FCA, -0.699999988079071, 6, 0, 0xFFFFFFFFFFFFFFEA, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0E3A97BE34, 0x031ED91FCA, -0.699999988079071, 6, 0, -22, 0, 0, 1, true)
     end
     return 
 end

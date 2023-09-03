@@ -8,7 +8,7 @@
 effect_Born = function ()
     if WorkModule:is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFC, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
+            sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, -4, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
         end
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0C85199FF7, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)

@@ -17,7 +17,7 @@
 effect_Fall = function ()
     sv_animcmd.frame(2)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0E3A97BE34, 0x031ED91FCA, -0.699999988079071, 15, 0, 0xFFFFFFFFFFFFFFEA, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0E3A97BE34, 0x031ED91FCA, -0.699999988079071, 15, 0, -22, 0, 0, 1, true)
     end
     return 
 end
@@ -78,9 +78,9 @@ effect_AttackRollingMain = function ()
     end
     if f8_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFF88, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 0, -30, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, -30, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, -120, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 60, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 150, 0, 1, true)
         end
@@ -88,8 +88,8 @@ effect_AttackRollingMain = function ()
         sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 180, 30, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 30, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 120, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFFC4, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFF6A, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -60, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -150, 0, 1, true)
     end
     return 
 end
@@ -104,9 +104,9 @@ effect_AttackRollingAirMain = function ()
     end
     if f9_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFF88, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 0, -30, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, -30, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, -120, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 60, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 150, 0, 1, true)
         end
@@ -114,8 +114,8 @@ effect_AttackRollingAirMain = function ()
         sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 180, 30, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 30, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 120, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFFC4, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFF6A, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -60, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -150, 0, 1, true)
     end
     return 
 end
@@ -130,9 +130,9 @@ effect_AttackRolling2Main = function ()
     end
     if f10_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFF88, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 0, -30, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, -30, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, -120, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 60, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 150, 0, 1, true)
         end
@@ -140,8 +140,8 @@ effect_AttackRolling2Main = function ()
         sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 180, 30, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 30, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 120, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFFC4, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFF6A, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -60, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -150, 0, 1, true)
     end
     return 
 end
@@ -156,9 +156,9 @@ effect_AttackRolling2AirStart = function ()
     end
     if f11_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFE2, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFF88, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 0, -30, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, -30, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, -120, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 60, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 0, 150, 0, 1, true)
         end
@@ -166,8 +166,8 @@ effect_AttackRolling2AirStart = function ()
         sv_animcmd.EFFECT_FOLLOW(0x135785ECD7, 0x035DBFE258, 0, 0, 0, 180, 30, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 30, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 120, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFFC4, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFF6A, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -60, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -150, 0, 1, true)
     end
     return 
 end
@@ -181,18 +181,18 @@ effect_AttackRollingHop = function ()
     end
     if f12_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x17EE0E5C99, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFF74, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x17EE0E5C99, 0x035DBFE258, 0, 0, 0, 180, -140, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 180, 25, 0, 1, true)
             sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 180, 115, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFFBF, 0, 1, true)
-            sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 180, 0xFFFFFFFFFFFFFF65, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 180, -65, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 180, -155, 0, 1, true)
         end
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x17EE0E5C99, 0x035DBFE258, 0, 0, 0, 0, 140, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFE7, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 0, -25, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 0, 60, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 0, 155, 0, 1, true)
-        sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 0, 0xFFFFFFFFFFFFFF8D, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 0, -115, 0, 1, true)
     end
     return 
 end

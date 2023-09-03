@@ -6,7 +6,7 @@
 
 effect_HideStart = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x13CF74E405, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFA, 0, 0, 0, 0, 1.399999976158142, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x13CF74E405, 0x031ED91FCA, 0, -6, 0, 0, 0, 0, 1.399999976158142, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end

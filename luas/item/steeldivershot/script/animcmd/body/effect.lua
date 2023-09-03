@@ -15,7 +15,7 @@ end
 
 effect_Throw = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x15C1F3A617, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x15C1F3A617, 0x031ED91FCA, 0, 0, -3, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
     return 

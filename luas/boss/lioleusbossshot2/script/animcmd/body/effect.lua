@@ -20,7 +20,7 @@ end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x2724B29FC8, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0, 1.399999976158142, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x2724B29FC8, 0x031ED91FCA, 0, -5, 0, 0, 0, 0, 1.399999976158142, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT_FOLLOW(0x1FA92103F3, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2000000476837158, false)
         sv_animcmd.EFFECT_FOLLOW(0x25CB4C1617, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2000000476837158, false)
     end
@@ -30,7 +30,7 @@ effect_Born = function ()
     end
     sv_animcmd.frame(124)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x169FD0CAE0, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFF, 0, 0, 0, 0, 0.5, true)
+        sv_animcmd.EFFECT_FOLLOW(0x169FD0CAE0, 0x031ED91FCA, 0, -1, 0, 0, 0, 0, 0.5, true)
     end
     sv_animcmd.wait(6)
     return 

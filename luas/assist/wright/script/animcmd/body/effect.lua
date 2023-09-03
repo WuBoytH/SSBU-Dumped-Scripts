@@ -21,7 +21,7 @@ end
 
 effect_CounterAttack = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x168BF8A309, 0x031ED91FCA, 6.5, 14, 0xFFFFFFFFFFFFFFFF, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x168BF8A309, 0x031ED91FCA, 6.5, 14, -1, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end

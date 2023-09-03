@@ -19,7 +19,7 @@ end
 effect_Born = function ()
     sv_animcmd.wait(5)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E3FB72EBC, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, -0.5, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E3FB72EBC, 0x031ED91FCA, -2, -0.5, 0, 0, -90, 0, 1, true)
     end
     return 
 end
@@ -27,11 +27,11 @@ end
 effect_BoundL = function ()
     sv_animcmd.wait(3)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E913EA5FE, 0x033B1871DD, 0xFFFFFFFFFFFFFFFE, 0xFFFFFFFFFFFFFFFF, 0, 0, 0xFFFFFFFFFFFFFFCE, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E913EA5FE, 0x033B1871DD, -2, -1, 0, 0, -50, 0, 1, true)
     end
     sv_animcmd.wait(7)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E3FB72EBC, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 0xFFFFFFFFFFFFFFFD, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E3FB72EBC, 0x031ED91FCA, -2, -3, 0, 0, -90, 0, 1, true)
     end
     sv_animcmd.wait(37)
     if sv_animcmd.is_excute() then
@@ -43,11 +43,11 @@ end
 effect_BoundR = function ()
     sv_animcmd.wait(3)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E913EA5FE, 0x033B1871DD, 0xFFFFFFFFFFFFFFFE, 0xFFFFFFFFFFFFFFFF, 0, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E913EA5FE, 0x033B1871DD, -2, -1, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.wait(7)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E3FB72EBC, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 0xFFFFFFFFFFFFFFFD, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E3FB72EBC, 0x031ED91FCA, -2, -3, 0, 0, -90, 0, 1, true)
     end
     sv_animcmd.wait(37)
     if sv_animcmd.is_excute() then

@@ -29,7 +29,7 @@ game_Attack = function ()
     end
     sv_animcmd.frame(8.300000190734863)
     if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_2) == nil and sv_animcmd.is_excute() then
-        sv_animcmd.CAM_ZOOM_IN_arg5(1, 0, 2.5, -28.5, 0xFFFFFFFFFFFFFFC4)
+        sv_animcmd.CAM_ZOOM_IN_arg5(1, 0, 2.5, -28.5, -60)
     end
     sv_animcmd.frame(8.600000381469727)
     if WorkModule:is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_2) == nil and sv_animcmd.is_excute() then

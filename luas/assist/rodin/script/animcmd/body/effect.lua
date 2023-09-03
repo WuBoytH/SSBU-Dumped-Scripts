@@ -109,7 +109,7 @@ effect_AttackHeelDrop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1520BA4579, 0x031ED91FCA, 0, 53, 7.5, 90, 0, 0, 2, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
-        sv_animcmd.EFFECT_FOLLOW(0x0FA056768B, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFFC, 1.5, 0, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x0FA056768B, 0x031ED91FCA, 0, -4, 1.5, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(27)
     if sv_animcmd.is_excute() then
@@ -132,7 +132,7 @@ end
 effect_AttackKickUp = function ()
     sv_animcmd.frame(11)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x111CB6A9CA, 0x031ED91FCA, 1, 12.5, 11, 0xFFFFFFFFFFFFFFE7, 0, 0, 0.8999999761581421, true)
+        sv_animcmd.EFFECT_FOLLOW(0x111CB6A9CA, 0x031ED91FCA, 1, 12.5, 11, -25, 0, 0, 0.8999999761581421, true)
     end
     return 
 end

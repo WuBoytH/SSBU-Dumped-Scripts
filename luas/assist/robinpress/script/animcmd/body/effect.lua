@@ -9,7 +9,7 @@
 
 effect_Up = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0A60AD9B01, 0x031ED91FCA, 0, 8, 0, 0xFFFFFFFFFFFFFFA6, 180, 0xFFFFFFFFFFFFFFA6, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x0A60AD9B01, 0x031ED91FCA, 0, 8, 0, -90, 180, -90, 1, false)
     end
     return 
 end

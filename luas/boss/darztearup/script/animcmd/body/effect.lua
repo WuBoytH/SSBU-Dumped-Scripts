@@ -9,7 +9,7 @@
 effect_Appear1 = function ()
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0B9434A370, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x0B9434A370, 0x031ED91FCA, 0, 0, -10, 0, 0, 0, 1, false)
     end
     return 
 end
@@ -17,7 +17,7 @@ end
 effect_Appear2 = function ()
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0B9434A370, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x0B9434A370, 0x031ED91FCA, 0, 0, -10, 0, 0, 0, 1, false)
     end
     return 
 end
@@ -25,7 +25,7 @@ end
 effect_Appear3 = function ()
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x0B9434A370, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x0B9434A370, 0x031ED91FCA, 0, 0, -10, 0, 0, 0, 1, false)
     end
     return 
 end
@@ -37,8 +37,8 @@ effect_AppearAnger = function ()
     end
     sv_animcmd.frame(40)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x11615E0046, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 1, false)
-        sv_animcmd.EFFECT_FOLLOW(0x163422070A, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF6, 0, 0, 0, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x11615E0046, 0x031ED91FCA, 0, 0, -10, 0, 0, 0, 1, false)
+        sv_animcmd.EFFECT_FOLLOW(0x163422070A, 0x031ED91FCA, 0, 0, -10, 0, 0, 0, 1, false)
     end
     sv_animcmd.frame(580)
     if sv_animcmd.is_excute() then

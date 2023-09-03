@@ -25,7 +25,7 @@ end
 effect_Stick = function ()
     while true do
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0F96859AC0, 0x031ED91FCA, 0, 0, 9, 0xFFFFFFFFFFFFFFA6, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
+            sv_animcmd.EFFECT(0x0F96859AC0, 0x031ED91FCA, 0, 0, 9, -90, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
         end
         sv_animcmd.wait(8)
     end

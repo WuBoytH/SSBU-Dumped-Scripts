@@ -77,7 +77,7 @@ end
 effect_AttackTetsuzankou = function ()
     sv_animcmd.frame(9)
     if sv_animcmd.is_excute() then
-        sv_animcmd.LANDING_EFFECT(0x0DBBE7C8C4, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFF, 0, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.LANDING_EFFECT(0x0DBBE7C8C4, 0x031ED91FCA, -1, 0, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
     return 

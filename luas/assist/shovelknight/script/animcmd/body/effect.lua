@@ -83,11 +83,11 @@ effect_DigGround = function ()
     end
     if f8_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 2, 10, 3, 0, 0xFFFFFFFFFFFFFFEC, 120, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 2, 10, 3, 0, -20, 120, 1, true)
             sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 10, 3, 0, 0xFFFFFFFFFFFFFFEC, 60, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, -2, 10, 3, 0, -20, 60, 1, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
     sv_animcmd.frame(20)
@@ -104,11 +104,11 @@ effect_DigAir = function ()
     end
     if f9_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 2, 10, 3, 0, 0xFFFFFFFFFFFFFFCE, 120, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 2, 10, 3, 0, -50, 120, 1, true)
             sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 10, 3, 0, 0xFFFFFFFFFFFFFFCE, 60, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, -2, 10, 3, 0, -50, 60, 1, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
     sv_animcmd.frame(20)
@@ -136,11 +136,11 @@ effect_ShovelReflectGround = function ()
     end
     if f11_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 2, 10, 3, 0, 0xFFFFFFFFFFFFFFE2, 120, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 2, 10, 3, 0, -30, 120, 1, true)
             sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 10, 3, 0, 0xFFFFFFFFFFFFFFE2, 60, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, -2, 10, 3, 0, -30, 60, 1, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
     sv_animcmd.frame(21)
@@ -157,11 +157,11 @@ effect_ShovelReflectAir = function ()
     end
     if f12_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 2, 10, 3, 0, 0xFFFFFFFFFFFFFFE2, 120, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 2, 10, 3, 0, -30, 120, 1, true)
             sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 10, 3, 0, 0xFFFFFFFFFFFFFFE2, 60, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x10E97DE698, 0x031ED91FCA, -2, 10, 3, 0, -30, 60, 1, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
     sv_animcmd.frame(21)

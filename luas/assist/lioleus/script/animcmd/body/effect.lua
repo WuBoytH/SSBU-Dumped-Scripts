@@ -187,7 +187,7 @@ effect_Nail = function ()
     end
     sv_animcmd.frame(83)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x0F8FAA5EBE, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x0F8FAA5EBE, -1)
     end
     return 
 end
@@ -283,7 +283,7 @@ effect_BackJumpFire = function ()
         end
         sv_animcmd.frame(57)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, 0, -3.75, 0, 0, 0, 1.3125, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -6, 0, -3.75, 0, 0, 0, 1.3125, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(62)
         if sv_animcmd.is_excute() then
@@ -306,7 +306,7 @@ effect_BackJumpFire = function ()
         end
         sv_animcmd.frame(57)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFA, 0, 3.75, 0, 0, 0, 1.3125, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -6, 0, 3.75, 0, 0, 0, 1.3125, 0, 0, 0, 0, 0, 0, false)
         end
         sv_animcmd.frame(62)
         if sv_animcmd.is_excute() then
@@ -388,7 +388,7 @@ effect_Dead = function ()
     end
     sv_animcmd.frame(177)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0E5D9D7ED7, 0x031ED91FCA, 10, 0xFFFFFFFFFFFFFFE2, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0E5D9D7ED7, 0x031ED91FCA, 10, -30, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -400,7 +400,7 @@ effect_DeadAir = function ()
     end
     sv_animcmd.frame(127)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0E5D9D7ED7, 0x031ED91FCA, 10, 0xFFFFFFFFFFFFFFE2, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0E5D9D7ED7, 0x031ED91FCA, 10, -30, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end

@@ -13,10 +13,10 @@ effect_Shoot = function ()
     end
     if f1_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x1B3CB65C9A, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFFA, 0, 0, 0, 1.600000023841858, true)
+            sv_animcmd.EFFECT_FOLLOW(0x1B3CB65C9A, 0x031ED91FCA, 0, 0, -6, 0, 0, 0, 1.600000023841858, true)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x1B3CB65C9A, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFFA, 0, 180, 0, 1.600000023841858, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1B3CB65C9A, 0x031ED91FCA, 0, 0, -6, 0, 180, 0, 1.600000023841858, true)
     end
     return 
 end

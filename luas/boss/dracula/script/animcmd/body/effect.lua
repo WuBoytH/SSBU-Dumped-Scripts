@@ -24,11 +24,11 @@
 effect_Entry = function ()
     sv_animcmd.frame(390)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x1EAACFBBB5, 0x031D39A761, 0, 0xFFFFFFFFFFFFFFE7, 0xFFFFFFFFFFFFFFF1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x1EAACFBBB5, 0x031D39A761, 0, -25, -15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(400)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x1C121BDC1C, 0x031D39A761, 0, 0xFFFFFFFFFFFFFFE7, 0xFFFFFFFFFFFFFFF1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x1C121BDC1C, 0x031D39A761, 0, -25, -15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end

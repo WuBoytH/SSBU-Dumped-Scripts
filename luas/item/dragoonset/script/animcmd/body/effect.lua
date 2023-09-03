@@ -25,7 +25,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0EA7F206BB, 0x065875C419, 0, 0, 0, 0, 0, 0, 1, false)
         sv_animcmd.EFFECT_FOLLOW(0x0ED798F234, 0x06FC5E0F49, 0, -0.03500000014901161, 0, -23.5, 0, 180, 1.0499999523162842, false)
         sv_animcmd.EFFECT_FOLLOW(0x0E4E91A38E, 0x0665575EF3, 0, 0, 0, -16.700000762939453, 0, 180, 1.0499999523162842, false)
-        sv_animcmd.EFFECT_FOLLOW(0x0E39969318, 0x0612506E65, 0, 0.09000000357627869, 0, 0xFFFFFFFFFFFFFFF8, 0, 180, 1.059999942779541, false)
+        sv_animcmd.EFFECT_FOLLOW(0x0E39969318, 0x0612506E65, 0, 0.09000000357627869, 0, -8, 0, 180, 1.059999942779541, false)
         sv_animcmd.EFFECT_FOLLOW(0x0EA7F206BB, 0x068C34FBC6, 0, -0.019999999552965164, 0, 4.5, 0, 180, 1.0199999809265137, false)
     end
     return 
@@ -38,7 +38,7 @@ effect_StandBy = function ()
     end
     sv_animcmd.frame(39)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x116501BC25, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x116501BC25, -1)
     end
     return 
 end

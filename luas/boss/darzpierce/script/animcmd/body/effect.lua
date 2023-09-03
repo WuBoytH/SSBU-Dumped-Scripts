@@ -10,26 +10,26 @@
 effect_Pierce = function ()
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_ATTR(0x0FCB698218, 0x0D4ED9C5CC, 15, 0, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
+        sv_animcmd.EFFECT_ATTR(0x0FCB698218, 0x0D4ED9C5CC, 15, 0, -5, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
         sv_animcmd.EFFECT_FOLLOW(0x11D711A531, 0x0D4ED9C5CC, 0, 0, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(38)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x112372AC49, 0x0DA0D7A4E0, 40, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 2, 5, 0, 1, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x112372AC49, 0x0DA0D7A4E0, 40, 0, 0, 0, 0, -90, 2, 5, 0, 1, 0, 0, 0, true)
     end
     sv_animcmd.wait(2)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x112372AC49, 0x0DA0D7A4E0, 40, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 2, 5, 0, 1, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x112372AC49, 0x0DA0D7A4E0, 40, 0, 0, 0, 0, -90, 2, 5, 0, 1, 0, 0, 0, true)
     end
     sv_animcmd.wait(2)
     while true do
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_ATTR(0x155632E20B, 0x0DD7D09476, 0, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 1.5, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
-            sv_animcmd.EFFECT(0x112372AC49, 0x0DA0D7A4E0, 40, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 2, 5, 0, 1, 0, 0, 0, true)
+            sv_animcmd.EFFECT_ATTR(0x155632E20B, 0x0DD7D09476, 0, 0, 0, 0, 0, -90, 1.5, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
+            sv_animcmd.EFFECT(0x112372AC49, 0x0DA0D7A4E0, 40, 0, 0, 0, 0, -90, 2, 5, 0, 1, 0, 0, 0, true)
         end
         sv_animcmd.wait(1)
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_ATTR(0x155632E20B, 0x0D4ED9C5CC, 0, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 1.5, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
+            sv_animcmd.EFFECT_ATTR(0x155632E20B, 0x0D4ED9C5CC, 0, 0, 0, 0, 0, -90, 1.5, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
         end
         sv_animcmd.wait(1)
     end
@@ -43,7 +43,7 @@ effect_PierceLoop = function ()
     for f2_local0 = 1, 8, 1 do
         local f2_local1 = f2_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0B3472CA0C, 0x0DA0D7A4E0, 40, 0, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 1.2000000476837158, 5, 0, 1, 0, 0, 0, true)
+            sv_animcmd.EFFECT(0x0B3472CA0C, 0x0DA0D7A4E0, 40, 0, 0, 0, 0, -90, 1.2000000476837158, 5, 0, 1, 0, 0, 0, true)
         end
         sv_animcmd.wait(2)
     end

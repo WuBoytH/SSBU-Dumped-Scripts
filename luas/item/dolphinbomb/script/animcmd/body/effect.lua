@@ -10,7 +10,7 @@
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0A606F236A, 0x031ED91FCA, 0, 0xFFFFFFFFFFFFFFF9, 0, 0, 0, 0, 1.600000023841858, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x0A606F236A, 0x031ED91FCA, 0, -7, 0, 0, 0, 0, 1.600000023841858, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 5, 0.800000011920929, 0.3499999940395355, 0, 0, 0, 0, 1, 1.2000000476837158, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
     sv_animcmd.wait(12)
@@ -22,7 +22,7 @@ end
 
 effect_Installation = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x155698D59F, 0x06B66091F2, 0, 0xFFFFFFFFFFFFFFFE, 0, 0, 90, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW(0x155698D59F, 0x06B66091F2, 0, -2, 0, 0, 90, 0, 1, true)
     end
     return 
 end

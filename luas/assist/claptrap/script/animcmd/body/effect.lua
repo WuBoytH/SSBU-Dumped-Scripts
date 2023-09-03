@@ -32,10 +32,10 @@ effect_Turn = function ()
     end
     if f2_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0FE5950916, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+            sv_animcmd.EFFECT(0x0FE5950916, 0x031ED91FCA, 0, 0, -8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0F1F9A3475, 0x031ED91FCA, 0, 0, 0xFFFFFFFFFFFFFFF8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0F1F9A3475, 0x031ED91FCA, 0, 0, -8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end
@@ -73,7 +73,7 @@ effect_BiteFinish = function ()
     end
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0FCB698218, 0x1060702106, 0, 0xFFFFFFFFFFFFFFEC, 15, 0, 0, 0, 1.899999976158142, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0FCB698218, 0x1060702106, 0, -20, 15, 0, 0, 0, 1.899999976158142, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end

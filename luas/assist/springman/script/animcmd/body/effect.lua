@@ -95,7 +95,7 @@ effect_AttackPunch1RMain = function ()
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0E0758B34C, 0x058CD38C75, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 0.800000011920929, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0E0758B34C, 0x058CD38C75, -5, 0, 0, 0, -90, 0, 0.800000011920929, true)
     end
     return 
 end
@@ -115,7 +115,7 @@ effect_AttackPunch1RAirMain = function ()
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0E0758B34C, 0x058CD38C75, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 0.800000011920929, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0E0758B34C, 0x058CD38C75, -5, 0, 0, 0, -90, 0, 0.800000011920929, true)
     end
     return 
 end
@@ -143,7 +143,7 @@ effect_AttackPunch1LMain = function ()
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0E0758B34C, 0x0576DCB116, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 0.800000011920929, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0E0758B34C, 0x0576DCB116, -5, 0, 0, 0, -90, 0, 0.800000011920929, true)
     end
     return 
 end
@@ -163,7 +163,7 @@ effect_AttackPunch1LAirMain = function ()
     end
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0E0758B34C, 0x0576DCB116, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0xFFFFFFFFFFFFFFA6, 0, 0.800000011920929, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0E0758B34C, 0x0576DCB116, -5, 0, 0, 0, -90, 0, 0.800000011920929, true)
     end
     return 
 end
@@ -184,7 +184,7 @@ effect_AttackRushStart = function ()
     end
     sv_animcmd.frame(8)
     if sv_animcmd.is_excute() then
-        sv_animcmd.LANDING_EFFECT(0x0EB968E28A, 0x031ED91FCA, 3, 0, 0xFFFFFFFFFFFFFFFB, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.LANDING_EFFECT(0x0EB968E28A, 0x031ED91FCA, 3, 0, -5, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
     end
     local f18_local0
     if sv_animcmd:get_value_float(SO_VAR_FLOAT_LR) >= 0 then
@@ -194,10 +194,10 @@ effect_AttackRushStart = function ()
     end
     if f18_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x136D390048, 0x031ED91FCA, 10, 15, 0, 0, 0xFFFFFFFFFFFFFFD8, 180, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x136D390048, 0x031ED91FCA, 10, 15, 0, 0, -40, 180, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x136D390048, 0x031ED91FCA, 10, 15, 0, 0, 0xFFFFFFFFFFFFFFD8, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x136D390048, 0x031ED91FCA, 10, 15, 0, 0, -40, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -242,7 +242,7 @@ effect_AttackRushEnd = function ()
     end
     sv_animcmd.frame(21)
     if sv_animcmd.is_excute() then
-        sv_animcmd.LANDING_EFFECT(0x0D0679B24D, 0x031ED91FCA, 0xFFFFFFFFFFFFFFFE, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.LANDING_EFFECT(0x0D0679B24D, 0x031ED91FCA, -2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(22)
     if sv_animcmd.is_excute() then
@@ -279,10 +279,10 @@ effect_AttackRushAirStart = function ()
     end
     if f21_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x136D390048, 0x031ED91FCA, 10, 15, 0, 0, 0xFFFFFFFFFFFFFFD8, 180, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+            sv_animcmd.EFFECT(0x136D390048, 0x031ED91FCA, 10, 15, 0, 0, -40, 180, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x136D390048, 0x031ED91FCA, 10, 15, 0, 0, 0xFFFFFFFFFFFFFFD8, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.EFFECT(0x136D390048, 0x031ED91FCA, 10, 15, 0, 0, -40, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -384,8 +384,8 @@ effect_Guard = function ()
             sv_animcmd.EFFECT_FOLLOW(0x1402926027, 0x031ED91FCA, 0, 10, 5, 0, 30, 0, 0.30000001192092896, true)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x10F60E4F5A, 0x031ED91FCA, 0, 10, 5, 0, 0xFFFFFFFFFFFFFFE2, 0, 0.30000001192092896, true)
-        sv_animcmd.EFFECT_FOLLOW(0x1402926027, 0x031ED91FCA, 0, 10, 5, 0, 0xFFFFFFFFFFFFFFE2, 0, 0.30000001192092896, true)
+        sv_animcmd.EFFECT_FOLLOW(0x10F60E4F5A, 0x031ED91FCA, 0, 10, 5, 0, -30, 0, 0.30000001192092896, true)
+        sv_animcmd.EFFECT_FOLLOW(0x1402926027, 0x031ED91FCA, 0, 10, 5, 0, -30, 0, 0.30000001192092896, true)
     end
     return 
 end

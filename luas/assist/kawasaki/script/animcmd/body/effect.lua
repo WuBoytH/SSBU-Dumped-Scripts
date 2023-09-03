@@ -43,7 +43,7 @@ effect_Run = function ()
     end
     sv_animcmd.frame(44)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 4, 0, 0xFFFFFFFFFFFFFFFC, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 4, 0, -4, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.wait_loop_sync_mot()
     return effect_Run()
@@ -52,7 +52,7 @@ end
 effect_Swing = function ()
     sv_animcmd.frame(46)
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x1383A973C7, 0x03FD3B2E70, 0, 0xFFFFFFFFFFFFFFEE, 0, 0xFFFFFFFFFFFFFFA6, 0, 0, 1, true)
+        sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x1383A973C7, 0x03FD3B2E70, 0, -18, 0, -90, 0, 0, 1, true)
     end
     sv_animcmd.frame(74)
     local f5_local0
@@ -63,10 +63,10 @@ effect_Swing = function ()
     end
     if f5_local0 == nil then
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT(0x0E646E79BA, 0x031ED91FCA, 0, 3, 7, 0, 0xFFFFFFFFFFFFFF65, 0xFFFFFFFFFFFFFFA6, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
+            sv_animcmd.EFFECT(0x0E646E79BA, 0x031ED91FCA, 0, 3, 7, 0, -155, -90, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
         end
     elseif sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT(0x0E646E79BA, 0x031ED91FCA, 0, 3, 7, 0, 0xFFFFFFFFFFFFFF65, 0xFFFFFFFFFFFFFFA6, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
+        sv_animcmd.EFFECT(0x0E646E79BA, 0x031ED91FCA, 0, 3, 7, 0, -155, -90, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
     return 
 end

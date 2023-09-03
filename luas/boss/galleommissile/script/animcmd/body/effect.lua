@@ -10,7 +10,7 @@
 
 effect_MissileFly = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x122969C9E8, 0x031D39A761, 0, 0, 0xFFFFFFFFFFFFFFF8, 0, 0, 0, 1.100000023841858, true)
+        sv_animcmd.EFFECT_FOLLOW(0x122969C9E8, 0x031D39A761, 0, 0, -8, 0, 0, 0, 1.100000023841858, true)
     end
     return 
 end
@@ -25,7 +25,7 @@ end
 
 effect_ShootFly = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_FOLLOW(0x14C1E9597B, 0x031D39A761, 0, 0, 0xFFFFFFFFFFFFFFF8, 0, 0, 0, 1.100000023841858, true)
+        sv_animcmd.EFFECT_FOLLOW(0x14C1E9597B, 0x031D39A761, 0, 0, -8, 0, 0, 0, 1.100000023841858, true)
     end
     return 
 end

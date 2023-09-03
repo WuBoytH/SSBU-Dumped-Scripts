@@ -93,7 +93,7 @@ effect_StaffCombo = function ()
     sv_animcmd.frame(31)
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE4_ON_arg29(0x104F397771, 0x10D63026CB, 8, 0x066933A7E6, 5, 0, 0, 0x08C08CFEF9, -9.999999747378752E-06, -1.9999999494757503E-05, 3, true, 0x0425CBFC4F, 0x066933A7E6, 0, 0, 0, 0, 0, 0, 1, 0, EFFECT_AXIS_X, 0, TRAIL_BLEND_ALPHA, 101, TRAIL_CULL_NONE, 1.399999976158142, 0.10000000149011612)
-        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, 3, 0, 0xFFFFFFFFFFFFFFFC, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0D0679B24D, 0x031ED91FCA, 3, 0, -4, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.frame(37)
     if sv_animcmd.is_excute() then
@@ -138,7 +138,7 @@ effect_IceBrast = function ()
     for f8_local0 = 1, 10, 1 do
         local f8_local1 = f8_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x150A4F20F6, 0x08C08CFEF9, 0, 0, 0xFFFFFFFFFFFFFFFF, 0, 0, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x150A4F20F6, 0x08C08CFEF9, 0, 0, -1, 0, 0, 0, 1, true)
         end
         sv_animcmd.wait(6)
     end
@@ -148,7 +148,7 @@ end
 effect_IceBrastStart = function ()
     sv_animcmd.frame(16)
     if sv_animcmd.is_excute() then
-        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 4, 0, 0xFFFFFFFFFFFFFFFD, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
+        sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 4, 0, -3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     return 
 end
@@ -161,7 +161,7 @@ effect_IceBrastAir = function ()
     for f10_local0 = 1, 8, 1 do
         local f10_local1 = f10_local0
         if sv_animcmd.is_excute() then
-            sv_animcmd.EFFECT_FOLLOW(0x150A4F20F6, 0x08C08CFEF9, 0, 0, 0xFFFFFFFFFFFFFFFF, 0, 0, 0, 1, true)
+            sv_animcmd.EFFECT_FOLLOW(0x150A4F20F6, 0x08C08CFEF9, 0, 0, -1, 0, 0, 0, 1, true)
         end
         sv_animcmd.wait(6)
     end

@@ -73,7 +73,7 @@ end
 
 effect_End = function ()
     if sv_animcmd.is_excute() then
-        sv_animcmd.EFFECT_DETACH_KIND(0x10ED8E7302, 0xFFFFFFFFFFFFFFFF)
+        sv_animcmd.EFFECT_DETACH_KIND(0x10ED8E7302, -1)
         sv_animcmd.EFFECT(0x0FAF4B690A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT_FOLLOW(0x12C620F2FD, 0x06B2DB21FF, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x12C620F2FD, 0x062BD27045, 0, 0, 0, 0, 0, 0, 1, true)
