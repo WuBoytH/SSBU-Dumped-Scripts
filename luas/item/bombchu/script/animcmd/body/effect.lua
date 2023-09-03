@@ -5,7 +5,6 @@
 -- 13402447818  -> 0x031ED91FCA  -> top
 -- 45338411590  -> 0x0A8E614246  -> sys_bomb_a
 
-Warning. Function 1 using already codegened block basicblock_11.
 effect_GroundTrace = function ()
     for f1_local0 = 1, 2, 1 do
         local f1_local1 = f1_local0

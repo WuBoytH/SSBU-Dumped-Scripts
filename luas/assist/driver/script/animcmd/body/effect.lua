@@ -20,8 +20,6 @@
 -- 57024446621  -> 0x0D46EC009D  -> sys_v_smoke_a
 -- 40410924807  -> 0x0968ADC707  -> bus_front
 
-Warning. Function 5 using already codegened block basicblock_3.
-Warning. Function 6 using already codegened block basicblock_3.
 effect_AppearLanding = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031D39A761, 10, -3.5, -16, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)

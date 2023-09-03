@@ -37,8 +37,6 @@
 -- 70718366736  -> 0x107724A410  -> lioleusboss_dead
 -- 92233185208  -> 0x157986B7B8  -> lioleusboss_down_dead
 
-Warning. Function 5 using already codegened block basicblock_3.
-Warning. Function 8 using already codegened block basicblock_3.
 effect_Entry = function ()
     sv_animcmd.frame(260)
     if sv_animcmd.is_excute() then

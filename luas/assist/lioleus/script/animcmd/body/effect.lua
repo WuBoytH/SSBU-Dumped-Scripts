@@ -21,7 +21,6 @@
 -- 52519010824  -> 0x0C3A608208  -> lioleus_dead
 -- 61700144855  -> 0x0E5D9D7ED7  -> sys_assist_out
 
-Warning. Function 11 using already codegened block basicblock_3.
 effect_Entry = function ()
     sv_animcmd.frame(140)
     if sv_animcmd.is_excute() then

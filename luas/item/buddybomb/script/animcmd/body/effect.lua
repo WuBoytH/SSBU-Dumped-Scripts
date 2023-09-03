@@ -6,7 +6,6 @@
 -- 45338411590  -> 0x0A8E614246  -> sys_bomb_a
 -- 43342369788  -> 0x0A176813FC  -> sys_bomb_b
 
-Warning. Function 3 using already codegened block basicblock_8.
 effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x094C6A9AD8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)

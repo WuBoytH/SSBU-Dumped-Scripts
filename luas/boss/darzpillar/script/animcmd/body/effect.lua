@@ -8,7 +8,6 @@
 -- 87489578723  -> 0x145EC906E3  -> darz_dark_pillar_end
 -- 103238699677 -> 0x1809818A9D  -> darz_dark_pillar_prepare
 
-Warning. Function 1 using already codegened block basicblock_3.
 effect_Shoot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_M, CAMERA_QUAKE_KIND_S)

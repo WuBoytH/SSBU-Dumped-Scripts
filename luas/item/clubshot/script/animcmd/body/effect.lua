@@ -6,7 +6,6 @@
 -- 69086036065  -> 0x1015D94061  -> sys_club_tornado
 -- 110219493777 -> 0x19A9980191  -> sys_club_tornado_runsmoke
 
-Warning. Function 1 using already codegened block basicblock_3.
 effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1754FE6E09, 0x031ED91FCA, 0, -2, 0, 15, 0, 0, 1.2999999523162842, false)

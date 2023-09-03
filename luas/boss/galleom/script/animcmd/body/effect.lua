@@ -83,9 +83,6 @@
 -- 51851794440  -> 0x0C129B9808  -> galleom_hold
 -- 88495170798  -> 0x149AB924EE  -> galleom_throw_impact
 
-Warning. Function 25 using already codegened block basicblock_3.
-Warning. Function 27 using already codegened block basicblock_3.
-Warning. Function 28 using already codegened block basicblock_3.
 effect_Entry = function ()
     sv_animcmd.frame(13)
     if sv_animcmd.is_excute() then

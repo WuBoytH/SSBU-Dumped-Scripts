@@ -11,7 +11,6 @@
 -- 70251757956  -> 0x105B54C184  -> motherbrain_bomb
 -- 45338411590  -> 0x0A8E614246  -> sys_bomb_a
 
-Warning. Function 5 using already codegened block basicblock_3.
 effect_Hide = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FA06BB067, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)

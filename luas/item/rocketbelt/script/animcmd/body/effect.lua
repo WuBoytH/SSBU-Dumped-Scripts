@@ -9,7 +9,6 @@
 -- 89683470255  -> 0x14E18D27AF  -> sys_rocketbelt_smoke
 -- 110014543947 -> 0x199D60B84B  -> sys_rocketbelt_smoke_loop
 
-Warning. Function 7 using already codegened block basicblock_3.
 effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_DETACH_KIND(0x12589A5008, -1)

@@ -6,7 +6,6 @@
 -- 45338411590  -> 0x0A8E614246  -> sys_bomb_a
 -- 106585275805 -> 0x18D0FA3D9D  -> koopajr_mekakoopa_zenmai
 
-Warning. Function 1 using already codegened block basicblock_3.
 effect_Flash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x17D9457FCB, 0x031ED91FCA, 0, 3, 0, 0, 0, 0, 1, false)

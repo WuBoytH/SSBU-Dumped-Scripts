@@ -22,8 +22,6 @@
 -- 66962591666  -> 0x0F97480FB2  -> sys_jump_aerial
 -- 73544663182  -> 0x111F9A808E  -> sys_falling_smoke
 
-Warning. Function 1 using already codegened block basicblock_9.
-Warning. Function 3 using already codegened block basicblock_9.
 effect_Hold = function ()
     local f1_local0
     if sv_animcmd.get_value_float(SO_VAR_FLOAT_LR) >= 0 then
