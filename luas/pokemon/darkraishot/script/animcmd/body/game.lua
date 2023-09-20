@@ -10,7 +10,7 @@ game_Appear = function ()
         local f1_local0, f1_local1, f1_local2 = nil
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 10, 0, 0, 0, f1_local0, f1_local1, f1_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_SPEED, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, COLLISION_PART_MASK_ALL, false, 0x149CDC52BB, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_AttackGround = function ()
@@ -112,11 +112,11 @@ game_AttackGround = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackAir = function ()
-    return game_AttackGround()
+    returngame_AttackGround()
 end
 
 return

@@ -14,7 +14,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 0, 361, 0, 0, 50, 3, 0, 0, 0, f1_local0, f1_local1, f1_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_SPEED, false, 0, 0, 0, true, false, false, false, false, COLLISION_SITUATION_MASK_A, COLLISION_CATEGORY_MASK_NO_STAGE, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 game_SpecialLwThrow = function ()
@@ -24,7 +24,7 @@ game_SpecialLwThrow = function ()
         f2_local0, f2_local1, f2_local2 = nil
         sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 0, 361, 0, 0, 50, 3, 0, 0, 0, f2_local0, f2_local1, f2_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_SPEED, false, 0, 0, 0, true, false, false, false, false, COLLISION_SITUATION_MASK_A, COLLISION_CATEGORY_MASK_NO_STAGE, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_SetSlipCallback = function ()
@@ -34,7 +34,7 @@ game_SetSlipCallback = function ()
         f3_local0, f3_local1, f3_local2 = nil
         sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 0, 361, 0, 0, 50, 3, 0, -3, 0, f3_local0, f3_local1, f3_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0x0267AA281F, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_G, COLLISION_CATEGORY_MASK_NO_IFGS, COLLISION_PART_MASK_ALL, false, 0x131B56C975, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 return

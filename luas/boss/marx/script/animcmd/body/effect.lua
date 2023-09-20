@@ -53,7 +53,7 @@ effect_CancelScreenEffect = function ()
         sv_animcmd.CANCEL_FILL_SCREEN(0, 30)
         sv_animcmd.CANCEL_FILL_SCREEN(1, 30)
     end
-    return 
+    return
 end
 
 effect_ReqFollowWing = function ()
@@ -61,7 +61,7 @@ effect_ReqFollowWing = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0B2DD3D9EE, 0x08E0443BD5, 0, 0, 0, 0, 0, 0, 1, false)
         sv_animcmd.EFFECT_FOLLOW(0x0BD7DCE48D, 0x081A4B06B6, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_ReqFollowWingFlip = function ()
@@ -69,7 +69,7 @@ effect_ReqFollowWingFlip = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0B2DD3D9EE, 0x081A4B06B6, 0, 0, 0, 0, 0, 0, 1, false)
         sv_animcmd.EFFECT_FOLLOW(0x0BD7DCE48D, 0x08E0443BD5, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_OffWing = function ()
@@ -77,7 +77,7 @@ effect_OffWing = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x0B2DD3D9EE, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x0BD7DCE48D, false, true)
     end
-    return 
+    return
 end
 
 effect_ReqFollowWingDead = function ()
@@ -85,7 +85,7 @@ effect_ReqFollowWingDead = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0EF953025E, 0x081A4B06B6, 0, 0, 0, 0, 0, 0, 1, false)
         sv_animcmd.EFFECT_FOLLOW(0x0EF953025E, 0x08E0443BD5, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Entry = function ()
@@ -134,12 +134,12 @@ effect_Entry = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0AADA2AABF, false, true)
     end
-    return 
+    return
 end
 
 effect_EntryLsize = function ()
     effect_Entry()
-    return 
+    return
 end
 
 effect_TeleportStart = function ()
@@ -160,7 +160,7 @@ effect_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FLASH_FRM(6, 1.2999999523162842, 0.8999999761581421, 1, 0.8999999761581421)
     end
-    return 
+    return
 end
 
 effect_TeleportEndRepeat = function ()
@@ -175,7 +175,7 @@ effect_TeleportEndRepeat = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.FLASH_FRM(5, 0, 0, 0, 0)
     end
-    return 
+    return
 end
 
 effect_TeleportEnd = function ()
@@ -190,7 +190,7 @@ effect_TeleportEnd = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.FLASH_FRM(5, 0, 0, 0, 0)
     end
-    return 
+    return
 end
 
 effect_FourCutter = function ()
@@ -201,7 +201,7 @@ effect_FourCutter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_FlyOutHoming = function ()
@@ -209,7 +209,7 @@ effect_FlyOutHoming = function ()
         sv_animcmd.EFFECT_FOLLOW(0x12FB22AF40, 0x031ED91FCA, 0, 0.20000000298023224, 0, 0, 0, 0, 0.5, false)
     end
     effect_OffWing()
-    return 
+    return
 end
 
 effect_FlyOutSign = function ()
@@ -220,7 +220,7 @@ effect_FlyOutSign = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x12FB22AF40, false, true)
     end
-    return 
+    return
 end
 
 effect_FlyOut = function ()
@@ -252,7 +252,7 @@ effect_FlyOut = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x10CC7BAF36, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x144C1408A0, false, true)
     end
-    return 
+    return
 end
 
 effect_ThickLaserStart = function ()
@@ -268,7 +268,7 @@ effect_ThickLaserStart = function ()
     else
         effect_ReqFollowWing()
     end
-    return 
+    return
 end
 
 effect_ThickLaserLoop = function ()
@@ -296,7 +296,7 @@ effect_ThickLaserLoop = function ()
         end
         sv_animcmd.wait(19)
     end
-    return 
+    return
 end
 
 effect_ThickLaserShootSign = function ()
@@ -319,7 +319,7 @@ effect_ThickLaserShootSign = function ()
         sv_animcmd.EFFECT(0x17CCB0A9AD, 0x031D39A761, 0, 20, 20, 0, 0, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
-    return 
+    return
 end
 
 effect_ThickLaserEnd = function ()
@@ -408,7 +408,7 @@ effect_ThickLaserEnd = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0E31183444, 0x031ED91FCA, -10, 15, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_ThickLaserEndGround = function ()
@@ -426,7 +426,7 @@ effect_ThickLaserEndGround = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x11FCD682C4, 0x031ED91FCA, -25, -13, 0, 0, 0, 0, 1.75, true)
     end
-    return 
+    return
 end
 
 effect_BlackHole = function ()
@@ -467,7 +467,7 @@ effect_BlackHole = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
     end
-    return 
+    return
 end
 
 effect_BlackHoleStart = function ()
@@ -488,7 +488,7 @@ effect_BlackHoleStart = function ()
         sv_animcmd.EFFECT(0x11F3B8717F, 0x059517D304, 0, 0, 0, 90, 90, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT_DETACH_KIND(0x11F3B8717F, -1)
     end
-    return 
+    return
 end
 
 effect_BlackHoleLoop = function ()
@@ -507,14 +507,14 @@ effect_BlackHoleLoop = function ()
         end
         sv_animcmd.wait(7)
     end
-    return 
+    return
 end
 
 effect_BlackHoleEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
     end
-    return 
+    return
 end
 
 effect_CapillaryLoop = function ()
@@ -530,7 +530,7 @@ effect_CapillaryLoop = function ()
         end
         sv_animcmd.wait(50)
     end
-    return 
+    return
 end
 
 effect_FacetEyeLaser = function ()
@@ -546,14 +546,14 @@ effect_FacetEyeLaser = function ()
         end
         sv_animcmd.wait(20)
     end
-    return 
+    return
 end
 
 effect_FacetEyeLaserEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
     end
-    return 
+    return
 end
 
 effect_Dead = function ()
@@ -617,7 +617,7 @@ effect_Dead = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LAST_EFFECT_SET_RATE(1.5)
     end
-    return 
+    return
 end
 
 effect_DeadReaction = function ()
@@ -781,7 +781,7 @@ effect_DeadReaction = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x118F76DC88, false, true)
     end
-    return 
+    return
 end
 
 return

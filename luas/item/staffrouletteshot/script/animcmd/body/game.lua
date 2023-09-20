@@ -12,7 +12,7 @@ game_Throw = function ()
         AttackModule.disable_tip()
         AttackModule.set_no_comp_damage_motion(0, true)
     end
-    return 
+    return
 end
 
 return

@@ -17,7 +17,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Jump = function ()
@@ -25,7 +25,7 @@ effect_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E6B8D30F4, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, true)
     end
-    return 
+    return
 end
 
 effect_JumpAir = function ()
@@ -33,7 +33,7 @@ effect_JumpAir = function ()
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Run = function ()
@@ -46,7 +46,7 @@ effect_Run = function ()
         sv_animcmd.FOOT_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 4, 0, -4, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.wait_loop_sync_mot()
-    return effect_Run()
+    returneffect_Run()
 end
 
 effect_Swing = function ()
@@ -68,7 +68,7 @@ effect_Swing = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0E646E79BA, 0x031ED91FCA, 0, 3, 7, 0, -155, -90, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_CookMain = function ()
@@ -106,7 +106,7 @@ effect_CookMain = function ()
         end
         sv_animcmd.wait(80)
     end
-    return 
+    return
 end
 
 return

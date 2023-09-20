@@ -9,21 +9,21 @@ sound_Lost = function ()
         sv_animcmd.STOP_SE(0x1EDA320C5A)
         sv_animcmd.PLAY_SE(0x1FC829C47A)
     end
-    return 
+    return
 end
 
 sound_AttackGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1EDA320C5A)
     end
-    return 
+    return
 end
 
 sound_AttackAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1EDA320C5A)
     end
-    return 
+    return
 end
 
 return

@@ -9,7 +9,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, WorkModule.get_float(ITEM_REVENGESHOOTERSHOT_INSTANCE_WORK_FLOAT_ATTACK_POWER), 55, 95, 0, 30, WorkModule.get_float(ITEM_REVENGESHOOTERSHOT_INSTANCE_WORK_FLOAT_ATTACK_SIZE), 0, 0, -1, 0x15A2C502B3, 0, 0.699999988079071, 1, true, false, -3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, true, true, 16, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 return

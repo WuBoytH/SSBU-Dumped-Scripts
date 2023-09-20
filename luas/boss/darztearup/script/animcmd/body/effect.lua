@@ -11,7 +11,7 @@ effect_Appear1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0B9434A370, 0x031ED91FCA, 0, 0, -10, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Appear2 = function ()
@@ -19,7 +19,7 @@ effect_Appear2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0B9434A370, 0x031ED91FCA, 0, 0, -10, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Appear3 = function ()
@@ -27,7 +27,7 @@ effect_Appear3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0B9434A370, 0x031ED91FCA, 0, 0, -10, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_AppearAnger = function ()
@@ -44,7 +44,7 @@ effect_AppearAnger = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(0, 90)
     end
-    return 
+    return
 end
 
 return

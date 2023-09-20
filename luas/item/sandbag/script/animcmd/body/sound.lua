@@ -13,28 +13,28 @@ sound_Appear = function ()
         WorkModule.set_int64(0x1317714CF5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
         sv_animcmd.IT_SET_SE_arg2(0x17B3EA586A, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 sound_DamageAir1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageAir2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageAir3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15AD74DA1E)
     end
-    return 
+    return
 end
 
 sound_DamageHi1 = function ()
@@ -42,7 +42,7 @@ sound_DamageHi1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageHi2 = function ()
@@ -50,7 +50,7 @@ sound_DamageHi2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageHi3 = function ()
@@ -58,7 +58,7 @@ sound_DamageHi3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15AD74DA1E)
     end
-    return 
+    return
 end
 
 sound_DamageN1 = function ()
@@ -66,7 +66,7 @@ sound_DamageN1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageN2 = function ()
@@ -74,7 +74,7 @@ sound_DamageN2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageN3 = function ()
@@ -82,7 +82,7 @@ sound_DamageN3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15AD74DA1E)
     end
-    return 
+    return
 end
 
 sound_DamageLw1 = function ()
@@ -90,7 +90,7 @@ sound_DamageLw1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageLw2 = function ()
@@ -98,7 +98,7 @@ sound_DamageLw2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageLw3 = function ()
@@ -106,7 +106,7 @@ sound_DamageLw3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15AD74DA1E)
     end
-    return 
+    return
 end
 
 sound_DownBoundD = function ()
@@ -121,7 +121,7 @@ sound_DownBoundD = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DownBoundU = function ()
@@ -136,7 +136,7 @@ sound_DownBoundU = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DownDamageD = function ()
@@ -144,7 +144,7 @@ sound_DownDamageD = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DownDamageU = function ()
@@ -152,7 +152,7 @@ sound_DownDamageU = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DownStandD = function ()
@@ -160,7 +160,7 @@ sound_DownStandD = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17B3EA586A)
     end
-    return 
+    return
 end
 
 sound_DownStandU = function ()
@@ -168,7 +168,7 @@ sound_DownStandU = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17B3EA586A)
     end
-    return 
+    return
 end
 
 sound_StopCeil = function ()
@@ -176,7 +176,7 @@ sound_StopCeil = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17B3EA586A)
     end
-    return 
+    return
 end
 
 sound_WallDamage = function ()
@@ -184,14 +184,14 @@ sound_WallDamage = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17B3EA586A)
     end
-    return 
+    return
 end
 
 sound_BornItemSound = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x14684A7B3C)
     end
-    return 
+    return
 end
 
 return

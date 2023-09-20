@@ -13,7 +13,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
@@ -24,7 +24,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1655669ADF)
     end
-    return 
+    return
 end
 
 sound_RocketSet = function ()
@@ -64,7 +64,7 @@ sound_RocketSet = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x13FB578407)
     end
-    return 
+    return
 end
 
 sound_Finish = function ()
@@ -80,7 +80,7 @@ sound_Finish = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x13FB578407)
     end
-    return 
+    return
 end
 
 return

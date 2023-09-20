@@ -44,7 +44,7 @@ game_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
-    return 
+    return
 end
 
 game_Have = function ()
@@ -55,7 +55,7 @@ game_Have = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

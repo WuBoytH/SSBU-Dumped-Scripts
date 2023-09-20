@@ -39,7 +39,7 @@ game_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SLOW_WHOLE_CLR()
     end
-    return 
+    return
 end
 
 return

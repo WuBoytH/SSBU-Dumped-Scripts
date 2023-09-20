@@ -15,7 +15,7 @@ game_Exit2 = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_EXIT_FLIP_OFF)
     end
-    return 
+    return
 end
 
 game_Jump = function ()
@@ -35,7 +35,7 @@ game_Jump = function ()
         end
         sv_animcmd.wait(3)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -54,7 +54,7 @@ game_JumpAir = function ()
         end
         sv_animcmd.wait(3)
     end
-    return 
+    return
 end
 
 game_PunchCombo = function ()
@@ -106,7 +106,7 @@ game_PunchCombo = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_PunchCombo2 = function ()
@@ -158,7 +158,7 @@ game_PunchCombo2 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_JumpingOutUpper = function ()
@@ -203,7 +203,7 @@ game_JumpingOutUpper = function ()
         AttackModule.clear_all()
         HitModule.set_status_all(HIT_STATUS_NORMAL)
     end
-    return 
+    return
 end
 
 game_JumpingOutUpper2 = function ()
@@ -248,7 +248,7 @@ game_JumpingOutUpper2 = function ()
         AttackModule.clear_all()
         HitModule.set_status_all(HIT_STATUS_NORMAL)
     end
-    return 
+    return
 end
 
 game_SpinAttackSpin = function ()
@@ -257,7 +257,7 @@ game_SpinAttackSpin = function ()
         sv_animcmd.SEARCH(0, 0, 0x031ED91FCA, 75, 0, 10, 10, 0, 0, 0, COLLISION_KIND_MASK_HIT, HIT_STATUS_MASK_NORMAL, 1, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_FEB, COLLISION_PART_MASK_BODY_HEAD, false)
         MotionModule.set_rate(50)
     end
-    return 
+    return
 end
 
 game_SpinAttackHomingStart = function ()
@@ -265,7 +265,7 @@ game_SpinAttackHomingStart = function ()
         WorkModule.on_flag(ITEM_KNUCKLES_INSTANCE_WORK_FLAG_CHANGE_SPHERE)
         MotionModule.set_rate(80)
     end
-    return 
+    return
 end
 
 game_SpinAttackHoming = function ()
@@ -276,7 +276,7 @@ game_SpinAttackHoming = function ()
         f10_local0, f10_local1, f10_local2 = nil
         sv_animcmd.ATTACK(1, 0, 0x0655F96687, 18, 55, 60, 0, 70, 3, 0, 0, 0, f10_local0, f10_local1, f10_local2, 1.100000023841858, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_SPEED, false, 0, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_BODY)
     end
-    return 
+    return
 end
 
 game_SpinAttackHit = function ()
@@ -295,7 +295,7 @@ game_SpinAttackHit = function ()
         end
         sv_animcmd.wait(3)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -303,7 +303,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 return

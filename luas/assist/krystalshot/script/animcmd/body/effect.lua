@@ -23,7 +23,7 @@ effect_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2000000476837158)
     end
-    return 
+    return
 end
 
 return

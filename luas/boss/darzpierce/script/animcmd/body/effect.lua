@@ -47,7 +47,7 @@ effect_PierceLoop = function ()
         end
         sv_animcmd.wait(2)
     end
-    return 
+    return
 end
 
 return

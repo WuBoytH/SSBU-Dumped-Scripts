@@ -41,56 +41,56 @@ effect_PreLost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FA06BB067, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_BreakSand = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x173AB8B81D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 effect_BreakCray = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1771BC8BE2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 effect_BreakIce = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x16B6D63E8F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 effect_BreakWool = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x17A884BB33, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 effect_BreaWood = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x17A65F3301, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 effect_BreakStone = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x18100C8B2B, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 effect_BreakIron = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x17E2B2CA90, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 return

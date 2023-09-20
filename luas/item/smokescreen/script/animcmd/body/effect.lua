@@ -9,7 +9,7 @@ effect_Smoke = function ()
         sv_animcmd.EFFECT_FLW_POS(0x0F3798C07B, 0x031ED91FCA, 0, 0, 0, 0, -90, 0, 1, false)
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1)
     end
-    return 
+    return
 end
 
 return

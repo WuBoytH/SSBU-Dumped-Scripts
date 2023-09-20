@@ -13,7 +13,7 @@ sound_Appear = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x19442301C1)
     end
-    return 
+    return
 end
 
 return

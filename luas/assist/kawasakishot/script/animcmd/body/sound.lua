@@ -7,7 +7,7 @@ sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1C47723492)
     end
-    return 
+    return
 end
 
 return

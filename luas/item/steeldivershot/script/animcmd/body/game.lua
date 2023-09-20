@@ -12,7 +12,7 @@ game_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH(0, 0, 0x031ED91FCA, 1, 0, 0, 0, 0, 0, 0, COLLISION_KIND_MASK_HSR, HIT_STATUS_MASK_NI, 1, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_NO_STAGE, COLLISION_PART_MASK_ALL, false)
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -24,7 +24,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

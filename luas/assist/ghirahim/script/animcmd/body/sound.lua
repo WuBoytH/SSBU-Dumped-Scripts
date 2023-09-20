@@ -21,7 +21,7 @@ sound_Appeal = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CB21E0EEF)
     end
-    return 
+    return
 end
 
 sound_Exit = function ()
@@ -29,7 +29,7 @@ sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1FA05A60D5)
     end
-    return 
+    return
 end
 
 sound_Fall = function ()
@@ -37,14 +37,14 @@ sound_Fall = function ()
         sv_animcmd.PLAY_SE(0x1C1D8A3BC4)
         sv_animcmd.SET_PLAY_INHIVIT(0x1C1D8A3BC4, 6000)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A9A9712E8)
     end
-    return 
+    return
 end
 
 sound_RunStart = function ()
@@ -52,7 +52,7 @@ sound_RunStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1F6D986981)
     end
-    return 
+    return
 end
 
 sound_CutDown = function ()
@@ -63,7 +63,7 @@ sound_CutDown = function ()
     if sv_animcmd.IS_RANDOM(2) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BACD6C81E)
     end
-    return 
+    return
 end
 
 sound_AirCutDown = function ()
@@ -74,7 +74,7 @@ sound_AirCutDown = function ()
     if sv_animcmd.IS_RANDOM(2) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BACD6C81E)
     end
-    return 
+    return
 end
 
 sound_AttackKnife = function ()
@@ -85,7 +85,7 @@ sound_AttackKnife = function ()
     if sv_animcmd.IS_RANDOM(2) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BF780E76C)
     end
-    return 
+    return
 end
 
 sound_AttackKnifeAir = function ()
@@ -96,14 +96,14 @@ sound_AttackKnifeAir = function ()
     if sv_animcmd.IS_RANDOM(2) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BF780E76C)
     end
-    return 
+    return
 end
 
 sound_DashCut = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1735C7F3AD)
     end
-    return 
+    return
 end
 
 sound_Snap = function ()
@@ -116,49 +116,49 @@ sound_Snap = function ()
         sv_animcmd.PLAY_SE(0x1B1BFEB5F0)
         sv_animcmd.PLAY_SE(0x1E9CD71455)
     end
-    return 
+    return
 end
 
 sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17091A28BB)
     end
-    return 
+    return
 end
 
 sound_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17091A28BB)
     end
-    return 
+    return
 end
 
 sound_JumpVertical = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17091A28BB)
     end
-    return 
+    return
 end
 
 sound_BackJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17091A28BB)
     end
-    return 
+    return
 end
 
 sound_DamageFly = function ()
     if sv_animcmd.IS_RANDOM(2) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C6034119A)
     end
-    return 
+    return
 end
 
 sound_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17091A28BB)
     end
-    return 
+    return
 end
 
 return

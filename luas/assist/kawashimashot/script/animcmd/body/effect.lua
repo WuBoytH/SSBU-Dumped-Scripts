@@ -10,7 +10,7 @@ effect_Unit01 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x09D58CB98F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Unit02 = function ()
@@ -28,7 +28,7 @@ effect_Unit02 = function ()
         end
         sv_animcmd.wait(2)
     end
-    return 
+    return
 end
 
 effect_BigBomb = function ()
@@ -44,7 +44,7 @@ effect_BigBomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 30)
     end
-    return 
+    return
 end
 
 return

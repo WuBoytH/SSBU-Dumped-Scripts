@@ -9,14 +9,14 @@ sound_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x16AECE9DA1)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x19EB6293B7)
     end
-    return 
+    return
 end
 
 return

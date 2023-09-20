@@ -11,7 +11,7 @@ game_Shoot = function ()
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(0, 0, 0x031ED91FCA, 1, 2, 100, 100, 100, 40, 40, 0, 0, 8, 8, 0, 0, 0, 0x1569C518B1, 0, 0.5, 3, false, true, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 16, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 180, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.RUMBLE_ALL(0x143BACE7D3, 0)
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -31,7 +31,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

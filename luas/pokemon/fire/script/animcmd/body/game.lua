@@ -13,7 +13,7 @@ game_Appear = function ()
         sv_animcmd.ATTACK_FP(1, 0, 0x05EB263E0D, 40, 105, 40, 0, 30, 6.5, 6.400000095367432, 0, 0, 0x13BEB18342, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 80, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.ATTACK_FP(2, 0, 0x051129036E, 40, 75, 40, 0, 30, 6.5, 6.400000095367432, 0, 0, 0x13BEB18342, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 80, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_Up = function ()
@@ -22,7 +22,7 @@ game_Up = function ()
         sv_animcmd.ATTACK_FP(1, 0, 0x05EB263E0D, 40, 105, 40, 0, 30, 6.5, 6.400000095367432, 0, 0, 0x13BEB18342, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 80, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.ATTACK_FP(2, 0, 0x051129036E, 40, 75, 40, 0, 30, 6.5, 6.400000095367432, 0, 0, 0x13BEB18342, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 80, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 return

@@ -10,21 +10,21 @@ sound_Up = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1475232D14)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 sound_Set = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x13EE0E6148)
     end
-    return 
+    return
 end
 
 return

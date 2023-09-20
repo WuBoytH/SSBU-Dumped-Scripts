@@ -11,7 +11,7 @@ effect_Attack = function ()
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.800000011920929)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
-    return 
+    return
 end
 
 return

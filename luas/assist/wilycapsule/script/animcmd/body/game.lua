@@ -13,7 +13,7 @@ game_HomingShot = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_WILYCAPSULE_INSTANCE_WORK_FLAG_SHOT_START)
     end
-    return 
+    return
 end
 
 game_ThunderShot = function ()
@@ -21,7 +21,7 @@ game_ThunderShot = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_WILYCAPSULE_INSTANCE_WORK_FLAG_SHOT_START)
     end
-    return 
+    return
 end
 
 game_Rush = function ()
@@ -37,7 +37,7 @@ game_Rush = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_WILYCAPSULE_INSTANCE_WORK_FLAG_RUSH_BRAKE_START)
     end
-    return 
+    return
 end
 
 return

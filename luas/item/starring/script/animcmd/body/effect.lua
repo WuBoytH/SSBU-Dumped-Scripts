@@ -22,7 +22,7 @@ effect_FixedShoot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_UNSYNC_VIS(0x125600B46D, 0x031D39A761, 0, 0, 5, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 return

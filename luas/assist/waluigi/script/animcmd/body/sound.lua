@@ -20,7 +20,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 sound_Attack1 = function ()
@@ -32,7 +32,7 @@ sound_Attack1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18F055F0D1)
     end
-    return 
+    return
 end
 
 sound_Attack2 = function ()
@@ -44,7 +44,7 @@ sound_Attack2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1620ABD459)
     end
-    return 
+    return
 end
 
 sound_Jump = function ()
@@ -52,7 +52,7 @@ sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1699CD0D4A)
     end
-    return 
+    return
 end
 
 sound_LoudLaugh = function ()
@@ -60,7 +60,7 @@ sound_LoudLaugh = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A119A08C4)
     end
-    return 
+    return
 end
 
 sound_Run = function ()
@@ -72,7 +72,7 @@ sound_Run = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18FE62657F)
     end
-    return 
+    return
 end
 
 sound_RunTurn = function ()
@@ -80,7 +80,7 @@ sound_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x161E5E1E1B)
     end
-    return 
+    return
 end
 
 sound_StepAir = function ()
@@ -116,7 +116,7 @@ sound_StepAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CF2CE7E2B)
     end
-    return 
+    return
 end
 
 sound_StepGround = function ()
@@ -152,7 +152,7 @@ sound_StepGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CF2CE7E2B)
     end
-    return 
+    return
 end
 
 sound_EscapeJump = function ()
@@ -160,7 +160,7 @@ sound_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1699CD0D4A)
     end
-    return 
+    return
 end
 
 return

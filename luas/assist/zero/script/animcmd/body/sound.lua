@@ -28,7 +28,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x187C0F8B79)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
@@ -36,7 +36,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x16DB98E0EA)
     end
-    return 
+    return
 end
 
 sound_Jump = function ()
@@ -47,7 +47,7 @@ sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x130703D749)
     end
-    return 
+    return
 end
 
 sound_JumpAir = function ()
@@ -58,7 +58,7 @@ sound_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x130703D749)
     end
-    return 
+    return
 end
 
 sound_Turn = function ()
@@ -66,7 +66,7 @@ sound_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x138090C418)
     end
-    return 
+    return
 end
 
 sound_Run = function ()
@@ -89,7 +89,7 @@ sound_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x138090C418)
     end
-    return 
+    return
 end
 
 sound_DamageFly = function ()
@@ -104,7 +104,7 @@ sound_DamageFly = function ()
             sv_animcmd.PLAY_SEQUENCE(0x13E22E75C0)
         end
     end
-    return 
+    return
 end
 
 sound_EscapeJump = function ()
@@ -112,7 +112,7 @@ sound_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x130703D749)
     end
-    return 
+    return
 end
 
 sound_Attack3Slash = function ()
@@ -136,7 +136,7 @@ sound_Attack3Slash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19CF8FDEC8)
     end
-    return 
+    return
 end
 
 sound_AttackRyuuenjin = function ()
@@ -148,7 +148,7 @@ sound_AttackRyuuenjin = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x170213CCA2)
     end
-    return 
+    return
 end
 
 sound_AttackKuuenzan = function ()
@@ -160,7 +160,7 @@ sound_AttackKuuenzan = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x177514FC34)
     end
-    return 
+    return
 end
 
 sound_AttackGenmuzero = function ()
@@ -172,7 +172,7 @@ sound_AttackGenmuzero = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17EB706997)
     end
-    return 
+    return
 end
 
 sound_AttackGenmuzeroAir = function ()
@@ -184,42 +184,42 @@ sound_AttackGenmuzeroAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17EB706997)
     end
-    return 
+    return
 end
 
 sound_DashStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19C3DC2AEB)
     end
-    return 
+    return
 end
 
 sound_DashStartAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19C3DC2AEB)
     end
-    return 
+    return
 end
 
 sound_Dash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x133BDE0C5F)
     end
-    return 
+    return
 end
 
 sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B14CBD4E0)
     end
-    return 
+    return
 end
 
 sound_Exit2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B14CBD4E0)
     end
-    return 
+    return
 end
 
 return

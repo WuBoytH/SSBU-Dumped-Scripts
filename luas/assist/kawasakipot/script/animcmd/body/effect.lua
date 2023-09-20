@@ -12,14 +12,14 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x12BCC034DD, 0x031ED91FCA, 0, 10, 6, 0, 0, 0, 1.2999999523162842, true)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x12BCC034DD, 0x031ED91FCA, 0, 10, 6, 0, 0, 0, 1.2999999523162842, true)
     end
-    return 
+    return
 end
 
 effect_Catch = function ()
@@ -27,7 +27,7 @@ effect_Catch = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0F3E999DBF, 0x031ED91FCA, 0, 13.5, 0, 0, 0, 0, 1.399999976158142, true)
     end
-    return 
+    return
 end
 
 effect_Release = function ()
@@ -35,7 +35,7 @@ effect_Release = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x107331DA00, 0x031ED91FCA, 0, 24, 0, 0, 0, 0, 1.399999976158142, true)
     end
-    return 
+    return
 end
 
 effect_Cook = function ()
@@ -46,7 +46,7 @@ effect_Cook = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x133A5D23A7, 0x031ED91FCA, 0, 15, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_CookEnd = function ()
@@ -54,7 +54,7 @@ effect_CookEnd = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x0D0C79BC57, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x133A5D23A7, false, true)
     end
-    return 
+    return
 end
 
 return

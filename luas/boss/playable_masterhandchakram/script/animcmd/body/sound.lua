@@ -7,7 +7,7 @@ sound_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1E9B48B6C9)
     end
-    return 
+    return
 end
 
 return

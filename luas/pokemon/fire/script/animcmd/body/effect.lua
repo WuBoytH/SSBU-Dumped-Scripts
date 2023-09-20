@@ -29,7 +29,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0E0628C55E, 0x035DBFE258, -2.4000000953674316, 1, 0, 0, 90, -50, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x0E9063C016, 0x031ED91FCA, 0, 15, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Up = function ()
@@ -37,7 +37,7 @@ effect_Up = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 70)
     end
-    return 
+    return
 end
 
 return

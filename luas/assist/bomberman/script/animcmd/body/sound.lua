@@ -14,7 +14,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B08AB6975)
     end
-    return 
+    return
 end
 
 sound_Jump = function ()
@@ -22,7 +22,7 @@ sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18BAB64FE4)
     end
-    return 
+    return
 end
 
 sound_JumpAir = function ()
@@ -30,7 +30,7 @@ sound_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18BAB64FE4)
     end
-    return 
+    return
 end
 
 sound_Turn = function ()
@@ -38,7 +38,7 @@ sound_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x183D255CB5)
     end
-    return 
+    return
 end
 
 sound_Run = function ()
@@ -60,7 +60,7 @@ sound_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A3882FC44)
     end
-    return 
+    return
 end
 
 sound_EscapeJump = function ()
@@ -68,7 +68,7 @@ sound_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18BAB64FE4)
     end
-    return 
+    return
 end
 
 sound_BombPunch = function ()
@@ -76,7 +76,7 @@ sound_BombPunch = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1DF586B1D7)
     end
-    return 
+    return
 end
 
 sound_BombPunchAir = function ()
@@ -84,7 +84,7 @@ sound_BombPunchAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1DF586B1D7)
     end
-    return 
+    return
 end
 
 sound_BombPut = function ()
@@ -92,7 +92,7 @@ sound_BombPut = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B76AEE8E7)
     end
-    return 
+    return
 end
 
 sound_BombPutAir = function ()
@@ -100,7 +100,7 @@ sound_BombPutAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B76AEE8E7)
     end
-    return 
+    return
 end
 
 sound_BombEscape = function ()
@@ -108,7 +108,7 @@ sound_BombEscape = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18BAB64FE4)
     end
-    return 
+    return
 end
 
 sound_RemoconTrigger = function ()
@@ -116,7 +116,7 @@ sound_RemoconTrigger = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20BE3BD545)
     end
-    return 
+    return
 end
 
 sound_RemoconTriggerAir = function ()
@@ -124,7 +124,7 @@ sound_RemoconTriggerAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20BE3BD545)
     end
-    return 
+    return
 end
 
 return

@@ -15,7 +15,7 @@ sound_Enter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19B133CC49)
     end
-    return 
+    return
 end
 
 sound_Attack01 = function ()
@@ -23,7 +23,7 @@ sound_Attack01 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1FC187CBC9)
     end
-    return 
+    return
 end
 
 return

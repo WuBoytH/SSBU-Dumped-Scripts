@@ -14,7 +14,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT_DETACH_KIND(0x12589A5008, -1)
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_FlyJetFireStart = function ()
@@ -25,7 +25,7 @@ effect_FlyJetFireStart = function ()
         sv_animcmd.EFFECT_FOLLOW(0x12589A5008, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_FlyJetFireEnd = function ()
@@ -36,7 +36,7 @@ effect_FlyJetFireEnd = function ()
         sv_animcmd.EFFECT_FOLLOW(0x160A819742, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_JumpJetFire = function ()
@@ -46,7 +46,7 @@ effect_JumpJetFire = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1516238C17, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_FallJetSmokeStart = function ()
@@ -57,7 +57,7 @@ effect_FallJetSmokeStart = function ()
         sv_animcmd.EFFECT_FOLLOW(0x14E18D27AF, 0x031ED91FCA, 0, -5, 5, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_FallJetSmokeEnd = function ()
@@ -71,7 +71,7 @@ effect_FallJetSmokeEnd = function ()
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ROCKETBELT_INSTANCE_WORK_SMOKELOOP_FRONT_EFFECT_HANDLE)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_FlyAway = function ()

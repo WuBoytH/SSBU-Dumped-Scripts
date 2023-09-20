@@ -10,7 +10,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x14428A20E3, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
@@ -18,7 +18,7 @@ sound_Born = function ()
         sv_animcmd.STOP_SE(0x17EBB383B8)
         sv_animcmd.PLAY_SE_REMAIN(0x15221CB9E1)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
@@ -26,14 +26,14 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 sound_Dud = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17EBB383B8)
     end
-    return 
+    return
 end
 
 return

@@ -62,7 +62,7 @@ game_Born = function ()
             AttackModule.clear_all()
         end
     end
-    return 
+    return
 end
 
 return

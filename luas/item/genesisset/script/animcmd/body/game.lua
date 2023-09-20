@@ -21,7 +21,7 @@ game_Appear = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_Radiate = function ()
@@ -73,7 +73,7 @@ game_Radiate = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 1, 0x031ED91FCA, 6, 35, 220, 0, 50, 17.5, 0, 0, 10, 0x13313725F6, 0, 0.8999999761581421, 0.10000000149011612, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_BAT, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 6, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 0, 765)
     end
     sv_animcmd.wait(4)
-    return 
+    return
 end
 
 return

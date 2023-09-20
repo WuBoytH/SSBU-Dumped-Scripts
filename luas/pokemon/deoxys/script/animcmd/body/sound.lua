@@ -21,7 +21,7 @@ sound_Beam = function ()
         sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
         sv_animcmd.PLAY_SE_REMAIN(0x1AB0D77A6D)
     end
-    return 
+    return
 end
 
 sound_Enter = function ()
@@ -33,7 +33,7 @@ sound_Enter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x174082A030)
     end
-    return 
+    return
 end
 
 return

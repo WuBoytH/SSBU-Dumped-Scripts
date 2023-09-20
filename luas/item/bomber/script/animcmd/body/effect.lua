@@ -17,7 +17,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x0A606F236A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2.5999999046325684, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x0E72F328F6, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Born2 = function ()
@@ -30,7 +30,7 @@ effect_Born2 = function ()
         sv_animcmd.EFFECT(0x0A606F236A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2.4000000953674316, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x0E72F328F6, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.7999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TimeUp = function ()
@@ -78,7 +78,7 @@ effect_TimeUp = function ()
         end
         sv_animcmd.wait(4)
     end
-    return 
+    return
 end
 
 effect_Cliff = function ()
@@ -86,7 +86,7 @@ effect_Cliff = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x10B02A72E1, 0x033B1871DD, 0, 3, 3, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Hoist = function ()
@@ -149,7 +149,7 @@ effect_Hoist = function ()
         end
         sv_animcmd.wait(4)
     end
-    return 
+    return
 end
 
 return

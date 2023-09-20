@@ -9,7 +9,7 @@ effect_Shot = function ()
         sv_animcmd.EFFECT_FLW_POS(0x174BFEE5A8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 return

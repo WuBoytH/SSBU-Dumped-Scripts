@@ -9,7 +9,7 @@ effect_Shoot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x2421F2E457, 0x031ED91FCA, 0, 4.5, 8.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

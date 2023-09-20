@@ -61,7 +61,7 @@ effect_Turn = function ()
         sv_animcmd.EFFECT(0x125EDC50D3, 0x031ED91FCA, -8, 2, 0, 5, 0, 5, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.100000023841858)
     end
-    return 
+    return
 end
 
 effect_Jump = function ()
@@ -170,7 +170,7 @@ effect_Landing = function ()
         end
         sv_animcmd.wait(1)
     end
-    return 
+    return
 end
 
 effect_LandingAir = function ()
@@ -223,7 +223,7 @@ effect_LandingAir = function ()
         end
         sv_animcmd.wait(1)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -234,7 +234,7 @@ effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FB5ED6451, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

@@ -12,7 +12,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -20,7 +20,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -28,7 +28,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_BackStep = function ()
@@ -39,7 +39,7 @@ game_BackStep = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_NORMAL)
     end
-    return 
+    return
 end
 
 game_AttackTetsuzankou = function ()
@@ -64,7 +64,7 @@ game_AttackTetsuzankou = function ()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackRenkantai = function ()
@@ -90,7 +90,7 @@ game_AttackRenkantai = function ()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackMoukoKouhazan = function ()
@@ -114,7 +114,7 @@ game_AttackMoukoKouhazan = function ()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackRimonChochu = function ()
@@ -144,7 +144,7 @@ game_AttackRimonChochu = function ()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackTokyaku = function ()
@@ -160,7 +160,7 @@ game_AttackTokyaku = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackHidantai = function ()
@@ -172,7 +172,7 @@ game_AttackHidantai = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

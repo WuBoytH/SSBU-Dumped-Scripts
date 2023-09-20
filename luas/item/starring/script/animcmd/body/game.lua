@@ -5,7 +5,7 @@ game_FixedShoot = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_STARRING_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 return

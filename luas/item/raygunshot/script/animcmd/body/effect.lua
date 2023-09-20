@@ -23,7 +23,7 @@ effect_Throw = function ()
         EffectModule.enable_sync_init_pos_last()
         sv_animcmd.EFFECT(0x0F6FF1EC4B, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

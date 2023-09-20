@@ -8,7 +8,7 @@ effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x10E11DC601, 0x06B66091F2, 0, -2, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

@@ -9,11 +9,11 @@ effect_ThrowSpecial = function ()
         sv_animcmd.EFFECT_FLW_POS(0x12FFBA4EAC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Throw = function ()
-    return effect_ThrowSpecial()
+    returneffect_ThrowSpecial()
 end
 
 return

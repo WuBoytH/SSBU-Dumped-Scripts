@@ -15,7 +15,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -23,7 +23,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_Turn = function ()
@@ -31,7 +31,7 @@ game_Turn = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_TURN_MOVE_ENERGY_APPLICATE)
     end
-    return 
+    return
 end
 
 game_RunStart = function ()
@@ -39,7 +39,7 @@ game_RunStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_RUN_START)
     end
-    return 
+    return
 end
 
 game_RunTurn = function ()
@@ -51,7 +51,7 @@ game_RunTurn = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_TURN_MOVE_ENERGY_APPLICATE)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -59,7 +59,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_AttackConsecutiveStart = function ()
@@ -77,7 +77,7 @@ game_AttackConsecutiveStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
     end
-    return 
+    return
 end
 
 game_AttackConsecutive = function ()
@@ -95,7 +95,7 @@ game_AttackConsecutive = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_END)
     end
-    return 
+    return
 end
 
 game_AttackConsecutiveFinish = function ()
@@ -109,7 +109,7 @@ game_AttackConsecutiveFinish = function ()
         AttackModule.clear_all()
         WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_ANIMCMD_PARTIAL_ATTACK_CONSECUTIVE_FINISH_END)
     end
-    return 
+    return
 end
 
 game_TransformBat = function ()
@@ -121,7 +121,7 @@ game_TransformBat = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_TRANSFORM_END_READY)
     end
-    return 
+    return
 end
 
 game_TransformHuman = function ()
@@ -133,7 +133,7 @@ game_TransformHuman = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_ALUCARD_INSTANCE_WORK_FLAG_IS_TRANSFORM_END_READY)
     end
-    return 
+    return
 end
 
 game_BatAttack = function ()
@@ -142,7 +142,7 @@ game_BatAttack = function ()
         local f12_local0, f12_local1, f12_local2 = nil
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 25, 50, 60, 0, 75, 7, 0, 10, -3, f12_local0, f12_local1, f12_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 2, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_BackDash = function ()
@@ -160,7 +160,7 @@ game_BackDash = function ()
     if sv_animcmd.is_excute() then
         HitModule.set_status_all(HIT_STATUS_NORMAL)
     end
-    return 
+    return
 end
 
 game_AttackDiveKick = function ()
@@ -173,14 +173,14 @@ game_AttackDiveKick = function ()
         sv_animcmd.HIT_NODE(0x05E1AB8A2B, HIT_STATUS_XLU)
         sv_animcmd.HIT_NODE(0x051BA4B748, HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 game_EscapeMistStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 return

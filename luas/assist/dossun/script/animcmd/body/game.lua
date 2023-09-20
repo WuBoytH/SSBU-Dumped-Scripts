@@ -14,7 +14,7 @@ game_Fall = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x031ED91FCA, 7, 45, 40, 0, 50, 5, -1, 12.75, 0, 0x15A2C502B3, 0, 1, 1, false, false, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -6, 12.75, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 5, 0, 0x031ED91FCA, 7, 45, 40, 0, 50, 5, -1, 22, 0, 0x15A2C502B3, 0, 1, 1, false, false, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -6, 22, 0)
     end
-    return 
+    return
 end
 
 game_Landing = function ()
@@ -33,7 +33,7 @@ game_Landing = function ()
         AttackModule.clear_all()
     end
     sv_animcmd.wait(30)
-    return game_Wait()
+    returngame_Wait()
 end
 
 game_Wait = function ()
@@ -45,11 +45,11 @@ game_Wait = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x031ED91FCA, 7, 45, 40, 0, 50, 5, -1, 14.5, 0, 0x15A2C502B3, 0, 1, 1, false, false, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_FLOOR, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -6, 14.5, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 5, 0, 0x031ED91FCA, 7, 45, 40, 0, 50, 5, -1, 22, 0, 0x15A2C502B3, 0, 1, 1, false, false, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_FLOOR, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -6, 22, 0)
     end
-    return 
+    return
 end
 
 game_Presage = function ()
-    return game_Wait()
+    returngame_Wait()
 end
 
 game_Rising = function ()
@@ -61,7 +61,7 @@ game_Rising = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 4, 0, 0x031ED91FCA, 7, 45, 40, 0, 50, 5, -1, 14.5, 0, 0x15A2C502B3, 0, 1, 1, false, false, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_FLOOR, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -6, 14.5, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 5, 0, 0x031ED91FCA, 7, 45, 40, 0, 50, 5, -1, 22, 0, 0x15A2C502B3, 0, 1, 1, false, false, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_FLOOR, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, -6, 22, 0)
     end
-    return 
+    return
 end
 
 return

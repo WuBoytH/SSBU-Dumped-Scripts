@@ -14,14 +14,14 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Bound = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_AirTobidasu = function ()
@@ -29,7 +29,7 @@ effect_AirTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0FE89415F6, 0x031ED91FCA, 0, 0, 8, 0, -100, 90, 1.2999999523162842, true)
     end
-    return 
+    return
 end
 
 effect_Tobidasu = function ()
@@ -42,7 +42,7 @@ effect_Tobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, 0, 0, 53, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_CliffTobidasu = function ()
@@ -51,7 +51,7 @@ effect_CliffTobidasu = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0FE89415F6, 0x031ED91FCA, 0, 0, 15, 0, -100, 90, 1.2999999523162842, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
-    return 
+    return
 end
 
 effect_TurnTobidasu = function ()
@@ -74,7 +74,7 @@ effect_TurnTobidasu = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, -8, 0, -53, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TurnCliffTobidasu = function ()
@@ -83,7 +83,7 @@ effect_TurnCliffTobidasu = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0FE89415F6, 0x031ED91FCA, 0, -5, -15, 180, 80, 90, 1.2999999523162842, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
-    return 
+    return
 end
 
 effect_TreadTobidasu = function ()
@@ -96,7 +96,7 @@ effect_TreadTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, 0, 0, 53, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TreadCliffTobidasu = function ()
@@ -105,7 +105,7 @@ effect_TreadCliffTobidasu = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0FE89415F6, 0x031ED91FCA, 0, 0, 15, 0, -100, 90, 1.2999999523162842, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
-    return 
+    return
 end
 
 effect_TreadTurnTobidasu = function ()
@@ -128,7 +128,7 @@ effect_TreadTurnTobidasu = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, -8, 0, -53, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TreadTurnCliffTobidasu = function ()
@@ -137,7 +137,7 @@ effect_TreadTurnCliffTobidasu = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0FE89415F6, 0x031ED91FCA, 0, -5, -15, 180, 80, 90, 1.2999999523162842, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
-    return 
+    return
 end
 
 effect_Have = function ()

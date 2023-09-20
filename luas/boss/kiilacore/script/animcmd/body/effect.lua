@@ -12,7 +12,7 @@ effect_InitAura = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1571AE5FD6, 0x09D8997220, 0, 0, 0, 0, 0, 0, 1, false)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_KIILA_INSTANCE_WORK_INT_EFFECT_AURA_ANGER)
     end
-    return 
+    return
 end
 
 effect_HitForDarz = function ()
@@ -20,7 +20,7 @@ effect_HitForDarz = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x113E473D07, false, true)
         sv_animcmd.EFFECT_FOLLOW(0x113E473D07, 0x09D8997220, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

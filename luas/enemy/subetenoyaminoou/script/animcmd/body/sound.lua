@@ -13,7 +13,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C357D5D77)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
@@ -25,56 +25,56 @@ sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x21DC4F2130)
     end
-    return 
+    return
 end
 
 sound_Dash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x2437E886DB)
     end
-    return 
+    return
 end
 
 sound_Leave = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1DE6857442)
     end
-    return 
+    return
 end
 
 sound_RetreatL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x23720A6A44)
     end
-    return 
+    return
 end
 
 sound_RetreatR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x23720A6A44)
     end
-    return 
+    return
 end
 
 sound_Skill = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x22295E9600)
     end
-    return 
+    return
 end
 
 sound_MagicSkill = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x22295E9600)
     end
-    return 
+    return
 end
 
 sound_MagicSkillPowerUp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x22295E9600)
     end
-    return 
+    return
 end
 
 return

@@ -8,7 +8,7 @@ game_AttackHold = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(0)
     end
-    return 
+    return
 end
 
 game_Attack01 = function ()
@@ -23,7 +23,7 @@ game_Attack01 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

@@ -13,7 +13,7 @@ effect_Shoot = function ()
         sv_animcmd.EFFECT(0x1DE343F740, 0x031ED91FCA, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -21,7 +21,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x0A606F236A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.600000023841858, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 effect_Shoot3 = function ()
@@ -31,7 +31,7 @@ effect_Shoot3 = function ()
         sv_animcmd.EFFECT(0x1DE343F740, 0x031ED91FCA, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_Born3 = function ()
@@ -39,7 +39,7 @@ effect_Born3 = function ()
         sv_animcmd.EFFECT(0x0A606F236A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 effect_ShootBackjump = function ()
@@ -49,7 +49,7 @@ effect_ShootBackjump = function ()
         sv_animcmd.EFFECT(0x1DE343F740, 0x031ED91FCA, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_BornBackjump = function ()
@@ -57,7 +57,7 @@ effect_BornBackjump = function ()
         sv_animcmd.EFFECT(0x0A606F236A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.899999976158142, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 return

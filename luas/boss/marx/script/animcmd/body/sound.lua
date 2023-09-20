@@ -36,61 +36,61 @@ sound_Entry = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x124478F573)
     end
-    return 
+    return
 end
 
 sound_EntryLsize = function ()
     sound_Entry()
-    return 
+    return
 end
 
 sound_WaitConvulsion = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1288A23038)
     end
-    return 
+    return
 end
 
 sound_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1565522044)
     end
-    return 
+    return
 end
 
 sound_TeleportEndRepeat = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1565522044)
     end
-    return 
+    return
 end
 
 sound_TeleportEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1565522044)
     end
-    return 
+    return
 end
 
 sound_FourCutter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18BCD9F2FD)
     end
-    return 
+    return
 end
 
 sound_FlyOutHoming = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A3E47BD64)
     end
-    return 
+    return
 end
 
 sound_FlyOutSign = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A802F0352)
     end
-    return 
+    return
 end
 
 sound_FlyOut = function ()
@@ -101,7 +101,7 @@ sound_FlyOut = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1288A23038)
     end
-    return 
+    return
 end
 
 sound_Sowing = function ()
@@ -109,28 +109,28 @@ sound_Sowing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15C8EE0104)
     end
-    return 
+    return
 end
 
 sound_SpewStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19A9BD5727)
     end
-    return 
+    return
 end
 
 sound_ThickLaserStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1EFE7E1D7E)
     end
-    return 
+    return
 end
 
 sound_ThickLaserLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1D685D037E)
     end
-    return 
+    return
 end
 
 sound_ThickLaserEnd = function ()
@@ -141,7 +141,7 @@ sound_ThickLaserEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1F709120C5)
     end
-    return 
+    return
 end
 
 sound_BlackHoleStart = function ()
@@ -157,14 +157,14 @@ sound_BlackHoleStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B376D4F05)
     end
-    return 
+    return
 end
 
 sound_BlackHoleEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE_arg2(0x1B376D4F05, 120)
     end
-    return 
+    return
 end
 
 sound_FollowEyeStart = function ()
@@ -175,7 +175,7 @@ sound_FollowEyeStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x189DFEA0D4)
     end
-    return 
+    return
 end
 
 sound_CapillaryStart = function ()
@@ -186,14 +186,14 @@ sound_CapillaryStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x175DAF9152)
     end
-    return 
+    return
 end
 
 sound_CapillaryLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17907C447E)
     end
-    return 
+    return
 end
 
 sound_CapillaryEnd = function ()
@@ -201,7 +201,7 @@ sound_CapillaryEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1675E00283)
     end
-    return 
+    return
 end
 
 sound_FacetEyeLaserStart = function ()
@@ -221,7 +221,7 @@ sound_FacetEyeLaserStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1728A93A27)
     end
-    return 
+    return
 end
 
 sound_FacetEyeLaserEnd = function ()
@@ -229,7 +229,7 @@ sound_FacetEyeLaserEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B8FDB41EE)
     end
-    return 
+    return
 end
 
 sound_BossStop = function ()
@@ -238,7 +238,7 @@ sound_BossStop = function ()
         sv_animcmd.PLAY_SE(0x17694EF86F)
         sv_animcmd.PLAY_SE(0x16B979AFE7)
     end
-    return 
+    return
 end
 
 sound_DeadReaction = function ()
@@ -250,7 +250,7 @@ sound_DeadReaction = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
-    return 
+    return
 end
 
 return

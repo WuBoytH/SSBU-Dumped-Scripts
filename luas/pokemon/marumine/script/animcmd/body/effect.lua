@@ -13,28 +13,28 @@ effect_WaitBorn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x1492115DDA, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0A176813FC, 0x031ED91FCA, 0, -2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_BornAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Miss = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x18683D3BCD, 0x04DBA80BB2, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

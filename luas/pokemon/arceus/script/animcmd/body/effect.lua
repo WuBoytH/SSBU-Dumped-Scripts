@@ -14,7 +14,7 @@ effect_Enter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 60, 0.30000001192092896, 0.30000001192092896, 0.30000001192092896, 0, 0, 0, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 effect_AttackHold = function ()
@@ -27,7 +27,7 @@ effect_AttackHold = function ()
     if f2_local0 == nil then
         sv_animcmd.frame(60)
     end
-    return 
+    return
 end
 
 effect_Attack01 = function ()
@@ -51,7 +51,7 @@ effect_Attack01 = function ()
             sv_animcmd:EFFECT_REMOVE_ATTR(EFFECT_SUB_ATTRIBUTE_NONE)
         end
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -59,7 +59,7 @@ effect_Lost = function ()
         sv_animcmd.CANCEL_FILL_SCREEN(1, 70)
         sv_animcmd.EFFECT_OFF_KIND(0x1898D3715A, false, true)
     end
-    return 
+    return
 end
 
 return

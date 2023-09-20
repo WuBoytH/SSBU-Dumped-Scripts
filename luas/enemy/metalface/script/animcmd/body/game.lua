@@ -37,7 +37,7 @@ game_Appear_1 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(4)
     end
-    return 
+    return
 end
 
 game_Appear_2 = function ()
@@ -57,7 +57,7 @@ game_Appear_2 = function ()
         AttackModule.clear(3)
         AttackModule.clear(4)
     end
-    return 
+    return
 end
 
 game_Appear_3 = function ()
@@ -77,7 +77,7 @@ game_Appear_3 = function ()
         AttackModule.clear(3)
         AttackModule.clear(4)
     end
-    return 
+    return
 end
 
 game_Appear_4 = function ()
@@ -115,7 +115,7 @@ game_Appear_4 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(5)
     end
-    return 
+    return
 end
 
 game_Wait_1 = function ()
@@ -125,7 +125,7 @@ game_Wait_1 = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 1, 0x05E1AB8A2B, 0, 0, 100, 15, 0, 7, 45, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 3, true, false, ATTACK_LR_CHECK_PART, false, false, true, true, true, 0, 0, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 1, 0x051BA4B748, 0, 0, 100, 15, 0, 7, 45, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 3, true, false, ATTACK_LR_CHECK_PART, false, false, true, true, true, 0, 0, 0)
     end
-    return 
+    return
 end
 
 game_Wait_2 = function ()
@@ -135,7 +135,7 @@ game_Wait_2 = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 1, 0x05E1AB8A2B, 0, 0, 100, 15, 0, 7, 45, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 3, true, false, ATTACK_LR_CHECK_PART, false, false, true, true, true, 0, 0, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 1, 0x051BA4B748, 0, 0, 100, 15, 0, 7, 45, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 3, true, false, ATTACK_LR_CHECK_PART, false, false, true, true, true, 0, 0, 0)
     end
-    return 
+    return
 end
 
 game_Wait_3 = function ()
@@ -145,7 +145,7 @@ game_Wait_3 = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 1, 0x05E1AB8A2B, 0, 0, 100, 15, 0, 7, 45, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 3, true, false, ATTACK_LR_CHECK_PART, false, false, true, true, true, 0, 0, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 1, 0x051BA4B748, 0, 0, 100, 15, 0, 7, 45, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 3, true, false, ATTACK_LR_CHECK_PART, false, false, true, true, true, 0, 0, 0)
     end
-    return 
+    return
 end
 
 game_Wait_4 = function ()
@@ -155,7 +155,7 @@ game_Wait_4 = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 1, 0x05E1AB8A2B, 0, 0, 100, 15, 0, 7, 45, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 3, true, false, ATTACK_LR_CHECK_PART, false, false, true, true, true, 0, 0, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 1, 0x051BA4B748, 0, 0, 100, 15, 0, 7, 45, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 3, true, false, ATTACK_LR_CHECK_PART, false, false, true, true, true, 0, 0, 0)
     end
-    return 
+    return
 end
 
 game_Attack_1 = function ()
@@ -205,7 +205,7 @@ game_Attack_1 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(4)
     end
-    return 
+    return
 end
 
 game_Attack_2 = function ()
@@ -239,7 +239,7 @@ game_Attack_2 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(3)
     end
-    return 
+    return
 end
 
 game_Attack_3 = function ()
@@ -289,7 +289,7 @@ game_Attack_3 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(4)
     end
-    return 
+    return
 end
 
 game_Attack_4 = function ()
@@ -315,7 +315,7 @@ game_Attack_4 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(3)
     end
-    return 
+    return
 end
 
 game_Rush_3 = function ()
@@ -325,7 +325,7 @@ game_Rush_3 = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x058CA19B1A, 15, 30, 70, 0, 80, 35, -70, 10, 0, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 60, false, false, ATTACK_LR_CHECK_ALONG, false, false, false, false, false, -100, 10, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 2, 0, 0x058CA19B1A, 15, 30, 70, 0, 80, 10, -100, -3, 0, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY_HEAD, false, false, false, false, 60, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, -145, -3, 0)
     end
-    return 
+    return
 end
 
 return

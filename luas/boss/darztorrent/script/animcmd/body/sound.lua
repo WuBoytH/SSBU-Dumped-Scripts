@@ -11,7 +11,7 @@ sound_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE_arg2(0x1407DC7051, 50)
     end
-    return 
+    return
 end
 
 return

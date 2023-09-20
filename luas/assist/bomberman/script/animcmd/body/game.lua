@@ -9,7 +9,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -17,7 +17,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -25,7 +25,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_BombPunch = function ()
@@ -37,7 +37,7 @@ game_BombPunch = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_BombPunchAir = function ()
@@ -49,7 +49,7 @@ game_BombPunchAir = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_BombPut = function ()
@@ -61,7 +61,7 @@ game_BombPut = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBPUT)
     end
-    return 
+    return
 end
 
 game_BombPutAir = function ()
@@ -73,7 +73,7 @@ game_BombPutAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_BOMBPUT)
     end
-    return 
+    return
 end
 
 game_BombEscape = function ()
@@ -81,7 +81,7 @@ game_BombEscape = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_RemoconTrigger = function ()
@@ -89,7 +89,7 @@ game_RemoconTrigger = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_REMOCON_TRIGGER)
     end
-    return 
+    return
 end
 
 game_RemoconTriggerAir = function ()
@@ -97,7 +97,7 @@ game_RemoconTriggerAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_BOMBERMAN_INSTANCE_WORK_FLAG_REMOCON_TRIGGER)
     end
-    return 
+    return
 end
 
 return

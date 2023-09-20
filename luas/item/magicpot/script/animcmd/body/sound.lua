@@ -9,42 +9,42 @@ sound_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x1535891B86)
     end
-    return 
+    return
 end
 
 sound_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x1535891B86)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x1535891B86)
     end
-    return 
+    return
 end
 
 sound_Violent = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x1535891B86)
     end
-    return 
+    return
 end
 
 sound_ViolentShot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1875222361)
     end
-    return 
+    return
 end
 
 sound_AirflowLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1535891B86)
     end
-    return 
+    return
 end
 
 sound_Suka = function ()
@@ -52,7 +52,7 @@ sound_Suka = function ()
         sv_animcmd.STOP_SE(0x1535891B86)
         sv_animcmd.PLAY_SE(0x163031FF46)
     end
-    return 
+    return
 end
 
 return

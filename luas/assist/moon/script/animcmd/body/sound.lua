@@ -9,7 +9,7 @@ sound_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x17BE0761F7)
     end
-    return 
+    return
 end
 
 sound_Impact = function ()
@@ -24,7 +24,7 @@ sound_Impact = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15DE524512)
     end
-    return 
+    return
 end
 
 return

@@ -10,7 +10,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK_FP(0, 1, 0x031ED91FCA, 5, 361, 90, 0, 30, 1.5, 0, 0, 1.5, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, true, false, 4, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -23,7 +23,7 @@ game_Born = function ()
         AttackModule.clear_all()
         AreaModule.erase_wind(0)
     end
-    return 
+    return
 end
 
 return

@@ -11,7 +11,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -19,7 +19,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -27,7 +27,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_AttackPunch1RStart = function ()
@@ -35,7 +35,7 @@ game_AttackPunch1RStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SPRINGMAN_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AttackPunch1RAirStart = function ()
@@ -43,7 +43,7 @@ game_AttackPunch1RAirStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SPRINGMAN_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AttackPunch1LStart = function ()
@@ -51,7 +51,7 @@ game_AttackPunch1LStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SPRINGMAN_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AttackPunch1LAirStart = function ()
@@ -59,7 +59,7 @@ game_AttackPunch1LAirStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SPRINGMAN_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AttackRushStart = function ()
@@ -67,7 +67,7 @@ game_AttackRushStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SPRINGMAN_INSTANCE_WORK_FLAG_NO_REACTION)
     end
-    return 
+    return
 end
 
 game_AttackRushMain = function ()
@@ -88,7 +88,7 @@ game_AttackRushMain = function ()
         end
         sv_animcmd.wait(1)
     end
-    return 
+    return
 end
 
 game_AttackRushEnd = function ()
@@ -120,19 +120,19 @@ game_AttackRushEnd = function ()
         WorkModule.off_flag(ITEM_SPRINGMAN_INSTANCE_WORK_FLAG_NO_REACTION)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackRushAirStart = function ()
-    return game_AttackRushStart()
+    returngame_AttackRushStart()
 end
 
 game_AttackRushAirMain = function ()
-    return game_AttackRushMain()
+    returngame_AttackRushMain()
 end
 
 game_AttackRushAirEnd = function ()
-    return game_AttackRushEnd()
+    returngame_AttackRushEnd()
 end
 
 return

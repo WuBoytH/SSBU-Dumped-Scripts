@@ -12,26 +12,26 @@ game_Hit = function ()
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 2, 80, 100, 68, 0, 2.700000047683716, 1.5, 3, 0, f1_local0, f1_local1, f1_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, true, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_OBJECT)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 game_Injection = function ()
     sv_animcmd.frame(30)
-    return game_Hit()
+    returngame_Hit()
 end
 
 game_Move = function ()
     sv_animcmd.frame(1)
-    return game_Hit()
+    returngame_Hit()
 end
 
 game_Fall = function ()
     sv_animcmd.frame(1)
-    return game_Hit()
+    returngame_Hit()
 end
 
 game_Throw = function ()
-    return game_Hit()
+    returngame_Hit()
 end
 
 game_Born = function ()
@@ -57,7 +57,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_REMOVE()
     end
-    return 
+    return
 end
 
 return

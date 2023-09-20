@@ -30,7 +30,7 @@ effect_Entry = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1C121BDC1C, 0x031D39A761, 0, -25, -15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Dead = function ()
@@ -45,7 +45,7 @@ effect_Dead = function ()
         sv_animcmd.EFFECT_FLW_POS(0x13A1EBEFEB, 0x09F5AF351A, 0, 0, 0, 0, 0, 0, 0.800000011920929, false)
         sv_animcmd.EFFECT_FLW_POS(0x13A1EBEFEB, 0x090FA00879, 0, 0, 0, 0, 0, 0, 0.800000011920929, false)
     end
-    return 
+    return
 end
 
 effect_ChangeStart = function ()
@@ -53,7 +53,7 @@ effect_ChangeStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0E76DD3AF0, 0x031ED91FCA, 3, 21, 1, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_TeleportStart = function ()
@@ -65,7 +65,7 @@ effect_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x16B53831B3, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_TeleportPreEnd = function ()
@@ -77,7 +77,7 @@ effect_TeleportPreEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x14FB5949CC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Attack3WayStart = function ()
@@ -85,7 +85,7 @@ effect_Attack3WayStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1AB892C4B1, 0x031ED91FCA, 0, 18.5, 0, 0, 90, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_AttackTurn3WayStart = function ()
@@ -93,7 +93,7 @@ effect_AttackTurn3WayStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1AB892C4B1, 0x031ED91FCA, 0, 18.5, 0, 0, 90, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_AttackRushStart = function ()
@@ -101,14 +101,14 @@ effect_AttackRushStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x167AEF4A93, 0x031D39A761, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_AttackRushEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x14C80494D9, 0x031D39A761, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

@@ -48,7 +48,7 @@ effect_HitFlash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_FireHitFlash1 = function ()
@@ -64,7 +64,7 @@ effect_FireHitFlash1 = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(2)
-    return 
+    return
 end
 
 effect_FireHitFlash2 = function ()
@@ -84,7 +84,7 @@ effect_FireHitFlash2 = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(2)
-    return 
+    return
 end
 
 effect_FireHitS = function ()
@@ -99,7 +99,7 @@ effect_FireHitS = function ()
         local f7_local1 = f7_local0
         effect_FireHitFlash2()
     end
-    return 
+    return
 end
 
 effect_FireHitM = function ()
@@ -114,7 +114,7 @@ effect_FireHitM = function ()
         local f8_local1 = f8_local0
         effect_FireHitFlash2()
     end
-    return 
+    return
 end
 
 effect_FireHitL = function ()
@@ -129,7 +129,7 @@ effect_FireHitL = function ()
         local f9_local1 = f9_local0
         effect_FireHitFlash2()
     end
-    return 
+    return
 end
 
 effect_FireHitF = function ()
@@ -144,7 +144,7 @@ effect_FireHitF = function ()
         local f10_local1 = f10_local0
         effect_FireHitFlash2()
     end
-    return 
+    return
 end
 
 effect_ElecHitFlash = function ()
@@ -160,7 +160,7 @@ effect_ElecHitFlash = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(1)
-    return 
+    return
 end
 
 effect_ElecHitS = function ()
@@ -171,7 +171,7 @@ effect_ElecHitS = function ()
         end
         effect_ElecHitFlash()
     end
-    return 
+    return
 end
 
 effect_ElecHitM = function ()
@@ -182,7 +182,7 @@ effect_ElecHitM = function ()
         end
         effect_ElecHitFlash()
     end
-    return 
+    return
 end
 
 effect_ElecHitL = function ()
@@ -193,7 +193,7 @@ effect_ElecHitL = function ()
         end
         effect_ElecHitFlash()
     end
-    return 
+    return
 end
 
 effect_ElecHitF = function ()
@@ -204,7 +204,7 @@ effect_ElecHitF = function ()
         end
         effect_ElecHitFlash()
     end
-    return 
+    return
 end
 
 effect_PurpleFireHitFlash1 = function ()
@@ -220,7 +220,7 @@ effect_PurpleFireHitFlash1 = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(1)
-    return 
+    return
 end
 
 effect_PurpleFireHitFlash2 = function ()
@@ -236,7 +236,7 @@ effect_PurpleFireHitFlash2 = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(2)
-    return 
+    return
 end
 
 effect_PurpleFireHitS = function ()
@@ -251,7 +251,7 @@ effect_PurpleFireHitS = function ()
         local f18_local1 = f18_local0
         effect_PurpleFireHitFlash2()
     end
-    return 
+    return
 end
 
 effect_PurpleFireHitM = function ()
@@ -266,7 +266,7 @@ effect_PurpleFireHitM = function ()
         local f19_local1 = f19_local0
         effect_PurpleFireHitFlash2()
     end
-    return 
+    return
 end
 
 effect_PurpleFireHitL = function ()
@@ -281,7 +281,7 @@ effect_PurpleFireHitL = function ()
         local f20_local1 = f20_local0
         effect_PurpleFireHitFlash2()
     end
-    return 
+    return
 end
 
 effect_PurpleFireHitF = function ()
@@ -296,7 +296,7 @@ effect_PurpleFireHitF = function ()
         local f21_local1 = f21_local0
         effect_PurpleFireHitFlash2()
     end
-    return 
+    return
 end
 
 effect_AuraHitFlash1 = function ()
@@ -312,7 +312,7 @@ effect_AuraHitFlash1 = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(1)
-    return 
+    return
 end
 
 effect_AuraHitFlash2 = function ()
@@ -328,7 +328,7 @@ effect_AuraHitFlash2 = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(2)
-    return 
+    return
 end
 
 effect_AuraHitS = function ()
@@ -343,7 +343,7 @@ effect_AuraHitS = function ()
         local f24_local1 = f24_local0
         effect_AuraHitFlash2()
     end
-    return 
+    return
 end
 
 effect_AuraHitM = function ()
@@ -358,7 +358,7 @@ effect_AuraHitM = function ()
         local f25_local1 = f25_local0
         effect_AuraHitFlash2()
     end
-    return 
+    return
 end
 
 effect_AuraHitL = function ()
@@ -373,7 +373,7 @@ effect_AuraHitL = function ()
         local f26_local1 = f26_local0
         effect_AuraHitFlash2()
     end
-    return 
+    return
 end
 
 effect_AuraHitF = function ()
@@ -388,14 +388,14 @@ effect_AuraHitF = function ()
         local f27_local1 = f27_local0
         effect_AuraHitFlash2()
     end
-    return 
+    return
 end
 
 effect_ProgTest = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19B0B196B8)
     end
-    return 
+    return
 end
 
 return

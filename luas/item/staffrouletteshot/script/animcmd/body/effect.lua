@@ -9,7 +9,7 @@ effect_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x170C7CB168, 0x031ED91FCA, 1, 0.20000000298023224, 0.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Born2 = function ()
@@ -17,7 +17,7 @@ effect_Born2 = function ()
         sv_animcmd.EFFECT(0x1646CD94A5, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_STAFFSHOT_INSTANCE_WORK_INT_EFFECT_HANDLE)
     end
-    return 
+    return
 end
 
 return

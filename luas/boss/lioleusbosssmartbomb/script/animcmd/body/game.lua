@@ -15,7 +15,7 @@ game_SetCategory = function ()
     if f1_local0 == nil and sv_animcmd.is_excute() then
         AttackModule.set_target_category(0, COLLISION_CATEGORY_MASK_NO_FIGHTER)
     end
-    return 
+    return
 end
 
 game_Throw = function ()
@@ -23,7 +23,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 3, 361, 0, 0, 50, 5, 0, 0, 0, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_OBJECT, COLLISION_CATEGORY_MASK_NO_STAGE, false, COLLISION_PART_MASK_ALL, false, false, true, false, ITEM_TRWATK_F, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
     game_SetCategory()
-    return 
+    return
 end
 
 game_Born = function ()
@@ -136,7 +136,7 @@ game_Born = function ()
         AreaModule.erase_wind(0)
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
-    return 
+    return
 end
 
 return

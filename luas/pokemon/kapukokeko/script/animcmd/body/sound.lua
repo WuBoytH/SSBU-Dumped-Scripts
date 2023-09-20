@@ -12,7 +12,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B29336009)
     end
-    return 
+    return
 end
 
 sound_ElectricField = function ()
@@ -20,7 +20,7 @@ sound_ElectricField = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x24D3450BCE)
     end
-    return 
+    return
 end
 
 sound_AttackStart = function ()
@@ -36,7 +36,7 @@ sound_AttackStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1F047B2A86)
     end
-    return 
+    return
 end
 
 sound_AttackEnd = function ()
@@ -44,7 +44,7 @@ sound_AttackEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x24D3450BCE)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
@@ -56,7 +56,7 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x11C9F5B4A5)
     end
-    return 
+    return
 end
 
 return

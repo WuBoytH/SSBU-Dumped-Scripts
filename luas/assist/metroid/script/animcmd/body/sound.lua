@@ -11,7 +11,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 sound_Move = function ()
@@ -23,7 +23,7 @@ sound_Move = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x166FB03377)
     end
-    return 
+    return
 end
 
 sound_Suck = function ()
@@ -31,7 +31,7 @@ sound_Suck = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x189D3A8854)
     end
-    return 
+    return
 end
 
 return

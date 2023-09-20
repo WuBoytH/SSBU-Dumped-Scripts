@@ -39,7 +39,7 @@ game_Entry = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DARZ_INSTANCE_WORK_FLAG_SHOW_STAGE_FLOATING_PLATES)
     end
-    return 
+    return
 end
 
 game_Dead = function ()
@@ -88,7 +88,7 @@ game_Dead = function ()
             WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
         end
     end
-    return 
+    return
 end
 
 game_TeleportStart = function ()
@@ -96,7 +96,7 @@ game_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 game_TeleportEnd = function ()
@@ -104,7 +104,7 @@ game_TeleportEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_NORMAL)
     end
-    return 
+    return
 end
 
 game_Anger = function ()
@@ -121,7 +121,7 @@ game_Anger = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DARZ_INSTANCE_WORK_FLAG_ZOOM_END)
     end
-    return 
+    return
 end
 
 game_DownStartL = function ()
@@ -142,7 +142,7 @@ game_DownStartL = function ()
         sv_animcmd.RUMBLE_ALL(0x137FFF509B, 0)
         WorkModule.on_flag(ITEM_DARZ_INSTANCE_WORK_FLAG_DOWN_LANDING)
     end
-    return 
+    return
 end
 
 game_DownStartR = function ()
@@ -163,7 +163,7 @@ game_DownStartR = function ()
         sv_animcmd.RUMBLE_ALL(0x137FFF509B, 0)
         WorkModule.on_flag(ITEM_DARZ_INSTANCE_WORK_FLAG_DOWN_LANDING)
     end
-    return 
+    return
 end
 
 game_DownEnd = function ()
@@ -171,7 +171,7 @@ game_DownEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 game_CrossBomb = function ()
@@ -179,7 +179,7 @@ game_CrossBomb = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DARZ_INSTANCE_WORK_FLAG_SPAWN_SHOT)
     end
-    return 
+    return
 end
 
 game_GatlingLoop = function ()
@@ -188,7 +188,7 @@ game_GatlingLoop = function ()
         WorkModule.on_flag(ITEM_DARZ_INSTANCE_WORK_FLAG_SPAWN_SHOT)
         sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x0D30E59D58, 1, 2, 40, 100, 100, 80, 80, 0, 0, 9, 9, 0, 8, 10, 0x15A2C502B3, 0, 0.10000000149011612, 0.6000000238418579, false, true, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_GatlingAnger = function ()
@@ -206,7 +206,7 @@ game_GatlingAnger = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_TearUp = function ()
@@ -278,7 +278,7 @@ game_TearUp = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_TearUpAnger = function ()
@@ -381,7 +381,7 @@ game_TearUpAnger = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ChaseHammer = function ()
@@ -405,14 +405,14 @@ game_ChaseHammer = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_DarkPillarLoop = function ()
     if sv_animcmd.is_excute() then
         JostleModule.set_status(false)
     end
-    return 
+    return
 end
 
 game_DarkPillar = function ()
@@ -423,14 +423,14 @@ game_DarkPillar = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DARZ_INSTANCE_WORK_FLAG_SPAWN_SHOT)
     end
-    return 
+    return
 end
 
 game_DarkPillarEnd = function ()
     if sv_animcmd.is_excute() then
         JostleModule.set_status(true)
     end
-    return 
+    return
 end
 
 game_SummonFighter = function ()
@@ -438,7 +438,7 @@ game_SummonFighter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 return

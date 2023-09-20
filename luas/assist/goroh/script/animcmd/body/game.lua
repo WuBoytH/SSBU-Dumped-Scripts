@@ -18,7 +18,7 @@ game_AttackSub = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Run = function ()
@@ -30,7 +30,7 @@ game_Run = function ()
     game_AttackSub()
     sv_animcmd.frame(37)
     game_AttackSub()
-    return 
+    return
 end
 
 game_AttackAirSub = function ()
@@ -43,7 +43,7 @@ game_AttackAirSub = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Jump = function ()
@@ -61,11 +61,11 @@ game_Jump = function ()
     game_AttackAirSub()
     sv_animcmd.frame(47)
     game_AttackAirSub()
-    return 
+    return
 end
 
 game_JumpAir = function ()
-    return game_Jump()
+    returngame_Jump()
 end
 
 game_Landing = function ()
@@ -76,13 +76,13 @@ game_Landing = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Turn = function ()
     sv_animcmd.frame(5)
     game_AttackSub()
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -90,7 +90,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 return

@@ -10,7 +10,7 @@ effect_Suck = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0D297A1FB5, 0x031ED91FCA, 0, 6, 0, 0, 0, 0, 0.800000011920929, true)
         sv_animcmd.EFFECT_FOLLOW(0x12851DAE6E, 0x031ED91FCA, 0, 6, 0, 0, 0, 0, 0.800000011920929, true)
     end
-    return 
+    return
 end
 
 return

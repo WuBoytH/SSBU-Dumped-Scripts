@@ -16,7 +16,7 @@ effect_Attack01 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd:EFFECT_REMOVE_ATTR(EFFECT_SUB_ATTRIBUTE_NONE)
     end
-    return 
+    return
 end
 
 effect_Attack02 = function ()
@@ -32,7 +32,7 @@ effect_Attack02 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd:EFFECT_REMOVE_ATTR(EFFECT_SUB_ATTRIBUTE_NONE)
     end
-    return 
+    return
 end
 
 return

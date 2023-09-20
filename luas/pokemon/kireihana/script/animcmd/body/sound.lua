@@ -14,7 +14,7 @@ sound_Entry = function ()
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0F42052130)
         sv_animcmd.PLAY_SE(0x178035741C)
     end
-    return 
+    return
 end
 
 sound_Dance = function ()

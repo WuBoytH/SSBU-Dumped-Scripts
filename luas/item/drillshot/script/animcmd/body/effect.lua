@@ -11,7 +11,7 @@ effect_MoveRight = function ()
         sv_animcmd.EFFECT_FOLLOW(0x09DBAE517C, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_MoveLeft = function ()
@@ -19,7 +19,7 @@ effect_MoveLeft = function ()
         sv_animcmd.EFFECT_FOLLOW(0x09DBAE517C, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Stick = function ()
@@ -35,7 +35,7 @@ effect_BombEffect = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

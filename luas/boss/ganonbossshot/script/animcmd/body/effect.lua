@@ -18,7 +18,7 @@ effect_Throw = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1D60A11696, 0x031ED91FCA, 0, 0, 0, 0, 0, 45, 1.5, false)
     end
-    return 
+    return
 end
 
 return

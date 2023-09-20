@@ -9,7 +9,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 3, 45, 75, 0, 5, 2, 0, 0, 0, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE, false, COLLISION_PART_MASK_ALL, false, true, true, false, 20, false, false, ATTACK_LR_CHECK_POS, false, false, true, true, false, COLLISION_SHAPE_TYPE_SPHERE)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 game_Attack = function ()
@@ -91,7 +91,7 @@ game_Attack = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackAbsolute = function ()
@@ -127,7 +127,7 @@ game_AttackAbsolute = function ()
         AttackModule.set_force_reaction(13, true, true)
         AttackModule.set_force_reaction(14, true, true)
     end
-    return 
+    return
 end
 
 return

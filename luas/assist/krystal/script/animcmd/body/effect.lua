@@ -24,21 +24,21 @@ effect_Landing = function ()
         sv_animcmd.EFFECT_FOLLOW(0x11F7513686, 0x08C08CFEF9, 0, 0, 0, 0, 0, 0, 1, false)
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 2, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_RunStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Run = function ()
@@ -59,7 +59,7 @@ effect_Run = function ()
         sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 2.5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.wait_loop_sync_mot()
-    return effect_Run()
+    returneffect_Run()
 end
 
 effect_JumpAir = function ()
@@ -67,7 +67,7 @@ effect_JumpAir = function ()
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_StaffCombo = function ()
@@ -99,7 +99,7 @@ effect_StaffCombo = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(4)
     end
-    return 
+    return
 end
 
 effect_StaffComboAir = function ()
@@ -127,7 +127,7 @@ effect_StaffComboAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(4)
     end
-    return 
+    return
 end
 
 effect_IceBrast = function ()
@@ -142,7 +142,7 @@ effect_IceBrast = function ()
         end
         sv_animcmd.wait(6)
     end
-    return 
+    return
 end
 
 effect_IceBrastStart = function ()
@@ -150,7 +150,7 @@ effect_IceBrastStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 4, 0, -3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_IceBrastAir = function ()
@@ -165,7 +165,7 @@ effect_IceBrastAir = function ()
         end
         sv_animcmd.wait(6)
     end
-    return 
+    return
 end
 
 effect_EscapeJump = function ()
@@ -173,14 +173,14 @@ effect_EscapeJump = function ()
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_EscapeAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

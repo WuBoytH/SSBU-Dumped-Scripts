@@ -7,7 +7,7 @@ sound_EffectMotion = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x16B49F2F98)
     end
-    return 
+    return
 end
 
 return

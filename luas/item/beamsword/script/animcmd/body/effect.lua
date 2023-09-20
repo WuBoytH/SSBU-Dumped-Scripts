@@ -13,7 +13,7 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0DB18468A0, 0x047506D366, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Have = function ()
@@ -21,7 +21,7 @@ effect_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(4)
     end
-    return 
+    return
 end
 
 effect_HaveAttack = function ()
@@ -32,7 +32,7 @@ effect_HaveAttack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(4)
     end
-    return 
+    return
 end
 
 effect_Throw = function ()
@@ -43,7 +43,7 @@ effect_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(16)
     end
-    return 
+    return
 end
 
 return

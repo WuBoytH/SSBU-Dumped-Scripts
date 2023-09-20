@@ -9,7 +9,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1D1E3E4C5A)
     end
-    return 
+    return
 end
 
 sound_Exit = function ()
@@ -17,7 +17,7 @@ sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1F65437814)
     end
-    return 
+    return
 end
 
 return

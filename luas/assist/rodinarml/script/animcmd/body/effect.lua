@@ -13,7 +13,7 @@ effect_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x10FB8BE996, 0x031ED91FCA, 0, 0, -6, 90, 0, 0, 1.5, false)
     end
-    return 
+    return
 end
 
 effect_AttackFlatStageRight = function ()
@@ -24,7 +24,7 @@ effect_AttackFlatStageRight = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x10FB8BE996, 0x031ED91FCA, 0, 0, -6, 90, 0, 0, 1.5, false)
     end
-    return 
+    return
 end
 
 effect_AttackFlatStageLeft = function ()
@@ -35,7 +35,7 @@ effect_AttackFlatStageLeft = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x10FB8BE996, 0x031ED91FCA, 0, 0, -6, 90, 0, 0, 1.5, false)
     end
-    return 
+    return
 end
 
 return

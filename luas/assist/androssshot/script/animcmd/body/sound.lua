@@ -17,7 +17,7 @@ sound_PlayShotSE = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x184AB1CE05)
     end
-    return 
+    return
 end
 
 return

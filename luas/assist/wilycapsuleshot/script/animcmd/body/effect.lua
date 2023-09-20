@@ -11,7 +11,7 @@ effect_Fire = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1708446D3A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Paralyze = function ()
@@ -19,7 +19,7 @@ effect_Paralyze = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1AB5E550A0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Ice = function ()
@@ -27,7 +27,7 @@ effect_Ice = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1825CFA885, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 return

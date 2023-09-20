@@ -8,14 +8,14 @@ sound_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1DF4191C51)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x202A02EA44)
     end
-    return 
+    return
 end
 
 return

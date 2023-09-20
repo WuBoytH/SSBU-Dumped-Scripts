@@ -7,7 +7,7 @@ sound_Pillar = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C68107BD9)
     end
-    return 
+    return
 end
 
 return

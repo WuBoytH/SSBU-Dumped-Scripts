@@ -18,7 +18,7 @@ effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(0, 120)
     end
-    return 
+    return
 end
 
 effect_Dud = function ()
@@ -34,7 +34,7 @@ effect_Dud = function ()
         end
         sv_animcmd.wait(2)
     end
-    return 
+    return
 end
 
 return

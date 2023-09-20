@@ -11,7 +11,7 @@ sound_AppearSub = function ()
         WorkModule.set_int64(0x1317714CF5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
         sv_animcmd.PLAY_SE(0x18648191CD)
     end
-    return 
+    return
 end
 
 return

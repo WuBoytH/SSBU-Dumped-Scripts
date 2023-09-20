@@ -9,7 +9,7 @@ game_Enter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd:QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 game_Attack01 = function ()
@@ -20,7 +20,7 @@ game_Attack01 = function ()
         sv_animcmd.ATTACK_FP(2, 0, 0x031ED91FCA, 11, 25, 110, 0, 35, 22, 38, 16, -18, 0x12C7990841, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_FREEZE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE, false, COLLISION_PART_MASK_ALL, false, false, false, false, 20, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.ATTACK_FP(3, 0, 0x031ED91FCA, 11, 25, 110, 0, 35, 22, -34, 16, 26, 0x12C7990841, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_FREEZE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE, false, COLLISION_PART_MASK_ALL, false, false, false, false, 20, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 return

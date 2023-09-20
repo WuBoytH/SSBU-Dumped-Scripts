@@ -8,7 +8,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031ED91FCA, 3, 8, 361, 85, 45, 0, 0, 50, 60, 4, 4, 0, 0, 0, 0x1C9A85BCD9, 0, 0.5, 1, false, true, 2, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FI, false, COLLISION_PART_MASK_ALL, false, true, true, false, 120, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         AttackModule.set_poison_param(0, 800, 80, 1.600000023841858, false)
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -50,7 +50,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

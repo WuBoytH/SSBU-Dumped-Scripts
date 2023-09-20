@@ -14,7 +14,7 @@ effect_Explosion = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0E8D8C3950, false, true)
     end
-    return 
+    return
 end
 
 effect_Finish = function ()
@@ -29,7 +29,7 @@ effect_Finish = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x15B27F803C, false, true)
     end
-    return 
+    return
 end
 
 return

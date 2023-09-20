@@ -8,7 +8,7 @@ effect_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1035D7B034, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

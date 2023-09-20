@@ -8,14 +8,14 @@ sound_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15604476BA)
     end
-    return 
+    return
 end
 
 sound_Fly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1565EE2B47)
     end
-    return 
+    return
 end
 
 return

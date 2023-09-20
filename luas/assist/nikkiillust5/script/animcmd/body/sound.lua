@@ -8,7 +8,7 @@ sound_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x16DC0F92E7)
     end
-    return 
+    return
 end
 
 return

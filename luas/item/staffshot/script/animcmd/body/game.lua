@@ -10,7 +10,7 @@ game_Throw = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 1, 46, 100, 0, 60, 0.8999999761581421, 0, 0, 0, 0x15A2C502B3, 0, 0.800000011920929, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, true, true, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, 0, 0, -18)
         AttackModule.disable_tip()
     end
-    return 
+    return
 end
 
 return

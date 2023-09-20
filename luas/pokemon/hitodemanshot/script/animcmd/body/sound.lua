@@ -10,7 +10,7 @@ sound_Appear = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0F42052130)
         sv_animcmd.PLAY_SE_REMAIN(0x195BB3C407)
     end
-    return 
+    return
 end
 
 return

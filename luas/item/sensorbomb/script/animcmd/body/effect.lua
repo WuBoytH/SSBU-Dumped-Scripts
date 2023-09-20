@@ -8,7 +8,7 @@ effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

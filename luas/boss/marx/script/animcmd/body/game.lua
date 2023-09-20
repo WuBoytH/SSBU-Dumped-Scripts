@@ -43,12 +43,12 @@ game_Entry = function ()
         sv_animcmd.RUMBLE_ALL(0x17BB1DF61D, 0)
     end
     sv_animcmd.frame(550)
-    return 
+    return
 end
 
 game_EntryLsize = function ()
     game_Entry()
-    return 
+    return
 end
 
 game_TeleportStart = function ()
@@ -56,7 +56,7 @@ game_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 game_TeleportEnd = function ()
@@ -64,7 +64,7 @@ game_TeleportEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_NORMAL)
     end
-    return 
+    return
 end
 
 game_FourCutter = function ()
@@ -72,7 +72,7 @@ game_FourCutter = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_4_CUTTER)
     end
-    return 
+    return
 end
 
 game_FlyOut = function ()
@@ -92,7 +92,7 @@ game_FlyOut = function ()
         AttackModule.clear(1)
         AttackModule.clear(2)
     end
-    return 
+    return
 end
 
 game_SpewEnd = function ()
@@ -100,14 +100,14 @@ game_SpewEnd = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_ICE_BOMB_SHOOT)
     end
-    return 
+    return
 end
 
 game_ThickLaserLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x12539BB136, 0)
     end
-    return 
+    return
 end
 
 game_ThickLaserEnd = function ()
@@ -126,7 +126,7 @@ game_ThickLaserEnd = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_THICK_LASER_END)
     end
-    return 
+    return
 end
 
 game_BlackHoleStart = function ()
@@ -171,7 +171,7 @@ game_BlackHoleStart = function ()
         WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_BLACK_HOLE_VANISH)
         AttackModule.clear(7)
     end
-    return 
+    return
 end
 
 game_BlackHoleLoop = function ()
@@ -206,14 +206,14 @@ game_BlackHoleLoop = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_BlackHoleEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x0F9E179B21, 0)
     end
-    return 
+    return
 end
 
 game_FollowEyeStart = function ()
@@ -221,14 +221,14 @@ game_FollowEyeStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_FOLLOW_EYE_CREATE)
     end
-    return 
+    return
 end
 
 game_CapillaryLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(0, 0, 0x031ED91FCA, 0.75, 1.5, 361, 10, 10, 0, 0, 0, 0, 1, 1, 0, 20, 0, 0x13BEB18342, 0, 0, 0, false, true, 0.5, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 12, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, 0, 20, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_Dead = function ()
@@ -240,7 +240,7 @@ game_Dead = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_MARX_INSTANCE_WORK_FLAG_FLIP_RESET)
     end
-    return 
+    return
 end
 
 game_DeadReaction = function ()
@@ -332,7 +332,7 @@ game_DeadReaction = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
     end
-    return 
+    return
 end
 
 return

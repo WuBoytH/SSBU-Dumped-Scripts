@@ -10,14 +10,14 @@ effect_FireAttack = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0A06E111DB, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Warp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0DECD2E5F9, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

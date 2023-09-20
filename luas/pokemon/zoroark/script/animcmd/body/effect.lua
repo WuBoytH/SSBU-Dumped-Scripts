@@ -19,21 +19,21 @@ effect_Lost = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x1195539316, false, true)
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
     end
-    return 
+    return
 end
 
 effect_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 70, 0.15000000596046448, 0.15000000596046448, 0.15000000596046448, 0, 0, 0, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 effect_AirWait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1195539316, 0x035DBFE258, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_TeleportStart = function ()
@@ -45,7 +45,7 @@ effect_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x15479C5CD0, false, true)
     end
-    return 
+    return
 end
 
 effect_SwingDown = function ()
@@ -75,7 +75,7 @@ effect_SwingDown = function ()
         sv_animcmd.EFFECT(0x15479C5CD0, 0x031ED91FCA, 0, 0, 63, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.frame(14)
-    return 
+    return
 end
 
 effect_SwingUp = function ()
@@ -105,7 +105,7 @@ effect_SwingUp = function ()
         sv_animcmd.EFFECT(0x15479C5CD0, 0x031ED91FCA, 0, 0, 65, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.frame(12)
-    return 
+    return
 end
 
 effect_CutThrough = function ()
@@ -135,7 +135,7 @@ effect_CutThrough = function ()
         sv_animcmd.EFFECT(0x15479C5CD0, 0x031ED91FCA, 0, 7, 65, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.frame(13)
-    return 
+    return
 end
 
 effect_FootCutThrough = function ()
@@ -165,7 +165,7 @@ effect_FootCutThrough = function ()
         sv_animcmd.EFFECT(0x15479C5CD0, 0x031ED91FCA, 0, 7, 65, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.frame(14)
-    return 
+    return
 end
 
 effect_Slam = function ()
@@ -189,7 +189,7 @@ effect_Slam = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x13AA578F52, false, true)
     end
-    return 
+    return
 end
 
 effect_ThrowUp = function ()
@@ -209,7 +209,7 @@ effect_ThrowUp = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(1)
     end
     sv_animcmd.frame(3)
-    return 
+    return
 end
 
 effect_ThrowUpAir = function ()
@@ -229,7 +229,7 @@ effect_ThrowUpAir = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(1)
     end
     sv_animcmd.frame(3)
-    return 
+    return
 end
 
 return

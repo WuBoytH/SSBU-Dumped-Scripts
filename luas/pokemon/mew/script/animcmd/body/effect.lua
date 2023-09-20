@@ -26,35 +26,35 @@ effect_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E6E03DD11, 0x031ED91FCA, 0, 2, 0, 0, 0, 0, 0.6000000238418579, false)
     end
-    return 
+    return
 end
 
 effect_FlyStartL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E6E03DD11, 0x031ED91FCA, 0, 2, 0, 0, 0, 0, 0.6000000238418579, false)
     end
-    return 
+    return
 end
 
 effect_FlyStartR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E6E03DD11, 0x031ED91FCA, 0, 2, 0, 0, 0, 0, 0.6000000238418579, false)
     end
-    return 
+    return
 end
 
 effect_FlyL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E6E03DD11, 0x031ED91FCA, 0, 2, 0, 0, 0, 0, 0.6000000238418579, false)
     end
-    return 
+    return
 end
 
 effect_FlyR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E6E03DD11, 0x031ED91FCA, 0, 2, 0, 0, 0, 0, 0.6000000238418579, false)
     end
-    return 
+    return
 end
 
 return

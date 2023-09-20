@@ -9,7 +9,7 @@ effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x14C6D2AD94, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_PreDrop = function ()
@@ -17,7 +17,7 @@ effect_PreDrop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x19E220978E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 return

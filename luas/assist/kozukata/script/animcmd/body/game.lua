@@ -13,7 +13,7 @@ game_Landing = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KOZUKATA_INSTANCE_WORK_FLAG_VISIBLE_SIGHT)
     end
-    return 
+    return
 end
 
 return

@@ -18,7 +18,7 @@ game_Attack1 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Attack2 = function ()
@@ -30,7 +30,7 @@ game_Attack2 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackSub = function ()
@@ -42,7 +42,7 @@ game_AttackSub = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_StepAir = function ()
@@ -65,7 +65,7 @@ game_StepAir = function ()
     game_AttackSub()
     sv_animcmd.frame(34)
     game_AttackSub()
-    return 
+    return
 end
 
 game_StepGround = function ()
@@ -86,14 +86,14 @@ game_StepGround = function ()
     game_AttackSub()
     sv_animcmd.frame(37)
     game_AttackSub()
-    return 
+    return
 end
 
 game_PreFinishRun = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 0, 0, 100, 0, 10, 2, 0, 2, 16, 0x15A2C502B3, 0, 0, 0, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIEB, false, COLLISION_PART_MASK_ALL, false, true, false, false, 1, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, true, true, 0, 2, -4)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -101,7 +101,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 return

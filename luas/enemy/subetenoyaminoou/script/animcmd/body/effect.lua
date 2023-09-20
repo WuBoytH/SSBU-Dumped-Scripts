@@ -26,7 +26,7 @@ effect_Skill = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x1D2D7300FB, 0x0A02858C75, 0, -0.5, 5.5, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_MagicSkill = function ()
@@ -42,7 +42,7 @@ effect_MagicSkill = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x1B811BBCE4, 0x0A02858C75, 0, -0.5, 5.5, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_MagicSkillPowerUp = function ()
@@ -58,7 +58,7 @@ effect_MagicSkillPowerUp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x21BA7383E9, 0x030886299D, 0, 5, 9, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -67,7 +67,7 @@ effect_Attack = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1C18CD11FA, 0x030886299D, 2, 0, 7, 0, 0, 0, 1, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 return

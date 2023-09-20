@@ -15,7 +15,7 @@ game_Bomb = function ()
         AttackModule.clear_all()
         AreaModule.erase_wind(0)
     end
-    return 
+    return
 end
 
 game_BigBomb = function ()
@@ -120,14 +120,14 @@ game_BigBomb = function ()
         AttackModule.clear_all()
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
-    return 
+    return
 end
 
 game_Damage = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 6, 361, 100, 0, 20, 10, 0, 0, 0, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_OBJECT, COLLISION_CATEGORY_MASK_NO_ITEM_STAGE, false, COLLISION_PART_MASK_ALL, false, false, false, false, 60, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 return

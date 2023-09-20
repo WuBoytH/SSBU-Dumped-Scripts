@@ -21,7 +21,7 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x11FB4D4BEC, false, true)
     end
-    return 
+    return
 end
 
 effect_Attack1 = function ()
@@ -34,7 +34,7 @@ effect_Attack1 = function ()
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
         sv_animcmd.EFFECT_OFF_KIND(0x129636044A, false, true)
     end
-    return 
+    return
 end
 
 effect_Attack2 = function ()
@@ -51,7 +51,7 @@ effect_Attack2 = function ()
         end
         sv_animcmd.wait(23)
     end
-    return 
+    return
 end
 
 effect_Attack3 = function ()
@@ -64,7 +64,7 @@ effect_Attack3 = function ()
         sv_animcmd.CANCEL_FILL_SCREEN(1, 30)
         sv_animcmd.EFFECT_OFF_KIND(0x118078BD02, false, true)
     end
-    return 
+    return
 end
 
 effect_Attack4 = function ()
@@ -82,7 +82,7 @@ effect_Attack4 = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x1342490AF5, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x0F9E13D973, false, true)
     end
-    return 
+    return
 end
 
 effect_Attack5 = function ()
@@ -101,7 +101,7 @@ effect_Attack5 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x10359DEC27, false, true)
     end
-    return 
+    return
 end
 
 return

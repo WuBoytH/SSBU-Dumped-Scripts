@@ -8,28 +8,28 @@ sound_MissileFly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B995C99BD)
     end
-    return 
+    return
 end
 
 sound_MissileBorn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x21FECA7A9C)
     end
-    return 
+    return
 end
 
 sound_ShootFly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B995C99BD)
     end
-    return 
+    return
 end
 
 sound_ShootBorn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x21FECA7A9C)
     end
-    return 
+    return
 end
 
 return

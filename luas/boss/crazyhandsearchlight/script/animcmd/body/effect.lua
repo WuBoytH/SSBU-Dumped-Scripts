@@ -18,7 +18,7 @@ effect_Search = function ()
         sv_animcmd.EFFECT(0x1B205E69A9, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_CRAZYHANDSEARCHLIGHT_INSTANCE_WORK_INT_EFFECT_GROUND)
     end
-    return 
+    return
 end
 
 effect_Chase = function ()
@@ -28,7 +28,7 @@ effect_Chase = function ()
         sv_animcmd.EFFECT(0x21A8F67CEC, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_CRAZYHANDSEARCHLIGHT_INSTANCE_WORK_INT_EFFECT_GROUND)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -44,7 +44,7 @@ effect_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x228C17BD66, false, false)
     end
-    return 
+    return
 end
 
 return

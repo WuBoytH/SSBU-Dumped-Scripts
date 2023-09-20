@@ -13,7 +13,7 @@ game_Attack = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackFlatStageRight = function ()
@@ -25,7 +25,7 @@ game_AttackFlatStageRight = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackFlatStageLeft = function ()
@@ -37,7 +37,7 @@ game_AttackFlatStageLeft = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

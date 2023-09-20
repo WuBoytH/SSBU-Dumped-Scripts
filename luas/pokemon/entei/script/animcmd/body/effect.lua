@@ -15,7 +15,7 @@ effect_Appear = function ()
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 80, 0.8500000238418579, 0.550000011920929, 0.5, 0, 0, 0, 0.699999988079071, 2, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(0, 80, 0.8500000238418579, 0.550000011920929, 0.5, 0, 0, 0, 0.699999988079071, 2, EffectScreenLayer.CHAR, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 effect_WaitGround = function ()
@@ -39,7 +39,7 @@ effect_WaitGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1BA48AB5EF, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -47,7 +47,7 @@ effect_Lost = function ()
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
         sv_animcmd.CANCEL_FILL_SCREEN(0, 60)
     end
-    return 
+    return
 end
 
 return

@@ -10,7 +10,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x14FEF90CB8, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_BondGroundOpen = function ()
@@ -18,7 +18,7 @@ sound_BondGroundOpen = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19AB7B646C)
     end
-    return 
+    return
 end
 
 sound_BondGround = function ()
@@ -26,7 +26,7 @@ sound_BondGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x1D73AA1265)
     end
-    return 
+    return
 end
 
 sound_BondAirOpen = function ()
@@ -34,7 +34,7 @@ sound_BondAirOpen = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19AB7B646C)
     end
-    return 
+    return
 end
 
 sound_BondAir = function ()
@@ -42,7 +42,7 @@ sound_BondAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x1D73AA1265)
     end
-    return 
+    return
 end
 
 return

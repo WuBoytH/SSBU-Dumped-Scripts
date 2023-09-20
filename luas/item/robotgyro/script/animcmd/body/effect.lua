@@ -75,7 +75,7 @@ effect_FuraFura = function ()
         sv_animcmd.LANDING_EFFECT(0x0F1F9A3475, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.6000000238418579, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(2)
     end
-    return 
+    return
 end
 
 return

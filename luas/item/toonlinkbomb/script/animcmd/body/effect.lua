@@ -11,7 +11,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FOLLOW(0x13328B4D9C, 0x05E334BF6B, 0, 0, 0, 0, 0, 0, 1, false)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -25,7 +25,7 @@ effect_Born = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0DF4BC0AC4, 0x031ED91FCA, 0, 0, 0, 0, 180, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_HitstopBeforeBorn = function ()

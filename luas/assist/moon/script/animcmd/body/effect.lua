@@ -29,7 +29,7 @@ effect_Fall = function ()
         sv_animcmd.EFFECT_GLOBAL(0x0B3AD39623, 0, 0, 10, 0, 0, 0, 1)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MOON_INSTANCE_WORK_DEBRIS_RISE_EFFECT_HADNLE)
     end
-    return 
+    return
 end
 
 effect_Impact = function ()
@@ -51,7 +51,7 @@ effect_Impact = function ()
         WorkModule.on_flag(ITEM_MOON_INSTANCE_WORK_FLAG_SHOCKWAVE_EFFECT_REMOVE)
         WorkModule.on_flag(ITEM_MOON_INSTANCE_WORK_FLAG_DEBRIS_RISE_EFFECT_REMOVE)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -63,7 +63,7 @@ effect_Lost = function ()
         sv_animcmd.EFFECT(0x12A75E1CE3, 0x031ED91FCA, 0, 0, 50, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
-    return 
+    return
 end
 
 return

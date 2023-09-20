@@ -10,14 +10,14 @@ game_Throw = function ()
         sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 2.5, 0, 0, 0, COLLISION_KIND_MASK_HSR, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_ALL, HIT_STATUS_MASK_NI, false, 1, false, COLLISION_SHAPE_TYPE_SPHERE)
         SearchModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 game_GroundTrace = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 2, 0, 0, 0, COLLISION_KIND_MASK_HSR, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_ALL, HIT_STATUS_MASK_NI, false, 1, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -28,7 +28,7 @@ game_Born = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
         sv_animcmd.IT_SET_PARENT_RUMBLE(0x10EAA9BFF4, 0)
     end
-    return 
+    return
 end
 
 return

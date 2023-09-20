@@ -12,7 +12,7 @@ sound_AppearLanding = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x183A43A3C0)
     end
-    return 
+    return
 end
 
 sound_AppearRide = function ()
@@ -20,7 +20,7 @@ sound_AppearRide = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1543658C3A)
     end
-    return 
+    return
 end
 
 sound_AppearRunStart = function ()
@@ -28,7 +28,7 @@ sound_AppearRunStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1405AD9468)
     end
-    return 
+    return
 end
 
 sound_AppearRunStartTurn = function ()
@@ -46,7 +46,7 @@ sound_AppearRunStartTurn = function ()
     if f4_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1405AD9468)
     end
-    return 
+    return
 end
 
 sound_Run1 = function ()
@@ -60,7 +60,7 @@ sound_Run1 = function ()
     if f5_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1405AD9468)
     end
-    return 
+    return
 end
 
 sound_Turn = function ()
@@ -82,7 +82,7 @@ sound_Turn = function ()
     if f6_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1405AD9468)
     end
-    return 
+    return
 end
 
 sound_CarryRun = function ()
@@ -96,7 +96,7 @@ sound_CarryRun = function ()
     if f7_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1405AD9468)
     end
-    return 
+    return
 end
 
 sound_CarryRunEmpty = function ()
@@ -104,7 +104,7 @@ sound_CarryRunEmpty = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x1405AD9468)
     end
-    return 
+    return
 end
 
 sound_CarryTurn = function ()
@@ -116,12 +116,12 @@ sound_CarryTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15F878E5AD)
     end
-    return 
+    return
 end
 
 sound_CarryTurnEmpty = function ()
     sound_CarryTurn()
-    return 
+    return
 end
 
 sound_TurnShort = function ()
@@ -143,7 +143,7 @@ sound_TurnShort = function ()
     if f11_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1405AD9468)
     end
-    return 
+    return
 end
 
 sound_Jump = function ()
@@ -155,7 +155,7 @@ sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x157FEBF6FC)
     end
-    return 
+    return
 end
 
 sound_JumpStep = function ()
@@ -167,7 +167,7 @@ sound_JumpStep = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x157FEBF6FC)
     end
-    return 
+    return
 end
 
 sound_Fall = function ()
@@ -175,7 +175,7 @@ sound_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x1405AD9468)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
@@ -187,7 +187,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x183A43A3C0)
     end
-    return 
+    return
 end
 
 sound_Exit = function ()
@@ -199,7 +199,7 @@ sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x183A43A3C0)
     end
-    return 
+    return
 end
 
 sound_Exit2 = function ()
@@ -211,14 +211,14 @@ sound_Exit2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x183A43A3C0)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x1405AD9468)
     end
-    return 
+    return
 end
 
 sound_play_se_assist_driver_run = function ()
@@ -231,7 +231,7 @@ sound_play_se_assist_driver_run = function ()
     if f19_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1405AD9468)
     end
-    return 
+    return
 end
 
 return

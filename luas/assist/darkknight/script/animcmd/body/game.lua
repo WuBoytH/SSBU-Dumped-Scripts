@@ -9,7 +9,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -17,7 +17,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -25,7 +25,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_SlashDown = function ()
@@ -57,7 +57,7 @@ game_SlashDown = function ()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
     sv_animcmd.frame(54)
-    return 
+    return
 end
 
 game_SlashDown1st = function ()
@@ -95,7 +95,7 @@ game_SlashDown1st = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DARKKNIGHT_INSTANCE_WORK_FLAG_IS_SLASHDOWN_CANCEL_FRAME)
     end
-    return 
+    return
 end
 
 game_SlashUp2nd = function ()
@@ -121,7 +121,7 @@ game_SlashUp2nd = function ()
         AttackModule.clear_all()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
-    return 
+    return
 end
 
 game_SlashUp = function ()
@@ -147,7 +147,7 @@ game_SlashUp = function ()
         AttackModule.clear_all()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
-    return 
+    return
 end
 
 game_SlashUpAir = function ()
@@ -173,7 +173,7 @@ game_SlashUpAir = function ()
         AttackModule.clear_all()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
-    return 
+    return
 end
 
 game_SlashUp1st = function ()
@@ -203,7 +203,7 @@ game_SlashUp1st = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DARKKNIGHT_INSTANCE_WORK_FLAG_IS_SLASHUP_CANCEL_FRAME)
     end
-    return 
+    return
 end
 
 game_SlashDown2nd = function ()
@@ -234,7 +234,7 @@ game_SlashDown2nd = function ()
         AttackModule.clear_all()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
     end
-    return 
+    return
 end
 
 return

@@ -54,7 +54,7 @@ game_Shot = function ()
         f1_local0, f1_local1, f1_local2 = nil
         sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 1.2000000476837158, 70, 50, 0, 55, 6, 0, -2.5, -12, f1_local0, f1_local1, f1_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_SPEED, false, 1, 0, 6, true, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x12C7990841, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_FREEZE, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 return

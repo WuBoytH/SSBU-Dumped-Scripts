@@ -9,7 +9,7 @@ effect_Suka = function ()
         sv_animcmd.EFFECT(0x0B41410A4D, 0x031ED91FCA, 0, 7, 0, 0, 0, 0, 0.6000000238418579, 0.5, 0.5, 0.5, 0, 0, 45, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.5)
     end
-    return 
+    return
 end
 
 return

@@ -15,7 +15,7 @@ sound_PierceStart = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1D60536614)
     end
-    return 
+    return
 end
 
 sound_Pierce = function ()
@@ -27,14 +27,14 @@ sound_Pierce = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x180617E179)
     end
-    return 
+    return
 end
 
 sound_PierceEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1ABBD002B2)
     end
-    return 
+    return
 end
 
 return

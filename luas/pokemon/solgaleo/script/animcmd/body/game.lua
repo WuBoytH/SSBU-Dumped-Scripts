@@ -17,7 +17,7 @@ game_Attack = function ()
     if sv_animcmd.is_excute() then
         AreaModule.erase_wind(0)
     end
-    return 
+    return
 end
 
 game_Leave = function ()
@@ -25,7 +25,7 @@ game_Leave = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_SOLGALEO_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 return

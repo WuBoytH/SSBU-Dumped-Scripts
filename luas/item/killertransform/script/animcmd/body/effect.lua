@@ -13,14 +13,14 @@ effect_TransformStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x14CCE40619, 0x05EC462584, 0, 0, 0, 0, 0, 0, 1.2000000476837158, false)
     end
-    return 
+    return
 end
 
 effect_TransformEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0E672B60DF, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Charge = function ()
@@ -42,7 +42,7 @@ effect_Bomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0A176813FC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

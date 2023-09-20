@@ -20,14 +20,14 @@ effect_Throw = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x11F76EDC8F, 0x031ED91FCA, 0, 0, 0, 0, 180, 0, 0.800000011920929, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11663FECD3, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

@@ -16,7 +16,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Exit = function ()
@@ -24,7 +24,7 @@ effect_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x103F325BD7, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Exit2 = function ()
@@ -32,14 +32,14 @@ effect_Exit2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x103F325BD7, 0x031ED91FCA, 0, 0, 0, 0, 180, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Run = function ()
@@ -52,7 +52,7 @@ effect_Run = function ()
         sv_animcmd.FOOT_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 4.5, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.wait_loop_sync_mot()
-    return effect_Run()
+    returneffect_Run()
 end
 
 effect_SlashDown = function ()
@@ -69,7 +69,7 @@ effect_SlashDown = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(3)
     end
-    return 
+    return
 end
 
 effect_SlashDown1st = function ()
@@ -86,7 +86,7 @@ effect_SlashDown1st = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(3)
     end
-    return 
+    return
 end
 
 effect_SlashUp2nd = function ()
@@ -103,7 +103,7 @@ effect_SlashUp2nd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(3)
     end
-    return 
+    return
 end
 
 effect_SlashUp = function ()
@@ -120,7 +120,7 @@ effect_SlashUp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(3)
     end
-    return 
+    return
 end
 
 effect_SlashUpAir = function ()
@@ -132,7 +132,7 @@ effect_SlashUpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(3)
     end
-    return 
+    return
 end
 
 effect_SlashUp1st = function ()
@@ -149,7 +149,7 @@ effect_SlashUp1st = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(3)
     end
-    return 
+    return
 end
 
 effect_SlashDown2nd = function ()
@@ -163,7 +163,7 @@ effect_SlashDown2nd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(3)
     end
-    return 
+    return
 end
 
 return

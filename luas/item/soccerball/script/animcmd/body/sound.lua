@@ -11,14 +11,14 @@ sound_Normal = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1A840C0DF8, 0x0F42052130)
         WorkModule.set_int64(0x1317714CF5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
     end
-    return 
+    return
 end
 
 sound_Fire = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17F618D961)
     end
-    return 
+    return
 end
 
 sound_FireAttack = function ()
@@ -26,7 +26,7 @@ sound_FireAttack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17F618D961)
     end
-    return 
+    return
 end
 
 return

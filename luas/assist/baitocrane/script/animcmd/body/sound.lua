@@ -16,7 +16,7 @@ sound_Open = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1AF992FF61)
     end
-    return 
+    return
 end
 
 sound_Close = function ()
@@ -28,7 +28,7 @@ sound_Close = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B0BF6025A)
     end
-    return 
+    return
 end
 
 sound_Release = function ()
@@ -40,28 +40,28 @@ sound_Release = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1AE4B46A73)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x1D1FC73E8D)
     end
-    return 
+    return
 end
 
 sound_SoundMoveStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1AAFFADEAF)
     end
-    return 
+    return
 end
 
 sound_SoundUpSuccessStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1D1FC73E8D)
     end
-    return 
+    return
 end
 
 return

@@ -8,14 +8,14 @@ sound_RunHead = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x1CCB269B35)
     end
-    return 
+    return
 end
 
 sound_RunLastBody = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x1B04D2CD1E)
     end
-    return 
+    return
 end
 
 return

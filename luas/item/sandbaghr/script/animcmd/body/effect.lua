@@ -27,7 +27,7 @@ effect_DownBoundD = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
-    return 
+    return
 end
 
 effect_DownBoundU = function ()
@@ -38,7 +38,7 @@ effect_DownBoundU = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
-    return 
+    return
 end
 
 effect_SlidingD = function ()
@@ -50,7 +50,7 @@ effect_SlidingD = function ()
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
-    return 
+    return
 end
 
 effect_SlidingU = function ()
@@ -62,14 +62,14 @@ effect_SlidingU = function ()
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
-    return 
+    return
 end
 
 effect_SlidingDEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_DownStandD = function ()
@@ -77,7 +77,7 @@ effect_DownStandD = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_DownStandU = function ()
@@ -85,7 +85,7 @@ effect_DownStandU = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_DownWaitD = function ()
@@ -93,7 +93,7 @@ effect_DownWaitD = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
-    return 
+    return
 end
 
 effect_DownWaitU = function ()
@@ -101,7 +101,7 @@ effect_DownWaitU = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SANDBAG_INSTANCE_WORK_FLAG_NO_LANDING_SMOKE)
     end
-    return 
+    return
 end
 
 effect_DamageFlyStopStartS = function ()
@@ -110,7 +110,7 @@ effect_DamageFlyStopStartS = function ()
         sv_animcmd.RUMBLE_ALL(0x1644B25228, 0)
         sv_animcmd.IT_SLOW_WHOLE_FRAME(3, 10)
     end
-    return 
+    return
 end
 
 effect_DamageFlyStopStartM = function ()
@@ -120,7 +120,7 @@ effect_DamageFlyStopStartM = function ()
         sv_animcmd.RUMBLE_ALL(0x1495BE43D8, 0)
         sv_animcmd.IT_SLOW_WHOLE_FRAME(5, 10)
     end
-    return 
+    return
 end
 
 effect_DamageFlyStopStartL = function ()
@@ -130,21 +130,21 @@ effect_DamageFlyStopStartL = function ()
         sv_animcmd.RUMBLE_ALL(0x1495BE43D8, 0)
         sv_animcmd.IT_SLOW_WHOLE_FRAME(10, 2)
     end
-    return 
+    return
 end
 
 effect_DamageFlyStopEndM = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_GLOBAL_arg9(0x13A7B035EF, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_DamageFlyStopEndL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_GLOBAL_arg9(0x13A7B035EF, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_LineEffectStart = function ()
@@ -154,7 +154,7 @@ effect_LineEffectStart = function ()
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(0, 0, 0.3700000047683716, 0.20999999344348907, 0.20000000298023224, 0, 0, 0, 0.20000000298023224, 5, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_FINAL)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 0, 0.699999988079071, 0.5799999833106995, 0.6200000047683716, 0, 0, 0, 0.15000000596046448, 7, EffectScreenLayer.CHAR, EFFECT_SCREEN_PRIO_FINAL)
     end
-    return 
+    return
 end
 
 effect_LineEffectEnd = function ()
@@ -163,14 +163,14 @@ effect_LineEffectEnd = function ()
         sv_animcmd.CANCEL_FILL_SCREEN(0, 30)
         sv_animcmd.CANCEL_FILL_SCREEN(1, 30)
     end
-    return 
+    return
 end
 
 effect_DownLevelS = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_DownLevelM = function ()
@@ -179,14 +179,14 @@ effect_DownLevelM = function ()
         sv_animcmd.EFFECT(0x09D6F70EEC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.600000023841858)
     end
-    return 
+    return
 end
 
 effect_DownLevelL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x09D6F70EEC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2.5999999046325684, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_DamageFlyDownLevelS = function ()
@@ -194,7 +194,7 @@ effect_DamageFlyDownLevelS = function ()
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.RUMBLE_ALL(0x1043F14CD7, 0)
     end
-    return 
+    return
 end
 
 effect_DamageFlyDownLevelM = function ()
@@ -204,7 +204,7 @@ effect_DamageFlyDownLevelM = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(1.600000023841858)
         sv_animcmd.RUMBLE_ALL(0x10CEF94122, 0)
     end
-    return 
+    return
 end
 
 effect_DamageFlyDownLevelL = function ()
@@ -212,7 +212,7 @@ effect_DamageFlyDownLevelL = function ()
         sv_animcmd.EFFECT(0x09D6F70EEC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2.5999999046325684, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.RUMBLE_ALL(0x10CEF94122, 0)
     end
-    return 
+    return
 end
 
 effect_LandingSmoke = function ()
@@ -229,7 +229,7 @@ effect_LandingSmoke = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x114A9D781F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Sonicboom = function ()
@@ -249,7 +249,7 @@ effect_Sonicboom = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LAST_EFFECT_SET_DISABLE_SYSTEM_SLOW(true)
     end
-    return 
+    return
 end
 
 effect_HokahokaLv1 = function ()
@@ -301,7 +301,7 @@ effect_HokahokaLv1 = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(12)
-    return effect_HokahokaLv1()
+    returneffect_HokahokaLv1()
 end
 
 effect_HokahokaLv2 = function ()
@@ -353,7 +353,7 @@ effect_HokahokaLv2 = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(9)
-    return effect_HokahokaLv2()
+    returneffect_HokahokaLv2()
 end
 
 effect_HokahokaLv3 = function ()
@@ -389,7 +389,7 @@ effect_HokahokaLv3 = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(6)
-    return effect_HokahokaLv3()
+    returneffect_HokahokaLv3()
 end
 
 return

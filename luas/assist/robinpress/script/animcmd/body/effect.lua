@@ -11,14 +11,14 @@ effect_Up = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A60AD9B01, 0x031ED91FCA, 0, 8, 0, -90, 180, -90, 1, false)
     end
-    return 
+    return
 end
 
 effect_Down = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A4CA5EB76, 0x031ED91FCA, 0, -2.5, 0, 0, 0, 0, 1.25, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -30,7 +30,7 @@ effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.DOWN_EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.4500000476837158, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

@@ -10,7 +10,7 @@ effect_Enter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Attack01 = function ()
@@ -18,7 +18,7 @@ effect_Attack01 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_GLOBAL_FOLLOW(0x177591D1CA, 0, 0, 0, 0, 0, 0, 20)
     end
-    return 
+    return
 end
 
 return

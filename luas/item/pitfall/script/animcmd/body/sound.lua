@@ -9,7 +9,7 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 sound_DisappearGround = function ()
@@ -17,7 +17,7 @@ sound_DisappearGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x16AFA0D311)
     end
-    return 
+    return
 end
 
 sound_DisappearGroundLioleusboss = function ()
@@ -25,7 +25,7 @@ sound_DisappearGroundLioleusboss = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x16AFA0D311)
     end
-    return 
+    return
 end
 
 return

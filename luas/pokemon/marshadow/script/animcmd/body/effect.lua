@@ -26,7 +26,7 @@ effect_DiveStart = function ()
         sv_animcmd.FLASH_FRM(7, 0, 0, 0, 0.8999999761581421)
     end
     sv_animcmd.wait(10)
-    return 
+    return
 end
 
 effect_DiveMain = function ()
@@ -34,14 +34,14 @@ effect_DiveMain = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x107824E60A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_DiveWait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_DETACH_KIND(0x107824E60A, 10)
     end
-    return 
+    return
 end
 
 effect_DiveAttack = function ()
@@ -50,7 +50,7 @@ effect_DiveAttack = function ()
         sv_animcmd.EFFECT(0x107824E60A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x125FCD81DE, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_DiveStretch = function ()
@@ -58,7 +58,7 @@ effect_DiveStretch = function ()
         sv_animcmd.EFFECT_FOLLOW(0x18AA6F414A, 0x031ED91FCA, 0, 0, -5, 0, 0, 0, 1, false)
         sv_animcmd.EFFECT_FOLLOW(0x16B0C3157E, 0x031ED91FCA, 0, 0, -5, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -101,7 +101,7 @@ effect_Attack = function ()
         sv_animcmd.EFFECT_DETACH_KIND(0x16B0C3157E, -1)
         sv_animcmd.EFFECT_OFF_KIND(0x177B1E2280, false, true)
     end
-    return 
+    return
 end
 
 return

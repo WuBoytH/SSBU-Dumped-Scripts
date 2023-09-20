@@ -11,35 +11,35 @@ sound_Move = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x171B658EB8)
     end
-    return 
+    return
 end
 
 sound_Unit01 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1ADE2FD43C)
     end
-    return 
+    return
 end
 
 sound_Unit02 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A47268586)
     end
-    return 
+    return
 end
 
 sound_Bomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1D117643C4)
     end
-    return 
+    return
 end
 
 sound_BigBomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1D887F127E)
     end
-    return 
+    return
 end
 
 return

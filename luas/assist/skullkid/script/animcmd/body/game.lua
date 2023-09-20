@@ -5,7 +5,7 @@ game_AttackC = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SKULLKID_INSTANCE_WORK_FLAG_FLIP_SCREEN)
     end
-    return 
+    return
 end
 
 return

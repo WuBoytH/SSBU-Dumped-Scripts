@@ -19,7 +19,7 @@ game_Attack1 = function ()
         end
         sv_animcmd.wait(1)
     end
-    return 
+    return
 end
 
 game_Attack2 = function ()
@@ -44,7 +44,7 @@ game_Attack2 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Attack3 = function ()
@@ -52,7 +52,7 @@ game_Attack3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -60,7 +60,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 return

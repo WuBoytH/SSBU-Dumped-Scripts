@@ -12,7 +12,7 @@ effect_RootWait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -20,7 +20,7 @@ effect_Lost = function ()
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
         EffectModule.remove_screen(0x12BE9F41D5)
     end
-    return 
+    return
 end
 
 return

@@ -9,21 +9,21 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 sound_WaitGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12C9F0EF5A)
     end
-    return 
+    return
 end
 
 sound_OnDamageSound = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1516DD7CC7)
     end
-    return 
+    return
 end
 
 return

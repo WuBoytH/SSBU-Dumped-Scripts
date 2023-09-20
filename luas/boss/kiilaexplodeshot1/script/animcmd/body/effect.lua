@@ -9,7 +9,7 @@ effect_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x15C30C3A94, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.600000023841858, true)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -17,7 +17,7 @@ effect_Lost = function ()
         sv_animcmd.EFFECT(0x1534766F2D, 0x031ED91FCA, 0, 0, 0, 0, 1, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
-    return 
+    return
 end
 
 return

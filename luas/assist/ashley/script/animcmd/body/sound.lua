@@ -19,7 +19,7 @@ sound_DarkArrival = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x157755E31B)
     end
-    return 
+    return
 end
 
 sound_DarkVanish = function ()
@@ -34,14 +34,14 @@ sound_DarkVanish = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x16D94787F2)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x157755E31B)
     end
-    return 
+    return
 end
 
 return

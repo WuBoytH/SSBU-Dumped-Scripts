@@ -15,14 +15,14 @@ sound_Entry = function ()
         sv_animcmd.PLAY_SE(0x197AF04B5B)
         WorkModule:off_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_2)
     end
-    return 
+    return
 end
 
 sound_WalkTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x195695989E)
     end
-    return 
+    return
 end
 
 return

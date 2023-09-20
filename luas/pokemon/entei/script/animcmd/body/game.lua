@@ -34,7 +34,7 @@ game_WaitGround = function ()
         AttackModule.clear_all()
         AreaModule.erase_wind(0)
     end
-    return 
+    return
 end
 
 return

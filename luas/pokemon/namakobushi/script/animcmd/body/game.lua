@@ -10,7 +10,7 @@ game_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 6, 45, 100, 0, 0, 4, 0, 4, 2, 0, 4, -2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_BODY)
     end
-    return 
+    return
 end
 
 game_AirTobidasu = function ()
@@ -30,7 +30,7 @@ game_AirTobidasu = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Tobidasu = function ()
@@ -53,7 +53,7 @@ game_Tobidasu = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_NAMAKOBUSHI_INSTANCE_WORK_FLAG_IS_ATTACK_CANCEL)
     end
-    return 
+    return
 end
 
 game_CliffTobidasu = function ()
@@ -74,7 +74,7 @@ game_CliffTobidasu = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_NAMAKOBUSHI_INSTANCE_WORK_FLAG_IS_ATTACK_CANCEL)
     end
-    return 
+    return
 end
 
 game_TurnTobidasu = function ()
@@ -98,7 +98,7 @@ game_TurnTobidasu = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_NAMAKOBUSHI_INSTANCE_WORK_FLAG_IS_ATTACK_CANCEL)
     end
-    return 
+    return
 end
 
 game_TurnCliffTobidasu = function ()
@@ -120,7 +120,7 @@ game_TurnCliffTobidasu = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_NAMAKOBUSHI_INSTANCE_WORK_FLAG_IS_ATTACK_CANCEL)
     end
-    return 
+    return
 end
 
 game_TreadTobidasu = function ()
@@ -143,7 +143,7 @@ game_TreadTobidasu = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_NAMAKOBUSHI_INSTANCE_WORK_FLAG_IS_ATTACK_CANCEL)
     end
-    return 
+    return
 end
 
 game_TreadCliffTobidasu = function ()
@@ -164,7 +164,7 @@ game_TreadCliffTobidasu = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_NAMAKOBUSHI_INSTANCE_WORK_FLAG_IS_ATTACK_CANCEL)
     end
-    return 
+    return
 end
 
 game_TreadTurnTobidasu = function ()
@@ -188,7 +188,7 @@ game_TreadTurnTobidasu = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_NAMAKOBUSHI_INSTANCE_WORK_FLAG_IS_ATTACK_CANCEL)
     end
-    return 
+    return
 end
 
 game_TreadTurnCliffTobidasu = function ()
@@ -210,7 +210,7 @@ game_TreadTurnCliffTobidasu = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_NAMAKOBUSHI_INSTANCE_WORK_FLAG_IS_ATTACK_CANCEL)
     end
-    return 
+    return
 end
 
 return

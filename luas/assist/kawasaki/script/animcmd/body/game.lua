@@ -8,14 +8,14 @@ game_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_Exit = function ()
@@ -26,7 +26,7 @@ game_Exit = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KAWASAKI_INSTANCE_WORK_FLAG_SPAWN_PRESENT)
     end
-    return 
+    return
 end
 
 game_Jump = function ()
@@ -37,7 +37,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -48,56 +48,56 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_RunStart = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_Run = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_RunEnd = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_EscapeFall = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -108,7 +108,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_ShootStart = function ()
@@ -116,7 +116,7 @@ game_ShootStart = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
     end
-    return 
+    return
 end
 
 game_ShootMain = function ()
@@ -128,7 +128,7 @@ game_ShootMain = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KAWASAKI_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_ShootEnd = function ()
@@ -136,7 +136,7 @@ game_ShootEnd = function ()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_ShootAirStart = function ()
@@ -144,7 +144,7 @@ game_ShootAirStart = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_ALWAYS, 0)
     end
-    return 
+    return
 end
 
 game_ShootAirMain = function ()
@@ -156,7 +156,7 @@ game_ShootAirMain = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KAWASAKI_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_ShootAirEnd = function ()
@@ -164,7 +164,7 @@ game_ShootAirEnd = function ()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_Swing = function ()
@@ -210,7 +210,7 @@ game_Swing = function ()
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_NORMAL, 0)
         sv_module_access.damage(MA_MSC_DAMAGE_DAMAGE_NO_REACTION, DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 3)
     end
-    return 
+    return
 end
 
 game_CookStart = function ()
@@ -218,21 +218,21 @@ game_CookStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KAWASAKI_INSTANCE_WORK_FLAG_COOK_MOVE)
     end
-    return 
+    return
 end
 
 game_CookMain = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_ABS(0, 0, 0, 0, 0, 0, 0, 0, 0, ATTACK_LR_CHECK_POS, 0, true, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_CookAppeal = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_ABS(0, 0, 13, 0, 90, 0, 45, 0, 0, ATTACK_LR_CHECK_POS, 0, true, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 return

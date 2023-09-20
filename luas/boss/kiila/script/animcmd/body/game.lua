@@ -22,7 +22,7 @@ game_Entry = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_SHOW_STAGE_FLOATING_PLATES)
     end
-    return 
+    return
 end
 
 game_Entry2 = function ()
@@ -62,7 +62,7 @@ game_Entry2 = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_SHOW_STAGE_FLOATING_PLATES)
     end
-    return 
+    return
 end
 
 game_TeleportStart = function ()
@@ -70,7 +70,7 @@ game_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 game_TeleportEnd = function ()
@@ -78,7 +78,7 @@ game_TeleportEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_NORMAL)
     end
-    return 
+    return
 end
 
 game_Dead = function ()
@@ -139,7 +139,7 @@ game_Dead = function ()
             WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
         end
     end
-    return 
+    return
 end
 
 game_Anger = function ()
@@ -156,7 +156,7 @@ game_Anger = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_ZOOM_END)
     end
-    return 
+    return
 end
 
 game_DownStartL = function ()
@@ -164,12 +164,12 @@ game_DownStartL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 game_DownStartR = function ()
     game_DownStartL()
-    return 
+    return
 end
 
 game_DownFallL = function ()
@@ -182,12 +182,12 @@ game_DownFallL = function ()
         sv_animcmd.RUMBLE_ALL(0x137FFF509B, 0)
         WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_DOWN_LANDING)
     end
-    return 
+    return
 end
 
 game_DownFallR = function ()
     game_DownFallL()
-    return 
+    return
 end
 
 game_DownEnd = function ()
@@ -195,7 +195,7 @@ game_DownEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 game_ChaseSpear = function ()
@@ -211,7 +211,7 @@ game_ChaseSpear = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_CrossBomb = function ()
@@ -219,7 +219,7 @@ game_CrossBomb = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_CROSS_BOMB_START)
     end
-    return 
+    return
 end
 
 game_SummonLightFighter = function ()
@@ -227,7 +227,7 @@ game_SummonLightFighter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_XLU)
     end
-    return 
+    return
 end
 
 game_EnergyBomb = function ()
@@ -235,7 +235,7 @@ game_EnergyBomb = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_ENERGY_SHOT_SHOOT)
     end
-    return 
+    return
 end
 
 game_ExplodeBomb = function ()
@@ -243,7 +243,7 @@ game_ExplodeBomb = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_EXPLODE_SHOT_CREATE)
     end
-    return 
+    return
 end
 
 game_FixedArtilleryStart = function ()
@@ -255,7 +255,7 @@ game_FixedArtilleryStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_STATIC_MISSILE_CORE_HIT_CHANGE)
     end
-    return 
+    return
 end
 
 game_FixedArtilleryEnd = function ()
@@ -267,21 +267,21 @@ game_FixedArtilleryEnd = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KIILA_INSTANCE_WORK_FLAG_STATIC_MISSILE_CORE_HIT_CHANGE)
     end
-    return 
+    return
 end
 
 game_StrikeLoop = function ()
     if sv_animcmd.is_excute() then
         JostleModule.set_status(false)
     end
-    return 
+    return
 end
 
 game_StrikeEnd = function ()
     if sv_animcmd.is_excute() then
         JostleModule.set_status(true)
     end
-    return 
+    return
 end
 
 game_ThreatLoop = function ()
@@ -289,7 +289,7 @@ game_ThreatLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x101D82D8E7, 0)
     end
-    return 
+    return
 end
 
 return

@@ -19,7 +19,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E9C2074E6, 0x031ED91FCA, 0, 0.5, 0, 0, 0, 0, 1, false)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -29,7 +29,7 @@ effect_Born = function ()
         sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 0, -2, 5, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, -10, -2, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_HitstopBeforeBorn = function ()
@@ -72,7 +72,7 @@ effect_Bound = function ()
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.699999988079071)
         sv_animcmd.EFFECT(0x0F2BFBEA94, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

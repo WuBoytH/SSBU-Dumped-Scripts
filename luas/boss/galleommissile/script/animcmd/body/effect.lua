@@ -12,7 +12,7 @@ effect_MissileFly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x122969C9E8, 0x031D39A761, 0, 0, -8, 0, 0, 0, 1.100000023841858, true)
     end
-    return 
+    return
 end
 
 effect_MissileBorn = function ()
@@ -20,14 +20,14 @@ effect_MissileBorn = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
         sv_animcmd.EFFECT_BRANCH_SITUATION(0x0A8E614246, 0x0A176813FC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_ShootFly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x14C1E9597B, 0x031D39A761, 0, 0, -8, 0, 0, 0, 1.100000023841858, true)
     end
-    return 
+    return
 end
 
 effect_ShootBorn = function ()
@@ -35,7 +35,7 @@ effect_ShootBorn = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
         sv_animcmd.EFFECT_BRANCH_SITUATION(0x0A8E614246, 0x0A176813FC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

@@ -7,7 +7,7 @@ sound_Hit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1D5E43CA13)
     end
-    return 
+    return
 end
 
 return

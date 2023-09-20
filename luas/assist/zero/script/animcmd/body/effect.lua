@@ -28,21 +28,21 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0DD03FAC66, false, true)
     end
-    return 
+    return
 end
 
 effect_RunStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Run = function ()
@@ -67,7 +67,7 @@ effect_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 1, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_EscapeJump = function ()
@@ -75,7 +75,7 @@ effect_EscapeJump = function ()
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_EscapeAir = function ()
@@ -83,7 +83,7 @@ effect_EscapeAir = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x1243BA2E17, true, true)
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Attack3Slash = function ()
@@ -114,7 +114,7 @@ effect_Attack3Slash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(6)
     end
-    return 
+    return
 end
 
 effect_AttackRyuuenjin = function ()
@@ -131,7 +131,7 @@ effect_AttackRyuuenjin = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x12E52106D8, false, false)
         sv_animcmd.AFTER_IMAGE_OFF(2)
     end
-    return 
+    return
 end
 
 effect_AttackKuuenzan = function ()
@@ -146,7 +146,7 @@ effect_AttackKuuenzan = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(5)
     end
-    return 
+    return
 end
 
 effect_AttackGenmuzero = function ()
@@ -170,7 +170,7 @@ effect_AttackGenmuzero = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(4)
     end
-    return 
+    return
 end
 
 effect_AttackGenmuzeroAir = function ()
@@ -178,7 +178,7 @@ effect_AttackGenmuzeroAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1424BB5C2C, 0x051129036E, 1.2000000476837158, 0.25, 1, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_DashStart = function ()
@@ -204,7 +204,7 @@ effect_DashStart = function ()
         sv_animcmd.EFFECT_FLW_POS(0x0DD03FAC66, 0x0505C6B25A, 5.5, -0.699999988079071, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(14)
-    return 
+    return
 end
 
 effect_DashStartAir = function ()
@@ -228,7 +228,7 @@ effect_DashStartAir = function ()
         sv_animcmd.EFFECT_FLW_POS(0x0DD03FAC66, 0x0505C6B25A, 5.5, -0.699999988079071, 0, 0, 0, 0, 1, true)
     end
     sv_animcmd.frame(14)
-    return 
+    return
 end
 
 effect_Dash = function ()
@@ -251,7 +251,7 @@ effect_Dash = function ()
         sv_animcmd.EFFECT_FLW_POS(0x1243BA2E17, 0x0505C6B25A, 5.5, -0.699999988079071, 0, 0, 0, 0, 0.699999988079071, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.5)
     end
-    return 
+    return
 end
 
 effect_DashEnd = function ()
@@ -260,7 +260,7 @@ effect_DashEnd = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x1243BA2E17, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x0DD03FAC66, false, true)
     end
-    return 
+    return
 end
 
 effect_DashEndAir = function ()
@@ -289,7 +289,7 @@ effect_DashEndAir = function ()
         sv_animcmd.EFFECT_FLW_POS(0x0DD03FAC66, 0x0505C6B25A, 5.5, -0.699999988079071, 0, -145, -70, 30, 0.800000011920929, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2000000476837158)
     end
-    return 
+    return
 end
 
 return

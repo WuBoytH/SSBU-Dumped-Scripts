@@ -13,7 +13,7 @@ effect_Bound = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0F975EA2A4, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Xlu = function ()
@@ -26,7 +26,7 @@ effect_Xlu = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(2)
-    return effect_Xlu()
+    returneffect_Xlu()
 end
 
 effect_Invincible = function ()
@@ -39,7 +39,7 @@ effect_Invincible = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(1)
-    return effect_Invincible()
+    returneffect_Invincible()
 end
 
 effect_Damage = function ()
@@ -87,7 +87,7 @@ effect_Damage = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_DamageBoss = function ()
@@ -135,7 +135,7 @@ effect_DamageBoss = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_PreBorn = function ()
@@ -155,7 +155,7 @@ effect_FireHitEff = function ()
     sv_animcmd.wait(1)
     sv_animcmd.wait(1)
     sv_animcmd.wait(1)
-    return 
+    return
 end
 
 effect_FireHitEff2 = function ()
@@ -164,7 +164,7 @@ effect_FireHitEff2 = function ()
         sv_animcmd.wait(1)
         sv_animcmd.wait(1)
     end
-    return 
+    return
 end
 
 effect_FireHitS = function ()
@@ -179,7 +179,7 @@ effect_FireHitS = function ()
         local f9_local1 = f9_local0
         effect_FireHitEff2()
     end
-    return 
+    return
 end
 
 effect_FireHitM = function ()
@@ -194,7 +194,7 @@ effect_FireHitM = function ()
         local f10_local1 = f10_local0
         effect_FireHitEff2()
     end
-    return 
+    return
 end
 
 effect_FireHitL = function ()
@@ -209,7 +209,7 @@ effect_FireHitL = function ()
         local f11_local1 = f11_local0
         effect_FireHitEff2()
     end
-    return 
+    return
 end
 
 effect_FireHitF = function ()
@@ -224,7 +224,7 @@ effect_FireHitF = function ()
         local f12_local1 = f12_local0
         effect_FireHitEff2()
     end
-    return 
+    return
 end
 
 effect_ElecHitEff = function ()
@@ -233,7 +233,7 @@ effect_ElecHitEff = function ()
         sv_animcmd.wait(1)
         sv_animcmd.wait(1)
     end
-    return 
+    return
 end
 
 effect_ElecHitS = function ()
@@ -244,7 +244,7 @@ effect_ElecHitS = function ()
         end
         effect_ElecHitEff()
     end
-    return 
+    return
 end
 
 effect_ElecHitM = function ()
@@ -255,7 +255,7 @@ effect_ElecHitM = function ()
         end
         effect_ElecHitEff()
     end
-    return 
+    return
 end
 
 effect_ElecHitL = function ()
@@ -266,7 +266,7 @@ effect_ElecHitL = function ()
         end
         effect_ElecHitEff()
     end
-    return 
+    return
 end
 
 effect_ElecHitF = function ()
@@ -277,7 +277,7 @@ effect_ElecHitF = function ()
         end
         effect_ElecHitEff()
     end
-    return 
+    return
 end
 
 effect_GuardOn = function ()
@@ -285,14 +285,14 @@ effect_GuardOn = function ()
         sv_animcmd.EFFECT_FOLLOW_STR(0x0AFAE75F05, Throw, 0, 0, 0, 0, 0, 0, 0.10000000149011612, false)
         sv_animcmd.EFFECT_FLW_POS_STR(0x10DA0B43C8, Top, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_GuardDamage = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_STR(0x113434CB66, Throw, 0, 0, 0, 0, 0, 0, 0.10000000149011612, true)
     end
-    return 
+    return
 end
 
 return

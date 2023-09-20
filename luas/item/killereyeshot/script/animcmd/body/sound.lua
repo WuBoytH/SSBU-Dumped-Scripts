@@ -7,14 +7,14 @@ sound_AttackNormal = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x167ACEABB7)
     end
-    return 
+    return
 end
 
 sound_AttackLie = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x167ACEABB7)
     end
-    return 
+    return
 end
 
 return

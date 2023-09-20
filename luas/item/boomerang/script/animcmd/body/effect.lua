@@ -8,35 +8,35 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_Fly1 = function ()
@@ -251,7 +251,7 @@ effect_Bump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 return

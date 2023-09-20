@@ -8,7 +8,7 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x140BB20A35, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Move = function ()
@@ -16,7 +16,7 @@ effect_Move = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x140BB20A35, false, true)
     end
-    return 
+    return
 end
 
 return

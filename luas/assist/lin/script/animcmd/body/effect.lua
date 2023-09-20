@@ -21,7 +21,7 @@ effect_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(0, 60, 0.20000000298023224, 0.20000000298023224, 0.20000000298023224, 0, 0, 0, 1, 1.2000000476837158, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 effect_AttackGround = function ()
@@ -61,7 +61,7 @@ effect_AttackGround = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x097447E0F8, false, true)
         sv_animcmd.AFTER_IMAGE_OFF(5)
     end
-    return 
+    return
 end
 
 effect_AttackAir = function ()
@@ -97,21 +97,21 @@ effect_AttackAir = function ()
         sv_animcmd.AFTER_IMAGE_OFF(6)
         sv_animcmd.EFFECT_OFF_KIND(0x0FBD5E845B, false, true)
     end
-    return 
+    return
 end
 
 effect_DamageFly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(0, 10)
     end
-    return 
+    return
 end
 
 effect_CounterAttack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x130C4F133B, 0x031ED91FCA, 3, 15, -1, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

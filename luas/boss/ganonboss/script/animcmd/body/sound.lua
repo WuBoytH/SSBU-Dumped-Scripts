@@ -88,7 +88,7 @@ sound_Entry = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x17BA2A4B37)
     end
-    return 
+    return
 end
 
 sound_Turn = function ()
@@ -103,7 +103,7 @@ sound_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C56E3E208)
     end
-    return 
+    return
 end
 
 sound_WalkFront = function ()
@@ -118,7 +118,7 @@ sound_WalkFront = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1ABF77D4F7)
     end
-    return 
+    return
 end
 
 sound_WalkBack = function ()
@@ -133,7 +133,7 @@ sound_WalkBack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C6F561EC8)
     end
-    return 
+    return
 end
 
 sound_BackJump = function ()
@@ -148,7 +148,7 @@ sound_BackJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x221BE0ADA9)
     end
-    return 
+    return
 end
 
 sound_TurnJump = function ()
@@ -163,7 +163,7 @@ sound_TurnJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x2286DA6EF6)
     end
-    return 
+    return
 end
 
 sound_DoubleSlash = function ()
@@ -183,7 +183,7 @@ sound_DoubleSlash = function ()
         sv_animcmd.PLAY_SE(0x2192B956B3)
     end
     sv_animcmd.frame(170)
-    return 
+    return
 end
 
 sound_SpinSlashStart = function ()
@@ -194,7 +194,7 @@ sound_SpinSlashStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20EFE6F035)
     end
-    return 
+    return
 end
 
 sound_SpinSlashEnd = function ()
@@ -206,7 +206,7 @@ sound_SpinSlashEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x240737FA8B)
     end
-    return 
+    return
 end
 
 sound_SpinSlashEndReverse = function ()
@@ -218,14 +218,14 @@ sound_SpinSlashEndReverse = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x240737FA8B)
     end
-    return 
+    return
 end
 
 game_JumpSlashCharge = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x2190FF81D0)
     end
-    return 
+    return
 end
 
 sound_JumpSlash = function ()
@@ -240,7 +240,7 @@ sound_JumpSlash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1FAC5EEA50)
     end
-    return 
+    return
 end
 
 sound_SlashUp = function ()
@@ -255,7 +255,7 @@ sound_SlashUp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1DE7D40CF7)
     end
-    return 
+    return
 end
 
 sound_ThunderSlash = function ()
@@ -270,10 +270,10 @@ sound_ThunderSlash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x22EF666C10)
     end
-    return 
+    return
 end
 
-sound_ThunderSlashReturn = function ()
+sound_ThunderSlashreturn= function ()
     sv_animcmd.frame(20)
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x29A67A6CB2)
@@ -282,7 +282,7 @@ sound_ThunderSlashReturn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x27081854E9)
     end
-    return 
+    return
 end
 
 sound_BackSlash = function ()
@@ -297,7 +297,7 @@ sound_BackSlash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1F747BBEA7)
     end
-    return 
+    return
 end
 
 sound_BodyAttackHold = function ()
@@ -308,14 +308,14 @@ sound_BodyAttackHold = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C60660C1A)
     end
-    return 
+    return
 end
 
 sound_BodyAttackStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x200E1D8962)
     end
-    return 
+    return
 end
 
 sound_BodyAttackLoop = function ()
@@ -343,7 +343,7 @@ sound_BodyAttackEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x2286DA6EF6)
     end
-    return 
+    return
 end
 
 sound_BigJumpStart = function ()
@@ -354,7 +354,7 @@ sound_BigJumpStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x207C10828F)
     end
-    return 
+    return
 end
 
 sound_BigJumpEnd = function ()
@@ -365,21 +365,21 @@ sound_BigJumpEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x230DC8E2AC)
     end
-    return 
+    return
 end
 
 sound_BigJumpLanding = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1F18B17C9B)
     end
-    return 
+    return
 end
 
 sound_BigJumpLandingReverse = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1F18B17C9B)
     end
-    return 
+    return
 end
 
 sound_HomingBombStart = function ()
@@ -387,7 +387,7 @@ sound_HomingBombStart = function ()
         sv_animcmd.PLAY_SE(0x23E4FB045C)
         sv_animcmd.PLAY_SE(0x2237905C6A)
     end
-    return 
+    return
 end
 
 sound_HomingBomb = function ()
@@ -399,21 +399,21 @@ sound_HomingBomb = function ()
         sv_animcmd.PLAY_SE(0x223A286F7B)
         sv_animcmd.STOP_SE(0x2237905C6A)
     end
-    return 
+    return
 end
 
 sound_LaserBeamHold = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C9D70CBEA)
     end
-    return 
+    return
 end
 
 sound_LaserBeamStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C90C8F8FB)
     end
-    return 
+    return
 end
 
 sound_LaserBeamEnd = function ()
@@ -421,7 +421,7 @@ sound_LaserBeamEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BC15C8783)
     end
-    return 
+    return
 end
 
 sound_DownStart = function ()
@@ -433,14 +433,14 @@ sound_DownStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1E3BEC4420)
     end
-    return 
+    return
 end
 
 sound_DownEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CD11326DD)
     end
-    return 
+    return
 end
 
 sound_BossStop = function ()
@@ -450,7 +450,7 @@ sound_BossStop = function ()
         sv_animcmd.PLAY_SE(0x1CDC9709A2)
         sv_animcmd.PLAY_SE(0x1BB047535A)
     end
-    return 
+    return
 end
 
 sound_Dead = function ()
@@ -462,7 +462,7 @@ sound_Dead = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
     end
-    return 
+    return
 end
 
 return

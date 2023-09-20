@@ -17,7 +17,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1EA7F32298)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
@@ -25,7 +25,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1EA7F32298)
     end
-    return 
+    return
 end
 
 sound_Bound = function ()
@@ -33,7 +33,7 @@ sound_Bound = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1EA7F32298)
     end
-    return 
+    return
 end
 
 sound_LostRight = function ()
@@ -41,7 +41,7 @@ sound_LostRight = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x11C9F5B4A5)
     end
-    return 
+    return
 end
 
 sound_LostLeft = function ()
@@ -49,7 +49,7 @@ sound_LostLeft = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x11C9F5B4A5)
     end
-    return 
+    return
 end
 
 sound_AirTobidasu = function ()
@@ -57,7 +57,7 @@ sound_AirTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1FAD451067)
     end
-    return 
+    return
 end
 
 sound_Tobidasu = function ()
@@ -65,7 +65,7 @@ sound_Tobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CD4C3B09E)
     end
-    return 
+    return
 end
 
 sound_CliffTobidasu = function ()
@@ -73,7 +73,7 @@ sound_CliffTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CD4C3B09E)
     end
-    return 
+    return
 end
 
 sound_TurnTobidasu = function ()
@@ -81,7 +81,7 @@ sound_TurnTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CD4C3B09E)
     end
-    return 
+    return
 end
 
 sound_TurnCliffTobidasu = function ()
@@ -89,7 +89,7 @@ sound_TurnCliffTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CD4C3B09E)
     end
-    return 
+    return
 end
 
 sound_TreadTobidasu = function ()
@@ -101,7 +101,7 @@ sound_TreadTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CD4C3B09E)
     end
-    return 
+    return
 end
 
 sound_TreadCliffTobidasu = function ()
@@ -113,7 +113,7 @@ sound_TreadCliffTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CD4C3B09E)
     end
-    return 
+    return
 end
 
 sound_TreadTurnTobidasu = function ()
@@ -125,7 +125,7 @@ sound_TreadTurnTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CD4C3B09E)
     end
-    return 
+    return
 end
 
 sound_TreadTurnCliffTobidasu = function ()
@@ -137,7 +137,7 @@ sound_TreadTurnCliffTobidasu = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CD4C3B09E)
     end
-    return 
+    return
 end
 
 return

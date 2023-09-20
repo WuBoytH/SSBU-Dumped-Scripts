@@ -17,14 +17,14 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FOLLOW(0x143A75BA42, 0x06B66091F2, 0, 0, 0, 0, 0, 0, 1, false)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(2)
     end
-    return 
+    return
 end
 
 effect_HaveAttack = function ()
@@ -36,7 +36,7 @@ effect_HaveAttack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(2)
     end
-    return 
+    return
 end
 
 effect_HaveAttack2 = function ()
@@ -49,7 +49,7 @@ effect_HaveAttack2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(2)
     end
-    return 
+    return
 end
 
 effect_Throw = function ()

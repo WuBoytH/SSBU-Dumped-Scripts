@@ -166,7 +166,7 @@ effect_Entry = function ()
         sv_animcmd.EFFECT(0x1720F248AA, 0x051129036E, 0, -5, -10, 0, -45, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.699999988079071)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -178,7 +178,7 @@ effect_Lost = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x14D45FD12F, 0x0A7E4BB9F8, 0, -5, 0, -90, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x14D45FD12F, 0x0AAA0A8627, 0, 5, 0, 90, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Wait = function ()
@@ -193,7 +193,7 @@ effect_Wait = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x12293D21D9, 0x062F81BD7D, 0, 0, 3, -20, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x12293D21D9, 0x06FBC082A2, 0, 0, -3, 0, 0, 150, 1, true)
     end
-    return 
+    return
 end
 
 effect_WalkFront = function ()
@@ -271,7 +271,7 @@ effect_WalkFront = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1720F248AA, 0x05A0C8CCB3, 3, -10, -4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_WalkBack = function ()
@@ -323,7 +323,7 @@ effect_WalkBack = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1720F248AA, 0x051129036E, 5, -10, 10, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Turn = function ()
@@ -355,7 +355,7 @@ effect_Turn = function ()
         sv_animcmd.EFFECT(0x0FA2F6A909, 0x055AC7F1D0, 0, -10, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT(0x1720F248AA, 0x055AC7F1D0, 0, -10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Anger = function ()
@@ -517,7 +517,7 @@ effect_Anger = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1592C62E93, false, true)
     end
-    return 
+    return
 end
 
 effect_Dead = function ()
@@ -698,7 +698,7 @@ effect_Dead = function ()
         sv_animcmd.EFFECT_FOLLOW(0x122425685C, 0x0964F858C0, 0, 0, 0, 0, 0, 0, 1.649999976158142, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_DeadTank = function ()
@@ -871,7 +871,7 @@ effect_DeadTank = function ()
         sv_animcmd.EFFECT_FOLLOW(0x122425685C, 0x0964F858C0, 0, 0, 0, 0, 0, 0, 1.649999976158142, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_FootCrush = function ()
@@ -915,7 +915,7 @@ effect_FootCrush = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x1720F248AA, 0x055AC7F1D0, 0, -9, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Uppercut = function ()
@@ -1041,7 +1041,7 @@ effect_Uppercut = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x1720F248AA, 0x05A0C8CCB3, 0, -10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Missile = function ()
@@ -1089,7 +1089,7 @@ effect_Missile = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1457D7997C, 0x0C54E56A24, -29, -17, 10, 30, 0, 30, 1.2999999523162842, true)
         sv_animcmd.EFFECT_FOLLOW(0x1457D7997C, 0x0C54E56A24, -29, -10, 10, 30, 0, 30, 1.2999999523162842, true)
     end
-    return 
+    return
 end
 
 effect_LariatStart = function ()
@@ -1104,7 +1104,7 @@ effect_LariatStart = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x12293D21D9, 0x062F81BD7D, 0, 0, 3, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x12293D21D9, 0x06FBC082A2, 0, 0, -3, 180, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_LariatLoop = function ()
@@ -1119,7 +1119,7 @@ effect_LariatLoop = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x12293D21D9, 0x062F81BD7D, 0, 0, 3, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x12293D21D9, 0x06FBC082A2, 0, 0, -3, 180, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Lariat = function ()
@@ -1345,7 +1345,7 @@ effect_Lariat = function ()
         sv_animcmd.EFFECT(0x0F58F9946A, 0x055AC7F1D0, 0, -10, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT(0x0F58F9946A, 0x05A0C8CCB3, 0, -10, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_JumpStart = function ()
@@ -1361,7 +1361,7 @@ effect_JumpStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0F58F9946A, 0x05A0C8CCB3, 0, -5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_JumpLoop = function ()
@@ -1369,7 +1369,7 @@ effect_JumpLoop = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x14D45FD12F, 0x0A7E4BB9F8, 0, -5, 0, -90, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x14D45FD12F, 0x0AAA0A8627, 0, 5, 0, 90, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_JumpAttack = function ()
@@ -1414,7 +1414,7 @@ effect_JumpAttack = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x0CAC0E88E1, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x0EE7CF17D7, false, true)
     end
-    return 
+    return
 end
 
 effect_JumpLand = function ()
@@ -1443,7 +1443,7 @@ effect_JumpLand = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1592C62E93, false, true)
     end
-    return 
+    return
 end
 
 effect_DoubleArm = function ()
@@ -1509,7 +1509,7 @@ effect_DoubleArm = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x1720F248AA, 0x055AC7F1D0, 0, -10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_HammerKnuckle = function ()
@@ -1601,7 +1601,7 @@ effect_HammerKnuckle = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FA2F6A909, 0x05EB263E0D, 15, -5, 15, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_ChangeMiss = function ()
@@ -1660,7 +1660,7 @@ effect_ChangeMiss = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0F58F9946A, 0x05EB263E0D, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_ManToTank = function ()
@@ -1710,7 +1710,7 @@ effect_ManToTank = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0F85013332, 0x035DBFE258, -37, -11, -18, -10, 180, 0, 1, true)
         sv_animcmd.EFFECT(0x17DAFD75C9, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TankAttackLoop = function ()
@@ -1764,10 +1764,10 @@ effect_TankAttackFall = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0EE249671B, 0x035DBFE258, 37, -11, -18, -10, 180, 0, 0.8999999761581421, true)
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0EE249671B, 0x035DBFE258, -37, -11, -18, -10, 180, 0, 0.8999999761581421, true)
     end
-    return 
+    return
 end
 
-effect_TankAttackReturn = function ()
+effect_TankAttackreturn= function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x14D45FD12F, 0x0A7E4BB9F8, 0, -5, 0, -90, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x14D45FD12F, 0x0AAA0A8627, 0, 5, 0, 90, 0, 0, 1, true)
@@ -1820,7 +1820,7 @@ effect_TankAttackFinishEnd = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x1720F248AA, 0x031ED91FCA, 0, 0, -25, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TankToMan = function ()
@@ -1868,7 +1868,7 @@ effect_TankToMan = function ()
         sv_animcmd.EFFECT(0x0FA2F6A909, 0x05A0C8CCB3, 0, -10, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT(0x1720F248AA, 0x05A0C8CCB3, 0, -10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Shoot = function ()
@@ -1934,7 +1934,7 @@ effect_Shoot = function ()
         sv_animcmd.EFFECT(0x1720F248AA, 0x035DBFE258, 0, -20, 0, 0, 0, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x0CE62F34E1, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.550000011920929, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 effect_Grab = function ()
@@ -1960,7 +1960,7 @@ effect_Grab = function ()
         sv_animcmd.EFFECT(0x0B43196219, 0x031ED91FCA, -27, 35, 25, -30, -50, 190, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
-    return 
+    return
 end
 
 effect_GrabCrush = function ()
@@ -2085,7 +2085,7 @@ effect_GrabCrush = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x149AB924EE, 0x051129036E, -17, 8, 0, -90, 0, 0, 1.4500000476837158, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_GrabCrushMiss = function ()
@@ -2097,7 +2097,7 @@ effect_GrabCrushMiss = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x14D45FD12F, 0x0A7E4BB9F8, 0, -5, 0, -90, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x14D45FD12F, 0x0AAA0A8627, 0, 5, 0, 90, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_GrabMiss = function ()
@@ -2114,7 +2114,7 @@ effect_GrabMiss = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0F58F9946A, 0x05A0C8CCB3, 0, -10, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TurnGrab = function ()
@@ -2155,7 +2155,7 @@ effect_TurnGrab = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x149AB924EE, 0x051129036E, -17, 8, 0, -90, 0, 0, 1.4500000476837158, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

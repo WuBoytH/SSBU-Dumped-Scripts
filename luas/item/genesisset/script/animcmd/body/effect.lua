@@ -35,7 +35,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0F528C74CB, 0x062BD27045, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(2)
     end
-    return 
+    return
 end
 
 effect_Have = function ()
@@ -43,7 +43,7 @@ effect_Have = function ()
         EffectModule.req_screen(0x1019636F0A, false, true, true)
         sv_animcmd.EFFECT_OFF_KIND(0x125F29A347, false, true)
     end
-    return 
+    return
 end
 
 effect_Fall = function ()
@@ -51,14 +51,14 @@ effect_Fall = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x125F29A347, false, true)
         sv_animcmd.EFFECT_FOLLOW(0x125F29A347, 0x030886299D, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Hold = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1043D6D059, 0x0C998A286C, 0, -0.5, 2, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Radiate = function ()
@@ -68,7 +68,7 @@ effect_Radiate = function ()
         sv_animcmd.EFFECT_FOLLOW(0x12185342A8, 0x0C998A286C, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x10ED8E7302, 0x0C998A286C, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_End = function ()
@@ -86,7 +86,7 @@ effect_End = function ()
         sv_animcmd.EFFECT_FLW_UNSYNC_VIS(0x163DCF5F16, 0x065CD540D3, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.remove_screen(0x106E645F9C)
     end
-    return 
+    return
 end
 
 return

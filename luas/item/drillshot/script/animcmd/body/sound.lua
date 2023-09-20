@@ -11,7 +11,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x16BC349331, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_MoveRight = function ()
@@ -19,7 +19,7 @@ sound_MoveRight = function ()
         sv_animcmd.PLAY_SE(0x12C638C3E4)
         WorkModule.off_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1)
     end
-    return 
+    return
 end
 
 sound_MoveLeft = function ()
@@ -27,14 +27,14 @@ sound_MoveLeft = function ()
         sv_animcmd.PLAY_SE(0x12C638C3E4)
         WorkModule.off_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1)
     end
-    return 
+    return
 end
 
 sound_Stick = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x153DA11293)
     end
-    return 
+    return
 end
 
 sound_BonbSe = function ()
@@ -42,7 +42,7 @@ sound_BonbSe = function ()
         sv_animcmd.PLAY_SE_REMAIN(0x107AD5AEBC)
         sv_animcmd.STOP_SE(0x12C638C3E4)
     end
-    return 
+    return
 end
 
 return

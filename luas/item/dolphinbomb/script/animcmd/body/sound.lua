@@ -10,7 +10,7 @@ sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1154ABE8F7)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
@@ -18,21 +18,21 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 sound_Flying = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x181609FE65)
     end
-    return 
+    return
 end
 
 sound_Falling = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x1873E7D92F)
     end
-    return 
+    return
 end
 
 return

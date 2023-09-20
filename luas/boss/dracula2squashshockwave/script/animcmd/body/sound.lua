@@ -8,14 +8,14 @@ sound_ShootRight = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x212F5C1A38)
     end
-    return 
+    return
 end
 
 sound_ShootLeft = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x21D553275B)
     end
-    return 
+    return
 end
 
 return

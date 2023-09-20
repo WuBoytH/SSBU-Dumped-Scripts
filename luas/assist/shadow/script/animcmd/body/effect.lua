@@ -14,7 +14,7 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         EffectModule.req_screen(0x10C064471E, false, true, true)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -26,14 +26,14 @@ effect_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0C8D58108A, 0x18BA82B4CF, 0, 1, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_AttackLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_GLOBAL_arg9(0x0BFB14D1C6, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Attack2 = function ()
@@ -44,14 +44,14 @@ effect_Attack2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_GLOBAL_arg9(0x13F6CB1176, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Attack2Loop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_GLOBAL_arg9(0x0BFB14D1C6, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_AttackEnd = function ()
@@ -63,14 +63,14 @@ effect_AttackEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         EffectModule.remove_screen(0x10C064471E)
     end
-    return 
+    return
 end
 
 return

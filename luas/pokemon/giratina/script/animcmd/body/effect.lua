@@ -11,21 +11,21 @@ effect_Landing = function ()
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 90, 0.8999999761581421, 0.8999999761581421, 0.8999999761581421, -0.30000001192092896, -0.30000001192092896, -0.30000001192092896, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 effect_LostWait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 75)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 75)
     end
-    return 
+    return
 end
 
 effect_Look = function ()
@@ -34,7 +34,7 @@ effect_Look = function ()
         sv_animcmd.EFFECT(0x0F1F9A3475, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.7999999523162842, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.5)
     end
-    return 
+    return
 end
 
 effect_Attack02 = function ()
@@ -51,7 +51,7 @@ effect_Attack02 = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x14B353B222, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

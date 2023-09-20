@@ -16,7 +16,7 @@ game_Shoot = function ()
         AttackModule.clear(2)
         AttackModule.clear(3)
     end
-    return 
+    return
 end
 
 return

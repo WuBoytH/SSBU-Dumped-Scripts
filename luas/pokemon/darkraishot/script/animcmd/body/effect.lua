@@ -9,7 +9,7 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0EEF1741E9, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_AttackGround = function ()
@@ -17,7 +17,7 @@ effect_AttackGround = function ()
         sv_animcmd:EFFECT_REMOVE_ATTR(EFFECT_SUB_ATTRIBUTE_NONE)
         sv_animcmd.EFFECT_FOLLOW(0x0E761E1053, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_AttackAir = function ()
@@ -25,7 +25,7 @@ effect_AttackAir = function ()
         sv_animcmd:EFFECT_REMOVE_ATTR(EFFECT_SUB_ATTRIBUTE_NONE)
         sv_animcmd.EFFECT_FOLLOW(0x0E761E1053, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

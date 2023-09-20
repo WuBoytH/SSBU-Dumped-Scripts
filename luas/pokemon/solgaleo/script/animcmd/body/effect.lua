@@ -29,7 +29,7 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0D2D1AB67F, 0x04A7F3F69C, 0, 0, 0, 0, 0, 0, 0.8999999761581421, true)
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
@@ -37,7 +37,7 @@ effect_Landing = function ()
         sv_animcmd.EFFECT_FOLLOW(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.399999976158142, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.75)
     end
-    return 
+    return
 end
 
 effect_Turn = function ()
@@ -46,7 +46,7 @@ effect_Turn = function ()
         sv_animcmd.EFFECT_FOLLOW(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.399999976158142, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.75)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -67,7 +67,7 @@ effect_Attack = function ()
         sv_animcmd.EFFECT_DETACH_KIND(0x0FB419A0F3, -1)
         sv_animcmd.EFFECT_DETACH_KIND(0x0D14D0CE50, -1)
     end
-    return 
+    return
 end
 
 effect_AttackSleep = function ()
@@ -75,7 +75,7 @@ effect_AttackSleep = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x15192603EB, false, false)
     end
     sv_animcmd.frame(10)
-    return 
+    return
 end
 
 effect_AttackEnd = function ()
@@ -83,7 +83,7 @@ effect_AttackEnd = function ()
         sv_animcmd.EFFECT_FOLLOW(0x13573010EF, 0x031D39A761, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_OFF_KIND(0x0FB419A0F3, true, true)
     end
-    return 
+    return
 end
 
 effect_AttackWait = function ()
@@ -94,7 +94,7 @@ effect_AttackWait = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0E71AA3F37, 0x031ED91FCA, 0, 9, -2, 0, 0, 0, 1.2999999523162842, false)
         WorkModule:on_flag(ITEM_SOLGALEO_INSTANCE_WORK_FLAG_EFFECT_HANDLE_FIRE2)
     end
-    return 
+    return
 end
 
 effect_Leave = function ()
@@ -106,14 +106,14 @@ effect_Leave = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0DEBBDC189, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
     end
-    return 
+    return
 end
 
 return

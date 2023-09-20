@@ -14,7 +14,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1320E4C16E)
     end
-    return 
+    return
 end
 
 sound_TeleportStart = function ()
@@ -25,7 +25,7 @@ sound_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x222309E6F7)
     end
-    return 
+    return
 end
 
 sound_TeleportEnd = function ()
@@ -40,14 +40,14 @@ sound_TeleportEnd = function ()
             sv_animcmd.PLAY_SE(0x1D655B9F7E)
         end
     end
-    return 
+    return
 end
 
 sound_TeleportRepeat = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x2078A4A776)
     end
-    return 
+    return
 end
 
 sound_Leave = function ()
@@ -55,7 +55,7 @@ sound_Leave = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x11C9F5B4A5)
     end
-    return 
+    return
 end
 
 return

@@ -19,14 +19,14 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
     end
-    return 
+    return
 end
 
 effect_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
@@ -34,21 +34,21 @@ effect_Landing = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
     end
-    return 
+    return
 end
 
 effect_RunStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
     end
-    return 
+    return
 end
 
 effect_Run = function ()
@@ -70,14 +70,14 @@ effect_RunTurn = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 2, 0, 0, 0, 180, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
     end
-    return 
+    return
 end
 
 effect_Jump = function ()
@@ -85,7 +85,7 @@ effect_Jump = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
         sv_animcmd.EFFECT(0x12AFCB1820, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_JumpAir = function ()
@@ -94,7 +94,7 @@ effect_JumpAir = function ()
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT(0x12AFCB1820, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -162,7 +162,7 @@ effect_Attack = function ()
         sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, 10, 24, 0, 0, -110, 0.699999988079071, 3, 3, 1, 0, 0, 15, true)
         EffectModule.set_disable_render_offset_last()
     end
-    return 
+    return
 end
 
 effect_AttackAir = function ()
@@ -195,21 +195,21 @@ effect_AttackAir = function ()
         sv_animcmd.EFFECT_FOLLOW_RND(0x0D04BFA205, 0x031ED91FCA, 0, -5, 0, 90, 200, 0, 0.699999988079071, 3, 1, 3, 0, 15, 0, true)
         EffectModule.set_disable_render_offset_last()
     end
-    return 
+    return
 end
 
 effect_DamageFly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
     end
-    return 
+    return
 end
 
 effect_EscapeFall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
     end
-    return 
+    return
 end
 
 effect_EscapeJump = function ()
@@ -218,7 +218,7 @@ effect_EscapeJump = function ()
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_EscapeAir = function ()
@@ -226,7 +226,7 @@ effect_EscapeAir = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0A19C57F81, 0x04A7F3F69C, 0.75, 1.4500000476837158, 0, 0, 0, 0, 0.4000000059604645, true)
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

@@ -9,14 +9,14 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_Exit = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_GUILE_INSTANCE_WORK_FLAG_VISIBLE_KUSI)
     end
-    return 
+    return
 end
 
 game_Exit2 = function ()
@@ -24,7 +24,7 @@ game_Exit2 = function ()
         WorkModule.on_flag(ITEM_GUILE_INSTANCE_WORK_FLAG_TURN_RIGHT)
         WorkModule.on_flag(ITEM_GUILE_INSTANCE_WORK_FLAG_VISIBLE_KUSI)
     end
-    return 
+    return
 end
 
 game_SummersaultLight = function ()
@@ -40,7 +40,7 @@ game_SummersaultLight = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_SummersaultHard = function ()
@@ -56,7 +56,7 @@ game_SummersaultHard = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_HighKickAir = function ()
@@ -68,7 +68,7 @@ game_HighKickAir = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_MiddleKickAir = function ()
@@ -80,7 +80,7 @@ game_MiddleKickAir = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -88,7 +88,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 return

@@ -27,7 +27,7 @@ effect_Attack = function ()
         sv_animcmd.EFFECT(0x20582AFDA4, 0x031ED91FCA, 0, 12.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x2258BC1CE0, 0x031ED91FCA, 0, 12.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

@@ -10,35 +10,35 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
-    return 
+    return
 end
 
 sound_BornSuddendeath = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
-    return 
+    return
 end
 
 sound_BornThrow = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
-    return 
+    return
 end
 
 sound_BornAdventure = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
-    return 
+    return
 end
 
 sound_MoveGround = function ()
@@ -46,7 +46,7 @@ sound_MoveGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1497AD15FC)
     end
-    return 
+    return
 end
 
 return

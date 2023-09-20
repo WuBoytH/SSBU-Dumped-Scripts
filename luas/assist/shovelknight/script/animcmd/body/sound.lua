@@ -12,7 +12,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1E62BC9867)
     end
-    return 
+    return
 end
 
 sound_Jump = function ()
@@ -20,7 +20,7 @@ sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B1AEB96DB)
     end
-    return 
+    return
 end
 
 sound_JumpAir = function ()
@@ -28,7 +28,7 @@ sound_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B1AEB96DB)
     end
-    return 
+    return
 end
 
 sound_EscapeJump = function ()
@@ -36,7 +36,7 @@ sound_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B1AEB96DB)
     end
-    return 
+    return
 end
 
 sound_DigGround = function ()
@@ -48,7 +48,7 @@ sound_DigGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A32144F0B)
     end
-    return 
+    return
 end
 
 sound_DigAir = function ()
@@ -56,7 +56,7 @@ sound_DigAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CE2A6A16C)
     end
-    return 
+    return
 end
 
 sound_ShovelLowerStabLanding = function ()
@@ -64,7 +64,7 @@ sound_ShovelLowerStabLanding = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B6934DABD)
     end
-    return 
+    return
 end
 
 sound_ShovelReflectGround = function ()
@@ -72,7 +72,7 @@ sound_ShovelReflectGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CE2A6A16C)
     end
-    return 
+    return
 end
 
 sound_ShovelReflectAir = function ()
@@ -80,7 +80,7 @@ sound_ShovelReflectAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CE2A6A16C)
     end
-    return 
+    return
 end
 
 return

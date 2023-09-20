@@ -20,7 +20,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18ACE8319A)
     end
-    return 
+    return
 end
 
 sound_Happy = function ()
@@ -28,7 +28,7 @@ sound_Happy = function ()
         sv_animcmd.PLAY_SE(0x1505BD521F)
         sv_animcmd.PLAY_SE(0x127452D9C6)
     end
-    return 
+    return
 end
 
 sound_Slip = function ()
@@ -36,7 +36,7 @@ sound_Slip = function ()
         sv_animcmd.PLAY_SE(0x166CF606FF)
         sv_animcmd.PLAY_SE(0x1393888304)
     end
-    return 
+    return
 end
 
 sound_Ice = function ()
@@ -44,7 +44,7 @@ sound_Ice = function ()
         sv_animcmd.PLAY_SE(0x15BF4FFF05)
         sv_animcmd.PLAY_SE(0x12CEA074DC)
     end
-    return 
+    return
 end
 
 sound_Sleep = function ()
@@ -52,7 +52,7 @@ sound_Sleep = function ()
         sv_animcmd.PLAY_SE(0x1955E2F5B6)
         sv_animcmd.PLAY_SE(0x161D3A594D)
     end
-    return 
+    return
 end
 
 sound_Cheer = function ()
@@ -60,7 +60,7 @@ sound_Cheer = function ()
         sv_animcmd.PLAY_SE(0x187AC76A21)
         sv_animcmd.PLAY_SE(0x15105DDA86)
     end
-    return 
+    return
 end
 
 sound_Steal = function ()
@@ -68,14 +68,14 @@ sound_Steal = function ()
         sv_animcmd.PLAY_SE(0x15893B557B)
         sv_animcmd.PLAY_SE(0x12F8D4DEA2)
     end
-    return 
+    return
 end
 
 sound_Vanish = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B9F2B8B20)
     end
-    return 
+    return
 end
 
 return

@@ -16,7 +16,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A2D54B960)
     end
-    return 
+    return
 end
 
 sound_Exit = function ()
@@ -24,7 +24,7 @@ sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CACBD0637)
     end
-    return 
+    return
 end
 
 sound_Jump = function ()
@@ -32,7 +32,7 @@ sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17AF675C14)
     end
-    return 
+    return
 end
 
 sound_JumpAir = function ()
@@ -40,7 +40,7 @@ sound_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17AF675C14)
     end
-    return 
+    return
 end
 
 sound_Turn = function ()
@@ -48,7 +48,7 @@ sound_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19A88049F6)
     end
-    return 
+    return
 end
 
 sound_Run = function ()
@@ -71,7 +71,7 @@ sound_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19528F7495)
     end
-    return 
+    return
 end
 
 sound_EscapeJump = function ()
@@ -79,7 +79,7 @@ sound_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17AF675C14)
     end
-    return 
+    return
 end
 
 sound_ShootMain = function ()
@@ -87,7 +87,7 @@ sound_ShootMain = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C049D257F)
     end
-    return 
+    return
 end
 
 sound_ShootAirMain = function ()
@@ -95,7 +95,7 @@ sound_ShootAirMain = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C049D257F)
     end
-    return 
+    return
 end
 
 sound_Swing = function ()
@@ -103,7 +103,7 @@ sound_Swing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x200620FC34)
     end
-    return 
+    return
 end
 
 sound_CookStart = function ()
@@ -111,14 +111,14 @@ sound_CookStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C42B3671B)
     end
-    return 
+    return
 end
 
 sound_OnAttackHitTossSound = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1E25609B15)
     end
-    return 
+    return
 end
 
 return

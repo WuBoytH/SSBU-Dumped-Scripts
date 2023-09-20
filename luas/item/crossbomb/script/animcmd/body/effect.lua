@@ -10,7 +10,7 @@ effect_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1418725EF7, true, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -26,7 +26,7 @@ effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 20)
     end
-    return 
+    return
 end
 
 effect_Timeup = function ()
@@ -39,7 +39,7 @@ effect_Timeup = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 90, 0.550000011920929, 0.15000000596046448, 0.10000000149011612, 0, 0, 0, 0.8500000238418579, 1.100000023841858, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 return

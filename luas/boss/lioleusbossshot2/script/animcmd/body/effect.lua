@@ -15,7 +15,7 @@ effect_Shoot = function ()
         sv_animcmd.EFFECT_FOLLOW(0x16223D8B81, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 4, true)
         sv_animcmd.EFFECT(0x1DE343F740, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -33,7 +33,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT_FOLLOW(0x169FD0CAE0, 0x031ED91FCA, 0, -1, 0, 0, 0, 0, 0.5, true)
     end
     sv_animcmd.wait(6)
-    return 
+    return
 end
 
 return

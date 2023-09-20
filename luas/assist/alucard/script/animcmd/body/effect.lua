@@ -21,21 +21,21 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_RunStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Run = function ()
@@ -48,7 +48,7 @@ effect_Run = function ()
         sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
     end
     sv_animcmd.wait_loop_sync_mot()
-    return effect_Run()
+    returneffect_Run()
 end
 
 effect_RunEnd = function ()
@@ -56,7 +56,7 @@ effect_RunEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 0, 0, 0, 0, 180, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_RunTurn = function ()
@@ -64,7 +64,7 @@ effect_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, -4, 0, 0, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_AttackConsecutiveStart = function ()
@@ -72,7 +72,7 @@ effect_AttackConsecutiveStart = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0DA24C4420, 0x06B66091F2, 0, 0, 5, 0, 0, 90, 1, true)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
     end
-    return 
+    return
 end
 
 effect_AttackConsecutive = function ()
@@ -80,7 +80,7 @@ effect_AttackConsecutive = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0DA24C4420, 0x06B66091F2, 0, 0, 5, 0, 0, 90, 1, true)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
     end
-    return 
+    return
 end
 
 effect_AttackConsecutiveFinish = function ()
@@ -89,14 +89,14 @@ effect_AttackConsecutiveFinish = function ()
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_CONSECUTIVE_EFFECT_HANDLE)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.75)
     end
-    return 
+    return
 end
 
 effect_TransformBat = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1144154CA6, 0x031ED91FCA, 0, 12, -6.5, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_TransformHuman = function ()
@@ -104,7 +104,7 @@ effect_TransformHuman = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x151A137BAB, 0x035DBFE258, 3, -4, 0, 0, 0, 0, 1.100000023841858, true)
     end
-    return 
+    return
 end
 
 effect_BatAttack = function ()
@@ -112,7 +112,7 @@ effect_BatAttack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x161246214A, 0x06B66091F2, 0, -1.5, -1.5, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_BackDash = function ()
@@ -120,7 +120,7 @@ effect_BackDash = function ()
         sv_animcmd.FOOT_EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0, 0, 0, 180, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x10A455E827, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_EscapeMistLoop = function ()
@@ -129,7 +129,7 @@ effect_EscapeMistLoop = function ()
         sv_animcmd.LAST_EFFECT_SET_COLOR(1.2000000476837158, 1.2000000476837158, 1.2000000476837158)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_ALUCARD_INSTANCE_WORK_ATTACK_MIST_LOOP_EFFECT_HANDLE)
     end
-    return 
+    return
 end
 
 effect_EscapeMistEnd = function ()
@@ -137,7 +137,7 @@ effect_EscapeMistEnd = function ()
         sv_animcmd.EFFECT_FOLLOW(0x107905416F, 0x031ED91FCA, 0, 6, 0, 0, 0, 0, 1, true)
         sv_animcmd.LAST_EFFECT_SET_COLOR(1.2000000476837158, 1.2000000476837158, 1.2000000476837158)
     end
-    return 
+    return
 end
 
 return

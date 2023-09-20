@@ -8,21 +8,21 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E38D45F15, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_AppearPreview = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E38D45F15, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.5, false)
     end
-    return 
+    return
 end
 
 effect_AppearPlus = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E38D45F15, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 return

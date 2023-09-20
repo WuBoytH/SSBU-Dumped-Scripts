@@ -11,7 +11,7 @@ sound_Appear = function ()
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0F42052130)
         sv_animcmd.PLAY_SE(0x1A70F0FE8D)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
@@ -19,7 +19,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x180477F091)
     end
-    return 
+    return
 end
 
 return

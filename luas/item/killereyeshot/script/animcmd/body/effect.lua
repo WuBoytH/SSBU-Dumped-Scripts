@@ -9,7 +9,7 @@ effect_AttackLie = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1438C95232, 0x031ED91FCA, 0, 0, -2.5, 0, 0, 90, 2, false)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_AttackNormal = function ()
@@ -17,7 +17,7 @@ effect_AttackNormal = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1438C95232, 0x031ED91FCA, 0, 0, -2.5, 0, 0, 90, 2, false)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 return

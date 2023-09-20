@@ -11,7 +11,7 @@ sound_Appear = function ()
         WorkModule.set_int64(0x11C9F5B4A5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
         sv_animcmd.PLAY_SE(0x16477AA9A5)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
@@ -19,14 +19,14 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BDB560CBE)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C85E3F2F2)
     end
-    return 
+    return
 end
 
 return

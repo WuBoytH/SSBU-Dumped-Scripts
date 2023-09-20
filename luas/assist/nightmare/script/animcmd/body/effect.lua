@@ -17,7 +17,7 @@ effect_Rise = function ()
     if sv_animcmd.is_excute() then
         EffectModule.req_screen(0x13D879450E, false)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -54,7 +54,7 @@ effect_Attack = function ()
         WorkModule.on_flag(ITEM_NIGHTMARE_INSTANCE_WORK_FLAG_END_ATTACK)
     end
     sv_animcmd.wait(30)
-    return 
+    return
 end
 
 return

@@ -25,28 +25,28 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         WorkModule.set_int64(0x15D3C8CC05, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
     end
-    return 
+    return
 end
 
 sound_DamageAir1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageAir2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageAir3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15AD74DA1E)
     end
-    return 
+    return
 end
 
 sound_DamageHi1 = function ()
@@ -54,7 +54,7 @@ sound_DamageHi1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageHi2 = function ()
@@ -62,7 +62,7 @@ sound_DamageHi2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageHi3 = function ()
@@ -70,7 +70,7 @@ sound_DamageHi3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15AD74DA1E)
     end
-    return 
+    return
 end
 
 sound_DamageN1 = function ()
@@ -78,7 +78,7 @@ sound_DamageN1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageN2 = function ()
@@ -86,7 +86,7 @@ sound_DamageN2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageN3 = function ()
@@ -94,7 +94,7 @@ sound_DamageN3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15AD74DA1E)
     end
-    return 
+    return
 end
 
 sound_DamageLw1 = function ()
@@ -102,7 +102,7 @@ sound_DamageLw1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageLw2 = function ()
@@ -110,7 +110,7 @@ sound_DamageLw2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DamageLw3 = function ()
@@ -118,7 +118,7 @@ sound_DamageLw3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15AD74DA1E)
     end
-    return 
+    return
 end
 
 sound_DownBoundD = function ()
@@ -129,7 +129,7 @@ sound_DownBoundD = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x157CE9B678)
     end
-    return 
+    return
 end
 
 sound_DownBoundU = function ()
@@ -140,7 +140,7 @@ sound_DownBoundU = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x157CE9B678)
     end
-    return 
+    return
 end
 
 sound_DownDamageD = function ()
@@ -148,7 +148,7 @@ sound_DownDamageD = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DownDamageU = function ()
@@ -156,7 +156,7 @@ sound_DownDamageU = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15207CD7EB)
     end
-    return 
+    return
 end
 
 sound_DownStandD = function ()
@@ -167,7 +167,7 @@ sound_DownStandD = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17B3EA586A)
     end
-    return 
+    return
 end
 
 sound_DownStandU = function ()
@@ -178,7 +178,7 @@ sound_DownStandU = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17B3EA586A)
     end
-    return 
+    return
 end
 
 sound_DownWaitD = function ()
@@ -192,7 +192,7 @@ sound_DownWaitD = function ()
     if f20_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x29CCF66061)
     end
-    return 
+    return
 end
 
 sound_DownWaitU = function ()
@@ -206,7 +206,7 @@ sound_DownWaitU = function ()
     if f21_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x29CCF66061)
     end
-    return 
+    return
 end
 
 sound_SlidingD = function ()
@@ -220,7 +220,7 @@ sound_SlidingD = function ()
     if f22_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x29CCF66061)
     end
-    return 
+    return
 end
 
 sound_SlidingU = function ()
@@ -234,133 +234,133 @@ sound_SlidingU = function ()
     if f23_local0 == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x29CCF66061)
     end
-    return 
+    return
 end
 
 sound_SlidingDEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x29CCF66061)
     end
-    return 
+    return
 end
 
 sound_SlidingUEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x29CCF66061)
     end
-    return 
+    return
 end
 
 sound_DamageFlyAudienceS = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x138229E51A)
     end
-    return 
+    return
 end
 
 sound_DamageFlyAudienceM = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x137826D879)
     end
-    return 
+    return
 end
 
 sound_DamageFlyAudienceL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x130F21E8EF)
     end
-    return 
+    return
 end
 
 sound_BoundBarrier = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x157CE9B678)
     end
-    return 
+    return
 end
 
 sound_DamageFlyStopStartM = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x23BAB67C73)
     end
-    return 
+    return
 end
 
 sound_DamageFlyStopStartL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x23BAB67C73)
     end
-    return 
+    return
 end
 
 sound_DamageFlyStopEndS = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20816D43B6)
     end
-    return 
+    return
 end
 
 sound_DamageFlyStopEndM = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x24D36328F7)
     end
-    return 
+    return
 end
 
 sound_DamageFlyStopEndL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x24D36328F7)
     end
-    return 
+    return
 end
 
 sound_DamageFlyDownLevelS = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x2492512925)
     end
-    return 
+    return
 end
 
 sound_DamageFlyDownLevelL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x241F5924D0)
     end
-    return 
+    return
 end
 
 sound_PrizeGet = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x219CB58038)
     end
-    return 
+    return
 end
 
 sound_Sonicboom1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1E49A107EF)
     end
-    return 
+    return
 end
 
 sound_Sonicboom2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1ED0A85655)
     end
-    return 
+    return
 end
 
 sound_Sonicboom3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1EA7AF66C3)
     end
-    return 
+    return
 end
 
 sound_Sonicboom4 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1E39CBF360)
     end
-    return 
+    return
 end
 
 return

@@ -29,7 +29,7 @@ game_CutDown = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AirCutDown = function ()
@@ -53,7 +53,7 @@ game_AirCutDown = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_DashCut = function ()
@@ -71,7 +71,7 @@ game_DashCut = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackKnife = function ()
@@ -83,7 +83,7 @@ game_AttackKnife = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_AttackKnifeAir = function ()
@@ -95,7 +95,7 @@ game_AttackKnifeAir = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_Jump = function ()
@@ -107,7 +107,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_GHIRAHIM_INSTANCE_WORK_FLAG_CHANGE_ATTACK)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -115,7 +115,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpVertical = function ()
@@ -127,7 +127,7 @@ game_JumpVertical = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_GHIRAHIM_INSTANCE_WORK_FLAG_CHANGE_ATTACK)
     end
-    return 
+    return
 end
 
 game_BackJump = function ()
@@ -135,7 +135,7 @@ game_BackJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -143,7 +143,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 return

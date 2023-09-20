@@ -9,7 +9,7 @@ effect_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -17,7 +17,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x0DECD2E5F9, 0x031ED91FCA, 1, 0.800000011920929, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
     sv_animcmd.wait(30)
-    return 
+    return
 end
 
 effect_Guard = function ()
@@ -46,7 +46,7 @@ effect_Guard = function ()
         sv_animcmd.COL_NORMAL()
     end
     sv_animcmd.wait(2)
-    return 
+    return
 end
 
 return

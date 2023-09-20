@@ -8,14 +8,14 @@ effect_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1399618FEB, 0x031D39A761, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_End = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1399618FEB, false, true)
     end
-    return 
+    return
 end
 
 return

@@ -14,7 +14,7 @@ game_DiveAttack = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Attack = function ()
@@ -59,7 +59,7 @@ game_Attack = function ()
     if sv_animcmd.is_excute() then
         WorkModule:off_flag(ITEM_MARSHADOW_INSTANCE_WORK_FLAG_SLOPE_SLANT)
     end
-    return 
+    return
 end
 
 return

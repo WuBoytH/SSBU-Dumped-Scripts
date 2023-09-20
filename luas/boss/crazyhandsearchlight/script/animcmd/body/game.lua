@@ -9,7 +9,7 @@ game_Search = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH(0, 0, 0x06B4F0DBA7, 8, 0, 0, 0, 15, 0, 0, COLLISION_KIND_MASK_HIT, HIT_STATUS_MASK_NORMAL, 1, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_FIGHTER, COLLISION_PART_MASK_BODY_HEAD, false)
     end
-    return 
+    return
 end
 
 game_Attack = function ()
@@ -35,7 +35,7 @@ game_Attack = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_CRAZYHANDSEARCHLIGHT_INSTANCE_WORK_FLAG_ATTACK_END)
     end
-    return 
+    return
 end
 
 return

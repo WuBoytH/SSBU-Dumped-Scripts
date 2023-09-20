@@ -12,7 +12,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK(2, 0, 0x031ED91FCA, 2, 361, 70, 0, 30, 2, 0, 0, 0, f1_local0, f1_local1, f1_local2, 1, 1, ATTACK_SETOFF_KIND_THRU, ATTACK_LR_CHECK_SPEED, false, 0, 0.699999988079071, ITEM_TRWATK_F, true, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_NO_FLOOR, COLLISION_PART_MASK_ALL, false, 0x152497AB8D, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_OBJECT)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 return

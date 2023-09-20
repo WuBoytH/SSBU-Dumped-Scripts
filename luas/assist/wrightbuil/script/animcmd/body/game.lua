@@ -51,7 +51,7 @@ game_Appear1 = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_Appear2 = function ()
@@ -100,7 +100,7 @@ game_Appear2 = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 return

@@ -6,7 +6,7 @@
 
 game_AppearDarkStage = function ()
     game_Appear()
-    return 
+    return
 end
 
 game_Shutter = function ()
@@ -36,7 +36,7 @@ game_Shutter = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KOZUKATASIGHT_INSTANCE_WORK_FLAG_SHUTTER_END)
     end
-    return 
+    return
 end
 
 game_Exit = function ()
@@ -54,12 +54,12 @@ game_Exit = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KOZUKATASIGHT_INSTANCE_WORK_FLAG_LOST)
     end
-    return 
+    return
 end
 
 game_ExitDarkStage = function ()
     game_Exit()
-    return 
+    return
 end
 
 return

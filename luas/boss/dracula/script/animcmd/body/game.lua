@@ -11,7 +11,7 @@ game_SetSearchSub = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH(0, 0, 0x031ED91FCA, 6, 0, 0, 1, 0, 15, 1, COLLISION_KIND_MASK_ATTACK, HIT_STATUS_MASK_ALL, 12, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_NO_STAGE, COLLISION_PART_MASK_ALL, false)
     end
-    return 
+    return
 end
 
 game_Entry = function ()
@@ -27,7 +27,7 @@ game_Entry = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DRACULA_INSTANCE_WORK_FLAG_UNVISIBLE)
     end
-    return 
+    return
 end
 
 game_Dead = function ()
@@ -39,7 +39,7 @@ game_Dead = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
     end
-    return 
+    return
 end
 
 game_ChangeStart = function ()
@@ -58,22 +58,22 @@ game_ChangeStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x1113979E41, 0)
     end
-    return 
+    return
 end
 
 game_Wait = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_TeleportStart = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_TeleportEnd = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_Attack3WayStart = function ()
@@ -82,17 +82,17 @@ game_Attack3WayStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DRACULA_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_Attack3WayMain = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_Attack3WayEnd = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_AttackTurn3WayStart = function ()
@@ -105,17 +105,17 @@ game_AttackTurn3WayStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DRACULA_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AttackTurn3WayMain = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_AttackTurn3WayEnd = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_AttackStraightStart = function ()
@@ -124,17 +124,17 @@ game_AttackStraightStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DRACULA_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AttackStraightMain = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_AttackStraightEnd = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_AttackPillarStart = function ()
@@ -143,17 +143,17 @@ game_AttackPillarStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DRACULA_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AttackPillarMain = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_AttackPillarEnd = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_AttackFillStart = function ()
@@ -162,17 +162,17 @@ game_AttackFillStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DRACULA_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AttackFillMain = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_AttackFillEnd = function ()
     game_SetSearchSub()
-    return 
+    return
 end
 
 game_AttackRushStart = function ()
@@ -181,7 +181,7 @@ game_AttackRushStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DRACULA_INSTANCE_WORK_FLAG_UNVISIBLE)
     end
-    return 
+    return
 end
 
 game_AttackRushEnd = function ()
@@ -190,7 +190,7 @@ game_AttackRushEnd = function ()
     if sv_animcmd.is_excute() then
         WorkModule.off_flag(ITEM_DRACULA_INSTANCE_WORK_FLAG_UNVISIBLE)
     end
-    return 
+    return
 end
 
 return

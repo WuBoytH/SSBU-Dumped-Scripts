@@ -8,7 +8,7 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11345BC2DE, 0x051A36341B, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

@@ -11,7 +11,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Walk = function ()
@@ -23,7 +23,7 @@ effect_Walk = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0E963002D8, 0x04DCF1B594, 0, -0.800000011920929, 0, 0, 0, 0, 0.3499999940395355, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

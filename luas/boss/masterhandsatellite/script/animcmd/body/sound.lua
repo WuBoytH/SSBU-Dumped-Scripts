@@ -8,14 +8,14 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x264E55B187)
     end
-    return 
+    return
 end
 
 sound_Hit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x2DDB675C55)
     end
-    return 
+    return
 end
 
 return

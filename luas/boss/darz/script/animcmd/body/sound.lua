@@ -41,14 +41,14 @@ sound_Entry = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x122FF2CF90)
     end
-    return 
+    return
 end
 
 sound_Entry2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x181861A3BD)
     end
-    return 
+    return
 end
 
 sound_BossStop = function ()
@@ -57,7 +57,7 @@ sound_BossStop = function ()
         sv_animcmd.PLAY_SE(0x1671A7E7CB)
         sv_animcmd.PLAY_SE(0x15E7217C30)
     end
-    return 
+    return
 end
 
 sound_Dead = function ()
@@ -95,7 +95,7 @@ sound_Dead = function ()
             WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_STOP_SE)
         end
     end
-    return 
+    return
 end
 
 sound_TeleportStart = function ()
@@ -103,14 +103,14 @@ sound_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x209797C939)
     end
-    return 
+    return
 end
 
 sound_TeleportEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1DE2AFF8E8)
     end
-    return 
+    return
 end
 
 sound_AngerStart = function ()
@@ -121,7 +121,7 @@ sound_AngerStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A1CC9AEA8)
     end
-    return 
+    return
 end
 
 sound_Anger = function ()
@@ -136,7 +136,7 @@ sound_Anger = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1F08FEE167)
     end
-    return 
+    return
 end
 
 sound_DownStartL = function ()
@@ -148,7 +148,7 @@ sound_DownStartL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17F9C7532A)
     end
-    return 
+    return
 end
 
 sound_DownStartR = function ()
@@ -160,14 +160,14 @@ sound_DownStartR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17F9C7532A)
     end
-    return 
+    return
 end
 
 sound_DownEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x152E3E203A)
     end
-    return 
+    return
 end
 
 sound_CrossBomb = function ()
@@ -178,42 +178,42 @@ sound_CrossBomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1D3B28519B)
     end
-    return 
+    return
 end
 
 sound_GatlingStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A744C555F)
     end
-    return 
+    return
 end
 
 sound_GatlingHoldLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x1F48EE3170)
     end
-    return 
+    return
 end
 
 sound_GatlingLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x1F45560261)
     end
-    return 
+    return
 end
 
 sound_GatlingAnger = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1DF9A12F40)
     end
-    return 
+    return
 end
 
 sound_GatlingEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B1A7F14C3)
     end
-    return 
+    return
 end
 
 sound_TearUp = function ()
@@ -224,7 +224,7 @@ sound_TearUp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x176624A67F)
     end
-    return 
+    return
 end
 
 sound_TearUpAnger = function ()
@@ -235,14 +235,14 @@ sound_TearUpAnger = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x176624A67F)
     end
-    return 
+    return
 end
 
 sound_SpaceRushStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18F5007049)
     end
-    return 
+    return
 end
 
 sound_ChaseHammer = function ()
@@ -258,14 +258,14 @@ sound_ChaseHammer = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17DEA6B7D0)
     end
-    return 
+    return
 end
 
 sound_DarkPillarStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18FD296986)
     end
-    return 
+    return
 end
 
 sound_DarkPillar = function ()
@@ -273,7 +273,7 @@ sound_DarkPillar = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17D2CF29E8)
     end
-    return 
+    return
 end
 
 sound_DarkPillarEnd = function ()
@@ -281,14 +281,14 @@ sound_DarkPillarEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17A04B9DE8)
     end
-    return 
+    return
 end
 
 sound_SummonFighter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17E80C578C)
     end
-    return 
+    return
 end
 
 return

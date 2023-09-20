@@ -10,7 +10,7 @@ game_Down = function ()
         f1_local0, f1_local1, f1_local2 = nil
         sv_animcmd.SEARCH(1, 0, 0x031ED91FCA, 11, -9, 13, 0, f1_local0, f1_local1, f1_local2, COLLISION_KIND_MASK_HIT, HIT_STATUS_MASK_ALL, 1, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_FIGHTER, COLLISION_PART_MASK_ALL, false)
     end
-    return 
+    return
 end
 
 game_Close = function ()
@@ -22,7 +22,7 @@ game_Close = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
-    return 
+    return
 end
 
 return

@@ -8,7 +8,7 @@ effect_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x144483CD4B, 0x031ED91FCA, 0, 5.599999904632568, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 return

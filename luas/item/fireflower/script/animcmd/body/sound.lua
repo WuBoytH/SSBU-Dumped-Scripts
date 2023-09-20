@@ -9,7 +9,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x1ABA40DFBF, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
@@ -17,21 +17,21 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 sound_Close = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
-    return 
+    return
 end
 
 sound_Suka = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
-    return 
+    return
 end
 
 return

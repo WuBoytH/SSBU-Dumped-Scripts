@@ -12,14 +12,14 @@ sound_Appear = function ()
         WorkModule.set_int64(0x11C9F5B4A5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
-    return 
+    return
 end
 
 sound_AttackStart = function ()
@@ -31,14 +31,14 @@ sound_AttackStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x133D9D4D48)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x171428E618)
     end
-    return 
+    return
 end
 
 sound_Turn = function ()
@@ -46,7 +46,7 @@ sound_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x133D9D4D48)
     end
-    return 
+    return
 end
 
 return

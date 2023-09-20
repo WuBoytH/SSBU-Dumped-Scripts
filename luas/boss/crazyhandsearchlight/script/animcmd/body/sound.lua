@@ -7,7 +7,7 @@ sound_Search = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x22122AB229)
     end
-    return 
+    return
 end
 
 return

@@ -10,7 +10,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -18,7 +18,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_Turn = function ()
@@ -26,7 +26,7 @@ game_Turn = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SHOVELKNIGHT_INSTANCE_WORK_FLAG_TURN_VISIBILITY_CHANGE)
     end
-    return 
+    return
 end
 
 game_RunTurn = function ()
@@ -34,7 +34,7 @@ game_RunTurn = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SHOVELKNIGHT_INSTANCE_WORK_FLAG_TURN_VISIBILITY_CHANGE)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -42,7 +42,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_DigGround = function ()
@@ -63,7 +63,7 @@ game_DigGround = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_DigAir = function ()
@@ -80,7 +80,7 @@ game_DigAir = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ShovelLowerStab = function ()
@@ -92,7 +92,7 @@ game_ShovelLowerStab = function ()
         f8_local0, f8_local1, f8_local2 = nil
         sv_animcmd.ATTACK(2, 0, 0x031ED91FCA, 15, 75, 22, 0, 85, 3, 0, 7, -2, f8_local0, f8_local1, f8_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 1, 30, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_HEAVY, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_ShovelReflectGround = function ()
@@ -117,7 +117,7 @@ game_ShovelReflectGround = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ShovelReflectAir = function ()
@@ -142,7 +142,7 @@ game_ShovelReflectAir = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

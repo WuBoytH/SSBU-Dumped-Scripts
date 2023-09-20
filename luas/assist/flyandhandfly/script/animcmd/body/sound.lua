@@ -7,7 +7,7 @@ sound_Damage = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1D142D25D5)
     end
-    return 
+    return
 end
 
 return

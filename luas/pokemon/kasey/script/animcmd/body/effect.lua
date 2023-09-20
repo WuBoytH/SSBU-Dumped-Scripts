@@ -34,7 +34,7 @@ effect_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x175890A5C5, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TeleportEnd = function ()
@@ -48,7 +48,7 @@ effect_TeleportEnd = function ()
         sv_animcmd.EFFECT(0x206C4E06CC, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.100000023841858)
     end
-    return 
+    return
 end
 
 effect_TeleportRepeat = function ()
@@ -65,7 +65,7 @@ effect_TeleportRepeat = function ()
         sv_animcmd.EFFECT(0x175890A5C5, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.5)
     end
-    return 
+    return
 end
 
 return

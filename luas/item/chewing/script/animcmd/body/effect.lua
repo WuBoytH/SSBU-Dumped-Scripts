@@ -11,7 +11,7 @@ effect_HaveBond = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_BRANCH_SITUATION(0x097CAC16CA, 0x0425CBFC4F, 0x031ED91FCA, 0, -0.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -19,14 +19,14 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
-    return 
+    return
 end
 
 effect_NearBomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0BD55ECC1C, 0x031ED91FCA, 0, -0.5, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 return

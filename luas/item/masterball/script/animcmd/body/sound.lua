@@ -10,14 +10,14 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x179D2C1B42, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1549C5C8F7)
     end
-    return 
+    return
 end
 
 sound_BoundL = function ()
@@ -25,7 +25,7 @@ sound_BoundL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1549C5C8F7)
     end
-    return 
+    return
 end
 
 sound_BoundR = function ()
@@ -33,7 +33,7 @@ sound_BoundR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1549C5C8F7)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
@@ -41,7 +41,7 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 return

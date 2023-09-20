@@ -16,7 +16,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1520AFD45A)
     end
-    return 
+    return
 end
 
 sound_ShadowRayCharge = function ()
@@ -24,7 +24,7 @@ sound_ShadowRayCharge = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x184DA650BC)
     end
-    return 
+    return
 end
 
 sound_ShadowRayStart2 = function ()
@@ -32,7 +32,7 @@ sound_ShadowRayStart2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x184DA650BC)
     end
-    return 
+    return
 end
 
 sound_ShadowRayShoot = function ()
@@ -44,7 +44,7 @@ sound_ShadowRayShoot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20CC599487)
     end
-    return 
+    return
 end
 
 sound_ShadowRayEnd = function ()
@@ -52,7 +52,7 @@ sound_ShadowRayEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x20CC599487)
     end
-    return 
+    return
 end
 
 sound_MoveLeft = function ()
@@ -64,7 +64,7 @@ sound_MoveLeft = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x168B8211D6)
     end
-    return 
+    return
 end
 
 sound_MoveRight = function ()
@@ -76,7 +76,7 @@ sound_MoveRight = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x168B8211D6)
     end
-    return 
+    return
 end
 
 sound_Leave = function ()
@@ -88,7 +88,7 @@ sound_Leave = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x168B8211D6)
     end
-    return 
+    return
 end
 
 return

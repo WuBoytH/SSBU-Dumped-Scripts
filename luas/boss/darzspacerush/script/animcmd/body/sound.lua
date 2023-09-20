@@ -8,7 +8,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_DARZSPACERUSH_INSTANCE_WORK_FLAG_SE_OPEN_OUT)
     end
-    return 
+    return
 end
 
 return

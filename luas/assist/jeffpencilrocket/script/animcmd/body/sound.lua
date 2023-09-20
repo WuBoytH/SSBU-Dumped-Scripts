@@ -12,7 +12,7 @@ sound_Fly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1542DB74EA)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
@@ -20,7 +20,7 @@ sound_Born = function ()
         sv_animcmd.PLAY_SE_REMAIN(0x107AD5AEBC)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 sound_Appear_Sub = function ()
@@ -31,7 +31,7 @@ sound_Appear_Sub = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x1773B1EBF2)
     end
-    return 
+    return
 end
 
 return

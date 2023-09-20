@@ -13,7 +13,7 @@ effect_Throw = function ()
         sv_animcmd.EFFECT_FOLLOW(0x17F3CC9784, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT(0x1B5CE4737F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -31,7 +31,7 @@ effect_Born = function ()
         sv_animcmd.CANCEL_FILL_SCREEN(1, 120)
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_L, CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 return

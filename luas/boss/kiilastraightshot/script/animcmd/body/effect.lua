@@ -10,7 +10,7 @@ effect_Throw = function ()
         sv_animcmd.EFFECT(0x1B5CE4737F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT_FOLLOW(0x1C565C62DC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

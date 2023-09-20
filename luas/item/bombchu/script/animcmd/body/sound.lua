@@ -12,28 +12,28 @@ sound_Appear = function ()
         WorkModule.set_int64(0x1317714CF5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x12425128A4)
     end
-    return 
+    return
 end
 
 sound_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x12425128A4)
     end
-    return 
+    return
 end
 
 sound_GroundTrace = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x12425128A4)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
@@ -41,14 +41,14 @@ sound_Born = function ()
         sv_animcmd.STOP_SE(0x12425128A4)
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
-    return 
+    return
 end
 
 sound_PlayTraceSE = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12425128A4)
     end
-    return 
+    return
 end
 
 return

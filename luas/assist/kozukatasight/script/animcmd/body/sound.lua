@@ -6,33 +6,33 @@
 
 sound_AppearDarkStage = function ()
     sound_Appear()
-    return 
+    return
 end
 
 sound_RandomMove = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1AC0723E09)
     end
-    return 
+    return
 end
 
 sound_LastMove = function ()
     if sv_animcmd.IT_IS_RND_PERCENT(40) and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1AC0723E09)
     end
-    return 
+    return
 end
 
 sound_Shutter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A0F6DBF9D)
     end
-    return 
+    return
 end
 
 sound_ExitDarkStage = function ()
     sound_Exit()
-    return 
+    return
 end
 
 return

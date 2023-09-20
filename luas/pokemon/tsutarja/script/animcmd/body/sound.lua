@@ -18,7 +18,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B396F2CEF)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
@@ -26,7 +26,7 @@ sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1883768C2B)
     end
-    return 
+    return
 end
 
 sound_Epilogue = function ()
@@ -34,7 +34,7 @@ sound_Epilogue = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B396F2CEF)
     end
-    return 
+    return
 end
 
 return

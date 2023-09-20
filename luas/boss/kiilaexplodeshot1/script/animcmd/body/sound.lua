@@ -7,7 +7,7 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x251D613785)
     end
-    return 
+    return
 end
 
 return

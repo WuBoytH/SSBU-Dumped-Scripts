@@ -10,7 +10,7 @@ sound_Appear = function ()
         WorkModule.set_int64(0x1317714CF5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
         sv_animcmd.IT_SET_SE_arg2(0x16BC349331, 0x0F42052130)
     end
-    return 
+    return
 end
 
 return

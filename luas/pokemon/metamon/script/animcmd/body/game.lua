@@ -5,7 +5,7 @@ game_MetamonToFighter = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_METAMON_INSTANCE_WORK_FLAG_FIGHTER_ON)
     end
-    return 
+    return
 end
 
 return

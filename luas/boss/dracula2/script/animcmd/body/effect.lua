@@ -78,7 +78,7 @@ effect_Entry = function ()
         sv_animcmd.EFFECT_FOLLOW(0x17352B66AA, 0x04DA1CD65B, 0, -1, 0, 0, 0, 0, 1.0499999523162842, false)
         sv_animcmd.EFFECT_FOLLOW(0x17352B66AA, 0x042013EB38, 0, -1, 0, 0, 0, 0, 1.0499999523162842, false)
     end
-    return 
+    return
 end
 
 effect_Dead = function ()
@@ -186,7 +186,7 @@ effect_Dead = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x14C6831BA3, false, true)
     end
-    return 
+    return
 end
 
 effect_FrontJump = function ()
@@ -211,7 +211,7 @@ effect_FrontJump = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x135676B2AC, false, true)
         sv_animcmd.EFFECT(0x0E91C06457, 0x031ED91FCA, 0, -3, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_BackJump = function ()
@@ -236,7 +236,7 @@ effect_BackJump = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x135676B2AC, false, true)
         sv_animcmd.EFFECT(0x0E91C06457, 0x031ED91FCA, 0, -3, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Turn = function ()
@@ -252,7 +252,7 @@ effect_Turn = function ()
         sv_animcmd.LANDING_EFFECT(0x0E963002D8, 0x0505C6B25A, 0, -4, 0, 0, 0, 0, 0.6000000238418579, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
-    return 
+    return
 end
 
 effect_FireShotStart = function ()
@@ -269,7 +269,7 @@ effect_FireShotStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_FireShotLoop = function ()
@@ -277,7 +277,7 @@ effect_FireShotLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_HomingShotStart = function ()
@@ -294,7 +294,7 @@ effect_HomingShotStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_HomingShotLoop = function ()
@@ -302,7 +302,7 @@ effect_HomingShotLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_ShockWave = function ()
@@ -375,7 +375,7 @@ effect_ShockWave = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1ACC14C621, false, true)
     end
-    return 
+    return
 end
 
 effect_ShockWaveTurn = function ()
@@ -464,7 +464,7 @@ effect_ShockWaveTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1ACC14C621, false, true)
     end
-    return 
+    return
 end
 
 effect_Slash = function ()
@@ -497,7 +497,7 @@ effect_Slash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x15203AA08D, false, true)
     end
-    return 
+    return
 end
 
 effect_SlashThree = function ()
@@ -570,7 +570,7 @@ effect_SlashThree = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 effect_StepSlash = function ()
@@ -605,7 +605,7 @@ effect_StepSlash = function ()
         sv_animcmd.LANDING_EFFECT(0x0E963002D8, 0x05FFC98F39, 6, -4, 0, 0, 0, 0, 0.6000000238418579, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
-    return 
+    return
 end
 
 effect_TurnSlash = function ()
@@ -634,7 +634,7 @@ effect_TurnSlash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_Strike = function ()
@@ -664,7 +664,7 @@ effect_Strike = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_StepStrike = function ()
@@ -705,7 +705,7 @@ effect_StepStrike = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_SquashStart = function ()
@@ -742,7 +742,7 @@ effect_SquashStart = function ()
         sv_animcmd.EFFECT(0x1D905A801C, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.399999976158142, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT(0x19B6A8BFDE, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.9700000286102295, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

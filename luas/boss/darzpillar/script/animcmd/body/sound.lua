@@ -8,14 +8,14 @@ sound_Shoot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x184AC95731)
     end
-    return 
+    return
 end
 
 sound_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18A299ED79)
     end
-    return 
+    return
 end
 
 return

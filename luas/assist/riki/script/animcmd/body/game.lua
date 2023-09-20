@@ -16,7 +16,7 @@ game_Slip = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Ice = function ()
@@ -28,7 +28,7 @@ game_Ice = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Sleep = function ()
@@ -40,7 +40,7 @@ game_Sleep = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

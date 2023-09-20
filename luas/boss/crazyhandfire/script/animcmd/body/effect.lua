@@ -8,21 +8,21 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x152BEF4BEE, 0x031ED91FCA, 0, 5, 0, 0, 0, 0, 1.25, true)
     end
-    return 
+    return
 end
 
 effect_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x152BEF4BEE, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.7999999523162842, true)
     end
-    return 
+    return
 end
 
 effect_Purge = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x152BEF4BEE, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.7999999523162842, true)
     end
-    return 
+    return
 end
 
 return

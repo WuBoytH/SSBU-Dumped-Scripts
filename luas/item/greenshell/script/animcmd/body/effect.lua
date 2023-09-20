@@ -9,7 +9,7 @@ effect_Throw = function ()
         sv_animcmd.EFFECT_FLW_POS(0x14A41CA154, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -17,7 +17,7 @@ effect_Attack = function ()
         sv_animcmd.EFFECT_FLW_POS(0x14A41CA154, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 return

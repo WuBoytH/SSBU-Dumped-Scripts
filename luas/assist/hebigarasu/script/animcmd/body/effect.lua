@@ -12,14 +12,14 @@ effect_FirstAppear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x10A982F840, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x10A982F840, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Dive = function ()
@@ -27,7 +27,7 @@ effect_Dive = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x15C1A7F93E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_AttackUp = function ()
@@ -43,7 +43,7 @@ effect_AttackUp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x11812C3098, 0x0A70F83FB2, -27, 0, 0, 0, 0, 0, 1.5, true)
     end
-    return 
+    return
 end
 
 effect_AttackMiddle = function ()
@@ -59,7 +59,7 @@ effect_AttackMiddle = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x11812C3098, 0x0A70F83FB2, -27, 0, 0, 0, 0, 0, 1.5, true)
     end
-    return 
+    return
 end
 
 effect_AttackDown = function ()
@@ -75,14 +75,14 @@ effect_AttackDown = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x11812C3098, 0x0A70F83FB2, -27, 0, 0, 0, 0, 0, 1.5, true)
     end
-    return 
+    return
 end
 
 effect_DamageStun = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x0FE28CF504, 0x04A7F3F69C, 5, -4.5, 0, 0, 0, 0, 1.5, true)
     end
-    return 
+    return
 end
 
 return

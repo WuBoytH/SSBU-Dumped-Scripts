@@ -10,14 +10,14 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 sound_SetBoundSE = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x14FEF90CB8, 0x0F42052130)
     end
-    return 
+    return
 end
 
 return

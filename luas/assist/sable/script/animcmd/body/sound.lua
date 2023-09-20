@@ -20,7 +20,7 @@ sound_Enter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1995A4EE8C)
     end
-    return 
+    return
 end
 
 sound_Exit = function ()
@@ -31,14 +31,14 @@ sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17B089EC5E)
     end
-    return 
+    return
 end
 
 sound_PrinceAppeal = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15CDAF5C69)
     end
-    return 
+    return
 end
 
 sound_FrogChange = function ()
@@ -52,7 +52,7 @@ sound_FrogChange = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19D1EB2047)
     end
-    return 
+    return
 end
 
 sound_SnakeChange = function ()
@@ -66,28 +66,28 @@ sound_SnakeChange = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19D1EB2047)
     end
-    return 
+    return
 end
 
 sound_FrogJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19D5E75979)
     end
-    return 
+    return
 end
 
 sound_FrogJumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19D5E75979)
     end
-    return 
+    return
 end
 
 sound_SnakeRun = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x196E66DA0E)
     end
-    return 
+    return
 end
 
 sound_SmokeAttack = function ()
@@ -98,42 +98,42 @@ sound_SmokeAttack = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BA56C68A1)
     end
-    return 
+    return
 end
 
 sound_StopSnakeRunSE = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x196E66DA0E)
     end
-    return 
+    return
 end
 
 sound_StopSmokeAttackSE = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x16AD0F5FCC)
     end
-    return 
+    return
 end
 
 sound_PlaySmokeAttackHitSE = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x16AD0F5FCC)
     end
-    return 
+    return
 end
 
 sound_DamageFly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19E81AC4D2)
     end
-    return 
+    return
 end
 
 sound_DamageFlyL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19E81AC4D2)
     end
-    return 
+    return
 end
 
 return

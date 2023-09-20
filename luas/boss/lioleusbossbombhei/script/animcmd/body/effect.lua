@@ -11,21 +11,21 @@ effect_EffectIgnitionFireCallback = function ()
         sv_animcmd.EFFECT_REMOVE_ATTR(EFFECT_SUB_ATTRIBUTE_NONE)
         sv_animcmd.EFFECT_FOLLOW(0x0E65A0135F, 0x06B66091F2, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_BornSuddendeath = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

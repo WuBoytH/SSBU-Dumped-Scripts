@@ -49,7 +49,7 @@ effect_InitAura = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1571AE5FD6, 0x09D8997220, 0, 0, 0, 0, 0, 0, 1, false)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_KIILA_INSTANCE_WORK_INT_EFFECT_AURA_ANGER)
     end
-    return 
+    return
 end
 
 effect_HitForDarz = function ()
@@ -57,7 +57,7 @@ effect_HitForDarz = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x113E473D07, false, true)
         sv_animcmd.EFFECT_FOLLOW(0x113E473D07, 0x09D8997220, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Entry = function ()
@@ -105,7 +105,7 @@ effect_Entry = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x11A4073697, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x12741ABFDC, false, true)
     end
-    return 
+    return
 end
 
 effect_Entry2 = function ()
@@ -126,7 +126,7 @@ effect_Entry2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1603EB12FE, 0x031ED91FCA, -80, 65, -60, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TeleportStart = function ()
@@ -138,7 +138,7 @@ effect_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_ATTR(0x14D8E7DC3A, 0x046B8D854F, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
     end
-    return 
+    return
 end
 
 effect_TeleportEnd = function ()
@@ -146,7 +146,7 @@ effect_TeleportEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_ATTR(0x129FA8560F, 0x046B8D854F, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true, EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE)
     end
-    return 
+    return
 end
 
 effect_Dead = function ()
@@ -304,7 +304,7 @@ effect_Dead = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 180)
     end
-    return 
+    return
 end
 
 effect_Anger = function ()
@@ -337,7 +337,7 @@ effect_Anger = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 90)
     end
-    return 
+    return
 end
 
 effect_DownStartL = function ()
@@ -345,12 +345,12 @@ effect_DownStartL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_L, CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_DownStartR = function ()
     effect_DownStartL()
-    return 
+    return
 end
 
 effect_DownFallL = function ()
@@ -361,19 +361,19 @@ effect_DownFallL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_S, CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_DownFallR = function ()
     effect_DownFallL()
-    return 
+    return
 end
 
 effect_DownLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x14FBBC7ECC, 0x0DF0865FF7, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_ChaseSpear = function ()
@@ -396,7 +396,7 @@ effect_ChaseSpear = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x11FB7FAC29, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x17A4DA33AF, false, true)
     end
-    return 
+    return
 end
 
 effect_CrossBomb = function ()
@@ -404,7 +404,7 @@ effect_CrossBomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_L, CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_SummonLightFighter = function ()
@@ -416,14 +416,14 @@ effect_SummonLightFighter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_L, CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_EnergyBombHold = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x15995BD638, 0x0A14B4A412, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_EnergyBomb = function ()
@@ -431,7 +431,7 @@ effect_EnergyBomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_M, CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_ExplodeBombStart = function ()
@@ -439,21 +439,21 @@ effect_ExplodeBombStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x188C18127C, 0x031ED91FCA, -10, 30, 0, 0, 0, 0, 0.699999988079071, true)
     end
-    return 
+    return
 end
 
 effect_ExplodeBombLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x17AC80B8F6, 0x031ED91FCA, -10, 30, 0, 0, 0, 0, 0.699999988079071, true)
     end
-    return 
+    return
 end
 
 effect_ExplodeBomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x136DFE5203, 0x031ED91FCA, -10, 30, 0, 0, 1, 45, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_LaserStart = function ()
@@ -469,21 +469,21 @@ effect_LaserStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_L, CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_LaserPrepareEffect = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x110EEE5812, 0x046B8D854F, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_LaserEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_S, CAMERA_QUAKE_KIND_NONE)
     end
-    return 
+    return
 end
 
 effect_ThreatStart = function ()
@@ -491,7 +491,7 @@ effect_ThreatStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_QUAKE_FOR_DUET(CAMERA_QUAKE_KIND_M, CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_ThreatLoop = function ()
@@ -506,7 +506,7 @@ effect_ThreatLoop = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x085C6B5D2F, 0, -3, 0, 180, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x15FE9CE044, 0x0822DA2192, 0, -3, 0, 180, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

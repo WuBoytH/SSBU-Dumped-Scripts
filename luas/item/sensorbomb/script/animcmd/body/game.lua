@@ -11,7 +11,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 5, 361, 100, 0, 10, 4.099999904632568, 0, 0, 0, 0x15A2C502B3, 0, 1, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, false, COLLISION_PART_MASK_ALL, false, true, true, false, ITEM_TRWATK_F, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -25,14 +25,14 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_SearchBomb = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 5.119999885559082, 0, 2.0480000972747803, 0, COLLISION_KIND_MASK_HIT, COLLISION_CATEGORY_MASK_NO_ISG, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_BODY_HEAD, HIT_STATUS_MASK_NI, false, 1, true, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 return

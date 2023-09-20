@@ -16,28 +16,28 @@ sound_Throw = function ()
             sv_animcmd.STOP_SE(0x161C6E6439)
         end
     end
-    return 
+    return
 end
 
 sound_NormalToMagic = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1973F6E3DC)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1945416755)
     end
-    return 
+    return
 end
 
 sound_BoundFloor = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1945416755)
     end
-    return 
+    return
 end
 
 sound_MagicThrow = function ()
@@ -45,7 +45,7 @@ sound_MagicThrow = function ()
         sv_animcmd.PLAY_SE(0x18F9A041BF)
         sv_animcmd.PLAY_STATUS(0x161C6E6439)
     end
-    return 
+    return
 end
 
 return

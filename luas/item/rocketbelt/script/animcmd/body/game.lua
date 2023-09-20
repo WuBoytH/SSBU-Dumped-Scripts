@@ -14,7 +14,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_FlyAway = function ()
@@ -22,7 +22,7 @@ game_FlyAway = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 0, 367, 100, 20, 0, 3.4000000953674316, 0, 3.5999999046325684, 0, 0x15A2C502B3, 0, 1, 0, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_OBJECT, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 60, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, 0, -2.799999952316284, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x031ED91FCA, 0, 367, 100, 20, 0, 4.199999809265137, 0, -0.6000000238418579, 4.800000190734863, 0x15A2C502B3, 0, 1, 0, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_OBJECT, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 60, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, 0, -0.6000000238418579, -4.800000190734863)
     end
-    return 
+    return
 end
 
 return

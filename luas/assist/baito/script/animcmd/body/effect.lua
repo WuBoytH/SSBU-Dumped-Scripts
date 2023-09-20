@@ -12,7 +12,7 @@ effect_Preparation = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0D2D3D6B1F, 0x031ED91FCA, -1.5, 10, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
@@ -20,7 +20,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.DOWN_EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Appeal = function ()
@@ -29,7 +29,7 @@ effect_Appeal = function ()
         sv_animcmd.DOWN_EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.25, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.5)
     end
-    return 
+    return
 end
 
 effect_LostSuccess = function ()
@@ -37,7 +37,7 @@ effect_LostSuccess = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0E2D5495A1, 0x031ED91FCA, 0, 4, 5, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_CatchFailed = function ()
@@ -47,7 +47,7 @@ effect_CatchFailed = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(2)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.699999988079071)
     end
-    return 
+    return
 end
 
 return

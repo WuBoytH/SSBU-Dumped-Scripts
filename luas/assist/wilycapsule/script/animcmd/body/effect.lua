@@ -24,7 +24,7 @@ effect_WarpStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1028FD9BB9, false, true)
     end
-    return 
+    return
 end
 
 effect_WarpEnd = function ()
@@ -36,7 +36,7 @@ effect_WarpEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1028FD9BB9, false, true)
     end
-    return 
+    return
 end
 
 effect_ThunderShot = function ()
@@ -52,7 +52,7 @@ effect_ThunderShot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x20036E17EC, true, true)
     end
-    return 
+    return
 end
 
 effect_Rush = function ()
@@ -75,7 +75,7 @@ effect_Rush = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x19135EB962, 0x086FE6C49E, 2, 0, 0, 0, 0, -90, 0.5, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -83,7 +83,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.5, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.6000000238418579)
     end
-    return 
+    return
 end
 
 return

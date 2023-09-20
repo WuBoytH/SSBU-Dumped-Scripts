@@ -28,7 +28,7 @@ sound_Entry = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x195BEE86DB)
     end
-    return 
+    return
 end
 
 sound_Wait = function ()
@@ -49,7 +49,7 @@ sound_Wait = function ()
         sv_animcmd.PLAY_SE(0x195BEE86DB)
     end
     sv_animcmd.wait()
-    return 
+    return
 end
 
 sound_AttackR = function ()
@@ -69,7 +69,7 @@ sound_AttackR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x195BEE86DB)
     end
-    return 
+    return
 end
 
 sound_AttackL = function ()
@@ -89,7 +89,7 @@ sound_AttackL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x195BEE86DB)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
@@ -101,7 +101,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x195BEE86DB)
     end
-    return 
+    return
 end
 
 return

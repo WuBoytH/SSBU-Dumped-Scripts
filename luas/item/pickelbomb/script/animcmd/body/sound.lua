@@ -4,7 +4,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x158A4A0009)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
@@ -12,14 +12,14 @@ sound_Born = function ()
         sv_animcmd.PLAY_STEP(0x1564446125)
         sv_animcmd.PLAY_SE_REMAIN(0x15FA20F486)
     end
-    return 
+    return
 end
 
 sound_WaitGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15142E95AA)
     end
-    return 
+    return
 end
 
 return

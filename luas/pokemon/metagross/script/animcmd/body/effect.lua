@@ -26,7 +26,7 @@ effect_Wait = function ()
     if sv_animcmd.IT_IS_EXIST_GROUND_NO_CLIFF(-20, 10, false, 50) and sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1B9F76767A, 0x0505C6B25A, 0, -2.5, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_AttackR = function ()
@@ -40,7 +40,7 @@ effect_AttackR = function ()
             sv_animcmd.EFFECT(0x1B9F76767A, 0x051129036E, 0, -2.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
         end
     end
-    return 
+    return
 end
 
 effect_AttackL = function ()
@@ -54,14 +54,14 @@ effect_AttackL = function ()
             sv_animcmd.EFFECT(0x1B9F76767A, 0x05EB263E0D, 0, -2.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
         end
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, -3, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

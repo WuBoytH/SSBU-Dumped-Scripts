@@ -20,7 +20,7 @@ effect_Attack = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x23EBF28743, 0x031ED91FCA, 0, 11.5, 14, 0, 0, 0, 1, true)
         sv_animcmd.LAST_EFFECT_SET_SCALE(1, 1, 1)
     end
-    return 
+    return
 end
 
 return

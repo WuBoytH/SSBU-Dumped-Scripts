@@ -16,7 +16,7 @@ effect_DarkArrival = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1245860305, 0x051A07C0E7, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_DarkVanishEnd = function ()
@@ -24,7 +24,7 @@ effect_DarkVanishEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1246AB518A, false, true)
     end
-    return 
+    return
 end
 
 return

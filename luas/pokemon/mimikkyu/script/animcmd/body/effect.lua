@@ -14,14 +14,14 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -32,21 +32,21 @@ effect_Attack = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x1A8FEAF86D, 0x09ADDD4223, 0, -0.5, 0, 0, 0, 0, 0.699999988079071, true)
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x1A8FEAF86D, 0x09A89254A6, 0, -0.5, 0, 0, 0, 0, 0.699999988079071, true)
     end
-    return 
+    return
 end
 
 effect_CaptureLoopLanding = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_CaptureLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS_NO_STOP(0x199F0BD13B, 0x031ED91FCA, 0, 4, 0, 0, 0, 0, 0.800000011920929, true)
     end
-    return 
+    return
 end
 
 effect_CaptureEnd = function ()
@@ -66,7 +66,7 @@ effect_CaptureEnd = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1ACC662FAF, 0x031ED91FCA, -5, 0, 7, -40, 0, 0, 1.5, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
-    return 
+    return
 end
 
 effect_LostAfterCapture = function ()
@@ -79,7 +79,7 @@ effect_LostAfterCapture = function ()
         sv_animcmd.LANDING_EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8500000238418579)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -99,7 +99,7 @@ effect_Lost = function ()
         sv_animcmd.LANDING_EFFECT(0x0E963002D8, 0x031ED91FCA, 3, 0, 0, 0, 0, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
-    return 
+    return
 end
 
 return

@@ -14,7 +14,7 @@ effect_Throw = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0F973631CC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -23,7 +23,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E3FB72EBC, 0x031ED91FCA, -2, -0.5, 0, 0, -90, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW_NO_SCALE(0x0E19E221BE, 0x031ED91FCA, -2, -0.5, 0, 0, -90, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_BoundL = function ()
@@ -40,7 +40,7 @@ effect_BoundL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FA06BB067, 0x033B1871DD, 0, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_BoundR = function ()
@@ -57,7 +57,7 @@ effect_BoundR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FA06BB067, 0x033B1871DD, 0, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

@@ -8,14 +8,14 @@ sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1D7C69BC39)
     end
-    return 
+    return
 end
 
 sound_Explosion = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BB3E28BED)
     end
-    return 
+    return
 end
 
 return

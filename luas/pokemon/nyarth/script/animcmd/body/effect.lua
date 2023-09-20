@@ -17,7 +17,7 @@ effect_AttackStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, 0, 0, -1.2000000476837158, 0, 0, 0, 1.2000000476837158, 1, 0, 0, 0, 10, 0, true)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()

@@ -15,7 +15,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x097F7CFAED, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT(0x10C4E8ABF4, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Catch = function ()
@@ -27,7 +27,7 @@ effect_Catch = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0E90CDDBDB, 0x031D39A761, 0, 2, -0.5, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x10675AA42D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Fly = function ()
@@ -35,21 +35,21 @@ effect_Fly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E90CDDBDB, 0x031D39A761, 0, 2, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Falling = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1081D21254, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_FallingBroken = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1081D21254, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

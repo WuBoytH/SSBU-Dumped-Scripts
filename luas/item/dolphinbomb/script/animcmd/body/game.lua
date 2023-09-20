@@ -13,7 +13,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK(1, 0, 0x031ED91FCA, 10, 80, 80, 0, 50, 3, 0, 1, 0, f1_local0, f1_local1, f1_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, ITEM_TRWATK_F, true, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_OBJECT)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -28,14 +28,14 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Flying = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 1, 95, 80, 65, 50, 5, 0, 5, 0, 0x15A2C502B3, 0, 0.4000000059604645, 2, true, true, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_OBJECT, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 20, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
     end
-    return 
+    return
 end
 
 game_FallingWait = function ()
@@ -46,14 +46,14 @@ game_FallingWait = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Falling = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 6, 270, 150, 0, 50, 5, 0, 9, 0, 0x15A2C502B3, 0, 1, 1, true, true, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_OBJECT, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 0, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
     end
-    return 
+    return
 end
 
 return

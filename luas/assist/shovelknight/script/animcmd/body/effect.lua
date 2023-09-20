@@ -16,7 +16,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Jump = function ()
@@ -24,21 +24,21 @@ effect_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_RunStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Run = function ()
@@ -58,7 +58,7 @@ effect_RunEnd = function ()
         end
         sv_animcmd.wait(4)
     end
-    return 
+    return
 end
 
 effect_EscapeJump = function ()
@@ -66,7 +66,7 @@ effect_EscapeJump = function ()
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_DigGround = function ()
@@ -91,7 +91,7 @@ effect_DigGround = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
     sv_animcmd.frame(20)
-    return 
+    return
 end
 
 effect_DigAir = function ()
@@ -112,7 +112,7 @@ effect_DigAir = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
     sv_animcmd.frame(20)
-    return 
+    return
 end
 
 effect_ShovelLowerStabLanding = function ()
@@ -123,7 +123,7 @@ effect_ShovelLowerStabLanding = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_ShovelReflectGround = function ()
@@ -144,7 +144,7 @@ effect_ShovelReflectGround = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
     sv_animcmd.frame(21)
-    return 
+    return
 end
 
 effect_ShovelReflectAir = function ()
@@ -165,7 +165,7 @@ effect_ShovelReflectAir = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
     sv_animcmd.frame(21)
-    return 
+    return
 end
 
 return

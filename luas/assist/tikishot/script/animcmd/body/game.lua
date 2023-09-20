@@ -29,7 +29,7 @@ game_Appear = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_TIKISHOT_INSTANCE_WORK_FLAG_ATTACK_END)
     end
-    return 
+    return
 end
 
 return

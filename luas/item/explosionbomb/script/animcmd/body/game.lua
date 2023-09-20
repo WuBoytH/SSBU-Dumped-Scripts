@@ -12,7 +12,7 @@ game_ThrowWire = function ()
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 1, 57, 100, 0, 20, 0.8999999761581421, 0, 0, 0, f1_local0, f1_local1, f1_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_SPEED, false, 0, 0, 0, true, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_NO_STAGE, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_OBJECT)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -42,7 +42,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_REMOVE()
     end
-    return 
+    return
 end
 
 game_Throw = function ()
@@ -51,7 +51,7 @@ game_Throw = function ()
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 5, 361, 100, 0, 10, 1, 0, 0, 0, f3_local0, f3_local1, f3_local2, 1, 1, ATTACK_SETOFF_KIND_THRU, ATTACK_LR_CHECK_SPEED, false, 0, 0, 0, true, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_NO_STAGE, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_PUNCH, ATTACK_REGION_OBJECT)
         AttackModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 return

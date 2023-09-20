@@ -10,21 +10,21 @@ sound_ChangeFront = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1526674FFA)
     end
-    return 
+    return
 end
 
 sound_Draw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x145B4A0985)
     end
-    return 
+    return
 end
 
 sound_DrawEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x145B4A0985)
     end
-    return 
+    return
 end
 
 sound_Leave = function ()
@@ -32,7 +32,7 @@ sound_Leave = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x14BFB13084)
     end
-    return 
+    return
 end
 
 return

@@ -66,7 +66,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_REMOVE()
     end
-    return 
+    return
 end
 
 return

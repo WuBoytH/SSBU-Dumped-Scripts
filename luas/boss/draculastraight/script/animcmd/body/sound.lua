@@ -7,7 +7,7 @@ sound_Shoot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x23DD57DE96)
     end
-    return 
+    return
 end
 
 return

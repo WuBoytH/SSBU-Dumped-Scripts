@@ -13,7 +13,7 @@ effect_Up = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0E6B8D30F4, 0x031ED91FCA, -5, 0, 0, 0, 0, 0, 2, false)
         sv_animcmd.EFFECT(0x0D46EC009D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.7000000476837158, 0, 0, 0, 0, 360, 0, true)
     end
-    return 
+    return
 end
 
 effect_Down = function ()

@@ -73,7 +73,7 @@ effect_Draw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_VINCE_INSTANCE_WORK_INT_EASEL_EFFECT_HANDLE)
     end
-    return 
+    return
 end
 
 return

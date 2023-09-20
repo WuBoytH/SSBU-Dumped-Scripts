@@ -7,7 +7,7 @@ sound_Needle = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1E2579581E)
     end
-    return 
+    return
 end
 
 return

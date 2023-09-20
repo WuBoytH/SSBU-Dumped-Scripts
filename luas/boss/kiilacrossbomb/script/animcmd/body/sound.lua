@@ -9,21 +9,21 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BB07B399E)
     end
-    return 
+    return
 end
 
 sound_Prepare = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C280AFC27)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x219D6305AF)
     end
-    return 
+    return
 end
 
 return

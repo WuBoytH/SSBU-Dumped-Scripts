@@ -21,7 +21,7 @@ game_Attack01L = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Attack01R = function ()
@@ -41,7 +41,7 @@ game_Attack01R = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

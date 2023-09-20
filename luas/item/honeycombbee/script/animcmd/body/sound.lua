@@ -9,14 +9,14 @@ sound_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x189D3A8854)
     end
-    return 
+    return
 end
 
 sound_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x162CB78CD2)
     end
-    return 
+    return
 end
 
 sound_Throw = function ()
@@ -24,14 +24,14 @@ sound_Throw = function ()
         sv_animcmd.STOP_SE(0x162CB78CD2)
         sv_animcmd.PLAY_SE(0x162CB78CD2)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x162CB78CD2)
     end
-    return 
+    return
 end
 
 return

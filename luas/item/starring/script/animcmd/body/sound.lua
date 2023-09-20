@@ -10,7 +10,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x175939111F, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 sound_Fixing = function ()
@@ -18,7 +18,7 @@ sound_Fixing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x14BB5A9704)
     end
-    return 
+    return
 end
 
 sound_FixedShoot = function ()
@@ -26,7 +26,7 @@ sound_FixedShoot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17BDBA938D)
     end
-    return 
+    return
 end
 
 return

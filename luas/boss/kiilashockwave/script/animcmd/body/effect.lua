@@ -19,7 +19,7 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x120ACC5E7C, 0x031ED91FCA, 14, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Throw = function ()
@@ -34,14 +34,14 @@ effect_Throw = function ()
         sv_animcmd.CANCEL_FILL_SCREEN(1, 10)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 1, 0.4000000059604645, 0.20000000298023224, 0.20000000298023224, 0, 0, 0, 0.5, 1.25, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 30)
     end
-    return 
+    return
 end
 
 return

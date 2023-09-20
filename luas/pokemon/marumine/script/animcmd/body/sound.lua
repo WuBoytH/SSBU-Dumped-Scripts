@@ -21,7 +21,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x177739FB23)
     end
-    return 
+    return
 end
 
 sound_WaitBorn = function ()
@@ -29,7 +29,7 @@ sound_WaitBorn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x156E2C953D)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
@@ -38,11 +38,11 @@ sound_Born = function ()
         sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
         sv_animcmd.PLAY_SE_REMAIN(0x1154ABE8F7)
     end
-    return 
+    return
 end
 
 sound_BornAir = function ()
-    return sound_Born()
+    returnsound_Born()
 end
 
 sound_Miss = function ()
@@ -51,7 +51,7 @@ sound_Miss = function ()
         sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
         sv_animcmd.PLAY_SE(0x17071DD533)
     end
-    return 
+    return
 end
 
 sound_ShortWaitBorn = function ()
@@ -59,7 +59,7 @@ sound_ShortWaitBorn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_STATUS(0x156E2C953D)
     end
-    return 
+    return
 end
 
 return

@@ -9,14 +9,14 @@ effect_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x20498C34EA, 0x031ED91FCA, 0, 4, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1FE7340BD2, 0x031ED91FCA, 0, 4, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

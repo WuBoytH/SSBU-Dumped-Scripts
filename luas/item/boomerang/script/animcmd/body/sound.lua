@@ -9,63 +9,63 @@ sound_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x175226C050)
     end
-    return 
+    return
 end
 
 sound_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x175226C050)
     end
-    return 
+    return
 end
 
 sound_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x175226C050)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x175226C050)
     end
-    return 
+    return
 end
 
 sound_Fly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x175226C050)
     end
-    return 
+    return
 end
 
 sound_Fly1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x175226C050)
     end
-    return 
+    return
 end
 
 sound_Fly2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x175226C050)
     end
-    return 
+    return
 end
 
 sound_Fly3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x175226C050)
     end
-    return 
+    return
 end
 
 sound_Fly4 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x175226C050)
     end
-    return 
+    return
 end
 
 sound_Bump = function ()
@@ -73,7 +73,7 @@ sound_Bump = function ()
         sv_animcmd.STOP_SE(0x175226C050)
         sv_animcmd.PLAY_SE(0x1812BBA5AD)
     end
-    return 
+    return
 end
 
 sound_CatchSE = function ()
@@ -81,7 +81,7 @@ sound_CatchSE = function ()
         sv_animcmd.STOP_SE(0x175226C050)
         sv_animcmd.PLAY_SE(0x17D8DEFA03)
     end
-    return 
+    return
 end
 
 return

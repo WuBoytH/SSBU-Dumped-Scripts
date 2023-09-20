@@ -9,7 +9,7 @@ game_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_module_access:attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 6, 80, 0, 0, 50, 7, 0, 2, 11, 0x1330EE124E, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 120, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 2, -11)
     end
-    return 
+    return
 end
 
 game_AttackR = function ()
@@ -29,7 +29,7 @@ game_AttackR = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackL = function ()
@@ -49,7 +49,7 @@ game_AttackL = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Landing = function ()
@@ -61,7 +61,7 @@ game_Landing = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

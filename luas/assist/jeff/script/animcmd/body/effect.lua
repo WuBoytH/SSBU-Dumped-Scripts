@@ -11,7 +11,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, -3, 0, 3, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_RocketSet = function ()
@@ -38,7 +38,7 @@ effect_HandRaised = function ()
         end
         sv_animcmd.wait(8)
     end
-    return 
+    return
 end
 
 return

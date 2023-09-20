@@ -21,7 +21,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_AttackStart = function ()
@@ -45,7 +45,7 @@ effect_AttackStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1255C42543, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -64,14 +64,14 @@ effect_Attack = function ()
         end
         sv_animcmd.wait(8)
     end
-    return 
+    return
 end
 
 effect_AttackEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0BD7922FE8, false, true)
     end
-    return 
+    return
 end
 
 effect_EscapeJump = function ()
@@ -79,28 +79,28 @@ effect_EscapeJump = function ()
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_EscapeAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x111F9A808E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Teleport = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1268E2DA1A, 0x031ED91FCA, 0, 12.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_TeleportEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11EC3CFCEA, 0x031ED91FCA, 0, 13.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Press = function ()
@@ -117,7 +117,7 @@ effect_Press = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x0BD7922FE8, false, true)
         sv_animcmd.EFFECT(0x0DABEE3A3B, 0x051129036E, 1.5, 0.75, 0, 0, 0, 0, 0.3499999940395355, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Lift = function ()
@@ -139,7 +139,7 @@ effect_Lift = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0BD7922FE8, false, true)
     end
-    return 
+    return
 end
 
 return

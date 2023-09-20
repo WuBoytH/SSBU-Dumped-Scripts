@@ -8,7 +8,7 @@ sound_PlayNormalSE = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_NO_3D(0x19DE8A7D56)
     end
-    return 
+    return
 end
 
 sound_PlayFastSE = function ()
@@ -16,7 +16,7 @@ sound_PlayFastSE = function ()
         sv_animcmd.STOP_SE(0x19DE8A7D56)
         sv_animcmd.PLAY_SE_NO_3D(0x1947832CEC)
     end
-    return 
+    return
 end
 
 sound_StopSE = function ()
@@ -24,12 +24,12 @@ sound_StopSE = function ()
         sv_animcmd.STOP_SE(0x19DE8A7D56)
         sv_animcmd.STOP_SE(0x1947832CEC)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     sound_StopSE()
-    return 
+    return
 end
 
 return

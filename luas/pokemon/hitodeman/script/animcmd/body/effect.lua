@@ -12,7 +12,7 @@ effect_Fly = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1792C776EC, 0x031ED91FCA, 0, -0.5, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x177A177806, 0x031D39A761, 0, -0.5, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()

@@ -12,14 +12,14 @@ effect_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E597A22DD, 0x06B66091F2, 0, 0, 0, 0, 0, 0, 0.800000011920929, true)
     end
-    return 
+    return
 end
 
 effect_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E597A22DD, 0x06B66091F2, 0, 0, 0, 0, 0, 0, 0.800000011920929, true)
     end
-    return 
+    return
 end
 
 effect_Explosion = function ()
@@ -31,7 +31,7 @@ effect_Explosion = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0E8D8C3950, false, true)
     end
-    return 
+    return
 end
 
 effect_Finish = function ()
@@ -46,7 +46,7 @@ effect_Finish = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x15B27F803C, false, true)
     end
-    return 
+    return
 end
 
 return

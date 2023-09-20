@@ -20,7 +20,7 @@ effect_Appear1 = function ()
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 1.7000000476837158, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Appear2 = function ()
@@ -38,7 +38,7 @@ effect_Appear2 = function ()
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 2.200000047683716, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LANDING_EFFECT(0x0425CBFC4F, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 2.200000047683716, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

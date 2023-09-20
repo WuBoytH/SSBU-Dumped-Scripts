@@ -31,7 +31,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x1A295D4A8A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.6000000238418579, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT(0x145EC906E3, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 0.44999998807907104, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Wait = function ()
@@ -45,7 +45,7 @@ effect_Wait = function ()
         end
         sv_animcmd.wait(10)
     end
-    return 
+    return
 end
 
 return

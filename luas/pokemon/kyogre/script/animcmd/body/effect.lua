@@ -8,7 +8,7 @@ effect_Leave = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1267890D63, false, true)
     end
-    return 
+    return
 end
 
 effect_AttackLoop = function ()

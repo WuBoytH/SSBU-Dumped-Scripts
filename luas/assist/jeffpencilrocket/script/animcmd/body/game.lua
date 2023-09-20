@@ -8,7 +8,7 @@ game_Fly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 2, 0, 0, 0, COLLISION_KIND_MASK_HR, COLLISION_CATEGORY_MASK_FIGHTER, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_BODY, HIT_STATUS_MASK_NI, false, 1, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -21,7 +21,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

@@ -12,7 +12,7 @@ effect_Shoot = function ()
         sv_animcmd.EFFECT(0x137ED1FF09, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x0EFA6CF6A2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.6499999761581421, true)
     end
-    return 
+    return
 end
 
 effect_Shoot2 = function ()
@@ -20,7 +20,7 @@ effect_Shoot2 = function ()
         sv_animcmd.EFFECT(0x13E7D8AEB3, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.4000000059604645, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.EFFECT_FOLLOW(0x0E6365A718, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.6499999761581421, true)
     end
-    return 
+    return
 end
 
 return

@@ -8,14 +8,14 @@ game_search = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 3, 0, 0, 0, COLLISION_KIND_MASK_HSR, COLLISION_CATEGORY_MASK_NO_STAGE, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_ALL, HIT_STATUS_MASK_NI, false, 180, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_searchSuddendeath = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 7.5, 0, 0, 0, COLLISION_KIND_MASK_HSR, COLLISION_CATEGORY_MASK_NO_STAGE, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_ALL, HIT_STATUS_MASK_NI, false, 180, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -24,7 +24,7 @@ game_Born = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 25, 361, 90, 0, 30, 8, 0, 0, 0, 0x13BEB18342, 0, 0.4000000059604645, 1, false, false, 2, ATTACK_SOUND_LEVEL_LL, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_ITEM, false, COLLISION_PART_MASK_ALL, false, true, true, true, ITEM_TRWATK_F, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 game_BornSuddendeath = function ()
@@ -32,7 +32,7 @@ game_BornSuddendeath = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 25, 361, 90, 0, 30, 16, 0, 0, 0, 0x13BEB18342, 0, 0.4000000059604645, 1, false, false, 2, ATTACK_SOUND_LEVEL_LL, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_ITEM, false, COLLISION_PART_MASK_ALL, false, true, false, false, ITEM_TRWATK_F, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 return

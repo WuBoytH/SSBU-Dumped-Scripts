@@ -17,7 +17,7 @@ game_SetCategory = function ()
     if f1_local0 == nil and sv_animcmd.is_excute() then
         AttackModule.set_target_category(0, COLLISION_CATEGORY_MASK_NO_FIGHTER)
     end
-    return 
+    return
 end
 
 game_Throw = function ()
@@ -26,7 +26,7 @@ game_Throw = function ()
         AttackModule.enable_safe_pos()
     end
     game_SetCategory()
-    return 
+    return
 end
 
 game_Born = function ()
@@ -143,7 +143,7 @@ game_Born = function ()
         AreaModule.erase_wind(0)
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
-    return 
+    return
 end
 
 return

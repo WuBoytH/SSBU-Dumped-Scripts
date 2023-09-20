@@ -13,7 +13,7 @@ effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 30)
     end
-    return 
+    return
 end
 
 return

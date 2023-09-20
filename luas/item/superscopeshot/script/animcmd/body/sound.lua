@@ -20,7 +20,7 @@ sound_LvRapid = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0F42052130)
         sv_animcmd.PLAY_SE_REMAIN(0x17BA3BCA63)
     end
-    return 
+    return
 end
 
 sound_Lv1 = function ()
@@ -28,7 +28,7 @@ sound_Lv1 = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0F42052130)
         sv_animcmd.PLAY_SE_REMAIN(0x1FE5EC342D)
     end
-    return 
+    return
 end
 
 sound_Lv2 = function ()
@@ -36,7 +36,7 @@ sound_Lv2 = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0F42052130)
         sv_animcmd.PLAY_SE_REMAIN(0x1FE437452B)
     end
-    return 
+    return
 end
 
 sound_Lv3 = function ()
@@ -44,7 +44,7 @@ sound_Lv3 = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0F42052130)
         sv_animcmd.PLAY_SE_REMAIN(0x1F933075BD)
     end
-    return 
+    return
 end
 
 sound_Lv4 = function ()
@@ -52,7 +52,7 @@ sound_Lv4 = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0F42052130)
         sv_animcmd.PLAY_SE_REMAIN(0x1F0D54E01E)
     end
-    return 
+    return
 end
 
 sound_Lv5 = function ()
@@ -60,7 +60,7 @@ sound_Lv5 = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0FCF0D2CC5)
         sv_animcmd.PLAY_SE_REMAIN(0x1F7A53D088)
     end
-    return 
+    return
 end
 
 sound_Lv6 = function ()
@@ -68,7 +68,7 @@ sound_Lv6 = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0FCF0D2CC5)
         sv_animcmd.PLAY_SE_REMAIN(0x1FE35A8132)
     end
-    return 
+    return
 end
 
 sound_Lv7 = function ()
@@ -76,7 +76,7 @@ sound_Lv7 = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0FCF0D2CC5)
         sv_animcmd.PLAY_SE_REMAIN(0x1F945DB1A4)
     end
-    return 
+    return
 end
 
 sound_Lv8 = function ()
@@ -84,7 +84,7 @@ sound_Lv8 = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0FCF0D2CC5)
         sv_animcmd.PLAY_SE_REMAIN(0x1F04E2AC35)
     end
-    return 
+    return
 end
 
 sound_LvMax = function ()
@@ -92,7 +92,7 @@ sound_LvMax = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0FCF0D2CC5)
         sv_animcmd.PLAY_SE_REMAIN(0x1F68E439D8)
     end
-    return 
+    return
 end
 
 return

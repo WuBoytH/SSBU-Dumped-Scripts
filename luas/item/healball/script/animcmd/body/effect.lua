@@ -4,7 +4,7 @@ effect_Smoke = function ()
     if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1) == nil then
 
     end
-    return 
+    return
 end
 
 return

@@ -8,14 +8,14 @@ effect_DisappearGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11B0A3720F, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_DisappearGroundLioleusboss = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11B0A3720F, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

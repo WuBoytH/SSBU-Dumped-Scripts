@@ -7,7 +7,7 @@ sound_WaitGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C96DDC3C9)
     end
-    return 
+    return
 end
 
 return

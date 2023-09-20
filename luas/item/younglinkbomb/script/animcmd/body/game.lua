@@ -32,7 +32,7 @@ game_Born = function ()
         AttackModule.clear_all()
         WorkModule.on_flag(ITEM_YOUNGLINKBOMB_INSTANCE_WORK_FLAG_LOST)
     end
-    return 
+    return
 end
 
 game_ThrowSearchSub = function ()
@@ -41,7 +41,7 @@ game_ThrowSearchSub = function ()
         sv_animcmd.SEARCH(0, 0, 0x031ED91FCA, 2, 0, 0, 0, f2_local0, f2_local1, f2_local2, COLLISION_KIND_MASK_HSR, HIT_STATUS_MASK_NI, 180, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_FIEB, COLLISION_PART_MASK_ALL, false)
         SearchModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 return

@@ -17,7 +17,7 @@ effect_Happy = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0D848735CA, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Slip = function ()
@@ -30,7 +30,7 @@ effect_Slip = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.DOWN_EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Ice = function ()
@@ -38,7 +38,7 @@ effect_Ice = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0BD3671D6A, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Sleep = function ()
@@ -46,7 +46,7 @@ effect_Sleep = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0A46903064, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Cheer = function ()
@@ -54,7 +54,7 @@ effect_Cheer = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x09639DFB48, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Steal = function ()
@@ -66,7 +66,7 @@ effect_Steal = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0B525B7F74, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

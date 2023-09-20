@@ -13,7 +13,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19F3EB4540)
     end
-    return 
+    return
 end
 
 sound_CatchR = function ()
@@ -21,7 +21,7 @@ sound_CatchR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15D1048C03)
     end
-    return 
+    return
 end
 
 sound_CatchL = function ()
@@ -29,7 +29,7 @@ sound_CatchL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15D1048C03)
     end
-    return 
+    return
 end
 
 sound_ThrowR = function ()
@@ -38,7 +38,7 @@ sound_ThrowR = function ()
         sv_animcmd.PLAY_SE(0x147A66F1C8)
         sv_animcmd.PLAY_SE(0x186D4C9671)
     end
-    return 
+    return
 end
 
 sound_ThrowL = function ()
@@ -47,7 +47,7 @@ sound_ThrowL = function ()
         sv_animcmd.PLAY_SE(0x147A66F1C8)
         sv_animcmd.PLAY_SE(0x186D4C9671)
     end
-    return 
+    return
 end
 
 sound_Teleport = function ()
@@ -56,21 +56,21 @@ sound_Teleport = function ()
         sv_animcmd.PLAY_SE(0x1874E11DF2)
         sv_animcmd.PLAY_SE(0x1B7485FB40)
     end
-    return 
+    return
 end
 
 sound_TeleportAfter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1874E11DF2)
     end
-    return 
+    return
 end
 
 sound_DamageFly = function ()
     if sv_animcmd.IT_IS_RND_PERCENT(15) and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x198E556F1E)
     end
-    return 
+    return
 end
 
 return

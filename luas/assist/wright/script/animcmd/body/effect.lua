@@ -9,21 +9,21 @@ effect_LandingL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_LandingR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_CounterAttack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x168BF8A309, 0x031ED91FCA, 6.5, 14, -1, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

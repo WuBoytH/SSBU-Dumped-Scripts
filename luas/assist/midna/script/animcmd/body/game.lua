@@ -14,7 +14,7 @@ game_CatchL = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_CatchR = function ()
@@ -26,21 +26,21 @@ game_CatchR = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ThrowL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_ABS_LEGACY(0, 0, 14, 135, 100, 0, 60, 0x1569C518B1, 0, 0.10000000149011612, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, ATTACK_LR_CHECK_POS, true, true, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_ThrowR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_ABS_LEGACY(0, 0, 14, 135, 100, 0, 60, 0x1569C518B1, 0, 0.10000000149011612, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, ATTACK_LR_CHECK_POS, true, true, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 return

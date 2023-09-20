@@ -11,7 +11,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_Attack = function ()
@@ -87,7 +87,7 @@ game_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_module_access:grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
-    return 
+    return
 end
 
 game_CaptureStart = function ()
@@ -99,7 +99,7 @@ game_CaptureStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_MIMIKKYU_INSTANCE_WORK_FLAG_COMPLETE_CAPTURE)
     end
-    return 
+    return
 end
 
 game_CaptureLoop = function ()
@@ -118,7 +118,7 @@ game_CaptureEnd = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_MIMIKKYU_INSTANCE_WORK_FLAG_CATCH_CUT)
     end
-    return 
+    return
 end
 
 return

@@ -20,7 +20,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT(0x15D0A20F73, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_DARZSPACERUSH_INSTANCE_WORK_INT_EXIT_EFFECT_HANDLE)
     end
-    return 
+    return
 end
 
 effect_SpaceRush = function ()
@@ -73,14 +73,14 @@ effect_SpaceRush = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
     sv_animcmd.wait(8)
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x15D0A20F73, false, true)
     end
-    return 
+    return
 end
 
 return

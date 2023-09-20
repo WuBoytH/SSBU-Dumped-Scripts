@@ -26,35 +26,35 @@ effect_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd:EFFECT_REMOVE_ATTR(EFFECT_SUB_ATTRIBUTE_NONE)
     end
-    return 
+    return
 end
 
 effect_Warp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1AA9C9E9D9, 0x031ED91FCA, 0, 5.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_WarpAfter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x189026B749, 0x031ED91FCA, 0, 7, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 50, 0.6345000267028809, 0.593999981880188, 0.5084999799728394, 0.05000000074505806, 0.019999999552965164, -0.05000000074505806, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 50)
     end
-    return 
+    return
 end
 
 return

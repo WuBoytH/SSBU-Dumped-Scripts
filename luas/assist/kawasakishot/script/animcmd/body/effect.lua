@@ -19,7 +19,7 @@ effect_Born = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_BRANCH_SITUATION(0x0E8F1E6B98, 0x158A322CA7, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

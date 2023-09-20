@@ -13,35 +13,35 @@ sound_Appear = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1A79D24141, 0x0F42052130)
         sv_animcmd.PLAY_SE_REMAIN(0x17177E3C25)
     end
-    return 
+    return
 end
 
 sound_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x155CC9702E)
     end
-    return 
+    return
 end
 
 sound_Hold = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x16BD83F9D5)
     end
-    return 
+    return
 end
 
 sound_Radiate = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x16248AA86F)
     end
-    return 
+    return
 end
 
 sound_End = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x16248AA86F)
     end
-    return 
+    return
 end
 
 return

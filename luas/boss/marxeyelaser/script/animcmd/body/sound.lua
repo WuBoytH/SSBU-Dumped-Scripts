@@ -7,7 +7,7 @@ sound_LaserLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1725110936)
     end
-    return 
+    return
 end
 
 return

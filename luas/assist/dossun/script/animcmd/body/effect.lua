@@ -11,7 +11,7 @@ effect_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW_NO_STOP(0x1107565A86, 0x031ED91FCA, 0, -3.5, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
@@ -19,7 +19,7 @@ effect_Landing = function ()
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x092A3B5B68, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

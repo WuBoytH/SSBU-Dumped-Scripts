@@ -10,7 +10,7 @@ effect_Fly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x10103A8059, 0x031ED91FCA, 0, -3, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -18,7 +18,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x0F77AE0469, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

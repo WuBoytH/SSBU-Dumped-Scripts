@@ -8,7 +8,7 @@ effect_Shoot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 20)
     end
-    return 
+    return
 end
 
 return

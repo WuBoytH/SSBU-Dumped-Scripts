@@ -62,7 +62,7 @@ effect_Appear_1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 effect_Appear_2 = function ()
@@ -86,7 +86,7 @@ effect_Appear_2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 effect_Appear_3 = function ()
@@ -110,7 +110,7 @@ effect_Appear_3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 effect_Appear_4 = function ()
@@ -157,7 +157,7 @@ effect_Appear_4 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 effect_Leave_1 = function ()
@@ -172,7 +172,7 @@ effect_Leave_1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x11661ABD34, false, false)
     end
-    return 
+    return
 end
 
 effect_Leave_2 = function ()
@@ -187,7 +187,7 @@ effect_Leave_2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x11661ABD34, false, false)
     end
-    return 
+    return
 end
 
 effect_Leave_3 = function ()
@@ -202,7 +202,7 @@ effect_Leave_3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x11661ABD34, false, false)
     end
-    return 
+    return
 end
 
 effect_Leave_4 = function ()
@@ -217,7 +217,7 @@ effect_Leave_4 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x11661ABD34, false, false)
     end
-    return 
+    return
 end
 
 effect_Attack_1 = function ()
@@ -237,7 +237,7 @@ effect_Attack_1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_Attack_2 = function ()
@@ -249,7 +249,7 @@ effect_Attack_2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_Attack_3 = function ()
@@ -269,7 +269,7 @@ effect_Attack_3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_Attack_4 = function ()
@@ -281,7 +281,7 @@ effect_Attack_4 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_Break_1 = function ()
@@ -316,7 +316,7 @@ effect_Break_1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_Break_2 = function ()
@@ -351,7 +351,7 @@ effect_Break_2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_Break_3 = function ()
@@ -386,7 +386,7 @@ effect_Break_3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_Break_4 = function ()
@@ -421,7 +421,7 @@ effect_Break_4 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_Break_5 = function ()
@@ -444,7 +444,7 @@ effect_Break_5 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x14354857CB, 0x05E1AB8A2B, 0, 0, 0, 0, 0, 0, 1.649999976158142, true)
     end
-    return 
+    return
 end
 
 effect_Rush_3 = function ()
@@ -461,7 +461,7 @@ effect_Rush_3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x153D5DE103, false, false)
     end
-    return 
+    return
 end
 
 return

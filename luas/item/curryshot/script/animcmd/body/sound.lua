@@ -12,15 +12,15 @@ sound_Appear = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x14358D1075)
     end
-    return 
+    return
 end
 
 sound_AppearPreview = function ()
-    return sound_Appear()
+    returnsound_Appear()
 end
 
 sound_AppearPlus = function ()
-    return sound_Appear()
+    returnsound_Appear()
 end
 
 return

@@ -15,7 +15,7 @@ effect_ElectricField = function ()
         sv_animcmd.EFFECT_FLW_POS(0x19D2C40718, 0x031ED91FCA, 0, 15, 0, 0, 0, 0, 0.6000000238418579, false)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 20, 0.1599999964237213, 0.10000000149011612, 0.05999999865889549, 0, 0, 0, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -29,7 +29,7 @@ effect_Attack = function ()
         end
         sv_animcmd.wait(61)
     end
-    return 
+    return
 end
 
 effect_AttackEnd = function ()
@@ -37,7 +37,7 @@ effect_AttackEnd = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x19D2C40718, false, true)
         sv_animcmd.CANCEL_FILL_SCREEN(1, 60)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -45,7 +45,7 @@ effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FB5ED6451, 0x031ED91FCA, 0, 28, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

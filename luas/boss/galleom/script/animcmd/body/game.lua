@@ -52,7 +52,7 @@ game_Entry = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x17BB1DF61D, 46)
     end
-    return 
+    return
 end
 
 game_Turn = function ()
@@ -60,7 +60,7 @@ game_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 game_Anger = function ()
@@ -146,7 +146,7 @@ game_Anger = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Dead = function ()
@@ -202,7 +202,7 @@ game_Dead = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
     end
-    return 
+    return
 end
 
 game_DeadTank = function ()
@@ -246,7 +246,7 @@ game_DeadTank = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
     end
-    return 
+    return
 end
 
 game_FootCrush = function ()
@@ -282,7 +282,7 @@ game_FootCrush = function ()
     if sv_animcmd.is_excute() then
         JostleModule.set_status(true)
     end
-    return 
+    return
 end
 
 game_Uppercut = function ()
@@ -308,7 +308,7 @@ game_Uppercut = function ()
     if sv_animcmd.is_excute() then
         JostleModule.set_status(true)
     end
-    return 
+    return
 end
 
 game_Missile = function ()
@@ -351,7 +351,7 @@ game_Missile = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(0)
     end
-    return 
+    return
 end
 
 game_Lariat = function ()
@@ -402,7 +402,7 @@ game_Lariat = function ()
     if sv_animcmd.is_excute() then
         JostleModule.set_status(true)
     end
-    return 
+    return
 end
 
 game_JumpAttack = function ()
@@ -420,7 +420,7 @@ game_JumpAttack = function ()
         sv_animcmd.ATTACK_FP_STRENGTH(5, 0, 0x0505C6B25A, 12, 18, 270, 100, 55, 0, 0, 45, 80, 6, 6, 0, 5, -15, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, true, 3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, true, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.ATTACK_FP_STRENGTH(6, 0, 0x031D39A761, 12, 18, 270, 100, 55, 0, 0, 45, 80, 20, 20, 0, -18, 0, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, true, 3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_BODY, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, true, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_JumpLand = function ()
@@ -439,7 +439,7 @@ game_JumpLand = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_DoubleArm = function ()
@@ -470,7 +470,7 @@ game_DoubleArm = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_HammerKnuckle = function ()
@@ -500,7 +500,7 @@ game_HammerKnuckle = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ChangeMiss = function ()
@@ -538,7 +538,7 @@ game_ChangeMiss = function ()
     if sv_animcmd.is_excute() then
         JostleModule.set_status(true)
     end
-    return 
+    return
 end
 
 game_ManToTank = function ()
@@ -559,7 +559,7 @@ game_ManToTank = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_TankAttackRush = function ()
@@ -571,7 +571,7 @@ game_TankAttackRush = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP_STRENGTH(1, 0, 0x031D39A761, 10, 20, 100, 60, 45, 0, 0, 40, 70, 24.5, 24.5, 0, 0, 20, 0x15A2C502B3, 0, 1, 1, false, true, 4, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 300, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_TankAttackFall = function ()
@@ -598,14 +598,14 @@ game_TankAttackFall = function ()
     if sv_animcmd.is_excute() then
         JostleModule.set_status(true)
     end
-    return 
+    return
 end
 
-game_TankAttackReturn = function ()
+game_TankAttackreturn= function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x031D39A761, 8, 16, 40, 60, 45, 0, 0, 40, 70, 24.5, 24.5, 0, 0, 20, 0x15A2C502B3, 0, 1, 1, false, true, 4, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 300, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_TankAttackFinishStart = function ()
@@ -616,7 +616,7 @@ game_TankAttackFinishStart = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_TankToMan = function ()
@@ -624,7 +624,7 @@ game_TankToMan = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_GALLEOM_INSTANCE_WORK_FLAG_CHANGE_FORM)
     end
-    return 
+    return
 end
 
 game_Shoot = function ()
@@ -664,7 +664,7 @@ game_Shoot = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(0)
     end
-    return 
+    return
 end
 
 game_Grab = function ()
@@ -673,7 +673,7 @@ game_Grab = function ()
         WorkModule.on_flag(ITEM_GALLEOM_INSTANCE_WORK_FLAG_CATCH)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_GrabCrush = function ()
@@ -723,7 +723,7 @@ game_GrabCrush = function ()
         sv_animcmd.ATTACK_ABS_STRENGTH(0, 0, 10, 15, 300, 100, 55, 0, 0, 70, 90, 0x15A2C502B3, 1, 0, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, ATTACK_LR_CHECK_REVERSE, false, true, ATTACK_REGION_NONE, false, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.ATK_HIT_ABS(0, 0x054F934137, WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_TARGET_TASK_ID), 0, 0)
     end
-    return 
+    return
 end
 
 game_TurnGrab = function ()
@@ -735,7 +735,7 @@ game_TurnGrab = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_GALLEOM_INSTANCE_WORK_FLAG_CATCH)
     end
-    return 
+    return
 end
 
 return

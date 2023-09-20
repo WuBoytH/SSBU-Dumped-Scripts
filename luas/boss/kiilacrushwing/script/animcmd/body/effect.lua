@@ -13,14 +13,14 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FLW_POS(0x162E811777, 0x095A74D8AD, 10, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FLW_POS(0x162E811777, 0x094C3D7CB7, 10, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Charge = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x1431BF512A, 0x0A14B4A412, 80, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -40,7 +40,7 @@ effect_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0F9C90B82A, false, true)
     end
-    return 
+    return
 end
 
 return

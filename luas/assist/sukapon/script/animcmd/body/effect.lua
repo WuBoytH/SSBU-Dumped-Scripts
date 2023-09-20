@@ -19,14 +19,14 @@ effect_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E3A97BE34, 0x031ED91FCA, -0.699999988079071, 15, 0, -22, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 2, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Jump = function ()
@@ -34,7 +34,7 @@ effect_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0E6B8D30F4, 0x031ED91FCA, 0, 5, 0, 0, 0, 0, 2, false)
     end
-    return 
+    return
 end
 
 effect_JumpAir = function ()
@@ -42,14 +42,14 @@ effect_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0F97480FB2, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 0, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Run = function ()
@@ -65,7 +65,7 @@ effect_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 0, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_AttackRollingMain = function ()
@@ -91,7 +91,7 @@ effect_AttackRollingMain = function ()
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -60, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -150, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_AttackRollingAirMain = function ()
@@ -117,7 +117,7 @@ effect_AttackRollingAirMain = function ()
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -60, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -150, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_AttackRolling2Main = function ()
@@ -143,7 +143,7 @@ effect_AttackRolling2Main = function ()
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -60, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -150, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_AttackRolling2AirStart = function ()
@@ -169,7 +169,7 @@ effect_AttackRolling2AirStart = function ()
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -60, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x13D71458C4, 0x035DBFE258, 0, 0, 0, 180, -150, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_AttackRollingHop = function ()
@@ -194,7 +194,7 @@ effect_AttackRollingHop = function ()
         sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 0, 155, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x17EB17CA5F, 0x035DBFE258, 0, 0, 0, 0, -115, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

@@ -15,7 +15,7 @@ sound_Fly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x131EC4D7AD)
     end
-    return 
+    return
 end
 
 sound_Standby = function ()
@@ -23,7 +23,7 @@ sound_Standby = function ()
         sv_animcmd.PLAY_SE(0x15C866F9C1)
         sv_animcmd.STOP_SE(0x131EC4D7AD)
     end
-    return 
+    return
 end
 
 sound_Up = function ()
@@ -34,7 +34,7 @@ sound_Up = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x172CDBB1C5)
     end
-    return 
+    return
 end
 
 sound_UpLoop = function ()
@@ -42,7 +42,7 @@ sound_UpLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x195695989E)
     end
-    return 
+    return
 end
 
 sound_UpEnd = function ()
@@ -50,7 +50,7 @@ sound_UpEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x195695989E)
     end
-    return 
+    return
 end
 
 sound_Down = function ()
@@ -61,7 +61,7 @@ sound_Down = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x17C5B814F0)
     end
-    return 
+    return
 end
 
 sound_DownLoop = function ()
@@ -69,7 +69,7 @@ sound_DownLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x195695989E)
     end
-    return 
+    return
 end
 
 sound_DownEnd = function ()
@@ -77,7 +77,7 @@ sound_DownEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x195695989E)
     end
-    return 
+    return
 end
 
 sound_Left = function ()
@@ -88,7 +88,7 @@ sound_Left = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x175CB1454A)
     end
-    return 
+    return
 end
 
 sound_LeftLoop = function ()
@@ -96,7 +96,7 @@ sound_LeftLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19394184D7)
     end
-    return 
+    return
 end
 
 sound_LeftEnd = function ()
@@ -104,7 +104,7 @@ sound_LeftEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x19394184D7)
     end
-    return 
+    return
 end
 
 sound_Right = function ()
@@ -115,7 +115,7 @@ sound_Right = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x17B2BF2466)
     end
-    return 
+    return
 end
 
 sound_RightLoop = function ()
@@ -123,7 +123,7 @@ sound_RightLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19394184D7)
     end
-    return 
+    return
 end
 
 sound_RightEnd = function ()
@@ -131,7 +131,7 @@ sound_RightEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x19394184D7)
     end
-    return 
+    return
 end
 
 return

@@ -11,35 +11,35 @@ sound_Have = function ()
     if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_HAVE_SILENT) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x10636413B6)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x107AD5AEBC)
     end
-    return 
+    return
 end
 
 sound_FlyJetFireStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x17D05385E5)
     end
-    return 
+    return
 end
 
 sound_FlyJetFireEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x17D05385E5)
     end
-    return 
+    return
 end
 
 sound_JumpJetFire = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1F6F4428EF)
     end
-    return 
+    return
 end
 
 sound_FlyAway = function ()
@@ -47,7 +47,7 @@ sound_FlyAway = function ()
         sv_animcmd.STOP_SE(0x17D05385E5)
         sv_animcmd.PLAY_SE_REMAIN(0x196BE9FC1C)
     end
-    return 
+    return
 end
 
 return

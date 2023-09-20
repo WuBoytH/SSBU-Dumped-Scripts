@@ -12,21 +12,21 @@ sound_Appear = function ()
         WorkModule.set_int64(0x1317714CF5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
         sv_animcmd.IT_SET_SE_arg2(0x1542B810E1, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 sound_Have = function ()
     if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_HAVE_SILENT) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x16DB12B0B3)
     end
-    return 
+    return
 end
 
 sound_Guard = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A298E9CBC)
     end
-    return 
+    return
 end
 
 return

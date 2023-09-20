@@ -28,19 +28,19 @@ game_Beam = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_LEGACY(0, 0, 0x031ED91FCA, 7, 272, 80, 0, 70, 12, 0, 8, 0, 0x15A2C502B3, 0, 1, 1, true, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_Up = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_LEGACY(0, 0, 0x031ED91FCA, 7, 272, 80, 0, 70, 12, 0, 8, 0, 0x15A2C502B3, 0, 1, 1, true, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_UpStart = function ()
     sv_animcmd.frame(5)
-    return 
+    return
 end
 
 return

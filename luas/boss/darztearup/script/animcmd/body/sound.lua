@@ -14,7 +14,7 @@ sound_Appear1 = function ()
         sv_animcmd.STOP_SE_arg2(0x18E22D8819, 10)
         sv_animcmd.PLAY_SE(0x235F3ACB1C)
     end
-    return 
+    return
 end
 
 sound_Appear2 = function ()
@@ -27,7 +27,7 @@ sound_Appear2 = function ()
         sv_animcmd.STOP_SE_arg2(0x18E22D8819, 10)
         sv_animcmd.PLAY_SE(0x235F3ACB1C)
     end
-    return 
+    return
 end
 
 sound_Appear3 = function ()
@@ -40,7 +40,7 @@ sound_Appear3 = function ()
         sv_animcmd.STOP_SE_arg2(0x18E22D8819, 10)
         sv_animcmd.PLAY_SE(0x235F3ACB1C)
     end
-    return 
+    return
 end
 
 sound_AppearAnger = function ()
@@ -53,7 +53,7 @@ sound_AppearAnger = function ()
         sv_animcmd.STOP_SE_arg2(0x18E22D8819, 10)
         sv_animcmd.PLAY_SE(0x235F3ACB1C)
     end
-    return 
+    return
 end
 
 return

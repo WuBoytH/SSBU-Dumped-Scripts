@@ -13,7 +13,7 @@ effect_Throw = function ()
         sv_animcmd.EFFECT_FOLLOW(0x18804B5E2E, 0x031ED91FCA, 0, 0, 3, 0, 90, 0, 2.5, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -21,7 +21,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.149999976158142)
     end
-    return 
+    return
 end
 
 effect_FirePillar = function ()
@@ -39,7 +39,7 @@ effect_FirePillar = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x20B5ACDF3A, false, true)
     end
-    return 
+    return
 end
 
 return

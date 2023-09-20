@@ -8,7 +8,7 @@ effect_StartEffect = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x128EC29010, 0x031ED91FCA, 0, 0, 0, 0, 180, 0, 0.5, true)
     end
-    return 
+    return
 end
 
 return

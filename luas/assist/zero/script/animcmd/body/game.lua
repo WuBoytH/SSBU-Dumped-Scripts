@@ -13,7 +13,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -21,7 +21,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -29,7 +29,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_Attack3Slash = function ()
@@ -69,7 +69,7 @@ game_Attack3Slash = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackRyuuenjin = function ()
@@ -106,7 +106,7 @@ game_AttackRyuuenjin = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_CAN_LANDING)
     end
-    return 
+    return
 end
 
 game_AttackKuuenzan = function ()
@@ -141,7 +141,7 @@ game_AttackKuuenzan = function ()
         WorkModule.on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_CAN_LANDING)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackGenmuzero = function ()
@@ -149,7 +149,7 @@ game_AttackGenmuzero = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_SHOT_START)
     end
-    return 
+    return
 end
 
 game_AttackGenmuzeroAir = function ()
@@ -158,7 +158,7 @@ game_AttackGenmuzeroAir = function ()
         WorkModule.on_flag(ITEM_ZERO_INSTANCE_WORK_FLAG_SHOT_START)
     end
     sv_animcmd.frame(20)
-    return 
+    return
 end
 
 return

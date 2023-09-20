@@ -11,21 +11,21 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x13B98CDAA1, 0x047432485B, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Smoke = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FA06BB067, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8500000238418579, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_InstallationSmoke = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0F96859AC0, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_ShotReady = function ()
@@ -43,7 +43,7 @@ effect_ShotReady = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KILLEREYE_INSTANCE_WORK_FLAG_IS_FLASHING_END)
     end
-    return 
+    return
 end
 
 effect_AirShotReady = function ()
@@ -61,7 +61,7 @@ effect_AirShotReady = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_KILLEREYE_INSTANCE_WORK_FLAG_IS_FLASHING_END)
     end
-    return 
+    return
 end
 
 return

@@ -14,11 +14,11 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_BornAir = function ()
-    return game_Born()
+    returngame_Born()
 end
 
 return

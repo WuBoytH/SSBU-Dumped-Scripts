@@ -7,7 +7,7 @@ sound_PrizeGet = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x22535A519D)
     end
-    return 
+    return
 end
 
 return

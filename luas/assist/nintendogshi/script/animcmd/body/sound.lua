@@ -27,7 +27,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18F08DEB17)
     end
-    return 
+    return
 end
 
 sound_Stay = function ()
@@ -39,7 +39,7 @@ sound_Stay = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19F1F0E696)
     end
-    return 
+    return
 end
 
 sound_Plays = function ()
@@ -93,7 +93,7 @@ sound_Plays = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B4B4BC52A)
     end
-    return 
+    return
 end
 
 sound_Incline = function ()
@@ -113,7 +113,7 @@ sound_Incline = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1EA6F070D8)
     end
-    return 
+    return
 end
 
 sound_Quit = function ()
@@ -125,7 +125,7 @@ sound_Quit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BD6099EED)
     end
-    return 
+    return
 end
 
 return

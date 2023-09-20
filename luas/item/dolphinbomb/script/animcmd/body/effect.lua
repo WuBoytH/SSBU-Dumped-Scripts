@@ -17,21 +17,21 @@ effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 35)
     end
-    return 
+    return
 end
 
 effect_Installation = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x155698D59F, 0x06B66091F2, 0, -2, 0, 0, 90, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Flying = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x13914E7BA5, 0x06B66091F2, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Falling = function ()

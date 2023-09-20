@@ -9,7 +9,7 @@ sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x2568EA32BD)
     end
-    return 
+    return
 end
 
 sound_StlaightLanding = function ()
@@ -17,35 +17,35 @@ sound_StlaightLanding = function ()
         sv_animcmd.PLAY_STATUS(0x2010856077)
         sv_animcmd.PLAY_SE(0x20C5608DB5)
     end
-    return 
+    return
 end
 
 sound_StlaightTakeoff = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x2010856077)
     end
-    return 
+    return
 end
 
 sound_BoundLanding1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20C5608DB5)
     end
-    return 
+    return
 end
 
 sound_BoundLanding2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20C5608DB5)
     end
-    return 
+    return
 end
 
 sound_BoundLanding3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20C5608DB5)
     end
-    return 
+    return
 end
 
 return

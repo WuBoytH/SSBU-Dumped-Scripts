@@ -10,7 +10,7 @@ sound_TransformStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1461235962)
     end
-    return 
+    return
 end
 
 sound_TransformEnd = function ()
@@ -18,14 +18,14 @@ sound_TransformEnd = function ()
         sv_animcmd.STOP_SE(0x159985E9F2)
         sv_animcmd.PLAY_SE_REMAIN(0x15FE8C2FD1)
     end
-    return 
+    return
 end
 
 sound_Charge = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x159985E9F2)
     end
-    return 
+    return
 end
 
 sound_Bomb = function ()
@@ -33,7 +33,7 @@ sound_Bomb = function ()
         sv_animcmd.STOP_SE(0x159985E9F2)
         sv_animcmd.PLAY_SE_REMAIN(0x107AD5AEBC)
     end
-    return 
+    return
 end
 
 return

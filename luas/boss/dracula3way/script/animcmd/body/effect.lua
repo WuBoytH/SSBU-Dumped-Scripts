@@ -11,14 +11,14 @@ effect_Shoot = function ()
         sv_animcmd.EFFECT_FOLLOW(0x13FDB51CEF, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 2.299999952316284, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x17D627E09D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 return

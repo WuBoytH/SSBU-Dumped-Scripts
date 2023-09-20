@@ -10,14 +10,14 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17B8692F75)
     end
-    return 
+    return
 end
 
 sound_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1508630B22)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
@@ -25,14 +25,14 @@ sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1793DF7C7C)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x11C9F5B4A5)
     end
-    return 
+    return
 end
 
 return

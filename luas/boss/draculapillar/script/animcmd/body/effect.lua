@@ -16,7 +16,7 @@ effect_Shoot = function ()
         WorkModule.set_float(0.44999998807907104, ITEM_DRACULAPILLAR_INSTANCE_WORK_FLOAT_MAIN_EFFECT_SCALE)
         sv_animcmd.EFFECT_FLW_POS(0x14AE9A8D61, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.6000000238418579, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -26,7 +26,7 @@ effect_Born = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x12BC1CB12E, 0x031ED91FCA, 0, 0, 0, 0, 90, 0, 0.44999998807907104, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Wait = function ()
@@ -40,7 +40,7 @@ effect_Wait = function ()
         end
         sv_animcmd.wait(10)
     end
-    return 
+    return
 end
 
 return

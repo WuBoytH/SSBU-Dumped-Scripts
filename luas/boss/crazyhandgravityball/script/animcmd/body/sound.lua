@@ -9,21 +9,21 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x24F7494CED)
     end
-    return 
+    return
 end
 
 sound_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x22EF4AFD8D)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x25DA095289)
     end
-    return 
+    return
 end
 
 return

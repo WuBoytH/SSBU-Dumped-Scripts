@@ -10,7 +10,7 @@ game_HaveBond = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 4, 0, 0, 0, COLLISION_KIND_MASK_HIT, COLLISION_CATEGORY_MASK_FIGHTER, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_ALL, HIT_STATUS_MASK_NI, false, 1, true, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_Throw = function ()
@@ -18,7 +18,7 @@ game_Throw = function ()
         sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 4, 0, 0, 0, COLLISION_KIND_MASK_HIT, COLLISION_CATEGORY_MASK_FIGHTER, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_ALL, HIT_STATUS_MASK_NI, false, 1, true, COLLISION_SHAPE_TYPE_SPHERE)
         SearchModule.enable_safe_pos()
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -29,7 +29,7 @@ game_Born = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 26, 70, 80, 0, 75, 13, 0, 0, 0, 0x13BEB18342, 0, 0.699999988079071, 0, false, false, 50, ATTACK_SOUND_LEVEL_LL, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_G, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, true, true, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
         sv_animcmd.ATTACK_FP(1, 0, 0x031ED91FCA, 26, 50, 80, 0, 75, 13, 0, 0, 0, 0x13BEB18342, 0, 0.699999988079071, 0, false, false, 50, ATTACK_SOUND_LEVEL_LL, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_A, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, true, true, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
     end
-    return 
+    return
 end
 
 return

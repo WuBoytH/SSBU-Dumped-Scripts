@@ -7,7 +7,7 @@ sound_Thunderbolt = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C627AAF3B)
     end
-    return 
+    return
 end
 
 sound_GroundTrace = function ()
@@ -15,7 +15,7 @@ sound_GroundTrace = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x1C627AAF3B)
     end
-    return 
+    return
 end
 
 return

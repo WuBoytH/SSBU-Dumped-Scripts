@@ -55,7 +55,7 @@ sound_Appear_1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x185CBCE489)
     end
-    return 
+    return
 end
 
 sound_Appear_2 = function ()
@@ -77,7 +77,7 @@ sound_Appear_2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x185CBCE489)
     end
-    return 
+    return
 end
 
 sound_Appear_3 = function ()
@@ -99,7 +99,7 @@ sound_Appear_3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x185CBCE489)
     end
-    return 
+    return
 end
 
 sound_Appear_4 = function ()
@@ -131,35 +131,35 @@ sound_Appear_4 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x185CBCE489)
     end
-    return 
+    return
 end
 
 sound_Leave_1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B593D1C2D)
     end
-    return 
+    return
 end
 
 sound_Leave_2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C30731798)
     end
-    return 
+    return
 end
 
 sound_Leave_3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C5AC3376A)
     end
-    return 
+    return
 end
 
 sound_Leave_4 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BA332214E)
     end
-    return 
+    return
 end
 
 sound_Attack_1 = function ()
@@ -174,7 +174,7 @@ sound_Attack_1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20AF2E198A)
     end
-    return 
+    return
 end
 
 sound_Attack_2 = function ()
@@ -185,7 +185,7 @@ sound_Attack_2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20AF2E198A)
     end
-    return 
+    return
 end
 
 sound_Attack_3 = function ()
@@ -200,7 +200,7 @@ sound_Attack_3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20AF2E198A)
     end
-    return 
+    return
 end
 
 sound_Attack_4 = function ()
@@ -211,7 +211,7 @@ sound_Attack_4 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20AF2E198A)
     end
-    return 
+    return
 end
 
 sound_Break_1 = function ()
@@ -219,7 +219,7 @@ sound_Break_1 = function ()
         sv_animcmd.PLAY_SE(0x1870F2E186)
         sv_animcmd.PLAY_SE(0x19E0F01E6F)
     end
-    return 
+    return
 end
 
 sound_Break_2 = function ()
@@ -227,7 +227,7 @@ sound_Break_2 = function ()
         sv_animcmd.PLAY_SE(0x19715EA205)
         sv_animcmd.PLAY_SE(0x19E0F01E6F)
     end
-    return 
+    return
 end
 
 sound_Break_3 = function ()
@@ -235,7 +235,7 @@ sound_Break_3 = function ()
         sv_animcmd.PLAY_SE(0x191BEE82F7)
         sv_animcmd.PLAY_SE(0x19E0F01E6F)
     end
-    return 
+    return
 end
 
 sound_Break_4 = function ()
@@ -243,7 +243,7 @@ sound_Break_4 = function ()
         sv_animcmd.PLAY_SE(0x188AFDDCE5)
         sv_animcmd.PLAY_SE(0x19E0F01E6F)
     end
-    return 
+    return
 end
 
 return

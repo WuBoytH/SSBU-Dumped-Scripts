@@ -9,7 +9,7 @@ game_FastMoveChaseStart = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_FastMoveChaseEnd = function ()
@@ -21,7 +21,7 @@ game_FastMoveChaseEnd = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_FastMoveEscapeEnd = function ()
@@ -33,7 +33,7 @@ game_FastMoveEscapeEnd = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_FastMoveHightEnd = function ()
@@ -45,7 +45,7 @@ game_FastMoveHightEnd = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_SpeedShot = function ()
@@ -57,7 +57,7 @@ game_SpeedShot = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_DiffusionShot = function ()
@@ -69,7 +69,7 @@ game_DiffusionShot = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_HomingShot = function ()
@@ -81,7 +81,7 @@ game_HomingShot = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 return

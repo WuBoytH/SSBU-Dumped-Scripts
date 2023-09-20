@@ -17,7 +17,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1ABB7F9505)
     end
-    return 
+    return
 end
 
 sound_KimiiroWait = function ()
@@ -25,7 +25,7 @@ sound_KimiiroWait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x2287933507)
     end
-    return 
+    return
 end
 
 sound_ShiokaraVanishWait = function ()
@@ -33,7 +33,7 @@ sound_ShiokaraVanishWait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x2320A997F7)
     end
-    return 
+    return
 end
 
 return

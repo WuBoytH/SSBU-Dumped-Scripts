@@ -28,7 +28,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FOLLOW(0x0E39969318, 0x0612506E65, 0, 0.09000000357627869, 0, -8, 0, 180, 1.059999942779541, false)
         sv_animcmd.EFFECT_FOLLOW(0x0EA7F206BB, 0x068C34FBC6, 0, -0.019999999552965164, 0, 4.5, 0, 180, 1.0199999809265137, false)
     end
-    return 
+    return
 end
 
 effect_StandBy = function ()
@@ -40,14 +40,14 @@ effect_StandBy = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_DETACH_KIND(0x116501BC25, -1)
     end
-    return 
+    return
 end
 
 effect_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x11ED2AA9EA, true, true)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -64,7 +64,7 @@ effect_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EFB3259DD, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

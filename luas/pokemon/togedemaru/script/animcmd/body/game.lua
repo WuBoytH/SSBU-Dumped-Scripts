@@ -9,7 +9,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_AttackSucceededStart = function ()
@@ -21,7 +21,7 @@ game_AttackSucceededStart = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackSucceededLoop = function ()
@@ -34,7 +34,7 @@ game_AttackSucceededLoop = function ()
         local f3_local0, f3_local1, f3_local2 = nil
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 8, 363, 75, 0, 70, 32, 0, 10, 0, f3_local0, f3_local1, f3_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 1.2000000476837158, 0, 0, false, false, false, false, true, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13462FCFE4, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 return

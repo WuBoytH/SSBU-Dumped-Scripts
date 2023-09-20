@@ -7,14 +7,14 @@ effect_Born = function ()
     if sv_animcmd.is_excute() then
         EffectModule.req_screen(0x13400061EF, false, true, true)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         EffectModule.remove_screen(0x13400061EF)
     end
-    return 
+    return
 end
 
 return

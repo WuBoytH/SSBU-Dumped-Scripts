@@ -180,7 +180,7 @@ game_Born = function ()
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
         sv_animcmd.RUMBLE_ALL(0x0F9E179B21, 0)
     end
-    return 
+    return
 end
 
 return

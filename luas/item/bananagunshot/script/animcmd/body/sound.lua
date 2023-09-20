@@ -10,21 +10,21 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x1317714CF5, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x162BDB4C8B)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x10143678D0)
     end
-    return 
+    return
 end
 
 return

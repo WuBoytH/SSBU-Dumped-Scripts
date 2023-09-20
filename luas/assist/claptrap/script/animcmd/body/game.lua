@@ -113,7 +113,7 @@ game_Jump = function ()
         sv_animcmd.CATCH_FIGHTER(0, 0x04A7F3F69C, 3, 7, -1, 0, 7, -1, 0, FIGHTER_STATUS_KIND_CAPTURE_CLAPTRAP, COLLISION_SITUATION_MASK_GA)
         sv_animcmd.CATCH_FIGHTER(1, 0x04A7F3F69C, 2, 5, -0.5, 0, 5, -0.5, 0, FIGHTER_STATUS_KIND_CAPTURE_CLAPTRAP, COLLISION_SITUATION_MASK_GA)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -121,7 +121,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_Bite = function ()
@@ -152,7 +152,7 @@ game_BiteFinish = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_CRAPTRAP_INSTANCE_WORK_FLAG_BITE_RELEASE)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -160,7 +160,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 return

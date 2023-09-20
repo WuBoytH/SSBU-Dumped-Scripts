@@ -11,28 +11,28 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x1542B810E1, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 sound_SetAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12955528CA)
     end
-    return 
+    return
 end
 
 sound_SetGround = function ()
     if WorkModule.is_flag(ITEM_INSTANCE_WORK_FLAG_VALUE_1) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12955528CA)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
@@ -40,7 +40,7 @@ sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x14239E2369)
     end
-    return 
+    return
 end
 
 return

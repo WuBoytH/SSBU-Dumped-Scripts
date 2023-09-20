@@ -40,7 +40,7 @@ sound_LatiasAppear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x172876B1CD)
     end
-    return 
+    return
 end
 
 sound_LatiasAttack = function ()
@@ -52,7 +52,7 @@ sound_LatiasAttack = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x16893C5BD9)
     end
-    return 
+    return
 end
 
 sound_LatiosAppear = function ()
@@ -87,7 +87,7 @@ sound_LatiosAppear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x172876B1CD)
     end
-    return 
+    return
 end
 
 sound_LatiosAttack = function ()
@@ -99,7 +99,7 @@ sound_LatiosAttack = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x16D9032084)
     end
-    return 
+    return
 end
 
 return

@@ -17,7 +17,7 @@ effect_Throw = function ()
         end
         sv_animcmd.wait(1)
     end
-    return 
+    return
 end
 
 effect_NormalToMagic = function ()
@@ -28,7 +28,7 @@ effect_NormalToMagic = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x1C650CD0BD, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_MagicThrow = function ()

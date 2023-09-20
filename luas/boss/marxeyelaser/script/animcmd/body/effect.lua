@@ -13,7 +13,7 @@ effect_LaserEndR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1A5F5F7280, false, true)
     end
-    return 
+    return
 end
 
 effect_LaserEndL = function ()
@@ -21,7 +21,7 @@ effect_LaserEndL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1A5F5F7280, false, true)
     end
-    return 
+    return
 end
 
 effect_LaserHold = function ()
@@ -38,7 +38,7 @@ effect_LaserHold = function ()
         sv_animcmd.IT_EFFECT_FOLLOW_NO_SCALE(0x12D5097DC9, 0x03727887B1, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MARXEYELASER_INSTANCE_WORK_INT_LASER_EFFECT_5)
     end
-    return 
+    return
 end
 
 effect_LaserLoop = function ()
@@ -55,7 +55,7 @@ effect_LaserLoop = function ()
         sv_animcmd.IT_EFFECT_FOLLOW_NO_SCALE(0x12F55F2153, 0x03727887B1, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MARXEYELASER_INSTANCE_WORK_INT_LASER_EFFECT_5)
     end
-    return 
+    return
 end
 
 effect_LaserFinish = function ()
@@ -71,7 +71,7 @@ effect_LaserFinish = function ()
         sv_animcmd.IT_EFFECT_FOLLOW_NO_SCALE(0x12F55F2153, 0x03727887B1, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_MARXEYELASER_INSTANCE_WORK_INT_LASER_EFFECT_5)
     end
-    return 
+    return
 end
 
 return

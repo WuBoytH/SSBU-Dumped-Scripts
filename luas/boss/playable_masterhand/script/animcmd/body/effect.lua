@@ -45,7 +45,7 @@ effect_DrillFall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x10742F9BF5, 0x031ED91FCA, 0, 20, 0, 180, 90, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_DrillEnd = function ()
@@ -100,7 +100,7 @@ effect_DrillEnd = function ()
         sv_animcmd.EFFECT(0x190CE4292F, 0x031ED91FCA, 5, 0.10000000149011612, 0, 0, 0, 0, 0.699999988079071, 0, 0, 0, 0, 360, 0, false)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_DrillStart = function ()
@@ -116,14 +116,14 @@ effect_DrillStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FE5950916, 0x031ED91FCA, 0, 8, 0, 0, 90, 0, 2.4000000953674316, 0, 0, 0, 0, 360, 0, false)
     end
-    return 
+    return
 end
 
 effect_Hippataku = function ()
     if sv_animcmd.is_excute() then
         WorkModule.set_float(10, ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLOAT_HIPPATAKU_GA_HEIGHT)
     end
-    return 
+    return
 end
 
 effect_HippatakuGround = function ()
@@ -151,7 +151,7 @@ effect_HippatakuGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1332AF3943, true, true)
     end
-    return 
+    return
 end
 
 effect_HippatakuAir = function ()
@@ -171,7 +171,7 @@ effect_HippatakuAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1332AF3943, true, true)
     end
-    return 
+    return
 end
 
 effect_PaaTsubushiHold = function ()
@@ -179,7 +179,7 @@ effect_PaaTsubushiHold = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x1345A809D5, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.5, true)
     end
-    return 
+    return
 end
 
 effect_PaaTsubushi = function ()
@@ -200,7 +200,7 @@ effect_PaaTsubushi = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x0570211EBD, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_PaaTsubushiFall = function ()
@@ -208,7 +208,7 @@ effect_PaaTsubushiFall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x0F968D28D2, 0x031ED91FCA, 0, 10, 0, -90, 0, 0, 1.2999999523162842, true)
     end
-    return 
+    return
 end
 
 effect_PaaTsubushiEnd = function ()
@@ -225,7 +225,7 @@ effect_PaaTsubushiEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x0570211EBD, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_YubiBeam = function ()
@@ -277,7 +277,7 @@ effect_YubiBeam = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x0F12FF4F7E, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x138702AED3, false, true)
     end
-    return 
+    return
 end
 
 effect_Yubideppou = function ()
@@ -285,7 +285,7 @@ effect_Yubideppou = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_YubideppouLoop = function ()
@@ -296,7 +296,7 @@ effect_YubideppouLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1465E1AFD3, 0x076697D1A0, 6, 0, 4, 0, 90, 0, 0.8999999761581421, false)
     end
-    return 
+    return
 end
 
 effect_PacchinEndStart = function ()
@@ -305,7 +305,7 @@ effect_PacchinEndStart = function ()
         sv_animcmd.EFFECT(0x171FB890B3, 0x031ED91FCA, 0, 24, 15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_DownLanding = function ()
@@ -314,14 +314,14 @@ effect_DownLanding = function ()
         sv_animcmd.EFFECT(0x16E1D50A41, 0x031ED91FCA, -10, 5, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_DownLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0FBF927119, 0x054DE8F534, 0, 20, 0, 0, 0, 0, 2.5, true)
     end
-    return 
+    return
 end
 
 effect_DownEnd = function ()
@@ -329,7 +329,7 @@ effect_DownEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x182ED17538, 0x054DE8F534, 15, 20, 0, 0, 0, 0, 2.25, true)
     end
-    return 
+    return
 end
 
 effect_ChakramStart = function ()
@@ -337,7 +337,7 @@ effect_ChakramStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_ChakramStartReverse = function ()
@@ -345,7 +345,7 @@ effect_ChakramStartReverse = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 return

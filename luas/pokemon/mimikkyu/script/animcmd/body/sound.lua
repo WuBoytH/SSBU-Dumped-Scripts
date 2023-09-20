@@ -22,7 +22,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B85A721B1)
     end
-    return 
+    return
 end
 
 sound_Fall = function ()
@@ -38,7 +38,7 @@ sound_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x182D2392C9)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
@@ -46,7 +46,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B85A721B1)
     end
-    return 
+    return
 end
 
 sound_Walk = function ()
@@ -92,7 +92,7 @@ sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18C9296AE3)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
@@ -100,7 +100,7 @@ sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B639A08EE)
     end
-    return 
+    return
 end
 
 sound_CaptureStart = function ()
@@ -108,7 +108,7 @@ sound_CaptureStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B8D9469C2)
     end
-    return 
+    return
 end
 
 sound_CaptureLoop = function ()
@@ -138,7 +138,7 @@ sound_CaptureLoopLanding = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B85A721B1)
     end
-    return 
+    return
 end
 
 sound_CaptureEnd = function ()
@@ -146,7 +146,7 @@ sound_CaptureEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x21316424BB)
     end
-    return 
+    return
 end
 
 sound_LostAfterCapture = function ()
@@ -154,7 +154,7 @@ sound_LostAfterCapture = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x21C023F814)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
@@ -182,7 +182,7 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x11C9F5B4A5)
     end
-    return 
+    return
 end
 
 return

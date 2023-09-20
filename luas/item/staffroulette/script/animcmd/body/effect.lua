@@ -12,7 +12,7 @@ effect_Shoot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x17B8B134D4, 0x0570211EBD, 0, -2.5, 3, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_ShootRoll = function ()
@@ -20,21 +20,21 @@ effect_ShootRoll = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x17B8B134D4, 0x0570211EBD, 0, -2.5, 3, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_ShootPre = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x187467A4A0, 0x0570211EBD, 0, 3.049999952316284, 6, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_Suka = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0B41410A4D, 0x031ED91FCA, 0, 1, 5, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

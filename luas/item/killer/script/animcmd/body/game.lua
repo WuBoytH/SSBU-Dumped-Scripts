@@ -9,7 +9,7 @@ game_Born = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 25, 361, 90, 0, 30, 8, 0, 0, 0, 0x13BEB18342, 0, 2, 1, false, false, 2, ATTACK_SOUND_LEVEL_LL, COLLISION_SOUND_ATTR_BOMB, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_NO_STAGE, false, COLLISION_PART_MASK_ALL, false, true, false, false, ITEM_TRWATK_F, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 return

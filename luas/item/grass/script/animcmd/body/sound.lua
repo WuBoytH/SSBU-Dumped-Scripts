@@ -13,14 +13,14 @@ sound_Appear = function ()
         sv_animcmd.IT_SET_SE_arg2(0x1ABA40DFBF, 0x0F42052130)
         sv_animcmd.PLAY_SE(0x1354FEB8F9)
     end
-    return 
+    return
 end
 
 sound_BeforeWeedOut = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x12A3F66B63)
     end
-    return 
+    return
 end
 
 return

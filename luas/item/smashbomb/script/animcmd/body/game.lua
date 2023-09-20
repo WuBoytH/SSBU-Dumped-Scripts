@@ -39,7 +39,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         AreaModule.erase_wind(0)
     end
-    return 
+    return
 end
 
 return

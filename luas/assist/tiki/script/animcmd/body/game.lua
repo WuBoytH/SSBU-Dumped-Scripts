@@ -9,7 +9,7 @@ game_TransformDragonEnd = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_HIT_ENABLE)
     end
-    return 
+    return
 end
 
 game_DragonBreath = function ()
@@ -132,7 +132,7 @@ game_DragonBreath = function ()
     if sv_animcmd.is_excute() then
         WorkModule.off_flag(ITEM_TIKI_INSTANCE_WORK_FLAG_BREATH_READY)
     end
-    return 
+    return
 end
 
 return

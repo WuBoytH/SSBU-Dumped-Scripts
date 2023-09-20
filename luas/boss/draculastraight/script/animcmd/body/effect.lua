@@ -14,7 +14,7 @@ effect_Shoot = function ()
         sv_animcmd.EFFECT_FOLLOW(0x17478F3CD6, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2.5, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 return

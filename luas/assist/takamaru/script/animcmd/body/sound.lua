@@ -19,35 +19,35 @@ sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A0138E2A6)
     end
-    return 
+    return
 end
 
 sound_AttackSword = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18CCC9472A)
     end
-    return 
+    return
 end
 
 sound_AttackFallSword = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18CCC9472A)
     end
-    return 
+    return
 end
 
 sound_AttackDashSword = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18CCC9472A)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A7DB86820)
     end
-    return 
+    return
 end
 
 sound_Jump = function ()
@@ -55,7 +55,7 @@ sound_Jump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x177AACFBE9)
     end
-    return 
+    return
 end
 
 sound_JumpAir = function ()
@@ -63,7 +63,7 @@ sound_JumpAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x177AACFBE9)
     end
-    return 
+    return
 end
 
 sound_JumpVertical = function ()
@@ -71,7 +71,7 @@ sound_JumpVertical = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x177AACFBE9)
     end
-    return 
+    return
 end
 
 sound_AttackHisya = function ()
@@ -80,7 +80,7 @@ sound_AttackHisya = function ()
         sv_animcmd.PLAY_SE(0x1EDA9F5796)
         sv_animcmd.PLAY_SE(0x1BC1546D35)
     end
-    return 
+    return
 end
 
 sound_AttackKaku = function ()
@@ -89,7 +89,7 @@ sound_AttackKaku = function ()
         sv_animcmd.PLAY_SE(0x1EDA9F5796)
         sv_animcmd.PLAY_SE(0x1BC1546D35)
     end
-    return 
+    return
 end
 
 sound_AttackHisyaAir = function ()
@@ -98,7 +98,7 @@ sound_AttackHisyaAir = function ()
         sv_animcmd.PLAY_SE(0x1E44FBC235)
         sv_animcmd.PLAY_SE(0x1BC1546D35)
     end
-    return 
+    return
 end
 
 sound_AttackKakuAir = function ()
@@ -107,14 +107,14 @@ sound_AttackKakuAir = function ()
         sv_animcmd.PLAY_SE(0x1E44FBC235)
         sv_animcmd.PLAY_SE(0x1BC1546D35)
     end
-    return 
+    return
 end
 
 sound_PlayAppearVoice = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CAE79198F)
     end
-    return 
+    return
 end
 
 sound_PlaySwordAttackVoice = function ()
@@ -125,7 +125,7 @@ sound_PlaySwordAttackVoice = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1EAD986700)
     end
-    return 
+    return
 end
 
 sound_DamageFly = function ()
@@ -143,7 +143,7 @@ sound_DamageFly = function ()
             sv_animcmd.PLAY_SE(0x1CD3C733D1)
         end
     end
-    return 
+    return
 end
 
 sound_EscapeJump = function ()
@@ -151,7 +151,7 @@ sound_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x177AACFBE9)
     end
-    return 
+    return
 end
 
 return

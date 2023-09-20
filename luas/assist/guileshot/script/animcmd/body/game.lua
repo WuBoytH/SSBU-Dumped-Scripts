@@ -13,7 +13,7 @@ game_Light = function ()
     if sv_animcmd.is_excute() then
         AttackModule.set_size(0, 2)
     end
-    return 
+    return
 end
 
 game_Hard = function ()
@@ -25,7 +25,7 @@ game_Hard = function ()
     if sv_animcmd.is_excute() then
         AttackModule.set_size(0, 2)
     end
-    return 
+    return
 end
 
 return

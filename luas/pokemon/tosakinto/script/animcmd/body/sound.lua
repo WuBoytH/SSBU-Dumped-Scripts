@@ -12,14 +12,14 @@ sound_Appear = function ()
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0F42052130)
         sv_animcmd.PLAY_SE(0x177BA9B0EC)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x177BA9B0EC)
     end
-    return 
+    return
 end
 
 sound_Jump1 = function ()
@@ -27,7 +27,7 @@ sound_Jump1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x0DE569E7AB)
     end
-    return 
+    return
 end
 
 sound_Jump2 = function ()
@@ -35,7 +35,7 @@ sound_Jump2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x0D7C60B611)
     end
-    return 
+    return
 end
 
 sound_Jump3 = function ()
@@ -43,7 +43,7 @@ sound_Jump3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x0F42052130)
     end
-    return 
+    return
 end
 
 return

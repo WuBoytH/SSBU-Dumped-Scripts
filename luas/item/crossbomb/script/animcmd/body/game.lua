@@ -20,7 +20,7 @@ game_SetCategory = function ()
         AttackModule.set_target_category(2, COLLISION_CATEGORY_MASK_NO_FIGHTER)
         AttackModule.set_target_category(3, COLLISION_CATEGORY_MASK_NO_FIGHTER)
     end
-    return 
+    return
 end
 
 game_Throw = function ()
@@ -29,7 +29,7 @@ game_Throw = function ()
         AttackModule.enable_safe_pos()
     end
     game_SetCategory()
-    return 
+    return
 end
 
 game_Born = function ()
@@ -98,7 +98,7 @@ game_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_REMOVE()
     end
-    return 
+    return
 end
 
 return

@@ -8,7 +8,7 @@ sound_Appear1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18693FD0EA)
     end
-    return 
+    return
 end
 
 sound_Appear2 = function ()
@@ -16,7 +16,7 @@ sound_Appear2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18693FD0EA)
     end
-    return 
+    return
 end
 
 return

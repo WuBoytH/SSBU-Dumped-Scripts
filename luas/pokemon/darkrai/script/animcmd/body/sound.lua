@@ -12,7 +12,7 @@ sound_Appear = function ()
         sv_animcmd.PLAY_SE(0x19A0A19E75)
         sv_animcmd.PLAY_SE(0x15C759E5D1)
     end
-    return 
+    return
 end
 
 sound_Attack01 = function ()
@@ -20,7 +20,7 @@ sound_Attack01 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18ABD32E0A)
     end
-    return 
+    return
 end
 
 return

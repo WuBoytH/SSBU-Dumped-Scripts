@@ -14,7 +14,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19FDF4493F)
     end
-    return 
+    return
 end
 
 sound_FastMoveChaseStart = function ()
@@ -22,7 +22,7 @@ sound_FastMoveChaseStart = function ()
         sv_animcmd.PLAY_SE(0x17D7F87837)
         sv_animcmd.PLAY_SE(0x19023D1F79)
     end
-    return 
+    return
 end
 
 sound_FastMoveEscapeStart = function ()
@@ -30,7 +30,7 @@ sound_FastMoveEscapeStart = function ()
         sv_animcmd.PLAY_SE(0x17D7F87837)
         sv_animcmd.PLAY_SE(0x19023D1F79)
     end
-    return 
+    return
 end
 
 sound_FastMoveHightStart = function ()
@@ -38,28 +38,28 @@ sound_FastMoveHightStart = function ()
         sv_animcmd.PLAY_SE(0x17D7F87837)
         sv_animcmd.PLAY_SE(0x19023D1F79)
     end
-    return 
+    return
 end
 
 sound_FastMoveChaseEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17340D38FB)
     end
-    return 
+    return
 end
 
 sound_FastMoveEscapeEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17340D38FB)
     end
-    return 
+    return
 end
 
 sound_FastMoveHightEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17340D38FB)
     end
-    return 
+    return
 end
 
 sound_DiffusionShot = function ()
@@ -68,7 +68,7 @@ sound_DiffusionShot = function ()
         sv_animcmd.PLAY_SE(0x1B2236CBC1)
         sv_animcmd.PLAY_SE(0x17A770B71B)
     end
-    return 
+    return
 end
 
 sound_HomingShot = function ()
@@ -76,14 +76,14 @@ sound_HomingShot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B5531FB57)
     end
-    return 
+    return
 end
 
 sound_DamageFly = function ()
     if sv_animcmd.IT_IS_RND_PERCENT(50) and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19804A6361)
     end
-    return 
+    return
 end
 
 return

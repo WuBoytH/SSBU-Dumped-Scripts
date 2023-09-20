@@ -14,7 +14,7 @@ sound_WarpStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x206F87C9DA)
     end
-    return 
+    return
 end
 
 sound_WarpEnd = function ()
@@ -26,7 +26,7 @@ sound_WarpEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1F57BCD0B4)
     end
-    return 
+    return
 end
 
 sound_HomingShot = function ()
@@ -34,7 +34,7 @@ sound_HomingShot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CFB73FE81)
     end
-    return 
+    return
 end
 
 sound_ThunderShot = function ()
@@ -42,7 +42,7 @@ sound_ThunderShot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1D937C27BF)
     end
-    return 
+    return
 end
 
 sound_Rush = function ()
@@ -50,7 +50,7 @@ sound_Rush = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x2099666154)
     end
-    return 
+    return
 end
 
 sound_Exit = function ()
@@ -58,7 +58,7 @@ sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A8F2F610E)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
@@ -66,7 +66,7 @@ sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1BD7F3D63A)
     end
-    return 
+    return
 end
 
 return

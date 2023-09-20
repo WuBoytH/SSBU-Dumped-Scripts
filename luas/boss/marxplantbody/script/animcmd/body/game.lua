@@ -84,7 +84,7 @@ game_Grow1 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(7, 0, 0x031ED91FCA, 5, 10, 75, 100, 60, 0, 0, 45, 75, 5, 5, 3, 85, 0, 0x14860B063A, 0, 0.10000000149011612, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 96, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_Grow2 = function ()
@@ -173,7 +173,7 @@ game_Grow2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(5, 0, 0x031ED91FCA, 5, 10, 75, 100, 60, 0, 0, 45, 75, 5, 5, 12, 46, 0, 0x14860B063A, 0, 0.10000000149011612, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 23, 64, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_Grow3 = function ()
@@ -259,7 +259,7 @@ game_Grow3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(7, 0, 0x0AC62517DC, 5, 10, 75, 100, 60, 0, 0, 45, 75, 5, 5, 0, 0, 0, 0x14860B063A, 0, 0.10000000149011612, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 15, 0, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_Wither1 = function ()
@@ -273,7 +273,7 @@ game_Wither1 = function ()
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(6, 0, 0x031ED91FCA, 5, 10, 75, 100, 60, 0, 0, 45, 75, 5, 5, 6, 60, 0, 0x14860B063A, 0, 0.10000000149011612, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 80, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(7, 0, 0x031ED91FCA, 5, 10, 75, 100, 60, 0, 0, 45, 75, 5, 5, 3, 85, 0, 0x14860B063A, 0, 0.10000000149011612, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 96, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_Wither2 = function ()
@@ -287,7 +287,7 @@ game_Wither2 = function ()
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(6, 0, 0x031ED91FCA, 5, 10, 75, 100, 60, 0, 0, 45, 75, 5, 5, 0, 68, 0, 0x14860B063A, 0, 0.10000000149011612, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, 80, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(7, 0, 0x031ED91FCA, 5, 10, 75, 100, 60, 0, 0, 45, 75, 5, 5, -2, 85, 0, 0x14860B063A, 0, 0.10000000149011612, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, -3, 94, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_Wither3 = function ()
@@ -303,7 +303,7 @@ game_Wither3 = function ()
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(8, 0, 0x0ABC7D7B16, 5, 10, 75, 100, 60, 0, 0, 45, 75, 5, 5, 0, 0, 0, 0x14860B063A, 0, 0.10000000149011612, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 15, 0, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(9, 0, 0x0A25742AAC, 5, 10, 75, 100, 60, 0, 0, 45, 75, 5, 5, 0, 0, 0, 0x14860B063A, 0, 0.10000000149011612, 1, true, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_CUTUP, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_ENERGY, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 12, 0, 0, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 return

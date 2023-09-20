@@ -10,7 +10,7 @@ sound_Appear = function ()
         sv_animcmd.IT_SET_SE_arg2(0x07FB997A80, 0x0F42052130)
         sv_animcmd.PLAY_SE(0x149EDACF85)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
@@ -19,12 +19,12 @@ sound_Born = function ()
         sv_animcmd.STOP_SE(0x1400BE5A26)
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     sv_animcmd.frame(1)
-    return 
+    return
 end
 
 sound_Flashing = function ()
@@ -32,7 +32,7 @@ sound_Flashing = function ()
         sv_animcmd.STOP_SE(0x149EDACF85)
         sv_animcmd.PLAY_SE(0x1400BE5A26)
     end
-    return 
+    return
 end
 
 return

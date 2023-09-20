@@ -12,7 +12,7 @@ game_Throw = function ()
         WorkModule.set_float(1, ITEM_INSTANCE_WORK_FLOAT_KIILADARZ_ATTACK_MUL)
         sv_animcmd.ATTACK_FP(1, 1, 0x031ED91FCA, 0, 361, 100, 1, 0, 5, 0, 0, 0, 0x1399FF8A42, 0, 0.5, 0.5, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_BOMB, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, false, false, false, 0, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -126,7 +126,7 @@ game_Born = function ()
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
         sv_animcmd.RUMBLE_ALL(0x10EAA9BFF4, 0)
     end
-    return 
+    return
 end
 
 return

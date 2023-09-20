@@ -8,7 +8,7 @@ effect_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x15AED1AC9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, true)
     end
-    return 
+    return
 end
 
 return

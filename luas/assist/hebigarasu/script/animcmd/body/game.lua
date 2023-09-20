@@ -28,7 +28,7 @@ game_FirstAppear = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Appear = function ()
@@ -49,7 +49,7 @@ game_Appear = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Dive = function ()
@@ -62,7 +62,7 @@ game_Dive = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.WHOLE_HIT(HIT_STATUS_OFF)
     end
-    return 
+    return
 end
 
 game_Turn = function ()
@@ -74,7 +74,7 @@ game_Turn = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_HEBIGARASU_INSTANCE_WORK_FLAG_NO_DEAD)
     end
-    return 
+    return
 end
 
 game_AttackUp = function ()
@@ -102,7 +102,7 @@ game_AttackUp = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackMiddle = function ()
@@ -130,7 +130,7 @@ game_AttackMiddle = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackDown = function ()
@@ -158,14 +158,14 @@ game_AttackDown = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_DamageStun = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_HEBIGARASU_INSTANCE_WORK_FLAG_NO_DAMAGE_STUN)
     end
-    return 
+    return
 end
 
 game_Exit = function ()
@@ -178,7 +178,7 @@ game_Exit = function ()
         WorkModule.on_flag(ITEM_HEBIGARASU_INSTANCE_WORK_FLAG_NO_DEAD)
         sv_animcmd.WHOLE_HIT(HIT_STATUS_OFF)
     end
-    return 
+    return
 end
 
 game_Dead = function ()
@@ -195,7 +195,7 @@ game_Dead = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_HEBIGARASU_INSTANCE_WORK_FLAG_LOST)
     end
-    return 
+    return
 end
 
 return

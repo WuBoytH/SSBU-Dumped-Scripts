@@ -10,7 +10,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FLW_POS_NO_STOP(0x1169963E29, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -18,7 +18,7 @@ effect_Attack = function ()
         sv_animcmd.EFFECT_FOLLOW(0x10010A6203, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 return

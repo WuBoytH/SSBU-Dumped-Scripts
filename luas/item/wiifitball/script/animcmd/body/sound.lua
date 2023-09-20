@@ -7,7 +7,7 @@ sound_Normal = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x155E5CA3B6, 0x0F42052130)
     end
-    return 
+    return
 end
 
 return

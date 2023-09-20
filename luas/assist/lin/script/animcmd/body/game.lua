@@ -11,14 +11,14 @@ game_Wait = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIN_INSTANCE_WORK_FLAG_ENABLE_COUNTER)
     end
-    return 
+    return
 end
 
 game_Start = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIN_INSTANCE_WORK_FLAG_ENABLE_COUNTER)
     end
-    return 
+    return
 end
 
 game_AttackGround = function ()
@@ -32,7 +32,7 @@ game_AttackGround = function ()
         AttackModule.clear_all()
     end
     sv_animcmd.wait(3)
-    return 
+    return
 end
 
 game_AttackAir = function ()
@@ -46,7 +46,7 @@ game_AttackAir = function ()
         AttackModule.clear_all()
     end
     sv_animcmd.wait(3)
-    return 
+    return
 end
 
 return

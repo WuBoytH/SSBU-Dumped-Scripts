@@ -13,7 +13,7 @@ sound_Entry = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x11B2364CC7)
     end
-    return 
+    return
 end
 
 return

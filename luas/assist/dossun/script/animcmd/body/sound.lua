@@ -11,7 +11,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x18334AFC36)
     end
-    return 
+    return
 end
 
 sound_Warp = function ()
@@ -22,7 +22,7 @@ sound_Warp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x199F26B8A3)
     end
-    return 
+    return
 end
 
 sound_Presage = function ()
@@ -30,7 +30,7 @@ sound_Presage = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15939CBD1B)
     end
-    return 
+    return
 end
 
 return

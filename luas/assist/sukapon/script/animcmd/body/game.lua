@@ -9,7 +9,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -17,7 +17,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_EscapeJump = function ()
@@ -25,7 +25,7 @@ game_EscapeJump = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_AttackGrab = function ()
@@ -40,7 +40,7 @@ game_AttackGrab = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
-    return 
+    return
 end
 
 game_AttackThrow = function ()
@@ -49,7 +49,7 @@ game_AttackThrow = function ()
         WorkModule.on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_THROW)
         sv_animcmd.ATTACK_ABS(0, 0, 22, 135, 100, 0, 60, 0, 0, ATTACK_LR_CHECK_FORWARD, 0, true, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_AttackGrabAir = function ()
@@ -64,7 +64,7 @@ game_AttackGrabAir = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
-    return 
+    return
 end
 
 game_AttackThrowAir = function ()
@@ -73,14 +73,14 @@ game_AttackThrowAir = function ()
         WorkModule.on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_THROW)
         sv_animcmd.ATTACK_ABS(0, 0, 22, 135, 100, 0, 60, 0, 0, ATTACK_LR_CHECK_FORWARD, 0, true, 0x15A2C502B3, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_AttackRollingMain = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 12, 45, 100, 0, 50, 10, 0, 10, 0, 0x15A2C502B3, 0, 15, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_AttackRollingEnd = function ()
@@ -91,14 +91,14 @@ game_AttackRollingEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackRollingAirMain = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 12, 45, 100, 0, 50, 10, 0, 10, 0, 0x15A2C502B3, 0, 15, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_AttackRollingAirEnd = function ()
@@ -109,14 +109,14 @@ game_AttackRollingAirEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackRolling2Main = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 12, 70, 100, 0, 50, 10, 0, 10, 0, 0x15A2C502B3, 0, 15, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_AttackRolling2End = function ()
@@ -127,14 +127,14 @@ game_AttackRolling2End = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackRolling2AirMain = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 0, 0x031ED91FCA, 12, 70, 100, 0, 50, 10, 0, 10, 0, 0x15A2C502B3, 0, 15, 1, false, false, 0, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, false, COLLISION_PART_MASK_ALL, false, true, false, false, 0, false, false, ATTACK_LR_CHECK_REVERSE, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_AttackRolling2AirEnd = function ()
@@ -145,7 +145,7 @@ game_AttackRolling2AirEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackShoot = function ()
@@ -153,7 +153,7 @@ game_AttackShoot = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AttackShootAir = function ()
@@ -161,7 +161,7 @@ game_AttackShootAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_SUKAPON_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 return

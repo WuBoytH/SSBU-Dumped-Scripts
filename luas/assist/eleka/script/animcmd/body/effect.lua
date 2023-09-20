@@ -12,14 +12,14 @@ effect_FastMoveChaseStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11AF28B3AC, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_FastMoveChaseEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x12F71E2AF0, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_FastMoveEscapeStart = function ()
@@ -27,14 +27,14 @@ effect_FastMoveEscapeStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11AF28B3AC, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_FastMoveEscapeEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x12F71E2AF0, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_FastMoveHightStart = function ()
@@ -42,14 +42,14 @@ effect_FastMoveHightStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x11AF28B3AC, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_FastMoveHightEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x12F71E2AF0, 0x031ED91FCA, 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_HomingShot = function ()
@@ -57,7 +57,7 @@ effect_HomingShot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x124D8290D1, 0x031D39A761, 0, 0, 8, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

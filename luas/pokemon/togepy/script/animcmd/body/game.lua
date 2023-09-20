@@ -19,7 +19,7 @@ game_Attack1 = function ()
             AttackModule.clear_all()
         end
     end
-    return 
+    return
 end
 
 game_Attack2 = function ()
@@ -31,7 +31,7 @@ game_Attack2 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Attack3 = function ()
@@ -43,7 +43,7 @@ game_Attack3 = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Attack4 = function ()
@@ -57,14 +57,14 @@ game_Attack4 = function ()
             AttackModule.clear_all()
         end
     end
-    return 
+    return
 end
 
 game_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 240)
     end
-    return 
+    return
 end
 
 return

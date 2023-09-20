@@ -8,7 +8,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

@@ -7,7 +7,7 @@ sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17FEA485FB)
     end
-    return 
+    return
 end
 
 return

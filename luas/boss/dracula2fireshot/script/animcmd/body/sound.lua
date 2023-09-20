@@ -9,21 +9,21 @@ sound_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x20D32ED827)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x236D5549C4)
     end
-    return 
+    return
 end
 
 sound_FirePillar = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x26B01CDB25)
     end
-    return 
+    return
 end
 
 return

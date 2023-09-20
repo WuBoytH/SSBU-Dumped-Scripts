@@ -18,7 +18,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x14A6F083CB)
     end
-    return 
+    return
 end
 
 sound_Up = function ()
@@ -34,7 +34,7 @@ sound_Up = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x14A6F083CB)
     end
-    return 
+    return
 end
 
 return

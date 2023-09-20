@@ -13,7 +13,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x11FF6AE25D)
     end
-    return 
+    return
 end
 
 return

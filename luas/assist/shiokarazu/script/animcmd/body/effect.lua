@@ -25,7 +25,7 @@ effect_Appear = function ()
         sv_animcmd.FLASH_FRM(90, 0, 0, 0, 0.8999999761581421)
         sv_animcmd.FILL_SCREEN_MODEL_COLOR(1, 90, 0.10000000149011612, 0.10000000149011612, 0.10000000149011612, 0, 0, 0, 1, 1, EffectScreenLayer.GROUND, EFFECT_SCREEN_PRIO_ITEM)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
@@ -40,7 +40,7 @@ effect_Lost = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x1A3FAB24C7, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x23AEC4908F, false, true)
     end
-    return 
+    return
 end
 
 effect_KimiiroWait = function ()
@@ -49,7 +49,7 @@ effect_KimiiroWait = function ()
         sv_animcmd.EFFECT(0x0FD60C2352, 0x031ED91FCA, 0, 1, -7.099999904632568, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x17BF148303, 0x031ED91FCA, 0, 1.5, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Kimiiro = function ()
@@ -78,7 +78,7 @@ effect_Kimiiro = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x12BBBAD217, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x1399BD8118, false, true)
     end
-    return 
+    return
 end
 
 effect_ShiokaraWait = function ()
@@ -87,7 +87,7 @@ effect_ShiokaraWait = function ()
         sv_animcmd.EFFECT(0x0FD60C2352, 0x031ED91FCA, 0, 1, -7.099999904632568, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT(0x1D7182FFD1, 0x031ED91FCA, 0, 1.5, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Shiokara = function ()
@@ -114,7 +114,7 @@ effect_Shiokara = function ()
         sv_animcmd.EFFECT(0x1A3FAB24C7, 0x031ED91FCA, 0, 3.5, -7.099999904632568, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.EFFECT_OFF_KIND(0x1A48AC1451, false, true)
     end
-    return 
+    return
 end
 
 return

@@ -10,7 +10,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15D4D8FF48)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
@@ -18,7 +18,7 @@ sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x11C9F5B4A5)
     end
-    return 
+    return
 end
 
 sound_MetamonToFighter = function ()
@@ -26,7 +26,7 @@ sound_MetamonToFighter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1C5299DDFE)
     end
-    return 
+    return
 end
 
 return

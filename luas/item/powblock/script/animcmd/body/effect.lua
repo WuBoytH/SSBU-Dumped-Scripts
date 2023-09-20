@@ -12,14 +12,14 @@ effect_EffectMotion = function ()
     if sv_animcmd.is_excute() then
         EffectModule.remove_post_effect_line(2, true)
     end
-    return 
+    return
 end
 
 effect_EffectMotionExit = function ()
     if sv_animcmd.is_excute() then
         EffectModule.remove_post_effect_line(2, true)
     end
-    return 
+    return
 end
 
 return

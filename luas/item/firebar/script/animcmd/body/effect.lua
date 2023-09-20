@@ -21,7 +21,7 @@ effect_Have = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x123CE12617, false, false)
         sv_animcmd.EFFECT_OFF_KIND(0x110F8D31B4, false, false)
     end
-    return 
+    return
 end
 
 effect_HaveAttack = function ()
@@ -87,7 +87,7 @@ effect_HaveAttack = function ()
             end
         end
     end
-    return 
+    return
 end
 
 effect_ChangeEffect = function ()
@@ -153,7 +153,7 @@ effect_ChangeEffect = function ()
             end
         end
     end
-    return 
+    return
 end
 
 return

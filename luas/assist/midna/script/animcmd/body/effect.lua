@@ -13,7 +13,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x13FC11E43E, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_ThrowR = function ()
@@ -25,7 +25,7 @@ effect_ThrowR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(10)
     end
-    return 
+    return
 end
 
 effect_CatchR = function ()
@@ -37,7 +37,7 @@ effect_CatchR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(10)
     end
-    return 
+    return
 end
 
 effect_ThrowL = function ()
@@ -49,7 +49,7 @@ effect_ThrowL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(10)
     end
-    return 
+    return
 end
 
 effect_CatchL = function ()
@@ -61,7 +61,7 @@ effect_CatchL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.AFTER_IMAGE_OFF(10)
     end
-    return 
+    return
 end
 
 effect_Teleport = function ()
@@ -69,14 +69,14 @@ effect_Teleport = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x12890E476A, 0x031ED91FCA, 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_TeleportAfter = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x110E3994A1, 0x031ED91FCA, 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return

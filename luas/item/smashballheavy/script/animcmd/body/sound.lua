@@ -13,42 +13,42 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x07FB997A80, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19C5A058D0)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 sound_WaitGround = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12C9F0EF5A)
     end
-    return 
+    return
 end
 
 sound_OnDamageSound = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1516DD7CC7)
     end
-    return 
+    return
 end
 
 sound_OnBoundSound = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17179BD1E1)
     end
-    return 
+    return
 end
 
 return

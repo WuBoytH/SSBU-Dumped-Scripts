@@ -13,7 +13,7 @@ sound_Appear = function ()
         sv_animcmd.IT_SET_SE_arg2(0x15EE8F7707, 0x0FCF0D2CC5)
         WorkModule.set_int64(0x11C9F5B4A5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
     end
-    return 
+    return
 end
 
 sound_WaitGround = function ()
@@ -30,14 +30,14 @@ sound_WaitGround = function ()
     if sv_animcmd.is_excute() then
         sv_module_access:sound(MA_MSC_CMD_SOUND_STOP_SE_STATUS)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x1B73492B68)
     end
-    return 
+    return
 end
 
 return

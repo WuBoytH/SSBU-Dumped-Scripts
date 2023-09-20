@@ -12,7 +12,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x0EAB5BD26F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.149999976158142)
     end
-    return 
+    return
 end
 
 effect_BornLioleusboss = function ()
@@ -22,7 +22,7 @@ effect_BornLioleusboss = function ()
         sv_animcmd.EFFECT(0x0EAB5BD26F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.149999976158142)
     end
-    return 
+    return
 end
 
 return

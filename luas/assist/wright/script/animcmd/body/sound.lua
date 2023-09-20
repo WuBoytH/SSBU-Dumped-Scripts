@@ -15,7 +15,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x191E8D283F)
     end
-    return 
+    return
 end
 
 sound_LandingL = function ()
@@ -34,7 +34,7 @@ sound_LandingL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x165F227FD1)
     end
-    return 
+    return
 end
 
 sound_LandingR = function ()
@@ -45,7 +45,7 @@ sound_LandingR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x165F227FD1)
     end
-    return 
+    return
 end
 
 sound_Point = function ()
@@ -65,7 +65,7 @@ sound_Point = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x19A92868A2)
     end
-    return 
+    return
 end
 
 return

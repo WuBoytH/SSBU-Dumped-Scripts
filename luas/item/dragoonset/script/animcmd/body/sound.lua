@@ -35,7 +35,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1223AC4576)
     end
-    return 
+    return
 end
 
 sound_StandBy = function ()
@@ -43,7 +43,7 @@ sound_StandBy = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x106D7B7764)
     end
-    return 
+    return
 end
 
 sound_Wait = function ()
@@ -52,7 +52,7 @@ sound_Wait = function ()
         sv_animcmd.PLAY_SE(0x159B04F7CB)
         sv_animcmd.PLAY_STATUS(0x11A66ECD55)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
@@ -67,7 +67,7 @@ sound_Attack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x159B04F7CB)
     end
-    return 
+    return
 end
 
 return

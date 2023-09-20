@@ -24,7 +24,7 @@ effect_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x162C7E5197, false, true)
     end
-    return 
+    return
 end
 
 effect_Exit = function ()
@@ -32,7 +32,7 @@ effect_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x0570211EBD, 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Exit2 = function ()
@@ -40,7 +40,7 @@ effect_Exit2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x0570211EBD, 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_TransformDragonStart = function ()
@@ -68,7 +68,7 @@ effect_TransformDragonStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x14789A329C, false, true)
     end
-    return 
+    return
 end
 
 effect_TransformDragonEnd = function ()
@@ -83,7 +83,7 @@ effect_TransformDragonEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x1303941DC1, 0x0905FE6C9E, -5, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_TransformDragonRelease = function ()
@@ -102,7 +102,7 @@ effect_TransformDragonRelease = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 30)
     end
-    return 
+    return
 end
 
 effect_DragonBreath = function ()
@@ -128,14 +128,14 @@ effect_DragonBreath = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x127F492EF7, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x101824AE1C, false, true)
     end
-    return 
+    return
 end
 
 effect_DamageFly = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.CANCEL_FILL_SCREEN(1, 30)
     end
-    return 
+    return
 end
 
 return

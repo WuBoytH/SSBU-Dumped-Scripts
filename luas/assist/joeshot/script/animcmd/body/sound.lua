@@ -8,7 +8,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x100DD29E2A, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 return

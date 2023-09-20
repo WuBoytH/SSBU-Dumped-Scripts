@@ -8,7 +8,7 @@ game_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.SEARCH_LEGACY(0, 0, 0x031ED91FCA, 14, 0, 0, 0, COLLISION_KIND_MASK_HIT, COLLISION_CATEGORY_MASK_FIGHTER, COLLISION_SITUATION_MASK_GA, false, COLLISION_PART_MASK_ALL, HIT_STATUS_MASK_NORMAL, false, 1, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -20,7 +20,7 @@ game_Born = function ()
         AttackModule.clear(0)
         WorkModule.on_flag(ITEM_GANONBOSSSHOT2_INSTANCE_WORK_FLAG_VALUE_BOMB_END)
     end
-    return 
+    return
 end
 
 return

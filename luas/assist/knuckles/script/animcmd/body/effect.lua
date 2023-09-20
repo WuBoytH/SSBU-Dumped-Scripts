@@ -25,7 +25,7 @@ effect_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.8999999761581421, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Exit = function ()
@@ -34,7 +34,7 @@ effect_Exit = function ()
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8799999952316284)
     end
-    return 
+    return
 end
 
 effect_Exit2 = function ()
@@ -43,7 +43,7 @@ effect_Exit2 = function ()
         sv_animcmd.EFFECT(0x116E7E1F9D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8799999952316284)
     end
-    return 
+    return
 end
 
 effect_RunTurn = function ()
@@ -51,7 +51,7 @@ effect_RunTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, 10, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_RunStart = function ()
@@ -59,7 +59,7 @@ effect_RunStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EB968E28A, 0x031ED91FCA, -2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Run = function ()
@@ -100,7 +100,7 @@ effect_RunEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FOOT_EFFECT(0x0EC09045BB, 0x031ED91FCA, 8, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Dive = function ()
@@ -110,7 +110,7 @@ effect_Dive = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2000000476837158)
         sv_animcmd.EFFECT(0x126ACD398A, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_PunchCombo = function ()
@@ -129,7 +129,7 @@ effect_PunchCombo = function ()
         sv_animcmd.EFFECT_FOLLOW(0x140C3A8A49, 0x031ED91FCA, -2, 10, -0.10000000149011612, 16, 20, 89, 1.2000000476837158, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
-    return 
+    return
 end
 
 effect_PunchCombo2 = function ()
@@ -148,7 +148,7 @@ effect_PunchCombo2 = function ()
         sv_animcmd.EFFECT_FOLLOW(0x140C3A8A49, 0x031ED91FCA, -2, 10, -0.10000000149011612, 16, 20, 89, 1.2000000476837158, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
     end
-    return 
+    return
 end
 
 effect_JumpingOutUpper = function ()
@@ -164,7 +164,7 @@ effect_JumpingOutUpper = function ()
         sv_animcmd.EFFECT_FOLLOW(0x136B021CF2, 0x051129036E, 3, 0, 0, 0, 0, 0, 1.350000023841858, true)
     end
     sv_animcmd.frame(34)
-    return 
+    return
 end
 
 effect_JumpingOutUpper2 = function ()
@@ -180,14 +180,14 @@ effect_JumpingOutUpper2 = function ()
         sv_animcmd.EFFECT_FOLLOW(0x136B021CF2, 0x05EB263E0D, 3, 0, 0, 0, 0, 0, 1.350000023841858, true)
     end
     sv_animcmd.frame(34)
-    return 
+    return
 end
 
 effect_SpinAttackGroundStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x12AFCB1820, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_SpinAttackSpin = function ()
@@ -201,21 +201,21 @@ effect_SpinAttackSpin = function ()
         sv_animcmd.EFFECT_FOLLOW(0x12BC5B3CAD, 0x0655F96687, 0, 0, 0, 0, 0, 0, 0.4399999976158142, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.5)
     end
-    return 
+    return
 end
 
 effect_SpinAttackHomingStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x09D58CB98F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_SpinAttackHoming = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1442F6DAF3, 0x0655F96687, 0, 0, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_SpinAttackRebound = function ()
@@ -223,14 +223,14 @@ effect_SpinAttackRebound = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_SpinAttackLanding = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x0E963002D8, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.800000011920929, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

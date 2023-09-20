@@ -16,7 +16,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x169012729B)
     end
-    return 
+    return
 end
 
 sound_Exit = function ()
@@ -28,7 +28,7 @@ sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B381F3C28)
     end
-    return 
+    return
 end
 
 sound_Exit2 = function ()
@@ -40,7 +40,7 @@ sound_Exit2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B381F3C28)
     end
-    return 
+    return
 end
 
 sound_TransformDragonStart = function ()
@@ -56,7 +56,7 @@ sound_TransformDragonStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x181065B4E7)
     end
-    return 
+    return
 end
 
 sound_TransformDragonEnd = function ()
@@ -64,7 +64,7 @@ sound_TransformDragonEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1B67BBD734)
     end
-    return 
+    return
 end
 
 sound_TransformDragonRelease = function ()
@@ -76,7 +76,7 @@ sound_TransformDragonRelease = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x181065B4E7)
     end
-    return 
+    return
 end
 
 sound_DragonMoveStart = function ()
@@ -84,7 +84,7 @@ sound_DragonMoveStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12900A7AE6)
     end
-    return 
+    return
 end
 
 sound_DragonMoveStartFlip = function ()
@@ -92,7 +92,7 @@ sound_DragonMoveStartFlip = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12900A7AE6)
     end
-    return 
+    return
 end
 
 sound_DragonMoveShortForward = function ()
@@ -100,7 +100,7 @@ sound_DragonMoveShortForward = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12900A7AE6)
     end
-    return 
+    return
 end
 
 sound_DragonMoveShortForwardFlip = function ()
@@ -108,7 +108,7 @@ sound_DragonMoveShortForwardFlip = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12900A7AE6)
     end
-    return 
+    return
 end
 
 sound_DragonMoveShortBack = function ()
@@ -116,7 +116,7 @@ sound_DragonMoveShortBack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12900A7AE6)
     end
-    return 
+    return
 end
 
 sound_DragonMoveShortBackFlip = function ()
@@ -124,7 +124,7 @@ sound_DragonMoveShortBackFlip = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x12900A7AE6)
     end
-    return 
+    return
 end
 
 sound_DragonMoveUpLow = function ()
@@ -132,7 +132,7 @@ sound_DragonMoveUpLow = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x13532CF33A)
     end
-    return 
+    return
 end
 
 sound_DragonMoveUpLowFlip = function ()
@@ -140,7 +140,7 @@ sound_DragonMoveUpLowFlip = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x13532CF33A)
     end
-    return 
+    return
 end
 
 sound_DragonMoveDownLow = function ()
@@ -148,7 +148,7 @@ sound_DragonMoveDownLow = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x13532CF33A)
     end
-    return 
+    return
 end
 
 sound_DragonMoveDownLowFlip = function ()
@@ -156,7 +156,7 @@ sound_DragonMoveDownLowFlip = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x13532CF33A)
     end
-    return 
+    return
 end
 
 sound_DragonBreath = function ()
@@ -164,7 +164,7 @@ sound_DragonBreath = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x15788A7AAF)
     end
-    return 
+    return
 end
 
 sound_DamageFly = function ()
@@ -179,7 +179,7 @@ sound_DamageFly = function ()
             sv_animcmd.PLAY_SE(0x1695BE3537)
         end
     end
-    return 
+    return
 end
 
 return

@@ -10,7 +10,7 @@ game_Fall = function ()
         local f1_local0, f1_local1, f1_local2 = nil
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 2, 361, 100, 80, 0, 5, 0, 2, 0, f1_local0, f1_local1, f1_local2, 1, 1, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 0, 0, 0, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_FEB, COLLISION_PART_MASK_ALL, false, 0x15A2C502B3, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_KICK, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_LandingL = function ()
@@ -18,7 +18,7 @@ game_LandingL = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 game_Point = function ()
@@ -26,7 +26,7 @@ game_Point = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_WRIGHT_INSTANCE_WORK_FLAG_SPAWN_BUILDING)
     end
-    return 
+    return
 end
 
 return

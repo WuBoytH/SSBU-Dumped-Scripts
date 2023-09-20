@@ -9,7 +9,7 @@ game_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP_STRENGTH(0, 1, 0x031ED91FCA, 0, 0, 361, 0, 0, 0, 0, 0, 0, 12, 12, 0, 0, 0, 0x15A2C502B3, 0, 0.10000000149011612, 1, false, false, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FI, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_SPEED, false, false, false, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_Born = function ()
@@ -37,7 +37,7 @@ game_Born = function ()
         AttackModule.set_size(0, 15)
         AttackModule.set_size(1, 22)
     end
-    return 
+    return
 end
 
 return

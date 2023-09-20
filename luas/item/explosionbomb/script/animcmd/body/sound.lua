@@ -5,7 +5,7 @@ sound_Ignite = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x14B20428B0)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
@@ -13,7 +13,7 @@ sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x14C5031826)
     end
-    return 
+    return
 end
 
 return

@@ -9,28 +9,28 @@ sound_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x204DAA304D)
     end
-    return 
+    return
 end
 
 sound_TeleportEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1E5B5DD05C)
     end
-    return 
+    return
 end
 
 sound_DamageDead = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17FEFF8341)
     end
-    return 
+    return
 end
 
 sound_DamageDeadR = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17FEFF8341)
     end
-    return 
+    return
 end
 
 return

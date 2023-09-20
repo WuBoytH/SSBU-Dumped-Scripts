@@ -11,14 +11,14 @@ sound_Appear = function ()
         sv_animcmd.IT_SET_SE_arg2(0x14BA3BF6D4, 0x0FCF0D2CC5)
         sv_animcmd.PLAY_SE_REMAIN(0x1A7260CB86)
     end
-    return 
+    return
 end
 
 sound_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1317714CF5)
     end
-    return 
+    return
 end
 
 return

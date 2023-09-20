@@ -148,7 +148,7 @@ effect_Entry = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
-    return 
+    return
 end
 
 effect_Wait = function ()
@@ -178,7 +178,7 @@ effect_Flight = function ()
         sv_animcmd.EFFECT(0x12A7C6113D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.800000011920929)
     end
-    return 
+    return
 end
 
 effect_Landing = function ()
@@ -189,7 +189,7 @@ effect_Landing = function ()
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.800000011920929)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2000000476837158)
     end
-    return 
+    return
 end
 
 effect_RushMoveLoop = function ()
@@ -215,7 +215,7 @@ effect_RushMoveEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
-    return 
+    return
 end
 
 effect_BodyAttackStart = function ()
@@ -227,7 +227,7 @@ effect_BodyAttackStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -25, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_BodyAttackLoop = function ()
@@ -293,7 +293,7 @@ effect_BodyAttackEnd = function ()
         sv_animcmd.LAST_EFFECT_SET_COLOR(0.6110000014305115, 0.46299999952316284, 0.4169999957084656)
         sv_animcmd.EFFECT(0x13CFA71D1D, 0x031ED91FCA, 0, 0, 15, 0, 0, 0, 1.2000000476837158, 0, 0, 5, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_BodyAttackTurn = function ()
@@ -309,7 +309,7 @@ effect_BodyAttackTurn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EC09045BB, 0x031ED91FCA, -3, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_BodyAttackJump = function ()
@@ -345,7 +345,7 @@ effect_BodyAttackJump = function ()
         sv_animcmd.EFFECT_DETACH_KIND(0x132FF0AA96, -1)
         sv_animcmd.EFFECT_DETACH_KIND(0x1529E6368D, -1)
     end
-    return 
+    return
 end
 
 effect_FireballShot = function ()
@@ -353,7 +353,7 @@ effect_FireballShot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1D26B57F3F, 0x030886299D, 0, 0, 0, 0, 0, 0, 1.5, true)
     end
-    return 
+    return
 end
 
 effect_FireballShot3Start = function ()
@@ -361,7 +361,7 @@ effect_FireballShot3Start = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1D26B57F3F, 0x030886299D, 0, 0, 0, 0, 0, 0, 1.5, true)
     end
-    return 
+    return
 end
 
 effect_FireballShot3End = function ()
@@ -370,7 +370,7 @@ effect_FireballShot3End = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1D26B57F3F, 0x030886299D, 0, 0, 0, 0, 0, 0, 1.5, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2000000476837158)
     end
-    return 
+    return
 end
 
 effect_BackJumpFire = function ()
@@ -439,7 +439,7 @@ effect_BackJumpFire = function ()
             sv_animcmd.EFFECT(0x0D0DA6E3C0, 0x031ED91FCA, -20, 0, -10, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
         end
     end
-    return 
+    return
 end
 
 effect_BackJumpFire2 = function ()
@@ -463,7 +463,7 @@ effect_BackJumpFire2 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0EB968E28A, 0x031ED91FCA, -17, 0, 0, 0, 0, 0, 1.75, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_Tail = function ()
@@ -498,7 +498,7 @@ effect_Tail = function ()
             sv_animcmd.LAST_EFFECT_SET_RATE(0.699999988079071)
         end
     end
-    return 
+    return
 end
 
 effect_TailShort = function ()
@@ -533,7 +533,7 @@ effect_TailShort = function ()
             sv_animcmd.LAST_EFFECT_SET_RATE(0.699999988079071)
         end
     end
-    return 
+    return
 end
 
 effect_Howling = function ()
@@ -549,7 +549,7 @@ effect_Howling = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
-    return 
+    return
 end
 
 effect_LowFireballShot = function ()
@@ -562,7 +562,7 @@ effect_LowFireballShot = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_LowFireballShot3Start = function ()
@@ -574,7 +574,7 @@ effect_LowFireballShot3Start = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_LowFireballShot3 = function ()
@@ -582,7 +582,7 @@ effect_LowFireballShot3 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_SkySlipStart = function ()
@@ -595,7 +595,7 @@ effect_SkySlipStart = function ()
         sv_animcmd.EFFECT_FLW_POS(0x186303278D, 0x031ED91FCA, 10, 0, 22.5, 0, 0, 0, 1.100000023841858, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
-    return 
+    return
 end
 
 effect_SkySlipLoop = function ()
@@ -607,7 +607,7 @@ effect_SkySlipLoop = function ()
         sv_animcmd.EFFECT_FLW_POS(0x186303278D, 0x031ED91FCA, 10, 0, 22.5, 0, 0, 0, 1.100000023841858, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.8999999761581421)
     end
-    return 
+    return
 end
 
 effect_SkySlipEnd = function ()
@@ -648,7 +648,7 @@ effect_SkySlipEnd = function ()
             sv_animcmd.LAST_EFFECT_SET_RATE(0.800000011920929)
         end
     end
-    return 
+    return
 end
 
 effect_Nail = function ()
@@ -663,7 +663,7 @@ effect_Nail = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_DETACH_KIND(0x132FF0AA96, -1)
     end
-    return 
+    return
 end
 
 effect_AirHowling = function ()
@@ -679,7 +679,7 @@ effect_AirHowling = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE_STOP(CAMERA_QUAKE_KIND_KS)
     end
-    return 
+    return
 end
 
 effect_AssaultStart = function ()
@@ -699,7 +699,7 @@ effect_AssaultStart = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x12A7C6113D, 0x031ED91FCA, 0, 0, 0, 0, 180, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_AssaultStartReverse = function ()
@@ -719,7 +719,7 @@ effect_AssaultStartReverse = function ()
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
         sv_animcmd.EFFECT(0x12A7C6113D, 0x031ED91FCA, 0, 0, 0, 0, 180, 0, 1.2000000476837158, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 effect_AssaultLoop = function ()
@@ -743,7 +743,7 @@ effect_AssaultLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_AssaultLoopReverse = function ()
@@ -767,7 +767,7 @@ effect_AssaultLoopReverse = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_ChargeFireballRise = function ()
@@ -777,14 +777,14 @@ effect_ChargeFireballRise = function ()
         sv_animcmd.EFFECT(0x12A7C6113D, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.800000011920929)
     end
-    return 
+    return
 end
 
 effect_ChargeFireballLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x1DA5C45D68, 0x030886299D, 8, 0, 0, 0, 0, 0, 3, true)
     end
-    return 
+    return
 end
 
 effect_DownStart = function ()
@@ -794,7 +794,7 @@ effect_DownStart = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(0.6000000238418579)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 effect_AirDownLanding = function ()
@@ -804,7 +804,7 @@ effect_AirDownLanding = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(0.7300000190734863)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_HoleStart = function ()
@@ -813,7 +813,7 @@ effect_HoleStart = function ()
         sv_animcmd.EFFECT(0x19C732B814, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.949999988079071, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1)
     end
-    return 
+    return
 end
 
 effect_HoleLoop = function ()
@@ -821,7 +821,7 @@ effect_HoleLoop = function ()
         sv_animcmd.EFFECT_FLW_POS(0x1882FE97D3, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, true)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.100000023841858)
     end
-    return 
+    return
 end
 
 effect_HoleEnd = function ()
@@ -837,7 +837,7 @@ effect_HoleEnd = function ()
         sv_animcmd.EFFECT(0x13508F3EF4, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.800000011920929)
     end
-    return 
+    return
 end
 
 effect_Dead = function ()
@@ -852,7 +852,7 @@ effect_Dead = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(0.7300000190734863)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_DeadAir = function ()
@@ -866,7 +866,7 @@ effect_DeadAir = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(0.7300000190734863)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 effect_HoleDead = function ()
@@ -901,7 +901,7 @@ effect_HoleDead = function ()
         sv_animcmd.EFFECT(0x157986B7B8, 0x0A1626A44E, 0, -7.5, 10, 0, 0, 0, 1.100000023841858, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.LAST_EFFECT_SET_RATE(0.4000000059604645)
     end
-    return 
+    return
 end
 
 effect_Dead_Adventure = function ()
@@ -916,7 +916,7 @@ effect_Dead_Adventure = function ()
         sv_animcmd.LAST_EFFECT_SET_RATE(0.7300000190734863)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_XL)
     end
-    return 
+    return
 end
 
 return

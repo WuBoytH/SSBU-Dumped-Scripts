@@ -84,7 +84,7 @@ effect_LaserBeamAllStop = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x1A070F75B1, true, true)
         sv_animcmd.EFFECT_OFF_KIND(0x14279C2990, false, false)
     end
-    return 
+    return
 end
 
 effect_Entry = function ()
@@ -230,7 +230,7 @@ effect_Entry = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x134CF61688, false, true)
     end
-    return 
+    return
 end
 
 effect_Turn = function ()
@@ -242,7 +242,7 @@ effect_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_WalkFront = function ()
@@ -254,7 +254,7 @@ effect_WalkFront = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_WalkBack = function ()
@@ -266,7 +266,7 @@ effect_WalkBack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_BackJump = function ()
@@ -282,7 +282,7 @@ effect_BackJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_TurnJump = function ()
@@ -298,7 +298,7 @@ effect_TurnJump = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 effect_DoubleSlash = function ()
@@ -339,7 +339,7 @@ effect_DoubleSlash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1538388725, false, true)
     end
-    return 
+    return
 end
 
 effect_SpinSlashStart = function ()
@@ -370,7 +370,7 @@ effect_SpinSlashStart = function ()
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.6000000238418579)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
-    return 
+    return
 end
 
 effect_SpinSlashLoop = function ()
@@ -470,7 +470,7 @@ effect_SpinSlashLoop = function ()
         sv_animcmd.LAST_EFFECT_SET_ALPHA(0.6000000238418579)
         sv_animcmd.LAST_EFFECT_SET_RATE(1.2999999523162842)
     end
-    return 
+    return
 end
 
 effect_SpinSlashEnd = function ()
@@ -497,7 +497,7 @@ effect_SpinSlashEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1538388725, false, true)
     end
-    return 
+    return
 end
 
 effect_SpinSlashEndReverse = function ()
@@ -524,7 +524,7 @@ effect_SpinSlashEndReverse = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1538388725, false, true)
     end
-    return 
+    return
 end
 
 effect_JumpSlash = function ()
@@ -571,7 +571,7 @@ effect_JumpSlash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1538388725, false, true)
     end
-    return 
+    return
 end
 
 effect_SlashUp = function ()
@@ -606,7 +606,7 @@ effect_SlashUp = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1538388725, false, true)
     end
-    return 
+    return
 end
 
 effect_ThunderSlash = function ()
@@ -676,10 +676,10 @@ effect_ThunderSlash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1B33F6D34F, false, true)
     end
-    return 
+    return
 end
 
-effect_ThunderSlashReturn = function ()
+effect_ThunderSlashreturn= function ()
     sv_animcmd.frame(3)
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1B33F6D34F, 0x05E008FD84, 0, 25, 0, 0, 0, 0, 0.800000011920929, true)
@@ -739,7 +739,7 @@ effect_ThunderSlashReturn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1B33F6D34F, false, true)
     end
-    return 
+    return
 end
 
 effect_BackSlash = function ()
@@ -772,7 +772,7 @@ effect_BackSlash = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1538388725, false, true)
     end
-    return 
+    return
 end
 
 effect_BodyAttackHold = function ()
@@ -795,7 +795,7 @@ effect_BodyAttackHold = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FCB698218, 0x04A7F3F69C, 12, 12, -5, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_BodyAttackStart = function ()
@@ -817,7 +817,7 @@ effect_BodyAttackStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1576FDDB92, 0x031ED91FCA, 0, 21.5, 35, 0, 0, 0, 1.2999999523162842, true)
     end
-    return 
+    return
 end
 
 effect_BodyAttackLoop = function ()
@@ -846,7 +846,7 @@ effect_BodyAttackEnd = function ()
         sv_animcmd.EFFECT(0x11A1E5D7AA, 0x031ED91FCA, 20, 0, 0, 0, 0, 0, 1.2000000476837158, 0, 0, 0, 0, 360, 0, false)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_M)
     end
-    return 
+    return
 end
 
 effect_BigJumpStart = function ()
@@ -885,7 +885,7 @@ effect_BigJumpStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x16156AA582, false, true)
     end
-    return 
+    return
 end
 
 effect_BigJumpEnd = function ()
@@ -907,14 +907,14 @@ effect_BigJumpEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x18DB7BDDE2, false, true)
     end
-    return 
+    return
 end
 
 effect_HomingBombStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x133145CE7F, 0x030886299D, 5, -2, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_HomingBombLoop = function ()
@@ -926,7 +926,7 @@ effect_HomingBombLoop = function ()
         end
         sv_animcmd.wait(19)
     end
-    return 
+    return
 end
 
 effect_HomingBomb = function ()
@@ -958,7 +958,7 @@ effect_HomingBomb = function ()
     elseif sv_animcmd.is_excute() then
         sv_animcmd.LANDING_EFFECT(0x0D0679B24D, 0x031ED91FCA, 5, 0, 5, 0, 0, 0, 1.2999999523162842, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_LaserBeamHold = function ()
@@ -983,7 +983,7 @@ effect_LaserBeamHold = function ()
         end
         sv_animcmd.wait(19)
     end
-    return 
+    return
 end
 
 effect_LaserBeamStart = function ()
@@ -992,7 +992,7 @@ effect_LaserBeamStart = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1A070F75B1, 0x030886299D, 8, 0, 0, 0, 90, 0, 1.2999999523162842, true)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_L)
     end
-    return 
+    return
 end
 
 effect_LaserBeamLoop = function ()
@@ -1000,14 +1000,14 @@ effect_LaserBeamLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x1A070F75B1, false, false)
     end
-    return 
+    return
 end
 
 effect_LaserBeamEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x14279C2990, false, false)
     end
-    return 
+    return
 end
 
 effect_DownStart = function ()
@@ -1027,7 +1027,7 @@ effect_DownStart = function ()
         sv_animcmd.EFFECT_FOLLOW(0x1A8E5A0999, 0x04B12BD53F, 0, 0, 0, 0, 0, 0, 1.2000000476837158, true)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_GANONBOSS_INSTANCE_WORK_INT_DOWN_EFFECT_HANDLE_6)
     end
-    return 
+    return
 end
 
 effect_DownLoop = function ()
@@ -1045,7 +1045,7 @@ effect_DownLoop = function ()
         sv_animcmd.EFFECT_FLW_POS(0x14F4925643, 0x042011D653, 0, 0, 0, 0, 0, 0, 1.2999999523162842, false)
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_GANONBOSS_INSTANCE_WORK_INT_DOWN_EFFECT_HANDLE_6)
     end
-    return 
+    return
 end
 
 effect_Dead = function ()
@@ -1154,7 +1154,7 @@ effect_Dead = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 return

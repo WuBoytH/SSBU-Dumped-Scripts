@@ -20,98 +20,98 @@ sound_DamageSand = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A0E0BFFD1)
     end
-    return 
+    return
 end
 
 sound_DamageSoil = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A450FCC2E)
     end
-    return 
+    return
 end
 
 sound_DamageIce = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x196B480EE6)
     end
-    return 
+    return
 end
 
 sound_DamageWool = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A9C37FCFF)
     end
-    return 
+    return
 end
 
 sound_DamageWood = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A92EC74CD)
     end
-    return 
+    return
 end
 
 sound_DamageStone = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A9938D662)
     end
-    return 
+    return
 end
 
 sound_DamageIron = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1AD6018D5C)
     end
-    return 
+    return
 end
 
 sound_BreakSand = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A889F8D7F)
     end
-    return 
+    return
 end
 
 sound_BreakSoil = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1AC39BBE80)
     end
-    return 
+    return
 end
 
 sound_BreakIce = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x192CE87436)
     end
-    return 
+    return
 end
 
 sound_BreakWool = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A1AA38E51)
     end
-    return 
+    return
 end
 
 sound_BreakWood = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A14780663)
     end
-    return 
+    return
 end
 
 sound_BreakStone = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A1FACA4CC)
     end
-    return 
+    return
 end
 
 sound_BreakIron = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A5095FFF2)
     end
-    return 
+    return
 end
 
 return

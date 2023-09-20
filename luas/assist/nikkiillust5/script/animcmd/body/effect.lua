@@ -10,7 +10,7 @@ effect_Wait = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x11B81B27AD, 0x031ED91FCA, 20, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Throw = function ()
@@ -19,14 +19,14 @@ effect_Throw = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x11B81B27AD, false, true)
         sv_animcmd.EFFECT_FOLLOW(0x12B20A7A7F, 0x031ED91FCA, 20, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_End = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x12B20A7A7F, false, true)
     end
-    return 
+    return
 end
 
 return

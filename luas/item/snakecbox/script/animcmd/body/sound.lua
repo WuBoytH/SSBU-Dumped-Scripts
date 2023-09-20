@@ -9,7 +9,7 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.IT_SET_SE_arg2(0x07FB997A80, 0x0FCF0D2CC5)
     end
-    return 
+    return
 end
 
 sound_Have = function ()
@@ -17,7 +17,7 @@ sound_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1A58D5FDA3)
     end
-    return 
+    return
 end
 
 return

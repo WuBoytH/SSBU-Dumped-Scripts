@@ -13,7 +13,7 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FLW_POS(0x15AECB74DD, 0x035DBFE258, 0, 0, 0, 0, 0, 0, 1.7999999523162842, false)
     end
-    return 
+    return
 end
 
 effect_Attack = function ()
@@ -31,14 +31,14 @@ effect_Attack = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x11249894E2, false, true)
         sv_animcmd.CANCEL_FILL_SCREEN(1, 70)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x0FB5ED6451, 0x035DBFE258, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false)
     end
-    return 
+    return
 end
 
 return

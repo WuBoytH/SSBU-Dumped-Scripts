@@ -32,7 +32,7 @@ game_PaaTsubushiStartReverse = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 game_PaaTsubushiFall = function ()
@@ -40,7 +40,7 @@ game_PaaTsubushiFall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(1, 0, 0x042762428F, 29, 20, 32, 0, 60, 25, 15, -12, 0, 0x15A2C502B3, 0, 0, 1, false, true, 10, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 120, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_PaaTsubushiEnd = function ()
@@ -59,7 +59,7 @@ game_PaaTsubushiEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Hippataku = function ()
@@ -79,7 +79,7 @@ game_Hippataku = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_DrillFall = function ()
@@ -89,7 +89,7 @@ game_DrillFall = function ()
         sv_animcmd.ATTACK_FP(1, 0, 0x042762428F, 32, -90, 100, 200, 0, 10, 40, 0, 0, 0x15A2C502B3, 0, 0, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, true, false, false, COLLISION_SHAPE_TYPE_SPHERE)
         sv_animcmd.ATTACK_FP(2, 0, 0x042762428F, 32, -90, 100, 200, 0, 8, 0, 0, 3, 0x15A2C502B3, 0, 0, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, true, false, false, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_DrillEnd = function ()
@@ -115,7 +115,7 @@ game_DrillEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x10455D7D08, 8)
     end
-    return 
+    return
 end
 
 game_DrillStart = function ()
@@ -125,7 +125,7 @@ game_DrillStart = function ()
         sv_animcmd.ATTACK_FP(3, 0, 0x042762428F, 19, 90, 100, 180, 0, 9, 34, 0, 0, 0x15A2C502B3, 0, 0, 1, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
         sv_animcmd.RUMBLE_ALL(0x1209AD28AE, 26)
     end
-    return 
+    return
 end
 
 game_Yubideppou = function ()
@@ -137,7 +137,7 @@ game_Yubideppou = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x10EAA9BFF4, 0)
     end
-    return 
+    return
 end
 
 game_YubideppouRensha = function ()
@@ -153,7 +153,7 @@ game_YubideppouRensha = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_YUBIDEPPOU)
     end
-    return 
+    return
 end
 
 game_PacchinEndStart = function ()
@@ -167,7 +167,7 @@ game_PacchinEndStart = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_YubiBeam = function ()
@@ -262,7 +262,7 @@ game_YubiBeam = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x0CC5A0D007, 0)
     end
-    return 
+    return
 end
 
 game_Turn = function ()
@@ -270,7 +270,7 @@ game_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 game_TurnReverse = function ()
@@ -278,7 +278,7 @@ game_TurnReverse = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 game_DownLanding = function ()
@@ -286,14 +286,14 @@ game_DownLanding = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 1, 0x05589ACC6A, 0, 0, 100, 15, 0, 6, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 3, false, false, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_DownLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(0, 1, 0x05589ACC6A, 0, 0, 100, 30, 0, 6, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 5, false, false, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_IronBallStart = function ()
@@ -301,7 +301,7 @@ game_IronBallStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_IRON_BALL_CREATE)
     end
-    return 
+    return
 end
 
 game_IronBall = function ()
@@ -310,7 +310,7 @@ game_IronBall = function ()
         WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_IRON_BALL_THROW)
         sv_animcmd.RUMBLE_ALL(0x0DC5701E41, 0)
     end
-    return 
+    return
 end
 
 game_ChakramStart = function ()
@@ -338,7 +338,7 @@ game_ChakramStart = function ()
         WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_THROW)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ChakramStartReverse = function ()
@@ -370,7 +370,7 @@ game_ChakramStartReverse = function ()
         WorkModule.on_flag(ITEM_PLAYABLE_MASTERHAND_INSTANCE_WORK_FLAG_CHAKRAM_THROW)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

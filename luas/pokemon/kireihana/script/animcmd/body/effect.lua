@@ -10,7 +10,7 @@ effect_Dance = function ()
         sv_animcmd.EFFECT_FLW_POS(0x20F657112B, 0x031D39A761, 0, 5, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FLW_POS(0x1EF993CFFC, 0x031D39A761, 0, 5, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 return

@@ -9,7 +9,7 @@ sound_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x20B1DD084E)
     end
-    return 
+    return
 end
 
 sound_Born = function ()
@@ -21,7 +21,7 @@ sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x24DCB72A3C)
     end
-    return 
+    return
 end
 
 return

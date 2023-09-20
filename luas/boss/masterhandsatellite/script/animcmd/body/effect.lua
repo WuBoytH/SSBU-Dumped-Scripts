@@ -10,14 +10,14 @@ effect_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1FDF6310C3, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.800000011920929, false)
     end
-    return 
+    return
 end
 
 effect_Hit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1B806F7E17, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Shrink = function ()
@@ -25,7 +25,7 @@ effect_Shrink = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1CC297CD33, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 0.800000011920929, false)
     end
-    return 
+    return
 end
 
 return

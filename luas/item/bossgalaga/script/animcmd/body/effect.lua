@@ -13,28 +13,28 @@ effect_Beam = function ()
         sv_animcmd.LAST_EFFECT_SET_WORK_INT(ITEM_BOSSGALAGA_INSTANCE_WORK_INT_BEAM_EFFECT_HANDLE)
         EffectModule.set_custom_uv_offset(WorkModule.get_int64(ITEM_BOSSGALAGA_INSTANCE_WORK_INT_BEAM_EFFECT_HANDLE), 0, 0)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x14D215D1DC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 effect_Capture = function ()
     if sv_animcmd.is_excute() then
         EffectModule.req_screen(0x1229F049FE, false, true, true)
     end
-    return 
+    return
 end
 
 effect_Lost = function ()
     if sv_animcmd.is_excute() then
         EffectModule.remove_screen(0x1229F049FE)
     end
-    return 
+    return
 end
 
 return

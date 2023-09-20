@@ -38,7 +38,7 @@ effect_FlashOff = function ()
         sv_animcmd.BURN_COLOR_NORMAL()
         sv_animcmd.COL_NORMAL()
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -48,7 +48,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x18D0FA3D9D, 0x031ED91FCA, 0, 2.5, 0.10000000149011612, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         VisibilityModule.set_whole(false)
     end
-    return 
+    return
 end
 
 return

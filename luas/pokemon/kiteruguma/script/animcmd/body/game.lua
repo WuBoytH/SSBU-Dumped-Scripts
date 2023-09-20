@@ -11,7 +11,7 @@ game_Jump = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_JumpAir = function ()
@@ -19,7 +19,7 @@ game_JumpAir = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_AttackFront = function ()
@@ -64,7 +64,7 @@ game_AttackFront = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_AttackUpper = function ()
@@ -89,7 +89,7 @@ game_AttackUpper = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

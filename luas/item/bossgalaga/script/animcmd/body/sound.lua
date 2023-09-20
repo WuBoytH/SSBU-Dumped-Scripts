@@ -14,7 +14,7 @@ sound_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x1D22A9CD35)
     end
-    return 
+    return
 end
 
 sound_Appear = function ()
@@ -22,42 +22,42 @@ sound_Appear = function ()
         WorkModule.set_int64(0x1317714CF5, ITEM_INSTANCE_WORK_INT_SE_LOST_HASH)
         sv_animcmd.IT_SET_SE_arg2(0x16BC349331, 0x0F42052130)
     end
-    return 
+    return
 end
 
 sound_Move = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17E6D0F7CB)
     end
-    return 
+    return
 end
 
 sound_MoveEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.STOP_SE(0x17E6D0F7CB)
     end
-    return 
+    return
 end
 
 sound_Beam01 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x19BCAD3F36)
     end
-    return 
+    return
 end
 
 sound_Beam02 = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1925A46E8C)
     end
-    return 
+    return
 end
 
 sound_Rise = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x17975038F5)
     end
-    return 
+    return
 end
 
 return

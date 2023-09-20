@@ -16,7 +16,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_GLOBAL_arg9(0x0FEADF2260, 0, 0, 0, 0, 0, 0, 1, false)
         EffectModule.req_screen(0x12C567C4A4, false, true, true)
     end
-    return 
+    return
 end
 
 effect_AppearDarkStage = function ()
@@ -27,21 +27,21 @@ effect_AppearDarkStage = function ()
         sv_animcmd.EFFECT_GLOBAL_arg9(0x0FEADF2260, 0, 0, 0, 0, 0, 0, 1, false)
         EffectModule.req_screen(0x12C567C4A4, false, true, true)
     end
-    return 
+    return
 end
 
 effect_VisibleSight = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x0FFC7877B6, 0x04EF3E3778, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_InvisibleSight = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x0FFC7877B6, false, true)
     end
-    return 
+    return
 end
 
 effect_Shutter = function ()
@@ -51,7 +51,7 @@ effect_Shutter = function ()
         sv_animcmd.EFFECT(0x16E0EF61E5, 0x04EF3E3778, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true)
         sv_animcmd.LAST_EFFECT_SET_DISABLE_SYSTEM_SLOW(true)
     end
-    return 
+    return
 end
 
 effect_Exit = function ()
@@ -62,7 +62,7 @@ effect_Exit = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x0FEADF2260, false, true)
         EffectModule.remove_screen(0x12C567C4A4)
     end
-    return 
+    return
 end
 
 effect_ExitDarkStage = function ()
@@ -73,7 +73,7 @@ effect_ExitDarkStage = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x0FEADF2260, false, true)
         EffectModule.remove_screen(0x12C567C4A4)
     end
-    return 
+    return
 end
 
 effect_LostByFinal = function ()
@@ -83,7 +83,7 @@ effect_LostByFinal = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x0FEADF2260, false, true)
         EffectModule.remove_screen(0x12C567C4A4)
     end
-    return 
+    return
 end
 
 return

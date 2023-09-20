@@ -8,7 +8,7 @@ game_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK(0, 0, 0x031ED91FCA, 30, 60, 62, 0, 60, 20, 0, 0, 0, 0, 0, 0, 0.5, 0.4000000059604645, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_POS, false, 10, 0, 100, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_NO_FLOOR, COLLISION_PART_MASK_ALL, false, 0x13462FCFE4, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_ELEC, ATTACK_REGION_NONE)
     end
-    return 
+    return
 end
 
 game_Move = function ()
@@ -43,7 +43,7 @@ game_Move = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

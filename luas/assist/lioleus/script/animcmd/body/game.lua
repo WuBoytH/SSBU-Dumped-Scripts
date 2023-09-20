@@ -23,7 +23,7 @@ game_Entry = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_INITIALIZE_ATTACH_GROUND)
     end
-    return 
+    return
 end
 
 game_Flight = function ()
@@ -31,7 +31,7 @@ game_Flight = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_Landing = function ()
@@ -39,7 +39,7 @@ game_Landing = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_CHANGE_MODE_GROUND_ATTACH)
     end
-    return 
+    return
 end
 
 game_TurnAir = function ()
@@ -47,7 +47,7 @@ game_TurnAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 game_FireballShot = function ()
@@ -58,7 +58,7 @@ game_FireballShot = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_FireballShot3Start = function ()
@@ -69,7 +69,7 @@ game_FireballShot3Start = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_FireballShot3 = function ()
@@ -80,14 +80,14 @@ game_FireballShot3 = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_FireballShot3End = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP(9, 0, 0x031ED91FCA, 0, 0, 100, 40, 0, 10, 0, 0, 0, 0x15A2C502B3, 0, 0, 2, false, true, 0, ATTACK_SOUND_LEVEL_LL, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 3, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_BackJumpFire = function ()
@@ -100,7 +100,7 @@ game_BackJumpFire = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Tail = function ()
@@ -129,7 +129,7 @@ game_Tail = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_TailShort = function ()
@@ -158,7 +158,7 @@ game_TailShort = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Howling = function ()
@@ -173,7 +173,7 @@ game_Howling = function ()
         AttackModule.clear_all()
         sv_animcmd.ATTACK_FP(9, 0, 0x031ED91FCA, 0, 0, 100, 40, 0, 10, 0, 0, 0, 0x15A2C502B3, 0, 0, 2, false, true, 0, ATTACK_SOUND_LEVEL_LL, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 3, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE)
     end
-    return 
+    return
 end
 
 game_BodyAttackStart = function ()
@@ -182,7 +182,7 @@ game_BodyAttackStart = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x04A7F3F69C, 26, 50, 40, 0, 80, 10, 0, -15, 0, 0x15A2C502B3, 0, 1, 1, false, false, 8, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
         sv_animcmd.ATTACK_FP(1, 0, 0x04B12BD53F, 22, 50, 40, 0, 80, 13, 0, 5, 0, 0x15A2C502B3, 0, 1, 1, false, false, 8, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
     end
-    return 
+    return
 end
 
 game_BodyAttackLoop = function ()
@@ -190,7 +190,7 @@ game_BodyAttackLoop = function ()
         sv_animcmd.ATTACK_FP(0, 0, 0x04A7F3F69C, 30, 50, 35, 0, 80, 10, 0, -15, 0, 0x15A2C502B3, 0, 1, 1, false, false, 8, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
         sv_animcmd.ATTACK_FP(1, 0, 0x04B12BD53F, 26, 50, 35, 0, 80, 13, 0, 5, 0, 0x15A2C502B3, 0, 1, 1, false, false, 8, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_PUNCH, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_BODY_HEAD, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE)
     end
-    return 
+    return
 end
 
 game_BodyAttackEnd = function ()
@@ -202,7 +202,7 @@ game_BodyAttackEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_LowFireballShot = function ()
@@ -210,7 +210,7 @@ game_LowFireballShot = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_LowFireballShot3Start = function ()
@@ -218,7 +218,7 @@ game_LowFireballShot3Start = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_LowFireballShot3 = function ()
@@ -226,7 +226,7 @@ game_LowFireballShot3 = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_Nail = function ()
@@ -259,7 +259,7 @@ game_Nail = function ()
     if sv_animcmd.is_excute() then
         WorkModule.off_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_SHOOT)
     end
-    return 
+    return
 end
 
 game_AirHowling = function ()
@@ -276,7 +276,7 @@ game_AirHowling = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ChargeFireballRise = function ()
@@ -284,7 +284,7 @@ game_ChargeFireballRise = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_ChargeFireballRiseL = function ()
@@ -292,7 +292,7 @@ game_ChargeFireballRiseL = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
     end
-    return 
+    return
 end
 
 game_AirDownStart = function ()
@@ -300,7 +300,7 @@ game_AirDownStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_START_ENERGY)
     end
-    return 
+    return
 end
 
 game_TailCutDownStart = function ()
@@ -308,7 +308,7 @@ game_TailCutDownStart = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_LIOLEUS_INSTANCE_WORK_FLAG_TAIL_CUT_CREATE_ITEM)
     end
-    return 
+    return
 end
 
 game_TailCutDownEnd = function ()
@@ -316,7 +316,7 @@ game_TailCutDownEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 return

@@ -9,7 +9,7 @@ effect_Appear = function ()
         sv_animcmd.EFFECT_FOLLOW(0x15BD6DE4B4, 0x031ED91FCA, 0, 3, 0, 0, -90, 0, 2.4000000953674316, true)
         EffectModule.enable_sync_init_pos_last()
     end
-    return 
+    return
 end
 
 return

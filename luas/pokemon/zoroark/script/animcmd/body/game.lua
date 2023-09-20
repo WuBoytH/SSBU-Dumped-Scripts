@@ -14,7 +14,7 @@ game_TeleportStart = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(0.5)
     end
-    return 
+    return
 end
 
 game_TeleportEnter = function ()
@@ -22,7 +22,7 @@ game_TeleportEnter = function ()
     if sv_animcmd.is_excute() then
         MotionModule.set_rate(1)
     end
-    return 
+    return
 end
 
 game_ThrowUp = function ()
@@ -43,11 +43,11 @@ game_ThrowUp = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ThrowUpAir = function ()
-    return game_ThrowUp()
+    returngame_ThrowUp()
 end
 
 game_Failure = function ()
@@ -55,7 +55,7 @@ game_Failure = function ()
     if sv_animcmd.is_excute() then
         WorkModule:on_flag(ITEM_ZOROARK_INSTANCE_WORK_FLAG_THROW_UP_GRAVITY_START)
     end
-    return 
+    return
 end
 
 game_SwingDown = function ()
@@ -71,7 +71,7 @@ game_SwingDown = function ()
         AttackModule.clear_all()
         WorkModule.set_int(0, ITEM_STATUS_WORK_INT_0)
     end
-    return 
+    return
 end
 
 game_SwingUp = function ()
@@ -87,7 +87,7 @@ game_SwingUp = function ()
         AttackModule.clear_all()
         WorkModule.set_int(0, ITEM_STATUS_WORK_INT_0)
     end
-    return 
+    return
 end
 
 game_CutThrough = function ()
@@ -103,7 +103,7 @@ game_CutThrough = function ()
         AttackModule.clear_all()
         WorkModule.set_int(0, ITEM_STATUS_WORK_INT_0)
     end
-    return 
+    return
 end
 
 game_FootCutThrough = function ()
@@ -119,7 +119,7 @@ game_FootCutThrough = function ()
         AttackModule.clear_all()
         WorkModule.set_int(0, ITEM_STATUS_WORK_INT_0)
     end
-    return 
+    return
 end
 
 game_Slam = function ()
@@ -131,7 +131,7 @@ game_Slam = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 return

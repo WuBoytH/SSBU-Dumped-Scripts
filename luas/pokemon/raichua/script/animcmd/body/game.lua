@@ -8,7 +8,7 @@ game_Run = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK(0, 0, 0x051A36341B, 8, 45, 100, 0, 60, 5, 2.5, 5, 0, 0, 5, 0, 0.5, 3, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 6, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13462FCFE4, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_ELEC, ATTACK_REGION_BODY)
     end
-    return 
+    return
 end
 
 game_Turn = function ()
@@ -24,7 +24,7 @@ game_Turn = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_TurnEnd = function ()
@@ -35,7 +35,7 @@ game_TurnEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Jump = function ()
@@ -48,14 +48,14 @@ game_Jump = function ()
         WorkModule:on_flag(ITEM_INSTANCE_WORK_FLAG_TAKE_OFF)
         sv_animcmd.ATTACK(0, 0, 0x051A36341B, 8, 45, 100, 0, 60, 5, 2.5, 5, 0, 0, 5, 0, 0.5, 3, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 6, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13462FCFE4, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_ELEC, ATTACK_REGION_BODY)
     end
-    return 
+    return
 end
 
 game_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK(0, 0, 0x051A36341B, 8, 45, 100, 0, 60, 5, 0, 5, 0, -2.5, 5, 0, 0.5, 3, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 6, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13462FCFE4, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_ELEC, ATTACK_REGION_BODY)
     end
-    return 
+    return
 end
 
 game_Landing = function ()
@@ -63,7 +63,7 @@ game_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK(0, 0, 0x051A36341B, 8, 45, 100, 0, 60, 5, 2.5, 5, 0, 0, 5, 0, 0.5, 3, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 6, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13462FCFE4, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_ELEC, ATTACK_REGION_BODY)
     end
-    return 
+    return
 end
 
 game_LandingAir = function ()
@@ -71,7 +71,7 @@ game_LandingAir = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK(0, 0, 0x051A36341B, 8, 45, 100, 0, 60, 5, 2.5, 5, 0, 0, 5, 0, 0.5, 3, ATTACK_SETOFF_KIND_OFF, ATTACK_LR_CHECK_F, false, 0, 0, 6, false, false, false, false, false, COLLISION_SITUATION_MASK_GA, COLLISION_CATEGORY_MASK_ALL, COLLISION_PART_MASK_ALL, false, 0x13462FCFE4, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_ELEC, ATTACK_REGION_BODY)
     end
-    return 
+    return
 end
 
 return

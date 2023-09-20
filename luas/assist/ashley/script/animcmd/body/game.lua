@@ -14,7 +14,7 @@ game_DarkArrivalEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Dark = function ()
@@ -27,7 +27,7 @@ game_Dark = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_DarkVanishEnd = function ()
@@ -36,7 +36,7 @@ game_DarkVanishEnd = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 45, 20, 0, 0, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, false, COLLISION_PART_MASK_ALL, false, false, false, false, 45, false, false, ATTACK_LR_CHECK_POS, false, false, true, true, true, -20, 0, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x031ED91FCA, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, false, COLLISION_PART_MASK_ALL, false, false, false, false, 45, false, false, ATTACK_LR_CHECK_POS, false, false, true, true, true, 0, 0, 0)
     end
-    return 
+    return
 end
 
 game_DarkVanish = function ()
@@ -45,7 +45,7 @@ game_DarkVanish = function ()
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 0, 0, 0x031ED91FCA, 0, 0, 0, 0, 0, 45, 20, 0, 0, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, false, COLLISION_PART_MASK_ALL, false, false, false, false, 45, false, false, ATTACK_LR_CHECK_POS, false, false, true, true, true, -20, 0, 0)
         sv_module_access.attack(MA_MSC_CMD_ATTACK_FP_CAPSULE, 1, 0, 0x031ED91FCA, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0x15A2C502B3, 0, 1, 1, false, false, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, false, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, false, COLLISION_PART_MASK_ALL, false, false, false, false, 45, false, false, ATTACK_LR_CHECK_POS, false, false, true, true, true, 0, 0, 0)
     end
-    return 
+    return
 end
 
 return

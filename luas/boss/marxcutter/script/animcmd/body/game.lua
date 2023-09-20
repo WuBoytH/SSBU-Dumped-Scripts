@@ -28,7 +28,7 @@ game_Throw = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear(0)
     end
-    return 
+    return
 end
 
 return

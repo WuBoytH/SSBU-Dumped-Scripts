@@ -12,7 +12,7 @@ effect_ThrowWire = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x1733B2EEE8, 0x031ED91FCA, 0, 0.6600000262260437, 0, 0, 0, 0, 1, true)
     end
-    return 
+    return
 end
 
 effect_PullWire = function ()
@@ -25,14 +25,14 @@ effect_PullWire = function ()
         sv_animcmd.EFFECT_FOLLOW(0x19FD1E80B7, 0x031ED91FCA, 0, 0.6600000262260437, 0, 0, 0, 0, 1, true)
         sv_animcmd.EFFECT_FOLLOW(0x1255269759, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, false)
     end
-    return 
+    return
 end
 
 effect_Ignite = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_OFF_KIND(0x19FD1E80B7, false, false)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
@@ -44,7 +44,7 @@ effect_Born = function ()
         sv_animcmd.EFFECT(0x0A8E614246, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         sv_animcmd.QUAKE(CAMERA_QUAKE_KIND_S)
     end
-    return 
+    return
 end
 
 return

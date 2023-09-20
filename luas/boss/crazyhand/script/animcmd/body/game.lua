@@ -39,7 +39,7 @@
 
 game_Entry = function ()
     sv_animcmd.frame(330)
-    return 
+    return
 end
 
 game_OkuHikouki = function ()
@@ -60,7 +60,7 @@ game_OkuHikouki = function ()
     sv_animcmd.frame(99)
     sv_animcmd.frame(103)
     sv_animcmd.frame(104)
-    return 
+    return
 end
 
 game_OkuHikoukiEnd = function ()
@@ -75,7 +75,7 @@ game_OkuHikoukiEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_OkuHikoukiStart = function ()
@@ -95,7 +95,7 @@ game_OkuHikoukiStart = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Notautsu = function ()
@@ -200,7 +200,7 @@ game_Notautsu = function ()
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_NOTAUTSU_CHASE)
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_NOTAUTSU_JOSTLE_ON)
     end
-    return 
+    return
 end
 
 game_DrillAttack = function ()
@@ -210,7 +210,7 @@ game_DrillAttack = function ()
         sv_animcmd.ATTACK_FP_STRENGTH(1, 0, 0x042762428F, 7, 13, 280, 100, 100, 60, 60, 0, 0, 10, 10, 38, 0, 0, 0x15A2C502B3, 0, 1, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.ATTACK_FP_STRENGTH(2, 0, 0x042762428F, 7, 13, 280, 100, 100, 60, 60, 0, 0, 8, 8, 0, 0, 3, 0x15A2C502B3, 0, 1, 1, false, true, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_DrillEnd = function ()
@@ -262,7 +262,7 @@ game_DrillEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x10455D7D08, 8)
     end
-    return 
+    return
 end
 
 game_DrillStart = function ()
@@ -271,7 +271,7 @@ game_DrillStart = function ()
         sv_animcmd.ATTACK_FP_STRENGTH(2, 0, 0x042762428F, 5, 11, 110, 100, 100, 70, 100, 0, 0, 8, 8, -15, 0, 0, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.ATTACK_FP_STRENGTH(3, 0, 0x042762428F, 5, 11, 110, 100, 100, 70, 100, 0, 0, 9, 9, 34, 0, 0, 0x15A2C502B3, 0, 0.20000000298023224, 1, false, true, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_KICK, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 60, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, COLLISION_SHAPE_TYPE_CAPSULE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_Hippataku = function ()
@@ -287,7 +287,7 @@ game_Hippataku = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Nigiru = function ()
@@ -327,7 +327,7 @@ game_Nigiru = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_NigiruCancel = function ()
@@ -335,7 +335,7 @@ game_NigiruCancel = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_RELEASE)
     end
-    return 
+    return
 end
 
 game_NigiruEnd2 = function ()
@@ -348,7 +348,7 @@ game_NigiruEnd2 = function ()
         sv_animcmd.ATTACK_ABS_STRENGTH(0, 0, 5, 7, 270, 85, 55, 0, 0, 115, 135, 0x15A2C502B3, 0, 0, 1, ATTACK_SOUND_LEVEL_M, COLLISION_SOUND_ATTR_NONE, ATTACK_LR_CHECK_REVERSE, true, true, ATTACK_REGION_NONE, false, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.ATK_HIT_ABS(0, 0x054F934137, WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_TARGET_TASK_ID), 0, 0)
     end
-    return 
+    return
 end
 
 game_Bury = function ()
@@ -365,7 +365,7 @@ game_Bury = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_THROW)
     end
-    return 
+    return
 end
 
 game_NigiruStart = function ()
@@ -379,7 +379,7 @@ game_NigiruStart = function ()
     if sv_animcmd.is_excute() then
         sv_module_access.grab(MA_MSC_CMD_GRAB_CLEAR_ALL)
     end
-    return 
+    return
 end
 
 game_YubiBeam = function ()
@@ -431,7 +431,7 @@ game_YubiBeam = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Kumo = function ()
@@ -472,7 +472,7 @@ game_Kumo = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_TagGoopaa = function ()
@@ -497,7 +497,7 @@ game_TagGoopaa = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ScratchEnd = function ()
@@ -531,7 +531,7 @@ game_ScratchEnd = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_SCRATCH_JOSTLE_ON)
     end
-    return 
+    return
 end
 
 game_YubiBomb = function ()
@@ -591,7 +591,7 @@ game_YubiBomb = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_BOMB_CHASE)
     end
-    return 
+    return
 end
 
 game_Dead = function ()
@@ -658,12 +658,12 @@ game_Dead = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
     end
-    return 
+    return
 end
 
 game_DeadReverse = function ()
     game_Dead()
-    return 
+    return
 end
 
 game_DeadFinish = function ()
@@ -730,12 +730,12 @@ game_DeadFinish = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_INSTANCE_WORK_FLAG_BOSS_DEAD)
     end
-    return 
+    return
 end
 
 game_DeadFinishReverse = function ()
     game_DeadFinish()
-    return 
+    return
 end
 
 game_FireChariotReady = function ()
@@ -749,19 +749,19 @@ game_FireChariotReady = function ()
         sv_animcmd.ATTACK_FP_STRENGTH(0, 1, 0x061A55CD6A, 3, 7, 361, 100, 100, 80, 80, 0, 0, 5, 5, 5, 0, 0, 0x13313725F6, 0, 1, 3, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_FIRE_CHARIOT_INDEX)
     end
-    return 
+    return
 end
 
 game_FireChariotReadyReverse = function ()
     game_FireChariotReady()
-    return 
+    return
 end
 
 game_FireChariotReadyLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP_STRENGTH(0, 0, 0x061A55CD6A, 3, 7, 361, 100, 100, 80, 80, 0, 0, 4, 4, 5, 0, 0, 0x13313725F6, 0, 1, 3, false, true, 0, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_FIRE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_ALL, false, COLLISION_PART_MASK_ALL, false, true, false, false, 30, false, false, ATTACK_LR_CHECK_POS, false, false, false, true, false, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_FireChariotStart3 = function ()
@@ -785,7 +785,7 @@ game_FireChariotStart3 = function ()
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_FIRE_CHARIOT_RELEASE)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_FireChariotStart5 = function ()
@@ -817,7 +817,7 @@ game_FireChariotStart5 = function ()
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_FIRE_CHARIOT_RELEASE)
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_FireChariotEnd = function ()
@@ -825,12 +825,12 @@ game_FireChariotEnd = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_FIRE_CHARIOT_END_PURGE)
     end
-    return 
+    return
 end
 
 game_FireChariotEndReverse = function ()
     game_FireChariotEnd()
-    return 
+    return
 end
 
 game_GrowFingerEnd = function ()
@@ -859,7 +859,7 @@ game_GrowFingerEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_DownLanding = function ()
@@ -872,14 +872,14 @@ game_DownLanding = function ()
         sv_animcmd.ATTACK_FP_STRENGTH(0, 1, 0x05589ACC6A, 0, 0, 0, 100, 100, 15, 15, 0, 0, 6, 6, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 3, false, false, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
         sv_animcmd.RUMBLE_ALL(0x1385F06DF8, 0)
     end
-    return 
+    return
 end
 
 game_DownLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.ATTACK_FP_STRENGTH(0, 1, 0x05589ACC6A, 0, 0, 0, 100, 100, 30, 30, 0, 0, 6, 6, 0, 0, 0, 0x15A2C502B3, 0, 0, 0, false, false, 1, ATTACK_SOUND_LEVEL_S, COLLISION_SOUND_ATTR_NONE, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, false, false, false, 3, true, true, ATTACK_LR_CHECK_POS, false, false, true, true, true, COLLISION_SHAPE_TYPE_SPHERE, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_Turn = function ()
@@ -887,7 +887,7 @@ game_Turn = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 game_TurnReverse = function ()
@@ -895,7 +895,7 @@ game_TurnReverse = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 game_GravityBallLoop = function ()
@@ -903,7 +903,7 @@ game_GravityBallLoop = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.RUMBLE_ALL(0x1385F06DF8, 0)
     end
-    return 
+    return
 end
 
 game_DigStart = function ()
@@ -919,7 +919,7 @@ game_DigStart = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_DigEnd = function ()
@@ -943,7 +943,7 @@ game_DigEnd = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_Bark = function ()
@@ -984,7 +984,7 @@ game_Bark = function ()
     if sv_animcmd.is_excute() then
         AttackModule.clear_all()
     end
-    return 
+    return
 end
 
 game_ElectroshockStart = function ()
@@ -998,7 +998,7 @@ game_ElectroshockStart = function ()
         AttackModule.clear_all()
     end
     sv_animcmd.frame(160)
-    return 
+    return
 end
 
 game_Electroshock = function ()
@@ -1017,7 +1017,7 @@ game_Electroshock = function ()
         AttackModule.clear(1)
         sv_animcmd.ATTACK_FP_CAPSULE_STRENGTH(0, 1, 0x04B6747EEA, 8, 12, 50, 100, 50, 0, 0, 60, 105, 25, 25, 0, -5, -70, 0x13462FCFE4, 0, 1, 1, false, false, 1, ATTACK_SOUND_LEVEL_L, COLLISION_SOUND_ATTR_ELEC, COLLISION_SITUATION_MASK_GA, true, ATTACK_REGION_NONE, COLLISION_CATEGORY_MASK_FIGHTER, false, COLLISION_PART_MASK_ALL, false, true, false, false, 120, false, false, ATTACK_LR_CHECK_POS, false, false, false, false, false, 0, -5, 70, WorkModule.get_float(ITEM_INSTANCE_WORK_FLOAT_STRENGTH))
     end
-    return 
+    return
 end
 
 game_ElectroshockEnd = function ()
@@ -1025,7 +1025,7 @@ game_ElectroshockEnd = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 game_Finder = function ()
@@ -1033,7 +1033,7 @@ game_Finder = function ()
     if sv_animcmd.is_excute() then
         WorkModule.on_flag(ITEM_CRAZYHAND_INSTANCE_WORK_FLAG_FINDER_SHIRINK_START)
     end
-    return 
+    return
 end
 
 game_WFingerBeamStart = function ()
@@ -1054,7 +1054,7 @@ game_WFingerBeamStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.REVERSE_LR()
     end
-    return 
+    return
 end
 
 return

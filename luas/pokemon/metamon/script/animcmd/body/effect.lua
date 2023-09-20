@@ -10,7 +10,7 @@ effect_Lost = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.FLASH(1, 1, 1, 0)
     end
-    return 
+    return
 end
 
 effect_MetamonToFighter = function ()

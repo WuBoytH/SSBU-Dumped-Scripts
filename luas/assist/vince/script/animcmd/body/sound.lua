@@ -10,7 +10,7 @@ sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x172C3B6A7F)
     end
-    return 
+    return
 end
 
 sound_PreDraw = function ()
@@ -18,7 +18,7 @@ sound_PreDraw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x156F344625)
     end
-    return 
+    return
 end
 
 sound_Draw = function ()
@@ -26,7 +26,7 @@ sound_Draw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1463FE48E1)
     end
-    return 
+    return
 end
 
 return

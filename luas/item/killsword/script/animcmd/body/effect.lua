@@ -20,7 +20,7 @@ effect_HaveAttackCancelNormal = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x14E91B1AC7, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x1470124B7D, false, true)
     end
-    return 
+    return
 end
 
 effect_HaveAttackCancelCritical = function ()
@@ -29,7 +29,7 @@ effect_HaveAttackCancelCritical = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x1DDD5EE860, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x1D4457B9DA, false, true)
     end
-    return 
+    return
 end
 
 effect_Have = function ()
@@ -38,7 +38,7 @@ effect_Have = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x14E91B1AC7, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x1470124B7D, false, true)
     end
-    return 
+    return
 end
 
 effect_HaveAttackNormal = function ()
@@ -53,7 +53,7 @@ effect_HaveAttackNormal = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x14E91B1AC7, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x1470124B7D, false, true)
     end
-    return 
+    return
 end
 
 effect_HaveAttackCritical = function ()
@@ -68,7 +68,7 @@ effect_HaveAttackCritical = function ()
         sv_animcmd.EFFECT_OFF_KIND(0x1DDD5EE860, false, true)
         sv_animcmd.EFFECT_OFF_KIND(0x1D4457B9DA, false, true)
     end
-    return 
+    return
 end
 
 return

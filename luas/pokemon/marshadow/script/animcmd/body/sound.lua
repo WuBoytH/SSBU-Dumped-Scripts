@@ -19,14 +19,14 @@ sound_Appear = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CA6E5CCE5)
     end
-    return 
+    return
 end
 
 sound_Landing = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x1CA6E5CCE5)
     end
-    return 
+    return
 end
 
 sound_Exit = function ()
@@ -34,21 +34,21 @@ sound_Exit = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x11C9F5B4A5)
     end
-    return 
+    return
 end
 
 sound_DiveStart = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x26E9203451)
     end
-    return 
+    return
 end
 
 sound_DiveAttack = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE(0x244582ABE3)
     end
-    return 
+    return
 end
 
 sound_Attack = function ()
@@ -65,7 +65,7 @@ sound_Attack = function ()
         sv_animcmd.PLAY_SE(0x1BF18590DD)
         sv_animcmd.PLAY_SE(0x202C6EA4CD)
     end
-    return 
+    return
 end
 
 return

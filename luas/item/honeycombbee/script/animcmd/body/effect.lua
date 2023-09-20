@@ -9,28 +9,28 @@ effect_Have = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x117455428F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, true)
     end
-    return 
+    return
 end
 
 effect_Fall = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x117455428F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, true)
     end
-    return 
+    return
 end
 
 effect_Throw = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT_FOLLOW(0x117455428F, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, true)
     end
-    return 
+    return
 end
 
 effect_Born = function ()
     if sv_animcmd.is_excute() then
         sv_animcmd.EFFECT(0x151B17C9BC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true)
     end
-    return 
+    return
 end
 
 return
