@@ -8,37 +8,17 @@
 -- 45338411590  -> 0x0A8E614246  -> sys_bomb_a
 
 effect_Born = function ()
-    local f1_local0
-    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
-        f1_local0 = false
-    else
-        f1_local0 = true
-    end
-    if f1_local0 == nil then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) == ITEM_VARIATION_BOX_WOOD then
         if sv_animcmd.is_excute() then
             sv_animcmd.EFFECT(0x0FB41DD003, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
         end
-    else
-        f1_local0
-        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
-            f1_local0 = false
-        else
-            f1_local0 = true
+    elseif WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) == ITEM_VARIATION_BOX_FUTURE then
+        if sv_animcmd.is_excute() then
+            sv_animcmd.EFFECT(0x0F126ADBB7, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
         end
-        if f1_local0 == nil then
-            if sv_animcmd.is_excute() then
-                sv_animcmd.EFFECT(0x0F126ADBB7, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 360, 0, false)
-            end
-        else
-            f1_local0
-            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
-                f1_local0 = false
-            else
-                f1_local0 = true
-            end
-            if f1_local0 == nil and sv_animcmd.is_excute() then
-                sv_animcmd.EFFECT(0x12BD8F17EC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
-            end
+    elseif WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) == ITEM_VARIATION_BOX_PRESENT then
+        if sv_animcmd.is_excute() then
+            sv_animcmd.EFFECT(0x12BD8F17EC, 0x031ED91FCA, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false)
         end
     end
     if WorkModule.is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then

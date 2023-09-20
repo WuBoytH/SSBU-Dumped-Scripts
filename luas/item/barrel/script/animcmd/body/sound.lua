@@ -12,77 +12,39 @@
 -- 81997679861  -> 0x1317714CF5  -> se_item_item_vanish
 
 sound_Appear = function ()
-    local f1_local0
-    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
-        f1_local0 = false
-    else
-        f1_local0 = true
-    end
-    if f1_local0 == nil then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) == ITEM_VARIATION_BOX_WOOD then
         if sv_animcmd.is_excute() then
             sv_animcmd.IT_SET_SE_arg2(0x1684A29524, 0x0FCF0D2CC5)
         end
-    else
-        f1_local0
-        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
-            f1_local0 = false
-        else
-            f1_local0 = true
+    elseif WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) == ITEM_VARIATION_BOX_FUTURE then
+        if sv_animcmd.is_excute() then
+            sv_animcmd.IT_SET_SE_arg2(0x1C96DDC3C9, 0x0FCF0D2CC5)
         end
-        if f1_local0 == nil then
-            if sv_animcmd.is_excute() then
-                sv_animcmd.IT_SET_SE_arg2(0x1C96DDC3C9, 0x0FCF0D2CC5)
-            end
-        else
-            f1_local0
-            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
-                f1_local0 = false
-            else
-                f1_local0 = true
-            end
-            if f1_local0 == nil and sv_animcmd.is_excute() then
-                sv_animcmd.IT_SET_SE_arg2(0x1D90678C98, 0x0FCF0D2CC5)
-            end
+    elseif WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) == ITEM_VARIATION_BOX_PRESENT then
+        if sv_animcmd.is_excute() then
+            sv_animcmd.IT_SET_SE_arg2(0x1D90678C98, 0x0FCF0D2CC5)
         end
     end
+
     return
 end
 
 sound_Born = function ()
     sv_animcmd.frame(1)
-    local f2_local0
-    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_WOOD then
-        f2_local0 = false
-    else
-        f2_local0 = true
-    end
-    if f2_local0 == nil then
+    if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) == ITEM_VARIATION_BOX_WOOD then
         if sv_animcmd.is_excute() then
             sv_animcmd.PLAY_SE_REMAIN(0x14BFC848C8)
         end
-    else
-        f2_local0
-        if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_FUTURE then
-            f2_local0 = false
-        else
-            f2_local0 = true
+    elseif WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) == ITEM_VARIATION_BOX_FUTURE then
+        if sv_animcmd.is_excute() then
+            sv_animcmd.PLAY_SE_REMAIN(0x1A631FEEAD)
         end
-        if f2_local0 == nil then
-            if sv_animcmd.is_excute() then
-                sv_animcmd.PLAY_SE_REMAIN(0x1A631FEEAD)
-            end
-        else
-            f2_local0
-            if WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) ~= ITEM_VARIATION_BOX_PRESENT then
-                f2_local0 = false
-            else
-                f2_local0 = true
-            end
-            if f2_local0 == nil and sv_animcmd.is_excute() then
-                sv_animcmd.PLAY_SE_REMAIN(0x1B12279E2B)
-            end
+    elseif WorkModule.get_int64(ITEM_INSTANCE_WORK_INT_VARIATION) == ITEM_VARIATION_BOX_PRESENT then
+        if sv_animcmd.is_excute() then
+            sv_animcmd.PLAY_SE_REMAIN(0x1B12279E2B)
         end
     end
+
     if WorkModule.is_flag(ITEM_STATUS_WORK_FLAG_LOT_CREATE_BOMB) == nil and sv_animcmd.is_excute() then
         sv_animcmd.PLAY_SE_REMAIN(0x100DD29E2A)
     end
