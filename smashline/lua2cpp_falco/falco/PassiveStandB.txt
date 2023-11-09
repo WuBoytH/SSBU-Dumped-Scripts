@@ -1,0 +1,18 @@
+unsafe extern "C" fn sound_passivestandb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_falco_escape"));
+    }
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_LANDING_SE(agent, Hash40::new("se_falco_landing01"));
+    }
+}
+
+unsafe extern "C" fn expression_passivestandb(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_PassiveStandBRumble()();
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+    }
+}

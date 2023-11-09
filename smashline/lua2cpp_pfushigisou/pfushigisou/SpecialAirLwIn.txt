@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_specialairlwin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("ptrainer_change_out"), Hash40::new("top"), 0, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::FLASH(agent, 1, 0.8, 0.9, 0.1);
+    }
+    wait(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 5, 1, 0.8, 0.9, 0.9);
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 5);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beamss"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

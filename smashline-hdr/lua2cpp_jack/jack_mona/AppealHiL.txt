@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_appealhil(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_attack_speedline"), Hash40::new("throw"), 0, 6, 0, -90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_COLOR(agent, 0.05, 0.05, 0.05);
+        LAST_EFFECT_SET_ALPHA(agent, 0.6);
+        EFFECT(agent, Hash40::new("sys_attack_speedline"), Hash40::new("throw"), 0, 6, 0, -90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_COLOR(agent, 0.08, 0.08, 0.08);
+        LAST_EFFECT_SET_ALPHA(agent, 0.5);
+    }
+    frame(lua_state, 90.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("jack_mona_smoke"), Hash40::new("throw"), 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_appealhil(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_jack_appeal_h01"));
+    }
+    frame(lua_state, 23.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_jack_appeal01"));
+    }
+    frame(lua_state, 93.0);
+    if is_excute(agent) {
+        PLAY_SE_REMAIN(agent, Hash40::new("se_jack_appeal_h02"));
+    }
+}

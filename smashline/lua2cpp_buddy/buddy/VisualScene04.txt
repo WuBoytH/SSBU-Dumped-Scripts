@@ -1,0 +1,26 @@
+unsafe extern "C" fn game_visualscene04(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_BUDDY_FINAL, 0, 20.0, 361, 80, 1, 0, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_HEAVY, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, true);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BUDDY_STATUS_FINAL_FLAG_ABS_HIT);
+    }
+    frame(agent.lua_state_agent, 48.0);
+}
+
+unsafe extern "C" fn sound_visualscene04(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_final06"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene04(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_73_statue_v4"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_critical"), 0);
+    }
+}

@@ -1,0 +1,29 @@
+unsafe extern "C" fn game_turnrunbrake(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        HIT_NO(agent, 12, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 13, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 14, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 15, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 16, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 17, *HIT_STATUS_NORMAL);
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        HIT_NO(agent, 12, *HIT_STATUS_OFF);
+        HIT_NO(agent, 13, *HIT_STATUS_OFF);
+        HIT_NO(agent, 14, *HIT_STATUS_OFF);
+        HIT_NO(agent, 15, *HIT_STATUS_OFF);
+        HIT_NO(agent, 16, *HIT_STATUS_OFF);
+        HIT_NO(agent, 17, *HIT_STATUS_OFF);
+    }
+}
+
+unsafe extern "C" fn expression_turnrunbrake(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 10);
+    }
+}

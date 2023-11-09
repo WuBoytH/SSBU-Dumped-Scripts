@@ -1,0 +1,31 @@
+unsafe extern "C" fn effect_falcospecialnloop(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("falco_blaster_shot"), Hash40::new("top"), 1.6, 3.3, 9, 0, 0, 0, 1, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("falco_blaster_shot"), Hash40::new("top"), -1.6, 3.3, 9, 0, 0, 0, 1, true);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_falcospecialnloop(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_falco_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_falcospecialnloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

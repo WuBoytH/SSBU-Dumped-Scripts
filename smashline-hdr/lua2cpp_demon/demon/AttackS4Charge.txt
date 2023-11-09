@@ -1,0 +1,101 @@
+unsafe extern "C" fn game_attacks4charge(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    FighterSpecializer_Demon::set_devil(boma, true, 10);
+    frame(lua_state, 35.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_TRANSFORM);
+    }
+    frame(lua_state, 44.0);
+    FighterSpecializer_Demon::set_devil(boma, true, 8);
+    frame(lua_state, 46.0);
+    FighterSpecializer_Demon::set_devil(boma, true, 7);
+    frame(lua_state, 48.0);
+    FighterSpecializer_Demon::set_devil(boma, true, 6);
+    frame(lua_state, 50.0);
+    FighterSpecializer_Demon::set_devil(boma, true, 5);
+    frame(lua_state, 56.0);
+    FighterSpecializer_Demon::set_devil(boma, true, 4);
+    frame(lua_state, 61.0);
+    FighterSpecializer_Demon::set_devil(boma, true, 3);
+}
+
+unsafe extern "C" fn effect_attacks4charge(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    for _ in 0..6 {
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 10, 0, 4, 0, 0, 0, false);
+    }
+    wait(lua_state, 5.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("havel"), 0, 0, 2, 0, 0, 0, 1, 3, 3, 3, 0, 0, 0, true);
+    }
+}
+frame(lua_state, 34.0);
+if is_excute(agent) {
+    COL_PRI(agent, 102);
+    FLASH(agent, 0.25, 0.08, 0.6, 0);
+    FLASH_SET_DIRECTION(agent, -1, 0, 0);
+    BURN_COLOR(agent, 8, 3, 36, 0);
+    FLASH_FRM(agent, 2, 0.25, 0.08, 0.6, 0.4);
+    BURN_COLOR_FRAME(agent, 2, 8, 3, 36, 0.4);
+}
+frame(lua_state, 35.0);
+if is_excute(agent) {
+    FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 10, 0, 4, 0, 0, 0, false);
+}
+frame(lua_state, 36.0);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("demon_devil_start"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+    EFFECT_FOLLOW(agent, Hash40::new("demon_devil_start_elec"), Hash40::new("bust"), 0, 0, 1, 0, 0, 0, 1, true);
+    EFFECT_FOLLOW(agent, Hash40::new("demon_devil_start_aura"), Hash40::new("bust"), 0, 0, 1, 0, 0, 0, 1, true);
+}
+frame(lua_state, 37.0);
+if is_excute(agent) {
+    FLASH(agent, 0.25, 0.08, 0.6, 0.4);
+    BURN_COLOR(agent, 10, 3, 36, 0.3);
+    FLASH_FRM(agent, 3, 0.25, 0.08, 0.6, 0);
+    BURN_COLOR_FRAME(agent, 3, 10, 3, 36, 0);
+    EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("havel"), 0, 0, 2, 0, 0, 0, 1, 3, 3, 3, 0, 0, 0, true);
+}
+frame(lua_state, 40.0);
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("havel"), 0, 0, 2, 0, 0, 0, 1, 3, 3, 3, 0, 0, 0, true);
+    FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 10, 0, 4, 0, 0, 0, false);
+}
+wait(lua_state, 5.0);
+if is_excute(agent) {
+    COL_PRI(agent, 100);
+    EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("havel"), 0, 0, 2, 0, 0, 0, 1, 3, 3, 3, 0, 0, 0, true);
+}
+wait(lua_state, 5.0);
+}
+
+unsafe extern "C" fn sound_attacks4charge(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_smash_start"));
+    }
+    frame(lua_state, 31.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_demon_spark"));
+        SET_PLAY_INHIVIT(agent, Hash40::new("se_demon_spark"), 20);
+    }
+}
+
+unsafe extern "C" fn expression_attacks4charge(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        physics(*MA_MSC_CMD_PHYSICS_START_CHARGE, -1, -1, -1, -1, 0.1, -1, Hash40::new("invalid"));
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 61.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

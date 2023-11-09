@@ -1,0 +1,21 @@
+unsafe extern "C" fn sound_passivestandf(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gamewatch_squat"));
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gamewatch_escape_step_left_m"));
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gamewatch_escape_step_right_m"));
+    }
+}
+
+unsafe extern "C" fn expression_passivestandf(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_PassiveStandFRumble()();
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("head") as i64, hash40("head_close") as i64);
+    }
+}

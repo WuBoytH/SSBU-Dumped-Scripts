@@ -1,0 +1,36 @@
+unsafe extern "C" fn effect_koopajrspecialairnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if WorkModule::is_flag(boma, *FIGHTER_KOOPAJR_STATUS_SPECIAL_N_FLAG_FAIL) {
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("koopajr_cannon_miss"), Hash40::new("clowntongue2"), 3, 0, 0, 0, 0, -90, 0.5, 0, 0, 0, 0, 0, 0, true);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW_FLIP(agent, Hash40::new("koopajr_cannon_shot_r"), Hash40::new("koopajr_cannon_shot_l"), Hash40::new("top"), 0, 4, 6, 90, 0, 0, 0.5, true, *EF_FLIP_NONE);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_koopajrspecialairnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_koopajr_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_koopajrspecialairnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

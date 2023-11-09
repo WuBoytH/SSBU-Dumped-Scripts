@@ -1,0 +1,80 @@
+unsafe extern "C" fn game_cliffattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 9.0, 45, 20, 0, 90, 5.0, 0.0, 5.0, 18.5, Some(0.0), Some(5.0), Some(1.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_cliffattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("shulk_monad_sword2"), Hash40::new("haver"), 0, 2.5, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("shulk_monad_circle"), Hash40::new("swordr"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("handr"), 0, 0, -3, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        frame(agent.lua_state_agent, 22.0);
+        if macros::is_excute(agent) {
+            macros::AFTER_IMAGE4_ON_arg29(agent, Hash40::new("tex_shulk_sword3"), Hash40::new("tex_shulk_sword4"), 7, Hash40::new("haver"), 0, 3, 1.1, Hash40::new("haver"), 0, 19, 1.1, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
+        }
+        else{
+        frame(agent.lua_state_agent, 21.0);
+        if macros::is_excute(agent) {
+            macros::AFTER_IMAGE4_ON_arg29(agent, Hash40::new("tex_shulk_sword3"), Hash40::new("tex_shulk_sword4"), 5, Hash40::new("haver"), 0, 3, 1.1, Hash40::new("haver"), 0, 19, 1.1, true, Hash40::new("null"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
+        }
+    }
+}
+frame(agent.lua_state_agent, 26.0);
+if macros::is_excute(agent) {
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+frame(agent.lua_state_agent, 30.0);
+if macros::is_excute(agent) {
+    macros::AFTER_IMAGE_OFF(agent, 4);
+}
+frame(agent.lua_state_agent, 39.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("shulk_monad_sword2_end"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 0.98, true);
+}
+frame(agent.lua_state_agent, 40.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("shulk_monad_sword2"), false, false);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("shulk_monad_circle"), false, false);
+}
+}
+
+unsafe extern "C" fn sound_cliffattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_shulk_dash_start"));
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_shulk_attackhard_s01"));
+    }
+}
+
+unsafe extern "C" fn expression_cliffattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_monad_hand") as i64);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_slashm"), 0);
+    }
+}

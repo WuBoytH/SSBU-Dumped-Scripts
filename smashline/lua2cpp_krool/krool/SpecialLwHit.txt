@@ -1,0 +1,122 @@
+unsafe extern "C" fn game_speciallwhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_LW_ATTACK_DAMAGE_REQUEST);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KROOL_STATUS_SPECIAL_LW_FLAG_TURN);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 0.0, 45, 56, 0, 90, 12.0, 0.0, 12.5, 10.5, None, None, None, 1.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
+        AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
+        macros::ATTACK(agent, 1, 0, Hash40::new("top"), 0.0, 45, 50, 0, 80, 14.0, 0.0, 13.0, 18.0, None, None, None, 1.1, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
+        AttackModule::set_force_reaction(agent.module_accessor, 1, true, false);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KROOL_STATUS_WORK_ID_FLAG_WAIST_DAMAGE_REQUEST);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_NORMAL);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    macros::FT_MOTION_RATE(agent, 0.7);
+    frame(agent.lua_state_agent, 48.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_speciallwhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_counter_flash"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_counter_flash_l"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_guard_mark"), true, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("krool_counter_success_body_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("krool_counter_success_body"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+}
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, Hash40::new("krool_counter_success"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+WorkModule::is_flag(agent.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_LW_SPECIAL_EFFECT);
+if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_counter_flash"), Hash40::new("top"), 0, 9, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+frame(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_counter_success_body"), true, true);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_counter_success_body_l"), true, true);
+}
+frame(agent.lua_state_agent, 3.0);
+if macros::is_excute(agent) {
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+}
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("krool_counter_attack_body_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT(agent, Hash40::new("krool_counter_attack"), Hash40::new("top"), 6, 14, 16, -90, 30, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("krool_counter_attack2"), Hash40::new("top"), 6, 12, 22, 80, 25, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    else{
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("krool_counter_attack_body"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT(agent, Hash40::new("krool_counter_attack"), Hash40::new("top"), -6, 14, 16, -90, -30, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("krool_counter_attack2"), Hash40::new("top"), -6, 12, 22, 80, -25, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+}
+frame(agent.lua_state_agent, 8.0);
+if macros::is_excute(agent) {
+macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_counter_attack2"), false, true);
+}
+}
+
+unsafe extern "C" fn sound_speciallwhit(agent: &mut L2CAgentBase) {
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_LW_HIT_ATTACK);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_krool_special_l02"));
+        }
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_krool_special_l05"));
+        macros::PLAY_SE(agent, Hash40::new("vc_krool_special_l03"));
+    }
+    else{
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_LW_HIT_REFLECT);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_krool_special_l02"));
+            macros::PLAY_SE(agent, Hash40::new("vc_krool_special_l03"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_speciallwhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_counter"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
+    }
+}

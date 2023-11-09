@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_specialswallend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 41.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_LUIGI_STATUS_SPECIAL_S_WALL_FLAG_DETACH);
+        JostleModule::set_status(agent.module_accessor, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialswallend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_luigi_special_s05"));
+    }
+}
+
+unsafe extern "C" fn expression_specialswallend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_awaken"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

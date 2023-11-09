@@ -1,0 +1,34 @@
+unsafe extern "C" fn effect_squatb(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), -2, 0, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 28.0);
+    macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), -2, 0, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+}
+
+unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_snake_crawing_gear"));
+        macros::PLAY_STEP(agent, Hash40::new("se_snake_crawing_left_b"));
+    }
+    frame(agent.lua_state_agent, 32.0);
+    macros::PLAY_SE(agent, Hash40::new("se_snake_crawing_gear"));
+    macros::PLAY_STEP(agent, 0x18ba9509e0);
+}
+
+unsafe extern "C" fn expression_squatb(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 8, true);
+    }
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 55.0);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+}

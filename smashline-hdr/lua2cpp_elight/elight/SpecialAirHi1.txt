@@ -1,0 +1,85 @@
+unsafe extern "C" fn game_specialairhi1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
+        if is_excute(agent) {
+            ArticleModule::add_motion_partial(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 5.0, 5.0, false, false, 0.0, false, true, false);
+        }
+    }
+    if MotionModule::is_changing(boma) {
+        if is_excute(agent) {
+            WorkModule::on_flag(boma, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_FLAG_ADD_PARTIAL_MTION_SWORD_WHEN_CHANGEING);
+        }
+    }
+    frame(lua_state, 2.0);
+    FT_MOTION_RATE(agent, 0.75);
+    frame(lua_state, 10.0);
+    FT_MOTION_RATE(agent, 1.0);
+    frame(lua_state, 13.0);
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_EXPROSIVESHOT, false, -1);
+    }
+    frame(lua_state, 14.0);
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
+        if is_excute(agent) {
+            ArticleModule::add_motion_partial(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_close"), 5.0, 5.0, false, false, 0.0, false, true, false);
+        }
+    }
+    if MotionModule::is_changing(boma) {
+        if is_excute(agent) {
+            WorkModule::on_flag(boma, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_FLAG_ADD_PARTIAL_MTION_SWORD_WHEN_CHANGEING);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_specialairhi1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("sword1"), 14, 0, 3.3, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.2);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("elight_sword_open"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+        LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(agent, -0.3);
+    }
+    frame(lua_state, 11.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("elight_sword_open"), true, true);
+        EFFECT_FOLLOW(agent, Hash40::new("elight_sword_beam_m"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+        LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(agent, -0.3);
+        EFFECT(agent, Hash40::new("elight_lay_shot"), Hash40::new("sword1"), 6, 0, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("elight_sword_beam_m"), true, true);
+        EFFECT_FOLLOW(agent, Hash40::new("elight_sword_close_m"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+        LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(agent, -0.3);
+    }
+}
+
+unsafe extern "C" fn sound_specialairhi1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, 0x1a1b87a0dc);
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_elight_special_h02_01_shot"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairhi1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 13.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

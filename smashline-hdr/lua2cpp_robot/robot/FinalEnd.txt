@@ -1,0 +1,120 @@
+unsafe extern "C" fn game_finalend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 50, -50, 50, -10);
+    }
+}
+
+unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    for _ in 0..7 {
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_damage_elec"), Hash40::new("top"), -0.0, 7, 0, 0, 0, 0, 1.2, 15, 10, 15, 0, 0, 0, true);
+        COL_PRI(agent, 200);
+        BURN_COLOR(agent, 0.02, 0.2, 2, 0.8);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        BURN_COLOR_FRAME(agent, 2, 1, 1, 1, 0);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        BURN_COLOR_NORMAL(agent);
+        FLASH(agent, 0.3, 0.7, 1, 0.6);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 2, 0, 0.3, 1, 0);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+    }
+    wait(lua_state, 1.0);
+}
+frame(lua_state, 35.0);
+if is_excute(agent) {
+    LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -10, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false);
+    EFFECT_GLOBAL(agent, Hash40::new("robot_final_bug"), 0, 0, 0, 0, 0, 0, 1, true);
+}
+for _ in 0..15 {
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("sys_damage_elec"), Hash40::new("top"), -0.0, 7, 0, 0, 0, 0, 2, 20, 20, 20, 0, 0, 0, true);
+    COL_PRI(agent, 200);
+    BURN_COLOR(agent, 0.02, 0.2, 2, 0.8);
+}
+frame(lua_state, 1.0);
+if is_excute(agent) {
+    BURN_COLOR_FRAME(agent, 2, 1, 1, 1, 0);
+}
+wait(lua_state, 2.0);
+if is_excute(agent) {
+    BURN_COLOR_NORMAL(agent);
+    FLASH(agent, 0.3, 0.7, 1, 0.6);
+}
+wait(lua_state, 1.0);
+if is_excute(agent) {
+    FLASH_FRM(agent, 2, 0, 0.3, 1, 0);
+}
+wait(lua_state, 2.0);
+if is_excute(agent) {
+    COL_NORMAL(agent);
+}
+wait(lua_state, 1.0);
+}
+}
+
+unsafe extern "C" fn sound_finalend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 38.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_robot_final08"));
+        PLAY_SE_NO_3D(agent, Hash40::new("se_robot_final09"));
+    }
+    frame(lua_state, 91.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_robot_final_end"));
+    }
+}
+
+unsafe extern "C" fn expression_finalend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_loopattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 38.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_explosionm"), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 46.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_explosionm"), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 54.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 115.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 13, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 130.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 13, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 145.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

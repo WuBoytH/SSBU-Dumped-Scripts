@@ -1,0 +1,56 @@
+unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 55.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("duckhunt_win1_grass"), Hash40::new("top"), 0, 0, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 60.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_arg11(Hash40::new("duckhunt_feather"), Hash40::new("duckneck"), -4, 0, 0, 0, 0, 89, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+        LAST_EFFECT_SET_WORK_INT(agent, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+    }
+    wait(lua_state, 16.0);
+    if is_excute(agent) {
+        EFFECT_OFF_HANDLE(agent, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+    }
+    wait(lua_state, 25.0);
+}
+
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_jump02_win01"));
+    }
+    frame(lua_state, 50.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_landing01_win01"));
+    }
+    frame(lua_state, 54.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_duckhunt_win01_win01"));
+    }
+    frame(lua_state, 86.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_appeal_s02_win01"));
+    }
+    frame(lua_state, 123.0);
+    if is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+    }
+}
+
+unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_openwing") as i64);
+        ArticleModule::remove_exist(boma, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GUNMAN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(boma, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_CAN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::generate_article(boma, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GRASS, false, -1);
+        ArticleModule::set_pos(boma, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GRASS, 0, 0, 6);
+        article(*MA_MSC_CMD_ARTICLE_SET_ROT_ARTICLE, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GRASS, 0, 90, 0);
+    }
+}

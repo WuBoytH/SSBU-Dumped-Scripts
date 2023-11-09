@@ -1,0 +1,19 @@
+unsafe extern "C" fn game_attack100start(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.5);
+    frame(agent.lua_state_agent, 5.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn sound_attack100start(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swing_04"));
+    }
+}
+
+unsafe extern "C" fn expression_attack100start(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

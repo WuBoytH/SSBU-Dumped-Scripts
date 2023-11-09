@@ -1,0 +1,55 @@
+unsafe extern "C" fn game_runbrakel(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_RUN_BRAKE_FLAG_STOP);
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_RUN_BRAKE_FLAG_TURN_RUN);
+    }
+}
+
+unsafe extern "C" fn effect_runbrakel(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 7.5, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 7.5, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 4.0);
+}
+
+unsafe extern "C" fn sound_runbrakel(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_trail_dash_stop"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_trail_dash_stop"), 20);
+    }
+}
+
+unsafe extern "C" fn expression_runbrakel(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 2);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if ItemModule::is_have_item(agent.module_accessor, 0) {
+        if macros::is_excute(agent) {
+            macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0.05);
+        }
+    }
+    frame(agent.lua_state_agent, 28.0);
+    if macros::is_excute(agent) {
+        macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0.1);
+    }
+    frame(agent.lua_state_agent, 33.0);
+    if macros::is_excute(agent) {
+        macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0.05);
+    }
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0);
+    }
+}

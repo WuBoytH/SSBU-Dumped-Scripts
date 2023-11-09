@@ -1,0 +1,54 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        macros::SLOW_OPPONENT(agent, 12, 44);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            PostureModule::scale(agent.module_accessor, 3, 0);
+            0x101bd0(1097732885, 2);
+            CAM_ZOOM_IN_arg5(0, 0);
+            macros::FT_START_CUTIN(agent);
+        }
+    }
+}
+frame(agent.lua_state_agent, 25.0);
+if macros::is_excute(agent) {
+    macros::CAM_ZOOM_OUT(agent);
+}
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_yoshi_final"), false, false, false);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("yoshi_final_flash"), Hash40::new("top"), 0, 9, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -1, 0, 0, 0, 0, 0, 0.9, 12, 0, 4, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.4);
+    }
+    wait(agent.lua_state_agent, 8.0);
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_yoshi_003"));
+    }
+}
+
+unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+    }
+}

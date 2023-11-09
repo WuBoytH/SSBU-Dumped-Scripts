@@ -1,0 +1,48 @@
+unsafe extern "C" fn game_specialnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 3.0, 2.0);
+    }
+}
+
+unsafe extern "C" fn effect_specialnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -10, 0, 0, 0, 0, 0, 0.5, 10, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 7.0);
+}
+
+unsafe extern "C" fn sound_specialnhold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("vc_lucario_003"));
+    }
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER);
+    WorkModule::get_float(agent.module_accessor, 1821741189, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_MIDDLE_AURAPOWER);
+    if(0x1035e0(1821741189)){
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_lucario_special_n01_s"));
+        }
+        else{
+        WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER);
+        WorkModule::get_float(agent.module_accessor, 1821741189, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_HIGH_AURAPOWER);
+        if(0x1035e0(1821741189)){
+            if macros::is_excute(agent) {
+                macros::PLAY_STATUS(agent, Hash40::new("se_lucario_special_n01_m"));
+            }
+            else{
+            if macros::is_excute(agent) {
+                macros::PLAY_STATUS(agent, Hash40::new("se_lucario_special_n01_l"));
+            }
+        }
+    }
+}
+}
+}
+
+unsafe extern "C" fn expression_specialnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

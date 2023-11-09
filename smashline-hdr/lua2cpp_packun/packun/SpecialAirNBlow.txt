@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_specialairnblow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("packun_spikeball_blow"), Hash40::new("mouth"), 8, 0, 0, -1, 90, -90, 1, true);
+        LAST_EFFECT_SET_RATE(agent, 1.4);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnblow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_packun_special_n02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnblow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 1.0);
+    for _ in 0..9 {
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(lua_state, 14.0);
+}
+}

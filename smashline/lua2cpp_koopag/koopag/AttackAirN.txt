@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_attackairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("sys_hit_elec"), Hash40::new("sys_hit_elec"), Hash40::new("top"), 0, 20, 10, 0, 0, 0, 2, true, *EF_FLIP_YZ);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_damage_elec"), Hash40::new("top"), 0, 40, 0, 0, 0, 0, 2.5, 60, 20, 60, 0, 0, 0, true);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_damage_elec"), Hash40::new("top"), 0, 25, 0, 0, 0, 0, 2.5, 60, 20, 60, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 1.0);
+}
+
+unsafe extern "C" fn sound_attackairn(agent: &mut L2CAgentBase) {
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_koopag_attackair_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_attackairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true);
+    }
+}

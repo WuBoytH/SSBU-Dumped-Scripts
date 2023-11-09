@@ -1,0 +1,35 @@
+unsafe extern "C" fn effect_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("jack_final_speedline"), Hash40::new("top"), 0, 2, 1, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("jack_knife_front"), Hash40::new("knife"), 0, 0, 0, 0, 180, 0, 1, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 3);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("jack_final_speedline"), false, true);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::AFTER_IMAGE_OFF(agent, 3);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("jack_knife_front"), true, true);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_GLOBAL(agent, Hash40::new("jack_final_bg2"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 10, 0, 0, 0, 1, 0, 0, 1, 1, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 10, 0, 0, 0, 0, 0, 0, 1, 1, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
+    }
+}
+
+unsafe extern "C" fn sound_finalhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_jack_final04"));
+    }
+}
+
+unsafe extern "C" fn expression_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attack_critical"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

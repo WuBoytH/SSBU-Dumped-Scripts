@@ -1,0 +1,39 @@
+unsafe extern "C" fn effect_specialhiend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ness_pkt_hold"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 0.8, true);
+    }
+    for _ in 0..3 {
+    if is_excute(agent) {
+        BURN_COLOR(agent, 0.7, 0.2, 1, 0.6);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        BURN_COLOR_FRAME(agent, 1, 0.7, 0.2, 1, 0);
+        BURN_COLOR_NORMAL(agent);
+    }
+    wait(lua_state, 3.0);
+    if is_excute(agent) {
+        FLASH(agent, 0.8, 0.7, 1, 0.5);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 1, 0.8, 0.7, 1, 0);
+        COL_NORMAL(agent);
+    }
+    wait(lua_state, 3.0);
+}
+frame(lua_state, 10.0);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("ness_pkt_hold"), false, false);
+}
+}
+
+unsafe extern "C" fn expression_specialhiend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

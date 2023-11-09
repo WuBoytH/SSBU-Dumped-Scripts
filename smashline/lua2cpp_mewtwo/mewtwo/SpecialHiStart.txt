@@ -1,0 +1,46 @@
+unsafe extern "C" fn effect_specialhistart(agent: &mut L2CAgentBase) {
+    for _ in 0..2 {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 1, 0.8);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.8, 0.2, 1, 0.4);
+    }
+    wait(agent.lua_state_agent, 1.0);
+}
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 1, 1, 1, 1);
+}
+frame(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, Hash40::new("mewtwo_teleport_start"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+frame(agent.lua_state_agent, 8.0);
+if macros::is_excute(agent) {
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+wait(agent.lua_state_agent, 15.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
+}
+}
+
+unsafe extern "C" fn sound_specialhistart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_mewtwo_special_h01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhistart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

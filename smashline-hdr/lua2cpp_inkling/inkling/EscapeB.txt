@@ -1,0 +1,122 @@
+unsafe extern "C" fn game_escapeb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_NO_FLIP_SQUID);
+    }
+    if !WorkModule::is_flag(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_EXIST_SQUID) {
+        if is_excute(agent) {
+            ArticleModule::generate_article(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, -1);
+        }
+    }
+    let motion = MotionModule::motion_kind(boma);
+    let frame = MotionModule::frame(boma);
+    let rate = MotionModule::rate(boma);
+    ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(motion), false, -1.0);
+    if is_excute(agent) {
+        ArticleModule::set_frame(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, frame);
+        ArticleModule::set_rate(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, rate);
+        ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        WorkModule::on_flag(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_EXIST_SQUID);
+        let status = StatusModule::status_kind(boma);
+        if status != *FIGHTER_STATUS_KIND_REBIRTH {
+            WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_FORCE_LOUPE);
+        }
+    }
+    get_value_float(0, *SO_VAR_FLOAT_LR);
+    if(0x13d500(0, 0)){
+        if is_excute(agent) {
+            ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("escape_bl"), false, -1.0);
+            get_value_float(*FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, *SO_VAR_FLOAT_MOTION_RATE);
+            SET_RATE_ARTICLE(agent, 304);
+        }
+        else{
+        if is_excute(agent) {
+            ArticleModule::change_motion(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("escape_b"), false, -1.0);
+            get_value_float(*FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, *SO_VAR_FLOAT_MOTION_RATE);
+            SET_RATE_ARTICLE(agent, 432);
+        }
+    }
+}
+frame(lua_state, 1.0);
+if is_excute(agent) {
+    VisibilityModule::set_whole(boma, false);
+    ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+}
+frame(lua_state, 10.0);
+if is_excute(agent) {
+    VisibilityModule::set_whole(boma, true);
+}
+frame(lua_state, 16.0);
+if is_excute(agent) {
+    ArticleModule::set_visibility_whole(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+}
+}
+
+unsafe extern "C" fn effect_escapeb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("inkling_squid_change"), Hash40::new("head"), 3, 0, 0, 0, 0, 0, 0.9, true);
+    }
+    WorkModule::get_float(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
+    WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
+    WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_B);
+    if is_excute(agent) {
+        LAST_PARTICLE_SET_COLOR(agent);
+    }
+    if is_excute(agent) {
+        EffectModule::enable_sync_init_pos_last(boma, 0);
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 11.0);
+    if is_excute(agent) {
+        EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("inkling_squid_change"), Hash40::new("head"), 3, 0, 0, 0, 0, 0, 0.9, true);
+    }
+    WorkModule::get_float(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
+    WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
+    WorkModule::get_float(boma, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_B);
+    if is_excute(agent) {
+        LAST_PARTICLE_SET_COLOR(agent);
+    }
+    if is_excute(agent) {
+        EffectModule::enable_sync_init_pos_last(boma, 0);
+    }
+}
+
+unsafe extern "C" fn sound_escapeb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_inkling_escape"));
+    }
+}
+
+unsafe extern "C" fn expression_escapeb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4, true);
+    }
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 12);
+        InkPaintModule::set_special_paint(boma, *SPECIAL_PAINT_SQUID_TO_HUMAN);
+    }
+    frame(lua_state, 47.0);
+    WorkModule::is_flag(boma, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_BOY);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            FT_MOTION_INTP_WAIT(agent);
+        }
+    }
+}

@@ -1,0 +1,43 @@
+unsafe extern "C" fn game_specialhijrrise(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KOOPAJR_STATUS_SPECIAL_HI_SHOOT_FLAG_ACTION);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    }
+}
+
+unsafe extern "C" fn effect_specialhijrrise(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopajr_zibaku_line"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialhijrrise(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_special_h01"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_koopajr_rnd_special_h"));
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_bomb_s"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhijrrise(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        macros::HIT_NODE(agent, Hash40::new("clownhip"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_NORMAL);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

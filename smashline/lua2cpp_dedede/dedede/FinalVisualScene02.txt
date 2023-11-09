@@ -1,0 +1,19 @@
+unsafe extern "C" fn effect_finalvisualscene02(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("dedede_final_eyelight"), Hash40::new("head"), 4, 3, 2, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalvisualscene02(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 28.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_dedede_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalvisualscene02(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hammer") as i64, hash40("hammer_disp_off") as i64);
+    }
+}

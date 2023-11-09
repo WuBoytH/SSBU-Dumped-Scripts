@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_specialnendl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+        JostleModule::set_status(boma, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialnendl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_purin_landing01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialnendl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+}

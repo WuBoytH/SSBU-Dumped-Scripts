@@ -1,0 +1,48 @@
+unsafe extern "C" fn effect_escapeb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 60, -15, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 180, 0, 2, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLIP(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_ZX);
+        macros::EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, true);
+    }
+    wait(agent.lua_state_agent, 7.0);
+}
+}
+
+unsafe extern "C" fn sound_escapeb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_escape"));
+    }
+    wait(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_jump02"));
+    }
+    wait(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_landing01"));
+    }
+}
+
+unsafe extern "C" fn expression_escapeb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_shell") as i64);
+    }
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+}

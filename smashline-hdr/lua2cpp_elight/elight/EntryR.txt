@@ -1,0 +1,61 @@
+unsafe extern "C" fn game_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if WorkModule::is_flag(boma, *FIGHTER_ELEMENT_INSTANCE_WORK_ID_FLAG_ENABLE_CHANGE) {
+        if is_excute(agent) {
+            ArticleModule::generate_article(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_DIVER, false, -1);
+            ArticleModule::change_motion(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_DIVER, Hash40::new("l_entry_r"), false, -1.0);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 33.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("elight_change_end"), Hash40::new("top"), 32, 5, -32, 0, 0, 0, 1.3, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
+        EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("elight_change_end"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1, true);
+        LAST_EFFECT_SET_RATE(agent, 0.8);
+    }
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sys_item_get"), Hash40::new("haver"), 0, 1, 0, 0, 0, 0, 0.8, true);
+    }
+    frame(lua_state, 71.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 31.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_elight_appear02"));
+    }
+    frame(lua_state, 71.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_elight_step_left_m"));
+    }
+    frame(lua_state, 81.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_elight_step_right_m"));
+    }
+}
+
+unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+}

@@ -1,0 +1,43 @@
+unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_action_smoke_v"), Hash40::new("top"), 21, 0, 15, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 21, 0, 15, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 87.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_action_smoke_v"), Hash40::new("top"), -16, 0, 7, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), -16, 0, 7, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_smashswing_03"));
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_hammer_swing_ll"));
+    }
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_dedede_hammer_swing_ll"));
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_hammer_attack_earth_win01"));
+    }
+    frame(agent.lua_state_agent, 69.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_smashswing_03"));
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_hammer_swing_ll"));
+    }
+    frame(agent.lua_state_agent, 87.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_dedede_hammer_swing_ll"));
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_hammer_attack_earth_win01"));
+    }
+}
+
+unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER) {
+        if macros::is_excute(agent) {
+            ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+}

@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_bayonettaspecialairnloopf(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    WorkModule::is_flag(boma, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX);
+    0x543c60(false, false);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_hold"), Hash40::new("footr"), -1, 2, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_hold"), Hash40::new("footl"), -1, 2, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn expression_bayonettaspecialairnloopf(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

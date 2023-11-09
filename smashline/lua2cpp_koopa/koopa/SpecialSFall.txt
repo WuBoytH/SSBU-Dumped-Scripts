@@ -1,0 +1,36 @@
+unsafe extern "C" fn game_specialsfall(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 70, 30, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+        macros::ATTACK_IGNORE_THROW(agent, 0, 0, Hash40::new("top"), 15.0, 361, 80, 0, 80, 8.0, 0.0, 2.0, 6.5, Some(0.0), Some(2.0), Some(-4.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
+    }
+}
+
+unsafe extern "C" fn effect_specialsfall(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_COLOR(agent, Hash40::new("koopa_atk_fall"), Hash40::new("top"), 0, 10, 2, 0, 0, 0, 1, true, 1, 0.902, 0.49);
+    }
+    for _ in 0..5 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLIP(agent, Hash40::new("sys_spin_wind"), Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 6, 0, 180, 0, 0, 1.8, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLIP(agent, Hash40::new("sys_spin_wind"), Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, -1, 0, 180, -60, 0, 1.7, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+    }
+    wait(agent.lua_state_agent, 3.0);
+}
+}
+
+unsafe extern "C" fn expression_specialsfall(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}

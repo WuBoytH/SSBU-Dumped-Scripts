@@ -1,0 +1,70 @@
+unsafe extern "C" fn game_specialairnendmax(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        KineticModule::set_consider_ground_friction(agent.module_accessor, false, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 50.0, 361, 83, 0, 50, 9.6, 0.0, 10.5, 16.0, Some(0.0), Some(10.5), Some(15.7), 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 30, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_BOMB);
+        macros::ATTACK(agent, 1, 0, Hash40::new("top"), 36.0, 361, 70, 0, 50, 17.0, 0.0, 10.5, 16.0, Some(0.0), Some(10.5), Some(15.7), 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 30, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_BOMB);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_specialairnendmax(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("roy_erupution_hold"), false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("roy_erupution_hold"), Hash40::new("sword1"), 0, 0, -3, 0, 0, 0, 2, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("roy_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("roy_erupution_hold"), false, false);
+        macros::EFFECT(agent, Hash40::new("roy_eruption_max"), Hash40::new("top"), 0, 0, 15, 0, 0, 0, 2.1, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+        macros::EFFECT(agent, Hash40::new("roy_eruption_bomb_main"), Hash40::new("top"), 0, 0, 15, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+        macros::EFFECT(agent, Hash40::new("roy_eruption_bomb_start_max"), Hash40::new("top"), 0, 0, 15, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    frame(agent.lua_state_agent, 26.0);
+    frame(agent.lua_state_agent, 46.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("roy_sword"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("roy_erupution_hold"), false, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnendmax(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_roy_special_n01"));
+        macros::PLAY_SE(agent, Hash40::new("se_roy_special_n05"));
+        macros::PLAY_SE(agent, Hash40::new("vc_roy_special_n03"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnendmax(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        macros::AREA_WIND_2ND_arg10(agent, 0, 3, 110, 300, 1, 0, 12, 30, 30, 0);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_explosionl"), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        AreaModule::erase_wind(agent.module_accessor, 0);
+    }
+}

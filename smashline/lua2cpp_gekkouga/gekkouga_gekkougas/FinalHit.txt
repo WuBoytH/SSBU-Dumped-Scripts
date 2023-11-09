@@ -1,0 +1,11 @@
+unsafe extern "C" fn game_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 25, 0, 0, 0);
+    }
+}
+
+unsafe extern "C" fn effect_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 20, 0.5, 0.5, 0.5, 0, 0, 0, 0.6, 3, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
+    }
+}

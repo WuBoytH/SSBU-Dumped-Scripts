@@ -1,0 +1,19 @@
+unsafe extern "C" fn game_guardoff(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area_xy(agent.module_accessor, 7.0, 7.0, 7.5, 7.5);
+    }
+}
+
+unsafe extern "C" fn sound_guardoff(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_guardoff"));
+    }
+}
+
+unsafe extern "C" fn expression_guardoff(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_GuardOffRumble()();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TPART, 3);
+    }
+}

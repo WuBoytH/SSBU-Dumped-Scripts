@@ -1,0 +1,23 @@
+unsafe extern "C" fn sound_swimdrown(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swim_middle_02"));
+    }
+    wait(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swim_low_01"));
+    }
+    wait(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swim_low_01"));
+    }
+    wait(agent.lua_state_agent, 10.0);
+    macros::PLAY_SE(agent, Hash40::new("se_common_swim_high_02"));
+}
+
+unsafe extern "C" fn expression_swimdrown(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SwimDrownRumble()();
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+}

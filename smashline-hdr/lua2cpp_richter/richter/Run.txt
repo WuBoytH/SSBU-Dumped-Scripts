@@ -1,0 +1,35 @@
+unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 21.0);
+    FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+
+unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_richter_step_right_l"), Hash40::new("se_richter_step_left_l"));
+    }
+    frame(lua_state, 23.0);
+    PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_richter_step_left_l"), Hash40::new("se_richter_step_right_l"));
+}
+
+unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 29.0);
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}

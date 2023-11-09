@@ -1,0 +1,18 @@
+unsafe extern "C" fn effect_specialairhiend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("murabito_balloon_cut"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairhiend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_murabito_special_h03"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairhiend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

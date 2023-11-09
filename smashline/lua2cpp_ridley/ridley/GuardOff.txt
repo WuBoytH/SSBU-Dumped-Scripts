@@ -1,0 +1,27 @@
+unsafe extern "C" fn game_guardoff(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::HIT_NODE(agent, Hash40::new("wingr2"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("wingl2"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("tail1"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("tail3"), *HIT_STATUS_XLU);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
+    }
+}
+
+unsafe extern "C" fn sound_guardoff(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_guardoff"));
+    }
+}
+
+unsafe extern "C" fn expression_guardoff(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_GuardOffRumble()();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+    }
+}

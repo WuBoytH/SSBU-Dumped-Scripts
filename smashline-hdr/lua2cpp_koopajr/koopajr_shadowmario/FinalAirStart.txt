@@ -1,0 +1,22 @@
+unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    FT_MOTION_RATE(agent, 0.7);
+    frame(lua_state, 42.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_rush"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 43.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *WEAPON_KOOPAJR_SHADOWMARIO_INSTANCE_WORK_ID_FLAG_JUMP);
+    }
+}
+
+unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 38.0);
+    if is_excute(agent) {
+        PLAY_SE_REMAIN(agent, Hash40::new("se_koopajr_final02"));
+    }
+}

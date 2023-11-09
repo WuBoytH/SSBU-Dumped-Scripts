@@ -1,0 +1,41 @@
+unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_KOOPAJR_SHADOWMARIO_INSTANCE_WORK_ID_FLAG_GENERATE_BATTEN);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 10, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 35.0);
+    macros::FT_MOTION_RATE(agent, 0.7);
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_KOOPAJR_SHADOWMARIO_INSTANCE_WORK_ID_FLAG_JUMP);
+    }
+}
+
+unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopajr_final_brush_splash"), Hash40::new("paint2"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopajr_final_brush_splash"), Hash40::new("paint2"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_final(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_koopajr_final04"));
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_koopajr_final05"));
+    }
+}

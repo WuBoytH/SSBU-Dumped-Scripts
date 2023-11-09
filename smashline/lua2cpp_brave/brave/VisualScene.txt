@@ -1,0 +1,89 @@
+unsafe extern "C" fn game_visualscene(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 336.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_FINAL_FLAG_SCENE01_SYNC);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 0, 0);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("brave_final_lightsword"), false, true);
+        macros::EFFECT_OFF_KIND_WORK(agent, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_LIGHTNING_SWORD_FLARE, false, true);
+    }
+    frame(agent.lua_state_agent, 251.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_final_hit"), Hash40::new("sword1"), 5, 0, 0, 0, 45, 90, 1, true);
+        macros::EFFECT_FOLLOW_WORK(agent, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE, Hash40::new("sword1"), 0, 0, 0, 0, 0, -90, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_final_lightsword2"), Hash40::new("sword1"), 0, 0, 0, 0, 90, -90, 0.9, true);
+    }
+    frame(agent.lua_state_agent, 316.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("brave_final_slash"), Hash40::new("top"), 0, 2, 25, 0, 0, -25, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 149.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_brave_final05"));
+    }
+    frame(agent.lua_state_agent, 250.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_brave_final06"));
+    }
+    frame(agent.lua_state_agent, 298.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_brave_final07"));
+    }
+    frame(agent.lua_state_agent, 300.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_brave_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase_sp"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_erase_sp"), 0);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 34, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_elecattack"), 34);
+    }
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_slashm"), 12, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_slashm"), 12);
+    }
+    frame(agent.lua_state_agent, 154.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beaml"), 32, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_beaml"), 32);
+    }
+    frame(agent.lua_state_agent, 188.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_32_hold_lv2"), 50, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_32_hold_lv2"), 50);
+    }
+    frame(agent.lua_state_agent, 200.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+    }
+    frame(agent.lua_state_agent, 255.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_explosionm"), 0);
+    }
+    frame(agent.lua_state_agent, 314.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_genesis"), 42, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_genesis"), 41);
+    }
+    frame(agent.lua_state_agent, 357.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_critical"), 0);
+    }
+}

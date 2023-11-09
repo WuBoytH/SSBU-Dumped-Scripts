@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_starrodswing3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_StarRodSwing3Common()();
+    if macros::is_excute(agent) {
+        macros::SHOOT_ITEM_BULLET_CHARGE(agent, 0);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn expression_starrodswing3(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

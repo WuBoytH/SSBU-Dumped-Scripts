@@ -1,0 +1,17 @@
+unsafe extern "C" fn sound_swim(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swim_middle_01"));
+    }
+    wait(agent.lua_state_agent, 20.0);
+    macros::PLAY_SE(agent, Hash40::new("se_common_swim_middle_02"));
+}
+
+unsafe extern "C" fn expression_swim(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}

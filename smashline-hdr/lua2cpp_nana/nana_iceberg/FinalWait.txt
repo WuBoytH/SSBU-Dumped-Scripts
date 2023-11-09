@@ -1,0 +1,33 @@
+unsafe extern "C" fn game_finalwait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("needle1"), 9.0, 65, 144, 0, 70, 2.0, -1.0, -1.0, 0.0, Some(25.0), Some(-80.0), Some(20.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 50, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        ATTACK(agent, 1, 0, Hash40::new("needle1"), 9.0, 65, 144, 0, 70, 2.0, -1.0, -1.0, 0.0, Some(-30.0), Some(0.0), Some(-14.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 50, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        ATTACK(agent, 2, 0, Hash40::new("needle2"), 9.0, 65, 144, 0, 70, 2.0, -1.0, -1.0, 0.0, Some(0.0), Some(-50.0), Some(-10.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 50, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        ATTACK(agent, 3, 0, Hash40::new("needle2"), 9.0, 65, 144, 0, 70, 2.0, -1.0, -1.0, 0.0, Some(0.0), Some(30.0), Some(40.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 50, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        ATTACK(agent, 4, 0, Hash40::new("needle3"), 9.0, 65, 144, 0, 70, 2.0, 0.0, -1.0, 0.0, Some(-20.0), Some(-80.0), Some(10.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 50, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        ATTACK(agent, 5, 0, Hash40::new("needle3"), 9.0, 65, 144, 0, 70, 2.0, 0.0, -1.0, 0.0, Some(25.0), Some(30.0), Some(-25.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 50, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        AttackModule::set_force_reaction(boma, 0, true, false);
+        AttackModule::set_force_reaction(boma, 1, true, false);
+        AttackModule::set_force_reaction(boma, 2, true, false);
+        AttackModule::set_force_reaction(boma, 3, true, false);
+        AttackModule::set_force_reaction(boma, 4, true, false);
+        AttackModule::set_force_reaction(boma, 5, true, false);
+        AttackModule::set_final_finish_cut_in(boma, 0, true, true, -1, false);
+        AttackModule::set_final_finish_cut_in(boma, 1, true, true, -1, false);
+        AttackModule::set_final_finish_cut_in(boma, 2, true, true, -1, false);
+        AttackModule::set_final_finish_cut_in(boma, 3, true, true, -1, false);
+        AttackModule::set_final_finish_cut_in(boma, 4, true, true, -1, false);
+        AttackModule::set_final_finish_cut_in(boma, 5, true, true, -1, false);
+        WorkModule::on_flag(boma, *WEAPON_POPO_ICEBERG_INSTANCE_WORK_ID_FLAG_CHANGE_ATTACK_UPDATE_BASE);
+    }
+}
+
+unsafe extern "C" fn sound_finalwait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_popo_final03"));
+    }
+}

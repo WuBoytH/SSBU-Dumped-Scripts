@@ -1,0 +1,55 @@
+unsafe extern "C" fn game_finalend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 1.0, 60, 100, 30, 0, 18.0, 0.0, 10.0, 28.0, Some(0.0), Some(10.0), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 7, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_ink_hit"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, false);
+    }
+    wait(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 8.0, 361, 105, 0, 80, 24.0, 0.0, 10.0, 33.0, Some(0.0), Some(10.0), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_ink_hit"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+        AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
+        AttackModule::set_ink_value(agent.module_accessor, 0, 200);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, false);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_64_megaphone3"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 4, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("inkling_final_splash"), false, true);
+    }
+    frame(agent.lua_state_agent, 56.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("inkling_final_vanish"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    }
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_R);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_G);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_B);
+    if macros::is_excute(agent) {
+        macros::LAST_PARTICLE_SET_COLOR(agent);
+    }
+}
+
+unsafe extern "C" fn sound_finalend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_final04"));
+    }
+    frame(agent.lua_state_agent, 55.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_final05"));
+    }
+}

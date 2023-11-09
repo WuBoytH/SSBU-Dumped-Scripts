@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_throwb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("inkling_squid_change"), Hash40::new("head"), 2, 0, 0, 0, 0, 0, 0.9, true);
+    }
+    WorkModule::get_float(boma, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_R);
+    WorkModule::get_float(boma, -1407754940, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_G);
+    WorkModule::get_float(boma, -1407754940, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_B);
+    if is_excute(agent) {
+        LAST_PARTICLE_SET_COLOR(agent);
+    }
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 6, -4, 15, 0, 10, 1.45, true);
+        LAST_EFFECT_SET_RATE(agent, 1.2);
+        LAST_EFFECT_SET_ALPHA(agent, 0.8);
+    }
+}

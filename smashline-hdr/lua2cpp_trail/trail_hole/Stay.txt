@@ -1,0 +1,39 @@
+unsafe extern "C" fn game_stay(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if WorkModule::is_flag(boma, *WEAPON_TRAIL_HOLE_INSTANCE_WORK_ID_FLAG_GROUND) {
+        for _ in 0..6 {
+        if is_excute(agent) {
+            QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        }
+        wait(lua_state, 3.0);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+        WorkModule::off_flag(boma, *WEAPON_TRAIL_HOLE_STATUS_WORK_FLAG_PULL);
+        WorkModule::on_flag(boma, *WEAPON_TRAIL_HOLE_STATUS_WORK_FLAG_SEND_ATTACK_END);
+    }
+}
+else{
+for _ in 0..6 {
+if is_excute(agent) {
+    QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+}
+wait(lua_state, 3.0);
+}
+frame(lua_state, 30.0);
+if is_excute(agent) {
+AttackModule::clear_all(boma);
+WorkModule::off_flag(boma, *WEAPON_TRAIL_HOLE_STATUS_WORK_FLAG_PULL);
+WorkModule::on_flag(boma, *WEAPON_TRAIL_HOLE_STATUS_WORK_FLAG_SEND_ATTACK_END);
+}
+}
+}
+
+unsafe extern "C" fn effect_stay(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    WorkModule::is_flag(boma, *WEAPON_TRAIL_HOLE_INSTANCE_WORK_ID_FLAG_GROUND);
+    0x4ae890(false, true);
+}

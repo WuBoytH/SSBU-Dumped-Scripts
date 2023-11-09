@@ -1,0 +1,86 @@
+unsafe extern "C" fn game_batswing4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::SEARCH(agent, 0, 0, Hash40::new("top"), 10.0, 0.0, 9.0, 7.0, 0.0, 9.0, 10.0, *COLLISION_KIND_MASK_ATTACK, *HIT_STATUS_MASK_NORMAL, 60, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+    }
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_BatSwing4Common1()();
+    if macros::is_excute(agent) {
+        shield(*MA_MSC_CMD_REFLECTOR, *COLLISION_KIND_REFLECTOR, 0, Hash40::new("top"), 9, 0, 8, 7, 0, 8, 8, 2, 2.5, 80, false, 0.5, *FIGHTER_REFLECTOR_GROUP_HOMERUNBAT);
+    }
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_BatSwing4Common2()();
+}
+
+unsafe extern "C" fn sound_batswing4(agent: &mut L2CAgentBase) {
+    
+        if WorkModule::get_int(agent.module_accessor, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_COSTUME_KIND) != *FIGHTER_BAYONETTA_COSTUME_KIND_BAYONETTA_1 {
+            frame(agent.lua_state_agent, 45.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_jp"));
+            }
+        }
+        frame(agent.lua_state_agent, 45.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_US_EN {
+        frame(agent.lua_state_agent, 45.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_US_FR {
+        frame(agent.lua_state_agent, 45.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_EU_EN {
+        frame(agent.lua_state_agent, 45.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_EU_FR {
+        frame(agent.lua_state_agent, 45.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_EU_IT {
+        frame(agent.lua_state_agent, 45.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+        }
+    }
+}
+}
+}
+}
+}
+}
+
+unsafe extern "C" fn expression_batswing4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    execute(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("gun_hand") as i64, hash40("gun_hand_hide_all") as i64);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 51.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

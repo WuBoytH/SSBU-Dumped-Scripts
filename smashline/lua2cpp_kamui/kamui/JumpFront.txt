@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_jumpfront(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_SPECIAL_S_DISABLE_FOR_JUMP);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_SPECIAL_S_DISABLE_FOR_JUMP);
+    }
+}
+
+unsafe extern "C" fn effect_jumpfront(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_jumpfront(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_kamui_rnd_jump"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_kamui_jump01"));
+    }
+}

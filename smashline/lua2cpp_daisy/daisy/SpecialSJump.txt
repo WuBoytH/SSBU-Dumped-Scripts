@@ -1,0 +1,36 @@
+unsafe extern "C" fn game_specialsjump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, false);
+        macros::SEARCH(agent, 0, 0, Hash40::new("hip"), 3.5, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        KineticModule::change_kinetic(agent.module_accessor, *FIGHTER_KINETIC_TYPE_PEACH_SPECIAL_S_BRAKE);
+    }
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        WorkModule::enable_transition_term(agent.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_S_JUMP_ID_TIME_OUT);
+    }
+}
+
+unsafe extern "C" fn effect_specialsjump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("daisy_bomber_jamp"), Hash40::new("top"), 0, 6, -3, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn sound_specialsjump(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_daisy_special_s01"));
+        macros::PLAY_SE(agent, Hash40::new("vc_daisy_003"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("vc_daisy_003"), 30);
+    }
+}
+
+unsafe extern "C" fn expression_specialsjump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

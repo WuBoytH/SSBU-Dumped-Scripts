@@ -1,0 +1,24 @@
+unsafe extern "C" fn game_specialairntronhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_REFLET_GENERATE_ARTICLE_THUNDER, false, -1);
+    }
+}
+
+unsafe extern "C" fn sound_specialairntronhold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_reflet_special_n04"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairntronhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beaml"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

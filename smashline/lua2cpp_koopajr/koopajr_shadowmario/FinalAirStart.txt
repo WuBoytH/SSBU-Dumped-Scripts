@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
+    macros::FT_MOTION_RATE(agent, 0.7);
+    frame(agent.lua_state_agent, 42.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_rush"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 43.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_KOOPAJR_SHADOWMARIO_INSTANCE_WORK_ID_FLAG_JUMP);
+    }
+}
+
+unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_koopajr_final02"));
+    }
+}

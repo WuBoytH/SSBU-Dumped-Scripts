@@ -1,0 +1,56 @@
+unsafe extern "C" fn effect_throwlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 41.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 55, 0, -90, 0, 0, 3, true);
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 35, 40, -90, 0, 0, 3, true);
+    }
+    frame(lua_state, 42.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 20, 0, -90, 0, 0, 3, true);
+    }
+    frame(lua_state, 43.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 20, 40, -90, 0, 0, 3, true);
+    }
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_attack_speedline"), Hash40::new("top"), 0, 10, 0, -90, 0, 0, 3, true);
+        EFFECT(agent, Hash40::new("koopag_smoke_big"), Hash40::new("top"), 0, 0, 28, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+        LANDING_EFFECT(agent, Hash40::new("koopag_landing_smoke"), Hash40::new("top"), 0, 0, 28, 0, 0, 0, 2.25, 0, 0, 0, 0, 0, 0, true);
+        EFFECT_ALPHA(agent, Hash40::new("sys_crown_boss"), Hash40::new("top"), 0, 0, 28, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true, 3);
+        LAST_EFFECT_SET_RATE(agent, 0.75);
+    }
+}
+
+unsafe extern "C" fn sound_throwlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_throw_01"));
+    }
+    wait(lua_state, 32.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_throw_03"));
+    }
+}
+
+unsafe extern "C" fn expression_throwlw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FT_ATTACK_ABS_CAMERA_QUAKE(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 33.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+    }
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+    }
+}

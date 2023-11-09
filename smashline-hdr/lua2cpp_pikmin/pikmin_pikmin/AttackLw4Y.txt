@@ -1,0 +1,47 @@
+unsafe extern "C" fn game_attacklw4_y(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("head1"), 11.0, 28, 89, 0, 32, 6.75, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 1, 0.2, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_PIKMIN);
+    }
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("head1"), 9.0, 28, 89, 0, 25, 6.75, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 1, 0.2, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_PIKMIN);
+    }
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+}
+
+unsafe extern "C" fn effect_attacklw4_y(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW_COLOR(agent, Hash40::new("pikmin_smash_dash"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1, true, 1, 1, 0.14);
+        LAST_EFFECT_SET_ALPHA(agent, 0.8);
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 8, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    for _ in 0..3 {
+    if is_excute(agent) {
+        FLASH(agent, 0.8, 1, 0.5, 0);
+        FLASH_FRM(agent, 2, 0.8, 1, 0.5, 0.45);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 2, 0.8, 1, 0.5, 0);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+    }
+}
+}
+
+unsafe extern "C" fn sound_attacklw4_y(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pikmin_smash_l02"));
+    }
+}

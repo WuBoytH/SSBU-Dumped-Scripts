@@ -1,0 +1,45 @@
+unsafe extern "C" fn game_escapef(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        macros::REVERSE_LR(agent);
+    }
+}
+
+unsafe extern "C" fn effect_escapef(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 4, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("gekkouga_escape"), Hash40::new("top"), 0, 4, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("gekkouga_escape"), false, true);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("gekkouga_escape_leaf"), Hash40::new("top"), 0, 4, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_escapef(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gekkouga_escape"));
+    }
+}
+
+unsafe extern "C" fn expression_escapef(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x23c33f3bdc));
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

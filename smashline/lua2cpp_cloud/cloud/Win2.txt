@@ -1,0 +1,14 @@
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 52.0);
+}
+
+unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_cloud_win02"));
+    }
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_cloud_win02"));
+    }
+}

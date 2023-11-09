@@ -1,0 +1,36 @@
+unsafe extern "C" fn game_visualscene02(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_GAOGAEN_FINAL, 0, 7.0, 361, 80, 1, 90, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_PUNCH);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_GAOGAEN_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, true);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene02(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("gaogaen_final_line"), Hash40::new("top"), -1, 8, -28, -90, 0, 0, 1, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("gaogaen_final_impact"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.4);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene02(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_gaogaen_final_heavy_hit_m"));
+        PLAY_SE_NO_3D_FORCE_AUTO_PITCH(Hash40::new("vc_gaogaen_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene02(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_lv4"), 0);
+    }
+}

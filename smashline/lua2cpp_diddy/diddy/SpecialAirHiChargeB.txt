@@ -1,0 +1,18 @@
+unsafe extern "C" fn sound_specialairhichargeb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_diddy_special_h01"));
+    }
+    wait(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+        macros::PLAY_STATUS(agent, Hash40::new("se_diddy_special_h04"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairhichargeb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, *ATTACH_ITEM_GROUP_BACK);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("barrel") as i64, hash40("barrel_visible") as i64);
+    }
+}

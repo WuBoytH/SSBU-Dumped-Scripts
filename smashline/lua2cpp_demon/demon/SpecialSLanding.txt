@@ -1,0 +1,58 @@
+unsafe extern "C" fn game_specialslanding(agent: &mut L2CAgentBase) {
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 3);
+    frame(agent.lua_state_agent, 22.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 4);
+    frame(agent.lua_state_agent, 27.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 5);
+    frame(agent.lua_state_agent, 34.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 6);
+    frame(agent.lua_state_agent, 38.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 7);
+    frame(agent.lua_state_agent, 39.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 8);
+    frame(agent.lua_state_agent, 40.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, false, 0);
+}
+
+unsafe extern "C" fn effect_specialslanding(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+        macros::FLASH(agent, 0.097, 0.006, 0.238, 0.15);
+        macros::BURN_COLOR(agent, 6, 0, 40, 0.045);
+        macros::FLASH_FRM(agent, 2, 0.097, 0.006, 0.238, 0.45);
+        macros::BURN_COLOR_FRAME(agent, 2, 6, 0, 40, 0.13);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("demon_devil_end"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.097, 0.006, 0.238, 0.45);
+        macros::BURN_COLOR(agent, 6, 0, 40, 0.13);
+        macros::FLASH_FRM(agent, 8, 0.097, 0.006, 0.238, 0);
+        macros::BURN_COLOR_FRAME(agent, 8, 6, 0, 40, 0);
+    }
+}
+
+unsafe extern "C" fn sound_specialslanding(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_LANDING_SE(agent, Hash40::new("se_demon_landing02"));
+    }
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_demon_spark_end"));
+    }
+}
+
+unsafe extern "C" fn expression_specialslanding(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

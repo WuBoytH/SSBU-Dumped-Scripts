@@ -1,0 +1,71 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        SLOW_OPPONENT(agent, 4, 50);
+    }
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        frame(lua_state, 10.0);
+        if is_excute(agent) {
+            FT_SET_FINAL_FEAR_FACE(agent, 60);
+        }
+    }
+    get_value_float(*SO_VAR_FLOAT_LR);
+    if(methodlib::L2CValue::operator<(lib::L2CValueconst&)const(0, 0)){
+        if is_excute(agent) {
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalstart02.nuanmb"), false, false);
+        }
+        else{
+        if is_excute(agent) {
+            PostureModule::scale(boma, 5, 0);
+            0xe31b0(-1661201860, 1.8);
+            CAM_ZOOM_IN_arg5(0, 0);
+        }
+        else{
+        if is_excute(agent) {
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalstart.nuanmb"), false, false);
+        }
+        if is_excute(agent) {
+            FT_START_CUTIN(agent);
+        }
+    }
+}
+}
+frame(lua_state, 25.0);
+if is_excute(agent) {
+CAM_ZOOM_OUT(agent);
+}
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EffectModule::req_screen(boma, Hash40::new("bg_luigi_final"), false, false, false);
+    }
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_luigi_final01"));
+    }
+}
+
+unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        START_INFO_FLASH_EYE(agent);
+    }
+}

@@ -1,0 +1,34 @@
+unsafe extern "C" fn game_escapen(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    macros::FT_MOTION_RATE(agent, 1.3);
+    frame(agent.lua_state_agent, 27.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_escapen(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_escapen(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_elight_escapen"));
+    }
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_elight_step_left_s"));
+    }
+    frame(agent.lua_state_agent, 33.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_elight_step_left_m"));
+    }
+}
+
+unsafe extern "C" fn expression_escapen(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_79_escape_st"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

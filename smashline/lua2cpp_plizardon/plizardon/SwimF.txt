@@ -1,0 +1,38 @@
+unsafe extern "C" fn sound_swimf(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swim_low_01"));
+    }
+    wait(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swim_middle_01"));
+    }
+    wait(agent.lua_state_agent, 26.0);
+    macros::PLAY_SE(agent, Hash40::new("se_common_swim_low_02"));
+}
+
+unsafe extern "C" fn expression_swimf(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 61.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 74.0);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}

@@ -1,0 +1,32 @@
+unsafe extern "C" fn effect_walkfast(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 27, 0, -15, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 22, 0, -15, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 47.0);
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 27, 0, 15, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 22, 0, 15, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+}
+
+unsafe extern "C" fn sound_walkfast(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_right_s"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_koopag_step_right_s"), 20);
+    }
+    wait(agent.lua_state_agent, 30.0);
+    macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_left_m"));
+}
+
+unsafe extern "C" fn expression_walkfast(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+    }
+    frame(agent.lua_state_agent, 46.0);
+    macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+}

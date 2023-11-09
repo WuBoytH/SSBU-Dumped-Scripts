@@ -1,0 +1,86 @@
+unsafe extern "C" fn game_escapef(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        REVERSE_LR(agent);
+    }
+}
+
+unsafe extern "C" fn effect_escapef(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_escapef(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_sonic_escape"));
+    }
+}
+
+unsafe extern "C" fn expression_escapef(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_sphere") as i64);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("s_stingd1"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("footl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_NORMAL);
+    }
+    for _ in 0..7 {
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("s_stingd1"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("footl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_OFF);
+    }
+    wait(lua_state, 1.0);
+}
+frame(lua_state, 13.0);
+if is_excute(agent) {
+    slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+}
+frame(lua_state, 27.0);
+if is_excute(agent) {
+    ItemModule::set_have_item_visibility(boma, true, 0);
+    notify_event_msc_cmd!(agent, Hash40::new_raw(0x23c33f3bdc));
+}
+}

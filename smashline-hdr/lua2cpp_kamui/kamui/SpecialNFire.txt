@@ -1,0 +1,88 @@
+unsafe extern "C" fn game_specialnfire(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    FT_MOTION_RATE(agent, 1.4);
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_KAMUI_STATUS_SPECIAL_N_FLAG_SHOOT);
+    }
+    FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_specialnfire(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("kamui_ryusensya_shot"), Hash40::new("havel"), 1.5, 2, 0, 0, 0, 0, 1, false);
+        LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 1, 10, 0, 5, 0, 0, 0, false);
+        EFFECT(agent, Hash40::new("sys_damage_elec"), Hash40::new("havel"), 3.5, 2.5, 0, 0, 0, 0, 1, 5, 5, 10, 0, 0, 0, true);
+        FLASH(agent, 0.706, 0.706, 0.706, 0.51);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_damage_elec"), Hash40::new("havel"), -1.5, 2.5, 0, 0, 0, 0, 1, 5, 5, 10, 0, 0, 0, true);
+        FLASH(agent, 0.392, 0, 0.784, 0.314);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+    }
+    wait(lua_state, 2.0);
+}
+
+unsafe extern "C" fn sound_specialnfire(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 7.0);
+    WorkModule::get_float(boma, *FIGHTER_KAMUI_STATUS_SPECIAL_N_WORK_FLOAT_HOLD_RATE);
+    if(0x14e230(1026626521, 0.35)){
+        if is_excute(agent) {
+            PLAY_SEQUENCE(agent, Hash40::new("seq_kamui_rnd_special_n01"));
+        }
+        else{
+        WorkModule::get_float(boma, *FIGHTER_KAMUI_STATUS_SPECIAL_N_WORK_FLOAT_HOLD_RATE);
+        if(0x14e230(1026626521, 0.95)){
+            if is_excute(agent) {
+                PLAY_SEQUENCE(agent, Hash40::new("seq_kamui_rnd_special_n02"));
+            }
+            else{
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("vc_kamui_special_n03"));
+            }
+        }
+    }
+}
+}
+frame(lua_state, 13.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_kamui_special_n06"));
+}
+}
+
+unsafe extern "C" fn expression_specialnfire(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        AREA_WIND_2ND_arg10(0, 0.5, 180, 2, 0.5, -10, 10, 20, 20, 10);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 24, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 26.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_KAMUI_STATUS_SPECIAL_N_FLAG_MOTION_END2);
+    }
+}

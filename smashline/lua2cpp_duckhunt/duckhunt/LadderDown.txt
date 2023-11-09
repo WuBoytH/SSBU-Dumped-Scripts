@@ -1,0 +1,11 @@
+unsafe extern "C" fn sound_ladderdown(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_ladderstep_s"));
+    }
+}
+
+unsafe extern "C" fn expression_ladderdown(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+}

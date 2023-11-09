@@ -1,0 +1,17 @@
+unsafe extern "C" fn effect_jumpsquat(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_promrevolt_sword_firetrail"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_sword_beam_m"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_promrevolt_speed_line"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_promrevolt_sword_fire"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_promrevolt_sword_fire2"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_sword_firetrail"), true, true);
+        macros::AFTER_IMAGE_OFF(agent, 3);
+    }
+}
+
+unsafe extern "C" fn expression_jumpsquat(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_appealsr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 39.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("armr"), 6, 0.555, 0.2, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_appealsr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_miigunner_appeal_s01"));
+    }
+}
+
+unsafe extern "C" fn expression_appealsr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 5, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

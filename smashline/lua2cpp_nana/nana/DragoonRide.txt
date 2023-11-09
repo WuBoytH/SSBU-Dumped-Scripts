@@ -1,0 +1,13 @@
+unsafe extern "C" fn sound_dragoonride(agent: &mut L2CAgentBase) {
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA);
+    0x1478c0(false, true);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_dragoon_ride"));
+    }
+}
+
+unsafe extern "C" fn expression_dragoonride(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_drgn_start"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

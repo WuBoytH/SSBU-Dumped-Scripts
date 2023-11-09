@@ -1,0 +1,92 @@
+unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_CLOUD_STATUS_FINAL_FLAG_DISP_WINDOW);
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 27, 0, 0, 0);
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 0, 4, 6, 0);
+        macros::SLOW_OPPONENT(agent, 20, 60);
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
+        }
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart02.nuanmb"), true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            PostureModule::scale(agent.module_accessor, 4, 0);
+            0x1801b0(1699148503, 1.8);
+            CAM_ZOOM_IN_arg5(-0.1, 0);
+            macros::FT_START_CUTIN(agent);
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), true);
+        }
+        if macros::is_excute(agent) {
+            macros::FT_START_CUTIN(agent);
+        }
+    }
+}
+}
+frame(agent.lua_state_agent, 26.0);
+if macros::is_excute(agent) {
+macros::CAM_ZOOM_OUT(agent);
+camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+}
+}
+
+unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_cloud_final"), false, false, false);
+        effect(*MA_MSC_EFFECT_SET_SYNC_SCALE, false);
+        effect(*MA_MSC_EFFECT_SET_SYNC_SCALE, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("cloud_final_chant"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_WORK(agent, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE_LB, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
+        macros::EFFECT(agent, Hash40::new("cloud_final_tornado"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("cloud_final_sword_aura"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("cloud_final_start_light"), Hash40::new("haver"), 0, 13, 1, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("cloud_final_sword_aura"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_cloud_final01"));
+        macros::PLAY_SE(agent, Hash40::new("se_cloud_final01"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

@@ -1,0 +1,22 @@
+unsafe extern "C" fn game_speciallwloop(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 4.0, 3.8);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_JACK_STATUS_SPECIAL_LW_FLAG_GUARD_START);
+    }
+}
+
+unsafe extern "C" fn sound_speciallwloop(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_jack_special_l08"));
+    }
+}
+
+unsafe extern "C" fn expression_speciallwloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_31_cypher"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

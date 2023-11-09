@@ -1,0 +1,58 @@
+unsafe extern "C" fn game_specialswallend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::change_motion(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_SPEARHAND, Hash40::new("special_s_wall_end"), false, -1.0);
+    }
+}
+
+unsafe extern "C" fn effect_specialswallend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
+    }
+}
+
+unsafe extern "C" fn sound_specialswallend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_kamui_special_s05"));
+    }
+    wait(lua_state, 5.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_kamui_horn_end"));
+    }
+}
+
+unsafe extern "C" fn expression_specialswallend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_int64(boma, hash40("front_hair") as i64, hash40("front_hair_hide") as i64);
+        VisibilityModule::set_int64(boma, hash40("hair") as i64, hash40("hair_hide") as i64);
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("hair") as i64, hash40("hair_normal") as i64);
+    }
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("front_hair") as i64, hash40("front_hair_normal") as i64);
+    }
+    frame(lua_state, 11.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("dragon") as i64, hash40("dragon_none") as i64);
+    }
+}

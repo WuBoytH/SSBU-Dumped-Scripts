@@ -1,0 +1,129 @@
+unsafe extern "C" fn game_attackhi4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 7.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
+    }
+    frame(lua_state, 8.0);
+    FT_MOTION_RATE(agent, 0.5);
+    frame(lua_state, 10.0);
+    FT_MOTION_RATE(agent, 1.0);
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 0.6, 115, 100, 170, 0, 3.2, 0.0, 7.4, 4.2, Some(0.0), Some(7.4), Some(11.4), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        AttackModule::set_no_damage_fly_smoke_all(boma, true, false);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 14.6, 84, 88, 0, 52, 4.8, 0.0, 28.6, 3.8, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_TRAIL_KICK, *ATTACK_REGION_MAGIC);
+        ATTACK(agent, 1, 0, Hash40::new("top"), 14.6, 84, 78, 0, 52, 9.8, 0.0, 28.6, 3.8, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_TRAIL_KICK, *ATTACK_REGION_MAGIC);
+        ATTACK(agent, 2, 0, Hash40::new("haver"), 14.6, 84, 78, 0, 52, 3.6, 0.0, 4.2, 0.0, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_TRAIL_KICK, *ATTACK_REGION_MAGIC);
+        ATTACK(agent, 3, 0, Hash40::new("haver"), 14.6, 84, 78, 0, 52, 3.6, 0.0, -0.6, 0.0, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_TRAIL_KICK, *ATTACK_REGION_MAGIC);
+    }
+    wait(lua_state, 4.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+}
+
+unsafe extern "C" fn effect_attackhi4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("trail_smash_hi_keyblade"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("trail_smash_hi_speedline"), Hash40::new("top"), 0, 10, 10, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_smash_hi_flash2"), Hash40::new("haver"), 0, 10, -0.5, 0, 0, 0, 1.2, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+        EFFECT_FOLLOW(agent, Hash40::new("trail_smash_hi_flash"), Hash40::new("haver"), 0, 10, -0.5, 0, 0, 0, 1.2, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+        LANDING_EFFECT(agent, Hash40::new("sys_v_smoke_a"), Hash40::new("top"), 1, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 25.0);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("trail_smash_hi_flash"), -1);
+        EFFECT_DETACH_KIND(agent, Hash40::new("trail_smash_hi_flash2"), -1);
+    }
+}
+
+unsafe extern "C" fn sound_attackhi4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_trail_smash_h01"));
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_trail_smash_h02"));
+    }
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_trail_rnd_smash_h"));
+    }
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_trail_smash_h03_01"));
+    }
+    frame(lua_state, 17.06);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_trail_smash_h03_02"));
+    }
+    frame(lua_state, 41.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_trail_smash_h04"));
+    }
+}
+
+unsafe extern "C" fn expression_attackhi4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 7.0);
+    execute(lua_state, 7.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        RUMBLE_HIT(agent, Hash40::new("rbkind_81_attacks2"), 0);
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_81_smash_hi_nohit"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_HIT(agent, Hash40::new("rbkind_81_smash_hi"), 0);
+    }
+    frame(lua_state, 50.0);
+    if ItemModule::is_have_item(boma, 0) {
+        if is_excute(agent) {
+            FT_MOTION_INTP_WAIT_ITEM(agent, true, 0.05);
+        }
+    }
+    frame(lua_state, 57.0);
+    if is_excute(agent) {
+        FT_MOTION_INTP_WAIT_ITEM(agent, true, 0.08);
+    }
+    frame(lua_state, 64.0);
+    if is_excute(agent) {
+        FT_MOTION_INTP_WAIT_ITEM(agent, true, 0);
+    }
+}

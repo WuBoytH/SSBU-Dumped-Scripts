@@ -1,0 +1,41 @@
+unsafe extern "C" fn game_finalairdashend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        SET_SPEED_EX(agent, 3, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+    }
+}
+
+unsafe extern "C" fn effect_finalairdashend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        EffectModule::remove_screen(boma, Hash40::new("bg_pichu_final"), -1);
+        EFFECT_FLW_POS_NO_STOP(agent, Hash40::new("pichu_final_elec"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 0.8, true);
+    }
+    frame(lua_state, 50.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("pichu_final_elec"), false, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalairdashend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("vc_pichu_final01"));
+        PLAY_STATUS(agent, Hash40::new("vc_pichu_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairdashend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitl"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

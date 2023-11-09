@@ -1,0 +1,25 @@
+unsafe extern "C" fn effect_specialairnholds(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pit_pa_hold_bow2"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pit_pa_hold_bow"), true, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pit_pa_hold_bow"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnholds(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    sound!(agent, *MA_MSC_CMD_SOUND_IS_PLAYING_STATUS, Hash40::new("se_pit_special_n01"));
+    if(0x111840(false)){
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_pit_special_n01"));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_specialairnholds(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_drawhold"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

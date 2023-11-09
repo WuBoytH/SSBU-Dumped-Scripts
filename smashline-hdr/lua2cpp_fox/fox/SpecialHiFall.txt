@@ -1,0 +1,27 @@
+unsafe extern "C" fn game_specialhifall(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        JostleModule::set_status(boma, true);
+    }
+}
+
+unsafe extern "C" fn effect_specialhifall(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        BURN_COLOR(agent, 2, 0.1, 0, 0.4);
+        EFFECT(agent, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_damage_fire"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+        BURN_COLOR_FRAME(agent, 2, 1, 0.2, 0.1, 0);
+    }
+    frame(lua_state, 11.0);
+    if is_excute(agent) {
+        BURN_COLOR_NORMAL(agent);
+    }
+}

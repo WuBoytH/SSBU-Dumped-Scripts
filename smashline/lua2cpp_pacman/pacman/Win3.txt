@@ -1,0 +1,50 @@
+unsafe extern "C" fn game_win3(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        if macros::is_excute(agent) {
+            ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, false, -1);
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, Hash40::new("win3"), false, -1.0);
+            ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_FAIRY, false, -1);
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_FAIRY, Hash40::new("win3"), false, -1.0);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 61.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, 0x12d4f9cef1);
+    }
+    frame(agent.lua_state_agent, 39.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, 0x12d4f9cef1);
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_landing01_win"));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_win3_1up"));
+    }
+    frame(agent.lua_state_agent, 61.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_step_left_m_win"));
+    }
+    frame(agent.lua_state_agent, 128.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_swing_m_win"));
+    }
+}
+
+unsafe extern "C" fn expression_win3(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        if macros::is_excute(agent) {
+            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_PACMAN_GENERATE_ARTICLE_ARTISTICPOINT, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

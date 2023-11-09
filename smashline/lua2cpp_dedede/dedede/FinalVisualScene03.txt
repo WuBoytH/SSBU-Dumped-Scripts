@@ -1,0 +1,75 @@
+unsafe extern "C" fn game_finalvisualscene03(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_DEDEDE_FINAL, 0, 20.0, 361, 80, 1, 0, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, true);
+    }
+    frame(agent.lua_state_agent, 69.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DEDEDE_STATUS_WORK_ID_FLAG_FINAL_ABS_HIT);
+    }
+}
+
+unsafe extern "C" fn effect_finalvisualscene03(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_STENCIL_ON(agent);
+        macros::EFFECT(agent, Hash40::new("dedede_final_damage"), Hash40::new("throw"), 0, 6, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("dedede_final_jet"), Hash40::new("hammer1"), 10.5, 0, -4, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1.6, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 13, 0, 0, 0, 0, 1.6, true);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1.6, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 13, 0, 0, 0, 0, 1.6, true);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1.6, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 10, 0, 0, 0, 0, 1.6, true);
+    }
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1.6, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 14, 0, 0, 0, 0, 1.6, true);
+    }
+    frame(agent.lua_state_agent, 49.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1.6, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_spin_wind"), Hash40::new("rot"), 0, 12, 0, 0, 0, 0, 1.6, true);
+    }
+    frame(agent.lua_state_agent, 62.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("dedede_final_jet"), false, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("dedede_final_jet"), Hash40::new("hammer1"), 11.6, -1.8, -5.5, 0, 0, 0, 1, true);
+        macros::EFFECT(agent, Hash40::new("dedede_final_hit"), Hash40::new("hammer1"), 7, 0, 9, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
+        methodlib::L2CValue::as_hash()const(Hash40::new("genesis_get"), Hash40::new("hammer1"), 30, 30, 0, 0, 0, true);
+        methodlib::L2CValue::as_hash()const();
+        EffectModule::request_post_effect_line_circle(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 110.0);
+    if macros::is_excute(agent) {
+        EffectModule::remove_post_effect_line(agent.module_accessor, 8, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalvisualscene03(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 54.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_dedede_final03"));
+    }
+}
+
+unsafe extern "C" fn expression_finalvisualscene03(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hammer") as i64, hash40("hammer_disp_off") as i64);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_spinattack"), 62, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_spinattack"), 62);
+    }
+    frame(agent.lua_state_agent, 63.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attack_finish"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

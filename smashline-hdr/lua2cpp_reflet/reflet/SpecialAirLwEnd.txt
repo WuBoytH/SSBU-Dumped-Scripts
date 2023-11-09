@@ -1,0 +1,36 @@
+unsafe extern "C" fn game_specialairlwend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 13.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    }
+    frame(lua_state, 18.0);
+    FT_MOTION_RATE(agent, 0.7);
+    frame(lua_state, 38.0);
+    FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_specialairlwend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    WorkModule::is_flag(boma, *FIGHTER_REFLET_STATUS_SPECIAL_LW_CAPTURE_FLAG_MISS);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            EFFECT_OFF_KIND(agent, Hash40::new("reflet_rizaia"), false, true);
+            EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("reflet_rizaia"), Hash40::new("top"), 0, 5, 14, 0, 0, 0, 1, true);
+        }
+    }
+    frame(lua_state, 37.0);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("reflet_rizaia"), -1);
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+}

@@ -1,0 +1,93 @@
+unsafe extern "C" fn game_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_MEWTWO_GENERATE_ARTICLE_BINDBALL, false, -1);
+    }
+}
+
+unsafe extern "C" fn effect_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FLASH(agent, 1, 1, 1, 0.55);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH(agent, 0.35, 0.5, 1, 0.4);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 5, 0, 0, 0.35, 0);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH(agent, 1, 1, 1, 0.55);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH(agent, 0.35, 0.5, 1, 0.4);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 5, 0, 0, 0.35, 0);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH(agent, 1, 1, 1, 0.55);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH(agent, 0.35, 0.5, 1, 0.4);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 5, 0, 0, 0.35, 0);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+    }
+    frame(lua_state, 10.0);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("mewtwo_kanasibari_eye"), Hash40::new("head"), 0.7, 1.9, 1.4, 0, 0, 0, 0.5, true);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("mewtwo_kanasibari_eye"), Hash40::new("head"), 0.7, 1.9, -1.4, 0, 0, 0, 0.5, true);
+        }
+    }
+}
+frame(lua_state, 15.0);
+if is_excute(agent) {
+    LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+}
+}
+
+unsafe extern "C" fn sound_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_mewtwo_special_l01"));
+    }
+}
+
+unsafe extern "C" fn expression_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        AREA_WIND_2ND_arg10(0, 0.5, 220, 3, 0.2, -10, 5, 20, 10, 80);
+    }
+    frame(lua_state, 32.0);
+    if is_excute(agent) {
+        AreaModule::erase_wind(boma, 0);
+    }
+}

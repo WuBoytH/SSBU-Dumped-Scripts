@@ -1,0 +1,17 @@
+unsafe extern "C" fn game_move(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::SEARCH(agent, 0, 0, Hash40::new("top"), 25.0, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_STAGE, *COLLISION_PART_MASK_ALL, false);
+    }
+}
+
+unsafe extern "C" fn effect_move(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("mewtwo_final_ball"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.49, true);
+    }
+}
+
+unsafe extern "C" fn sound_move(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_mewtwo_final02"));
+    }
+}

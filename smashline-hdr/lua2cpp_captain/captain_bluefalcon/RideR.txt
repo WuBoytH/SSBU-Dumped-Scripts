@@ -1,0 +1,17 @@
+unsafe extern "C" fn effect_rider(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("captain_final_bunner_b"), true, true);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("captain_final_bunner_b"), Hash40::new("hip"), 10, -1, -20, 0, 180, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("captain_final_bunner_b"), Hash40::new("hip"), -10, -1, -20, 0, 180, 0, 1, true);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_bomb_b"), Hash40::new("hip"), 0, 0, -10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 3);
+    }
+}

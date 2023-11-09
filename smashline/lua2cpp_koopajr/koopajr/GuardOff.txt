@@ -1,0 +1,14 @@
+unsafe extern "C" fn sound_guardoff(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_guardoff"));
+    }
+}
+
+unsafe extern "C" fn expression_guardoff(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_GuardOffRumble()();
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::FT_MOTION_CHANGE_HAVE_ITEM(agent, Hash40::new("item_hand_grip"));
+    }
+}

@@ -1,0 +1,13 @@
+unsafe extern "C" fn sound_specialnfailure(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_special_n03"));
+    }
+}
+
+unsafe extern "C" fn expression_specialnfailure(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

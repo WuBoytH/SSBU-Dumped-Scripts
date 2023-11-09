@@ -1,0 +1,64 @@
+unsafe extern "C" fn effect_robotspecialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("robot_robobeam"), Hash40::new("neck"), 2.2, 5, 0.0, -90, -90, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 0.376, 0.502, 0.314);
+    }
+    frame(agent.lua_state_agent, 25.0);
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_ROBOT_STATUS_BEAM_WORK_FLOAT_ENERGY_VALUE);
+    WorkModule::get_param_float(agent.module_accessor, -1165490952, Hash40::new("param_special_n"), Hash40::new("miss_shoot_energy"));
+    if(0x543c60(144)){
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("robot_robobeam_shot"), Hash40::new("neck"), 2.2, 5, 0.0, -90, -90, 0, 1, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("robot_robobeam_miss"), Hash40::new("neck"), 2.2, 5, 0.0, -90, -90, 0, 1, true);
+        }
+    }
+}
+frame(agent.lua_state_agent, 26.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
+}
+}
+
+unsafe extern "C" fn sound_robotspecialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_kirby_copy_robot_01"));
+    }
+}
+
+unsafe extern "C" fn expression_robotspecialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 23.0);
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE);
+    WorkModule::get_param_float(agent.module_accessor, -1165490952, Hash40::new("param_special_n"), Hash40::new("strong_shoot_energy"));
+    if(0x543c60(368)){
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beaml"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        else{
+        WorkModule::get_float(agent.module_accessor, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE);
+        WorkModule::get_param_float(agent.module_accessor, -1165490952, Hash40::new("param_special_n"), Hash40::new("miss_shoot_energy"));
+        if(0x543c60(368)){
+            if macros::is_excute(agent) {
+                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            }
+            else{
+            if macros::is_excute(agent) {
+                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_blank"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            }
+        }
+    }
+}
+}
+frame(agent.lua_state_agent, 25.0);
+if macros::is_excute(agent) {
+macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+macros::RUMBLE_HIT(agent, Hash40::new("rbkind_explosion"), 0);
+}
+}

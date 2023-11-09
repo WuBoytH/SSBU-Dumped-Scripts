@@ -1,0 +1,99 @@
+unsafe extern "C" fn game_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_LUCAS_GENERATE_ARTICLE_KUMATORA, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_LUCAS_GENERATE_ARTICLE_BONNIE, false, -1);
+        BattleObjectWorld__scale_z();
+        if(0x101650(0, 1.0)){
+            article(*MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_LUCAS_GENERATE_ARTICLE_KUMATORA, -10, 0, -10);
+            article(*MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_LUCAS_GENERATE_ARTICLE_BONNIE, 10, 0, -10);
+        }
+        else{
+        article(*FIGHTER_LUCAS_GENERATE_ARTICLE_BONNIE, *FIGHTER_LUCAS_GENERATE_ARTICLE_KUMATORA, -10, 0, -0.01);
+        article(*MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_LUCAS_GENERATE_ARTICLE_BONNIE, 10, 0, -0.01);
+    }
+}
+macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+macros::SLOW_OPPONENT(agent, 5, 60);
+WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
+        macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final.nuanmb"), false);
+    }
+    else{
+    if macros::is_excute(agent) {
+        PostureModule::scale(agent.module_accessor, 5, 0);
+        0x101650(1763944442, 2.2);
+        CAM_ZOOM_IN_arg5(0, 0);
+        macros::FT_START_CUTIN(agent);
+    }
+}
+}
+frame(agent.lua_state_agent, 41.0);
+if macros::is_excute(agent) {
+macros::CAM_ZOOM_OUT(agent);
+camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 50, -50, 50, -10);
+}
+frame(agent.lua_state_agent, 51.0);
+if macros::is_excute(agent) {
+WorkModule::on_flag(agent.module_accessor, *FIGHTER_LUCAS_INSTANCE_WORK_ID_FLAG_FINAL_START);
+}
+frame(agent.lua_state_agent, 354.0);
+if macros::is_excute(agent) {
+ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_LUCAS_GENERATE_ARTICLE_KUMATORA, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_LUCAS_GENERATE_ARTICLE_BONNIE, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+}
+frame(agent.lua_state_agent, 357.0);
+if macros::is_excute(agent) {
+cancel(*MA_MSC_CMD_CANCEL_ENABLE_CANCEL);
+}
+}
+
+unsafe extern "C" fn effect_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_lucas_final"), false, false, false);
+    }
+    frame(agent.lua_state_agent, 52.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("lucas_final_psi"), Hash40::new("top"), 0, 20, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalair(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        SoundModule::set_gamespeed_se_calibration(agent.module_accessor, true);
+        macros::PLAY_STATUS(agent, Hash40::new("se_lucas_final01"));
+        macros::PLAY_STATUS(agent, Hash40::new("vc_lucas_006"));
+    }
+}
+
+unsafe extern "C" fn expression_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        macros::START_INFO_FLASH_EYE(agent);
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        ModelModule::disable_gold_eye(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 73.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_37_starstorm_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 266.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+    frame(agent.lua_state_agent, 276.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, true, 0);
+    }
+    frame(agent.lua_state_agent, 302.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_37_starstorm_sp2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

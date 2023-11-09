@@ -1,0 +1,21 @@
+unsafe extern "C" fn effect_aircatchpose(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EFFECT_FOLLOW_arg11(Hash40::new("samusd_gbeam_flash_01"), Hash40::new("armr"), 8, 0, 0, 0, 0, 0, 1.3, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+    }
+}
+
+unsafe extern "C" fn sound_aircatchpose(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_samusd_catch"));
+    }
+}
+
+unsafe extern "C" fn expression_aircatchpose(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_hide_gun") as i64);
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, false, -1);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, Hash40::new("air_catch_pose"), false, -1.0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapplingbeam"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

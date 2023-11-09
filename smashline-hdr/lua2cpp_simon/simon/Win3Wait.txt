@@ -1,0 +1,37 @@
+unsafe extern "C" fn game_win3wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::change_motion(boma, *FIGHTER_SIMON_GENERATE_ARTICLE_CRYSTAL, Hash40::new("win_3_wait"), false, -1.0);
+    }
+}
+
+unsafe extern "C" fn effect_win3wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait(lua_state, 48.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+    }
+    wait(lua_state, 29.0);
+}
+
+unsafe extern "C" fn sound_win3wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_simon_jump01_win03"));
+    }
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_simon_attackhard_s01_win03"));
+    }
+    frame(lua_state, 49.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_simon_landing02_win03"));
+    }
+    frame(lua_state, 72.0);
+    PLAY_SE(agent, Hash40::new("se_simon_attackhard_s01_win03"));
+}

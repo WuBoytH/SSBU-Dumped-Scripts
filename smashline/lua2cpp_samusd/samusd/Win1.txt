@@ -1,0 +1,22 @@
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_samusd_landing01"));
+    }
+    frame(agent.lua_state_agent, 121.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_samusd_swing_l"));
+    }
+}
+
+unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN) {
+        if macros::is_excute(agent) {
+            ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+}

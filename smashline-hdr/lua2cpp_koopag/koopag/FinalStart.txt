@@ -1,0 +1,40 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    FT_MOTION_RATE(agent, 0.5);
+    frame(lua_state, 90.0);
+    FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 70.0);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("koopag_change_end_a"), Hash40::new("top"), 0, 20, 15, 0, 180, 0, 1, false);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("koopag_change_end_a"), Hash40::new("top"), 0, 20, 15, 0, 0, 0, 1, false);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 63.0);
+    if is_excute(agent) {
+        PLAY_SE_REMAIN(agent, 0x177a9a0a48);
+    }
+}
+
+unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

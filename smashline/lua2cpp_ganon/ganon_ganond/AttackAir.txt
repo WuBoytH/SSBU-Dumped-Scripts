@@ -1,0 +1,47 @@
+unsafe extern "C" fn game_attackair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_23_rush_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 45.0, 42, 25, 0, 122, 10.0, 0.0, 12.0, 25.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+        macros::ATTACK(agent, 1, 0, Hash40::new("top"), 35.0, 42, 25, 0, 122, 15.0, 0.0, 12.0, 5.0, Some(0.0), Some(12.0), Some(-20.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+        macros::ATTACK(agent, 2, 0, Hash40::new("top"), 35.0, 42, 25, 0, 122, 18.0, 0.0, 30.0, 13.0, Some(0.0), Some(30.0), Some(-18.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_purple"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+        AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
+        AttackModule::set_force_reaction(agent.module_accessor, 1, true, false);
+        AttackModule::set_force_reaction(agent.module_accessor, 2, true, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 1, true, true, -1, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 2, true, true, -1, false);
+    }
+}
+
+unsafe extern "C" fn effect_attackair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_GANON_BEAST_INSTANCE_WORK_ID_FLAG_DASH);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ganon_final_sword_flare"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ganon_final_sword_flare"), Hash40::new("haver"), 0, 0.1, -0.2, 0, 0, 0, 1, true);
+    }
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR(agent, 1.5, 0.5, 2, 0.5);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR_FRAME(agent, 3, 1.5, 0.5, 2, 0);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 1.0);
+}
+frame(agent.lua_state_agent, 12.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_DETACH_KIND(agent, Hash40::new("ganon_final_attack"), -1);
+}
+}
+
+unsafe extern "C" fn sound_attackair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ganon_final04"));
+    }
+}

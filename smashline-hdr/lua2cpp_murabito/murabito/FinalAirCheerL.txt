@@ -1,0 +1,23 @@
+unsafe extern "C" fn game_finalaircheerl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 0, 0, 15, 0);
+    }
+}
+
+unsafe extern "C" fn expression_finalaircheerl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    for _ in 0..6 {
+    wait(lua_state, 10.0);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(lua_state, 10.0);
+}
+}

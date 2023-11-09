@@ -1,0 +1,53 @@
+unsafe extern "C" fn game_specialhithrow2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    }
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        ArticleModule::change_status_exist(boma, *FIGHTER_POPO_GENERATE_ARTICLE_RUBBER, *WEAPON_POPO_RUBBER_STATUS_KIND_FALL);
+        WorkModule::on_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_CAN_LANDING);
+    }
+    frame(lua_state, 23.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_DEFAULT_SPEED_Y);
+    }
+    frame(lua_state, 36.0);
+    if is_excute(agent) {
+        ArticleModule::change_status_exist(boma, *FIGHTER_POPO_GENERATE_ARTICLE_RUBBER, *WEAPON_POPO_RUBBER_STATUS_KIND_REWIND);
+    }
+}
+
+unsafe extern "C" fn effect_specialhithrow2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("popo_gomjump_throw"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialhithrow2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    WorkModule::is_flag(boma, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA);
+    0x1478c0(false, true);
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_popo_special_h03"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhithrow2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_bounce"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 52.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, true, 0);
+    }
+}

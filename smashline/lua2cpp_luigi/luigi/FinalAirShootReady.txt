@@ -1,0 +1,13 @@
+unsafe extern "C" fn sound_finalairshootready(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_luigi_final04"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairshootready(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

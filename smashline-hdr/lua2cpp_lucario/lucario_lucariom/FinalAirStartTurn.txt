@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_finalairstartturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EffectModule::req_screen(boma, Hash40::new("bg_lucario_final"), false, false, false);
+    }
+    frame(lua_state, 25.0);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("lucario_final_hadou_l"), Hash40::new("havel"), 0, 0, 1, 0, 0, 0, 1, false);
+            EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("lucario_final_hadou_l"), Hash40::new("haver"), 1, 0, 0, 0, 0, 0, 1, false);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("lucario_final_hadou_l"), Hash40::new("havel"), 0, 0, 1, 180, 0, 180, 1, false);
+            EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("lucario_final_hadou_l"), Hash40::new("haver"), 1, 0, 0, 180, 0, 180, 1, false);
+        }
+    }
+}
+frame(lua_state, 32.0);
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("lucario_final_megasymbol"), Hash40::new("top"), 6, 23, -13, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+}
+}

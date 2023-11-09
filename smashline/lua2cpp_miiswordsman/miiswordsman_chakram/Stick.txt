@@ -1,0 +1,32 @@
+unsafe extern "C" fn game_stick(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::SEARCH(agent, 0, 0, Hash40::new("top"), 4.0, 0.0, 0.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, true);
+    }
+    frame(agent.lua_state_agent, 1.0);
+}
+
+unsafe extern "C" fn effect_stick(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 148.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_erace_smoke"), Hash40::new("top"), 0, 1, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_stick(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_miiswordsman_special_c3_s01"));
+        macros::STOP_SE(agent, Hash40::new("se_miiswordsman_special_c3_s04"));
+        macros::STOP_SE(agent, Hash40::new("se_miiswordsman_special_c3_s05"));
+    }
+    WorkModule::is_flag(agent.module_accessor, *WEAPON_MIISWORDSMAN_CHAKRAM_INSTANCE_WORK_ID_FLAG_FLICK);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c3_s06"));
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c3_s02"));
+        }
+    }
+}
+}

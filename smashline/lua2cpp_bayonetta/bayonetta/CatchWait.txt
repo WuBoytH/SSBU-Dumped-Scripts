@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_catchwait(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_catch_flash"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 1, true);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+    }
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 6.5, 13.5, 4.5, 0, 0, 0, 0.4, 1.5, 1, 0.5, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+    }
+    wait(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 6.5, 13.5, -1.5, 0, 0, 0, 0.4, 1.5, 1, 0.5, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+    }
+    wait(agent.lua_state_agent, 18.0);
+}
+
+unsafe extern "C" fn expression_catchwait(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("gun_hand") as i64, hash40("gun_hand_hide_all") as i64);
+    }
+}

@@ -1,0 +1,118 @@
+unsafe extern "C" fn effect_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 32.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("rockman_entry"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    if(0xf4c50(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 0)){
+        if is_excute(agent) {
+            LAST_PARTICLE_SET_COLOR(agent, 0.222, 0.5, 1.4);
+        }
+    }
+    if(0xf4c50(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 1)){
+        if is_excute(agent) {
+            LAST_PARTICLE_SET_COLOR(agent, 1.1, 0.248, 0.288);
+        }
+    }
+    if(0xf4c50(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 2)){
+        if is_excute(agent) {
+            LAST_PARTICLE_SET_COLOR(agent, 0.238, 1.2, 0.33);
+        }
+    }
+    if(0xf4c50(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 3)){
+        if is_excute(agent) {
+            LAST_PARTICLE_SET_COLOR(agent, 0.849, 0.646, 0.249);
+        }
+    }
+    if(0xf4c50(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 4)){
+        if is_excute(agent) {
+            LAST_PARTICLE_SET_COLOR(agent, 0.238, 0.982, 1);
+        }
+    }
+    if(0xf4c50(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 5)){
+        if is_excute(agent) {
+            LAST_PARTICLE_SET_COLOR(agent, 0.667, 0.794, 0.29);
+        }
+    }
+    if(0xf4c50(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 6)){
+        if is_excute(agent) {
+            LAST_PARTICLE_SET_COLOR(agent, 1, 0.494, 0.267);
+        }
+    }
+    if(0xf4c50(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 7)){
+        if is_excute(agent) {
+            LAST_PARTICLE_SET_COLOR(agent, 0.841, 0.739, 0.32);
+        }
+    }
+    frame(lua_state, 33.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 51.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 29.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_rockman_appear01"));
+    }
+    frame(lua_state, 41.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_rockman_appear02"));
+    }
+}
+
+unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    }
+    frame(lua_state, 47.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 48.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+    }
+    frame(lua_state, 49.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 50.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+    }
+    frame(lua_state, 51.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 54.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+    }
+    frame(lua_state, 55.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 78.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+    frame(lua_state, 85.0);
+    if is_excute(agent) {
+        WorkModule::off_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    }
+}

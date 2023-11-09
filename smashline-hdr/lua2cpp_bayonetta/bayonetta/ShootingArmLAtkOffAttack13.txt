@@ -1,0 +1,12 @@
+unsafe extern "C" fn game_shootingarml_atkoff_attack13(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if !WorkModule::is_flag(boma, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_FLAG_SHOOTING_DISABLE_ROOT_ATTACK) {
+        if is_excute(agent) {
+            AttackModule::clear(boma, FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_00);
+        }
+    }
+    if is_excute(agent) {
+        AttackModule::clear(boma, FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_01);
+    }
+}

@@ -1,0 +1,59 @@
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("lucina_entry"), Hash40::new("top"), 0, 0, 0, 0, 270, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        FLASH(agent, 0.8, 0.8, 0.5, 0.8);
+        BURN_COLOR(agent, 2.6, 2.6, 0.85, 0.9);
+        ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 35, 0.8, 0.8, 0.4, 0);
+        BURN_COLOR_FRAME(agent, 40, 2.6, 2.6, 0.85, 0);
+    }
+    wait(lua_state, 35.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+        BURN_COLOR_NORMAL(agent);
+        ColorBlendModule::set_disable_camera_depth_influence(boma, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE_REMAIN(agent, Hash40::new("se_lucina_appear01"));
+    }
+    wait(lua_state, 26.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_lucina_jumpround"));
+    }
+    wait(lua_state, 54.0);
+    if is_excute(agent) {
+        PLAY_STEP(agent, Hash40::new("se_lucina_step_right_m"));
+    }
+    wait(lua_state, 11.0);
+    if is_excute(agent) {
+        PLAY_STEP(agent, Hash40::new("se_lucina_step_left_m"));
+        PLAY_SE(agent, Hash40::new("se_lucina_appeal_l03"));
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_lucina_appeal_l02"));
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 87.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
+    }
+    frame(lua_state, 100.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
+    }
+}

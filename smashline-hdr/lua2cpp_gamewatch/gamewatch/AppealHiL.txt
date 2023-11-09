@@ -1,0 +1,20 @@
+unsafe extern "C" fn sound_appealhil(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_gamewatch_appeal"));
+    }
+}
+
+unsafe extern "C" fn expression_appealhil(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("lhand") as i64, hash40("lhand_alarm") as i64);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 46, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

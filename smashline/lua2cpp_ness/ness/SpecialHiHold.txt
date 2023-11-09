@@ -1,0 +1,37 @@
+unsafe extern "C" fn effect_specialhihold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ness_pkt_hold"), Hash40::new("top"), 0, 6, 0, 0, 0, 0, 1, true);
+    }
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR(agent, 0.7, 0.2, 1, 0.7);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR_FRAME(agent, 1, 0.7, 0.2, 1, 0);
+        macros::BURN_COLOR_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.8, 0.7, 1, 0.6);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 1, 0.8, 0.7, 1, 0);
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 1.0);
+}
+
+unsafe extern "C" fn sound_specialhihold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_ness_special_h01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhihold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_specialairs(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("kirby_onigoroshi_body"), Hash40::new("have"), 0, 10, 0, 0, 0, 0, 1, false);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+    frame(lua_state, 23.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("kirby_onigoroshi_smoke"), Hash40::new("have"), 0, 10, 0, 0, 0, 0, 1, false);
+    }
+    frame(lua_state, 26.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("kirby_onigoroshi_body"), false, false);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("kirby_onigoroshi_light"), false, true);
+    }
+}

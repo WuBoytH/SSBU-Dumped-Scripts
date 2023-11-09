@@ -1,0 +1,44 @@
+unsafe extern "C" fn game_specialhiopen(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_DAISY_GENERATE_ARTICLE_KASSAR, Hash40::new("special_hi_open"), false, -1.0);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("havel"), 2.0, 80, 15, 0, 65, 2.0, -3.1, 6.5, 0.0, Some(3.1), Some(6.5), Some(0.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, true, 0, 0.0, 18, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_DAISY_PARASOL, *ATTACK_REGION_PARASOL);
+        AttackModule::set_no_damage_fly_smoke_all(agent.module_accessor, true, false);
+    }
+}
+
+unsafe extern "C" fn effect_specialhiopen(agent: &mut L2CAgentBase) {
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_flash"), Hash40::new("handl"), 6, 0, 6, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_flash"), Hash40::new("handl"), 6, 0, -6, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_specialhiopen(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_daisy_special_h02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhiopen(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 0);
+    }
+}

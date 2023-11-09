@@ -1,0 +1,50 @@
+unsafe extern "C" fn effect_specialairsspin(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
+    }
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, 3.8, 0, 0, -95, 0.8, true);
+            EffectModule::enable_sync_init_pos_last(boma);
+        }
+    }
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
+    }
+    else{
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, -3.8, 0, 0, -95, 0.8, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+}
+frame(lua_state, 17.0);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
+}
+}
+
+unsafe extern "C" fn sound_specialairsspin(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_koopajr_special_s02"));
+        STOP_SE(agent, Hash40::new("se_koopajr_special_s02_01"));
+        STOP_SE(agent, Hash40::new("se_koopajr_special_s02_02"));
+        STOP_SE(agent, Hash40::new("se_koopajr_special_s02_03"));
+        PLAY_STATUS(agent, Hash40::new("se_koopajr_special_s07"));
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_koopajr_special_s08"));
+    }
+    wait(lua_state, 42.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_koopajr_special_s07"));
+        STOP_SE(agent, Hash40::new("se_koopajr_special_s02_01"));
+        STOP_SE(agent, Hash40::new("se_koopajr_special_s02_02"));
+        PLAY_SE(agent, Hash40::new("se_koopajr_special_s05"));
+    }
+}

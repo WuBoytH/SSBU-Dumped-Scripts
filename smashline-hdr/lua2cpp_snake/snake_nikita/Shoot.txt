@@ -1,0 +1,15 @@
+unsafe extern "C" fn game_shoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *WEAPON_SNAKE_NIKITA_GENERATE_ARTICLE_MISSILE, false, -1);
+    }
+}
+
+unsafe extern "C" fn sound_shoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_snake_special_s01"));
+    }
+}

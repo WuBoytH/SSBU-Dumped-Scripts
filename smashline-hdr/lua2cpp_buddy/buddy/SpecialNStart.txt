@@ -1,0 +1,35 @@
+unsafe extern "C" fn game_specialnstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    0x18cc20(*FIGHTER_INSTANCE_WORK_ID_INT_KIND, *FIGHTER_KIND_KIRBY);
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_PARTNER, false, -1);
+    }
+    FT_MOTION_RATE(agent, 0.75);
+    wait(lua_state, 36.0);
+    FT_MOTION_RATE(agent, 0.25);
+    frame(lua_state, 40.0);
+    FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn sound_specialnstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_special_n02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialnstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 13.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

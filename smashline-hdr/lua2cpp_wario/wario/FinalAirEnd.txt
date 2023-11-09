@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_DEDEDE_FINAL, 0, 10.0, 60, 125, 0, 90, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        WorkModule::on_flag(boma, *FIGHTER_WARIO_STATUS_FINAL_FLAG_ABS_SET);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+    }
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("wario_final_bg2"), true, true);
+        EffectModule::remove_screen(boma, Hash40::new("bg_wario_final2"), -1);
+    }
+}

@@ -1,0 +1,54 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 40, 0, 0, 0);
+        macros::SLOW_OPPONENT(agent, 13, 60);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            PostureModule::scale(agent.module_accessor, 5, 0);
+            0x1050b0(-460405772, 2);
+            CAM_ZOOM_IN_arg5(0, 0);
+            macros::FT_START_CUTIN(agent);
+        }
+    }
+}
+frame(agent.lua_state_agent, 35.0);
+WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+0x1050b0(false, false);
+if macros::is_excute(agent) {
+    macros::CAM_ZOOM_OUT(agent);
+}
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_robot_final"), false, false, false);
+    }
+    frame(agent.lua_state_agent, 84.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_robot_final_start"));
+    }
+}
+
+unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TPART);
+    }
+}

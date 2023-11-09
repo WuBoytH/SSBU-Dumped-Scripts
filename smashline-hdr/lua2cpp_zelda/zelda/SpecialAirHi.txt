@@ -1,0 +1,101 @@
+unsafe extern "C" fn game_specialairhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        JostleModule::set_status(boma, true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+        ATTACK(agent, 0, 0, Hash40::new("rot"), 12.0, 55, 94, 0, 80, 11.0, 0.0, 0.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+        ATTACK(agent, 1, 0, Hash40::new("rot"), 8.0, 55, 90, 0, 60, 16.0, 0.0, 0.0, 0.0, None, None, None, 1.2, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_MAGIC);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_ZELDA_STATUS_SPECIAL_HI_FLAG_1);
+    }
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_ZELDA_STATUS_SPECIAL_HI_FLAG_DIVE);
+        WorkModule::on_flag(boma, *FIGHTER_ZELDA_STATUS_SPECIAL_HI_FLAG_CONTROL);
+    }
+}
+
+unsafe extern "C" fn effect_specialairhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("zelda_flor_teleport"), Hash40::new("top"), 0, 8, 0, 0, 0, 0, 1, true);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("zelda_flor_end_l"), Hash40::new("top"), 0, 11, -1, 0, 0, 0, 1, false);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("zelda_flor_end_r"), Hash40::new("top"), 0, 11, -1, 0, 0, 0, 1, false);
+            EffectModule::set_disable_render_offset_last(boma);
+            EffectModule::enable_sync_init_pos_last(boma);
+        }
+    }
+}
+if is_excute(agent) {
+    FLASH(agent, 0.62, 0.94, 0.9, 0.6);
+}
+wait(lua_state, 1.0);
+if is_excute(agent) {
+    FLASH(agent, 0.33, 0.83, 0.9, 0.2);
+}
+wait(lua_state, 2.0);
+if is_excute(agent) {
+    FLASH(agent, 0.6, 1, 1, 0.5);
+}
+wait(lua_state, 3.0);
+if is_excute(agent) {
+    FLASH(agent, 0.33, 0.83, 0.9, 0.2);
+}
+wait(lua_state, 2.0);
+if is_excute(agent) {
+    COL_NORMAL(agent);
+}
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+    if is_excute(agent) {
+        EFFECT_BRANCH_SITUATION(agent, Hash40::new("null"), Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 1.1);
+    }
+    else{
+    if is_excute(agent) {
+        EFFECT_BRANCH_SITUATION(agent, Hash40::new("null"), Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+        LAST_EFFECT_SET_RATE(agent, 1.1);
+    }
+}
+}
+if is_excute(agent) {
+EFFECT_OFF_KIND(agent, 0x109837f34d, false, false);
+}
+}
+
+unsafe extern "C" fn sound_specialairhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_zelda_special_h02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

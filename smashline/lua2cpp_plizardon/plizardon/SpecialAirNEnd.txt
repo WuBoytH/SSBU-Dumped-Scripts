@@ -1,0 +1,14 @@
+unsafe extern "C" fn effect_specialairnend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("plizardon_kaenhousya_start"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("plizardon_kaenhousya_start_air"), false, false);
+        macros::COL_NORMAL(agent);
+    }
+}
+
+unsafe extern "C" fn expression_specialairnend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

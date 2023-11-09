@@ -1,0 +1,39 @@
+unsafe extern "C" fn game_escapeairslideforesight(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ESCAPE_AIR_FLAG_SLIDE_ENABLE_CONTROL);
+    }
+}
+
+unsafe extern "C" fn effect_escapeairslideforesight(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+        macros::COL_PRI(agent, 250);
+        macros::FLASH(agent, 0, 0.1, 0.6, 0.95);
+        macros::EFFECT(agent, Hash40::new("elight_foresight2"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("elight_foresight_lensflare"), Hash40::new("top"), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_foresight_body"), Hash40::new("hip"), 2, 0, 0, 0, 0, 90, 1, true);
+    }
+    wait(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 6, 0, 0.1, 0.6, 0);
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn sound_escapeairslideforesight(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_elight_rnd_foresight"));
+        macros::PLAY_SE(agent, Hash40::new("se_elight_escapeforesight02"));
+    }
+}
+
+unsafe extern "C" fn expression_escapeairslideforesight(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_79_special_escapea"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,37 @@
+unsafe extern "C" fn game_finalairendr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+    frame(agent.lua_state_agent, 30.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    frame(agent.lua_state_agent, 40.0);
+    macros::FT_MOTION_RATE(agent, 2.2);
+}
+
+unsafe extern "C" fn effect_finalairendr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 54.0);
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 1, 30);
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_murabito_final"), -1);
+    }
+}
+
+unsafe extern "C" fn expression_finalairendr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_landl_hv"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 85.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+    }
+}

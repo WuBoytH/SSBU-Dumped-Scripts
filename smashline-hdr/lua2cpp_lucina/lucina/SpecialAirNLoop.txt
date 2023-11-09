@@ -1,0 +1,41 @@
+unsafe extern "C" fn effect_specialairnloop(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("lucina_sword_purple"), Hash40::new("haver"), -0.0, 0, 0, 0, 0, 0, 1, true);
+        FLASH(agent, 1, 1, 1, 0.863);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH(agent, 0.392, 0, 0.941, 0);
+        FLASH_FRM(agent, 90, 0.392, 0, 0.941, 0.706);
+    }
+    wait(lua_state, 5.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("sword1"), 0, -0.0, 8, 0, 0, 0, 1, 2, 2, 8, 0, 0, 0, true);
+    }
+    wait(lua_state, 5.0);
+    EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("sword1"), 0, -0.0, 8, 0, 0, 0, 1, 2, 2, 8, 0, 0, 0, true);
+}
+
+unsafe extern "C" fn sound_specialairnloop(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_lucina_special_n02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnloop(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        AREA_WIND_2ND_arg10(0, 2, 200, 2, 0.3, -4, 8, 30, 20, 80);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

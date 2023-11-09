@@ -1,0 +1,17 @@
+unsafe extern "C" fn sound_furafura(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL);
+    0x12e770(false, true);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_metaknight_furafura"));
+    }
+    wait_loop_sync_mot();
+}
+
+unsafe extern "C" fn expression_furafura(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_FuraFuraRumble()();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+    }
+}

@@ -1,0 +1,86 @@
+unsafe extern "C" fn game_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, false, -1);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, Hash40::new("entry_l"), false, -1.0);
+    }
+    frame(agent.lua_state_agent, 52.0);
+    if macros::is_excute(agent) {
+        ArticleModule::remove(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON);
+        VisibilityModule::set_whole(agent.module_accessor, true);
+    }
+}
+
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("kamui_water_hamon_entry"), Hash40::new("top"), 0, 0.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("kamui_water_sibuki_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 43.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
+    }
+    frame(agent.lua_state_agent, 58.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, -1, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 65.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
+    }
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_appear01"));
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_appear02"));
+    }
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_appear03"));
+    }
+    frame(agent.lua_state_agent, 68.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_rise"));
+    }
+    frame(agent.lua_state_agent, 103.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_swing_l"));
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon") as i64, hash40("dragon_horn") as i64);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair") as i64, hash40("front_hair_hide") as i64);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair") as i64, hash40("hair_hide") as i64);
+    }
+    frame(agent.lua_state_agent, 52.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+    frame(agent.lua_state_agent, 59.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair") as i64, hash40("front_hair_normal") as i64);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair") as i64, hash40("hair_normal") as i64);
+    }
+    frame(agent.lua_state_agent, 63.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon") as i64, hash40("dragon_none") as i64);
+    }
+    frame(agent.lua_state_agent, 100.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

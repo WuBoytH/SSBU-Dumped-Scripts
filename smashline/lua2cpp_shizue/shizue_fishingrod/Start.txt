@@ -1,0 +1,23 @@
+unsafe extern "C" fn game_start(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 1.25);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 1);
+    }
+}
+
+unsafe extern "C" fn effect_start(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("shizue_fishing_float_line"), Hash40::new("float1"), -1, 0, 0, 0, 0, 0, 1.5, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT_FOLLOW_RND(agent, Hash40::new("shizue_fishing_needle_falsh"), Hash40::new("float1"), 2.5, 0.2, 0, 0, 0, 0, 1, 2.5, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("shizue_fishing_float_line"), false, false);
+    }
+}

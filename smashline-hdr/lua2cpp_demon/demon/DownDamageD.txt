@@ -1,0 +1,15 @@
+unsafe extern "C" fn sound_downdamaged(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_DOWN_SE(agent, Hash40::new("se_demon_down"));
+    }
+}
+
+unsafe extern "C" fn expression_downdamaged(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    }
+}

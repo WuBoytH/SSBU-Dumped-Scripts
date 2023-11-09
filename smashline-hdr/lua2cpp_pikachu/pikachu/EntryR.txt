@@ -1,0 +1,71 @@
+unsafe extern "C" fn effect_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FLASH(agent, 0.9, 1, 1, 0.9);
+    }
+    wait(lua_state, 30.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 15, 0.9, 1, 1, 0);
+    }
+    wait(lua_state, 15.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+    }
+    frame(lua_state, 80.0);
+    for _ in 0..6 {
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_damage_elec"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, 10, 12, 10, 0, 0, 360, false);
+    }
+    wait(lua_state, 7.0);
+}
+}
+
+unsafe extern "C" fn sound_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pikachu_appear01"));
+    }
+    wait(lua_state, 3.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pikachu_appear02"));
+    }
+    wait(lua_state, 14.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_swing_04"));
+    }
+    frame(lua_state, 42.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pikachu_landing01"));
+    }
+}
+
+unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+        ItemModule::set_attach_item_visibility(boma, false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+    frame(lua_state, 11.0);
+    if is_excute(agent) {
+        ItemModule::set_attach_item_visibility(boma, true);
+    }
+    frame(lua_state, 21.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 25.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+    frame(lua_state, 50.0);
+    if is_excute(agent) {
+        ArticleModule::set_visibility_whole(boma, *FIGHTER_PIKACHU_GENERATE_ARTICLE_MONSTERBALL, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

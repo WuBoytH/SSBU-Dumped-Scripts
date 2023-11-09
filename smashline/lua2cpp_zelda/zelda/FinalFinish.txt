@@ -1,0 +1,43 @@
+unsafe extern "C" fn game_finalfinish(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_ZELDA_FINAL, 0, 10.0, 65, 68, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 1.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_NONE);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, true);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 15.0, 60, 100, 0, 80, 40.0, 0.0, 12.0, 20.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, false);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_ZELDA_STATUS_FINAL_FLAG_FINISH);
+    }
+}
+
+unsafe extern "C" fn effect_finalfinish(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_zelda_final"), -1);
+    }
+}
+
+unsafe extern "C" fn sound_finalfinish(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_zelda_final02"));
+        macros::PLAY_SE(agent, Hash40::new("se_zelda_final04"));
+    }
+}
+
+unsafe extern "C" fn expression_finalfinish(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

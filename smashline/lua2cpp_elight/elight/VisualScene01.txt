@@ -1,0 +1,41 @@
+unsafe extern "C" fn game_visualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_79_vs_b01"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_79_vs_b01"), 0);
+    }
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
+        if macros::is_excute(agent) {
+            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 10.0, 10.0, false, false, 0.0, false, true, false);
+        }
+    }
+    if MotionModule::is_changing(agent.module_accessor) {
+        if macros::is_excute(agent) {
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_FLAG_ADD_PARTIAL_MTION_SWORD_WHEN_CHANGEING);
+        }
+    }
+    if macros::is_excute(agent) {
+        WorkModule::set_int64(agent.module_accessor, hash40("visual_scene_01") as i64, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_INT_ESWORD_INHERIT_OPEN_MOTION_KIND);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 1.1, 1.2, 1, 0.04, 0.04, 0.04, 0.95, 1.4, EffectScreenLayer:*CHAR, 199);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_final_aura"), Hash40::new("hip"), -1, 0, 0, 0, 0, 0, 2.2, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_final_aura"), Hash40::new("neck"), 1, 0, 0, 0, 0, 0, 1.4, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_final_aura"), Hash40::new("arml"), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_final_aura"), Hash40::new("armr"), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_final_sword_beam"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene01(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_elight_final02_01"));
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_elight_final01"));
+    }
+}

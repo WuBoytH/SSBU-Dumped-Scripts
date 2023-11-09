@@ -1,0 +1,56 @@
+unsafe extern "C" fn game_entryr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 50.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+    frame(agent.lua_state_agent, 65.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_entryr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("szero_entry_fire"), Hash40::new("toer"), 0, -0.7, 0, 0, 0, 0, 0.6, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("szero_entry_fire"), Hash40::new("toel"), 0, -0.7, 0, 0, 0, 0, 0.6, true);
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("szero_entry_fire"), false, false);
+    }
+    frame(agent.lua_state_agent, 73.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("szero_entry_fire"), Hash40::new("toer"), 0, -0.7, 0, 0, 0, 0, 0.6, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("szero_entry_fire"), Hash40::new("toel"), 0, -0.7, 0, 0, 0, 0, 0.6, true);
+    }
+    frame(agent.lua_state_agent, 90.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("szero_entry_fire"), false, false);
+    }
+    frame(agent.lua_state_agent, 95.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_szerosuit_final04"));
+    }
+    wait(agent.lua_state_agent, 28.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_szerosuit_entry_jet"));
+    }
+    wait(agent.lua_state_agent, 67.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_szerosuit_landing02"));
+    }
+}
+
+unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    }
+    frame(agent.lua_state_agent, 102.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    }
+}

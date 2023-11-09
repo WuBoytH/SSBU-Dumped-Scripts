@@ -1,0 +1,117 @@
+unsafe extern "C" fn game_specialairnend2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 1.4);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 1);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_STATUS_SPECIAL_N_FLAG_AIR_CONTROL);
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_DRAGONHAND, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}
+
+unsafe extern "C" fn effect_specialairnend2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("kamui_bite"), Hash40::new("top"), -4, 10, 24, 90, -22, 0, 1.7, 0, 0, 0, 0, 0, 0, true);
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_METAL);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_GOLD);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_SPYCLOAK);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, FighterCategory:*METAMON);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, FighterCategory:*LIGHT);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, FighterCategory:*DARK);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("kamui_ryusensya_wind_end"), Hash40::new("arml"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 0);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 1);
+    if WorkModule::get_int(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 2 {
+        if macros::is_excute(agent) {
+            macros::LAST_EFFECT_SET_COLOR(agent, 0.849, 0.195, 0.195);
+        }
+    }
+    if WorkModule::get_int(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 3 {
+        if macros::is_excute(agent) {
+            macros::LAST_EFFECT_SET_COLOR(agent, 0.81, 0.277, 0.161);
+        }
+    }
+    if WorkModule::get_int(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 4 {
+        if macros::is_excute(agent) {
+            macros::LAST_EFFECT_SET_COLOR(agent, 0.274, 0.343, 0.627);
+        }
+    }
+    if WorkModule::get_int(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 5 {
+        if macros::is_excute(agent) {
+            macros::LAST_EFFECT_SET_COLOR(agent, 0.897, 0.342, 0.531);
+        }
+    }
+    if WorkModule::get_int(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 6 {
+        if macros::is_excute(agent) {
+            macros::LAST_EFFECT_SET_COLOR(agent, 0.2, 0.6, 0.51);
+        }
+    }
+    if WorkModule::get_int(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 7 {
+        if macros::is_excute(agent) {
+            macros::LAST_EFFECT_SET_COLOR(agent, 0.263, 0.309, 0.325);
+        }
+    }
+    frame(agent.lua_state_agent, 43.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnend2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_kamui_special_n06"));
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_special_n07"));
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_horn_end"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnend2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        AREA_WIND_2ND_arg10(0, 1, 180, 2, 2, -10, 10, 20, 20, 10);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        AreaModule::erase_wind(agent.module_accessor, 0);
+    }
+    frame(agent.lua_state_agent, 43.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair") as i64, hash40("hair_normal") as i64);
+    }
+    frame(agent.lua_state_agent, 44.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair") as i64, hash40("front_hair_normal") as i64);
+    }
+    frame(agent.lua_state_agent, 47.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon") as i64, hash40("dragon_none") as i64);
+    }
+}

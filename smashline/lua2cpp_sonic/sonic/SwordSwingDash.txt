@@ -1,0 +1,40 @@
+unsafe extern "C" fn game_swordswingdash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_scale_anim(agent.module_accessor, 5, 2.5);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_action(agent.module_accessor, *ITEM_SWING_ACTION_BEGIN);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_SwordSwingDashCommon()();
+    frame(agent.lua_state_agent, 10.0);
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_SwordSwingDashCommon2()();
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+        ItemModule::set_have_item_scale_anim(agent.module_accessor, 6, 1);
+    }
+}
+
+unsafe extern "C" fn expression_swordswingdash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 2, true);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+    }
+}

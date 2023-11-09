@@ -1,0 +1,60 @@
+unsafe extern "C" fn effect_plizardonspecialn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("plizardon_kaenhousya_start_air"), false, false);
+    }
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("plizardon_kaenhousya_start"), Hash40::new("neck"), 0, 4, 0, 0, 0, 0, 1, true);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -8, 0, -2, 0, 0, 0, 1, 3, 0, 1.5, 0, 0, 0, false);
+    }
+    wait(lua_state, 4.0);
+    if is_excute(agent) {
+        FLASH(agent, 1, 0.7, 0.5, 0.5);
+        FLASH_FRM(agent, 10, 0, 0, 0, 0);
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -8, 0, -2, 0, 0, 0, 1, 3, 0, 1.5, 0, 0, 0, false);
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        FLASH(agent, 1, 0.7, 0.5, 0.5);
+        FLASH_FRM(agent, 10, 0, 0, 0, 0);
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -8, 0, -2, 0, 0, 0, 1, 3, 0, 1.5, 0, 0, 0, false);
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        FLASH(agent, 1, 0.7, 0.5, 0.5);
+        FLASH_FRM(agent, 10, 0, 0, 0, 0);
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -8, 0, -2, 0, 0, 0, 1, 3, 0, 1.5, 0, 0, 0, false);
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        FLASH(agent, 1, 0.7, 0.5, 0.5);
+        FLASH_FRM(agent, 10, 0, 0, 0, 0);
+    }
+    wait(lua_state, 6.0);
+}
+
+unsafe extern "C" fn expression_plizardonspecialn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 8.0);
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+}

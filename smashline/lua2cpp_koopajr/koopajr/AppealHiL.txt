@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_appealhil(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 25.0);
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_damage_fire"), Hash40::new("head"), -1, 7, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    wait(agent.lua_state_agent, 10.0);
+}
+}
+
+unsafe extern "C" fn sound_appealhil(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_wait_jump"));
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_wait_out"));
+        macros::PLAY_SE(agent, Hash40::new("vc_koopajr_appeal01"));
+    }
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_appeal_h01"));
+    }
+    frame(agent.lua_state_agent, 54.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_wait_jump"));
+    }
+    frame(agent.lua_state_agent, 74.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_wait_in"));
+    }
+}

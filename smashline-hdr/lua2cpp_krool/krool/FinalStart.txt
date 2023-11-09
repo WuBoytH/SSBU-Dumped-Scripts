@@ -1,0 +1,102 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        SLOW_OPPONENT(agent, 30, 60);
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 44, 0, 0, 0);
+    }
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        frame(lua_state, 10.0);
+        if is_excute(agent) {
+            FT_SET_FINAL_FEAR_FACE(agent, 60);
+            REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
+            FT_START_CUTIN(agent);
+        }
+        else{
+        if is_excute(agent) {
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 0, 4, 6, 0);
+            PostureModule::scale(boma, 4, 0);
+            0x124880(-720246764, 1.8);
+            CAM_ZOOM_IN_arg5(-0.1, 0);
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+            FT_START_CUTIN(agent);
+        }
+        frame(lua_state, 25.0);
+        if is_excute(agent) {
+            CAM_ZOOM_OUT(agent);
+        }
+    }
+}
+frame(lua_state, 31.0);
+if is_excute(agent) {
+    ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 30, 100, 90, 0, 8.0, 0.0, 6.0, 13.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+    AttackModule::set_no_dead_all(boma, true, false);
+}
+PostureModule::scale(boma);
+0x124880(-720246764, 1.4);
+PostureModule::scale(boma);
+if(0x124880(-720246764, 0.5)){
+    if is_excute(agent) {
+        AttackModule::set_vec_target_pos(boma, 0, Hash40::new("top"), &Vector2f{x: 60.0, y: 4.0}, 1, false);
+    }
+}
+wait(lua_state, 2.0);
+if is_excute(agent) {
+    AttackModule::clear_all(boma);
+}
+frame(lua_state, 41.0);
+if is_excute(agent) {
+    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+}
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EffectModule::req_screen(boma, Hash40::new("bg_krool_final"), false, false, false);
+    }
+    frame(lua_state, 29.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("krool_attack_lw_ground"), Hash40::new("top"), 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 58.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_krool_attackhard_l01"));
+    }
+    frame(lua_state, 29.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_krool_final01"));
+    }
+    frame(lua_state, 59.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_krool_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        START_INFO_FLASH_EYE(agent);
+    }
+    frame(lua_state, 29.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 60.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_rush"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

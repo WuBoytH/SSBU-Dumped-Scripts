@@ -1,0 +1,31 @@
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 117.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("peach_appeal_lw"), Hash40::new("top"), 4, 12, -3, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.5);
+    }
+    frame(agent.lua_state_agent, 132.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("peach_appeal_lw"), true, true);
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 110.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_peach_win03"));
+        macros::PLAY_SE(agent, Hash40::new("se_peach_swing_s_win03"));
+    }
+    frame(agent.lua_state_agent, 112.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_peach_special_s02_win03"));
+    }
+}
+
+unsafe extern "C" fn expression_win3(agent: &mut L2CAgentBase) {
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_PEACH_GENERATE_ARTICLE_KASSAR) {
+        if macros::is_excute(agent) {
+            ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_PEACH_GENERATE_ARTICLE_KASSAR, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+}

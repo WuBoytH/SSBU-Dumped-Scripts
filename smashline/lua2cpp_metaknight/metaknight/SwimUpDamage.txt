@@ -1,0 +1,12 @@
+unsafe extern "C" fn sound_swimupdamage(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swimattack_middle"));
+    }
+}
+
+unsafe extern "C" fn expression_swimupdamage(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_status_default_int64(agent.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+    }
+}

@@ -1,0 +1,90 @@
+unsafe extern "C" fn game_specialsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(boma, 4.0, 6.0);
+    }
+    FT_MOTION_RATE(agent, 0.8);
+    frame(lua_state, 10.0);
+    FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_specialsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -11, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    if !WorkModule::is_flag(boma, *FIGHTER_BUDDY_STATUS_SPECIAL_S_FLAG_FAIL) {
+        if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("buddy_special_s_start"), Hash40::new("top"), -2, 9, -14, 0, 0, 0, 1.2, true);
+            }
+            else{
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("buddy_special_s_start"), Hash40::new("top"), 2, 9, -14, 0, 0, 0, 1.2, true);
+            }
+        }
+    }
+}
+frame(lua_state, 2.0);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("buddy_special_s_hold"), Hash40::new("virtualcenter"), 1.5, 0, 0, 0, 0, 0, 1, true);
+    EffectModule::enable_sync_init_pos_last(boma);
+}
+frame(lua_state, 3.0);
+if is_excute(agent) {
+    FLASH(agent, 1, 0.4, 0, 0.2);
+}
+frame(lua_state, 6.0);
+if is_excute(agent) {
+    FLASH_FRM(agent, 4, 0, 0, 0, 0);
+}
+frame(lua_state, 10.0);
+if is_excute(agent) {
+    COL_NORMAL(agent);
+}
+frame(lua_state, 12.0);
+if is_excute(agent) {
+    FLASH(agent, 1, 1, 0.4, 0.3);
+}
+wait(lua_state, 2.0);
+if is_excute(agent) {
+    FLASH(agent, 1, 0.3, 0, 0.4);
+}
+wait(lua_state, 2.0);
+}
+
+unsafe extern "C" fn sound_specialsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if !WorkModule::is_flag(boma, *FIGHTER_BUDDY_STATUS_SPECIAL_S_FLAG_FAIL) {
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_buddy_special_s01"));
+        }
+        else{
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_buddy_special_s04_01"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_specialsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    if !WorkModule::is_flag(boma, *FIGHTER_BUDDY_STATUS_SPECIAL_S_FLAG_FAIL) {
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_73_bodyattack_kamae"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        else{
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 18, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+}
+}

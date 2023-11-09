@@ -1,0 +1,20 @@
+unsafe extern "C" fn game_shoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *WEAPON_SNAKE_TRENCHMORTAR_GENERATE_ARTICLE_BULLET, false, -1);
+    }
+}
+
+unsafe extern "C" fn effect_shoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("snake_morter_smoke_shot"), Hash40::new("top"), 0, 16, 3, -90, 0, 0, 0.7, false);
+    }
+}
+
+unsafe extern "C" fn sound_shoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_snake_smash_h02"));
+    }
+}

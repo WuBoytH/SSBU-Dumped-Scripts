@@ -1,0 +1,27 @@
+unsafe extern "C" fn effect_specialairs_c3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("miiswordsman_reflect2"), Hash40::new("haver"), 0, 8, 0, 0, 0.0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
+    }
+    frame(lua_state, 9.0);
+    frame(lua_state, 14.0);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("miiswordsman_reflect1_l"), Hash40::new("top"), -3, 0, 14, 0, 0.0, 0, 1.1, true);
+            LAST_EFFECT_SET_RATE(agent, 1.2);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("miiswordsman_reflect1"), Hash40::new("top"), -3, 0, 14, 0, 0.0, 0, 1.1, true);
+            LAST_EFFECT_SET_RATE(agent, 1.2);
+        }
+    }
+}
+frame(lua_state, 26.0);
+if is_excute(agent) {
+    EFFECT_DETACH_KIND(agent, Hash40::new("miiswordsman_reflect1"), -1);
+}
+}

@@ -1,0 +1,28 @@
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 57.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("haver"), 0, 0, 0.8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, 0.3);
+        macros::EFFECT_ALPHA(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, 0.6);
+    }
+}
+
+unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_ganon_appeal_h02"));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_ganon_special_l02"));
+    }
+    frame(agent.lua_state_agent, 57.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_ganon_win2"));
+        macros::PLAY_SE(agent, Hash40::new("se_ganon_swing_l"));
+    }
+    frame(agent.lua_state_agent, 110.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_ganon_win02"));
+    }
+    frame(agent.lua_state_agent, 123.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_ganon_swing_l"));
+    }
+}

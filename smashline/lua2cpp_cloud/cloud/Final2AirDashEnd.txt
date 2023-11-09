@@ -1,0 +1,29 @@
+unsafe extern "C" fn game_final2airdashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::SET_SPEED_EX(agent, 3, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_CLOUD_STATUS_FINAL_FLAG_DISP_WINDOW);
+    }
+}
+
+unsafe extern "C" fn effect_final2airdashend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_cloud_final2"), -1);
+    }
+}
+
+unsafe extern "C" fn expression_final2airdashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 16, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

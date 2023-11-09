@@ -1,0 +1,26 @@
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_samusd_landing01"));
+    }
+    frame(lua_state, 121.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_samusd_swing_l"));
+    }
+}
+
+unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN) {
+        if is_excute(agent) {
+            ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+}

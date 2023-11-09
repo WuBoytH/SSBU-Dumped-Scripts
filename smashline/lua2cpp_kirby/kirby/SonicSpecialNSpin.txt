@@ -1,0 +1,52 @@
+unsafe extern "C" fn effect_sonicspecialnspin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP_ALPHA(agent, Hash40::new("sonic_homing_hold"), Hash40::new("sonic_homing_hold"), Hash40::new("rot"), 0, 0.5, -0.35, 0, 90, 0, 0.52, true, *EF_FLIP_XY, 0.5);
+        macros::LAST_EFFECT_SET_RATE(agent, 2);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("sonic_homing_hold"), Hash40::new("sonic_homing_hold"), Hash40::new("rot"), 0, 0.5, -0.35, 0, 90, 0, 0.44, true, *EF_FLIP_XY);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("sonic_spinblur_plain"), Hash40::new("rot"), 0, 0.5, -0.35, 0, 0, 0, 1.07, true);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 1, 0);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 0.8, 14, 14, 14, 0, 0, 0, true);
+    }
+    wait(agent.lua_state_agent, 100.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 1, 0.105);
+    }
+    wait(agent.lua_state_agent, 100.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 1.0);
+}
+for _ in 0..10 {
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.502, 1, 1, 0.08);
+    macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 0.8, 14, 14, 14, 0, 0, 0, true);
+}
+wait(agent.lua_state_agent, 100.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 1, 1, 1, 0.235);
+}
+wait(agent.lua_state_agent, 100.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
+}
+wait(agent.lua_state_agent, 1.0);
+}
+}
+
+unsafe extern "C" fn expression_sonicspecialnspin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_38_sonicspin"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

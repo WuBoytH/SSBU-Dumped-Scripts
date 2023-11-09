@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_specialairn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("link_arrow_max"), Hash40::new("havel"), 0, 0.6, 2.3, 0, 0, 0, 1, true);
+    }
+    wait(agent.lua_state_agent, 11.0);
+}
+
+unsafe extern "C" fn sound_specialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_link_special_n02"));
+    }
+    wait(agent.lua_state_agent, 20.0);
+}
+
+unsafe extern "C" fn expression_specialairn(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 31.0);
+}

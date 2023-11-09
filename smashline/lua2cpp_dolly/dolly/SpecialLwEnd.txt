@@ -1,0 +1,57 @@
+unsafe extern "C" fn game_speciallwend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::SET_SPEED_EX(agent, 1, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+    }
+}
+
+unsafe extern "C" fn effect_speciallwend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 11, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_DETACH_KIND(agent, Hash40::new("dolly_down_s"), -1);
+            macros::EFFECT(agent, Hash40::new("dolly_down_ground_s"), Hash40::new("top"), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_DETACH_KIND(agent, Hash40::new("dolly_down_n"), -1);
+            macros::EFFECT(agent, Hash40::new("dolly_down_ground_n"), Hash40::new("top"), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_speciallwend(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND) {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_dolly_special_l05"));
+            macros::PLAY_SE(agent, Hash40::new("se_dolly_special_l06"));
+        }
+        else{
+        frame(agent.lua_state_agent, 0.0);
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_dolly_special_l01"));
+            macros::STOP_SE(agent, Hash40::new("se_dolly_special_l02"));
+            macros::PLAY_SE(agent, Hash40::new("se_dolly_special_l03"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_speciallwend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+}

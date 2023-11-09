@@ -1,0 +1,109 @@
+unsafe extern "C" fn game_finaldashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::SET_SPEED_EX(agent, 3, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+    }
+}
+
+unsafe extern "C" fn effect_finaldashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FT_REMOVE_FINAL_AURA(agent, true);
+    }
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 4.0);
+}
+if macros::is_excute(agent) {
+    EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_littlemac_final"), -1);
+}
+wait(agent.lua_state_agent, 1.0);
+if macros::is_excute(agent) {
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+}
+}
+
+unsafe extern "C" fn sound_finaldashend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_littlemac_final05"));
+    }
+}
+
+unsafe extern "C" fn expression_finaldashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 28.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 34.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 42.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 46.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_LITTLEMACG, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

@@ -1,0 +1,52 @@
+unsafe extern "C" fn effect_visualscene01(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EffectModule::remove_screen(boma, Hash40::new("bg_gaogaen_final"), -1);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 3, 0, -40, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 0.6);
+        EFFECT(agent, Hash40::new("gaogaen_chop_arc"), Hash40::new("top"), 3, 12, -30, 0, 0, -50, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        methodlib::L2CValue::as_hash()const(Hash40::new("genesis_get"), Hash40::new("throw"), 12, 12, 8, 0, 0, true);
+        methodlib::L2CValue::as_hash()const();
+        EffectModule::request_post_effect_line_circle(boma);
+        QUAKE(agent, 0, *CAMERA_QUAKE_KIND_L);
+    }
+    frame(lua_state, 28.0);
+    if is_excute(agent) {
+        EffectModule::remove_post_effect_line(boma, 8, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene01(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_gaogaen_final03"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene01(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_erase_sp"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_erase_sp"), 0);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_bounce"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_bounce"), 0);
+    }
+}

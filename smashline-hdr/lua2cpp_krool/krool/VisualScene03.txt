@@ -1,0 +1,50 @@
+unsafe extern "C" fn effect_visualscene03(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("krool_final_charge_a"), true, true);
+        EFFECT(agent, Hash40::new("krool_final_charge_b"), Hash40::new("top"), 0, 0, -25, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("krool_final_impact"), Hash40::new("top"), 0, 0, -100, 0, 180, 0, 20, true);
+        EFFECT_FOLLOW(agent, Hash40::new("krool_final_beam_a"), Hash40::new("top"), 0, 0, -100, 0, 180, 0, 20, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene03(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_krool_amb04"));
+    }
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_krool_final06"));
+    }
+    frame(lua_state, 49.0);
+    if is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+        PLAY_STATUS(agent, Hash40::new("se_krool_amb05"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene03(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_erase"), 0);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 40, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_elecattack"), 40);
+    }
+    frame(lua_state, 43.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_loopattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_loopattack"), 0);
+    }
+}

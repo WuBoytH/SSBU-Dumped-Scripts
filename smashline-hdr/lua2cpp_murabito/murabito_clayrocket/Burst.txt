@@ -1,0 +1,33 @@
+unsafe extern "C" fn game_burst(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+        ATTACK(agent, 0, 0, Hash40::new("top"), 12.0, 68, 90, 0, 65, 7.0, 0.0, 0.0, 0.0, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -6, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_BOMB);
+        AREA_WIND_2ND_RAD_arg9(agent, 0, 1, 0.02, 1000, 1, 0, 0, 25, 30);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x199c462b5d));
+    }
+}
+
+unsafe extern "C" fn effect_burst(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        EFFECT(agent, Hash40::new("sys_bomb_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT_DETACH_KIND(agent, Hash40::new("murabito_clayrocket_jet"), 10);
+    }
+}
+
+unsafe extern "C" fn sound_burst(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_murabito_special_s01"));
+        PLAY_SE_REMAIN(agent, Hash40::new("se_murabito_special_s04"));
+    }
+}

@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("ridley_win3"), Hash40::new("top"), 0, 6, -10, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_ridley_win03_01"));
+    }
+    frame(lua_state, 98.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_ridley_win03_02"));
+    }
+}

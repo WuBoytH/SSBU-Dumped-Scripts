@@ -1,0 +1,45 @@
+unsafe extern "C" fn effect_littlemacspecialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("littlemac_straight_hold"), Hash40::new("handr"), -4, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -12, 0, 0, 0, 0, 0, 0.6, 2, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -12, 0, 0, 0, 0, 0, 0.6, 2, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -15, 0, 0, 0, 0, 0, 0.8, 2, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -15, 0, 0, 0, 0, 0, 0.8, 2, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -18, 0, 0, 0, 0, 0, 1, 2, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 12.0);
+}
+
+unsafe extern "C" fn sound_littlemacspecialnstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_kirby_copy_littlemac_01"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_littlemac_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_littlemacspecialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 5);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

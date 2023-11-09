@@ -1,0 +1,19 @@
+unsafe extern "C" fn effect_walkfast(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+
+unsafe extern "C" fn sound_walkfast(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_miienemys_step_left_m"));
+    }
+    frame(agent.lua_state_agent, 16.0);
+    macros::PLAY_STEP(agent, Hash40::new("se_miienemys_step_right_m"));
+}

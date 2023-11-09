@@ -1,0 +1,74 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 43, 0, 0);
+        macros::SLOW_OPPONENT(agent, 8, 70);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_MIIGUNNER_GENERATE_ARTICLE_LASER, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_MIIGUNNER_GENERATE_ARTICLE_FULLTHROTTLE, false, -1);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
+        }
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalstart02.nuanmb"), true, false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            PostureModule::scale(agent.module_accessor, 3, 0);
+            0x1303f0(-1642871193, 2.2);
+            CAM_ZOOM_IN_arg5(0, 0);
+        }
+        else{
+        if macros::is_excute(agent) {
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalstart.nuanmb"), true, false);
+        }
+        if macros::is_excute(agent) {
+            macros::FT_START_CUTIN(agent);
+        }
+    }
+}
+}
+frame(agent.lua_state_agent, 30.0);
+if macros::is_excute(agent) {
+macros::CAM_ZOOM_OUT(agent);
+}
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_miigunner_final"), false, false, false);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("miigunner_final_beamcharge"), Hash40::new("haver"), 0, 0, 3, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_miigunner_final01"));
+        macros::PLAY_SE(agent, Hash40::new("se_miigunner_final02"));
+        macros::PLAY_STATUS(agent, Hash40::new("vc_mii_finalstart"));
+    }
+}
+
+unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    for _ in 0..7 {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(agent.lua_state_agent, 8.0);
+}
+}

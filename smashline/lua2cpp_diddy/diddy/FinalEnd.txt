@@ -1,0 +1,37 @@
+unsafe extern "C" fn game_finalend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_EXPLOSION, false, -1);
+    }
+}
+
+unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_final_fly_end"), Hash40::new("bust"), -3, -3.5, 4.2, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_final_fly_end"), Hash40::new("bust"), -3, -3.5, -4.2, 0, 0, 0, 1, true);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_bjet_landing"), Hash40::new("top"), 0, -3, 0, 0, -90, 0, 1.5, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_bjet_landing"), Hash40::new("top"), 0, -3, 0, 0, 90, 0, 1.5, true);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_finalend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_diddy_special_h03"));
+    }
+}
+
+unsafe extern "C" fn expression_finalend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

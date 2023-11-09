@@ -1,0 +1,30 @@
+unsafe extern "C" fn game_specialn3failure(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PICKEL_STATUS_SPECIAL_N3_FLAG_CHECK_REQ_MISS_EFFECT);
+    }
+}
+
+unsafe extern "C" fn effect_specialn3failure(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        effect(*MA_MSC_EFFECT_REMOVE_COMMON, Hash40::new("pickel_not_generate"));
+    }
+}
+
+unsafe extern "C" fn sound_specialn3failure(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pickel_swing_s02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialn3failure(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("block") as i64, hash40("block_none") as i64);
+    }
+}

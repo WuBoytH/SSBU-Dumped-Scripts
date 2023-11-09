@@ -1,0 +1,61 @@
+unsafe extern "C" fn game_specialairlwfinish(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, false);
+        macros::WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 10.0, 57, 100, 150, 0, 2.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_stab"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_TAIL);
+        AttackModule::set_no_finish_camera(agent.module_accessor, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, true, true);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_RIDLEY_STATUS_SPECIAL_LW_FLAG_THROW);
+        JostleModule::set_status(agent.module_accessor, true);
+        macros::WHOLE_HIT(agent, *HIT_STATUS_NORMAL);
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_RIDLEY_STATUS_SPECIAL_LW_FLAG_ENABLE_GRAVITY);
+    }
+}
+
+unsafe extern "C" fn effect_specialairlwfinish(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ridley_death_stab_flare"), Hash40::new("tail8"), 0, 0, 0, 0, 180, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ridley_death_stab_line_b"), Hash40::new("top"), -0.0, 8, 16, 0, 0, 0, 1.1, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("ridley_death_stab_finish"), Hash40::new("throw"), 0, 0, 0, 0, 180, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ridley_death_stab_line_b"), Hash40::new("top"), 0, 6, 12, 180, 0, 0, 0.7, true);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("ridley_death_stab_flare"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairlwfinish(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_ridley_special_l03"));
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_ridley_special_l04"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwfinish(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_piercess"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+    }
+}

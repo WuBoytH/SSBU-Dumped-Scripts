@@ -1,0 +1,27 @@
+unsafe extern "C" fn sound_guardoff(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_guardoff"));
+    }
+}
+
+unsafe extern "C" fn expression_guardoff(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_GuardOffRumble()();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if ItemModule::is_have_item(agent.module_accessor, 0) {
+        if macros::is_excute(agent) {
+            macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0.04);
+        }
+    }
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0.08);
+    }
+    frame(agent.lua_state_agent, 15.6);
+    if macros::is_excute(agent) {
+        macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0);
+    }
+}

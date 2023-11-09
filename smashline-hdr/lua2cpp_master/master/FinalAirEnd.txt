@@ -1,0 +1,36 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD2, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ATTACK_ABS(agent, *FIGHTER_MASTER_ATTACK_ABSOLUTE_KIND_FINAL, 0, 15.0, 55, 120, 0, 78, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_ABS_SET);
+        CAM_ZOOM_OUT(agent);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+    }
+    frame(lua_state, 120.0);
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("master_final_whip1"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("master_final_ground"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("master_final_storm"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("master_final_screen2"), true, true);
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
+        EFFECT(agent, Hash40::new("master_final_echo"), Hash40::new("top"), 0, 14, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        EffectModule::req_screen(boma, Hash40::new("bg_master_final_end"), false, false, false);
+    }
+    frame(lua_state, 65.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_REQ_EFFECT_AURA);
+    }
+}

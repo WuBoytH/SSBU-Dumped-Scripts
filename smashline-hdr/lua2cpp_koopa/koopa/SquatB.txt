@@ -1,0 +1,38 @@
+unsafe extern "C" fn effect_squatb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 51.0);
+    FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+}
+
+unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 25.0);
+    if is_excute(agent) {
+        PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopa_crawing_left_b"), Hash40::new("se_koopa_crawing_right_b"));
+    }
+    wait(lua_state, 30.0);
+    PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopa_crawing_right_b"), Hash40::new("se_koopa_crawing_left_b"));
+}
+
+unsafe extern "C" fn expression_squatb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    }
+    frame(lua_state, 28.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_walk_hv"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 58.0);
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_walk_hv"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}

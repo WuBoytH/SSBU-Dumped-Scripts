@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_scopeairfireemptyaerial(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        if macros::is_excute(agent) {
+            macros::SHOOT_ITEM_BULLET_CHARGE(agent, *FIGHTER_STATUS_ITEM_SHOOT_WORK_INT_SSCOPE_CHARGE);
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_scopeairfireemptyaerial(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_wiifit_jump02"));
+    }
+    wait(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swing_05"));
+    }
+}

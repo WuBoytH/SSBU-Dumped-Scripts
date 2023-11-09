@@ -1,0 +1,71 @@
+unsafe extern "C" fn game_finalmiss(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 75, 100, 0, 50, 5.5, 0.0, 6.5, 1.0, Some(0.0), Some(6.5), Some(3.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(boma, true, false);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 75, 100, 0, 50, 5.5, 0.0, 6.5, 1.0, Some(0.0), Some(6.5), Some(18.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_REFLET_FINAL_SWORD, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(boma, true, false);
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        ATTACK(agent, 1, 0, Hash40::new("top"), 3.0, 75, 100, 0, 50, 5.5, 0.0, 9.0, 18.0, Some(0.0), Some(16.5), Some(3.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_REFLET_FINAL_SWORD, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(boma, true, false);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+}
+
+unsafe extern "C" fn effect_finalmiss(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 2, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("head"), 1, 0, 0, 0, 0, 0, 1.8, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1.1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 1.1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("finreflet_dash"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        AFTER_IMAGE4_ON_arg29(agent, Hash40::new("tex_reflet_sword6"), Hash40::new("tex_reflet_sword2"), 6, Hash40::new("haver"), 0, 1, 0, Hash40::new("haver"), 0, 11, 0, true, Hash40::new("finreflet_chrom_sword"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        AFTER_IMAGE_OFF(agent, 4);
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("finreflet_dash"), false, false);
+    }
+    frame(lua_state, 15.0);
+    WorkModule::is_flag(boma, *WEAPON_REFLET_CHROM_INSTANCE_WORK_ID_FLAG_LAUNCH_HIT);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("reflet_entry"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+            LAST_EFFECT_SET_RATE(agent, 1.2);
+        }
+    }
+    frame(lua_state, 34.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("finreflet_warp"), Hash40::new("trans"), 0, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalmiss(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_sword_swing_l"));
+    }
+    wait(lua_state, 18.0);
+    if is_excute(agent) {
+        PLAY_SE_REMAIN(agent, Hash40::new("se_reflet_final17"));
+    }
+}

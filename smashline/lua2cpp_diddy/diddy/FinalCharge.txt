@@ -1,0 +1,38 @@
+unsafe extern "C" fn game_finalcharge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        PostureModule::scale(agent.module_accessor, 10, 0);
+        0x148390(95671436, 2.1);
+        CAM_ZOOM_IN_arg5(0, 0);
+        macros::SLOW_OPPONENT(agent, 30, 60);
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::CAM_ZOOM_OUT(agent);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_END_CHARGE_ZOOM);
+    }
+}
+
+unsafe extern "C" fn effect_finalcharge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_final_charge_hi"), Hash40::new("bust"), -3, -4.5, -4.5, 0, 0, 0, 1.2, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_final_charge_hi"), Hash40::new("bust"), -3, -4.5, 4.5, 0, 0, 0, 1.2, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalcharge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_diddy_final05"));
+    }
+}
+
+unsafe extern "C" fn expression_finalcharge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, *ATTACH_ITEM_GROUP_BACK);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_jet"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

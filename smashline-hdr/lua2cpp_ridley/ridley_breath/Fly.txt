@@ -1,0 +1,44 @@
+unsafe extern "C" fn game_fly(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 4.5, 361, 48, 0, 25, 2.5, 0.0, 0.0, 0.0, None, None, None, 0.6, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_SPEED, false, -3, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+    }
+    wait(lua_state, 30.0);
+    if is_excute(agent) {
+        ATK_POWER(agent, 0, 3.5);
+        WorkModule::on_flag(boma, *WEAPON_RIDLEY_BREATH_INSTANCE_WORK_ID_FLAG_CHANGE_SCALE);
+    }
+}
+
+unsafe extern "C" fn effect_fly(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("ridley_bleath_bullet_l"), Hash40::new("rot"), 0, 1.8, 0, 0, 0, 0, 1, true);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("ridley_bleath_bullet_r"), Hash40::new("rot"), 0, 1.8, 0, 0, 0, 0, 1, true);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_fly(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    WorkModule::get_float(boma, *WEAPON_RIDLEY_BREATH_INSTANCE_WORK_ID_FLOAT_CHARGE_RATE);
+    if(methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(1436709314, 1)){
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_ridley_special_n03"));
+        }
+        else{
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_ridley_special_n02"));
+        }
+    }
+}
+}

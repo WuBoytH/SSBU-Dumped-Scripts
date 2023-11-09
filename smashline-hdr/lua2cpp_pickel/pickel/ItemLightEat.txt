@@ -1,0 +1,41 @@
+unsafe extern "C" fn game_itemlighteat(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ItemModule::pickup_item(boma, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+    }
+    frame(false, 6);
+    if is_excute(agent) {
+        ItemModule::use_item(boma, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+    }
+}
+
+unsafe extern "C" fn sound_itemlighteat(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_appeal_s01"));
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_appeal_s01"));
+    }
+    frame(lua_state, 28.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_appeal_s01"));
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_appeal_s02"));
+    }
+}
+
+unsafe extern "C" fn expression_itemlighteat(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

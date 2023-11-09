@@ -1,0 +1,32 @@
+unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_MIIGUNNER_GENERATE_ARTICLE_LASER, *ARTICLE_OPE_TARGET_ALL, false);
+        ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_MIIGUNNER_GENERATE_ARTICLE_FULLTHROTTLE, *ARTICLE_OPE_TARGET_ALL, false);
+    }
+}
+
+unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), -8, 0, 0, 0, 0, 0, 1, 12, 0, 12, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 14.0);
+}
+
+unsafe extern "C" fn sound_final(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_mii_final_gunner"));
+    }
+}
+
+unsafe extern "C" fn expression_final(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionm"), 10, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_loopattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

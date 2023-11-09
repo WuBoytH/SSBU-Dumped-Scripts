@@ -1,0 +1,64 @@
+unsafe extern "C" fn game_finalair(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 0.2, 367, 100, 45, 5, 6.5, 0.0, 10.0, 200.0, Some(0.0), Some(10.0), Some(200.0), 0.9, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 5, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        macros::ATTACK(agent, 1, 0, Hash40::new("top"), 0.2, 10, 100, 45, 5, 6.5, 0.0, 10.0, 15.0, Some(0.0), Some(10.0), Some(200.0), 0.9, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 5, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 1, true, true, -1, false);
+    }
+    frame(agent.lua_state_agent, 200.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 201.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 5.0, 361, 128, 0, 80, 9.0, 0.0, 10.0, 15.0, Some(0.0), Some(10.0), Some(200.0), 1.0, 0.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 5, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, false);
+    }
+    frame(agent.lua_state_agent, 210.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("ptrainer_change_light"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.3);
+        macros::FLASH(agent, 0.9, 1, 1, 0.9);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 6, 0.9, 1, 1, 0);
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("finptrainer_solar_beam"), Hash40::new("top"), 0, 8.5, 11, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 255.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("ptrainer_change_out"), Hash40::new("top"), 0, 4, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::FLASH(agent, 1, 0.8, 0.9, 0.1);
+    }
+    wait(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 5, 1, 0.8, 0.9, 0.9);
+    }
+}
+
+unsafe extern "C" fn sound_finalair(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_pfushigisou_final01"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_pfushigisou_final_lp"));
+    }
+    frame(agent.lua_state_agent, 214.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_pfushigisou_final_lp"));
+    }
+}

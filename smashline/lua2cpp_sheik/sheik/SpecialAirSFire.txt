@@ -1,0 +1,27 @@
+unsafe extern "C" fn game_specialairsfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+    frame(agent.lua_state_agent, 37.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_specialairsfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sheik_sakuretu_line_end"), Hash40::new("havel"), 0, 0.66, 0, -50, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairsfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_sheik_special_s03"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairsfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 5, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

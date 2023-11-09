@@ -1,0 +1,16 @@
+unsafe extern "C" fn effect_speciallwhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0, 1, 1, 0.2);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 1.0);
+}
+
+unsafe extern "C" fn expression_speciallwhold(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+}

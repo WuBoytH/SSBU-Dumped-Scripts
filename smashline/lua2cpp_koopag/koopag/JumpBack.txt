@@ -1,0 +1,14 @@
+unsafe extern "C" fn effect_jumpback(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 2, false);
+    }
+}
+
+unsafe extern "C" fn sound_jumpback(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_jump01"));
+    }
+}

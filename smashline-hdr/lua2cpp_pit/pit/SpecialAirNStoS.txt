@@ -1,0 +1,18 @@
+unsafe extern "C" fn effect_specialairnstos(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("pit_pa_hold_bow"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("pit_pa_hold_bow2"), true, true);
+        EFFECT_FOLLOW(agent, Hash40::new("pit_pa_hold_bow2"), Hash40::new("haver"), 0, -2, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn expression_specialairnstos(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+}

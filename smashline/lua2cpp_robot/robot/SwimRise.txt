@@ -1,0 +1,16 @@
+unsafe extern "C" fn sound_swimrise(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swimattack_low"));
+    }
+    wait(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swimattack_low"));
+    }
+    wait(agent.lua_state_agent, 19.0);
+}
+
+unsafe extern "C" fn expression_swimrise(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

@@ -1,0 +1,19 @@
+unsafe extern "C" fn game_downeatu_nana(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+    }
+    frame(false, 9);
+    if macros::is_excute(agent) {
+        ItemModule::use_item(agent.module_accessor, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_CHANGE_STATUS_DLAY_MOTION);
+    }
+}
+
+unsafe extern "C" fn expression_downeatu_nana(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    }
+}

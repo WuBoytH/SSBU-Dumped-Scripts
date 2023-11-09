@@ -1,0 +1,25 @@
+unsafe extern "C" fn sound_capturepulledhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_CAPTURE_PULLED_SE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            SET_PLAY_INHIVIT(agent, Hash40::new("se_common_cliff_catch"), 5);
+        }
+        else{
+        frame(lua_state, 3.0);
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_capturepulledhi(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_CapturePulledHiRumble()();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("hand") as i64, hash40("hand_hold_lr") as i64);
+    }
+}

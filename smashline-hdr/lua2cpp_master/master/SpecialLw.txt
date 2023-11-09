@@ -1,0 +1,183 @@
+unsafe extern "C" fn game_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(boma, 3.0, 3.0);
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_INHERIT_LANDING_1);
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_TURN_CHECK);
+    }
+    frame(lua_state, 34.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_START_SUPER_ARMOR);
+    }
+    frame(lua_state, 42.0);
+    if is_excute(agent) {
+        WorkModule::off_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_TURN_CHECK);
+    }
+    frame(lua_state, 51.0);
+    if is_excute(agent) {
+        WorkModule::off_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_INHERIT_LANDING_1);
+    }
+    frame(lua_state, 60.0);
+    if is_excute(agent) {
+        AttackModule::set_attack_height(boma, 0, *ATTACK_HEIGHT_HIGH, false);
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_FORBID_LANDING);
+    }
+    frame(lua_state, 64.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_END_SUPER_ARMOR);
+        ArticleModule::set_flag(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, true, *WEAPON_PIERCE_INSTANCE_WORK_ID_FLAG_PIERCE_GROUND);
+    }
+    frame(lua_state, 65.0);
+    if is_excute(agent) {
+        ArticleModule::set_flag(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, false, *WEAPON_PIERCE_INSTANCE_WORK_ID_FLAG_PIERCE_GROUND);
+        WorkModule::off_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_FORBID_LANDING);
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_INHERIT_LANDING_2);
+    }
+    frame(lua_state, 96.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_CONTROL_ENERGY);
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_REVERT_FALL_SPEED);
+    }
+    frame(lua_state, 117.0);
+    if is_excute(agent) {
+        WorkModule::off_flag(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_INHERIT_LANDING_2);
+    }
+    frame(lua_state, 118.0);
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}
+
+unsafe extern "C" fn effect_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_action_smoke_v"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        EFFECT_FOLLOW(agent, Hash40::new("master_axe_hold"), Hash40::new("haver"), 0, 13, 0.6, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("master_axe_hold"), false, true);
+        EFFECT_FOLLOW(agent, Hash40::new("master_axe_hold2"), Hash40::new("haver"), 0, 13, 0.6, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("master_axe_hold_end"), Hash40::new("haver"), 0, 13, 0.6, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 58.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 60.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("master_axe_hold2"), false, true);
+        EFFECT_FOLLOW(agent, Hash40::new("master_axe_slash_reverb"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("master_axe_slash"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, false);
+        EffectModule::set_disable_render_offset_last(boma);
+    }
+    frame(lua_state, 64.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("master_axe_slash_particle"), Hash40::new("top"), 0, 7, 1, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 68.0);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("master_axe_slash_reverb"), -1);
+    }
+    frame(lua_state, 70.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("master_axe_slash"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if WorkModule::get_int(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_INT_VOICE_TYPE) == 0 {
+        IS_RANDOM(agent, 2);
+        if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+            if is_excute(agent) {
+                WorkModule::set_int(boma, 1, *FIGHTER_MASTER_STATUS_SPECIAL_LW_INT_VOICE_TYPE);
+            }
+            else{
+            if is_excute(agent) {
+                WorkModule::set_int(boma, 2, *FIGHTER_MASTER_STATUS_SPECIAL_LW_INT_VOICE_TYPE);
+            }
+        }
+    }
+}
+if WorkModule::get_int(boma, *FIGHTER_MASTER_STATUS_SPECIAL_LW_INT_VOICE_TYPE) == 1 {
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_master_special_l01"));
+    }
+}
+frame(lua_state, 2.0);
+if is_excute(agent) {
+    PLAY_SE(agent, Hash40::new("se_master_special_l01"));
+    SET_PLAY_INHIVIT(agent, Hash40::new("se_master_special_l01"), 57);
+}
+frame(lua_state, 42.0);
+if is_excute(agent) {
+    PLAY_SE(agent, Hash40::new("se_master_special_l03"));
+    SET_PLAY_INHIVIT(agent, Hash40::new("se_master_special_l03"), 60);
+}
+frame(lua_state, 60.0);
+if is_excute(agent) {
+    PLAY_SEQUENCE(agent, Hash40::new("seq_master_rnd_special_lw"));
+}
+else{
+if is_excute(agent) {
+    PLAY_SE(agent, Hash40::new("vc_master_special_l06_01"));
+}
+}
+frame(lua_state, 2.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_master_special_l01"));
+SET_PLAY_INHIVIT(agent, Hash40::new("se_master_special_l01"), 57);
+}
+frame(lua_state, 42.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_master_special_l03"));
+SET_PLAY_INHIVIT(agent, Hash40::new("se_master_special_l03"), 60);
+}
+frame(lua_state, 60.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("vc_master_special_l06_02"));
+}
+}
+
+unsafe extern "C" fn expression_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_75_hold_largestart"), 18, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 19.0);
+    for _ in 0..7 {
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_75_hold_large"), 3, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(lua_state, 3.0);
+}
+frame(lua_state, 60.0);
+if is_excute(agent) {
+    slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_nohit_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}
+frame(lua_state, 62.0);
+if is_excute(agent) {
+    RUMBLE_HIT(agent, Hash40::new("rbkind_attackll"), 0);
+}
+frame(lua_state, 67.0);
+if is_excute(agent) {
+    QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+}
+frame(lua_state, 107.0);
+if is_excute(agent) {
+    slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
+}
+}

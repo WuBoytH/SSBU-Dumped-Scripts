@@ -1,0 +1,21 @@
+unsafe extern "C" fn sound_cliffescapejr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_escape_01"));
+    }
+    frame(agent.lua_state_agent, 44.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_dash_turn"));
+    }
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_dash_turn"));
+    }
+}
+
+unsafe extern "C" fn expression_cliffescapejr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_escape"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

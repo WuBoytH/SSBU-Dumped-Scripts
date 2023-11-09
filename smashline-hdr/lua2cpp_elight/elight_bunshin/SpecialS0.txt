@@ -1,0 +1,32 @@
+unsafe extern "C" fn game_specials0(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD) {
+        if is_excute(agent) {
+            ArticleModule::add_motion_partial(boma, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 10.0, 10.0, false, false, 0.0, false, true, false);
+        }
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+    }
+}
+
+unsafe extern "C" fn effect_specials0(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("elight_photon_body_lihgt"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("elight_photon_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+        LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(agent, -1);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("elight_photon_vanish"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("elight_photon_body_lihgt"), false, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("elight_photon_sword"), true, true);
+    }
+}

@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_speciallwfall(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        GroundModule::set_shape_flag(boma, *GROUND_CORRECT_SHAPE_RHOMBUS_MODIFY_FLAG_FIX, true);
+    }
+    wait(lua_state, 5.0);
+    if is_excute(agent) {
+        GroundModule::set_shape_flag(boma, *GROUND_CORRECT_SHAPE_RHOMBUS_MODIFY_FLAG_FIX, false);
+    }
+}
+
+unsafe extern "C" fn expression_speciallwfall(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("hammer") as i64, hash40("hammer_disp_off") as i64);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        AREA_WIND_2ND_arg10(agent, 0, 3, 20, 2, 1, 22, 32, 25, 25, 50);
+    }
+}

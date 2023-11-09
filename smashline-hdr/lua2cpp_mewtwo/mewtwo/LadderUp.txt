@@ -1,0 +1,17 @@
+unsafe extern "C" fn sound_ladderup(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+        PLAY_STATUS(agent, Hash40::new("se_mewtwo_step_lp_m"));
+    }
+}
+
+unsafe extern "C" fn expression_ladderup(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 3.0);
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_aerial"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}

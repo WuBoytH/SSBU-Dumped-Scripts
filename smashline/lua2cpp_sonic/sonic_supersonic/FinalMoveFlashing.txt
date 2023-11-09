@@ -1,0 +1,15 @@
+unsafe extern "C" fn game_finalmoveflashing(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 6.0, 70, 145, 0, 80, 9.0, 0.0, 11.0, 0.0, Some(0.0), Some(11.0), Some(-80.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 50, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalmoveflashing(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_sonic_final03"));
+    }
+}

@@ -1,0 +1,75 @@
+unsafe extern "C" fn game_specialairnblow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 23.0, 361, 92, 0, 30, 8.2, 0.0, 8.5, 7.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_BOMB);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+}
+
+unsafe extern "C" fn effect_specialairnblow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("diddy_popgun_break_a"), Hash40::new("top"), -1.5, 8, 7.5, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("diddy_popgun_break_b"), Hash40::new("havel"), -1, -3, 5, -0.0, 0.0, 0, 1, true);
+        FLASH(agent, 0, 0, 0, 1);
+        COL_PRI(agent, 101);
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 30, 0.118, 0, 0, 0.753);
+    }
+    wait(lua_state, 30.0);
+    if is_excute(agent) {
+        FLASH(agent, 0.118, 0, 0, 0.753);
+    }
+    wait(lua_state, 54.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 15, 0.502, 0, 0, 0);
+    }
+    wait(lua_state, 15.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnblow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_diddy_special_n05"));
+        PLAY_STATUS(agent, Hash40::new("se_diddy_special_n04"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnblow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_R, 3);
+    }
+    frame(lua_state, 100.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+    frame(lua_state, 107.0);
+    if is_excute(agent) {
+        ArticleModule::set_visibility_whole(boma, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

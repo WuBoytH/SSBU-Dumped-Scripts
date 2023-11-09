@@ -1,0 +1,51 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+    }
+    frame(lua_state, 13.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MEWTWO_STATUS_FINAL_FLAG_FINAL_CHANGE);
+        CANCEL_FILL_SCREEN(agent, 0, 180);
+    }
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("mewtwo_final_end"), Hash40::new("top"), 0, 11, -3, 0, 0, 0, 1, false);
+        BURN_COLOR(agent, 1, 0.5, 0.9, 1);
+    }
+    wait(lua_state, 35.0);
+    if is_excute(agent) {
+        BURN_COLOR_FRAME(agent, 10, 1, 0.5, 0.9, 0.1);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        BURN_COLOR_NORMAL(agent);
+    }
+    frame(lua_state, 60.0);
+    if is_excute(agent) {
+        CANCEL_FILL_SCREEN(agent, 1, 10);
+    }
+}
+
+unsafe extern "C" fn sound_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE_REMAIN(agent, Hash40::new("se_mewtwo_final05"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

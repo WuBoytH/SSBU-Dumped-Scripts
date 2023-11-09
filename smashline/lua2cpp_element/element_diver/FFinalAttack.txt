@@ -1,0 +1,53 @@
+unsafe extern "C" fn game_ffinalattack(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 175.0);
+}
+
+unsafe extern "C" fn effect_ffinalattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 100.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_aura"), false, false);
+    }
+    frame(agent.lua_state_agent, 145.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 165.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.5, 0.5, 0.8, 0);
+        macros::BURN_COLOR(agent, 0.8, 1.5, 1.5, 0);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+    }
+    frame(agent.lua_state_agent, 171.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 15, 0.45, 0.45, 1, 0.4);
+        macros::BURN_COLOR_FRAME(agent, 13, 3.8, 22, 32, 1);
+    }
+    frame(agent.lua_state_agent, 173.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("eflame_appeal_vanish2"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+    }
+    frame(agent.lua_state_agent, 183.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("eflame_appeal_vanish"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.2, true);
+    }
+    frame(agent.lua_state_agent, 188.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("eflame_appeal_vanish2"), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("eflame_appeal_vanish"), -1);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn sound_ffinalattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 145.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_final_diver_jump"));
+    }
+    frame(agent.lua_state_agent, 188.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_eflame_final_diver_out"));
+    }
+}

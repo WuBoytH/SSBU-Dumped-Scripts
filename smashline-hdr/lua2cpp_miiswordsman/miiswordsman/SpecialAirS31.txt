@@ -1,0 +1,82 @@
+unsafe extern "C" fn game_specialairs3_1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_REQUEST_GENERATE);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_CHECK_MOTION_HI_LW);
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        ArticleModule::shoot_exist(boma, *FIGHTER_MIISWORDSMAN_GENERATE_ARTICLE_CHAKRAM, *ARTICLE_OPE_TARGET_ALL, false);
+    }
+    FT_MOTION_RATE(agent, 1.22);
+}
+
+unsafe extern "C" fn effect_specialairs3_1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    WorkModule::is_flag(boma, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_IS_GENERATE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        frame(lua_state, 8.0);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("miiswordsman_chakram_t"), Hash40::new("handl"), 4, 0, -2, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        }
+        else{
+        frame(lua_state, 20.0);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("sys_misfire"), Hash40::new("handl"), 4, -1, 0, 0, 0, 0, 0.8, false);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_specialairs3_1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_miiswordsman_rnd_special_c3_s01"));
+    }
+    wait(lua_state, 3.0);
+    WorkModule::is_flag(boma, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_FLICK);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c3_s03"));
+        }
+        else{
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c3_s01"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_specialairs3_1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x26769bd1de), 0, 0, 0);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 17.0);
+    WorkModule::is_flag(boma, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_IS_GENERATE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_lightthrow4item"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        else{
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+}
+frame(lua_state, 40.0);
+if is_excute(agent) {
+    notify_event_msc_cmd!(agent, Hash40::new_raw(0x26769bd1de), 0, 30, 10);
+}
+}

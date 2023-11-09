@@ -1,0 +1,15 @@
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gamewatch_appeal_win01"));
+    }
+    frame(agent.lua_state_agent, 65.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gamewatch_appeal_win01"));
+    }
+}
+
+unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("lhand") as i64, hash40("lhand_alarm") as i64);
+    }
+}

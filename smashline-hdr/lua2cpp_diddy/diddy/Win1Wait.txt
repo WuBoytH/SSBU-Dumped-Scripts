@@ -1,0 +1,14 @@
+unsafe extern "C" fn game_win1wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN) {
+        if is_excute(agent) {
+            ArticleModule::remove_exist(boma, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::remove_exist(boma, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            WorkModule::on_flag(boma, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_GUN_LEFT);
+            ArticleModule::generate_article(boma, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, false, -1);
+            WorkModule::on_flag(boma, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_GUN_RIGHT);
+            ArticleModule::generate_article(boma, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, false, -1);
+        }
+    }
+}

@@ -1,0 +1,21 @@
+unsafe extern "C" fn sound_capturecut(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_younglink_landing01"));
+    }
+    wait(lua_state, 8.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_younglink_landing01"));
+    }
+}
+
+unsafe extern "C" fn expression_capturecut(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_CaptureCutRumble()();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

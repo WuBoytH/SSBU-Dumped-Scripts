@@ -1,0 +1,179 @@
+unsafe extern "C" fn game_specialairs(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 1.5, 367, 65, 40, 0, 4.5, 0.0, 13.0, 10.0, Some(0.0), Some(6.0), Some(10.0), 0.2, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 5, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
+        shield!(agent, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_ROBOT_REFLECTOR_KIND_ARMSPIN, *FIGHTER_REFLECTOR_GROUP_EXTEND);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        ATTACK(agent, 1, 0, Hash40::new("top"), 1.5, 367, 70, 50, 0, 4.0, 0.0, 13.0, -8.0, Some(0.0), Some(6.0), Some(-8.0), 0.2, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 5, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 1.5, 367, 65, 40, 0, 3.3, 0.0, 13.0, 12.0, Some(0.0), Some(6.0), Some(12.0), 0.2, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 5, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
+        ATTACK(agent, 1, 0, Hash40::new("top"), 1.5, 367, 70, 50, 0, 3.3, 0.0, 13.0, -8.0, Some(0.0), Some(6.0), Some(-8.0), 0.2, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 5, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_rush"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
+    }
+    frame(lua_state, 24.0);
+    if is_excute(agent) {
+        shield!(agent, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_REFLECTOR, *FIGHTER_ROBOT_REFLECTOR_KIND_ARMSPIN, *FIGHTER_REFLECTOR_GROUP_EXTEND);
+    }
+}
+
+unsafe extern "C" fn effect_specialairs(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("robot_armspin"), Hash40::new("body"), 1, 0, 0, 0, 60, 90, 1, true);
+        }
+    }
+    if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 0)){
+        if WorkModule::is_flag(boma, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLAG_REGION_JP) {
+            if is_excute(agent) {
+                LAST_EFFECT_SET_COLOR(agent, 0.1, 0.01, 0);
+            }
+            else{
+            if is_excute(agent) {
+                LAST_EFFECT_SET_COLOR(agent, 0.196, 0.196, 0.216);
+            }
+        }
+    }
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 1)){
+    if WorkModule::is_flag(boma, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLAG_REGION_JP) {
+        if is_excute(agent) {
+            LAST_EFFECT_SET_COLOR(agent, 0.196, 0.196, 0.216);
+        }
+        else{
+        if is_excute(agent) {
+            LAST_EFFECT_SET_COLOR(agent, 0.22, 0.059, 0.039);
+        }
+    }
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 2)){
+if is_excute(agent) {
+    LAST_EFFECT_SET_COLOR(agent, 0.176, 0.137, 0.059);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 3)){
+if is_excute(agent) {
+    LAST_EFFECT_SET_COLOR(agent, 0.235, 0.196, 0.255);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 4)){
+if is_excute(agent) {
+    LAST_EFFECT_SET_COLOR(agent, 0.098, 0.157, 0.196);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 5)){
+if is_excute(agent) {
+    LAST_EFFECT_SET_COLOR(agent, 0.098, 0.059, 0);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 6)){
+if is_excute(agent) {
+    LAST_EFFECT_SET_COLOR(agent, 0.098, 0.098, 0.157);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 7)){
+if is_excute(agent) {
+    LAST_EFFECT_SET_COLOR(agent, 0.118, 0.039, 0.051);
+}
+}
+if is_excute(agent) {
+EFFECT_FOLLOW(agent, Hash40::new("robot_armspin_wind"), Hash40::new("body"), 1, 0, 0, 0, 60, 90, 1, true);
+}
+else{
+if is_excute(agent) {
+EFFECT_FOLLOW(agent, Hash40::new("robot_armspin"), Hash40::new("body"), 1, 0, 0, 0, -100, -90, 1, true);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 0)){
+if WorkModule::is_flag(boma, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLAG_REGION_JP) {
+if is_excute(agent) {
+    LAST_EFFECT_SET_COLOR(agent, 0.1, 0.01, 0);
+}
+else{
+if is_excute(agent) {
+    LAST_EFFECT_SET_COLOR(agent, 0.196, 0.196, 0.216);
+}
+}
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 1)){
+if WorkModule::is_flag(boma, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLAG_REGION_JP) {
+if is_excute(agent) {
+LAST_EFFECT_SET_COLOR(agent, 0.196, 0.196, 0.216);
+}
+else{
+if is_excute(agent) {
+LAST_EFFECT_SET_COLOR(agent, 0.22, 0.059, 0.039);
+}
+}
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 2)){
+if is_excute(agent) {
+LAST_EFFECT_SET_COLOR(agent, 0.176, 0.137, 0.059);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 3)){
+if is_excute(agent) {
+LAST_EFFECT_SET_COLOR(agent, 0.235, 0.196, 0.255);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 4)){
+if is_excute(agent) {
+LAST_EFFECT_SET_COLOR(agent, 0.098, 0.157, 0.196);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 5)){
+if is_excute(agent) {
+LAST_EFFECT_SET_COLOR(agent, 0.098, 0.059, 0);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 6)){
+if is_excute(agent) {
+LAST_EFFECT_SET_COLOR(agent, 0.098, 0.098, 0.157);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 7)){
+if is_excute(agent) {
+LAST_EFFECT_SET_COLOR(agent, 0.118, 0.039, 0.051);
+}
+}
+if is_excute(agent) {
+EFFECT_FOLLOW(agent, Hash40::new("robot_armspin_wind"), Hash40::new("body"), 1, 0, 0, 0, -100, -90, 1, true);
+}
+}
+
+unsafe extern "C" fn sound_specialairs(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_robot_special_s02"));
+    }
+    wait(lua_state, 15.0);
+    for _ in 0..20 {
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_robot_special_s03"));
+    }
+    wait(lua_state, 5.0);
+}
+}
+
+unsafe extern "C" fn expression_specialairs(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 4);
+    }
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 5, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(lua_state, 7.0);
+}

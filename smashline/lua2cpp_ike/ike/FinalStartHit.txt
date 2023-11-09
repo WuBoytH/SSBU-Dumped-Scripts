@@ -1,0 +1,38 @@
+unsafe extern "C" fn game_finalstarthit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::CAM_ZOOM_OUT(agent);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sword") as i64, hash40("sword_hide") as i64);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_IKE_STATUS_FINAL_FLAG_SWORD_THROW_START);
+        ArticleModule::shoot(agent.module_accessor, *FIGHTER_IKE_GENERATE_ARTICLE_SWORD, *ARTICLE_OPE_TARGET_ALL, false);
+    }
+}
+
+unsafe extern "C" fn effect_finalstarthit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ike_final_sword"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("ike_final_start2"), false, true);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::AFTER_IMAGE_OFF(agent, 3);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("ike_final_sword"), true, true);
+    }
+}
+
+unsafe extern "C" fn expression_finalstarthit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_slashl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+    }
+}

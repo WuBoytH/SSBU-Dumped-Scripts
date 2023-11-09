@@ -1,0 +1,85 @@
+unsafe extern "C" fn game_specialairlw(agent: &mut L2CAgentBase) {
+    macros::IS_RANDOM(agent, 2);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if macros::is_excute(agent) {
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_VOICE);
+        }
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 11.0, 3.0);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        shield!(agent, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_SHIELD, 0, *FIGHTER_EDGE_SHIELD_GROUP_KIND_SPECIAL_LW);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 4.0, 3.0);
+    }
+}
+
+unsafe extern "C" fn effect_specialairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_start"), Hash40::new("waist"), 2, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield"), Hash40::new("top"), 0, 13, 9, 0, -55, 0, 0.85, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield"), Hash40::new("top"), 0, 13, 9, 0, -125, 0, 0.85, true);
+        }
+    }
+}
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 1, 1, 1, 0.75);
+}
+wait(agent.lua_state_agent, 1.0);
+for _ in 0..4 {
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.7, 0.7, 0.7, 0.5);
+}
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.67, 0, 0.78, 0.31);
+}
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
+}
+wait(agent.lua_state_agent, 2.0);
+}
+}
+
+unsafe extern "C" fn sound_specialairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_edge_special_l01_01"));
+    }
+    frame(agent.lua_state_agent, 6.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_VOICE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_edge_special_l01"));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_specialairlw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_furafura"), 15, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 9, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

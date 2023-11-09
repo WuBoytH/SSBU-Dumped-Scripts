@@ -1,0 +1,41 @@
+unsafe extern "C" fn effect_entryr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopa_entry"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, false);
+        macros::FLASH(agent, 0.921, 0.087, 0, 0.4);
+        macros::BURN_COLOR(agent, 2, 0.301, 0.02, 0.8);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+    }
+    wait(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 30, 0.921, 0.087, 0, 0);
+        macros::BURN_COLOR_FRAME(agent, 30, 2, 0.301, 0.02, 0);
+    }
+    wait(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+        macros::BURN_COLOR_NORMAL(agent);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopa_appear01"));
+    }
+    wait(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopa_step_right_m"));
+    }
+    wait(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_koopa_appear01"));
+        macros::PLAY_SE(agent, Hash40::new("se_koopa_step_left_m"));
+    }
+}
+
+unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

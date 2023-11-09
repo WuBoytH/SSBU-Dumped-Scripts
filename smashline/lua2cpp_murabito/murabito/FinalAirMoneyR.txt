@@ -1,0 +1,31 @@
+unsafe extern "C" fn game_finalairmoneyr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 10, 0.3, 0.3, 0.3, 0, 0, 0, 1, 1.3, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+    }
+}
+
+unsafe extern "C" fn effect_finalairmoneyr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+}
+
+unsafe extern "C" fn sound_finalairmoneyr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_murabito_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairmoneyr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_MONEYBAG, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_MONEYBAG, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

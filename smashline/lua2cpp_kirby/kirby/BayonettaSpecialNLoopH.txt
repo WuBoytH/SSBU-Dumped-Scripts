@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_bayonettaspecialnlooph(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
+    }
+    else{
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_hold"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_hold"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 0.6, 10, 0, 5, 0, 0, 0, false);
+}
+wait(agent.lua_state_agent, 8.0);
+}
+
+unsafe extern "C" fn expression_bayonettaspecialnlooph(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

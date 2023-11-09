@@ -1,0 +1,39 @@
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("miiswordsman_final_flash"), false, true);
+    }
+    frame(agent.lua_state_agent, 9.0);
+    for _ in 0..11 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_WORK(agent, *FIGHTER_MIISWORDSMAN_INSTANCE_WORK_ID_INT_EFT_ID_SWORD_FLARE, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.15);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND_WORK(agent, *FIGHTER_MIISWORDSMAN_INSTANCE_WORK_ID_INT_EFT_ID_SWORD_FLARE, false, true);
+    }
+}
+frame(agent.lua_state_agent, 21.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND_WORK(agent, *FIGHTER_MIISWORDSMAN_INSTANCE_WORK_ID_INT_EFT_ID_SWORD_FLARE, false, true);
+    macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0, 10, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
+}
+}
+
+unsafe extern "C" fn sound_finalairend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_slashs"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 45.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x26769bd1de), 0, 30, 10);
+    }
+}

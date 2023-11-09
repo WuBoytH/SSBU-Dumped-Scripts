@@ -1,0 +1,64 @@
+unsafe extern "C" fn game_specialairsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 4.0, 0, 10, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
+    }
+    frame(lua_state, 1.0);
+    FT_MOTION_RATE(agent, 0.8);
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        CATCH(agent, 0, Hash40::new("top"), 5.0, 0.0, 6.0, 7.5, *FIGHTER_STATUS_KIND_CATCHED_AIR_GANON, *COLLISION_SITUATION_MASK_G);
+        CATCH(agent, 1, Hash40::new("top"), 5.0, 0.0, 11.0, 7.5, *FIGHTER_STATUS_KIND_CATCHED_AIR_GANON, *COLLISION_SITUATION_MASK_GA);
+    }
+    FT_MOTION_RATE(agent, 1.0);
+    frame(lua_state, 29.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_GANON_STATUS_WORK_ID_FLAG_EXPLOSION_GRAVITY_ONOFF);
+    }
+    frame(lua_state, 32.0);
+    if is_excute(agent) {
+        grab!(agent, *MA_MSC_CMD_GRAB_CLEAR_ALL);
+        AttackModule::clear_all(boma);
+    }
+}
+
+unsafe extern "C" fn effect_specialairsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ganon_engokua_flash"), Hash40::new("havel"), 0, 0, 0, -0.286, -45, 25, 1, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialairsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_ganon_special_s01"));
+    }
+    wait(lua_state, 14.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_ganon_special_s01"));
+        PLAY_SE(agent, Hash40::new("se_ganon_special_s02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairsstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_explosion"), 5, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

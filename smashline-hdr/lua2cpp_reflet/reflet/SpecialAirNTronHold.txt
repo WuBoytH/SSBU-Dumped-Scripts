@@ -1,0 +1,30 @@
+unsafe extern "C" fn game_specialairntronhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_REFLET_GENERATE_ARTICLE_THUNDER, false, -1);
+    }
+}
+
+unsafe extern "C" fn sound_specialairntronhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_reflet_special_n04"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairntronhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_beaml"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

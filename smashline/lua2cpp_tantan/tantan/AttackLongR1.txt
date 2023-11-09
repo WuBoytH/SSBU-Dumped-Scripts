@@ -1,0 +1,30 @@
+unsafe extern "C" fn effect_attacklongr1(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_SITUATION_GROUND) {
+        if macros::is_excute(agent) {
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 6, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+            macros::LAST_EFFECT_SET_RATE(agent, 0.8);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_attacklongr1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_tantan_attack03_charge"));
+        macros::STOP_SE(agent, Hash40::new("se_tantan_attack02_charge"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_tantan_rnd_punch_long"));
+    }
+}
+
+unsafe extern "C" fn expression_attacklongr1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+    if(0x3a02e0(*FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R, 1)){
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        }
+        else{
+        0x3a02e0(*FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R, 2);
+    }
+}
+}

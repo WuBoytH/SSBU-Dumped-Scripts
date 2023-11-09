@@ -1,0 +1,43 @@
+unsafe extern "C" fn game_specialnend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_PACKUN_GENERATE_ARTICLE_SPIKEBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    macros::FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_specialnend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_ATTR(agent, Hash40::new("packun_spikeball_end"), Hash40::new("mouth"), 2, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, true, *EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE);
+    }
+}
+
+unsafe extern "C" fn sound_specialnend(agent: &mut L2CAgentBase) {
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLAG_END_PREVIOUS_SHOOT);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_packun_special_n03"));
+        }
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_packun_special_n05"));
+    }
+}
+
+unsafe extern "C" fn expression_specialnend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

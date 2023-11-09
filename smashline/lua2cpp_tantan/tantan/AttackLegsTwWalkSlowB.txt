@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_attacklegstwwalkslowb(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), -7, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 28.0);
+}
+
+unsafe extern "C" fn sound_attacklegstwwalkslowb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_left_s"));
+    }
+    frame(agent.lua_state_agent, 66.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_right_s"));
+    }
+    wait_loop_sync_mot();
+    methodlib::L2CAgent::pop();
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_left_s"));
+    }
+    frame(agent.lua_state_agent, 27.0);
+    loc.imp._Unwind_Resume();
+}
+
+unsafe extern "C" fn expression_attacklegstwwalkslowb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+}

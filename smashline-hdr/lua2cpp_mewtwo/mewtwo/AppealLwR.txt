@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_appeallwr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 28.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("mewtwo_appeal_aura_hand"), Hash40::new("mewtwo_appeal_aura_hand"), Hash40::new("haver"), 1, 0, 2, 0, 0, 0, 0.75, true, *EF_FLIP_YZ);
+    }
+}
+
+unsafe extern "C" fn sound_appeallwr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_mewtwo_appeal_l01"));
+    }
+    frame(lua_state, 28.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_mewtwo_appeal_l01_02"));
+    }
+}
+
+unsafe extern "C" fn expression_appeallwr(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 28.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_waterjetss"), 28, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

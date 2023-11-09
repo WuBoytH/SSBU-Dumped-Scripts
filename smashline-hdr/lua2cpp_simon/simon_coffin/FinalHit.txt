@@ -1,0 +1,37 @@
+unsafe extern "C" fn game_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        MotionModule::set_rate(boma, 6);
+    }
+    frame(lua_state, 130.0);
+    if is_excute(agent) {
+        MotionModule::set_rate(boma, 1);
+    }
+    frame(lua_state, 179.0);
+    if is_excute(agent) {
+        MotionModule::set_rate(boma, 0);
+    }
+}
+
+unsafe extern "C" fn effect_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("simon_final_coffin_start"), false, true);
+        EFFECT_FOLLOW(agent, Hash40::new("simon_final_coffin_vacuum"), Hash40::new("trans"), 0, 1, 0, 90, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_simon_final02"));
+    }
+    frame(lua_state, 140.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_simon_final03"));
+    }
+}

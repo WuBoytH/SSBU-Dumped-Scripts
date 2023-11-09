@@ -1,0 +1,17 @@
+unsafe extern "C" fn effect_visualscene03(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("simon_final_cross_hit"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 45.0);
+    for _ in 0..7 {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("simon_final_coffin_hit"), Hash40::new("trans"), 0, 0, 8, 0, 0, 0, 1, 6, 6, 20, 0, 0, 0, true);
+    }
+    wait(agent.lua_state_agent, 10.0);
+}
+frame(agent.lua_state_agent, 117.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("simon_final_coffin_hit"), true, true);
+}
+}

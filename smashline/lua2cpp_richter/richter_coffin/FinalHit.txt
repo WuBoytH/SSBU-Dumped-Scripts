@@ -1,0 +1,23 @@
+unsafe extern "C" fn game_finalhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 3);
+    }
+}
+
+unsafe extern "C" fn effect_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("richter_final_coffin_start"), false, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("richter_final_coffin_vacuum"), Hash40::new("trans"), 0, 1, 0, 90, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_richter_final02"));
+    }
+    frame(agent.lua_state_agent, 140.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_richter_final03"));
+    }
+}

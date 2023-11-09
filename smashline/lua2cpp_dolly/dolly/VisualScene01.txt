@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_visualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_bg_black"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_bg_vortex"), true, true);
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_effect_test1"), -1);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("dolly_fainal_rise"), Hash40::new("hip"), -2, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("dolly_fainal_aura"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene01(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_dolly_final03"));
+    }
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_dolly_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene01(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_74_triplewolf_v1"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_74_triplewolf_v1"), 0);
+    }
+    frame(agent.lua_state_agent, 5.0);
+}

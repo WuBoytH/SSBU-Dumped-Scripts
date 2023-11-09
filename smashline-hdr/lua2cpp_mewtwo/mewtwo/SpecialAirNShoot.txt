@@ -1,0 +1,56 @@
+unsafe extern "C" fn game_specialairnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CORRECT(agent, *GROUND_CORRECT_KIND_GROUND_CLIFF_STOP);
+    }
+    frame(lua_state, 2.0);
+    FT_MOTION_RATE(agent, 0.5);
+    frame(lua_state, 6.0);
+    FT_MOTION_RATE(agent, 1.0);
+    if is_excute(agent) {
+        ArticleModule::shoot(boma, *FIGHTER_MEWTWO_GENERATE_ARTICLE_SHADOWBALL, *ARTICLE_OPE_TARGET_LAST, false);
+    }
+}
+
+unsafe extern "C" fn effect_specialairnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("mewtwo_shadowball_max_hand"), false, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    WorkModule::is_flag(boma, *FIGHTER_MEWTWO_SPECIAL_N_STATUS_WORK_ID_FLAG_CHARGE_MAX);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_mewtwo_special_n08"));
+            PLAY_SE_REMAIN(agent, Hash40::new("vc_mewtwo_special_n01"));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_specialairnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 6.0);
+    WorkModule::is_flag(boma, *FIGHTER_MEWTWO_SPECIAL_N_STATUS_WORK_ID_FLAG_CHARGE_MAX);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        else{
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+}
+}

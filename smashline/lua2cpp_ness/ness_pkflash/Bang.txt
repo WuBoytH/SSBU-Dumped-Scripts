@@ -1,0 +1,48 @@
+unsafe extern "C" fn game_bang(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 1.0, 70, 65, 0, 50, 10.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_PSI);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x27936db96d));
+    }
+}
+
+unsafe extern "C" fn effect_bang(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *WEAPON_NESS_PK_FLASH_INSTANCE_WORK_ID_FLAG_MAX) {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("ness_pkfl_bomb_max"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_bang(agent: &mut L2CAgentBase) {
+    WorkModule::get_float(agent.module_accessor, *WEAPON_NESS_PK_FLASH_INSTANCE_WORK_ID_FLOAT_COUNT);
+    if(methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(111480042, 30)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_s"));
+        }
+        else{
+        WorkModule::get_float(agent.module_accessor, *WEAPON_NESS_PK_FLASH_INSTANCE_WORK_ID_FLOAT_COUNT);
+        if(methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(111480042, 60)){
+            if macros::is_excute(agent) {
+                macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_m"));
+            }
+            else{
+            WorkModule::get_float(agent.module_accessor, *WEAPON_NESS_PK_FLASH_INSTANCE_WORK_ID_FLOAT_COUNT);
+            if(methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(111480042, 90)){
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_l"));
+                }
+                else{
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_ll"));
+                }
+            }
+        }
+    }
+}
+}
+}
+}

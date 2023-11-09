@@ -1,0 +1,47 @@
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("koopa_entry"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, false);
+        FLASH(agent, 0.921, 0.087, 0, 0.4);
+        BURN_COLOR(agent, 2, 0.301, 0.02, 0.8);
+        ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+    }
+    wait(lua_state, 40.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 30, 0.921, 0.087, 0, 0);
+        BURN_COLOR_FRAME(agent, 30, 2, 0.301, 0.02, 0);
+    }
+    wait(lua_state, 30.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+        BURN_COLOR_NORMAL(agent);
+        ColorBlendModule::set_disable_camera_depth_influence(boma, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_koopa_appear01"));
+    }
+    wait(lua_state, 25.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_koopa_step_left_m"));
+    }
+    wait(lua_state, 50.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_koopa_appear01"));
+        PLAY_SE(agent, Hash40::new("se_koopa_step_right_m"));
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

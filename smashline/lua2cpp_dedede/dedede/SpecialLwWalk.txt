@@ -1,0 +1,16 @@
+unsafe extern "C" fn sound_speciallwwalk(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_dedede_step_right_m"));
+    }
+    frame(agent.lua_state_agent, 25.0);
+}
+
+unsafe extern "C" fn expression_speciallwwalk(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hammer") as i64, hash40("hammer_disp_off") as i64);
+        AREA_WIND_2ND_arg10(0, 3, 20, 2, 1, 22, 30, 25, 25, 50);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_attacklegstwwalkfast(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 23.0);
+}
+
+unsafe extern "C" fn sound_attacklegstwwalkfast(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_left_l"));
+    }
+    frame(agent.lua_state_agent, 25.0);
+    macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_right_l"));
+}
+
+unsafe extern "C" fn expression_attacklegstwwalkfast(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+}

@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_buddyspecialairnfire3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_GENERATE_BULLET);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_START_PRECEDE_CHECK);
+    }
+}
+
+unsafe extern "C" fn effect_buddyspecialairnfire3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("buddy_scope_shot"), Hash40::new("top"), 0, 6.5, 2, 0, 0, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 5.0);
+}

@@ -1,0 +1,76 @@
+unsafe extern "C" fn game_specialnhoming(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        JostleModule::set_status(boma, false);
+        MotionModule::set_rate(boma, 80);
+    }
+    if !WorkModule::is_flag(boma, *FIGHTER_SONIC_STATUS_SPECIAL_N_HOMING_FLAG_IS_KIRBY) {
+        if is_excute(agent) {
+            ATTACK(agent, 0, 0, Hash40::new("hip"), 7.0, 53, 65, 0, 55, 5.0, 0.5, 1.5, 0.0, Some(0.5), Some(1.5), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_SPEED, false, 2, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
+            ATK_SET_SHIELD_SETOFF_MUL(agent, 0, 0.5);
+            AttackModule::set_captured_same_time_attack(boma, 0, true);
+        }
+        else{
+        if is_excute(agent) {
+            ATTACK(agent, 0, 0, Hash40::new("rot"), 7.0, 53, 65, 0, 55, 5.0, 0.5, 1.5, 0.0, Some(0.5), Some(1.5), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_SPEED, false, 2, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_BODY);
+            ATK_SET_SHIELD_SETOFF_MUL(agent, 0, 0.5);
+            AttackModule::set_captured_same_time_attack(boma, 0, true);
+        }
+    }
+}
+if is_excute(agent) {
+    AttackModule::set_attack_keep_rumble(boma, 0, true);
+}
+}
+
+unsafe extern "C" fn effect_specialnhoming(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sonic_spintrace_homing"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sonic_spinwind_oneshot"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialnhoming(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_sonic_rounddash"));
+        PLAY_SE(agent, Hash40::new("vc_sonic_004"));
+        PLAY_SE(agent, Hash40::new("se_sonic_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialnhoming(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_sphere") as i64);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("s_stingd1"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("footl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_NORMAL);
+    }
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        ItemModule::set_attach_item_visibility(boma, false);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_fly"), 10, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
+    }
+}

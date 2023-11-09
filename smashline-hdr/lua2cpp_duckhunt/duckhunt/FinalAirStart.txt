@@ -1,0 +1,148 @@
+unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        SLOW_OPPONENT(agent, 4, 30);
+    }
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(lua_state, 5.0);
+        if is_excute(agent) {
+            ArticleModule::generate_article(boma, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_FINALDUCK, false, -1);
+            SlowModule::set_whole(boma, 10, 0);
+            FT_SET_FINAL_FEAR_FACE(agent, 60);
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalstart.nuanmb"), false, false);
+            FT_START_CUTIN(agent);
+        }
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        SlowModule::clear_whole(boma);
+        SlowModule::set_whole(boma, 2, 0);
+    }
+    else{
+    frame(lua_state, 0.0);
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_FINALDUCK, false, -1);
+        FT_START_CUTIN(agent);
+    }
+}
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+    if is_excute(agent) {
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -10, 0);
+        PostureModule::scale(boma, 4, 0);
+        0x119a00(1942401420, 2);
+        CAM_ZOOM_IN_arg5(0, 0);
+    }
+    else{
+    if is_excute(agent) {
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 10, 0);
+        PostureModule::scale(boma, 4, 0);
+        0x119a00(1942401420, 2);
+        CAM_ZOOM_IN_arg5(0, 0);
+    }
+}
+}
+frame(lua_state, 12.0);
+if is_excute(agent) {
+SlowModule::clear_whole(boma);
+}
+frame(lua_state, 23.0);
+if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+if is_excute(agent) {
+    SlowModule::set_whole(boma, 30, 0);
+}
+}
+if is_excute(agent) {
+ATTACK(agent, 0, 0, Hash40::new("top"), 5.0, 80, 100, 200, 0, 17.0, 0.0, 12.0, -10.0, Some(0.0), Some(12.0), Some(28.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+AttackModule::set_no_dead_all(boma, true, false);
+}
+frame(lua_state, 24.0);
+if is_excute(agent) {
+SlowModule::clear_whole(boma);
+}
+WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+0x119a00(false, false);
+if is_excute(agent) {
+CAM_ZOOM_OUT(agent);
+}
+frame(lua_state, 26.0);
+if is_excute(agent) {
+AttackModule::clear_all(boma);
+}
+}
+
+unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EffectModule::req_screen(boma, Hash40::new("bg_duckhunt_final"), false, false, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_duckhunt_rnd_attack_dog"));
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_final01"));
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_duckhunt_rnd_attack_dog"));
+    }
+    frame(lua_state, 28.0);
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_duckhunt_rnd_attack_dog"));
+    }
+    frame(lua_state, 39.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_final04"));
+    }
+    frame(lua_state, 75.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_final06"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        START_INFO_FLASH_EYE(agent);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_openwing") as i64);
+    }
+    frame(lua_state, 23.0);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attack_critical"), 0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 54, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 36.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+    frame(lua_state, 73.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 74.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_openwing") as i64);
+    }
+    frame(lua_state, 121.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+}

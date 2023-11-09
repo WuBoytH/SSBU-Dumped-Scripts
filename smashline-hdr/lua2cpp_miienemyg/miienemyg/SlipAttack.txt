@@ -1,0 +1,80 @@
+unsafe extern "C" fn game_slipattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 5.0, 361, 50, 0, 60, 4.5, 0.0, 4.5, 17.0, Some(0.0), Some(4.5), Some(8.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_BOMB);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+    frame(lua_state, 31.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 5.0, 361, 50, 0, 60, 4.5, 0.0, 4.5, -15.0, Some(0.0), Some(4.5), Some(-6.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_BOMB);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+}
+
+unsafe extern "C" fn effect_slipattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("miienemyg_atk_shot5"), Hash40::new("armr"), 0, 0, 0, 0, 90, 0, 0.65, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 2);
+        EFFECT_FOLLOW(agent, Hash40::new("miienemyg_atk_shot_after"), Hash40::new("armr"), 6, 0, 0, 0, 0, -90, 0.75, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("miienemyg_atk_shot_after"), false, true);
+    }
+    frame(lua_state, 31.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("miienemyg_atk_shot5"), Hash40::new("armr"), 0, 0, 0, 0, 90, 0, 0.65, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.75);
+        EFFECT_FOLLOW(agent, Hash40::new("miienemyg_atk_shot_after"), Hash40::new("armr"), 5, 0, 0, 0, 0, -90, 0.75, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 5, 0, 0, 0, 180, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 37.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("miienemyg_atk_shot_after"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_slipattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_miienemyg_swing_l"));
+    }
+    wait(lua_state, 16.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_miienemyg_swing_l"));
+    }
+    wait(lua_state, 20.0);
+    if is_excute(agent) {
+        PLAY_STEP(agent, Hash40::new("se_miienemyg_step_right_m"));
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        PLAY_STEP(agent, Hash40::new("se_miienemyg_step_left_m"));
+    }
+}
+
+unsafe extern "C" fn expression_slipattack(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    }
+    frame(lua_state, 33.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+    }
+}

@@ -1,0 +1,27 @@
+unsafe extern "C" fn effect_eflamespecialairnhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("eflame_sword_open"), false, true);
+        EFFECT_FOLLOW(agent, Hash40::new("eflame_nova_hold_body"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("eflame_nova_hold_sword"), Hash40::new("haver"), 0, 0, 0, -90, 90, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_eflamespecialairnhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_eflame_special_nhold"));
+    }
+}
+
+unsafe extern "C" fn expression_eflamespecialairnhold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 39, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

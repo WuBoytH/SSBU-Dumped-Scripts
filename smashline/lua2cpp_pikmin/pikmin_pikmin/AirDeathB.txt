@@ -1,0 +1,23 @@
+unsafe extern "C" fn game_airdeath_b(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::SET_SPEED_EX(agent, -0.6, 1.4);
+    }
+}
+
+unsafe extern "C" fn effect_airdeath_b(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("pikmin_dead_blue"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_airdeath_b(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pikmin_dead01"));
+    }
+    wait(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_pikmin_dead02"));
+    }
+}

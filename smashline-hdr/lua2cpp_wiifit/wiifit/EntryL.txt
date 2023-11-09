@@ -1,0 +1,59 @@
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 115.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_erace_smoke"), Hash40::new("top"), -26, 22.5, -12, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wiifit_appear01"));
+    }
+    frame(lua_state, 58.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wiifit_step_right_s"));
+    }
+    frame(lua_state, 82.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wiifit_appear02"));
+    }
+    frame(lua_state, 102.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wiifit_appear03"));
+    }
+    frame(lua_state, 112.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wiifit_appear03"));
+    }
+    frame(lua_state, 114.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wiifit_step_left_s"));
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+        ArticleModule::set_visibility_whole(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_WIIBO, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(lua_state, 56.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_L, 6);
+    }
+    frame(lua_state, 81.0);
+    if is_excute(agent) {
+        ArticleModule::set_visibility_whole(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_BALANCEBOARD, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_WIIBO, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(lua_state, 112.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+    }
+}

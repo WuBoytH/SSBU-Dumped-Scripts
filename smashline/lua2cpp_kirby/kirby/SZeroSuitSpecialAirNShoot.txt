@@ -1,0 +1,30 @@
+unsafe extern "C" fn effect_szerosuitspecialairnshoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("szero_pl_shot"), Hash40::new("top"), 0, 6.7, 10, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+    }
+}
+
+unsafe extern "C" fn sound_szerosuitspecialairnshoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_szerosuit_smash_l01"));
+    }
+}
+
+unsafe extern "C" fn expression_szerosuitspecialairnshoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_SZEROSUIT_STATUS_SPECIAL_N_WORK_FLOAT_CHARGE);
+    if(0x543c60(-1165490952, 1)){
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beamm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        else{
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+}
+}

@@ -1,0 +1,81 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    FT_MOTION_RATE(agent, 1.0);
+    if is_excute(agent) {
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        SLOW_OPPONENT(agent, 10, 64);
+    }
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(lua_state, 10.0);
+        if is_excute(agent) {
+            FT_SET_FINAL_FEAR_FACE(agent, 60);
+            REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), true);
+        }
+        else{
+        if is_excute(agent) {
+            PostureModule::scale(boma, 10, 0);
+            0x154f30(-1599779927, 1.9);
+            CAM_ZOOM_IN_arg5(0, 0);
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, -5);
+            FT_START_CUTIN(agent);
+        }
+    }
+}
+frame(lua_state, 35.0);
+FT_MOTION_RATE(agent, 1.0);
+if is_excute(agent) {
+    CAM_ZOOM_OUT(agent);
+}
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FT_REMOVE_FINAL_AURA(agent, false);
+        EffectModule::req_screen(boma, Hash40::new("bg_sheik_final"), false, false, false);
+    }
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sheik_final_knife"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("sheik_final_flash_l"), Hash40::new("top"), -1.8, 1.6, 11.5, 0, 0, 0, 1, false);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("sheik_final_flash_r"), Hash40::new("top"), -1.8, 1.6, 11.5, 0, 0, 0, 1, false);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_sheik_final01"));
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_sheik_final01"));
+    }
+}
+
+unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        START_INFO_FLASH_EYE(agent);
+        ArticleModule::generate_article(boma, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false, -1);
+        ArticleModule::set_visibility_whole(boma, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+}

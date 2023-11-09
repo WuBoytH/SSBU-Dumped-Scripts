@@ -1,0 +1,38 @@
+unsafe extern "C" fn game_specialairs31(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    FT_MOTION_RATE(agent, 1.15);
+    frame(lua_state, 23.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MIIGUNNER_STATUS_MIIMISSILE_FLAG_WEAPON);
+    }
+}
+
+unsafe extern "C" fn effect_specialairs31(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 23.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("miigunner_missile_shot"), Hash40::new("haver"), 0, 0, 2.7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairs31(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 23.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_miigunner_special_c3_s01"));
+        PLAY_SEQUENCE(agent, Hash40::new("seq_miigunner_rnd_special_c3_s01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairs31(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 23.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

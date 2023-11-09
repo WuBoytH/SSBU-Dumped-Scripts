@@ -1,0 +1,53 @@
+unsafe extern "C" fn effect_throwhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 17.0);
+    for _ in 0..11 {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT_FLIP(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_XY);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_damage_elec"), Hash40::new("top"), 0, 40, 0, 0, 0, 0, 2.5, true);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_damage_elec"), Hash40::new("top"), 0, 25, 0, 0, 0, 0, 2.5, true);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_damage_elec"), Hash40::new("top"), 0, 25, 0, 0, 0, 0, 2.5, true);
+    }
+    wait(agent.lua_state_agent, 1.0);
+}
+frame(agent.lua_state_agent, 51.0);
+if macros::is_excute(agent) {
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_crown_boss"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, true);
+}
+}
+
+unsafe extern "C" fn sound_throwhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_01"));
+    }
+    wait(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_02"));
+    }
+}
+
+unsafe extern "C" fn expression_throwhi(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FT_ATTACK_ABS_CAMERA_QUAKE(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true);
+    }
+}

@@ -1,0 +1,24 @@
+unsafe extern "C" fn game_burst(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 12.0, 60, 70, 0, 50, 17.0, 0.0, 0.0, 0.0, None, None, None, 1.2, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_BOMB);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_burst(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_bomb_a"), Hash40::new("have"), 0, 0, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("shizue_clayrocket_jet"), 10);
+    }
+}
+
+unsafe extern "C" fn sound_burst(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_shizue_special_l02"));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_shizue_special_l04"));
+    }
+}

@@ -1,0 +1,26 @@
+unsafe extern "C" fn effect_attackhi4chargel(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -1, 0, 0, 0, 0, 0, 1, 15, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 5.0);
+}
+
+unsafe extern "C" fn sound_attackhi4chargel(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_wiifit_attackdash"));
+    }
+}
+
+unsafe extern "C" fn expression_attackhi4chargel(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        physics(*MA_MSC_CMD_PHYSICS_START_CHARGE, 0.5, 0.2, -1, -1, -1, -1, Hash40::new("invalid"));
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 61.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,30 @@
+unsafe extern "C" fn game_specialnhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        KineticModule::add_speed(agent.module_accessor, &Vector3f{x: -0.7, y: 0.0, z: 0.0});
+    }
+    macros::FT_MOTION_RATE(agent, 0.6);
+}
+
+unsafe extern "C" fn effect_specialnhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sonic_homing_hit"), Hash40::new("head"), 0, 0, 0, -90, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    for _ in 0..4 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("top"), 0, 4.5, 0, 0, 0, 89, 0.85, true, 1);
+    }
+    wait(agent.lua_state_agent, 9.0);
+}
+}
+
+unsafe extern "C" fn expression_specialnhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 46.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, true, 0);
+    }
+}

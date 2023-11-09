@@ -1,0 +1,42 @@
+unsafe extern "C" fn game_finaldashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::SET_SPEED_EX(agent, 3, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+    frame(agent.lua_state_agent, 15.0);
+    macros::FT_MOTION_RATE(agent, 0.4);
+    frame(agent.lua_state_agent, 50.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+}
+
+unsafe extern "C" fn effect_finaldashend(agent: &mut L2CAgentBase) {
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_sliding_smoke"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 4.0);
+}
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -1, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+}
+}
+
+unsafe extern "C" fn sound_finaldashend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 63.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_final04"));
+    }
+}
+
+unsafe extern "C" fn expression_finaldashend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 19, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 63.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attacks"), 5, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

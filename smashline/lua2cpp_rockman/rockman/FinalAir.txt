@@ -1,0 +1,71 @@
+unsafe extern "C" fn game_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        macros::SLOW_OPPONENT(agent, 3, 30);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(agent.lua_state_agent, 5.0);
+        if macros::is_excute(agent) {
+            SlowModule::set_whole(agent.module_accessor, 2, 0);
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 30);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final.nuanmb"), false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            PostureModule::scale(agent.module_accessor, 3, 0);
+            0xf4c50(-756939156, 2.1);
+            CAM_ZOOM_IN_arg5(0, 0);
+            macros::FT_START_CUTIN(agent);
+        }
+    }
+}
+frame(agent.lua_state_agent, 25.0);
+if macros::is_excute(agent) {
+    SlowModule::clear_whole(agent.module_accessor);
+    macros::CAM_ZOOM_OUT(agent);
+}
+frame(agent.lua_state_agent, 30.0);
+if macros::is_excute(agent) {
+    ArticleModule::generate_article(agent.module_accessor, *FIGHTER_ROCKMAN_GENERATE_ARTICLE_BLACKHOLE, false, -1);
+    WorkModule::on_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_WORK_ID_FLAG_FINAL_LOOP);
+}
+frame(agent.lua_state_agent, 31.0);
+macros::FT_MOTION_RATE(agent, 0.2);
+frame(agent.lua_state_agent, 65.0);
+macros::FT_MOTION_RATE(agent, 0.6);
+}
+
+unsafe extern "C" fn effect_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_rockman_final"), false, false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rockman_final_start"), Hash40::new("havel"), 0, 0, 1.5, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalair(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_rockman_final01"));
+    }
+}
+
+unsafe extern "C" fn expression_finalair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f5b14bb65), *FIGHTER_ROCKMAN_ARM_RIGHT, *FIGHTER_ROCKMAN_ARMFORM_HAND, 0);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f5b14bb65), *FIGHTER_ROCKMAN_ARM_LEFT, *FIGHTER_ROCKMAN_ARMFORM_ROCKBUSTER, 5, 1000);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beaml"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f5b14bb65), *FIGHTER_ROCKMAN_ARM_LEFT, *FIGHTER_ROCKMAN_ARMFORM_HAND, 0);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f5b14bb65), *FIGHTER_ROCKMAN_ARM_RIGHT, *FIGHTER_ROCKMAN_ARMFORM_HAND, 0);
+        ItemModule::set_have_item_visibility(agent.module_accessor, true, 0);
+    }
+}

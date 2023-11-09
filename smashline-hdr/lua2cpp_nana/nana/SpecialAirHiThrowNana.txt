@@ -1,0 +1,19 @@
+unsafe extern "C" fn game_specialairhithrow_nana(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_POPO_STATUS_SPECIAL_HI_FLAG_FAIL_CLIFF_START);
+    }
+}
+
+unsafe extern "C" fn sound_specialairhithrow_nana(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if WorkModule::is_flag(boma, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA) {
+        frame(lua_state, 2.0);
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_popo_special_h02"));
+        }
+    }
+}

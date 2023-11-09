@@ -1,0 +1,22 @@
+unsafe extern "C" fn effect_ikespecialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("ike_volcano_hold"), Hash40::new("ike_volcano_hold"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1.05, false, *EF_FLIP_ZX);
+    }
+}
+
+unsafe extern "C" fn sound_ikespecialnstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_ike_special_n06"));
+    }
+}
+
+unsafe extern "C" fn expression_ikespecialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        AREA_WIND_2ND_arg10(0, 2, 130, 4, 0.4, 0, 12, 30, 30, 40);
+    }
+}

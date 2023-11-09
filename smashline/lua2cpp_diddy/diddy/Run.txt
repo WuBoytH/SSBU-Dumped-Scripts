@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+
+unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_diddy_step_right_ll"));
+    }
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_diddy_crawing_right_f"));
+        macros::PLAY_STEP(agent, Hash40::new("se_diddy_step_left_ll"));
+    }
+    wait(agent.lua_state_agent, 2.0);
+    macros::PLAY_SE(agent, Hash40::new("se_diddy_crawing_left_f"));
+}
+
+unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4, true);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    ControlModule::set_rumble(agent.module_accessor, 0x11699da2fd, 9, true, *BATTLE_OBJECT_ID_INVALID as u32);
+}

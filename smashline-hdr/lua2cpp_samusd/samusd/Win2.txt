@@ -1,0 +1,60 @@
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 20, 0, -9, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), -20, 0, -9, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 80.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 98.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_samusd_jump02_win02"));
+    }
+    frame(lua_state, 24.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_samusd_escape_win02"));
+    }
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_samusd_win02_01"));
+    }
+    frame(lua_state, 67.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_samusd_win02_02"));
+    }
+}
+
+unsafe extern "C" fn expression_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN) {
+        if is_excute(agent) {
+            ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN, false, -1);
+        ArticleModule::change_motion(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN, Hash40::new("win_2"), false, -1.0);
+    }
+    frame(lua_state, 120.0);
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_SAMUSD_GENERATE_ARTICLE_BUNSHIN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

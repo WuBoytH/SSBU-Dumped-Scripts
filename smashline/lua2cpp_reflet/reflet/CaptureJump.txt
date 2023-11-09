@@ -1,0 +1,9 @@
+unsafe extern "C" fn sound_capturejump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_reflet_landing01"));
+    }
+    wait(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_reflet_landing01"));
+    }
+}

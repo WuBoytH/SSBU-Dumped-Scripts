@@ -1,0 +1,20 @@
+unsafe extern "C" fn sound_capturepulledhi(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_CAPTURE_PULLED_SE) {
+        if macros::is_excute(agent) {
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_common_cliff_catch"), 5);
+        }
+        else{
+        frame(agent.lua_state_agent, 3.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_capturepulledhi(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_CapturePulledHiRumble()();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TPART);
+    }
+}

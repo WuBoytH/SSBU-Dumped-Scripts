@@ -1,0 +1,20 @@
+unsafe extern "C" fn game_finalend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+    }
+}
+
+unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("mewtwo_final_shot"), false, false);
+        macros::BURN_COLOR(agent, 1, 0.5, 0.9, 0.1);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR_FRAME(agent, 5, 1, 0.5, 0.9, 1);
+    }
+    wait(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR_NORMAL(agent);
+    }
+}

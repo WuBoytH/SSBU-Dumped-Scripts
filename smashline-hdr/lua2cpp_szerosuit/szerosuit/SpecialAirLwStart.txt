@@ -1,0 +1,107 @@
+unsafe extern "C" fn game_specialairlwstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_SZEROSUIT_STATUS_SPECIAL_LW_FLAG_START_WAIT_INPUT);
+    }
+    frame(lua_state, 13.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS);
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_SZEROSUIT_STATUS_SPECIAL_LW_FLAG_KICK_ENABLE);
+        WorkModule::on_flag(boma, *FIGHTER_SZEROSUIT_STATUS_SPECIAL_LW_FLAG_REVERSE);
+    }
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+        WorkModule::on_flag(boma, *FIGHTER_SZEROSUIT_STATUS_SPECIAL_LW_FLAG_TREAD_ENABLE);
+    }
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_SZEROSUIT_STATUS_SPECIAL_LW_FLAG_WALL_JUMP_ENABLE);
+    }
+    frame(lua_state, 39.0);
+    if is_excute(agent) {
+        WorkModule::off_flag(boma, *FIGHTER_SZEROSUIT_STATUS_SPECIAL_LW_FLAG_TREAD_ENABLE);
+    }
+}
+
+unsafe extern "C" fn effect_specialairlwstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_action_smoke_v"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        EFFECT(agent, Hash40::new("sys_sp_flash"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 5.0);
+    for _ in 0..4 {
+    if is_excute(agent) {
+        FLASH(agent, 0.502, 1, 1, 0.471);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("szero_flipjump_body"), Hash40::new("hip"), -2, 0.4, 0, 0, 0, 105, 1, true);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 3, 0.314, 0.314, 0.314, 0.235);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("szero_flipjump_body"), Hash40::new("hip"), -2, 0.4, 0, 0, 0, 105, 1, true);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 3, 0.314, 0.314, 0.314, 0);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("szero_flipjump_body"), Hash40::new("hip"), -2, 0.4, 0, 0, 0, 105, 1, true);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 4, 0.502, 1, 1, 0.235);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("szero_flipjump_body"), Hash40::new("hip"), -2, 0.4, 0, 0, 0, 105, 1, true);
+    }
+}
+if is_excute(agent) {
+    FLASH(agent, 0.502, 1, 1, 0.471);
+}
+wait(lua_state, 1.0);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("szero_flipjump_body"), Hash40::new("hip"), -2, 0.4, 0, 0, 0, -106, 1, true);
+}
+wait(lua_state, 2.0);
+if is_excute(agent) {
+    FLASH_FRM(agent, 15, 0.314, 0.314, 0.314, 0);
+}
+wait(lua_state, 5.0);
+if is_excute(agent) {
+    COL_NORMAL(agent);
+}
+}
+
+unsafe extern "C" fn sound_specialairlwstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_szerosuit_special_l01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_escape_st"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,42 @@
+unsafe extern "C" fn game_win2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("bat") as i64, hash40("bat_visible") as i64);
+    }
+}
+
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_bound_smoke"), Hash40::new("top"), -2, 0, -10, 0, -110, 0, 0.3, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
+    }
+    frame(agent.lua_state_agent, 39.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_bound_smoke"), Hash40::new("top"), -2.5, 0, -10.5, 0, -110, 0, 0.3, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
+    }
+    frame(agent.lua_state_agent, 74.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_bound_smoke"), Hash40::new("top"), -1.5, 0, -11, 0, -110, 0, 0.3, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
+    }
+}
+
+unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_lucas_win2"));
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_lucas_win2"));
+    }
+    frame(agent.lua_state_agent, 74.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_lucas_win2"));
+    }
+    frame(agent.lua_state_agent, 115.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_lucas_win02"));
+    }
+}

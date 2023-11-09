@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_specialairlwend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_LW_FLAG_LOOP);
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_attach_item_visibility(boma, false);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_int64(boma, hash40("head") as i64, hash40("head_none") as i64);
+    }
+}

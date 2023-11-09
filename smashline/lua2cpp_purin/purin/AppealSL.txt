@@ -1,0 +1,70 @@
+unsafe extern "C" fn effect_appealsl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    for _ in 0..2 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 8.5, 1, 0, 0, 0, 0.8, 1, 2, 1, 10, 30, 10, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.4);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 5.5, 1, 0, 0, 0, 0.6, 1, 2, 1, 10, 30, 10, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.4);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.3);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 12, 1, 0, 0, 0, 0.65, 1, 2, 1, 10, 30, 10, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.4);
+    }
+    wait(agent.lua_state_agent, 3.0);
+}
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+}
+frame(agent.lua_state_agent, 68.0);
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 1, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+}
+}
+
+unsafe extern "C" fn sound_appealsl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_purin_appeal_s01"));
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_purin_appeal_s02"));
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_purin_appeal_s04"));
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_purin_appeal_s03"));
+    }
+    wait(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_purin_dash_stop"));
+    }
+    frame(agent.lua_state_agent, 56.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_purin_jump01"));
+    }
+    frame(agent.lua_state_agent, 68.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_purin_landing01"));
+    }
+}
+
+unsafe extern "C" fn expression_appealsl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 27, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

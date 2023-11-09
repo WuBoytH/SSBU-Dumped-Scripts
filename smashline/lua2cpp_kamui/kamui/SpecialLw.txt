@@ -1,0 +1,93 @@
+unsafe extern "C" fn game_speciallw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_STATUS_SPECIAL_LW_FLAG_SHIELD);
+    }
+    frame(agent.lua_state_agent, 27.0);
+    macros::FT_MOTION_RATE(agent, 1.1);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_KAMUI_STATUS_SPECIAL_LW_FLAG_SHIELD);
+        HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
+    }
+}
+
+unsafe extern "C" fn effect_speciallw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_start"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("kamui_counter"), Hash40::new("top"), -7.5, 8, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::FLASH(agent, 1, 1, 1, 0.75);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.7, 0.7, 0.7, 0.5);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.67, 0, 0.78, 0.31);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 2.0);
+}
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.7, 0.7, 0.7, 0.5);
+}
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
+}
+wait(agent.lua_state_agent, 2.0);
+frame(agent.lua_state_agent, 40.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+}
+}
+
+unsafe extern "C" fn sound_speciallw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_horn_start"));
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_special_l01"));
+    }
+    frame(agent.lua_state_agent, 42.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_horn_end"));
+    }
+}
+
+unsafe extern "C" fn expression_speciallw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon") as i64, hash40("dragon_horn") as i64);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair") as i64, hash40("front_hair_hide") as i64);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair") as i64, hash40("hair_hide") as i64);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 43.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair") as i64, hash40("hair_normal") as i64);
+    }
+    frame(agent.lua_state_agent, 44.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair") as i64, hash40("front_hair_normal") as i64);
+    }
+    frame(agent.lua_state_agent, 47.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon") as i64, hash40("dragon_none") as i64);
+    }
+}

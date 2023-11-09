@@ -1,0 +1,36 @@
+unsafe extern "C" fn game_finalmove(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MIIFIGHTER_STATUS_FINAL_FLAG_REQUEST_LOOP_DAMAGE_MOTION);
+        WorkModule::set_int64(agent.module_accessor, hash40("fall_damage") as i64, *FIGHTER_MIIFIGHTER_STATUS_FINAL_WORK_INT_REQUEST_LOOP_DAMAGE_MOTION);
+    }
+}
+
+unsafe extern "C" fn effect_finalmove(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_v_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("miifighter_final_jump"), Hash40::new("rot"), 0, -10, 0, 90, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("miifighter_final_jump"), false, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalmove(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_miifighter_final05"));
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_miifighter_final06"));
+    }
+}
+
+unsafe extern "C" fn expression_finalmove(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_rush"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}
