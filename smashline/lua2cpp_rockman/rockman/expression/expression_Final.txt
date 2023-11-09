@@ -1,5 +1,4 @@
-#[acmd_script( agent = "rockman", script = "expression_final", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_final(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_final(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::START_INFO_FLASH_EYE(agent);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f5b14bb65), *FIGHTER_ROCKMAN_ARM_RIGHT, *FIGHTER_ROCKMAN_ARMFORM_HAND, 0);

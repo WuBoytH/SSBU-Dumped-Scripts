@@ -1,5 +1,4 @@
-#[acmd_script( agent = "inkling", script = "game_specialairsrun", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairsrun(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialairsrun(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 3.0, 8.0);
         WorkModule::set_float(agent.module_accessor, 3.0, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_WALK_JOSTLE_FRONT);

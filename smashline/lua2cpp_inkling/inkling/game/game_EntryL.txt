@@ -1,5 +1,4 @@
-#[acmd_script( agent = "inkling", script = "game_entryl", category = ACMD_GAME, low_priority )]
-unsafe fn game_entryl(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_entryl(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_EXIST_SQUID) {
         if macros::is_excute(agent) {
             ArticleModule::generate_article(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, -1);

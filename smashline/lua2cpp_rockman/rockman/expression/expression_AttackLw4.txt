@@ -1,5 +1,4 @@
-#[acmd_script( agent = "rockman", script = "expression_attacklw4", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_attacklw4(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_attacklw4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f5b14bb65), *FIGHTER_ROCKMAN_ARM_LEFT, *FIGHTER_ROCKMAN_ARMFORM_ROCKBUSTER, 5, 120);

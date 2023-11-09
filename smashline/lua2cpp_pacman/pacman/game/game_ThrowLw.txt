@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pacman", script = "game_throwlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_throwlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_throwlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::FT_LEAVE_NEAR_OTTOTTO(agent, -2.5, 2.5);
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 6.0, 43, 55, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);

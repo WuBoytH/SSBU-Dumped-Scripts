@@ -1,5 +1,4 @@
-#[acmd_script( agent = "gamewatch", script = "expression_attackairlw", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_attackairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_attackairlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         VisibilityModule::set_int64(agent.module_accessor, hash40("lhand") as i64, hash40("lhand_key") as i64);
         AttackModule::set_attack_reference_joint_id(agent.module_accessor, Hash40::new("top"), AttackDirectionAxis(*ATTACK_DIRECTION_Y_MINUS), AttackDirectionAxis(*ATTACK_DIRECTION_Z_MINUS), AttackDirectionAxis(*ATTACK_DIRECTION_X));

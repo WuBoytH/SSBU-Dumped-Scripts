@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pickel", script = "game_win1", category = ACMD_GAME, low_priority )]
-unsafe fn game_win1(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_win1(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_SCARIER, false, -1);
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_SCARIER, Hash40::new("win_1"), false, -1.0);

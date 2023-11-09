@@ -1,5 +1,4 @@
-#[acmd_script( agent = "elight", script = "game_win1", category = ACMD_GAME, low_priority )]
-unsafe fn game_win1(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_win1(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
         if macros::is_excute(agent) {
             ArticleModule::generate_article(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_DIVER, false, -1);

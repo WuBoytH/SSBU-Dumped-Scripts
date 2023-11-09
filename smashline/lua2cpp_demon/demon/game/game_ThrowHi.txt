@@ -1,5 +1,4 @@
-#[acmd_script( agent = "demon", script = "game_throwhi", category = ACMD_GAME, low_priority )]
-unsafe fn game_throwhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_throwhi(agent: &mut L2CAgentBase) {
     FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 10);
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 2.0, 76, 45, 10, 65, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);

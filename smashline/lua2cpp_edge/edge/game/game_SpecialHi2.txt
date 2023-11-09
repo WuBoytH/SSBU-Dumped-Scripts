@@ -1,5 +1,4 @@
-#[acmd_script( agent = "edge", script = "game_specialhi2", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialhi2(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialhi2(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_NONE);
         FighterSpecializer_Edge::set_special_hi_jostle_area(agent.module_accessor);

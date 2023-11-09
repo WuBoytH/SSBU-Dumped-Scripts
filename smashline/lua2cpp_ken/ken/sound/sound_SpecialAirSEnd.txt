@@ -1,5 +1,4 @@
-#[acmd_script( agent = "ken", script = "sound_specialairsend", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_specialairsend(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_specialairsend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_S_FLAG_PLAY_LANDING_SE);

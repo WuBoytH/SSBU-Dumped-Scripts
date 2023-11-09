@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pickel", script = "game_catchpull", category = ACMD_GAME, low_priority )]
-unsafe fn game_catchpull(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_catchpull(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
         ArticleModule::set_flag(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_FISHINGROD, true, *WEAPON_PICKEL_FISHINGROD_INSTANCE_WORK_ID_FLAG_PULL_FIX_LINE_LENGTH);

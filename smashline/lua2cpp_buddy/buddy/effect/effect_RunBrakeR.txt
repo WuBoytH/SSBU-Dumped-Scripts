@@ -1,5 +1,4 @@
-#[acmd_script( agent = "buddy", script = "effect_runbraker", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_runbraker(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_runbraker(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 7.5, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);

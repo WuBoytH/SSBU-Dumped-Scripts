@@ -1,5 +1,4 @@
-#[acmd_script( agent = "mariod", script = "effect_attackairhi", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_attackairhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("sys_attack_arc"), Hash40::new("sys_attack_arc"), Hash40::new("top"), 0, 10, 0, -4, 80, 96, 0.95, true, *EF_FLIP_YZ);

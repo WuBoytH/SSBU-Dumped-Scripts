@@ -1,5 +1,4 @@
-#[acmd_script( agent = "elight", script = "game_specialairnhit", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairnhit(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialairnhit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::CLR_SPEED(agent, *FIGHTER_KINETIC_ENERGY_ID_GRAVITY);
         KineticModule::add_speed(agent.module_accessor, &Vector3f{x: 0.0, y: 0.8, z: 0.0});

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "rockman", script = "sound_furafurastartd", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_furafurastartd(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_furafurastartd(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL) {
         if macros::is_excute(agent) {
             macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_common_dizzy"), 10);

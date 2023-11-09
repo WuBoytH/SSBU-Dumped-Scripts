@@ -1,5 +1,4 @@
-#[acmd_script( agent = "lucario", script = "game_specialnstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnstart(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialnstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 3.0, 2.0);
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_LUCARIO_GENERATE_ARTICLE_AURABALL, false, -1);

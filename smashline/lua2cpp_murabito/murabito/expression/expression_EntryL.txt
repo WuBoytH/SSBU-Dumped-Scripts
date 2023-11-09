@@ -1,5 +1,4 @@
-#[acmd_script( agent = "murabito", script = "expression_entryl", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_entryl(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         article(*MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, 0, 0, -10);
         ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_HOUSE, Hash40::new("step1"), Hash40::new("step1_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));

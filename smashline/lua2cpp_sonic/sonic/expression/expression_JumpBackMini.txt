@@ -1,5 +1,4 @@
-#[acmd_script( agent = "sonic", script = "expression_jumpbackmini", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_jumpbackmini(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_jumpbackmini(agent: &mut L2CAgentBase) {
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_JumpBackMiniRumble()();
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {

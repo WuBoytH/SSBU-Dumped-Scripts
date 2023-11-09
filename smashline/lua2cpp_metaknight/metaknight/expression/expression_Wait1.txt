@@ -1,5 +1,4 @@
-#[acmd_script( agent = "metaknight", script = "expression_wait1", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_wait1(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_wait1(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
         VisibilityModule::set_status_default_int64(agent.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));

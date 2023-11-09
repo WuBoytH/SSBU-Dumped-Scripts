@@ -1,5 +1,4 @@
-#[acmd_script( agent = "demon", script = "game_specialshit", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialshit(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialshit(agent: &mut L2CAgentBase) {
     FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 1);
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {

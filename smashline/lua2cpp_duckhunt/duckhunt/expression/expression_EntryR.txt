@@ -1,5 +1,4 @@
-#[acmd_script( agent = "duckhunt", script = "expression_entryr", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_entryr(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GRASS, false, -1);
         article(*MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GRASS, 0, 0, 7.4);

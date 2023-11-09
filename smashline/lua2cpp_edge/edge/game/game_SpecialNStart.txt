@@ -1,5 +1,4 @@
-#[acmd_script( agent = "edge", script = "game_specialnstart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnstart(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialnstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
         WorkModule::set_int(agent.module_accessor, *FIGHTER_EDGE_SPECIAL_N_S, *FIGHTER_EDGE_STATUS_SPECIAL_N_WORK_INT_CHARGE_KIND);

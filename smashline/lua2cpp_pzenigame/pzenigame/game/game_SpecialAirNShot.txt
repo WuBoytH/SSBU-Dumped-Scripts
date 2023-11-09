@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pzenigame", script = "game_specialairnshot", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairnshot(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialairnshot(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);

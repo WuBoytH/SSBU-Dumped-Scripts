@@ -1,5 +1,4 @@
-#[acmd_script( agent = "lucas", script = "game_specials", category = ACMD_GAME, low_priority )]
-unsafe fn game_specials(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specials(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
         KineticModule::add_speed(agent.module_accessor, &Vector3f{x: -0.9, y: 0.1, z: 0.0});

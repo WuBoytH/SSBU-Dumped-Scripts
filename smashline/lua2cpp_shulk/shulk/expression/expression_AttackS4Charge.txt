@@ -1,5 +1,4 @@
-#[acmd_script( agent = "shulk", script = "expression_attacks4charge", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_attacks4charge(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_attacks4charge(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_monad_hand") as i64);
         physics(*MA_MSC_CMD_PHYSICS_START_CHARGE, 0.8, 0.8, -1, 0.5, 0.7, -1, Hash40::new("invalid"));

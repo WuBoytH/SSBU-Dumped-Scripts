@@ -1,5 +1,4 @@
-#[acmd_script( agent = "mariod", script = "game_win2wait", category = ACMD_GAME, low_priority )]
-unsafe fn game_win2wait(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_win2wait(agent: &mut L2CAgentBase) {
     if !macros::IS_EXIST_ARTICLE(agent, *FIGHTER_MARIOD_GENERATE_ARTICLE_STETHOSCOPE) {
         if macros::is_excute(agent) {
             ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_MARIOD_GENERATE_ARTICLE_STETHOSCOPE, false, -1);

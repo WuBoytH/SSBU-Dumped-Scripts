@@ -1,5 +1,4 @@
-#[acmd_script( agent = "brave_fireball", script = "game_bursts", category = ACMD_GAME, low_priority )]
-unsafe fn game_bursts(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_bursts(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }

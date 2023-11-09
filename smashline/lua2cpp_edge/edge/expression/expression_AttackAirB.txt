@@ -1,5 +1,4 @@
-#[acmd_script( agent = "edge", script = "expression_attackairb", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_attackairb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_attackairb(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         AttackModule::set_attack_reference_joint_id(agent.module_accessor, Hash40::new("swordl1"), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Z), AttackDirectionAxis(*ATTACK_DIRECTION_Y));
         macros::RUMBLE_HIT(agent, Hash40::new("rbkind_78_slash"), 16);

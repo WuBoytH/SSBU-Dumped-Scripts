@@ -1,5 +1,4 @@
-#[acmd_script( agent = "ness", script = "sound_swimupdamage", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_swimupdamage(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_swimupdamage(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         macros::PLAY_SE(agent, Hash40::new("se_common_swimattack_middle"));

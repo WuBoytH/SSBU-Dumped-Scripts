@@ -1,5 +1,4 @@
-#[acmd_script( agent = "cloud", script = "effect_finalend", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_finalend(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 15, 0, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, false);

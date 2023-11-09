@@ -1,5 +1,4 @@
-#[acmd_script( agent = "elight", script = "game_stopceil", category = ACMD_GAME, low_priority )]
-unsafe fn game_stopceil(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_stopceil(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_STOP_CEIL_FLAG_FALL);

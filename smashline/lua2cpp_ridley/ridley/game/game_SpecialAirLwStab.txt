@@ -1,5 +1,4 @@
-#[acmd_script( agent = "ridley", script = "game_specialairlwstab", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlwstab(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialairlwstab(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 30.0);
     if WorkModule::get_int(agent.module_accessor, *FIGHTER_RIDLEY_INSTANCE_WORK_ID_INT_DISABLE_SPECIAL_LW_FINISH_COUNT) <= 0 {
         if macros::is_excute(agent) {

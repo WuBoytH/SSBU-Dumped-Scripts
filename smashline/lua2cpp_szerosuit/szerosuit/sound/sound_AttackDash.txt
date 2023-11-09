@@ -1,5 +1,4 @@
-#[acmd_script( agent = "szerosuit", script = "sound_attackdash", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_attackdash(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_attackdash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
         macros::PLAY_SEQUENCE(agent, Hash40::new("seq_szerosuit_rnd_attack"));

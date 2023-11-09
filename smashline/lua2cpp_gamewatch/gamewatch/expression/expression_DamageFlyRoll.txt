@@ -1,5 +1,4 @@
-#[acmd_script( agent = "gamewatch", script = "expression_damageflyroll", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_damageflyroll(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_damageflyroll(agent: &mut L2CAgentBase) {
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_DamageFlyRollRumble()();
     if macros::is_excute(agent) {
         VisibilityModule::set_int64(agent.module_accessor, hash40("hand") as i64, hash40("hand_hold_lr") as i64);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "koopajr", script = "expression_catch", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_catch(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_catch(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, -1);
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));

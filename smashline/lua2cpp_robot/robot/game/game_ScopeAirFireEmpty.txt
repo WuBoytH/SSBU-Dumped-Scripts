@@ -1,5 +1,4 @@
-#[acmd_script( agent = "robot", script = "game_scopeairfireempty", category = ACMD_GAME, low_priority )]
-unsafe fn game_scopeairfireempty(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_scopeairfireempty(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
         if macros::is_excute(agent) {

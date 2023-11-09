@@ -1,5 +1,4 @@
-#[acmd_script( agent = "packun", script = "game_attackairlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_attackairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         FighterAreaModuleImpl::enable_fix_jostle_area_xy(agent.module_accessor, 5.0, 3.0, 8.0, 1.0);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "sheik", script = "expression_finalairdashend", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalairdashend(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_finalairdashend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false, -1);
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));

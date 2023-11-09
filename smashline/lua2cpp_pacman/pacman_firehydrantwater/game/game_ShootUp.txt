@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pacman_firehydrantwater", script = "game_shootup", category = ACMD_GAME, low_priority )]
-unsafe fn game_shootup(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_shootup(agent: &mut L2CAgentBase) {
     wait(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 0.0, 90, 130, 43, 0, 4.0, 0.0, 0.0, 0.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 1, true, false, true, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, true, Hash40::new("collision_attr_water"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PACMAN_WATER, *ATTACK_REGION_WATER);

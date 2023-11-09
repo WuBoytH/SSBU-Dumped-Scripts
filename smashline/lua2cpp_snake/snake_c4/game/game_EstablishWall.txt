@@ -1,5 +1,4 @@
-#[acmd_script( agent = "snake_c4", script = "game_establishwall", category = ACMD_GAME, low_priority )]
-unsafe fn game_establishwall(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_establishwall(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *WEAPON_SNAKE_C4_STATUS_ESTABLISH_WALL_WORK_FLAG_START_CHECK_STICK);

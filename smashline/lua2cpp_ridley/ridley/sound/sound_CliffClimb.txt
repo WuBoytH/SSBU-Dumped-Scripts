@@ -1,5 +1,4 @@
-#[acmd_script( agent = "ridley", script = "sound_cliffclimb", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_cliffclimb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_cliffclimb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
         macros::PLAY_SE(agent, Hash40::new("se_ridley_dash_start"));

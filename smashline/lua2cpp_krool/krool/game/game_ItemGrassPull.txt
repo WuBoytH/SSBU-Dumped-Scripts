@@ -1,5 +1,4 @@
-#[acmd_script( agent = "krool", script = "game_itemgrasspull", category = ACMD_GAME, low_priority )]
-unsafe fn game_itemgrasspull(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_itemgrasspull(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         WorkModule::set_int(agent.module_accessor, *FIGHTER_ITEM_GRASS_PULL_STEP_PICKUP, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_NEXT_STEP);

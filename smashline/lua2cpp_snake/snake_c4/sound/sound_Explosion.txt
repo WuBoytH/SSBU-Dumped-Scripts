@@ -1,5 +1,4 @@
-#[acmd_script( agent = "snake_c4", script = "sound_explosion", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_explosion(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_explosion(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::PLAY_SE(agent, Hash40::new("se_snake_special_l06"));

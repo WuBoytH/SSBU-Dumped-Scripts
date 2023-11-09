@@ -1,5 +1,4 @@
-#[acmd_script( agent = "nana", script = "game_entryr", category = ACMD_GAME, low_priority )]
-unsafe fn game_entryr(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_entryr(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_CONDOR, true, -1);
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_CONDOR, Hash40::new("entry_r"), false, -1.0);

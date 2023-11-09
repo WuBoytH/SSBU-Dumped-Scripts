@@ -1,5 +1,4 @@
-#[acmd_script( agent = "eflame", script = "sound_jumpback", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_jumpback(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_jumpback(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     StatusModule::prev_status_kind(agent.module_accessor);
     0x3de840(0, *FIGHTER_EFLAME_STATUS_KIND_FINAL_END);

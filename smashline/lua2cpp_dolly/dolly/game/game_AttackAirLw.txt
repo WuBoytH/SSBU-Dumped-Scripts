@@ -1,5 +1,4 @@
-#[acmd_script( agent = "dolly", script = "game_attackairlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_attackairlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_DOLLY_INSTANCE_WORK_ID_FLAG_FINAL_HIT_CANCEL);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_ATTACK_WORK_FLAG_HIT_CANCEL);

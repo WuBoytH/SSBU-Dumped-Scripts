@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pickel", script = "effect_throwlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_throwlw(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PICKEL_STATUS_THROW_FLAG_IS_GENERATE_FORGE) {
         if macros::is_excute(agent) {
             macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 39, 10, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);

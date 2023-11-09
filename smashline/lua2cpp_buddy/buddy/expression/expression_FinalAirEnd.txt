@@ -1,5 +1,4 @@
-#[acmd_script( agent = "buddy", script = "expression_finalairend", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalairend(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_finalairend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN, true, -1);
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN, Hash40::new("final_end"), false, -1.0);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "fox", script = "game_appealsl", category = ACMD_GAME, low_priority )]
-unsafe fn game_appealsl(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_appealsl(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
         ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_FOX_GENERATE_ARTICLE_BLASTER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
