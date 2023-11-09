@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_jumpbackmini(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_jumpbackmini(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_metaknight_jump06"));
+    }
+    wait(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_metaknight_jump07"));
+    }
+}
+
+unsafe extern "C" fn expression_jumpbackmini(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_JumpBackMiniRumble()();
+    if macros::is_excute(agent) {
+        VisibilityModule::set_status_default_int64(agent.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+    }
+}

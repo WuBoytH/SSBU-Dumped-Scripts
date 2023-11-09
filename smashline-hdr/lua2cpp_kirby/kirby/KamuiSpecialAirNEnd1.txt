@@ -1,0 +1,61 @@
+unsafe extern "C" fn effect_kamuispecialairnend1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("kamui_bite"), Hash40::new("arml"), 7, 0, 0, 0, 0, -90, 1, true);
+    }
+    frame(lua_state, 12.0);
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_METAL);
+    0x543c60(false, true);
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_GOLD);
+    0x543c60(false, true);
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_SPYCLOAK);
+    0x543c60(false, true);
+    FT_IS_SAME_FIGHTER_CATEGORY(agent, FighterCategory:*METAMON);
+    0x543c60(false, true);
+    FT_IS_SAME_FIGHTER_CATEGORY(agent, FighterCategory:*LIGHT);
+    0x543c60(false, true);
+    FT_IS_SAME_FIGHTER_CATEGORY(agent, FighterCategory:*DARK);
+    0x543c60(false, true);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("kamui_ryusensya_wind_end"), Hash40::new("arml"), 0, 0, 0, 0, 0, 0, 0.8, true);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_kamuispecialairnend1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_kamui_special_n01"));
+        STOP_SE(agent, Hash40::new("se_kamui_special_n06"));
+        PLAY_SE(agent, Hash40::new("se_kamui_special_n05"));
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_kamui_special_n05b"));
+    }
+    frame(lua_state, 31.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_kamui_horn_end"));
+    }
+}
+
+unsafe extern "C" fn expression_kamuispecialairnend1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

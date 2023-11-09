@@ -1,0 +1,49 @@
+unsafe extern "C" fn game_visualscene03(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::change_motion(boma, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD2, Hash40::new("visual_scene_03"), false, -1.0);
+    }
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        ATTACK_ABS(agent, *FIGHTER_MASTER_ATTACK_ABSOLUTE_KIND_FINAL, 0, 20.0, 361, 80, 1, 0, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(boma, true, true);
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_FINAL_FLAG_HIT_ABS);
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_STATUS_FINAL_FLAG_SCENE03_TARGET_MOTION_CHANGE);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene03(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
+        EFFECT_OFF_KIND(agent, Hash40::new("master_final_screen1"), true, true);
+        EFFECT(agent, Hash40::new("master_final_whip1"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT(agent, Hash40::new("master_final_ground"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT(agent, Hash40::new("master_final_storm"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT(agent, Hash40::new("master_final_screen2"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene03(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_master_final05"));
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("vc_master_guest_final04"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene03(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_75_beginningend_v3"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_75_beginningend_v3"), 0);
+    }
+}

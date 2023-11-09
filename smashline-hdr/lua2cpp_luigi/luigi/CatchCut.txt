@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_catchcut(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_LUIGI_GENERATE_ARTICLE_OBAKYUMU) {
+        if is_excute(agent) {
+            ArticleModule::change_motion(boma, *FIGHTER_LUIGI_GENERATE_ARTICLE_OBAKYUMU, Hash40::new("catch_cut"), false, -1.0);
+        }
+    }
+}
+
+unsafe extern "C" fn expression_catchcut(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_CatchCutRumble()();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

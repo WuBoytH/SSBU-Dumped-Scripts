@@ -1,0 +1,79 @@
+unsafe extern "C" fn game_run(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        HIT_NO(agent, 12, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 13, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 14, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 15, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 16, *HIT_STATUS_NORMAL);
+        HIT_NO(agent, 17, *HIT_STATUS_NORMAL);
+    }
+}
+
+unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2.5, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2.5, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 28.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 39.0);
+    FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+}
+
+unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_STEP(agent, Hash40::new("se_buddy_step_right_ll"));
+        PLAY_SE(agent, Hash40::new("vc_buddy_step_run01"));
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        PLAY_STEP(agent, Hash40::new("se_buddy_step_left_ll"));
+        PLAY_SE(agent, Hash40::new("vc_buddy_step_run02"));
+    }
+    frame(lua_state, 26.0);
+    if is_excute(agent) {
+        PLAY_STEP(agent, Hash40::new("se_buddy_step_right_ll"));
+        PLAY_SE(agent, Hash40::new("vc_buddy_step_run01"));
+    }
+    frame(lua_state, 38.0);
+    PLAY_STEP(agent, Hash40::new("se_buddy_step_left_ll"));
+    PLAY_SE(agent, Hash40::new("vc_buddy_step_run02"));
+}
+
+unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    if is_excute(agent) {
+        ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_BACK);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 34.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 46.0);
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}

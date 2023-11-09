@@ -1,0 +1,64 @@
+unsafe extern "C" fn game_specialsstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+    frame(agent.lua_state_agent, 16.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_S_FLAG_CHARGE);
+    }
+}
+
+unsafe extern "C" fn effect_specialsstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_sp_flash"), Hash40::new("top"), 4, 9, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 1, 0.55);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 0.6, 15, 0, 4, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("sword"), 0, 10, 0, 0, 0, 0, 0.4, 3, 10, 3, 0, 0, 0, true);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 2, 1, 1, 1, 0);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("sword"), 0, 10, 0, 0, 0, 0, 0.5, 3, 10, 3, 0, 0, 0, true);
+        macros::FLASH(agent, 0.2, 0.5, 1, 0.25);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 1, 0, 0.2, 1, 0);
+    }
+    wait(agent.lua_state_agent, 3.0);
+}
+
+unsafe extern "C" fn sound_specialsstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_ike_special_s05"));
+        macros::PLAY_SE_SET_HANDLE(agent, Hash40::new("se_ike_special_s01"), *FIGHTER_IKE_STATUS_SPECIAL_S_WORK_INT_HOLD_SE_HANDLE);
+    }
+}
+
+unsafe extern "C" fn expression_specialsstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        AREA_WIND_2ND(0, 2, 160, 10, 0.6, 0, 12, 24, 24);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        physics(*MA_MSC_CMD_PHYSICS_START_CHARGE, 0.9, 0.8, -1, 0.9, 0.8, -1, Hash40::new("invalid"));
+        AREA_WIND_2ND_arg10(0, 2, 130, 2, 1, 0, 12, 30, 30, 100);
+    }
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

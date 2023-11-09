@@ -1,0 +1,65 @@
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.9, 1, 1, 0.9);
+    }
+    wait(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 15, 0.9, 1, 1, 0);
+    }
+    wait(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    frame(agent.lua_state_agent, 80.0);
+    for _ in 0..6 {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_damage_elec"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, 10, 12, 10, 0, 0, 360, false);
+    }
+    wait(agent.lua_state_agent, 7.0);
+}
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pikachu_appear01"));
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pikachu_appear02"));
+    }
+    wait(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swing_04"));
+    }
+    frame(agent.lua_state_agent, 42.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pikachu_landing01"));
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+    }
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_PIKACHU_GENERATE_ARTICLE_MONSTERBALL, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

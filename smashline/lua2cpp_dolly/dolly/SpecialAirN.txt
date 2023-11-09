@@ -1,0 +1,63 @@
+unsafe extern "C" fn game_specialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_DECIDE_STRENGTH);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_N_WORK_FLAG_GENERATE);
+    }
+}
+
+unsafe extern "C" fn effect_specialairn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("dolly_wave_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("dolly_wave_arc"), Hash40::new("dolly_wave_arc"), Hash40::new("top"), 0, 10, 2, 69, -46, -45, 1.2, true, *EF_FLIP_YZ);
+    }
+}
+
+unsafe extern "C" fn sound_specialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::IS_GENERATABLE_ARTICLE(agent, *FIGHTER_DOLLY_GENERATE_ARTICLE_WAVE) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_dolly_rnd_special_n"));
+            macros::PLAY_SE(agent, Hash40::new("se_dolly_special_n01"));
+        }
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dolly_special_n02"));
+    }
+    else{
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dolly_special_n01"));
+    }
+}
+frame(agent.lua_state_agent, 13.0);
+if macros::is_excute(agent) {
+    macros::PLAY_SE(agent, Hash40::new("se_dolly_special_n02"));
+}
+if macros::IS_GENERATABLE_ARTICLE(agent, *FIGHTER_DOLLY_GENERATE_ARTICLE_WAVE) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_dolly_rnd_special_n02"));
+    }
+}
+}
+
+unsafe extern "C" fn expression_specialairn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_loopattack"), 15, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

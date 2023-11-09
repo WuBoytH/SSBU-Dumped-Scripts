@@ -1,0 +1,80 @@
+unsafe extern "C" fn game_specialairnshot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
+    }
+    FT_MOTION_RATE(agent, 0.85);
+    frame(lua_state, 7.0);
+    for _ in 0..6 {
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_PZENIGAME_GENERATE_ARTICLE_WATER, false, -1);
+    }
+    wait(lua_state, 4.0);
+}
+frame(lua_state, 40.0);
+if is_excute(agent) {
+    WorkModule::off_flag(boma, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
+}
+}
+
+unsafe extern "C" fn effect_specialairnshot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+    }
+    frame(lua_state, 5.0);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("head"), -0.5, 2.7, 0, 0, 0, -13, 0.8, true);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("head"), -0.5, 2.7, 0, 0, 0, 13, 0.8, true);
+        }
+    }
+}
+frame(lua_state, 39.0);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("pzenigame_mizuteppo_shoot"), false, false);
+}
+}
+
+unsafe extern "C" fn sound_specialairnshot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    WorkModule::is_flag(boma, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_CHARGE_MAX);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n04"));
+        }
+        else{
+        if is_excute(agent) {
+            PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n03"));
+        }
+    }
+}
+if is_excute(agent) {
+    PLAY_SE(agent, Hash40::new("vc_pzenigame_special_n01"));
+}
+}
+
+unsafe extern "C" fn expression_specialairnshot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_waterjetss"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

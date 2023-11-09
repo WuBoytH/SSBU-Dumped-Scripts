@@ -1,0 +1,83 @@
+unsafe extern "C" fn game_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    PostureModule::scale(boma);
+    if(0x154f30(-1599779927, 1.4)){
+        if is_excute(agent) {
+            ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 361, 100, 0, 70, 12.0, 0.0, 6.0, 0.0, Some(0.0), Some(6.0), Some(9.0), 3.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
+        }
+        else{
+        PostureModule::scale(boma);
+        if(0x154f30(-1599779927, 0.5)){
+            if is_excute(agent) {
+                ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 361, 100, 0, 70, 12.0, 0.0, 6.0, -10.0, Some(0.0), Some(6.0), Some(15.0), 3.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
+            }
+            else{
+            if is_excute(agent) {
+                ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 361, 100, 0, 70, 12.0, 0.0, 6.0, 0.0, Some(0.0), Some(6.0), Some(9.0), 3.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
+            }
+        }
+    }
+}
+}
+if is_excute(agent) {
+AttackModule::set_no_dead_all(boma, true, false);
+}
+wait(lua_state, 2.0);
+if is_excute(agent) {
+AttackModule::clear_all(boma);
+PostureModule::scale(boma, 10, 0);
+0x154f30(-1599779927, 1.8);
+CAM_ZOOM_IN_arg5(0, 0);
+camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 5);
+}
+}
+
+unsafe extern "C" fn effect_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        FILL_SCREEN_MODEL_COLOR(agent, 1, 2, 0.1, 0.1, 0.1, 0, 0, 0, 0.1, 2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+        FILL_SCREEN_MODEL_COLOR(agent, 0, 2, 0.55, 0.55, 0.55, 0, 0, 0, 0.02, 8, EffectScreenLayer:*CHAR, *EFFECT_SCREEN_PRIO_FINAL);
+        EFFECT_GLOBAL(agent, Hash40::new("sheik_final_mark"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT(agent, Hash40::new("sheik_final_hit"), Hash40::new("top"), 0, 7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("sheik_final_knife"), false, false);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sheik_final_eye"), Hash40::new("head"), 0.74, 1.26, -0.45, 0, 0, 0, 1, false);
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        COL_PRI(agent, 200);
+        FLASH(agent, 0, 0, 0, 0);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 20, 0, 0, 0, 1);
+    }
+}
+
+unsafe extern "C" fn sound_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_sheik_final03"));
+        PLAY_SE(agent, Hash40::new("se_sheik_final04"));
+    }
+    frame(lua_state, 11.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_sheik_final05"));
+    }
+}
+
+unsafe extern "C" fn expression_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_slash_critical"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

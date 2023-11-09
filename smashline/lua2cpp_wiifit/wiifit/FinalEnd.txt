@@ -1,0 +1,23 @@
+unsafe extern "C" fn game_finalend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_WIIFIT_GENERATE_ARTICLE_SILHOUETTEL, false, -1);
+    }
+    frame(agent.lua_state_agent, 40.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+}
+
+unsafe extern "C" fn sound_finalend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_wiifit_final03"));
+        macros::PLAY_SE(agent, Hash40::new("se_wiifit_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_01_fireballsp2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

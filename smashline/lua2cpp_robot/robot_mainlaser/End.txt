@@ -1,0 +1,32 @@
+unsafe extern "C" fn game_end(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 60, 185, 0, 95, 28.0, 0.0, 15.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 1.1, 0.5, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, f32::NAN, 0.0, 6, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+        AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1, false);
+    }
+    frame(agent.lua_state_agent, 78.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_end(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("robot_final_main_laser"), true, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("robot_final_main_laser"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("robot_final_main_laser"), false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("robot_final_main_laser_finish"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 78.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("robot_final_main_laser_end"), Hash40::new("top"), -0.0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}

@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_shoot(agent: &mut L2CAgentBase) {
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 0.0, 361, 130, 37, 0, 4.0, 0.0, 0.0, 0.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 1, true, false, true, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, true, Hash40::new("collision_attr_water"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PACMAN_WATER, *ATTACK_REGION_WATER);
+    }
+}
+
+unsafe extern "C" fn effect_shoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::set_int(agent.module_accessor, 6, *WEAPON_PACMAN_FIREHYDRANT_WATER_INSTANCE_WORK_ID_INT_HIT_EFFECT_FRAME);
+    }
+}
+
+unsafe extern "C" fn sound_shoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pacman_special_l02"));
+    }
+}

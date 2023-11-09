@@ -1,0 +1,22 @@
+unsafe extern "C" fn game_specialairnfiren(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INKLING_STATUS_SPECIAL_N_FLAG_CAN_CHANGE_ANGLE);
+    }
+}
+
+unsafe extern "C" fn effect_specialairnfiren(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("inkling_splashooter_muzzle"), Hash40::new("muzzle"), -1, 0, 0, 0, 180, 0, 0.8, true);
+    }
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_B);
+    if macros::is_excute(agent) {
+        macros::LAST_PARTICLE_SET_COLOR(agent);
+    }
+}
+
+unsafe extern "C" fn expression_specialairnfiren(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+}

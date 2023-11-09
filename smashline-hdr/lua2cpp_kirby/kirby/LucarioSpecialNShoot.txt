@@ -1,0 +1,45 @@
+unsafe extern "C" fn effect_lucariospecialnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 7.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), -4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_lucariospecialnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 9.0);
+    WorkModule::get_float(boma, *FIGHTER_LUCARIO_SPECIAL_N_STATUS_WORK_ID_FLOAT_CHARGE_RATE);
+    if(0x543c60(-1165490952, 0.9)){
+        if is_excute(agent) {
+            PLAY_SE_REMAIN(agent, Hash40::new("vc_kirby_copy_lucario_02"));
+        }
+        else{
+        if is_excute(agent) {
+            PLAY_SE_REMAIN(agent, Hash40::new("vc_kirby_copy_lucario_03"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_lucariospecialnshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 7.0);
+    if WorkModule::is_flag(boma, *FIGHTER_LUCARIO_SPECIAL_N_STATUS_WORK_ID_FLAG_CHARGE_MAX) {
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_beaml"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        else{
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_beamm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+}
+}

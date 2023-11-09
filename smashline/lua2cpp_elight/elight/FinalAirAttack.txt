@@ -1,0 +1,112 @@
+unsafe extern "C" fn game_finalairattack(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::set_int64(agent.module_accessor, hash40("final_air_attack") as i64, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_INT_ESWORD_INHERIT_OPEN_MOTION_KIND);
+    }
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ELIGHT_ATTACK_ABSOLUTE_KIND_FINAL, 0, 7.0, 70, 0, 0, 80, 0.3, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, false, false, -1, true);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_ABS_SET);
+        macros::CAM_ZOOM_OUT(agent);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_CAMERA_CLIP_IN) {
+        if WorkModule::is_flag(agent.module_accessor, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_DEMON_DOJO_ZOOM) {
+            if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_TRAINING_ZOOM) {
+                if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+                    if macros::is_excute(agent) {
+                        PostureModule::scale(agent.module_accessor, 1, 0);
+                        0x357740(-1178691668, 5);
+                        CAM_ZOOM_IN_arg5(0, 0.1);
+                        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -20, 25);
+                    }
+                    else{
+                    if macros::is_excute(agent) {
+                        PostureModule::scale(agent.module_accessor, 1, 0);
+                        0x357740(-1178691668, 5);
+                        CAM_ZOOM_IN_arg5(0, 0);
+                    }
+                    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ELIGHT_STATUS_FINAL_FLAG_TRAINING_ZOOM) {
+                        if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+                            if macros::is_excute(agent) {
+                                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -40, 25);
+                            }
+                            else{
+                            if macros::is_excute(agent) {
+                                PostureModule::scale(agent.module_accessor, 1, 0);
+                                0x357740(-1178691668, 5);
+                                CAM_ZOOM_IN_arg5(0, -0.1);
+                                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 20, 25);
+                            }
+                            else{
+                            if macros::is_excute(agent) {
+                                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 40, 25);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
+}
+frame(agent.lua_state_agent, 5.0);
+if macros::is_excute(agent) {
+WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+}
+frame(agent.lua_state_agent, 107.0);
+if macros::is_excute(agent) {
+ArticleModule::generate_article(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_BEAM, false, -1);
+}
+frame(agent.lua_state_agent, 130.0);
+if macros::is_excute(agent) {
+macros::CAM_ZOOM_OUT(agent);
+}
+frame(agent.lua_state_agent, 154.0);
+if macros::is_excute(agent) {
+ArticleModule::set_flag(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_DIVER, true, *WEAPON_ELEMENT_DIVER_INSTANCE_WORK_ID_FLAG_FINAL_ATTACK_DETACH);
+}
+}
+
+unsafe extern "C" fn effect_finalairattack(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_eelight_final2"), false, false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_sword_beam_l"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_final_sword_light"), Hash40::new("sword1"), 4.5, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 100.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_aura"), false, true);
+    }
+    frame(agent.lua_state_agent, 135.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("elight_final_aura"), false, false);
+    }
+    frame(agent.lua_state_agent, 145.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("elight_final_sword_light"), false, false);
+    }
+    frame(agent.lua_state_agent, 172.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("elight_sword_beam_l"), true, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_sword_close_l"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalairattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_elight_diver_final03"));
+    }
+    frame(agent.lua_state_agent, 111.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_elight_final05"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 161.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

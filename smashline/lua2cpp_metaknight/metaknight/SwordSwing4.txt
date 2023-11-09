@@ -1,0 +1,60 @@
+unsafe extern "C" fn game_swordswing4(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SWING_WORK_FLAG_START_SMASH_HOLD);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_scale_anim(agent.module_accessor, 5, 3.8);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_action(agent.module_accessor, *ITEM_SWING_ACTION_BEGIN);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_SwordSwing4Common()();
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_scale_anim(agent.module_accessor, 3, 0.4);
+    }
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_scale_anim(agent.module_accessor, 5, 1);
+    }
+}
+
+unsafe extern "C" fn effect_swordswing4(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    methodlua2cpp::L2CFighterAnimcmdEffectCommon::effect_Swing4ImpactSword()();
+}
+
+unsafe extern "C" fn sound_swordswing4(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_common_smash_start"));
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, 0x15846cc3a7);
+    }
+}
+
+unsafe extern "C" fn expression_swordswing4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+    }
+    frame(agent.lua_state_agent, 7.0);
+    execute(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

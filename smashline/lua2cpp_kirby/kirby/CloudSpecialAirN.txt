@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_cloudspecialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("cloud_sword_flare"), Hash40::new("havel"), 0, 0.88, 0, 0, 180, 0, 1, true);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.7);
+        macros::EFFECT(agent, Hash40::new("cloud_hakogeki_flash"), Hash40::new("havel"), -1.5, 8, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("cloud_sword_flare"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_cloudspecialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_cloud_special_n01"));
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_kirby_copy_cloud_01"));
+    }
+}
+
+unsafe extern "C" fn expression_cloudspecialairn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

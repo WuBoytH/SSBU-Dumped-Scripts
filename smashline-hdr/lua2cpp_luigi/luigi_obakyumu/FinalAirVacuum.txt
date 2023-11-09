@@ -1,0 +1,44 @@
+unsafe extern "C" fn effect_finalairvacuum(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("luigi_final_muzzle"), Hash40::new("vacuum"), 2.5, 0, 0, 0, 0, 0, 1.1, true);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("luigi_final_vacuum"), Hash40::new("tornado1"), 0, 0, 0, 0, 90, 0, 1, true);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("luigi_final_vacuum"), Hash40::new("tornado2"), 0, 0, 0, 0, 90, 0, 1, true);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("luigi_final_vacuum"), Hash40::new("tornado3"), 0, 0, 0, 0, 90, 0, 1, true);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("luigi_final_vacuum"), Hash40::new("tornado4"), 0, 0, 0, 0, 90, 0, 1, true);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("luigi_final_vacuum"), Hash40::new("tornado5"), 0, 0, 0, 0, 90, 0, 1, true);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("luigi_final_vacuum"), Hash40::new("tornado6"), 0, 0, 0, 0, 90, 0, 1.2, true);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("luigi_final_vacuum"), Hash40::new("tornado7"), 0, 0, 0, 0, 90, 0, 1.4, true, 0.4);
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("luigi_final_vacuum"), Hash40::new("tornado7"), 10, 0, 0, 0, 90, 0, 1.6, true, 0.2);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("luigi_final_dust"), Hash40::new("absorb"), -5, 0, 0, 0, 90, 0, 1, true);
+    }
+    frame(lua_state, 170.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("luigi_final_dust"), false, true);
+    }
+}

@@ -1,0 +1,34 @@
+unsafe extern "C" fn game_specialn2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK(agent, 1, 1, Hash40::new("fireball1"), 9.0, 361, 72, 0, 71, 2.8, 0.0, 0.0, 0.0, None, None, None, 0.9, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, -4, 0.0, 2, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_MAGIC);
+        ATTACK(agent, 0, 0, Hash40::new("fireball2"), 9.0, 361, 72, 0, 71, 2.8, 0.0, 0.0, 0.0, None, None, None, 0.9, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, -4, 0.0, 2, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_MAGIC);
+        AttackModule::set_no_finish_camera(boma, 1, true, false);
+        AttackModule::enable_safe_pos(boma);
+    }
+}
+
+unsafe extern "C" fn effect_specialn2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("brave_fire2_bullet"), Hash40::new("fireball1"), 0, 0, 0, 0, 0, 0, 1, true);
+        LAST_EFFECT_SET_WORK_INT(agent, WEAPON_BRAVE_FIREBALL_INSTANCE_WORK_ID_INT_EFFECT_HANDLE_M_0);
+        EFFECT_FOLLOW(agent, Hash40::new("brave_fire2_bullet"), Hash40::new("fireball2"), 0, 0, 0, 0, 0, 0, 1, true);
+        LAST_EFFECT_SET_WORK_INT(agent, WEAPON_BRAVE_FIREBALL_INSTANCE_WORK_ID_INT_EFFECT_HANDLE_M_1);
+    }
+}
+
+unsafe extern "C" fn sound_specialn2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        SET_TAKEOUT_SE(agent, Hash40::new("se_brave_special_n03"));
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_brave_special_n03loop"));
+    }
+}

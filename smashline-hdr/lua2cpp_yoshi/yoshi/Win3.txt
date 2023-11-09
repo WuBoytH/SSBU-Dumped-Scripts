@@ -1,0 +1,54 @@
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), -5, 8, 10.5, 0, 0, 0, 0.9, false, 0.6);
+    }
+    frame(lua_state, 37.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), -5.2, 7, 12, 0, 0, 0, 0.9, false, 0.6);
+    }
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), -4.5, 8, 13, 0, 0, 0, 0.9, false, 0.6);
+    }
+    frame(lua_state, 79.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -1, 0, 0, 0, 120, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 80.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 5, 6, 2.4, 15, 79, 56, 0.8, true);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_yoshi_swing_s_win03"));
+    }
+    frame(lua_state, 37.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_yoshi_swing_s_win03"));
+    }
+    frame(lua_state, 46.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_yoshi_swing_s_win03"));
+    }
+    frame(lua_state, 81.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_yoshi_swing_l_win03"));
+    }
+    frame(lua_state, 91.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_yoshi_landing02_win03"));
+    }
+    frame(lua_state, 125.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("vc_yoshi_win03"));
+    }
+}

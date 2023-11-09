@@ -1,0 +1,30 @@
+unsafe extern "C" fn game_specialairlwfailure(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+    }
+}
+
+unsafe extern "C" fn effect_specialairlwfailure(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 7.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("pickel_erace_smoke"), Hash40::new("top"), 0, 0, 8, 0, 0, 0, 0.65, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.2);
+    }
+}
+
+unsafe extern "C" fn sound_specialairlwfailure(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_swing_s02"));
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_special_s11"));
+    }
+}

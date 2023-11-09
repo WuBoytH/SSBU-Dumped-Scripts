@@ -1,0 +1,16 @@
+unsafe extern "C" fn game_speciallw3endair(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait(lua_state, 8.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MIISWORDSMAN_STATUS_WORK_ID_FLAG_JET_STUB_FALL_ONOFF);
+    }
+}
+
+unsafe extern "C" fn expression_speciallw3endair(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x26769bd1de), 0, 30, 8);
+    }
+}

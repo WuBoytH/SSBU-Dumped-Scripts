@@ -1,0 +1,39 @@
+unsafe extern "C" fn game_shoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_SZEROSUIT_LASER_STATUS_WORK_FLAG_START_ATTACK);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionl"), 10, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_loopattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 230.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}
+
+unsafe extern "C" fn effect_shoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("szero_final_shot"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, true);
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_SZEROSUIT_LASER_STATUS_WORK_FLAG_BEAM_EFFECT);
+    }
+    frame(agent.lua_state_agent, 220.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("szero_final_beam"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_shoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_szerosuit_final06"));
+    }
+    frame(agent.lua_state_agent, 220.0);
+    if macros::is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+    }
+}

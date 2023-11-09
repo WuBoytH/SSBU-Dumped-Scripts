@@ -1,0 +1,52 @@
+unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_DISABLE_RUN_TRACE) {
+        if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if macros::is_excute(agent) {
+                EFFECT_FOLLOW_arg11(Hash40::new("sonic_runtrace"), Hash40::new("top"), 0, 0, 0, 180, 0, 0, -1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+                macros::LAST_EFFECT_SET_RATE(agent, 1.09);
+            }
+            else{
+            if macros::is_excute(agent) {
+                EFFECT_FOLLOW_arg11(Hash40::new("sonic_runtrace"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+                macros::LAST_EFFECT_SET_RATE(agent, 1.09);
+            }
+        }
+    }
+}
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+}
+wait(agent.lua_state_agent, 3.0);
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.3, 0, 0, 0, 0, 0, 0, false);
+}
+wait(agent.lua_state_agent, 4.0);
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+wait(agent.lua_state_agent, 4.0);
+}
+
+unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_sonic_step_right_m"));
+    }
+    wait(agent.lua_state_agent, 8.0);
+    macros::PLAY_STEP(agent, Hash40::new("se_sonic_step_left_m"));
+}
+
+unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        macros::AREA_WIND_2ND_arg10(agent, 0, 2, 0, 300, 1, 13, 7, 32, 14, 30);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}

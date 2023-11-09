@@ -1,0 +1,36 @@
+unsafe extern "C" fn game_specialairswall(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 47.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_S_FLAG_LANDING_HEAVY);
+    }
+}
+
+unsafe extern "C" fn effect_specialairswall(agent: &mut L2CAgentBase) {
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("buddy_special_s_wall"), Hash40::new("top"), 5, 12.5, 0, -90, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::EFFECT_WORK(agent, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_SCATTER, Hash40::new("top"), -7, 12.5, 0, -90, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("buddy_special_s_wall"), Hash40::new("top"), 5, 12.5, 0, 90, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::EFFECT_WORK(agent, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_SCATTER, Hash40::new("top"), -7, 12.5, 0, 90, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_specialairswall(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_buddy_special_s02_01"));
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_special_s06"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairswall(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

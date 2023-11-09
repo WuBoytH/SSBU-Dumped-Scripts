@@ -1,0 +1,80 @@
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 14.0);
+    for _ in 0..2 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_spin_wind"), Hash40::new("hammer2"), 1, 0, 0, 0, 0, 89, 1, true, 0.3);
+    }
+    wait(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_spin_wind"), Hash40::new("hammer2"), -5, 0, 0, 0, 0, 89, 0.75, true, 0.3);
+    }
+    wait(agent.lua_state_agent, 10.0);
+}
+frame(agent.lua_state_agent, 60.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("dedede_jethammer_hold2"), Hash40::new("hammer2"), 0, 0, 7, 0, 0, 0, 0.7, true);
+}
+frame(agent.lua_state_agent, 67.0);
+for _ in 0..2 {
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_spin_wind"), Hash40::new("hammer2"), -3, 0, 0, 0, 0, -90, 1, true, 0.3);
+}
+wait(agent.lua_state_agent, 10.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_spin_wind"), Hash40::new("hammer2"), 4, 0, 0, 0, 0, -90, 0.75, true, 0.3);
+}
+wait(agent.lua_state_agent, 10.0);
+}
+frame(agent.lua_state_agent, 120.0);
+if macros::is_excute(agent) {
+macros::EFFECT_FOLLOW(agent, Hash40::new("dedede_jethammer_hold_win"), Hash40::new("hammer2"), 0, 0, 2, 0, 90, 0, 1.4, true);
+}
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_attack100_win03"));
+    }
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_dedede_attack100_win03"));
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_hammer_swing_s_win03"));
+    }
+    frame(agent.lua_state_agent, 54.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_attack100_win03"));
+    }
+    frame(agent.lua_state_agent, 86.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_dedede_attack100_win03"));
+    }
+    frame(agent.lua_state_agent, 87.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_special_l01_win03"));
+    }
+    frame(agent.lua_state_agent, 115.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_landing02_win03"));
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_hammer_swing_s_win03"));
+    }
+}
+
+unsafe extern "C" fn expression_win3(agent: &mut L2CAgentBase) {
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER) {
+        if macros::is_excute(agent) {
+            ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, false, -1);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, Hash40::new("win_3"), false, -1.0);
+    }
+    frame(agent.lua_state_agent, 76.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hammer") as i64, hash40("hammer_disp_off") as i64);
+    }
+}

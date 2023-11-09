@@ -1,0 +1,34 @@
+unsafe extern "C" fn game_specialhistart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}
+
+unsafe extern "C" fn effect_specialhistart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 3, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("inkling_superjump_ripple_s"), Hash40::new("top"), 3, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_B);
+    if macros::is_excute(agent) {
+        macros::LAST_PARTICLE_SET_COLOR(agent);
+    }
+}
+
+unsafe extern "C" fn sound_specialhistart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_dash_start"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhistart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 5);
+    }
+}

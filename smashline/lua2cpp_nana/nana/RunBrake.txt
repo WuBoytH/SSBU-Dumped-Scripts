@@ -1,0 +1,17 @@
+unsafe extern "C" fn effect_runbrake(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 12, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 4.0);
+}
+}
+
+unsafe extern "C" fn sound_runbrake(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_popo_dash_stop"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_popo_dash_stop"), 10);
+    }
+}

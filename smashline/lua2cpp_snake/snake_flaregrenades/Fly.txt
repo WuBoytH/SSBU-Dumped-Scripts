@@ -1,0 +1,25 @@
+unsafe extern "C" fn effect_fly(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("snake_final_grenade_flare"), Hash40::new("trigger"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("snake_final_grenade_smoke"), Hash40::new("trigger"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 360.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("snake_final_grenade_smoke"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("snake_final_grenade_flare"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_fly(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_snake_final04"));
+    }
+    frame(agent.lua_state_agent, 360.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_snake_final04"));
+    }
+}

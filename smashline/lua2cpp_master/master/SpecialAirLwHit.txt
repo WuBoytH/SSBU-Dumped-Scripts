@@ -1,0 +1,47 @@
+unsafe extern "C" fn game_specialairlwhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 54.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_PULL_AXE);
+    }
+    frame(agent.lua_state_agent, 56.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_REVERT_DEGREE_X);
+    }
+    frame(agent.lua_state_agent, 58.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_CONTROL_ENERGY);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MASTER_STATUS_SPECIAL_LW_FLAG_REVERT_FALL_SPEED);
+    }
+    frame(agent.lua_state_agent, 78.0);
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_AXE, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}
+
+unsafe extern "C" fn effect_specialairlwhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("master_axe_slash_air_reverb"), true, true);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("master_axe_slash_particle"), Hash40::new("top"), 0, 7, 1, -10, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairlwhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_master_special_l02"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_master_special_l02"), 30);
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
+    }
+}

@@ -1,0 +1,60 @@
+unsafe extern "C" fn game_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        if is_excute(agent) {
+            ArticleModule::generate_article(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_WADDLEDEE, false, -1);
+            ArticleModule::change_motion(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_WADDLEDEE, Hash40::new("win2"), false, -1.0);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        frame(lua_state, 21.0);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 60, 0, -25, 0, -70, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+    frame(lua_state, 39.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 46, 0, -22, 0, -70, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 57.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 30, 0, -18, 0, -70, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 49.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dedede_win2"));
+    }
+    frame(lua_state, 78.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dedede_win2"));
+    }
+    frame(lua_state, 97.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dedede_win2"));
+    }
+    frame(lua_state, 129.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dedede_win2"));
+    }
+}
+
+unsafe extern "C" fn expression_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER) {
+        if is_excute(agent) {
+            ArticleModule::remove_exist(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+}

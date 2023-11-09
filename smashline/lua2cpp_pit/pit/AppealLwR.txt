@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_appeallwr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pit_feather"), Hash40::new("top"), 0, 18, 8, 0, 0, 0, 0.8, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pit_feather"), Hash40::new("top"), 0, 18, -8, 0, 0, 0, 0.8, false);
+    }
+}
+
+unsafe extern "C" fn sound_appeallwr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pit_jump02"));
+    }
+    frame(agent.lua_state_agent, 85.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_pit_step_right_s"));
+    }
+}
+
+unsafe extern "C" fn expression_appeallwr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

@@ -1,0 +1,43 @@
+unsafe extern "C" fn game_specialairnshoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KOOPAJR_STATUS_SPECIAL_N_FLAG_SHOOT);
+    }
+}
+
+unsafe extern "C" fn effect_specialairnshoot(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_KOOPAJR_STATUS_SPECIAL_N_FLAG_FAIL) {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("koopajr_cannon_miss"), Hash40::new("clowntongue2"), 3, 0, 0, 0, 0, -90, 0.5, 0, 0, 0, 0, 0, 0, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("koopajr_cannon_shot_r"), Hash40::new("koopajr_cannon_shot_l"), Hash40::new("top"), 0, 9, 8, 90, 0, 0, 0.5, true, *EF_FLIP_NONE);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_specialairnshoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_n01"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_koopajr_rnd_special_n"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnshoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("tarap") as i64, hash40("tarap_off") as i64);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        AREA_WIND_2ND_arg10(0, 3, 0, 2, 1, 18, 10, 20, 20, 80);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        AreaModule::erase_wind(agent.module_accessor, 0);
+    }
+}

@@ -1,0 +1,50 @@
+unsafe extern "C" fn game_specialhistart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_JACK_GENERATE_ARTICLE_WING, false, -1);
+        ArticleModule::change_motion(boma, *FIGHTER_JACK_GENERATE_ARTICLE_WING, Hash40::new("special_hi2"), false, -1.0);
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_SPECIAL_HI2_FLAG_REVERSE_LR);
+    }
+}
+
+unsafe extern "C" fn effect_specialhistart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("jack_doyle_appear"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1.5, true);
+        LAST_EFFECT_SET_RATE(agent, 2);
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("jack_doyle_appear"), -1);
+    }
+}
+
+unsafe extern "C" fn sound_specialhistart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_jack_special_h05"));
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_jack_rnd_special_h02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhistart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 3);
+    }
+}

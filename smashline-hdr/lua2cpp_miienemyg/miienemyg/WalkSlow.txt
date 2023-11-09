@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_walkslow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 2, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 39.0);
+    FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), 2, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+}
+
+unsafe extern "C" fn sound_walkslow(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 36.0);
+    if is_excute(agent) {
+        PLAY_STEP(agent, Hash40::new("se_miienemyg_step_right_s"));
+    }
+    frame(lua_state, 69.0);
+    PLAY_STEP(agent, 0x1803b91ce9);
+}

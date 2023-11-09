@@ -1,0 +1,35 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_TRAIL_FINAL, 0, 10.0, 45, 100, 0, 85, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, false, -1, true);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_ABS_SET);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_TRAIL_STATUS_FINAL_FLAG_ABS_SET);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+    }
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_final_gradation"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_final_bg_smoke"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_final_blast_smoke"), true, true);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 0, 0.14, 0.16, 0.18, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 0, 30);
+    }
+}
+
+unsafe extern "C" fn expression_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

@@ -1,0 +1,31 @@
+unsafe extern "C" fn effect_speciallwb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        methodlib::L2CValue::as_hash()const(Hash40::new("critical_hit"), Hash40::new("hip"), 30, 30, 0, 0, 0, true);
+        methodlib::L2CValue::as_hash()const();
+        EffectModule::request_post_effect_line_circle(agent.module_accessor);
+        macros::EFFECT_FOLLOW(agent, 0, Hash40::new("shulk_monad_sword3_2"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("shulk_monad_circle"), Hash40::new("swordr"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 20, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        EffectModule::remove_post_effect_line(agent.module_accessor, 6, true);
+    }
+}
+
+unsafe extern "C" fn sound_speciallwb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_shulk_special_l02"));
+    }
+}
+
+unsafe extern "C" fn expression_speciallwb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_monad_hand") as i64);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

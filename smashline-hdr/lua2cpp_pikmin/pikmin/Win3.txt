@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN3, FIGHTER_PIKMIN_WIN_WPN_DATA_WIN3, -1);
+    }
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN3) {
+        if is_excute(agent) {
+            ArticleModule::change_motion(boma, *FIGHTER_PIKMIN_GENERATE_ARTICLE_WIN3, Hash40::new("win3"), false, -1.0);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 25.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pikmin_win3_vc01_win03"));
+    }
+    frame(lua_state, 65.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pikmin_win3_vc02_win03"));
+    }
+}

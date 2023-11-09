@@ -1,0 +1,12 @@
+unsafe extern "C" fn effect_shieldbreakfly(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("sys_piyopiyo"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_shieldbreakfly(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_palutena_rnd_futtobi01"));
+    }
+}

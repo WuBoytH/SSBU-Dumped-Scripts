@@ -1,0 +1,39 @@
+unsafe extern "C" fn effect_jumpfrontmini(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_jumpfrontmini(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_ness_jump03"));
+    }
+}
+
+unsafe extern "C" fn expression_jumpfrontmini(agent: &mut L2CAgentBase) {
+    if macros::IS_FIGHTER_STATUS_KIND(agent, *FIGHTER_STATUS_KIND_GIMMICK_SPRING_JUMP) {
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_bounce"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        else{
+        if macros::IS_FIGHTER_STATUS_KIND(agent, *FIGHTER_STATUS_KIND_ICE_JUMP) {
+            if macros::is_excute(agent) {
+                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_awaken"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            }
+            else{
+            if macros::IS_FIGHTER_STATUS_KIND(agent, *FIGHTER_STATUS_KIND_ITEM_ROCKETBELT_HOP) {
+                if macros::is_excute(agent) {
+                    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+                }
+                else{
+                if macros::is_excute(agent) {
+                    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_jump"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+                }
+            }
+        }
+    }
+}
+}
+}
+}

@@ -1,0 +1,100 @@
+unsafe extern "C" fn effect_appealhir(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("metaknight_appeal_hi"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 1, true);
+        LAST_EFFECT_SET_ALPHA(agent, 0.7);
+    }
+    frame(lua_state, 21.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 0.6, 0, 5, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 24.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 0.65, 0, 5, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 0.55, 0, 5, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 35.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 39.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("metaknight_appeal_hi_end"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 1, false);
+        LAST_EFFECT_SET_ALPHA(agent, 0.6);
+    }
+    frame(lua_state, 42.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("metaknight_appeal_hi"), false, false);
+    }
+    frame(lua_state, 50.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_spin_wind"), Hash40::new("top"), 0, 9, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_appealhir(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("vc_metaknight_appeal03"));
+        PLAY_SE_REMAIN(agent, Hash40::new("se_metaknight_appeal_h01"));
+    }
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_metaknight_appeal_h02"));
+    }
+    frame(lua_state, 37.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_metaknight_appeal_h03"));
+    }
+}
+
+unsafe extern "C" fn expression_appealhir(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE) {
+        if is_excute(agent) {
+            ArticleModule::generate_article(boma, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, -1);
+        }
+        else{
+        if is_excute(agent) {
+            ArticleModule::set_visibility_whole(boma, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+}
+if is_excute(agent) {
+    ArticleModule::change_motion(boma, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, Hash40::new("appeal_hi"), false, -1.0);
+}
+frame(lua_state, 21.0);
+if is_excute(agent) {
+    ArticleModule::set_visibility_whole(boma, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    ItemModule::set_have_item_visibility(boma, false, 0);
+    ItemModule::set_attach_item_visibility(boma, false);
+    notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+    notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}
+frame(lua_state, 50.0);
+if is_excute(agent) {
+    ArticleModule::set_visibility_whole(boma, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    ItemModule::set_have_item_visibility(boma, true, 0);
+    ItemModule::set_attach_item_visibility(boma, true);
+    notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+    notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}
+}

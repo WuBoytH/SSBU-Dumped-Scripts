@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_attackdragonbeamshoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 1.5);
+        macros::SEARCH(agent, 0, 0, Hash40::new("top"), 23.0, -30.0, 4.0, 0.0, -30.0, -4.0, 0.0, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIEB, *COLLISION_PART_MASK_BODY_HEAD, false);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 1);
+        search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
+    }
+}
+
+unsafe extern "C" fn effect_attackdragonbeamshoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+}
+
+unsafe extern "C" fn sound_attackdragonbeamshoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_tantan_attack01_doragon_short"));
+        macros::STOP_SE(agent, Hash40::new("se_tantan_attack01_doragon_smash"));
+        macros::PLAY_SE(agent, Hash40::new("se_tantan_attack01_beam_ready"));
+    }
+}

@@ -1,0 +1,75 @@
+unsafe extern "C" fn game_win3(agent: &mut L2CAgentBase) {
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE);
+    0x543c60(false, true);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_WINDUMMY, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_WINDUMMY, false, -1);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_WINDUMMY, Hash40::new("win_3"), false, -1.0);
+    }
+}
+
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("trans"), 0, -5, 0, 90, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("trans"), 0, -5, 0, 90, 0, 0, 0.55, 0, 0, 0, 0, 0, 0, true);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("trans"), -29, -5, -6, 90, 0, 0, 0.55, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("trans"), 30, -5, -13, 90, 0, 0, 0.55, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+    frame(agent.lua_state_agent, 92.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("trans"), 0, -5, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("trans"), -26, -5, -8, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("trans"), 30, -5, -13, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+    frame(agent.lua_state_agent, 116.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("kirby_star"), Hash40::new("top"), 4, 11, 5, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swing_02"));
+    }
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kirby_jump02"));
+    }
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swing_02"));
+    }
+    frame(agent.lua_state_agent, 58.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kirby_step_left_m"));
+    }
+    frame(agent.lua_state_agent, 68.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kirby_step_right_m"));
+    }
+    frame(agent.lua_state_agent, 72.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kirby_step_left_m"));
+    }
+    frame(agent.lua_state_agent, 78.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kirby_step_right_m"));
+    }
+    frame(agent.lua_state_agent, 85.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_kirby_dash_start_win03"));
+    }
+}

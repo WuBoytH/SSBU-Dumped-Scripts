@@ -1,0 +1,32 @@
+unsafe extern "C" fn effect_specialsrailpromotion(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("pickel_rail_a"), false, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("pickel_rail_b"), false, true);
+        EFFECT_FOLLOW(agent, Hash40::new("pickel_rail_b"), Hash40::new("top"), -1.4, 0.4, 0, 0, 90, 0, 1, false);
+        EFFECT_FOLLOW(agent, Hash40::new("pickel_rail_b"), Hash40::new("top"), 1.4, 0.4, 0, 0, 90, 0, 1, false);
+    }
+    if WorkModule::is_flag(boma, *WEAPON_PICKEL_RAIL_INSTANCE_WORK_ID_FLAG_WITH_TORCH) {
+        if WorkModule::is_flag(boma, *WEAPON_PICKEL_RAIL_INSTANCE_WORK_ID_FLAG_IS_LEFT) {
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("pickel_torch"), Hash40::new("top"), -2.75, 0, 8, 0, 0, 0, 1, false);
+                LAST_EFFECT_SET_WORK_INT(agent, *WEAPON_PICKEL_RAIL_INSTANCE_WORK_ID_INT_TORCH_EFFECT_ID);
+            }
+            else{
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("pickel_torch"), Hash40::new("top"), 2.75, 0, 8, 0, 0, 0, 1, false);
+                LAST_EFFECT_SET_WORK_INT(agent, *WEAPON_PICKEL_RAIL_INSTANCE_WORK_ID_INT_TORCH_EFFECT_ID);
+            }
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_specialsrailpromotion(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_special_s03"));
+    }
+}

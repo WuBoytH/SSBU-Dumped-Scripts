@@ -1,0 +1,33 @@
+unsafe extern "C" fn game_visualscene02(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_79_vs_b02"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_79_vs_b02"), 0);
+        WorkModule::set_int64(boma, hash40("visual_scene_02") as i64, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_INT_ESWORD_INHERIT_OPEN_MOTION_KIND);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene02(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("elight_final_sword_beam"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
+    }
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("elight_final_head_light"), Hash40::new("head"), 1.5, 1.2, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("elight_final_sword_light_start"), Hash40::new("sword1"), 4.5, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("elight_final_sword_light"), Hash40::new("sword1"), 4.5, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("elight_final_lens_flare"), Hash40::new("sword1"), 4, 0, 0, 0, 0, 0, 0.3, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene02(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_elight_final02_02"));
+    }
+}

@@ -1,0 +1,57 @@
+unsafe extern "C" fn game_speciallw2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_MURABITO_INSTANCE_WORK_ID_FLAG_WATER);
+    }
+    frame(lua_state, 31.0);
+    if is_excute(agent) {
+        WorkModule::off_flag(boma, *FIGHTER_MURABITO_INSTANCE_WORK_ID_FLAG_WATER);
+    }
+}
+
+unsafe extern "C" fn effect_speciallw2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("murabito_water"), Hash40::new("top"), 0, 2, 7, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 31.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("murabito_water"), false, false);
+    }
+}
+
+unsafe extern "C" fn sound_speciallw2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_murabito_special_l02"));
+    }
+}
+
+unsafe extern "C" fn expression_speciallw2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("item") as i64, hash40("item_sprinkling") as i64);
+    }
+    frame(lua_state, 4.0);
+    for _ in 0..5 {
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 30, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(lua_state, 7.0);
+}
+frame(lua_state, 47.0);
+if is_excute(agent) {
+    VisibilityModule::set_int64(boma, hash40("item") as i64, hash40("item_none") as i64);
+}
+}

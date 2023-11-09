@@ -1,0 +1,53 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_BAYONETTA_FINAL_FINISH, 0, 10.0, 361, 40, 0, 90, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        WorkModule::on_flag(boma, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_FLAG_ABS_SET);
+        PostureModule::scale(boma, 1, 0);
+        0x1cb400(-460198162, 2.5);
+        CAM_ZOOM_IN_FINAL(agent, 0, 0, 0, 0, 160, true, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_INT_SELF_BATTLE_OBJECT_ID, 0);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        SlowModule::set_whole(boma, 4, 0);
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        SlowModule::clear_whole(boma);
+    }
+    frame(lua_state, 25.0);
+    if is_excute(agent) {
+        CAM_ZOOM_OUT(agent);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_FLAG_RESTART_OTHER_FIGHTER);
+    }
+    frame(lua_state, 50.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_FLAG_FINAL_END_AFTER);
+    }
+}
+
+unsafe extern "C" fn sound_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+    }
+}
+
+unsafe extern "C" fn expression_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x25fd66ecef), 0, -1, 0);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x25fd66ecef), 30, 0, 1);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

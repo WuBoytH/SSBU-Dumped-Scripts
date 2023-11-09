@@ -1,0 +1,42 @@
+unsafe extern "C" fn effect_trailspecialn1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("trail_sword_fire"), Hash40::new("haver"), 0, 0, 0, -90, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -1.5, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_impact"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_impact"), Hash40::new("haver"), 0, 10, -1, -90, 180, 0, 1, true);
+        }
+    }
+}
+frame(agent.lua_state_agent, 13.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_DETACH_KIND(agent, Hash40::new("trail_fire_shot"), -1);
+    macros::EFFECT_DETACH_KIND(agent, Hash40::new("trail_sword_fire"), -1);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_sword_fire"), false, true);
+}
+}
+
+unsafe extern "C" fn sound_trailspecialn1(agent: &mut L2CAgentBase) {
+    if(0x543c60(*FIGHTER_TRAIL_STATUS_SPECIAL_N1_INT_SHOOT, 1)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_kirby_copy_trail_special_n01"));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_trailspecialn1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_special_n1"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

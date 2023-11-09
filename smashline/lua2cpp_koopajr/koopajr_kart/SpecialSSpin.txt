@@ -1,0 +1,47 @@
+unsafe extern "C" fn effect_specialsspin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, 3.8, 0, 0, -95, 0.8, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        }
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
+    }
+    else{
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, -3.8, 0, 0, -95, 0.8, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}
+frame(agent.lua_state_agent, 17.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
+}
+}
+
+unsafe extern "C" fn sound_specialsspin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02"));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02_01"));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02_02"));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02_03"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_koopajr_special_s03"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_koopajr_special_s07"));
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_koopajr_special_s06"));
+    }
+    wait(agent.lua_state_agent, 42.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s07"));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02_01"));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02_02"));
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_special_s05"));
+    }
+}

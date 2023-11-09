@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_scopeairrapidfly3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
+        if macros::is_excute(agent) {
+            macros::SHOOT_ITEM_BULLET(agent);
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_scopeairrapidfly3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_dedede_jump02"));
+            WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND);
+        }
+    }
+}
+
+unsafe extern "C" fn expression_scopeairrapidfly3(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+}

@@ -1,0 +1,14 @@
+unsafe extern "C" fn game_lockon03(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 58.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_FOX_ARWING_STATUS_WORK_FLAG_SET_DEPTH_OFFSET);
+    }
+}
+
+unsafe extern "C" fn effect_lockon03(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("fox_final_jet"), Hash40::new("jet1"), 0, 1, -22, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("fox_entry"), Hash40::new("wingr2"), 8, 10, 0, 0, -30, 90, 0.8, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("fox_entry"), Hash40::new("wingl2"), -8, -10, 0, 0, 20, 90, 0.8, true);
+    }
+}

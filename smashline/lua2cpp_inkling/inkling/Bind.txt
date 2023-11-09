@@ -1,0 +1,28 @@
+unsafe extern "C" fn effect_bind(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("sys_piyopiyo"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1.2, true);
+    }
+}
+
+unsafe extern "C" fn sound_bind(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_common_dizzy"));
+        macros::PLAY_SE(agent, Hash40::new("vc_inkling_furafura"));
+    }
+}
+
+unsafe extern "C" fn expression_bind(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_BindRumble()();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_furafura"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

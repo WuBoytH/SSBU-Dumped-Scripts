@@ -1,0 +1,16 @@
+unsafe extern "C" fn sound_specialairhidamage(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_diddy_special_h03"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairhidamage(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, *ATTACH_ITEM_GROUP_BACK);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("barrel") as i64, hash40("barrel_visible") as i64);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("barrel") as i64, hash40("barrel_invisible") as i64);
+    }
+}

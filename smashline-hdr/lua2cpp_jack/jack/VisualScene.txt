@@ -1,0 +1,158 @@
+unsafe extern "C" fn game_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 76.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_FINAL_FLAG_TARGET_VIS_ON);
+        FT_START_CUTIN_JACK_FINAL(agent);
+    }
+    frame(lua_state, 100.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_FINAL_FLAG_SCENE_DAMAGE_REQUEST);
+    }
+    frame(lua_state, 117.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_FINAL_FLAG_SCENE_DAMAGE_REQUEST);
+    }
+    frame(lua_state, 134.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_FINAL_FLAG_SCENE_DAMAGE_REQUEST);
+    }
+    frame(lua_state, 151.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_FINAL_FLAG_SCENE_DAMAGE_REQUEST);
+    }
+    frame(lua_state, 168.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_FINAL_FLAG_SCENE_DAMAGE_REQUEST);
+    }
+    frame(lua_state, 185.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_FINAL_FLAG_SCENE_DAMAGE_REQUEST);
+    }
+    frame(lua_state, 195.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_FINAL_FLAG_SCENE_DAMAGE_REQUEST);
+    }
+    frame(lua_state, 200.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_JACK_STATUS_FINAL_FLAG_SCENE01_SYNC);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EffectModule::remove_screen(boma, Hash40::new("bg_jack_final"), -1);
+        CANCEL_FILL_SCREEN(agent, 0, 0);
+        CANCEL_FILL_SCREEN(agent, 1, 0);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_jack_final02_1"));
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_jack_final02_2"));
+    }
+    frame(lua_state, 37.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_jack_final02_3"));
+    }
+    frame(lua_state, 81.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_jack_final02_4"));
+    }
+    frame(lua_state, 92.0);
+    if(0x304a00(*FIGHTER_JACK_STATUS_FINAL_INT_CUT_IN_INDEX, 0)){
+        if is_excute(agent) {
+            PLAY_SE_NO_3D(agent, Hash40::new("vc_jack_003_final01"));
+        }
+        else{
+        if(0x304a00(*FIGHTER_JACK_STATUS_FINAL_INT_CUT_IN_INDEX, 1)){
+            if is_excute(agent) {
+                PLAY_SE_NO_3D(agent, Hash40::new("vc_jack_003_final02"));
+            }
+            else{
+            if(0x304a00(*FIGHTER_JACK_STATUS_FINAL_INT_CUT_IN_INDEX, 2)){
+                if is_excute(agent) {
+                    PLAY_SE_NO_3D(agent, Hash40::new("vc_jack_003_final03"));
+                }
+                else{
+                if(0x304a00(*FIGHTER_JACK_STATUS_FINAL_INT_CUT_IN_INDEX, 3)){
+                    if is_excute(agent) {
+                        PLAY_SE_NO_3D(agent, Hash40::new("vc_jack_006_final01"));
+                    }
+                    else{
+                    if(0x304a00(*FIGHTER_JACK_STATUS_FINAL_INT_CUT_IN_INDEX, 4)){
+                        if is_excute(agent) {
+                            PLAY_SE_NO_3D(agent, Hash40::new("vc_jack_006_final02"));
+                        }
+                        else{
+                        if(0x304a00(*FIGHTER_JACK_STATUS_FINAL_INT_CUT_IN_INDEX, 5)){
+                            if is_excute(agent) {
+                                PLAY_SE_NO_3D(agent, Hash40::new("vc_jack_006_final03"));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
+}
+}
+}
+frame(lua_state, 194.0);
+if is_excute(agent) {
+STOP_SE(agent, Hash40::new("se_jack_final02_4"));
+PLAY_SE(agent, Hash40::new("se_jack_final02_5"));
+}
+}
+
+unsafe extern "C" fn expression_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_erase_sp"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_erase_sp"), 0);
+    }
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_nohits"), 3);
+    }
+    frame(lua_state, 25.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_nohits"), 3);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_nohits"), 0);
+    }
+    frame(lua_state, 80.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_kirifuda"), 29, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_kirifuda"), 29);
+    }
+    frame(lua_state, 110.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_spinattack"), 80, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_visual"), 80);
+    }
+    frame(lua_state, 196.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_beaml"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_beaml"), 0);
+    }
+}

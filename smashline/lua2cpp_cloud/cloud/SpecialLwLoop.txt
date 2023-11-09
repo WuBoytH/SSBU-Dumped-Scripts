@@ -1,0 +1,21 @@
+unsafe extern "C" fn effect_speciallwloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("cloud_limitcharge_hold"), false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("cloud_limitcharge_hold"), Hash40::new("top"), 1, 10, 0, 0, 0, 0, 1, true);
+    }
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("cloud_limitcharge_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 9.0);
+}
+
+unsafe extern "C" fn expression_speciallwloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        AREA_WIND_2ND_arg10(0, 0.2, 210, 2, 0.1, 0, 13, 40, 26, 10);
+    }
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 4, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(agent.lua_state_agent, 8.0);
+}

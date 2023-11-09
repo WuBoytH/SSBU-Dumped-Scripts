@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_specialn3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_SPECIAL_N3_FLAG_GENERATE_ENABLE);
+    }
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_SPECIAL_N3_FLAG_GENERATE_OBJECT_FALL);
+    }
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_SPECIAL_N3_FLAG_GENERATE_OBJECT);
+    }
+}
+
+unsafe extern "C" fn expression_specialn3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_77_block"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_specialswheelieend(agent: &mut L2CAgentBase) {
+    macros::FT_MOTION_RATE(agent, 0.6);
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_WARIO_STATUS_SPECIAL_S_FLAG_WHEELIE_END);
+    }
+}
+
+unsafe extern "C" fn sound_specialswheelieend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_wario_special_s06"));
+    }
+}
+
+unsafe extern "C" fn expression_specialswheelieend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

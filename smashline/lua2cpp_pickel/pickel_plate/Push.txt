@@ -1,0 +1,13 @@
+unsafe extern "C" fn game_push(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_PICKEL_PLATE_INSTANCE_WORK_ID_FLAG_IGNITION);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_77_attacks"), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}
+
+unsafe extern "C" fn sound_push(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pickel_special_l05"));
+    }
+}

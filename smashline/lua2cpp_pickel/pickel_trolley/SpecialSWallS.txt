@@ -1,0 +1,42 @@
+unsafe extern "C" fn game_specialswalls(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        WorkModule::off_flag(agent.module_accessor, *WEAPON_PICKEL_TROLLEY_INSTANCE_WORK_ID_FLAG_NO_ATTACK_HIT_MOTION);
+    }
+}
+
+unsafe extern "C" fn effect_specialswalls(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *WEAPON_PICKEL_TROLLEY_INSTANCE_WORK_ID_FLAG_IS_WALL_LEFT) {
+        if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if macros::is_excute(agent) {
+                macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 3, 6.5, -90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+            }
+            else{
+            if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+                if macros::is_excute(agent) {
+                    macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 3, -6.5, 90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+                }
+                else{
+                if macros::is_excute(agent) {
+                    macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 3, -6.5, 90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+                }
+                else{
+                if macros::is_excute(agent) {
+                    macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 3, 6.5, -90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+                }
+            }
+        }
+    }
+}
+}
+}
+if macros::is_excute(agent) {
+macros::LAST_EFFECT_SET_RATE(agent, 1.3);
+}
+}
+
+unsafe extern "C" fn sound_specialswalls(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pickel_special_s06"));
+    }
+}

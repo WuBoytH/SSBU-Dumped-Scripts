@@ -1,0 +1,38 @@
+unsafe extern "C" fn game_specialhibound(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        SET_AIR(agent);
+    }
+}
+
+unsafe extern "C" fn effect_specialhibound(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("wolf_shoot_sub"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("wolf_shoot"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("wolf_smash_line"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("wolf_atk_impact"), true, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialhibound(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_DOWN_SE(agent, Hash40::new("se_common_down_soil_s"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhibound(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+    }
+}

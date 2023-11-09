@@ -1,0 +1,13 @@
+unsafe extern "C" fn game_itemlightwalkget(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT);
+    }
+}
+
+unsafe extern "C" fn expression_itemlightwalkget(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+    }
+}

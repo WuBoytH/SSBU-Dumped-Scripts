@@ -1,0 +1,16 @@
+unsafe extern "C" fn sound_metaknightspecialnspin(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::REG_LANDING_SE(agent, Hash40::new("se_metaknight_landing02"));
+    }
+}
+
+unsafe extern "C" fn expression_metaknightspecialnspin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_slashl"), 10);
+    }
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_27_spinslash"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(agent.lua_state_agent, 15.0);
+}

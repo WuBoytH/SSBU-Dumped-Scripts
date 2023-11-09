@@ -1,0 +1,89 @@
+unsafe extern "C" fn effect_ganonspecialairnturn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ganon_majinken_start"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 34.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("ganon_majinken_flash"), Hash40::new("haver"), 2, 1, 0, 0, 0, 0, 1, true);
+        }
+    }
+    frame(agent.lua_state_agent, 64.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ganon_majinken_hold"), Hash40::new("haver"), 2, 1, 0, 0, 0, 0, 1, true);
+    }
+    else{
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ganon_majinken_flash"), Hash40::new("haver"), -2, 1, 0, 0, 0, 0, 1, true);
+    }
+}
+frame(agent.lua_state_agent, 64.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("ganon_majinken_hold"), Hash40::new("haver"), -2, 1, 0, 0, 0, 0, 1, true);
+}
+frame(agent.lua_state_agent, 70.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FLW_POS(agent, Hash40::new("ganon_majinken"), Hash40::new("top"), 0, 6, -15, 0, 0, 0, 1, true);
+}
+}
+
+unsafe extern "C" fn sound_ganonspecialairnturn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_ganon_special_n01"));
+        macros::PLAY_SE(agent, Hash40::new("se_ganon_special_n01"));
+    }
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_ganon_special_n01"));
+        macros::PLAY_SE(agent, Hash40::new("se_ganon_special_n02"));
+    }
+}
+
+unsafe extern "C" fn expression_ganonspecialairnturn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        AREA_WIND_2ND_arg10(0, 2, 75, 2, 1, 0, 12, 50, 30, 50);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_23_hold"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 56.0);
+    if macros::is_excute(agent) {
+        AreaModule::erase_wind(agent.module_accessor, 0);
+    }
+    frame(agent.lua_state_agent, 64.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 68.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attack_critical"), 0);
+    }
+    frame(agent.lua_state_agent, 71.0);
+    if macros::is_excute(agent) {
+        AREA_WIND_2ND_arg10(0, 3, 120, 2, 1, 0, 12, 50, 30, 0);
+    }
+    frame(agent.lua_state_agent, 101.0);
+    if macros::is_excute(agent) {
+        AreaModule::erase_wind(agent.module_accessor, 0);
+    }
+}

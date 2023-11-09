@@ -1,0 +1,27 @@
+unsafe extern "C" fn effect_sheikspecialnloop(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sheik_shikomibari"), Hash40::new("havel"), 2, 0, 1.5, 0, 0, 0, 0.8, false);
+    }
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -7, 0, 0, 0, 0, 0, 0.6, 8, 0, 8, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 8.0);
+}
+
+unsafe extern "C" fn sound_sheikspecialnloop(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 1.0);
+    macros::PLAY_SE(agent, 0x14d690ec1c);
+}
+
+unsafe extern "C" fn expression_sheikspecialnloop(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 3, true, *BATTLE_OBJECT_ID_INVALID as u32);
+}

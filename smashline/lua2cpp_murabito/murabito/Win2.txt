@@ -1,0 +1,46 @@
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("murabito_result_soil"), Hash40::new("top"), 0, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 44.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("murabito_clay"), Hash40::new("top"), 0, 0, 5, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.85);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 5, 0, 90, 0, 0.4, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 49.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("murabito_clay"), Hash40::new("top"), 0, 0, 5, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.9);
+    }
+    frame(agent.lua_state_agent, 53.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("murabito_clay"), Hash40::new("top"), 0, 0, 5, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 129.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("murabito_result_soil"), true, true);
+    }
+}
+
+unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_murabito_smash_l02"));
+    }
+    frame(agent.lua_state_agent, 79.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_murabito_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_win2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_FURNITURE, false, -1);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("item") as i64, hash40("item_shovel") as i64);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_FURNITURE, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_FURNITURE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_FURNITURE, Hash40::new("furniture"), Hash40::new("02"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

@@ -1,0 +1,32 @@
+unsafe extern "C" fn effect_specialairncharge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 0.588, 0.588);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 0.588, 0.588);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 6.0);
+}
+
+unsafe extern "C" fn sound_specialairncharge(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_koopajr_special_n02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairncharge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("tarap") as i64, hash40("tarap_off") as i64);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

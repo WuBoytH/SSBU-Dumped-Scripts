@@ -1,0 +1,131 @@
+unsafe extern "C" fn game_specialnspitb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 5.0, 361, 100, 0, 0, 1.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        MotionModule::set_rate(boma, 1.4);
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        MotionModule::set_rate(boma, 1.25);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 12.0, 42, 48, 0, 75, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+    }
+    frame(lua_state, 13.0);
+    if is_excute(agent) {
+        MotionModule::set_rate(boma, 1);
+    }
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        REVERSE_LR(agent);
+    }
+    frame(lua_state, 21.0);
+    if is_excute(agent) {
+        CHECK_FINISH_CAMERA(agent, 0, 0);
+    }
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_KROOL_STATUS_SPECIAL_N_FLAG_SPIT);
+        let target = WorkModule::get_int64(boma, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_OBJECT);
+        let target_group = WorkModule::get_int64(boma, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_GROUP);
+        let target_no = WorkModule::get_int64(boma, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_NO);
+        ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), target, target_group, target_no);
+        WorkModule::on_flag(boma, *FIGHTER_KROOL_STATUS_SPECIAL_N_FLAG_SHOOT_IRONBALL);
+    }
+}
+
+unsafe extern "C" fn effect_specialnspitb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("krool_cannon_shot"), Hash40::new("haver"), 0, 2, 25, 0, 0, 0, 1.3, true);
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("krool_cannon_shot"), -1);
+    }
+}
+
+unsafe extern "C" fn sound_specialnspitb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_krool_special_n10"));
+    }
+    frame(lua_state, 20.0);
+    WorkModule::is_flag(boma, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_N_SUCTION_IRONBALL);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_krool_special_n05"));
+        }
+    }
+    frame(lua_state, 23.0);
+    WorkModule::is_flag(boma, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_N_SUCTION_IRONBALL);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        if(0x124880(*FIGHTER_KROOL_STATUS_SPECIAL_N_WORK_INT_OPPONENT_REACTION_FRAME, 40)){
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("se_krool_special_n11"));
+            }
+            else{
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("se_krool_special_n06"));
+            }
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_specialnspitb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_int64(boma, hash40("crown") as i64, hash40("crown_hide") as i64);
+    }
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_KROOL_GENERATE_ARTICLE_PIRATEHAT) {
+        if is_excute(agent) {
+            ArticleModule::set_visibility_whole(boma, *FIGHTER_KROOL_GENERATE_ARTICLE_PIRATEHAT, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+    frame(lua_state, 23.0);
+    WorkModule::is_flag(boma, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_N_SUCTION_IRONBALL);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        }
+        else{
+        if is_excute(agent) {
+            QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        }
+    }
+}
+if is_excute(agent) {
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}
+frame(lua_state, 60.0);
+if is_excute(agent) {
+    VisibilityModule::set_int64(boma, hash40("crown") as i64, hash40("crown_normal") as i64);
+}
+if IS_EXIST_ARTICLE(agent, *FIGHTER_KROOL_GENERATE_ARTICLE_PIRATEHAT) {
+    if is_excute(agent) {
+        ArticleModule::set_visibility_whole(boma, *FIGHTER_KROOL_GENERATE_ARTICLE_PIRATEHAT, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}
+frame(lua_state, 70.0);
+if is_excute(agent) {
+    ItemModule::set_have_item_visibility(boma, true, 0);
+    notify_event_msc_cmd!(agent, Hash40::new_raw(0x23c33f3bdc));
+}
+}

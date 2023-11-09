@@ -1,0 +1,17 @@
+unsafe extern "C" fn game_itemlightwalkeat(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+    }
+    frame(false, 6);
+    if macros::is_excute(agent) {
+        ItemModule::use_item(agent.module_accessor, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);
+    }
+}
+
+unsafe extern "C" fn expression_itemlightwalkeat(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+    }
+}

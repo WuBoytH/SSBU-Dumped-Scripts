@@ -1,0 +1,59 @@
+unsafe extern "C" fn game_attackairhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("mouth"), 10.0, 85, 104, 0, 40, 6.0, 2.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_HEAD);
+        macros::HIT_NODE(agent, Hash40::new("mouth"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("lipu3"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("lipd3"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("neck6"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("neck8"), *HIT_STATUS_XLU);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+        macros::HIT_NODE(agent, Hash40::new("mouth"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("lipu3"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("lipd3"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("neck6"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("neck8"), *HIT_STATUS_NORMAL);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
+    }
+}
+
+unsafe extern "C" fn effect_attackairhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 7.5, -0.5, 0, 290, -110, 1.15, true, *EF_FLIP_YZ);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.8);
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("sys_attack_arc_b"), Hash40::new("sys_attack_arc_b"), Hash40::new("top"), 0, 7.5, -0.5, 0, 280, -110, 1.45, true, *EF_FLIP_YZ);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_attack_arc_d"), true, true);
+    }
+}
+
+unsafe extern "C" fn sound_attackairhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_packun_attackair_h01"));
+    }
+}
+
+unsafe extern "C" fn expression_attackairhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
+    }
+}

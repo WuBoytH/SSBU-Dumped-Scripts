@@ -1,0 +1,81 @@
+unsafe extern "C" fn game_specialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_ROBOT_STATUS_BEAM_FLAG_NECK_CONTROL);
+    }
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_ROBOT_STATUS_BEAM_FLAG_NECK_CONTROL);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_ROBOT_STATUS_BEAM_FLAG_SHOOT);
+        macros::ATTACK(agent, 0, 0, Hash40::new("head1"), 7.0, 361, 95, 0, 40, 7.0, 0.0, 7.0, 1.2, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_ENERGY);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_ROBOT_STATUS_BEAM_FLAG_NECK_RETURN);
+    }
+}
+
+unsafe extern "C" fn effect_specialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("robot_robobeam"), Hash40::new("head1"), 1.5, 3.75, 0.0, -97.5, -90, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 0.376, 0.502, 0.314);
+    }
+    frame(agent.lua_state_agent, 25.0);
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_ROBOT_STATUS_BEAM_WORK_FLOAT_ENERGY_VALUE);
+    WorkModule::get_param_float(agent.module_accessor, -460405772, Hash40::new("param_special_n"), Hash40::new("miss_shoot_energy"));
+    if(0x1050b0(144)){
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("robot_robobeam_shot"), Hash40::new("head1"), 0, 2, 0.0, -97.5, -90, 0, 1, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("robot_robobeam_miss"), Hash40::new("head1"), 1.5, 3.75, 0.0, -97.5, -90, 0, 1, true);
+        }
+    }
+}
+frame(agent.lua_state_agent, 26.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
+}
+}
+
+unsafe extern "C" fn expression_specialairn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TPART);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE);
+    WorkModule::get_param_float(agent.module_accessor, -460405772, Hash40::new("param_special_n"), Hash40::new("strong_shoot_energy"));
+    if(0x1050b0(1427104)){
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beaml"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        else{
+        WorkModule::get_float(agent.module_accessor, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE);
+        WorkModule::get_param_float(agent.module_accessor, -460405772, Hash40::new("param_special_n"), Hash40::new("miss_shoot_energy"));
+        if(0x1050b0(304)){
+            if macros::is_excute(agent) {
+                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            }
+            else{
+            if macros::is_excute(agent) {
+                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_blank"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            }
+        }
+    }
+}
+}
+frame(agent.lua_state_agent, 25.0);
+if macros::is_excute(agent) {
+macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+macros::RUMBLE_HIT(agent, Hash40::new("rbkind_explosion"), 0);
+}
+}

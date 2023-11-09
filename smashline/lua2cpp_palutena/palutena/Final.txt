@@ -1,0 +1,114 @@
+unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
+    macros::FT_MOTION_RATE(agent, 0.8);
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 13, 0, 0);
+        macros::SLOW_OPPONENT(agent, 6, 85);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04final.nuanmb"), false, false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            PostureModule::scale(agent.module_accessor, 10, 0);
+            0xee630(-748688718, 2);
+            CAM_ZOOM_IN_arg5(0, 0);
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
+            macros::FT_START_CUTIN(agent);
+        }
+    }
+}
+frame(agent.lua_state_agent, 40.0);
+if macros::is_excute(agent) {
+    macros::CAM_ZOOM_OUT(agent);
+}
+frame(agent.lua_state_agent, 70.0);
+if macros::is_excute(agent) {
+    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 25, -10, 10, -15);
+}
+frame(agent.lua_state_agent, 90.0);
+macros::FT_MOTION_RATE(agent, 0.4);
+}
+
+unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_palutena_final"), false, false, false);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_POS(agent, Hash40::new("palutena_final_ripple"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_POS(agent, Hash40::new("palutena_final_ripple"), Hash40::new("footl"), 0, 0, 0, 0, 180, 0, 1, true);
+        }
+    }
+}
+if macros::is_excute(agent) {
+    macros::EFFECT_FLW_POS(agent, Hash40::new("palutena_final_flash"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, true);
+    macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_final_backlight"), Hash40::new("bust"), 7, 0, 0, 0, -90, -90, 1, false, 1);
+}
+frame(agent.lua_state_agent, 10.0);
+get_value_float(*SO_VAR_FLOAT_LR);
+0xee630(0, 0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_final_backlight"), false, false);
+    macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_final_backlight"), Hash40::new("bust"), 7, 0, 0, 0, -90, -90, 1, false, 1);
+}
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_final_wand_light"), Hash40::new("stick"), 0, 8.65, 0, 0, 0, 0, 1, true);
+}
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_final_backlight"), false, false);
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_final_backlight"), Hash40::new("bust"), 7, 0, 0, 0, -90, -90, 1, false, 1);
+    }
+}
+frame(agent.lua_state_agent, 135.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_final_gliderjump"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.5, false);
+}
+}
+
+unsafe extern "C" fn sound_final(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_palutena_final01"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_palutena_final01"));
+    }
+    wait(agent.lua_state_agent, 85.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_palutena_final02"));
+    }
+    frame(agent.lua_state_agent, 142.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_palutena_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_final(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 80.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 108.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 140.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,86 @@
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 14.0);
+    for _ in 0..2 {
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_spin_wind"), Hash40::new("hammer2"), 1, 0, 0, 0, 0, 89, 1, true, 0.3);
+    }
+    wait(lua_state, 10.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_spin_wind"), Hash40::new("hammer2"), -5, 0, 0, 0, 0, 89, 0.75, true, 0.3);
+    }
+    wait(lua_state, 10.0);
+}
+frame(lua_state, 60.0);
+if is_excute(agent) {
+    EFFECT_FOLLOW(agent, Hash40::new("dedede_jethammer_hold2"), Hash40::new("hammer2"), 0, 0, 7, 0, 0, 0, 0.7, true);
+}
+frame(lua_state, 67.0);
+for _ in 0..2 {
+if is_excute(agent) {
+    EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_spin_wind"), Hash40::new("hammer2"), -3, 0, 0, 0, 0, -90, 1, true, 0.3);
+}
+wait(lua_state, 10.0);
+if is_excute(agent) {
+    EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_spin_wind"), Hash40::new("hammer2"), 4, 0, 0, 0, 0, -90, 0.75, true, 0.3);
+}
+wait(lua_state, 10.0);
+}
+frame(lua_state, 120.0);
+if is_excute(agent) {
+EFFECT_FOLLOW(agent, Hash40::new("dedede_jethammer_hold_win"), Hash40::new("hammer2"), 0, 0, 2, 0, 90, 0, 1.4, true);
+}
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dedede_attack100_win03"));
+    }
+    frame(lua_state, 32.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_dedede_attack100_win03"));
+    }
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dedede_hammer_swing_s_win03"));
+    }
+    frame(lua_state, 54.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dedede_attack100_win03"));
+    }
+    frame(lua_state, 86.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_dedede_attack100_win03"));
+    }
+    frame(lua_state, 87.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dedede_special_l01_win03"));
+    }
+    frame(lua_state, 115.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_dedede_landing02_win03"));
+        PLAY_SE(agent, Hash40::new("se_dedede_hammer_swing_s_win03"));
+    }
+}
+
+unsafe extern "C" fn expression_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER) {
+        if is_excute(agent) {
+            ArticleModule::remove_exist(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, false, -1);
+        ArticleModule::change_motion(boma, *FIGHTER_DEDEDE_GENERATE_ARTICLE_JETHAMMER, Hash40::new("win_3"), false, -1.0);
+    }
+    frame(lua_state, 76.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("hammer") as i64, hash40("hammer_disp_off") as i64);
+    }
+}

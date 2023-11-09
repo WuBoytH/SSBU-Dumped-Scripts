@@ -1,0 +1,106 @@
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 30.0);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -46.2, 0, -29.63, 0, -31.5, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+        else{
+        if is_excute(agent) {
+            FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -46.2, 0, -29.63, 0, 31.5, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+}
+frame(lua_state, 38.0);
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -28.3, 0, -19, 0, -35, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    else{
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -28.3, 0, -19, 0, 35, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+}
+frame(lua_state, 45.0);
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+if is_excute(agent) {
+    FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -14.9, 0, -12.15, 0, -40, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+else{
+if is_excute(agent) {
+    FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -14.9, 0, -12.15, 0, 40, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+}
+}
+frame(lua_state, 55.0);
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+if is_excute(agent) {
+FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, -3, 0, -45, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+else{
+if is_excute(agent) {
+FOOT_EFFECT(agent, 0x0ec090466b, Hash40::new("top"), 0, 0, -3, 0, 45, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+}
+}
+frame(lua_state, 80.0);
+if is_excute(agent) {
+EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("toel"), 1, -4, -1, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, true);
+LAST_EFFECT_SET_RATE(agent, 2);
+}
+frame(lua_state, 84.0);
+if is_excute(agent) {
+EFFECT_FOLLOW_FLIP_ALPHA(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("sys_attack_arc_d"), Hash40::new("top"), -2, 4.5, -1, -10, 30, 160, 0.6, true, *EF_FLIP_YZ, 0.4);
+LAST_EFFECT_SET_RATE(agent, 3);
+}
+frame(lua_state, 85.0);
+if is_excute(agent) {
+EFFECT(agent, Hash40::new("duckhunt_target_impact"), Hash40::new("top"), -10.5, 5, 3.5, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+LAST_EFFECT_SET_RATE(agent, 1.5);
+}
+}
+
+unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_step_left_ll_win02"));
+    }
+    frame(lua_state, 26.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_step_right_ll_win02"));
+    }
+    frame(lua_state, 35.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_step_left_ll_win02"));
+    }
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_dash_turn_win02"));
+    }
+    frame(lua_state, 71.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_jump01_win02"));
+    }
+    frame(lua_state, 85.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_special_n01_win02"));
+    }
+    frame(lua_state, 120.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_escapeair_win02"));
+    }
+}
+
+unsafe extern "C" fn expression_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
+        ArticleModule::remove_exist(boma, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GUNMAN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::generate_article(boma, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_CAN, false, -1);
+    }
+}

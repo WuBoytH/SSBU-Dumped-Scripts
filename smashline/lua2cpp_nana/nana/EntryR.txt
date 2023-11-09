@@ -1,0 +1,55 @@
+unsafe extern "C" fn game_entryr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_CONDOR, true, -1);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_CONDOR, Hash40::new("entry_r"), false, -1.0);
+    }
+}
+
+unsafe extern "C" fn effect_entryr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 48.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_entryr(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA) {
+        frame(agent.lua_state_agent, 16.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_popo_landing02"));
+        }
+        else{
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_popo_appear01"));
+        }
+        frame(agent.lua_state_agent, 42.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_popo_appear01"));
+        }
+        frame(agent.lua_state_agent, 45.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_LANDING_SE(agent, Hash40::new("se_popo_landing02"));
+        }
+        frame(agent.lua_state_agent, 72.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_popo_appear02"));
+        }
+        frame(agent.lua_state_agent, 75.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_popo_appear01_02"));
+        }
+        frame(agent.lua_state_agent, 106.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_popo_appear01_03"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 108.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_L, 4);
+    }
+}

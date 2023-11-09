@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_win1wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_TOONLINK_GENERATE_ARTICLE_TAKT, false, -1);
+        ArticleModule::change_motion(boma, *FIGHTER_TOONLINK_GENERATE_ARTICLE_TAKT, Hash40::new("win1_wait"), false, -1.0);
+    }
+}
+
+unsafe extern "C" fn effect_win1wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("toonlink_appeal_twinkle"), false, false);
+    }
+}
+
+unsafe extern "C" fn expression_win1wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("shield") as i64, hash40("shield_back") as i64);
+        VisibilityModule::set_int64(boma, hash40("sword") as i64, hash40("sword_back") as i64);
+    }
+}

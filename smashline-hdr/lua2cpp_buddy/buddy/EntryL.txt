@@ -1,0 +1,88 @@
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ColorBlendModule::set_disable_camera_depth_influence(boma, true);
+        EFFECT(agent, Hash40::new("buddy_entry"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        FLASH(agent, 0, 0, 0, 0.7);
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 12, 0, 0, 0, 0);
+    }
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 0.8);
+        COL_NORMAL(agent);
+        EFFECT_FOLLOW_WORK(agent, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_SCATTER, Hash40::new("top"), 0, 14, 0, 0, 0, 20, 0.7, true);
+        LAST_EFFECT_SET_RATE(agent, 0.6);
+        EFFECT_FOLLOW_WORK(agent, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, Hash40::new("top"), 0, 14, 0, 0, 0, 0, 0.5, true);
+        LAST_EFFECT_SET_RATE(agent, 0.6);
+    }
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND_WORK(agent, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, false, true);
+    }
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND_WORK(agent, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_SCATTER, false, true);
+        ColorBlendModule::set_disable_camera_depth_influence(boma, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_appear01"));
+        PLAY_SE(agent, Hash40::new("se_buddy_appear01_02"));
+    }
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_landing01"));
+    }
+    frame(lua_state, 24.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_step_left_m"));
+    }
+    frame(lua_state, 26.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_appear02"));
+    }
+    frame(lua_state, 41.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_appeal_l01"));
+    }
+    frame(lua_state, 62.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_appear03"));
+    }
+    frame(lua_state, 74.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_appeal_l02"));
+    }
+    frame(lua_state, 102.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_special_n04_01"));
+    }
+    frame(lua_state, 119.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_buddy_special_n04_02"));
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+}

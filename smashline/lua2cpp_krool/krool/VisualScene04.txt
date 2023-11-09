@@ -1,0 +1,104 @@
+unsafe extern "C" fn game_visualscene04(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_KROOL_FINAL, 0, 25.0, 361, 80, 1, 90, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, true);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        SlowModule::set_whole(agent.module_accessor, 4, 0);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        SlowModule::clear_whole(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_KROOL_STATUS_WORK_ID_FLAG_FINAL_VISUAL_SCENE_04_DAMAGE);
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        SlowModule::set_whole(agent.module_accessor, 2, 0);
+    }
+    frame(agent.lua_state_agent, 55.0);
+    if macros::is_excute(agent) {
+        SlowModule::clear_whole(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene04(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_final_charge_b"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_final_impact"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_final_beam_a"), true, true);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("krool_final_beam_c"), Hash40::new("top"), 0, 0, -100, 1.5, 188, 0, 30, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.1);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("krool_final_beam_b"), Hash40::new("top"), 0, 0, -100, 1.5, 188, 0, 30, true);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("krool_final_dust"), Hash40::new("top"), 50, -50, -2700, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.35);
+        macros::EFFECT(agent, Hash40::new("krool_final_light"), Hash40::new("top"), 50, -50, -2800, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("krool_final_bomb"), Hash40::new("top"), 50, -50, -2800, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("krool_final_bomb_flash"), Hash40::new("top"), 50, -50, -2800, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("krool_final_screen"), Hash40::new("top"), 0, 0, -3000, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("krool_final_hit"), Hash40::new("top"), 0, 0, -3600, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.5);
+        macros::EFFECT(agent, Hash40::new("krool_final_hit_a"), Hash40::new("top"), 0, 0, -3800, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, true);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 20, 0, 0, 0, 0, 0, 0, 1, 1, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_final_beam_b"), false, true);
+    }
+    frame(agent.lua_state_agent, 85.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("krool_final_bomb_flash"), Hash40::new("top"), 100, -50, -2800, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 90.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("krool_final_explosion"), Hash40::new("top"), 50, -50, -2800, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("krool_final_debris"), Hash40::new("top"), 0, 0, -3000, 0, 180, 0, 15, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene04(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_krool_final07"));
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_krool_final08"));
+    }
+    frame(agent.lua_state_agent, 82.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_krool_final09"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene04(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_loopattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_loopattack"), 0);
+    }
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_erase"), 0);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beamm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_beamm"), 0);
+    }
+    frame(agent.lua_state_agent, 93.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_explosionl"), 0);
+    }
+}

@@ -1,0 +1,16 @@
+unsafe extern "C" fn game_win3wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::remove(boma, *FIGHTER_TOONLINK_GENERATE_ARTICLE_PIG);
+    }
+}
+
+unsafe extern "C" fn expression_win3wait(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("shield") as i64, hash40("shield_back") as i64);
+        VisibilityModule::set_int64(boma, hash40("sword") as i64, hash40("sword_back") as i64);
+    }
+}

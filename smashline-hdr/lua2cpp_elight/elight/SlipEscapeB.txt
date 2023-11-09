@@ -1,0 +1,46 @@
+unsafe extern "C" fn effect_slipescapeb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_slipescapeb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_elight_step_left_s"));
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_elight_escape"));
+    }
+    frame(lua_state, 23.0);
+    if is_excute(agent) {
+        PLAY_LANDING_SE(agent, Hash40::new("se_elight_step_left_s"));
+    }
+    frame(lua_state, 25.0);
+    if is_excute(agent) {
+        PLAY_STEP(agent, Hash40::new("se_elight_step_right_s"));
+    }
+    frame(lua_state, 29.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_element_rise"));
+    }
+}
+
+unsafe extern "C" fn expression_slipescapeb(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SlipEscapeBRumble()();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 7);
+    }
+}

@@ -1,0 +1,41 @@
+unsafe extern "C" fn game_win2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_BARRELJET, false, -1);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("barrel") as i64, hash40("barrel_invisible") as i64);
+    }
+}
+
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_bjet_win"), Hash40::new("waist"), 1, -3.5, 5, 0, 90, 10, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_bjet_win"), Hash40::new("waist"), 1, -3.5, -5, 0, 90, 10, 1, true);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.45, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 67.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("diddy_bjet_win"), false, true);
+    }
+    frame(agent.lua_state_agent, 86.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 80, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_diddy_final03_win02"));
+    }
+    frame(agent.lua_state_agent, 68.0);
+    if macros::is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+    }
+    frame(agent.lua_state_agent, 87.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_LANDING_SE(agent, Hash40::new("se_diddy_landing03_win02"));
+    }
+}

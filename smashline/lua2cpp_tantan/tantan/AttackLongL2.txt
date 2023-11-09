@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_attacklongl2(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_SITUATION_GROUND) {
+        if macros::is_excute(agent) {
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 6, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+            macros::LAST_EFFECT_SET_RATE(agent, 0.8);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_attacklongl2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_tantan_rnd_punch_long"));
+    }
+}
+
+unsafe extern "C" fn expression_attacklongl2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+}

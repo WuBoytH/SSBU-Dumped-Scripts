@@ -1,0 +1,30 @@
+unsafe extern "C" fn game_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_CHAMPIONBELT, false, -1);
+    }
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_DOCLOUIS, false, -1);
+    }
+    if IS_EXIST_ARTICLE(agent, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_DOCLOUIS) {
+        if is_excute(agent) {
+            ArticleModule::change_motion(boma, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_DOCLOUIS, Hash40::new("win2"), false, -1.0);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 3, 0, -3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 100.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 3, 0, -2, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+    }
+}

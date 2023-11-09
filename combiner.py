@@ -37,14 +37,16 @@ def combine(the_dir: str):
                 combined_path = os.path.join(base, combined_file)
                 print("Combined Path: " + combined_path)
                 exists = os.path.isfile(combined_path)
+                original = ''
                 if exists:
                     print("File exists")
+                    with open(combined_path, 'r') as f:
+                        original = f.read()
                 else:
                     print("File does not exist")
                 with open(combined_path, 'w') as f:
                     if exists:
-                        readfile = f.read()
-                        for line in readfile:
+                        for line in original:
                             f.write(line)
                         f.write('\n')
                         f.write('\n')

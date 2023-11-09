@@ -1,0 +1,72 @@
+unsafe extern "C" fn game_speciallwstart(agent: &mut L2CAgentBase) {
+    macros::FT_MOTION_RATE(agent, 0.7);
+    wait(agent.lua_state_agent, 20.0);
+    macros::FT_MOTION_RATE(agent, 2.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_REFLET_INSTANCE_WORK_ID_FLAG_SPECIAL_FAILURE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        if macros::is_excute(agent) {
+            macros::CATCH(agent, 0, Hash40::new("top"), 7.0, 0.0, 10.0, 14.0, *FIGHTER_STATUS_KIND_CATCHED_REFLET, *COLLISION_SITUATION_MASK_G);
+            macros::CATCH(agent, 1, Hash40::new("top"), 4.2, 0.0, 10.0, 14.0, Some(0.0), Some(10.0), Some(11.2), *FIGHTER_STATUS_KIND_CATCHED_REFLET, *COLLISION_SITUATION_MASK_A);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_speciallwstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_REFLET_INSTANCE_WORK_ID_FLAG_SPECIAL_FAILURE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        frame(agent.lua_state_agent, 14.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_flash"), Hash40::new("havel"), -1, 1, 0, 0, 0, 0, 0.45, true);
+        }
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("reflet_rizaia"), Hash40::new("top"), 0, 5, 14, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_speciallwstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 22.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_REFLET_INSTANCE_WORK_ID_FLAG_SPECIAL_FAILURE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_reflet_special_l01"));
+        }
+    }
+    macros::IS_RANDOM(agent, 2);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if macros::is_excute(agent) {
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_REFLET_INSTANCE_WORK_ID_FLAG_SPECIAL_LW_VC_IS_PLAYED);
+            macros::PLAY_SE(agent, Hash40::new("vc_reflet_special_l01"));
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_reflet_mp_empty"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_reflet_rnd_special_empty"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_speciallwstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_REFLET_INSTANCE_WORK_ID_FLAG_SPECIAL_FAILURE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        else{
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_blank"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+}
+}

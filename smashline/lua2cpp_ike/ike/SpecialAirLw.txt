@@ -1,0 +1,77 @@
+unsafe extern "C" fn game_specialairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_LW_FLAG_SHIELD);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_XLU);
+    }
+    frame(agent.lua_state_agent, 34.0);
+    macros::FT_MOTION_RATE(agent, 1.6);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_LW_FLAG_SHIELD);
+        macros::HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_NORMAL);
+    }
+}
+
+unsafe extern "C" fn effect_specialairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("ike_counter"), Hash40::new("top"), 0, 10, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::FLASH(agent, 1, 1, 1, 0.75);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.7, 0.7, 0.7, 0.5);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.67, 0, 0.78, 0.31);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 2.0);
+}
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.7, 0.7, 0.7, 0.5);
+}
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.67, 0, 0.78, 0.31);
+}
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.7, 0.7, 0.7, 0.5);
+}
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
+}
+wait(agent.lua_state_agent, 2.0);
+}
+
+unsafe extern "C" fn sound_specialairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_ike_special_l01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairlw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        AREA_WIND_2ND_arg10(0, 1, 100, 10, 0.4, 0, 12, 24, 24, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        AreaModule::erase_wind(agent.module_accessor, 0);
+    }
+}

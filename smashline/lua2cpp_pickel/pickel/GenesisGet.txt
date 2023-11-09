@@ -1,0 +1,12 @@
+unsafe extern "C" fn game_genesisget(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+    }
+}
+
+unsafe extern "C" fn expression_genesisget(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_getbonus"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

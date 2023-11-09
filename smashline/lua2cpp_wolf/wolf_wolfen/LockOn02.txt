@@ -1,0 +1,20 @@
+unsafe extern "C" fn game_lockon02(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_FOX_ARWING_STATUS_WORK_FLAG_SET_DEPTH_OFFSET);
+    }
+}
+
+unsafe extern "C" fn effect_lockon02(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_final_jet_tail"), Hash40::new("rot"), 0, 0, -33, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_entry"), Hash40::new("trans"), 63, 22, -12, 0, -50, 92, 0.5, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_entry"), Hash40::new("trans"), -63, 22.5, -12, 0, 50, 88, 0.5, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_entry"), Hash40::new("trans"), 63, -17.5, -12, 0, -50, 88, 0.5, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_entry"), Hash40::new("trans"), -63, -17.5, -12, 0, 50, 92, 0.5, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_final_jet"), Hash40::new("rot"), 0, 7, -35, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_final_jet"), Hash40::new("rot"), 0, -8, -35, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_final_jet"), Hash40::new("rot"), 4, 0, -32, 0, 0, 0, 0.7, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_final_jet"), Hash40::new("rot"), -4, 0, -32, 0, 0, 0, 0.7, true);
+    }
+}

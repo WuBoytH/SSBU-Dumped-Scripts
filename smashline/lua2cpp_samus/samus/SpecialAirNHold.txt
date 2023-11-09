@@ -1,0 +1,24 @@
+unsafe extern "C" fn game_specialairnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_SAMUS_STATUS_SPECIAL_N_FLAG_CHARGE);
+    }
+}
+
+unsafe extern "C" fn effect_specialairnhold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_LIGHT(agent, Hash40::new("samus_cshot_hold"), Hash40::new("armr"), 7.98, -0.506, -0.251, -91.273, -1.797, 176.373, 1, true, 0.471, 0.471, 0.471, 20, 1, 1, 0);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnhold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_samus_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnhold(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+}

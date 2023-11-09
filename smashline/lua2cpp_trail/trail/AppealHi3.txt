@@ -1,0 +1,39 @@
+unsafe extern "C" fn effect_appealhi3(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("trail_air_hold"), Hash40::new("haver"), 0, 12, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("trail_air"), Hash40::new("top"), 0, 12, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_v_smoke_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.65, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("trail_air_shot"), Hash40::new("haver"), 0, 12, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_appealhi3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_trail_appeal_h02"));
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_trail_appeal_h03"));
+    }
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_trail_appeal_h02_02"));
+    }
+}
+
+unsafe extern "C" fn expression_appealhi3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_appealhi2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

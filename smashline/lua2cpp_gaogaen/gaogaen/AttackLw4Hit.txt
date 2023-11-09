@@ -1,0 +1,15 @@
+unsafe extern "C" fn sound_attacklw4hit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_gaogaen_rnd_attackappeal02"));
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_smash_l04"));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_gaogaen_react_success"));
+    }
+}
+
+unsafe extern "C" fn expression_attacklw4hit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

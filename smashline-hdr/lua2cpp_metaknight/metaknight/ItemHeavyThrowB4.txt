@@ -1,0 +1,26 @@
+unsafe extern "C" fn game_itemheavythrowb4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        THROW_ITEM_arg3(*ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_ANGLE, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_SPEED, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_POWER);
+        REVERSE_LR(agent);
+    }
+}
+
+unsafe extern "C" fn sound_itemheavythrowb4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_metaknight_rnd_attack"));
+    }
+}
+
+unsafe extern "C" fn expression_itemheavythrowb4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+        VisibilityModule::set_status_default_int64(boma, Hash40::new("mantle"), Hash40::new("mantle_normal"));
+    }
+}

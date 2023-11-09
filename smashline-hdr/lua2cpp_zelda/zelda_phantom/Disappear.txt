@@ -1,0 +1,15 @@
+unsafe extern "C" fn effect_disappear(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *WEAPON_ZELDA_PHANTOM_INSTANCE_WORK_ID_FLAG_END);
+    }
+}
+
+unsafe extern "C" fn sound_disappear(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE_REMAIN(agent, Hash40::new("se_zelda_special_l04"));
+    }
+}

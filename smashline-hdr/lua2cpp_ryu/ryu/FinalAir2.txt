@@ -1,0 +1,106 @@
+unsafe extern "C" fn game_finalair2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        SLOW_OPPONENT(agent, 10, 70);
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+    }
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(lua_state, 10.0);
+        if is_excute(agent) {
+            FT_SET_FINAL_FEAR_FACE(agent, 50);
+            REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final.nuanmb"), false);
+        }
+        else{
+        if is_excute(agent) {
+            PostureModule::scale(boma, 3, 0);
+            0x183460(-723832181, 1.8);
+            CAM_ZOOM_IN_arg5(0, 0);
+            FT_START_CUTIN(agent);
+        }
+    }
+}
+frame(lua_state, 31.0);
+if is_excute(agent) {
+    CAM_ZOOM_OUT(agent);
+}
+frame(lua_state, 70.0);
+if is_excute(agent) {
+    ArticleModule::generate_article(boma, *FIGHTER_RYU_GENERATE_ARTICLE_SHINKUHADOKEN, false, -1);
+}
+frame(lua_state, 75.0);
+if is_excute(agent) {
+    WorkModule::on_flag(boma, *FIGHTER_RYU_STATUS_WORK_ID_FINAL_FLAG_REMOVE_FINAL_AURA);
+}
+}
+
+unsafe extern "C" fn effect_finalair2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EffectModule::req_screen(boma, Hash40::new("bg_ryu_final_shinkuhado"), false, false, false);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ryu_final_shinkuhado_hold"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 70.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("ryu_final_shinkuhado_shot"), Hash40::new("top"), 0, 12, 6, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 71.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("ryu_final_shinkuhado_hold"), true, true);
+    }
+    frame(lua_state, 76.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("ryu_final_shinkuhado_hand"), Hash40::new("handl"), 0, 1, 0, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 77.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("ryu_hadoken_smoke"), Hash40::new("top"), 12, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalair2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_ryu_final02_01"));
+        PLAY_SE(agent, Hash40::new("vc_ryu_final01"));
+    }
+    wait(lua_state, 69.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_ryu_final01_02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalair2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        AREA_WIND_2ND_RAD_arg9(agent, 1, 4, -0.01, 8, 0.6, -4, 12, 35, 80);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        START_INFO_FLASH_EYE(agent);
+    }
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_KEEPSMALL);
+    }
+    frame(lua_state, 70.0);
+    if is_excute(agent) {
+        QUAKE_STOP(agent, *CAMERA_QUAKE_KIND_KEEPSMALL);
+    }
+    frame(lua_state, 73.0);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attackll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 87.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_60_hadouken_sp"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

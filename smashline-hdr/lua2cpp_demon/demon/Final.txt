@@ -1,0 +1,134 @@
+unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
+    }
+    frame(lua_state, 1.0);
+    if WorkModule::is_flag(boma, *FIGHTER_DEMON_STATUS_FINAL_FLAG_DEMON_DOJO_ZOOM) {
+        if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if is_excute(agent) {
+                PostureModule::scale(boma, 1, 0);
+                0x3cfb70(-1037516665, 2);
+                CAM_ZOOM_IN_arg5(0, -0.1);
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -5, 5);
+            }
+            else{
+            if get_value_float(agent.lua_state_agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET) < 0.0 {
+                if is_excute(agent) {
+                    PostureModule::scale(boma, 1, 0);
+                    0x3cfb70(-1037516665, 2);
+                    CAM_ZOOM_IN_arg5(0, -0.3);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -5, 5);
+                }
+                else{
+                if is_excute(agent) {
+                    PostureModule::scale(boma, 1, 0);
+                    0x3cfb70(-1037516665, 2);
+                    CAM_ZOOM_IN_arg5(0, 0.1);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 5, 5);
+                }
+                else{
+                if is_excute(agent) {
+                    PostureModule::scale(boma, 1, 0);
+                    0x3cfb70(-1037516665, 2);
+                    CAM_ZOOM_IN_arg5(0, 0.3);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 5, 5);
+                }
+            }
+        }
+    }
+}
+}
+}
+frame(lua_state, 3.0);
+if is_excute(agent) {
+WorkModule::on_flag(boma, *FIGHTER_DEMON_STATUS_FINAL_FLAG_END_FINAL);
+}
+frame(lua_state, 5.0);
+if is_excute(agent) {
+CAM_ZOOM_OUT(agent);
+}
+frame(lua_state, 15.0);
+if is_excute(agent) {
+WorkModule::on_flag(boma, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+}
+}
+
+unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CANCEL_FILL_SCREEN(agent, 1, 0);
+        CANCEL_FILL_SCREEN(agent, 0, 0);
+    }
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EffectModule::req_screen(boma, Hash40::new_raw(0x16229f767c), false, false, false);
+        }
+        else{
+        if is_excute(agent) {
+            EffectModule::req_screen(boma, Hash40::new_raw(0x16d8904b1f), false, false, false);
+        }
+    }
+}
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("demon_final_smoke"), true, true);
+    EFFECT_OFF_KIND(agent, Hash40::new("demon_final_sparks"), true, true);
+    EFFECT_FOLLOW(agent, Hash40::new("demon_final_wind"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+}
+frame(lua_state, 4.0);
+get_value_float(*SO_VAR_FLOAT_LR);
+if(0x3cfb70(-1037516665, 0)){
+    if is_excute(agent) {
+        EffectModule::req_screen(boma, Hash40::new_raw(0x16229f767c), false, false, false);
+    }
+    else{
+    if is_excute(agent) {
+        EffectModule::req_screen(boma, Hash40::new_raw(0x16d8904b1f), false, false, false);
+    }
+}
+}
+if is_excute(agent) {
+FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 1, 10, 0, 4, 0, 0, 0, false);
+}
+wait(lua_state, 5.0);
+}
+
+unsafe extern "C" fn sound_final(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_demon_final03"));
+    }
+    frame(lua_state, 110.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_demon_final04"));
+        STOP_SE(agent, Hash40::new("se_demon_final03"));
+    }
+}
+
+unsafe extern "C" fn expression_final(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_attach_item_visibility(boma, false);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_80_spbeam2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 5.0);
+    for _ in 0..19 {
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    wait(lua_state, 5.0);
+}
+frame(lua_state, 110.0);
+if is_excute(agent) {
+    QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+}
+}

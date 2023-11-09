@@ -1,0 +1,51 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DEMON_STATUS_FINAL_FLAG_END_FINAL);
+        macros::CAM_ZOOM_OUT(agent);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+    }
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+        macros::BURN_COLOR(agent, 1, 0, 10, 0.6);
+    }
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR_FRAME(agent, 15, 6, 0, 40, 0);
+    }
+}
+
+unsafe extern "C" fn sound_finalairend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 42.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_demon_final03"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
+    }
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 7);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 34.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 10, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 45.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 15, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,34 @@
+unsafe extern "C" fn game_itemspecialflaghoist(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SPECIALFLAG_HOIST_WORK_FLAG_HOIST_START);
+    }
+}
+
+unsafe extern "C" fn expression_itemspecialflaghoist(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+    if IS_HAVE_ITEM_KIND(agent, *ITEM_KIND_SPECIALFLAG) {
+        frame(lua_state, 11.0);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_sp_flag"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_getbonusl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    else{
+    if IS_HAVE_ITEM_KIND(agent, *ITEM_KIND_BOMBER) {
+        frame(lua_state, 13.0);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_explosionl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+}
+}

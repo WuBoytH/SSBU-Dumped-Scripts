@@ -1,0 +1,64 @@
+unsafe extern "C" fn game_catchdash(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        GrabModule::set_rebound(agent.module_accessor, true);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::CATCH(agent, 0, Hash40::new("top"), 3.0, 0.0, 9.0, 4.0, Some(0.0), Some(9.0), Some(13.3), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
+        macros::CATCH(agent, 1, Hash40::new("top"), 1.5, 0.0, 9.0, 2.5, Some(0.0), Some(9.0), Some(14.8), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
+    }
+    macros::game_CaptureCutCommon(agent);
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        grab!(agent, *MA_MSC_CMD_GRAB_CLEAR_ALL);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_CATCH_FLAG_CATCH_WAIT);
+        GrabModule::set_rebound(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn effect_catchdash(agent: &mut L2CAgentBase) {
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        frame(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("zelda_catch_flash"), Hash40::new("haver"), -0.5, 0, 0, 0, 0, 0, 0.95, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("zelda_catch_flash"), Hash40::new("havel"), 0.5, 0, 0, 0, 0, 0, 0.95, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+        }
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("zelda_catch_flash"), false, true);
+    }
+    else{
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("zelda_catch_flash"), Hash40::new("haver"), 0.5, 0, 0, 0, 0, 0, 0.95, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("zelda_catch_flash"), Hash40::new("havel"), -0.5, 0, 0, 0, 0, 0, 0.95, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+    }
+}
+frame(agent.lua_state_agent, 18.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("zelda_catch_flash"), false, true);
+}
+}
+
+unsafe extern "C" fn sound_catchdash(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_zelda_catch"));
+    }
+}
+
+unsafe extern "C" fn expression_catchdash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

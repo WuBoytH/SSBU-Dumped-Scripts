@@ -1,0 +1,26 @@
+unsafe extern "C" fn game_screwair(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    for _ in 0..10 {
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_ScrewCommon()();
+    if is_excute(agent) {
+        attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 0, Hash40::new("top"), 0, 0, 5.2);
+        attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 1, Hash40::new("top"), 0, 0, -5.2);
+        attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 2, Hash40::new("top"), 0, 9, 5.2);
+        attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 3, Hash40::new("top"), 0, 9, -5.2);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+}
+}
+
+unsafe extern "C" fn effect_screwair(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sys_screw"), Hash40::new("rot"), 0, -4, 0, 0, 0, 0, 1.4, true);
+    }
+}

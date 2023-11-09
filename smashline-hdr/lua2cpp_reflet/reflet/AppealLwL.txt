@@ -1,0 +1,79 @@
+unsafe extern "C" fn effect_appeallwl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), -0.0, 4, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("havel"), -0.0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 34.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), -0.0, 4, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 55.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0, 4, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 79.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), -0.0, 4, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_appeallwl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_reflet_appeal_s04"));
+    }
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_reflet_book_throw"));
+    }
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_reflet_appeal_l01"));
+        PLAY_SE(agent, Hash40::new("se_reflet_appeal_s01"));
+    }
+    frame(lua_state, 54.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_reflet_appeal_l02"));
+    }
+    frame(lua_state, 60.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_reflet_appeal03"));
+    }
+    frame(lua_state, 60.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_reflet_appeal_l03"));
+    }
+    frame(lua_state, 66.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_reflet_appeal_l04"));
+    }
+    frame(lua_state, 76.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_reflet_book_close"));
+    }
+    frame(lua_state, 84.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_reflet_appeal_s03"));
+    }
+}
+
+unsafe extern "C" fn expression_appeallwl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 47.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

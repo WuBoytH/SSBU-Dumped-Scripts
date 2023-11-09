@@ -1,0 +1,26 @@
+unsafe extern "C" fn effect_genesisaeriallegs(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    for _ in 0..4 {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_flash"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1, 10, 10, 10, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 6.0);
+}
+}
+
+unsafe extern "C" fn sound_genesisaeriallegs(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_lucas_jump02"));
+    }
+    wait(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swing_04"));
+    }
+}
+
+unsafe extern "C" fn expression_genesisaeriallegs(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_aerial"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

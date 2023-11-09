@@ -1,0 +1,102 @@
+unsafe extern "C" fn game_specialsend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 45, 210, 0, 40, 6.0, 0.0, 9.0, -4.5, Some(0.0), Some(10.0), Some(14.0), 2.4, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_PUNCH);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+    macros::FT_MOTION_RATE(agent, 1.1);
+}
+
+unsafe extern "C" fn effect_specialsend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("robot_armspin"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("robot_armspin_wind"), false, false);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 13, 6, 0, 40, 90, 1.1, true, *EF_FLIP_YZ);
+    }
+    if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 0)){
+        if WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLAG_REGION_JP) {
+            if macros::is_excute(agent) {
+                macros::LAST_EFFECT_SET_COLOR(agent, 0.1, 0.01, 0);
+            }
+            else{
+            if macros::is_excute(agent) {
+                macros::LAST_EFFECT_SET_COLOR(agent, 0.196, 0.196, 0.216);
+            }
+        }
+    }
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 1)){
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLAG_REGION_JP) {
+        if macros::is_excute(agent) {
+            macros::LAST_EFFECT_SET_COLOR(agent, 0.196, 0.196, 0.216);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::LAST_EFFECT_SET_COLOR(agent, 0.22, 0.059, 0.039);
+        }
+    }
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 2)){
+if macros::is_excute(agent) {
+    macros::LAST_EFFECT_SET_COLOR(agent, 0.176, 0.137, 0.059);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 3)){
+if macros::is_excute(agent) {
+    macros::LAST_EFFECT_SET_COLOR(agent, 0.235, 0.196, 0.255);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 4)){
+if macros::is_excute(agent) {
+    macros::LAST_EFFECT_SET_COLOR(agent, 0.098, 0.157, 0.196);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 5)){
+if macros::is_excute(agent) {
+    macros::LAST_EFFECT_SET_COLOR(agent, 0.098, 0.059, 0);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 6)){
+if macros::is_excute(agent) {
+    macros::LAST_EFFECT_SET_COLOR(agent, 0.098, 0.098, 0.157);
+}
+}
+if(0x1050b0(*FIGHTER_INSTANCE_WORK_ID_INT_COLOR, 7)){
+if macros::is_excute(agent) {
+    macros::LAST_EFFECT_SET_COLOR(agent, 0.118, 0.039, 0.051);
+}
+}
+if macros::is_excute(agent) {
+macros::LAST_EFFECT_SET_RATE(agent, 2);
+}
+frame(agent.lua_state_agent, 8.0);
+if macros::is_excute(agent) {
+macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+}
+
+unsafe extern "C" fn sound_specialsend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_robot_special_s04"));
+    }
+}
+
+unsafe extern "C" fn expression_specialsend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TPART, 4);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

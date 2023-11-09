@@ -1,0 +1,120 @@
+unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        SLOW_OPPONENT(agent, 10, 60);
+        FT_REMOVE_FINAL_AURA(agent, true);
+        FT_SET_FINAL_FEAR_FACE(agent, 70);
+        PostureModule::scale(boma, 1, 0);
+        0x102320(-1174958658, 2.1);
+        CAM_ZOOM_IN_arg5(0, 0);
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        FT_START_CUTIN(agent);
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        CAM_ZOOM_OUT(agent);
+        PostureModule::scale(boma, 15, 0);
+        0x102320(-1174958658, 3.5);
+        CAM_ZOOM_IN_arg5(0, 0);
+    }
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -10, 5);
+        }
+        else{
+        if is_excute(agent) {
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 10, 5);
+        }
+    }
+}
+frame(lua_state, 60.0);
+if is_excute(agent) {
+    CAM_ZOOM_OUT(agent);
+}
+}
+
+unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EffectModule::req_screen(boma, Hash40::new("bg_gamewatch_final"), false, false, false);
+        EFFECT_FOLLOW_UNSYNC_VIS_WHOLE(agent, Hash40::new("gamewatch_final_start"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 0.6, false);
+    }
+    frame(lua_state, 60.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("gamewatch_final_start"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_gamewatch_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairstart(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        START_INFO_FLASH_EYE(agent);
+        ItemModule::set_attach_item_visibility(boma, false);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_whole(boma, false);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, true, 0);
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 13.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_whole(boma, false);
+    }
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, true, 0);
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 31.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_whole(boma, false);
+    }
+    frame(lua_state, 33.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, true, 0);
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 35.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_whole(boma, false);
+    }
+    frame(lua_state, 37.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, true, 0);
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 39.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_whole(boma, false);
+    }
+    frame(lua_state, 41.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, true, 0);
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 43.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_whole(boma, false);
+    }
+}

@@ -1,0 +1,73 @@
+unsafe extern "C" fn game_finalairchange(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
+    }
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        SLOW_OPPONENT(agent, 5, 80);
+    }
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(lua_state, 5.0);
+        if is_excute(agent) {
+            FT_SET_FINAL_FEAR_FACE(agent, 60);
+            REQ_FINAL_START_CAMERA_arg3(Hash40::new("d04finalchange.nuanmb"), false, false);
+        }
+        else{
+        if is_excute(agent) {
+            PostureModule::scale(boma, 3, 0);
+            0x141380(2119351891, 2.3);
+            CAM_ZOOM_IN_arg5(0, 0);
+        }
+        if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if is_excute(agent) {
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+            }
+            else{
+            if is_excute(agent) {
+                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+            }
+        }
+    }
+    if is_excute(agent) {
+        FT_START_CUTIN(agent);
+    }
+}
+}
+}
+
+unsafe extern "C" fn effect_finalairchange(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EffectModule::req_screen(boma, Hash40::new("bg_gekkouga_final"), false, false, false);
+    }
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("gekkouga_kageuchi_warp_end"), Hash40::new("top"), 0, 9.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalairchange(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_gekkouga_final09"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairchange(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        ArticleModule::set_visibility_whole(boma, *FIGHTER_GEKKOUGA_GENERATE_ARTICLE_GEKKOUGAS, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+    }
+}

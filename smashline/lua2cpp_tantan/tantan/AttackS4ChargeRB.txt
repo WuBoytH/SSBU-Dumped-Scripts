@@ -1,0 +1,61 @@
+unsafe extern "C" fn game_attacks4chargerb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_COMBO_ENABLE);
+    }
+}
+
+unsafe extern "C" fn effect_attacks4chargerb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, -2, 0, 180, 0, 1, 5, 0, 2, 0, 0, 0, false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 2, 0, 180, 0, 1, 5, 0, 2, 0, 0, 0, false);
+        }
+    }
+}
+wait(agent.lua_state_agent, 5.0);
+macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("handr"), 3.5, -2.5, -3.5, 0, 0, 0, 1, 3, 3, 3, 0, 0, 0, true);
+}
+
+unsafe extern "C" fn sound_attacks4chargerb(agent: &mut L2CAgentBase) {
+    if(0x3a02e0(*FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R, 1)){
+        frame(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_smash_start"));
+        }
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_tantan_attack02_charge"));
+    }
+    else{
+    if(0x3a02e0(*FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R, 2)){
+        frame(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_smash_start"));
+            macros::PLAY_STATUS(agent, Hash40::new("se_tantan_attack03_charge"));
+        }
+        else{
+        frame(agent.lua_state_agent, 0.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_smash_start"));
+        }
+    }
+}
+}
+}
+
+unsafe extern "C" fn expression_attacks4chargerb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 61.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

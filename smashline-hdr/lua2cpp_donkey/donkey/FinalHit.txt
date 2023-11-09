@@ -1,0 +1,38 @@
+unsafe extern "C" fn game_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 40, 0, 0, 0);
+    }
+    WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        WorkModule::is_flag(boma, *FIGHTER_DONKEY_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT);
+        if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+            if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+                if is_excute(agent) {
+                    PostureModule::scale(boma, 1, 0);
+                    0x120890(298784397, 1.5);
+                    CAM_ZOOM_IN_arg5(-0.1, -0.3);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -20, 3);
+                }
+                else{
+                if is_excute(agent) {
+                    PostureModule::scale(boma, 1, 0);
+                    0x120890(298784397, 1.5);
+                    CAM_ZOOM_IN_arg5(-0.1, 0.3);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 20, 3);
+                }
+            }
+        }
+    }
+}
+}
+
+unsafe extern "C" fn effect_finalhit(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        COLOR_COLLECTION(agent, 1, 0, 1, 1.4, 1.8, 1, 1, 1, 1, 0.2, 1, 1, 0, 0, EffectScreenBlendType:*NSUB, *EFFECT_SCREEN_PRIO_FINAL);
+        EFFECT(agent, Hash40::new("donkey_final_firsthit"), Hash40::new("top"), 0, 10, 23, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}

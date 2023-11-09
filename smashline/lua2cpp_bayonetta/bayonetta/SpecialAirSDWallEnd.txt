@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_specialairsdwallend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND_WORK(agent, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_EFFECT_KIND_BAYONETTA_AFTERBURNER_LINE, -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("bayonetta_afterburner_line2"), -1);
+    }
+}
+
+unsafe extern "C" fn sound_specialairsdwallend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_s05"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairsdwallend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,66 @@
+unsafe extern "C" fn game_speciallw11(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.5);
+    frame(agent.lua_state_agent, 11.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+    if macros::is_excute(agent) {
+        battle_object();
+        methodlib::L2CValue::L2CValue(void*)();
+    }
+    else{
+    methodlib::L2CValue::L2CValue(lib::L2CValueconst&)();
+}
+methodlib::L2CValue::as_pointer()const();
+special_lw_active_command();
+WorkModule::on_flag(agent.module_accessor, false, *FIGHTER_BRAVE_STATUS_SPECIAL_LW_FLAG_ENABLE_CONTROL_ENERGY);
+}
+
+unsafe extern "C" fn effect_speciallw11(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_chant_finish"), Hash40::new("top"), 0, 9, 0, 0, -60, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_speedup_start"), Hash40::new("top"), 0, 9, 0, 0, 0, 0, 1, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_speedup"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    for _ in 0..2 {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.7, 0.7, 0.7, 0.3);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.15, 0.25, 1, 0.2);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 1.0);
+}
+}
+
+unsafe extern "C" fn sound_speciallw11(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_brave_special_l10"));
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_brave_special_l04"));
+    }
+}
+
+unsafe extern "C" fn expression_speciallw11(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_stg_power_up"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

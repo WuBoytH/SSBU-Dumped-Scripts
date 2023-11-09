@@ -1,0 +1,69 @@
+unsafe extern "C" fn game_specialairhiend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    }
+    if is_excute(agent) {
+        JostleModule::set_status(boma, true);
+    }
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        WorkModule::inc_int(boma, *FIGHTER_PIKACHU_STATUS_WORK_ID_INT_QUICK_ATTACK_PHASE);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_PIKACHU_GENERATE_ARTICLE_SPECIALUPDUMMY, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}
+
+unsafe extern "C" fn effect_specialairhiend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("pichu_cheek"), Hash40::new("head"), 0, 0, 0, 0, -90, -90, 1, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("pichu_denko_elec"), false, true);
+        EFFECT(agent, Hash40::new("pichu_denko_distortion"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 7.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("pichu_denko_distortion"), Hash40::new("rot"), 0, 0, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("pichu_cheek"), false, true);
+    }
+}
+
+unsafe extern "C" fn expression_specialairhiend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        MotionModule::set_helper_calculation(boma, false);
+    }
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        MotionModule::set_helper_calculation(boma, true);
+    }
+    frame(lua_state, 7.0);
+    if is_excute(agent) {
+        MotionModule::set_helper_calculation(boma, false);
+    }
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        MotionModule::set_helper_calculation(boma, true);
+        VisibilityModule::set_whole(boma, true);
+    }
+    frame(lua_state, 13.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+}

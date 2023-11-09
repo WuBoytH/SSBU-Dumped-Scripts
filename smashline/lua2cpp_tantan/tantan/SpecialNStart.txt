@@ -1,0 +1,10 @@
+unsafe extern "C" fn game_specialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_TANTAN_GENERATE_ARTICLE_SPIRALSIMPLE, false, -1);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_TANTAN_GENERATE_ARTICLE_SPIRALSIMPLE, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_TANTAN_GENERATE_ARTICLE_SPIRALSIMPLE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

@@ -1,0 +1,51 @@
+unsafe extern "C" fn game_scopeairrapidaerial(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
+        if macros::is_excute(agent) {
+            macros::SHOOT_ITEM_BULLET(agent);
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_scopeairrapidaerial(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_EFFECT) {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_jump_aerial"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+        if macros::is_excute(agent) {
+            WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_EFFECT);
+        }
+    }
+    methodlua2cpp::L2CFighterAnimcmdEffectCommon::effect_ScopeAirRapidCommon()(0);
+}
+
+unsafe extern "C" fn sound_scopeairrapidaerial(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_sonic_jump02"));
+            WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND);
+        }
+    }
+}
+
+unsafe extern "C" fn expression_scopeairrapidaerial(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_normal") as i64);
+        macros::HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("s_stingd1"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("footl"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_OFF);
+    }
+}

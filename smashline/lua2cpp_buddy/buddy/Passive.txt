@@ -1,0 +1,24 @@
+unsafe extern "C" fn sound_passive(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_s"));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_m"));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_l"));
+        macros::PLAY_LANDING_SE(agent, Hash40::new("se_buddy_landing01"));
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_buddy_step_left_l"));
+    }
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_buddy_step_right_l"));
+    }
+}
+
+unsafe extern "C" fn expression_passive(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_PassiveRumble()();
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+}

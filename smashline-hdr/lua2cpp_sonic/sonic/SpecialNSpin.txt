@@ -1,0 +1,80 @@
+unsafe extern "C" fn game_specialnspin(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        MotionModule::set_rate(boma, 50);
+    }
+}
+
+unsafe extern "C" fn effect_specialnspin(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP_ALPHA(agent, Hash40::new("sonic_homing_hold"), Hash40::new("sonic_homing_hold"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.52, true, *EF_FLIP_XY, 0.5);
+        LAST_EFFECT_SET_RATE(agent, 2);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_FLIP(agent, Hash40::new("sonic_homing_hold"), Hash40::new("sonic_homing_hold"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.44, true, *EF_FLIP_XY);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
+        EFFECT_FLW_POS(agent, Hash40::new("sonic_spinblur_plain"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 3.0);
+    for _ in 0..3 {
+    if is_excute(agent) {
+        FLASH(agent, 1, 1, 1, 0);
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 0.8, 14, 14, 14, 0, 0, 0, true);
+    }
+    wait(lua_state, 100.0);
+    if is_excute(agent) {
+        FLASH(agent, 1, 1, 1, 0.105);
+    }
+    wait(lua_state, 100.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+    }
+    wait(lua_state, 1.0);
+}
+for _ in 0..10 {
+if is_excute(agent) {
+    FLASH(agent, 0.502, 1, 1, 0.08);
+    EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 0.8, 14, 14, 14, 0, 0, 0, true);
+}
+wait(lua_state, 100.0);
+if is_excute(agent) {
+    FLASH(agent, 1, 1, 1, 0.235);
+}
+wait(lua_state, 100.0);
+if is_excute(agent) {
+    COL_NORMAL(agent);
+}
+wait(lua_state, 1.0);
+}
+}
+
+unsafe extern "C" fn expression_specialnspin(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_sphere") as i64);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("s_stingd1"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("footl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_NORMAL);
+    }
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        ItemModule::set_attach_item_visibility(boma, false);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_38_sonicspin"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,26 @@
+unsafe extern "C" fn game_specialairlwempty(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        ArticleModule::shoot(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SPLASHBOMB, *ARTICLE_OPE_TARGET_ALL, false);
+        WorkModule::on_flag(boma, *FIGHTER_INKLING_STATUS_SPECIAL_LW_FLAG_THROW);
+    }
+    frame(lua_state, 13.0);
+    FT_MOTION_RATE(agent, 0.8);
+}
+
+unsafe extern "C" fn sound_specialairlwempty(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 11.0);
+}
+
+unsafe extern "C" fn expression_specialairlwempty(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("tank") as i64, hash40("tank_subempty") as i64);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+}

@@ -1,0 +1,12 @@
+unsafe extern "C" fn sound_catchcut(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_ken_throw_miss"));
+    }
+}
+
+unsafe extern "C" fn expression_catchcut(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_CatchCutRumble()();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

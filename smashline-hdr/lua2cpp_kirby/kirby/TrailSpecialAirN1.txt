@@ -1,0 +1,48 @@
+unsafe extern "C" fn effect_trailspecialairn1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("trail_sword_fire"), Hash40::new("haver"), 0, 0, 0, -90, 0, 0, 1, true);
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+    }
+    frame(lua_state, 1.0);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_impact"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_impact"), Hash40::new("haver"), 0, 10, -1, -90, 180, 0, 1, true);
+        }
+    }
+}
+frame(lua_state, 13.0);
+if is_excute(agent) {
+    EFFECT_DETACH_KIND(agent, Hash40::new("trail_fire_shot"), -1);
+    EFFECT_DETACH_KIND(agent, Hash40::new("trail_sword_fire"), -1);
+    EFFECT_OFF_KIND(agent, Hash40::new("trail_sword_fire"), false, true);
+}
+}
+
+unsafe extern "C" fn sound_trailspecialairn1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if(0x543c60(*FIGHTER_TRAIL_STATUS_SPECIAL_N1_INT_SHOOT, 1)){
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("vc_kirby_copy_trail_special_n01"));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_trailspecialairn1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_81_special_n1"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

@@ -1,0 +1,30 @@
+unsafe extern "C" fn game_specialswalk(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 3.0, 8.0);
+    }
+}
+
+unsafe extern "C" fn sound_specialswalk(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_inkling_step_left_s"), Hash40::new("se_inkling_step_right_s"));
+    }
+    frame(agent.lua_state_agent, 31.0);
+    macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_inkling_step_right_s"), Hash40::new("se_inkling_step_left_s"));
+}
+
+unsafe extern "C" fn expression_specialswalk(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 29.0);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}

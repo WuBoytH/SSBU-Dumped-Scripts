@@ -1,0 +1,49 @@
+unsafe extern "C" fn game_move(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 8.2, 65, 94, 0, 48, 6.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_BOMB);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        AREA_WIND_2ND_RAD(0, 1, 0.02, 1000, 1, 0, 0, 12);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        AreaModule::erase_wind(agent.module_accessor, 0);
+    }
+}
+
+unsafe extern "C" fn effect_move(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_bomb_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_move(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_miigunner_special_c2_s01"));
+    }
+    WorkModule::get_float(agent.module_accessor, *WEAPON_MIIGUNNER_STEALTHBOMB_S_INSTANCE_WORK_ID_FLOAT_RATE);
+    if(methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(-1642871193, 0.475)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_miigunner_special_c2_s02"));
+        }
+        else{
+        WorkModule::get_float(agent.module_accessor, *WEAPON_MIIGUNNER_STEALTHBOMB_S_INSTANCE_WORK_ID_FLOAT_RATE);
+        if(methodlib::L2CValue::operator<=(lib::L2CValueconst&)const(-1642871193, 0.975)){
+            if macros::is_excute(agent) {
+                macros::PLAY_SE_REMAIN(agent, Hash40::new("se_miigunner_special_c2_s03"));
+            }
+            else{
+            if macros::is_excute(agent) {
+                macros::PLAY_SE_REMAIN(agent, Hash40::new("se_miigunner_special_c2_s04"));
+            }
+        }
+    }
+}
+}
+}

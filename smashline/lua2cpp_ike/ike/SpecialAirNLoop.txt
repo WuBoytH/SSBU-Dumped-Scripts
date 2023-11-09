@@ -1,0 +1,73 @@
+unsafe extern "C" fn effect_specialairnloop(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if WorkModule::get_int(agent.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL) == 0 {
+        if macros::is_excute(agent) {
+            macros::FLASH(agent, 0.125, 0.4, 1, 0.1);
+        }
+    }
+    for _ in 0..8 {
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 2.0);
+}
+for _ in 0..8 {
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.125, 0.4, 1, 0.2);
+}
+wait(agent.lua_state_agent, 4.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
+}
+wait(agent.lua_state_agent, 2.0);
+}
+if WorkModule::get_int(agent.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL) == 1 {
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.125, 0.4, 1, 0.3);
+}
+}
+for _ in 0..6 {
+wait(agent.lua_state_agent, 4.0);
+if macros::is_excute(agent) {
+macros::COL_NORMAL(agent);
+}
+wait(agent.lua_state_agent, 2.0);
+}
+for _ in 0..7 {
+if macros::is_excute(agent) {
+macros::FLASH(agent, 0.125, 0.4, 1, 0.35);
+}
+wait(agent.lua_state_agent, 4.0);
+if macros::is_excute(agent) {
+macros::COL_NORMAL(agent);
+}
+wait(agent.lua_state_agent, 2.0);
+}
+if macros::is_excute(agent) {
+macros::FLASH(agent, 0.125, 0.4, 1, 0.35);
+}
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+macros::COL_NORMAL(agent);
+}
+if WorkModule::get_int(agent.module_accessor, *FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL) == 2 {
+if macros::is_excute(agent) {
+macros::FLASH(agent, 0.125, 0.4, 1, 0.4);
+}
+}
+wait(agent.lua_state_agent, 4.0);
+if macros::is_excute(agent) {
+macros::COL_NORMAL(agent);
+}
+wait(agent.lua_state_agent, 1.0);
+}
+
+unsafe extern "C" fn expression_specialairnloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        AREA_WIND_2ND_arg10(0, 2, 130, 2, 1, 0, 12, 30, 30, 100);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_32_hold_lv1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

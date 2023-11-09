@@ -1,0 +1,34 @@
+unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_final_aura"), false, true);
+        EFFECT_FOLLOW_arg11(Hash40::new("samusd_gbeam_flash_01"), Hash40::new("armr"), 8, 0, 0, 0, 0, 0, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_samusd_final"), -1);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    for _ in 0..11 {
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("samusd_final_after"), Hash40::new("emit"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 360, 360, 360, true);
+        macros::EFFECT(agent, Hash40::new("samusd_final_flash"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, 0, 0, 0, 360, 360, 360, true);
+    }
+}
+frame(agent.lua_state_agent, 69.0);
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, 0x1b905a71d7, Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+}
+
+unsafe extern "C" fn sound_finalend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_samusd_final03"));
+    }
+}
+
+unsafe extern "C" fn expression_finalend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

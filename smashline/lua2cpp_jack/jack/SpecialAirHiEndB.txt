@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_specialairhiendb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    }
+}
+
+unsafe extern "C" fn effect_specialairhiendb(agent: &mut L2CAgentBase) {
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("jack_fly_wing_finish"), Hash40::new("rot"), 0, 10, 0, 0, -125, 0, 1.2, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("jack_fly_wing_finish"), Hash40::new("rot"), 0, 10, 0, 0, 130, 0, 1.2, true);
+        }
+    }
+}
+}

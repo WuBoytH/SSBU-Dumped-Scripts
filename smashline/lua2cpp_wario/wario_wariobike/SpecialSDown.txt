@@ -1,0 +1,13 @@
+unsafe extern "C" fn game_specialsdown(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 47.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_WARIO_WARIOBIKE_STATUS_WORK_FLAG_TURN_TO_ITEM);
+    }
+}
+
+unsafe extern "C" fn sound_specialsdown(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_wario_special_s03"));
+    }
+}

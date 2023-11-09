@@ -1,0 +1,24 @@
+unsafe extern "C" fn game_specialairlwmax(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        ArticleModule::shoot(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SPLASHBOMB, *ARTICLE_OPE_TARGET_ALL, false);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INKLING_STATUS_SPECIAL_LW_FLAG_THROW);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+}
+
+unsafe extern "C" fn sound_specialairlwmax(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+}
+
+unsafe extern "C" fn expression_specialairlwmax(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lightthrow4item"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

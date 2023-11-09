@@ -1,0 +1,16 @@
+unsafe extern "C" fn game_passiveceil(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        KineticModule::change_kinetic(agent.module_accessor, *FIGHTER_KINETIC_TYPE_PASSIVE_CEIL);
+    }
+}
+
+unsafe extern "C" fn sound_passiveceil(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_s"));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_m"));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_l"));
+        macros::PLAY_SE(agent, Hash40::new("vc_wolf_passive"));
+        macros::PLAY_SE(agent, Hash40::new("se_wolf_landing01"));
+    }
+}

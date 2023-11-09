@@ -1,0 +1,28 @@
+unsafe extern "C" fn effect_specialairlwbreakl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pit_guardian_shield"), true, true);
+        macros::EFFECT(agent, Hash40::new("pit_guardian_break"), 0x10489b2b69, 2, 3, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("pit_guardian_break"), 0x104ff6ef70, 2, 3, -4, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairlwbreakl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pit_special_l02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwbreakl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_shieldbreak"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("shield") as i64, hash40("shield_none") as i64);
+        VisibilityModule::set_default_int64(agent.module_accessor, Hash40::new("weapon"));
+    }
+}

@@ -1,0 +1,37 @@
+unsafe extern "C" fn game_itemgrasspull(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        WorkModule::set_int(boma, *FIGHTER_ITEM_GRASS_PULL_STEP_PICKUP, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_NEXT_STEP);
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        WorkModule::set_int(boma, *FIGHTER_ITEM_GRASS_PULL_STEP_PULL, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_NEXT_STEP);
+    }
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_GRASS_PULL_FLAG_STTUS_END_IF_PICKUP_FAILED);
+        WorkModule::set_int(boma, 4, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_THROW_N_OFFSET_ANIM_FRAME_COUNT_MAX);
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        WorkModule::set_int(boma, *FIGHTER_ITEM_GRASS_PULL_STEP_HOIST, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_NEXT_STEP);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        WorkModule::set_int(boma, *FIGHTER_ITEM_GRASS_PULL_STEP_END, *FIGHTER_STATUS_ITEM_GRASS_PULL_WORK_INT_NEXT_STEP);
+    }
+}
+
+unsafe extern "C" fn expression_itemgrasspull(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_grapple"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

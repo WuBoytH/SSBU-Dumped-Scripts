@@ -1,0 +1,111 @@
+unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        macros::SLOW_OPPONENT(agent, 7, 30);
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        frame(agent.lua_state_agent, 5.0);
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 20);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
+            macros::FT_START_CUTIN(agent);
+        }
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        SlowModule::set_whole(agent.module_accessor, 30, 0);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        SlowModule::clear_whole(agent.module_accessor);
+    }
+    else{
+    if macros::is_excute(agent) {
+        PostureModule::scale(agent.module_accessor, 5, 0);
+        0x120890(298784397, 2);
+        CAM_ZOOM_IN_arg5(0, 0);
+        macros::FT_START_CUTIN(agent);
+    }
+}
+frame(agent.lua_state_agent, 24.0);
+if macros::is_excute(agent) {
+    SlowModule::clear_whole(agent.module_accessor);
+}
+frame(agent.lua_state_agent, 25.0);
+if macros::is_excute(agent) {
+    macros::CAM_ZOOM_OUT(agent);
+}
+frame(agent.lua_state_agent, 29.0);
+if macros::is_excute(agent) {
+    macros::ATTACK(agent, 0, 0, Hash40::new("top"), 12.0, 361, 0, 0, 0, 13.0, 0.0, 10.0, 8.0, Some(0.0), Some(10.0), Some(28.0), 5.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+    AttackModule::set_no_dead_all(agent.module_accessor, true, false);
+}
+frame(agent.lua_state_agent, 34.0);
+if macros::is_excute(agent) {
+    macros::CAM_ZOOM_OUT(agent);
+}
+frame(agent.lua_state_agent, 35.0);
+if macros::is_excute(agent) {
+    AttackModule::clear_all(agent.module_accessor);
+}
+frame(agent.lua_state_agent, 37.0);
+if macros::is_excute(agent) {
+    WorkModule::on_flag(agent.module_accessor, *FIGHTER_DONKEY_STATUS_FINAL_FLAG_TO_ATTACK);
+}
+}
+
+unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_donkey_final"), false, false, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT_FLIP(agent, Hash40::new("sys_shield_smoke"), Hash40::new("sys_shield_smoke"), Hash40::new("top"), 0, 0, 0, 0, 30, 0, 1.25, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_YZ);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.4);
+    }
+    frame(agent.lua_state_agent, 28.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLIP(agent, Hash40::new("donkey_giantpunch"), Hash40::new("donkey_giantpunch"), Hash40::new("top"), 2, 12, 18, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_shield_smoke"), false, true);
+    }
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 28, 12, 0, 0, 0, 0, 2.3, 0, 0, 0, 0, 0, 360, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.6);
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_donkey_final"), -1);
+    }
+}
+
+unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_donkey_final01"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        macros::START_INFO_FLASH_EYE(agent);
+    }
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT_STATUS(agent, Hash40::new("rbkind_attack_finish"), 0);
+    }
+    frame(agent.lua_state_agent, 34.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 80.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_ENABLE_FACIAL_ON_FINAL);
+        macros::FT_UPDATE_FACE_MOTION(agent);
+    }
+}

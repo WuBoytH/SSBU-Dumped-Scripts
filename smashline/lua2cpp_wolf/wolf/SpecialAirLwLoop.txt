@@ -1,0 +1,40 @@
+unsafe extern "C" fn effect_specialairlwloop(agent: &mut L2CAgentBase) {
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_ref_flash"), Hash40::new("reflector"), -0.5, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_ref_loop"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 0, 1, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_ref_flash"), Hash40::new("reflector"), -0.5, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("wolf_ref_loop"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 0, 1, true);
+        }
+    }
+}
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 2, 0, 0.2, 0.4);
+}
+wait(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::COL_NORMAL(agent);
+}
+wait(agent.lua_state_agent, 2.0);
+}
+
+unsafe extern "C" fn sound_specialairlwloop(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_wolf_special_l02"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_wolf_special_l02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwloop(agent: &mut L2CAgentBase) {
+    wait_loop_sync_mot();
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+}

@@ -1,0 +1,83 @@
+unsafe extern "C" fn game_end(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 39.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attack_critical"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::ATTACK(agent, 2, 0, Hash40::new("top"), 20.0, 40, 100, 0, 10, 20.0, 0.0, 10.0, 20.0, Some(0.0), Some(10.0), Some(35.0), 1.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+        macros::ATTACK(agent, 3, 0, Hash40::new("top"), 20.0, 40, 100, 0, 10, 20.0, 0.0, 10.0, -20.0, Some(0.0), Some(10.0), Some(-35.0), 1.2, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 2, true, true, -1, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 3, true, true, -1, false);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_PACKUN_BOSSPACKUN_STATUS_WORK_FLAG_END_CAPTURE);
+    }
+    wait(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_end(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("packun_final_iron_burn_l"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("packun_final_iron_burn_r"), false, true);
+    }
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP_ALPHA(agent, Hash40::new("packun_atk_air_lw_arc"), Hash40::new("packun_atk_air_lw_arc"), Hash40::new("top"), 20, 90, -50, 90, -15, 220, 4, true, *EF_FLIP_YZ, 1);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.95);
+        macros::EFFECT_FOLLOW_FLIP_ALPHA(agent, Hash40::new("packun_atk_air_lw_arc"), Hash40::new("packun_atk_air_lw_arc"), Hash40::new("top"), 20, 90, 50, 90, 15, 220, 4, true, *EF_FLIP_YZ, 1);
+        EffectModule::set_disable_render_offset_last(agent.module_accessor);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.95);
+    }
+    frame(agent.lua_state_agent, 39.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("packun_final_strike_ground"), Hash40::new("top"), -30, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.9);
+        macros::EFFECT(agent, Hash40::new("packun_final_strike_ground"), Hash40::new("top"), 30, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.9);
+        macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -30, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.5);
+        macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 30, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.5);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("packun_final_strike"), Hash40::new("top"), -30, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::EFFECT(agent, Hash40::new("packun_final_strike"), Hash40::new("top"), 30, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("packun_final_strike"), Hash40::new("top"), -30, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::EFFECT(agent, Hash40::new("packun_final_strike"), Hash40::new("top"), 30, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+    }
+}
+frame(agent.lua_state_agent, 44.0);
+if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, -50, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("packun_final_end"), Hash40::new("top"), 0, 0, -50, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    else{
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, -50, 0, 180, 0, 2, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("packun_final_end"), Hash40::new("top"), 0, 0, -50, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+}
+}
+
+unsafe extern "C" fn sound_end(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_packun_final03"));
+    }
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_packun_final07"));
+    }
+}

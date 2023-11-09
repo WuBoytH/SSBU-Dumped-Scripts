@@ -1,0 +1,16 @@
+unsafe extern "C" fn game_lgunshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        SHOOT_ITEM_BULLET(agent);
+    }
+}
+
+unsafe extern "C" fn expression_lgunshoot(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("hand") as i64, hash40("hand_hold_lr") as i64);
+    }
+}

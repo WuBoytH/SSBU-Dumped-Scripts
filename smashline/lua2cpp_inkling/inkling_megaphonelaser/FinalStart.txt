@@ -1,0 +1,28 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_64_megaphone1"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("inkling_final_laser"), Hash40::new("muzzle"), 3, 0, 0, 0, -90, 0, 1, false);
+    }
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_R);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_G);
+    WorkModule::get_float(agent.module_accessor, -1407754940, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_B);
+    if macros::is_excute(agent) {
+        macros::LAST_PARTICLE_SET_COLOR(agent);
+    }
+    frame(agent.lua_state_agent, 55.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 4, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_final03_01"));
+    }
+}

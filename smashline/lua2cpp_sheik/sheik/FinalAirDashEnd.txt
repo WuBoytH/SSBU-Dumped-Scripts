@@ -1,0 +1,34 @@
+unsafe extern "C" fn game_finalairdashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::SET_SPEED_EX(agent, 3, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+    }
+}
+
+unsafe extern "C" fn effect_finalairdashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_sheik_final"), -1);
+        macros::CANCEL_FILL_SCREEN(agent, 0, 50);
+        macros::CANCEL_FILL_SCREEN(agent, 1, 50);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sheik_final_eye"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sheik_final_knife"), false, false);
+    }
+}
+
+unsafe extern "C" fn expression_finalairdashend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false, -1);
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    frame(agent.lua_state_agent, 44.0);
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_SHEIK_GENERATE_ARTICLE_KNIFE, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

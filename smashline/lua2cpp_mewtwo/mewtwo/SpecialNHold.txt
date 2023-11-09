@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_specialnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -10, 0, 0, 0, 0, 0, 0.5, 10, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 8.0);
+}
+
+unsafe extern "C" fn sound_specialnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_mewtwo_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        macros::AREA_WIND_2ND_RAD_arg9(agent, 1, 1, -0.05, 2, 1, -5, 10, 35, 50);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

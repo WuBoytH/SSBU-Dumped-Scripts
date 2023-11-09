@@ -1,0 +1,37 @@
+unsafe extern "C" fn game_specialnfly(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 1.0, 45, 104, 0, 50, 3.5, 0.0, 4.0, 1.2, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, -2.5, 0.0, 0, true, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
+    }
+}
+
+unsafe extern "C" fn effect_specialnfly(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_ROSETTA_TICO_INSTANCE_WORK_ID_FLAG_TOGGLE_TWINKLE_EFFECT);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_ticoshot_tico"), Hash40::new("top"), 0, 3.5, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialnfly(agent: &mut L2CAgentBase) {
+    WorkModule::get_float(agent.module_accessor, *WEAPON_ROSETTA_TICO_STATUS_SPECIAL_N_COMMON_WORK_FLOAT_RATE);
+    if(0x11e570(1469557358, 0.45)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_rosetta_special_n02_s"));
+        }
+        else{
+        WorkModule::get_float(agent.module_accessor, *WEAPON_ROSETTA_TICO_STATUS_SPECIAL_N_COMMON_WORK_FLOAT_RATE);
+        if(0x11e570(1469557358, 0.9)){
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("se_rosetta_special_n02_m"));
+                macros::PLAY_SE(agent, Hash40::new("vc_tico_angry"));
+            }
+            else{
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("se_rosetta_special_n02_l"));
+                macros::PLAY_SE(agent, Hash40::new("vc_tico_angry"));
+            }
+        }
+    }
+}
+}
+}

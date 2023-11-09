@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_specialairs2hold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("haver"), -5, 11, 1, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        EFFECT_FOLLOW_WORK(agent, *FIGHTER_MIISWORDSMAN_INSTANCE_WORK_ID_INT_EFT_ID_SWORD_FLARE, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+        LAST_EFFECT_SET_COLOR(agent, 1, 0.72, 1.1);
+    }
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0, 8, 0, 0, 0, 0, 0.5, 2, 10, 3, 0, 0, 0, true);
+    }
+    wait(lua_state, 3.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0, 8, 0, 0, 0, 0, 0.75, 2, 10, 3, 0, 0, 0, true);
+    }
+    wait(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0, 8, 0, 0, 0, 0, 0.5, 2, 10, 3, 0, 0, 0, true);
+    }
+    wait(lua_state, 3.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0, 8, 0, 0, 0, 0, 0.75, 2, 10, 3, 0, 0, 0, true);
+    }
+    wait(lua_state, 2.0);
+}
+
+unsafe extern "C" fn expression_specialairs2hold(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 1.0);
+    ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+}

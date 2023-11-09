@@ -1,0 +1,105 @@
+unsafe extern "C" fn game_win1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_GUN_LEFT);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, false, -1);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DIDDY_STATUS_FINAL_FLAG_GUN_RIGHT);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, false, -1);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        WorkModule::set_int(agent.module_accessor, 1, *FIGHTER_DIDDY_STATUS_FINAL_WORK_INT_WIN_PEANUTS_TYPE);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_PEANUTS, false, -1);
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        WorkModule::set_int(agent.module_accessor, 0, *FIGHTER_DIDDY_STATUS_FINAL_WORK_INT_WIN_PEANUTS_TYPE);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_PEANUTS, false, -1);
+    }
+    frame(agent.lua_state_agent, 64.0);
+    if macros::is_excute(agent) {
+        WorkModule::set_int(agent.module_accessor, 2, *FIGHTER_DIDDY_STATUS_FINAL_WORK_INT_WIN_PEANUTS_TYPE);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_PEANUTS, false, -1);
+    }
+    frame(agent.lua_state_agent, 122.0);
+    if macros::is_excute(agent) {
+        WorkModule::set_int(agent.module_accessor, 3, *FIGHTER_DIDDY_STATUS_FINAL_WORK_INT_WIN_PEANUTS_TYPE);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_PEANUTS, false, -1);
+    }
+}
+
+unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("diddy_popgun_l"), Hash40::new("haver"), 0, 2, 5, 0, -20, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
+    }
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, -15, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 39.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("diddy_popgun"), Hash40::new("havel"), 0, 2, 7, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
+    }
+    frame(agent.lua_state_agent, 58.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, -20, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 63.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("diddy_popgun_l"), Hash40::new("haver"), 0, 2, 5, 0, -40, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
+    }
+    frame(agent.lua_state_agent, 127.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("diddy_popgun"), Hash40::new("havel"), 0, 0, 6, 17, 0, 0, 0.55, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 2);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.8);
+    }
+    frame(agent.lua_state_agent, 130.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("diddy_popgun"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_diddy_win01"));
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_diddy_special_n01_win01"));
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_diddy_win01"));
+    }
+    frame(agent.lua_state_agent, 39.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_diddy_special_n01_win01"));
+    }
+    frame(agent.lua_state_agent, 43.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_diddy_win01"));
+    }
+    frame(agent.lua_state_agent, 63.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_diddy_special_n01_win01"));
+    }
+    frame(agent.lua_state_agent, 92.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_diddy_squat_win01"));
+    }
+    frame(agent.lua_state_agent, 121.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_diddy_special_n01_win01"));
+    }
+    frame(agent.lua_state_agent, 125.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_diddy_win01"));
+    }
+}

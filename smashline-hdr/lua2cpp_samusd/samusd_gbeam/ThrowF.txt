@@ -1,0 +1,19 @@
+unsafe extern "C" fn effect_throwf(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("samusd_gbeam"), Hash40::new("gbeam27"), 0, 0, 0, 0, 0, 0, 0.9, true);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("samusd_gbeam_lightning"), Hash40::new("gbeam5"), 0, 0, 0, 0, 0, 0, 0.6, true);
+        EFFECT_FOLLOW(agent, Hash40::new("samusd_gbeam_lightning"), Hash40::new("gbeam12"), 0, 0, 0, 0, 0, 0, 0.6, true);
+        EFFECT_FOLLOW(agent, Hash40::new("samusd_gbeam_lightning"), Hash40::new("gbeam18"), 0, 0, 0, 0, 0, 0, 0.6, true);
+        EFFECT_FOLLOW(agent, Hash40::new("samusd_gbeam_lightning"), Hash40::new("gbeam24"), 0, 0, 0, 0, 0, 0, 0.6, true);
+    }
+    frame(lua_state, 42.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("samusd_gbeam"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("samusd_gbeam_lightning"), false, true);
+    }
+}

@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_aircatchhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_NONE);
+    }
+}
+
+unsafe extern "C" fn sound_aircatchhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_simon_attackair_f01"));
+        macros::STOP_SE(agent, Hash40::new("se_simon_attackair_b01"));
+        macros::STOP_SE(agent, Hash40::new("se_simon_attackair_h01"));
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
+    }
+}

@@ -1,0 +1,218 @@
+unsafe extern "C" fn game_specialhi2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_BRAVE_GENERATE_ARTICLE_TORNADO, false, -1);
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_HI_FLAG_JUMP_START);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_HI_FLAG_REVERT_ANGLE);
+    }
+}
+
+unsafe extern "C" fn effect_specialhi2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("brave_chant_finish"), Hash40::new("top"), 0, 9, 0, 0, -60, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_tornado2_wind"), Hash40::new("top"), 0, 10, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn sound_specialhi2(agent: &mut L2CAgentBase) {
+    
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_US_FR {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_EU_EN {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_EU_FR {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_EU_IT {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION_NEW(agent, 0) == *VOICE_US_SP {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION_NEW(agent, 0) == *VOICE_EU_SP {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION_NEW(agent, 0) == *VOICE_EU_GR {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION_NEW(agent, 0) == *VOICE_EU_NL {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION_NEW(agent, 0) == *VOICE_EU_RU {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_en"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION_NEW(agent, 0) == *VOICE_ZH_CN {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_jp"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION_NEW(agent, 0) == *VOICE_ZH_TW {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_jp"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION_NEW(agent, 0) == *VOICE_KR_KO {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_jp"));
+        }
+    }
+    else{
+    if macros::GET_VOICE_REGION(agent) == *VOICE_DEFAULT {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_h01"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_h03"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_h2_jp"));
+        }
+    }
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+
+unsafe extern "C" fn expression_specialhi2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 11, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_28_soaring"), 20, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

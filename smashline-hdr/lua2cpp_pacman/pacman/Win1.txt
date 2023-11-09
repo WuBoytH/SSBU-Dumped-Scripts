@@ -1,0 +1,104 @@
+unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("rot"), 0, -4, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 24.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("rot"), 0, -4, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("pacman_change_end"), Hash40::new("rot"), -1, 0, 0, 0, 0, 0, 1.3, false);
+    }
+    frame(lua_state, 69.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 93.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_special_s02_win"));
+    }
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_special_s03_win"));
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_special_s02_win"));
+    }
+    frame(lua_state, 26.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_special_s03_win"));
+    }
+    frame(lua_state, 34.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_special_s02_win"));
+    }
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_jump01_win"));
+    }
+    frame(lua_state, 70.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_landing01_win"));
+    }
+    frame(lua_state, 79.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_pacman_jump02_win"));
+    }
+    frame(lua_state, 93.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_common_falldown_03"));
+    }
+}
+
+unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        ItemModule::set_attach_item_visibility(boma, false, *ATTACH_ITEM_GROUP_ALL);
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_none") as i64);
+        VisibilityModule::set_int64(boma, hash40("pizza") as i64, hash40("pizza_normal") as i64);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("handr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("handl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_OFF);
+        HIT_NODE(agent, Hash40::new("pizzapacman"), *HIT_STATUS_NORMAL);
+    }
+    frame(lua_state, 42.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, true, 0);
+        ItemModule::set_attach_item_visibility(boma, true, *ATTACH_ITEM_GROUP_ALL);
+        VisibilityModule::set_int64(boma, hash40("body") as i64, hash40("body_normal") as i64);
+        VisibilityModule::set_int64(boma, hash40("pizza") as i64, hash40("pizza_none") as i64);
+        HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("handr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("handl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_NORMAL);
+        HIT_NODE(agent, Hash40::new("pizzapacman"), *HIT_STATUS_OFF);
+    }
+}

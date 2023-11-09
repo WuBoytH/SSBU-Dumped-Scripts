@@ -1,0 +1,72 @@
+unsafe extern "C" fn game_specialairnshot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
+    }
+    macros::FT_MOTION_RATE(agent, 0.85);
+    frame(agent.lua_state_agent, 7.0);
+    for _ in 0..6 {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PZENIGAME_GENERATE_ARTICLE_WATER, false, -1);
+    }
+    wait(agent.lua_state_agent, 4.0);
+}
+frame(agent.lua_state_agent, 40.0);
+if macros::is_excute(agent) {
+    WorkModule::off_flag(agent.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_SHOOT_ANGLE_ENABLE);
+}
+}
+
+unsafe extern "C" fn effect_specialairnshot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("head"), -0.5, 2.7, 0, 0, 0, -13, 0.8, true);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("head"), -0.5, 2.7, 0, 0, 0, 13, 0.8, true);
+        }
+    }
+}
+frame(agent.lua_state_agent, 39.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("pzenigame_mizuteppo_shoot"), false, false);
+}
+}
+
+unsafe extern "C" fn sound_specialairnshot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_CHARGE_MAX);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n04"));
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n03"));
+        }
+    }
+}
+if macros::is_excute(agent) {
+    macros::PLAY_SE(agent, Hash40::new("vc_pzenigame_special_n01"));
+}
+}
+
+unsafe extern "C" fn expression_specialairnshot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_waterjetss"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

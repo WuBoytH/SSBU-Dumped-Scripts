@@ -1,0 +1,22 @@
+unsafe extern "C" fn game_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_SPECIAL_LW_FLAG_GENERATE_BOMB);
+    }
+    frame(lua_state, 20.0);
+    FT_MOTION_RATE(agent, 0.5);
+}
+
+unsafe extern "C" fn expression_speciallw(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_77_attackm"), 2, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

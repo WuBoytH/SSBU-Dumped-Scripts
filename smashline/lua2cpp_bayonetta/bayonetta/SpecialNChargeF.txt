@@ -1,0 +1,34 @@
+unsafe extern "C" fn game_specialnchargef(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 1.65);
+}
+
+unsafe extern "C" fn effect_specialnchargef(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_start"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_start"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 0.6, 7, 0, 5, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 8.0);
+}
+
+unsafe extern "C" fn sound_specialnchargef(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_bayonetta_special_n04"));
+    }
+}
+
+unsafe extern "C" fn expression_specialnchargef(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        AREA_WIND_2ND_arg10(0, 1, 210, 2, 0.01, -10, 5, 20, 10, 10);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

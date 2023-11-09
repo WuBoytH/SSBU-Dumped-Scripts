@@ -1,0 +1,60 @@
+unsafe extern "C" fn effect_kroolspecialairnspitb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("krool_cannon_shot"), Hash40::new("haver"), 0, 2, 25, 0, 0, 0, 1.3, true);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("krool_cannon_shot"), -1);
+    }
+}
+
+unsafe extern "C" fn sound_kroolspecialairnspitb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_krool_special_n10"));
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_N_SUCTION_IRONBALL) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_krool_special_n05"));
+        }
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_N_SUCTION_IRONBALL) {
+        if(0x543c60(*FIGHTER_KROOL_STATUS_SPECIAL_N_WORK_INT_OPPONENT_REACTION_FRAME, 40)){
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("se_krool_special_n11"));
+            }
+            else{
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("se_krool_special_n06"));
+            }
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_kroolspecialairnspitb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_N_SUCTION_IRONBALL) {
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        }
+    }
+}
+if macros::is_excute(agent) {
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}
+frame(agent.lua_state_agent, 70.0);
+if macros::is_excute(agent) {
+    ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+}
+}

@@ -1,0 +1,18 @@
+unsafe extern "C" fn effect_sleepstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("sys_sleep"), Hash40::new("head"), 0.3, 2.3, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_sleepstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_common_sleep"));
+    }
+}
+
+unsafe extern "C" fn expression_sleepstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 5);
+    }
+}

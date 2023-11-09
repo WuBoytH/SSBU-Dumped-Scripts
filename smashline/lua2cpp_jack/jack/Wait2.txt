@@ -1,0 +1,16 @@
+unsafe extern "C" fn sound_wait2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_jack_wait01"));
+    }
+    frame(agent.lua_state_agent, 72.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_jack_wait02"));
+    }
+}
+
+unsafe extern "C" fn expression_wait2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

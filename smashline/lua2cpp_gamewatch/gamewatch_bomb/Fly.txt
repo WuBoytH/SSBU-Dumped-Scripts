@@ -1,0 +1,12 @@
+unsafe extern "C" fn game_fly(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 0.0, 361, 0, 0, 0, 3.0, 0.0, 0.4, 0.0, Some(0.0), Some(0.4), Some(0.0), 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, true, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::off_target_kind(agent.module_accessor, 0, *COLLISION_KIND_MASK_HIT);
+    }
+}
+
+unsafe extern "C" fn sound_fly(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::SET_TAKEOUT_SE(agent, Hash40::new("se_gamewatch_wave08_hi"));
+    }
+}

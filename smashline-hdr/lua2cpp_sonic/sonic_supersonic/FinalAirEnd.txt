@@ -1,0 +1,56 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+    }
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 10.0, 65, 90, 0, 90, 25.0, 0.0, 7.5, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 50, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        AttackModule::set_force_reaction(boma, 0, true, false);
+        AttackModule::set_final_finish_cut_in(boma, 0, true, false, -1, false);
+    }
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    for _ in 0..6 {
+    if is_excute(agent) {
+        FLASH(agent, 1, 1, 1, 0.588);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 5, 0, 0, 0, 0.392);
+    }
+    wait(lua_state, 5.0);
+    if is_excute(agent) {
+        FLASH_FRM(agent, 8, 0, 0, 0, 0);
+    }
+    wait(lua_state, 8.0);
+    if is_excute(agent) {
+        COL_NORMAL(agent);
+    }
+    wait(lua_state, 1.0);
+}
+if is_excute(agent) {
+    FLASH(agent, 1, 1, 1, 0.588);
+}
+wait(lua_state, 1.0);
+if is_excute(agent) {
+    FLASH_FRM(agent, 2, 0, 0, 0, 0.392);
+}
+wait(lua_state, 2.0);
+if is_excute(agent) {
+    FLASH_FRM(agent, 4, 0, 0, 0, 0);
+}
+wait(lua_state, 4.0);
+if is_excute(agent) {
+    COL_NORMAL(agent);
+}
+wait(lua_state, 1.0);
+}

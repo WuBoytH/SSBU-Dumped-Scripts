@@ -1,0 +1,20 @@
+unsafe extern "C" fn sound_squatwait1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    WorkModule::is_flag(boma, *FIGHTER_STATUS_SQUAT_FLAG_REQUEST_SQUAT_SE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_luigi_squat"));
+            WorkModule::off_flag(boma, *FIGHTER_STATUS_SQUAT_FLAG_REQUEST_SQUAT_SE);
+        }
+    }
+}
+
+unsafe extern "C" fn expression_squatwait1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+}

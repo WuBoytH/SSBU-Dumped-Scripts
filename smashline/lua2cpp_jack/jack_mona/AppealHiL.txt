@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_appealhil(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_attack_speedline"), Hash40::new("throw"), 0, 6, 0, -90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_COLOR(agent, 0.05, 0.05, 0.05);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.6);
+        macros::EFFECT(agent, Hash40::new("sys_attack_speedline"), Hash40::new("throw"), 0, 6, 0, -90, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_COLOR(agent, 0.08, 0.08, 0.08);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
+    }
+    frame(agent.lua_state_agent, 90.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("jack_mona_smoke"), Hash40::new("throw"), 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_appealhil(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_jack_appeal_h01"));
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_jack_appeal01"));
+    }
+    frame(agent.lua_state_agent, 93.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_jack_appeal_h02"));
+    }
+}

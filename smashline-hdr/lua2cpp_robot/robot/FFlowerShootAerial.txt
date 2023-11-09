@@ -1,0 +1,30 @@
+unsafe extern "C" fn game_fflowershootaerial(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_action(boma, *ITEM_FIREFLOWER_ACTION_OPEN);
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_FFLOWER_SHOOT);
+    }
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        ItemModule::set_have_item_action(boma, *ITEM_FIREFLOWER_ACTION_CLOSE);
+    }
+}
+
+unsafe extern "C" fn effect_fflowershootaerial(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("robot_jump_jet"), Hash40::new("knee1"), 1, 0, 0, 90, -90, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_fflowershootaerial(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_robot_jump02"));
+    }
+}

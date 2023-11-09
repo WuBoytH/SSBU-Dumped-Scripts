@@ -1,0 +1,168 @@
+unsafe extern "C" fn game_specialairnfiref(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_LEFT_FIRE);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_BAYONETTA_GENERATE_ARTICLE_SPECIALN_BULLET, false, -1);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_LEFT_FIRE);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_BAYONETTA_GENERATE_ARTICLE_SPECIALN_BULLET, false, -1);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_LEFT_FIRE);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_BAYONETTA_GENERATE_ARTICLE_SPECIALN_BULLET, false, -1);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_LEFT_FIRE);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_BAYONETTA_GENERATE_ARTICLE_SPECIALN_BULLET, false, -1);
+    }
+}
+
+unsafe extern "C" fn effect_specialairnfiref(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_OFF_KIND(agent, Hash40::new("bayonetta_chargebullet_start"), false, false);
+        }
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("bayonetta_bulletclimax_mzl"), Hash40::new("footr"), 1.5, 0.7, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("bayonetta_bulletclimax_mzl"), Hash40::new("footl"), 1.5, 0.7, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("bayonetta_bulletclimax_mzl"), Hash40::new("footr"), 1.5, 0.7, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("bayonetta_bulletclimax_mzl"), Hash40::new("footl"), 1.5, 0.7, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    else{
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_hold"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_hold"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+frame(agent.lua_state_agent, 2.0);
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, Hash40::new("bayonetta_chargebullet_mzl"), Hash40::new("footr"), 1.5, 0.7, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+frame(agent.lua_state_agent, 7.0);
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, Hash40::new("bayonetta_chargebullet_mzl"), Hash40::new("footl"), 1.5, 0.7, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+frame(agent.lua_state_agent, 17.0);
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, Hash40::new("bayonetta_chargebullet_mzl"), Hash40::new("footr"), 1.5, 0.7, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+frame(agent.lua_state_agent, 21.0);
+if macros::is_excute(agent) {
+    macros::EFFECT(agent, Hash40::new("bayonetta_chargebullet_mzl"), Hash40::new("footl"), 1.5, 0.7, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+}
+frame(agent.lua_state_agent, 25.0);
+if macros::is_excute(agent) {
+    WorkModule::on_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_REQ_REMOVE_BULLETCLIMAX_CIRCLE);
+}
+}
+
+unsafe extern "C" fn sound_specialairnfiref(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
+        frame(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_n06"));
+        }
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_n06_04"));
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_n06"));
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_n06_04"));
+    }
+    else{
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_n07_head01"));
+    }
+}
+frame(agent.lua_state_agent, 7.0);
+if macros::is_excute(agent) {
+    macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_n07"));
+}
+frame(agent.lua_state_agent, 18.0);
+if macros::is_excute(agent) {
+    macros::STOP_SE(agent, Hash40::new("se_bayonetta_special_n07_head01"));
+    macros::STOP_SE(agent, Hash40::new("se_bayonetta_special_n07"));
+    macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_n07_head02"));
+}
+frame(agent.lua_state_agent, 22.0);
+if macros::is_excute(agent) {
+    macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_n07"));
+}
+}
+
+unsafe extern "C" fn expression_specialairnfiref(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        AREA_WIND_2ND_arg10(0, 1, 210, 2, 0.01, -10, 10, 20, 20, 10);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        }
+        else{
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_63_bullet"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+}
+frame(agent.lua_state_agent, 6.0);
+if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    else{
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_63_bullet"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}
+}
+frame(agent.lua_state_agent, 17.0);
+if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
+if macros::is_excute(agent) {
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+}
+else{
+if macros::is_excute(agent) {
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_63_bullet"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}
+}
+}
+frame(agent.lua_state_agent, 21.0);
+if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
+if macros::is_excute(agent) {
+ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+}
+else{
+if macros::is_excute(agent) {
+ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_63_bullet"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}
+}
+}
+}

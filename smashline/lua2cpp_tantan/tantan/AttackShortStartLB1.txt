@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_attackshortstartlb1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::HIT_NO(agent, 3, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 9, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 10, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 11, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 12, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 13, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 19, *HIT_STATUS_OFF);
+    }
+}
+
+unsafe extern "C" fn effect_attackshortstartlb1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), -6, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn expression_attackshortstartlb1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+}

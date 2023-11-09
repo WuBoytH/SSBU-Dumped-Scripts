@@ -1,0 +1,26 @@
+unsafe extern "C" fn effect_attackhi4charge(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 10, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 5.0);
+    macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("swordl2"), 20, 0, 0, 0, 0, 0, 1, 4, 4, 4, 0, 0, 0, true);
+}
+
+unsafe extern "C" fn sound_attackhi4charge(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_smash_start_02"));
+    }
+}
+
+unsafe extern "C" fn expression_attackhi4charge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        physics(*MA_MSC_CMD_PHYSICS_START_CHARGE, 0.7, 0.9, -1, 0.5, 0.5, -1, Hash40::new("invalid"));
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 61.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,46 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_DUCKHUNT_FINAL, 0, 6.0, 361, 160, 0, 70, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_DUCKHUNT_FINAL, *ATTACK_REGION_THROW);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DUCKHUNT_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    macros::FT_MOTION_RATE(agent, 0.7);
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DUCKHUNT_STATUS_WORK_ID_FLAG_FINAL_END_EXIT);
+    }
+    frame(agent.lua_state_agent, 65.0);
+    macros::FT_MOTION_RATE(agent, 1.2);
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_can"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_hit"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_hit2"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_hit3"), true, true);
+        EFFECT_FOLLOW_arg11(Hash40::new("duckhunt_feather_long"), Hash40::new("duckrot"), 0, 4, 0, 20, 0, 0, 1, true, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+        macros::LAST_EFFECT_SET_WORK_INT(agent, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+    }
+    frame(agent.lua_state_agent, 72.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_HANDLE(agent, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+    }
+}
+
+unsafe extern "C" fn sound_finalairend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_appeal_s02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 84.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+}

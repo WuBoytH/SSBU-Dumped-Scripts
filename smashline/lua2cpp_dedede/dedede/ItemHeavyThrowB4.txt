@@ -1,0 +1,19 @@
+unsafe extern "C" fn game_itemheavythrowb4(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::THROW_ITEM_OFFSET(agent, -20, 16, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_ANGLE, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_SPEED, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_POWER);
+        macros::REVERSE_LR(agent);
+    }
+}
+
+unsafe extern "C" fn sound_itemheavythrowb4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_dedede_rnd_attack01"));
+    }
+}
+
+unsafe extern "C" fn expression_itemheavythrowb4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+}

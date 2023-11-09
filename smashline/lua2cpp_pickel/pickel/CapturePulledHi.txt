@@ -1,0 +1,19 @@
+unsafe extern "C" fn game_capturepulledhi(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+    }
+}
+
+unsafe extern "C" fn sound_capturepulledhi(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_CAPTURE_PULLED_SE) {
+        if macros::is_excute(agent) {
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_common_cliff_catch"), 5);
+        }
+        else{
+        frame(agent.lua_state_agent, 3.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
+        }
+    }
+}
+}

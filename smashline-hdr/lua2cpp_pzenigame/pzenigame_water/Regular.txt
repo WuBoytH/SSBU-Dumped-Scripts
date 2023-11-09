@@ -1,0 +1,24 @@
+unsafe extern "C" fn game_regular(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("top"), 0.0, 45, 100, 40, 0, 2.8, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, true, false, true, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_water"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_WATER, *ATTACK_REGION_WATER);
+        AttackModule::enable_safe_pos(boma);
+    }
+}
+
+unsafe extern "C" fn effect_regular(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("pzenigame_mizuteppo"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.5, true);
+    }
+}
+
+unsafe extern "C" fn sound_regular(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        SET_TAKEOUT_SE(agent, Hash40::new("se_common_c_water_m"));
+    }
+}

@@ -1,0 +1,28 @@
+unsafe extern "C" fn effect_visualscene02(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 80.0);
+    if macros::is_excute(agent) {
+        methodlib::L2CValue::as_hash()const(Hash40::new("dead_area_out"), 0, 0, 1, 0, 0, 0, 0, 0);
+        EffectModule::request_post_effect_line_parallel_2d(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene02(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 46.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_final03"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene02(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_erase_sp"), 0);
+    }
+    frame(agent.lua_state_agent, 45.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_lv2"), 0);
+    }
+    wait(agent.lua_state_agent, 22.0);
+}

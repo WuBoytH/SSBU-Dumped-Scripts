@@ -1,0 +1,18 @@
+unsafe extern "C" fn sound_swimdrownout(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_swimdrown"));
+    }
+}
+
+unsafe extern "C" fn expression_swimdrownout(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SwimDrownOutRumble()();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("shield") as i64, hash40("shield_back") as i64);
+        VisibilityModule::set_int64(boma, hash40("sword") as i64, hash40("sword_back") as i64);
+    }
+}

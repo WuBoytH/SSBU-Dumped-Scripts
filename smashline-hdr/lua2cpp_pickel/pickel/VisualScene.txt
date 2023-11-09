@@ -1,0 +1,87 @@
+unsafe extern "C" fn game_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_PICKEL_GENERATE_ARTICLE_MASKFINAL, false, -1);
+    }
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION_1);
+    }
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_FINAL_FLAG_TARGET_CHANGE_MOTION_2);
+    }
+    frame(lua_state, 100.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_FINAL_FLAG_SCENE01_SYNC);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("pickel_final_white2"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), -8, 57, -3, 0, 90, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 250.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("pickel_eat_meat"), Hash40::new("head"), 0.5, 2.5, 0, 0, 0, 0, 0.8, true);
+    }
+    frame(lua_state, 280.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("pickel_final_white"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 311.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("pickel_eat_meat"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_final04"));
+    }
+    frame(lua_state, 29.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_final04_down"));
+    }
+    frame(lua_state, 82.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_final05"));
+    }
+    frame(lua_state, 127.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_final05_fuse"));
+    }
+    frame(lua_state, 199.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_pickel_final05_fuse"));
+        STOP_SE(agent, Hash40::new("se_pickel_final05"));
+    }
+    frame(lua_state, 204.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_pickel_final06"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ModelModule::disable_gold_eye(boma);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_77_piston"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_77_piston"), 0);
+    }
+    frame(lua_state, 34.0);
+}

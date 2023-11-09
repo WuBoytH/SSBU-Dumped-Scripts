@@ -1,0 +1,74 @@
+unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 2, 0, -1.5, 0, 90, 0, 0.35, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), -3, 0, -1.5, 0, 90, 0, 0.35, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 49.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 2, 0, -1.5, 0, 90, 0, 0.35, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 71.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), -3, 0, -1.5, 0, 90, 0, 0.35, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 128.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_WORK(agent, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, Hash40::new("top"), -3, 13, -2, -90, 0, 0, 0.85, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 2);
+    }
+    frame(agent.lua_state_agent, 130.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND_WORK(agent, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING, false, true);
+    }
+}
+
+unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_step_left_l_win02"));
+    }
+    frame(agent.lua_state_agent, 33.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_step_right_l_win02"));
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_step_left_l_win02"));
+    }
+    frame(agent.lua_state_agent, 69.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_step_right_l_win02"));
+    }
+    frame(agent.lua_state_agent, 85.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_appeal_l01_win02"));
+    }
+    frame(agent.lua_state_agent, 88.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_buddy_appeal03_win02"));
+    }
+    frame(agent.lua_state_agent, 115.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_appeal_l02_win02"));
+    }
+    frame(agent.lua_state_agent, 121.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_buddy_appeal03_win02"));
+    }
+    frame(agent.lua_state_agent, 125.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_win02_01"));
+    }
+}
+
+unsafe extern "C" fn expression_win2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_BUDDY_GENERATE_ARTICLE_PIECE, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}

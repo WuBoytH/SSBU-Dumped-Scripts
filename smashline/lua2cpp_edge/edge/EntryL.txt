@@ -1,0 +1,58 @@
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0, 0, 0, 0.8);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+        macros::BURN_COLOR(agent, 0.5, 0.15, 2, 0.3);
+        macros::EFFECT(agent, Hash40::new("edge_entry_darkspace"), Hash40::new("top"), 0, 26, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_ACTIVATED);
+    methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_entry_wing"), Hash40::new("bust"), 0, 0, 0, 0, 0, -90, 1, true);
+    }
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_entry_darkaura"), Hash40::new("kneel"), 4, -1, -1, 0, 0, -90, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_entry_darkaura"), Hash40::new("hip"), -3, 0, 0, 0, 0, -90, 2, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_entry_darkaura"), Hash40::new("neck"), 0, 0, 0, 0, 0, 0, 1.5, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_entry_darkaura"), Hash40::new("arml"), 1, 0, 0, 0, 0, -90, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_entry_darkaura"), Hash40::new("armr"), 1, 0, 0, 0, 0, -90, 1, true);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 36, 0, 0, 0, 0);
+        macros::BURN_COLOR_FRAME(agent, 36, 0.5, 0.15, 2, 0);
+    }
+    wait(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+        macros::BURN_COLOR_NORMAL(agent);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_edge_appear01"));
+    }
+    frame(agent.lua_state_agent, 51.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_edge_step_left_s"));
+    }
+    frame(agent.lua_state_agent, 53.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_edge_step_right_s"));
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+}

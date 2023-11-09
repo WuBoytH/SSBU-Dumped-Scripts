@@ -1,0 +1,18 @@
+unsafe extern "C" fn effect_visualscene04(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("dolly_fainal_buster_aura"), Hash40::new("handr"), 1, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn expression_visualscene04(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_74_triplewolf_v4"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_74_triplewolf_v4"), 0);
+    }
+    frame(lua_state, 39.0);
+}

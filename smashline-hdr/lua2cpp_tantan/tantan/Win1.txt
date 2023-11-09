@@ -1,0 +1,38 @@
+unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 122.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("tantan_attack_arc"), Hash40::new("top"), 3, 9, 2, -120, -25, 0, 1.1, true, 0.5);
+        LAST_EFFECT_SET_RATE(agent, 0.6);
+    }
+    frame(lua_state, 123.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_ALPHA(agent, Hash40::new("tantan_attack_arc"), Hash40::new("top"), -3.5, 7, -3, -110, -50, 160, 0.6, true, 0.5);
+        LAST_EFFECT_SET_RATE(agent, 0.5);
+    }
+}
+
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 11.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_tantan_win01"));
+    }
+    frame(lua_state, 75.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("vc_tantan_win01"));
+    }
+}
+
+unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("punch_r") as i64, hash40("punch_r_3") as i64);
+        VisibilityModule::set_int64(boma, hash40("punch3_ring") as i64, hash40("punch3_ring_normal") as i64);
+        VisibilityModule::set_int64(boma, hash40("shoulder_l") as i64, hash40("shoulder_l_big") as i64);
+        VisibilityModule::set_int64(boma, hash40("arm_l") as i64, hash40("arm_l_big") as i64);
+    }
+}

@@ -1,0 +1,50 @@
+unsafe extern "C" fn game_batswing4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        SEARCH(agent, 0, 0, Hash40::new("top"), 9.0, 0.0, 8.0, 6.0, 0.0, 8.0, 11.0, *COLLISION_KIND_MASK_ATTACK, *HIT_STATUS_MASK_NORMAL, 60, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+    }
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_BatSwing4Common1()();
+    if is_excute(agent) {
+        shield(*MA_MSC_CMD_REFLECTOR, *COLLISION_KIND_REFLECTOR, 0, Hash40::new("top"), 9, 0, 7.5, 7, 0, 7.5, 8, 2, 2.5, 80, false, 0.5, *FIGHTER_REFLECTOR_GROUP_HOMERUNBAT);
+    }
+    methodlua2cpp::L2CFighterAnimcmdGameCommon::game_BatSwing4Common2()();
+}
+
+unsafe extern "C" fn sound_batswing4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 45.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_pit_attack03"));
+    }
+}
+
+unsafe extern "C" fn expression_batswing4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 1.0);
+    execute(lua_state, 1.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_L, 4);
+    }
+    frame(lua_state, 48.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+    frame(lua_state, 50.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 51.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

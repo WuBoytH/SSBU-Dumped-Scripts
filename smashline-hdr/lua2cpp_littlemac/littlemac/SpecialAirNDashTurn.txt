@@ -1,0 +1,105 @@
+unsafe extern "C" fn game_specialairndashturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_LITTLEMAC_STATUS_SPECIAL_N_FLAG_TURN_DASH_START);
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("armr"), 8.0, 35, 85, 0, 25, 3.0, 3.0, 0.0, 0.0, Some(-4.0), Some(0.0), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+        WorkModule::set_float(boma, 8.0, *FIGHTER_LITTLEMAC_STATUS_SPECIAL_N_FLOAT_POWER_MIN);
+        WorkModule::set_float(boma, 17.0, *FIGHTER_LITTLEMAC_STATUS_SPECIAL_N_FLOAT_POWER_MAX);
+    }
+    if WorkModule::get_int(boma, *FIGHTER_INSTANCE_WORK_ID_INT_KIND) == *FIGHTER_KIND_KIRBY {
+        if is_excute(agent) {
+            ATTACK(agent, 0, 0, Hash40::new("arml"), 8.0, 35, 85, 0, 25, 3.0, 3.0, 0.0, 0.0, Some(-4.0), Some(0.0), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+        }
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        ATTACK(agent, 0, 0, Hash40::new("armr"), 6.0, 35, 85, 0, 25, 2.0, 3.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+        WorkModule::set_float(boma, 6.0, *FIGHTER_LITTLEMAC_STATUS_SPECIAL_N_FLOAT_POWER_MIN);
+        WorkModule::set_float(boma, 13.0, *FIGHTER_LITTLEMAC_STATUS_SPECIAL_N_FLOAT_POWER_MAX);
+    }
+    if WorkModule::get_int(boma, *FIGHTER_INSTANCE_WORK_ID_INT_KIND) == *FIGHTER_KIND_KIRBY {
+        if is_excute(agent) {
+            ATTACK(agent, 0, 0, Hash40::new("arml"), 6.0, 35, 85, 0, 25, 2.0, 3.0, 0.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
+        }
+    }
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+}
+
+unsafe extern "C" fn effect_specialairndashturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("littlemac_straight_line"), Hash40::new("top"), 0, 6, 0, 0, 180, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+    frame(lua_state, 4.0);
+    WorkModule::get_float(boma, *FIGHTER_LITTLEMAC_STATUS_WORK_ID_FLOAT_SPECIAL_N_CHARGE_RATE);
+    if(0x1462c0(1128533056, 0.625)){
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("littlemac_straight3"), Hash40::new("top"), -1.6, 7.2, -13.5, 0, 180, 0, 1, true);
+        }
+        else{
+        WorkModule::get_float(boma, *FIGHTER_LITTLEMAC_STATUS_WORK_ID_FLOAT_SPECIAL_N_CHARGE_RATE);
+        if(0x1462c0(1128533056, 0.37)){
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("littlemac_straight2"), Hash40::new("top"), -1.6, 7.2, -13.5, 0, 180, 0, 1, true);
+            }
+            else{
+            if is_excute(agent) {
+                EFFECT_FOLLOW(agent, Hash40::new("littlemac_straight"), Hash40::new("top"), -1.6, 7.2, -13.5, 0, 180, 0, 1, true);
+                EffectModule::enable_sync_init_pos_last(boma);
+            }
+        }
+    }
+}
+}
+frame(lua_state, 15.0);
+if is_excute(agent) {
+EFFECT_OFF_KIND(agent, Hash40::new("littlemac_straight_line"), false, false);
+EffectModule::enable_sync_init_pos_last(boma);
+}
+}
+
+unsafe extern "C" fn sound_specialairndashturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_littlemac_special_n02"));
+    }
+    WorkModule::get_float(boma, *FIGHTER_LITTLEMAC_STATUS_WORK_ID_FLOAT_SPECIAL_N_CHARGE_RATE);
+    if(0x1462c0(1128533056, 0.6)){
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_littlemac_special_n02_s"));
+        }
+        else{
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_littlemac_special_n02_m"));
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_specialairndashturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
+    }
+    frame(lua_state, 14.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

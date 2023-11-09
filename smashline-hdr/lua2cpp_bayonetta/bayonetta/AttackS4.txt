@@ -1,0 +1,260 @@
+unsafe extern "C" fn game_attacks4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    FT_MOTION_RATE(agent, 0.75);
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
+    }
+    execute(lua_state, 3.0);
+    if WorkModule::is_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_SMASH_SMASH_HOLD_TO_ATTACK) {
+        if is_excute(agent) {
+            ArticleModule::generate_article(boma, *FIGHTER_BAYONETTA_GENERATE_ARTICLE_WICKEDWEAVEARM, false, -1);
+        }
+    }
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2d51fcdb09), *FIGHTER_BAYONETTA_SHOOTING_SLOT_R_ARM, true, true, false, 10, 3, 5, 0, true);
+    }
+    FT_MOTION_RATE(agent, 1.0);
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        AttackModule::set_power_mul_status(boma, 1);
+        WorkModule::on_flag(boma, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_FLAG_SHOOTING_ACTION);
+        WorkModule::on_flag(boma, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_FLAG_SHOOTING_MOTION_STOP);
+        WorkModule::on_flag(boma, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_FLAG_SHOOTING_CHECK_END);
+    }
+}
+
+unsafe extern "C" fn effect_attacks4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("bayonetta_change_circle"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("handr"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 18.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("bayonetta_butterfly_walk"), Hash40::new("top"), 3, 0, 3, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 23.0);
+    if WorkModule::get_int(boma, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_COSTUME_KIND) != *FIGHTER_BAYONETTA_COSTUME_KIND_BAYONETTA_1 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW_COLOR(agent, Hash40::new("bayonetta_beretta_rotation"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true, 0.059, 0.38, 1);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW_COLOR(agent, Hash40::new("bayonetta_beretta_rotation"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true, 1, 0.118, 0.118);
+        }
+    }
+}
+frame(lua_state, 47.0);
+if is_excute(agent) {
+    EFFECT_OFF_KIND(agent, Hash40::new("bayonetta_beretta_rotation"), true, true);
+}
+}
+
+unsafe extern "C" fn sound_attacks4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    
+        if WorkModule::get_int(boma, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_COSTUME_KIND) != *FIGHTER_BAYONETTA_COSTUME_KIND_BAYONETTA_1 {
+            frame(lua_state, 2.0);
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("se_bayonetta_wecked_chargefull"));
+            }
+        }
+        frame(lua_state, 10.0);
+        WorkModule::get_float(boma, *FIGHTER_STATUS_WORK_ID_FLOAT_RESERVE_HOLD_RATE);
+        if(0x1cb400(-460198162, 1)){
+            if is_excute(agent) {
+                PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s01_jp"));
+            }
+            else{
+            if is_excute(agent) {
+                PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_jp"));
+            }
+            frame(lua_state, 34.0);
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("se_bayonetta_loveisblue_spin"));
+            }
+            frame(lua_state, 90.0);
+            if is_excute(agent) {
+                PLAY_STEP(agent, Hash40::new("se_bayonetta_step_right_s"));
+            }
+        }
+    }
+}
+else{
+if GET_VOICE_REGION(agent) == *VOICE_US_EN {
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_bayonetta_wecked_chargefull"));
+    }
+    frame(lua_state, 10.0);
+    WorkModule::get_float(boma, *FIGHTER_STATUS_WORK_ID_FLOAT_RESERVE_HOLD_RATE);
+    if(0x1cb400(-460198162, 1)){
+        if is_excute(agent) {
+            PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s01_en"));
+        }
+        else{
+        if is_excute(agent) {
+            PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+        }
+    }
+}
+frame(lua_state, 34.0);
+if is_excute(agent) {
+    PLAY_SE(agent, Hash40::new("se_bayonetta_loveisblue_spin"));
+}
+frame(lua_state, 90.0);
+if is_excute(agent) {
+    PLAY_STEP(agent, Hash40::new("se_bayonetta_step_right_s"));
+}
+}
+else{
+if GET_VOICE_REGION(agent) == *VOICE_US_FR {
+frame(lua_state, 2.0);
+if is_excute(agent) {
+    PLAY_SE(agent, Hash40::new("se_bayonetta_wecked_chargefull"));
+}
+frame(lua_state, 10.0);
+WorkModule::get_float(boma, *FIGHTER_STATUS_WORK_ID_FLOAT_RESERVE_HOLD_RATE);
+if(0x1cb400(-460198162, 1)){
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s01_en"));
+    }
+    else{
+    if is_excute(agent) {
+        PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+    }
+}
+}
+frame(lua_state, 34.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_bayonetta_loveisblue_spin"));
+}
+frame(lua_state, 90.0);
+if is_excute(agent) {
+PLAY_STEP(agent, Hash40::new("se_bayonetta_step_right_s"));
+}
+}
+else{
+if GET_VOICE_REGION(agent) == *VOICE_EU_EN {
+frame(lua_state, 2.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_bayonetta_wecked_chargefull"));
+}
+frame(lua_state, 10.0);
+WorkModule::get_float(boma, *FIGHTER_STATUS_WORK_ID_FLOAT_RESERVE_HOLD_RATE);
+if(0x1cb400(-460198162, 1)){
+if is_excute(agent) {
+    PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s01_en"));
+}
+else{
+if is_excute(agent) {
+    PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+}
+}
+}
+frame(lua_state, 34.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_bayonetta_loveisblue_spin"));
+}
+frame(lua_state, 90.0);
+if is_excute(agent) {
+PLAY_STEP(agent, Hash40::new("se_bayonetta_step_right_s"));
+}
+}
+else{
+if GET_VOICE_REGION(agent) == *VOICE_EU_FR {
+frame(lua_state, 2.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_bayonetta_wecked_chargefull"));
+}
+frame(lua_state, 10.0);
+WorkModule::get_float(boma, *FIGHTER_STATUS_WORK_ID_FLOAT_RESERVE_HOLD_RATE);
+if(0x1cb400(-460198162, 1)){
+if is_excute(agent) {
+PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s01_en"));
+}
+else{
+if is_excute(agent) {
+PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+}
+}
+}
+frame(lua_state, 34.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_bayonetta_loveisblue_spin"));
+}
+frame(lua_state, 90.0);
+if is_excute(agent) {
+PLAY_STEP(agent, Hash40::new("se_bayonetta_step_right_s"));
+}
+}
+else{
+if GET_VOICE_REGION(agent) == *VOICE_EU_IT {
+frame(lua_state, 2.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_bayonetta_wecked_chargefull"));
+}
+frame(lua_state, 10.0);
+WorkModule::get_float(boma, *FIGHTER_STATUS_WORK_ID_FLOAT_RESERVE_HOLD_RATE);
+if(0x1cb400(-460198162, 1)){
+if is_excute(agent) {
+PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s01_en"));
+}
+else{
+if is_excute(agent) {
+PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s02_en"));
+}
+}
+}
+frame(lua_state, 34.0);
+if is_excute(agent) {
+PLAY_SE(agent, Hash40::new("se_bayonetta_loveisblue_spin"));
+}
+frame(lua_state, 90.0);
+if is_excute(agent) {
+PLAY_STEP(agent, Hash40::new("se_bayonetta_step_right_s"));
+}
+}
+}
+}
+}
+}
+}
+}
+
+unsafe extern "C" fn expression_attacks4(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x25fd66ecef), 25, -1, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_R, 2);
+    }
+    frame(lua_state, 5.0);
+    execute(lua_state, 5.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
+    }
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitl_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+    }
+    frame(lua_state, 68.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x25fd66ecef), 30, 0, 1);
+    }
+}

@@ -1,0 +1,12 @@
+unsafe extern "C" fn sound_specialncancel(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, 0x1617148402);
+    }
+}
+
+unsafe extern "C" fn expression_specialncancel(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

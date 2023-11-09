@@ -1,0 +1,24 @@
+unsafe extern "C" fn game_attackbeamloop(agent: &mut L2CAgentBase) {
+    if macros::IS_EXIST_ARTICLE(agent, *WEAPON_TANTAN_PUNCH1_GENERATE_ARTICLE_BEAM) {
+        if macros::is_excute(agent) {
+            ArticleModule::remove_exist(agent.module_accessor, *WEAPON_TANTAN_PUNCH1_GENERATE_ARTICLE_BEAM, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *WEAPON_TANTAN_PUNCH1_GENERATE_ARTICLE_BEAM);
+        ArticleModule::shoot_exist(agent.module_accessor, *WEAPON_TANTAN_PUNCH1_GENERATE_ARTICLE_BEAM, *ARTICLE_OPE_TARGET_ALL, false);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_76_dragonbeam"), 30, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+}
+
+unsafe extern "C" fn sound_attackbeamloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_tantan_attack01_short"));
+        macros::STOP_SE(agent, Hash40::new("se_tantan_attack01_long"));
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_tantan_attack01_beam"));
+    }
+}

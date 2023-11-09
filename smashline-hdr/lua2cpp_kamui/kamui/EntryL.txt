@@ -1,0 +1,94 @@
+unsafe extern "C" fn game_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        VisibilityModule::set_whole(boma, false);
+        ArticleModule::generate_article(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, false, -1);
+        ArticleModule::change_motion(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, Hash40::new("entry_l"), false, -1.0);
+    }
+    frame(lua_state, 52.0);
+    if is_excute(agent) {
+        ArticleModule::remove(boma, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON);
+        VisibilityModule::set_whole(boma, true);
+    }
+}
+
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("kamui_water_hamon_entry"), Hash40::new("top"), 0, 0.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 21.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("kamui_water_sibuki_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 43.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
+    }
+    frame(lua_state, 58.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, -1, 0, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 65.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
+    }
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_kamui_appear01"));
+    }
+    frame(lua_state, 21.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_kamui_appear02"));
+    }
+    frame(lua_state, 48.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_kamui_appear03"));
+    }
+    frame(lua_state, 68.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_kamui_rise"));
+    }
+    frame(lua_state, 103.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_kamui_swing_l"));
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        VisibilityModule::set_int64(boma, hash40("dragon") as i64, hash40("dragon_horn") as i64);
+        VisibilityModule::set_int64(boma, hash40("front_hair") as i64, hash40("front_hair_hide") as i64);
+        VisibilityModule::set_int64(boma, hash40("hair") as i64, hash40("hair_hide") as i64);
+    }
+    frame(lua_state, 52.0);
+    if is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+    frame(lua_state, 59.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("front_hair") as i64, hash40("front_hair_normal") as i64);
+        VisibilityModule::set_int64(boma, hash40("hair") as i64, hash40("hair_normal") as i64);
+    }
+    frame(lua_state, 63.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("dragon") as i64, hash40("dragon_none") as i64);
+    }
+    frame(lua_state, 100.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

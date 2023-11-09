@@ -1,0 +1,33 @@
+unsafe extern "C" fn game_jumpaerialback(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        WorkModule::off_flag(boma, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_CANNOT_JUMP_PLUS);
+    }
+}
+
+unsafe extern "C" fn effect_jumpaerialback(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_jump_aerial"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_jumpaerialback(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if WorkModule::is_flag(boma, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_ACTIVATED) {
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_edge_jump02"));
+            PLAY_SE(agent, Hash40::new("se_edge_winged_jump02"));
+        }
+        else{
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_edge_jump02"));
+        }
+    }
+}
+}

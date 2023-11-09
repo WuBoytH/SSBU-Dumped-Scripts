@@ -1,0 +1,59 @@
+unsafe extern "C" fn game_finalair1r(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::FT_SET_FINAL_SMASH_LIGHT(agent, true);
+        macros::FT_REMOVE_FINAL_AURA(agent, false);
+        PostureModule::scale(agent.module_accessor, 20, 0);
+        0x19e320(-395664327, 2.1);
+        CAM_ZOOM_IN_arg5(0, 0);
+        macros::FT_START_CUTIN(agent);
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+        macros::SLOW_OPPONENT(agent, 10, 60);
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::CAM_ZOOM_OUT(agent);
+    }
+    frame(agent.lua_state_agent, 51.0);
+    if macros::is_excute(agent) {
+        macros::CANCEL_FILL_SCREEN(agent, 0, 0);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_ICEBERG_HIT, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_WHITEBEAR, false, -1);
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_POPO_GENERATE_ARTICLE_CONDOR, false, -1);
+    }
+    frame(agent.lua_state_agent, 52.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_POPO_STATUS_FINAL_FLAG_FINAL_CAMERA);
+    }
+}
+
+unsafe extern "C" fn effect_finalair1r(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_popo_final"), false, false, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalair1r(agent: &mut L2CAgentBase) {
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA);
+    0x19e320(false, true);
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_popo_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_finalair1r(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        macros::START_INFO_FLASH_EYE(agent);
+    }
+    frame(agent.lua_state_agent, 67.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_15_iceberg_sp"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 89.0);
+    if macros::is_excute(agent) {
+        ModelModule::disable_gold_eye(agent.module_accessor);
+    }
+}

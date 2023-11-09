@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_finalvisualscene03(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 1.1, 1.1, 1.2, 0, 0, 0, 0.9, 1.4, EffectScreenLayer:*CHAR, 198);
+    }
+}
+
+unsafe extern "C" fn sound_finalvisualscene03(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_trail_final05"));
+    }
+}
+
+unsafe extern "C" fn expression_finalvisualscene03(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_finalvisualscene03"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_81_finalvisualscene03"), 0);
+    }
+}

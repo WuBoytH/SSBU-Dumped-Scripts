@@ -1,0 +1,26 @@
+unsafe extern "C" fn effect_specialscatch(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    }
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_item_get"), Hash40::new("handr"), 0.5, 0, 0, 0, 0, 0, 0.8, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.4);
+    }
+}
+
+unsafe extern "C" fn sound_specialscatch(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_special_s05"));
+    }
+}
+
+unsafe extern "C" fn expression_specialscatch(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_79_grapple"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

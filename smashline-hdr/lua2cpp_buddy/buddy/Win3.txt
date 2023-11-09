@@ -1,0 +1,63 @@
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 51.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 3, 0, 0, 0, 45, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 55.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("buddy_result_note"), Hash40::new("haver"), 0, -1, -1, 60, -123, -60, 1, true);
+    }
+    frame(lua_state, 76.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("buddy_result_note"), Hash40::new("haver"), 0, 0, 0, 84, -105, -63, 1.1, true);
+    }
+    frame(lua_state, 95.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("buddy_result_note"), Hash40::new("haver"), -3, 3, 1, 0, -120, 0, 1.1, true);
+    }
+    frame(lua_state, 125.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("buddy_result_note"), Hash40::new("top"), -4, 6, 3, -30, 0, 0, 0.95, true);
+    }
+    frame(lua_state, 126.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("buddy_result_note"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        PLAY_SE_NO_3D(agent, Hash40::new("se_buddy_win03_01"));
+    }
+}
+
+unsafe extern "C" fn expression_win3(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_PIECE, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS) {
+        if is_excute(agent) {
+            ArticleModule::generate_article(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS, false, -1);
+        }
+    }
+    if is_excute(agent) {
+        ArticleModule::change_motion(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_STRINGS, Hash40::new("win_3"), false, -1.0);
+    }
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN) {
+        if is_excute(agent) {
+            ArticleModule::generate_article(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN, false, -1);
+        }
+    }
+    if is_excute(agent) {
+        ArticleModule::change_motion(boma, *FIGHTER_BUDDY_GENERATE_ARTICLE_HORN, Hash40::new("win_3"), false, -1.0);
+    }
+}

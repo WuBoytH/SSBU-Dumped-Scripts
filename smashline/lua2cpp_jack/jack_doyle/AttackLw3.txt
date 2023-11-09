@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_attacklw3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("jack_doyle_attack_line"), Hash40::new("top"), 0, 4, 1, 0, 0, 0, 1.5, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.8);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("jack_attack_line2"), Hash40::new("top"), 7, 2, -2, 0, 0, 0, 1.5, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 0.8);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("jack_attack_line2"), Hash40::new("top"), -7, 2, -2, 0, 0, 0, 1.5, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 0.8);
+        }
+    }
+}
+}

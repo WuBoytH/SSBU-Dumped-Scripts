@@ -1,0 +1,42 @@
+unsafe extern "C" fn effect_rockmanspecialairnturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 5.0);
+    if !WorkModule::is_flag(boma, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_ALREADY_EXIST_METALBLADE) {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("rockman_metalblade_start"), Hash40::new("handl"), -4, 0, 0, 0, -0.0, 0, 0.8, true);
+        }
+    }
+    frame(lua_state, 8.0);
+    if sv_animcmd::get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("rockman_metalblade_cutter_kirby"), Hash40::new("havel"), 0, 0, 0, 0, -0.0, -90, 1, true);
+        }
+        else{
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("rockman_metalblade_cutter_kirby"), Hash40::new("havel"), 0, 0, 0, 0, -0.0, 90, 1, true);
+        }
+    }
+}
+if is_excute(agent) {
+    EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("havel"), 0, -2, 4, 0, -0.0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+}
+frame(lua_state, 13.0);
+if is_excute(agent) {
+    EFFECT_FOLLOW_ALPHA(agent, Hash40::new("rockman_leafshield_arc"), Hash40::new("top"), -1, 10, 2.5, 0, -60, -105, 0.87, false, 0.05);
+    LAST_EFFECT_SET_RATE(agent, 1.7);
+}
+frame(lua_state, 16.0);
+}
+
+unsafe extern "C" fn expression_rockmanspecialairnturn(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 16.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

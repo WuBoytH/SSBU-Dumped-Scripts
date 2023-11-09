@@ -1,0 +1,26 @@
+unsafe extern "C" fn sound_swimf_nana(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_swim_high_01"));
+    }
+    wait(lua_state, 1.0);
+    methodlib::L2CAgent::pop();
+    wait_loop_sync_mot();
+    methodlib::L2CAgent::pop();
+    wait_loop_sync_mot();
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_swim_high_01"));
+    }
+    wait(lua_state, 1.0);
+    loc.imp._Unwind_Resume();
+}
+
+unsafe extern "C" fn expression_swimf_nana(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    wait_loop_sync_mot();
+    frame(lua_state, 17.0);
+}

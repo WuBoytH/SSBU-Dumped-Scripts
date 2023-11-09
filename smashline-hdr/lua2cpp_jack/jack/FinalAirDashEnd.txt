@@ -1,0 +1,29 @@
+unsafe extern "C" fn game_finalairdashend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
+    }
+}
+
+unsafe extern "C" fn effect_finalairdashend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        AFTER_IMAGE_OFF(agent, 2);
+    }
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        CANCEL_FILL_SCREEN(agent, 0, 18);
+        EffectModule::remove_screen(boma, Hash40::new("bg_jack_final"), -1);
+    }
+}
+
+unsafe extern "C" fn expression_finalairdashend(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_rush"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

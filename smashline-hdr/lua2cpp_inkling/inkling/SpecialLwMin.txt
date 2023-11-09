@@ -1,0 +1,28 @@
+unsafe extern "C" fn game_speciallwmin(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        ArticleModule::shoot(boma, *FIGHTER_INKLING_GENERATE_ARTICLE_SPLASHBOMB, *ARTICLE_OPE_TARGET_ALL, false);
+        WorkModule::on_flag(boma, *FIGHTER_INKLING_STATUS_SPECIAL_LW_FLAG_THROW);
+    }
+}
+
+unsafe extern "C" fn sound_speciallwmin(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 11.0);
+}
+
+unsafe extern "C" fn expression_speciallwmin(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_lightthrowitem"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

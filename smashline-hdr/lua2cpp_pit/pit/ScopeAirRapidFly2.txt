@@ -1,0 +1,37 @@
+unsafe extern "C" fn game_scopeairrapidfly2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 2.0);
+    if !WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
+        if is_excute(agent) {
+            SHOOT_ITEM_BULLET(agent);
+            WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_scopeairrapidfly2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_EFFECT) {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("pit_feather"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, false);
+        }
+        if is_excute(agent) {
+            WorkModule::off_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_EFFECT);
+        }
+    }
+    methodlua2cpp::L2CFighterAnimcmdEffectCommon::effect_ScopeAirRapidCommon()(0);
+}
+
+unsafe extern "C" fn sound_scopeairrapidfly2(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    frame(lua_state, 3.0);
+    if WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND) {
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_pit_jump01"));
+            WorkModule::off_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_AERIAL_REQ_SOUND);
+        }
+    }
+}

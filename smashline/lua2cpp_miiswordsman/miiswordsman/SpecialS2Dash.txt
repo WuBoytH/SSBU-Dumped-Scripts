@@ -1,0 +1,67 @@
+unsafe extern "C" fn effect_specials2dash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+        macros::EFFECT_FOLLOW_WORK(agent, *FIGHTER_MIISWORDSMAN_INSTANCE_WORK_ID_INT_EFT_ID_SWORD_FLARE, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.72, 1.1);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("miiswordsman_blastwind"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("miiswordsman_blastwind_aura"), Hash40::new("haver"), 0, 0, 0, 0, 0, -90, 0.45, true);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0, 15, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 3.0);
+}
+frame(agent.lua_state_agent, 14.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_DETACH_KIND(agent, Hash40::new("miiswordsman_blastwind_aura"), 1);
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+}
+}
+
+unsafe extern "C" fn sound_specials2dash(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_miiswordsman_special_s01"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_miiswordsman_rnd_special_c2_s01"));
+    }
+    wait(agent.lua_state_agent, 2.0);
+    WorkModule::get_float(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_SHIPPU_SLASH_WORK_FLOAT_CHARGE_RATE);
+    if(0x191390(572710468, 0.5)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c2_s01"));
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_miiswordsman_special_c2_s01"), 15);
+        }
+        else{
+        WorkModule::get_float(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_SHIPPU_SLASH_WORK_FLOAT_CHARGE_RATE);
+        if(0x191390(572710468, 1)){
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c2_s03"));
+                macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_miiswordsman_special_c2_s03"), 15);
+            }
+            else{
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c2_s04"));
+                macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_miiswordsman_special_c2_s04"), 15);
+            }
+        }
+    }
+}
+}
+}
+
+unsafe extern "C" fn expression_specials2dash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 2, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

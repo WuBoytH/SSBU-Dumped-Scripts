@@ -1,0 +1,54 @@
+unsafe extern "C" fn game_finaldash(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        CAM_ZOOM_OUT(agent);
+        ATTACK(agent, 1, 0, Hash40::new("sword1"), 0.0, 361, 0, 0, 0, 10.0, 0.0, 0.0, 0.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, f32::NAN, 0.0, 0, false, false, false, true, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+    }
+}
+
+unsafe extern "C" fn effect_finaldash(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("handr"), 0.5, 0, 0, 0, 0, 0, 1.1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("kneel"), 1, 0, 0, 0, 0, 0, 1.1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("head"), 1, 0, 0, 0, 0, 0, 1.2, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("handl"), 0.5, 0, 0, 0, 0, 0, 1.1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("kneer"), 1, 0, 0, 0, 0, 0, 1.1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("sys_final_aura2"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, true);
+        EFFECT(agent, Hash40::new("marth_final_flash"), Hash40::new("top"), 0, 7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_FLW_POS(agent, Hash40::new("marth_final_speedline"), Hash40::new("top"), 0, 4, -2, 0, 0, 0, 1, true);
+        LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_a"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        AFTER_IMAGE4_ON_arg29(agent, Hash40::new("tex_marth_sword1"), Hash40::new("tex_marth_sword2"), 10, Hash40::new("sword1"), 0, 0, 0.5, Hash40::new("sword1"), -0.0, -0.0, 12.6, true, Hash40::new("marth_sword_blue"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.2);
+    }
+}
+
+unsafe extern "C" fn sound_finaldash(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        PLAY_SE_REMAIN(agent, Hash40::new("se_marth_final02"));
+    }
+}
+
+unsafe extern "C" fn expression_finaldash(agent: &mut L2CAgentBase) {
+    let lua_state = agent.lua_state_agent;
+    let boma = agent.boma();
+    if is_excute(agent) {
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        AREA_WIND_2ND_arg10(0, 3, 200, 8, 1, -4, 8, 30, 20, 50);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_rush"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

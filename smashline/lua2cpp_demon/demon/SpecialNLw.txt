@@ -1,0 +1,86 @@
+unsafe extern "C" fn game_specialnlw(agent: &mut L2CAgentBase) {
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 2);
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DEMON_GENERATE_ARTICLE_BLASTER, false, -1);
+        ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_DEMON_GENERATE_ARTICLE_BLASTER, *ARTICLE_OPE_TARGET_ALL, false);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DEMON_STATUS_SPECIAL_N_FLAG_FOLLOW_SCALING);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DEMON_STATUS_SPECIAL_N_FLAG_FOLLOW_NODE);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_DEMON_STATUS_SPECIAL_N_FLAG_FOLLOW_SCALING);
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_DEMON_STATUS_SPECIAL_N_FLAG_FOLLOW_NODE);
+    }
+    frame(agent.lua_state_agent, 60.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 3);
+    frame(agent.lua_state_agent, 64.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 5);
+    frame(agent.lua_state_agent, 65.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 7);
+    frame(agent.lua_state_agent, 66.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 8);
+    frame(agent.lua_state_agent, 67.0);
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, false, 0);
+}
+
+unsafe extern "C" fn effect_specialnlw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("demon_blaster_aura"), Hash40::new("top"), 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1.6, 4, 0, 4, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 5.0);
+}
+frame(agent.lua_state_agent, 58.0);
+if macros::is_excute(agent) {
+    ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+    macros::FLASH(agent, 0.097, 0.006, 0.238, 0.15);
+    macros::BURN_COLOR(agent, 6, 0, 40, 0.045);
+    macros::FLASH_FRM(agent, 2, 0.097, 0.006, 0.238, 0.45);
+    macros::BURN_COLOR_FRAME(agent, 2, 6, 0, 40, 0.13);
+}
+frame(agent.lua_state_agent, 59.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_FOLLOW(agent, Hash40::new("demon_devil_end"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, true);
+}
+frame(agent.lua_state_agent, 61.0);
+if macros::is_excute(agent) {
+    macros::FLASH(agent, 0.097, 0.006, 0.238, 0.45);
+    macros::BURN_COLOR(agent, 6, 0, 40, 0.13);
+    macros::FLASH_FRM(agent, 8, 0.097, 0.006, 0.238, 0);
+    macros::BURN_COLOR_FRAME(agent, 8, 6, 0, 40, 0);
+}
+}
+
+unsafe extern "C" fn sound_specialnlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_demon_special_n02"));
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_demon_spark_end"));
+    }
+}
+
+unsafe extern "C" fn expression_specialnlw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_beam"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+}

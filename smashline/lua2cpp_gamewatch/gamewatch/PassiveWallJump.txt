@@ -1,0 +1,12 @@
+unsafe extern "C" fn sound_passivewalljump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gamewatch_jump03"));
+    }
+}
+
+unsafe extern "C" fn expression_passivewalljump(agent: &mut L2CAgentBase) {
+    methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_PassiveWallJumpRumble()();
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("head") as i64, hash40("head_close") as i64);
+    }
+}

@@ -1,0 +1,16 @@
+unsafe extern "C" fn game_capturejump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        KineticModule::add_speed(agent.module_accessor, &Vector3f{x: -0.8, y: 0.0, z: 0.0});
+    }
+}
+
+unsafe extern "C" fn sound_capturejump(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_rockman_landing01"));
+    }
+    wait(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_rockman_landing01"));
+    }
+}

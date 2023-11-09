@@ -1,0 +1,59 @@
+unsafe extern "C" fn game_visualscene05(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_DOLLY_ATTACK_ABSOLUTE_KIND_FINAL, 0, 6.0, 361, 80, 1, 0, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, true);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_FINAL_SCENE_WORK_FLAG_HIT_ABS);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_FINAL_SCENE_WORK_FLAG_HIT_ABS);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_FINAL_SCENE05_WORK_FLAG_DAMAGE_FLY_OPPONENT);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene05(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("dolly_fainal_bg2"), Hash40::new("top"), 0, 20, 0, -3, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("dolly_fainal_buster_punch"), Hash40::new("haver"), 0, 0, 0, -10, 0, 0, 1, true);
+        macros::LAST_EFFECT_SET_DISABLE_SYSTEM_SLOW(agent, true);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("dolly_fainal_buster"), false, true);
+    }
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("dolly_fainal_buster_ground"), Hash40::new("top"), 0, 0, 91, -10, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("dolly_fainal_buster"), Hash40::new("armr"), 5, 0, 0, 0, -10, -90, 1.4, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.5);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene05(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_dolly_final04"));
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_dolly_final06"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene05(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_74_triplewolf_v5"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_74_triplewolf_v5"), 0);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    frame(agent.lua_state_agent, 22.0);
+    frame(agent.lua_state_agent, 26.0);
+    frame(agent.lua_state_agent, 30.0);
+}

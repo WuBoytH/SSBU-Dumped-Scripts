@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_bayonettaspecialairnstartf(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_bulletclimax_circle"), Hash40::new("top"), 0, 12.5, 12, 0, -25, 0, 0.9, false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_bulletclimax_circle"), Hash40::new("top"), 0, 12.5, 12, 0, 25, 0, 0.9, false);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn expression_bayonettaspecialairnstartf(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

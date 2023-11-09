@@ -1,0 +1,166 @@
+unsafe extern "C" fn game_speciallwhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        shield!(agent, *MA_MSC_CMD_SHIELD_OFF, *COLLISION_KIND_SHIELD, 0, *FIGHTER_EDGE_SHIELD_GROUP_KIND_SPECIAL_LW);
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if macros::is_excute(agent) {
+            macros::SET_SPEED_EX(agent, 0, 0, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
+            macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        }
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_EDGE_GENERATE_ARTICLE_FLASH, false, -1);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_NORMAL);
+    }
+    frame(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_ENABLE_CONTROL_X);
+    }
+    frame(agent.lua_state_agent, 28.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_ENABLE_FALL_SPEED);
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        frame(agent.lua_state_agent, 1.0);
+        macros::FT_MOTION_RATE(agent, 2.0);
+        frame(agent.lua_state_agent, 5.0);
+        macros::FT_MOTION_RATE(agent, 1.0);
+        frame(agent.lua_state_agent, 7.0);
+        if macros::is_excute(agent) {
+            ArticleModule::generate_article(agent.module_accessor, *FIGHTER_EDGE_GENERATE_ARTICLE_FLASH, false, -1);
+        }
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_ENABLE_CONTROL_X);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_ENABLE_FALL_SPEED);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    macros::FT_MOTION_RATE(agent, 1.15);
+    frame(agent.lua_state_agent, 50.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_speciallwhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield"), true, true);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success1"), Hash40::new("top"), 0, 21.4, 9, 0, -55, 0, 0.85, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success2"), Hash40::new("top"), 0, 18.1, 9, 0, -55, 0, 0.85, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success3"), Hash40::new("top"), 0, 14.7, 9, 0, -55, 0, 0.85, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success4"), Hash40::new("top"), 0, 11.3, 9, 0, -55, 0, 0.85, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success5"), Hash40::new("top"), 0, 8, 9, 0, -55, 0, 0.85, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success6"), Hash40::new("top"), 0, 4.7, 9, 0, -55, 0, 0.85, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success7"), Hash40::new("top"), 0, 1.3, 9, 0, -55, 0, 0.85, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success"), Hash40::new("top"), 0, 13, 9, 0, -55, 0, 0.85, false);
+        }
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success1"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success2"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success3"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success4"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success5"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success6"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success7"), false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end_l"), Hash40::new("top"), 0, 21.4, 9, 0, -55, 0, 0.85, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end1_l"), Hash40::new("top"), 0, 18.1, 9, 0, -55, 0, 0.85, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end2_l"), Hash40::new("top"), 0, 14.7, 9, 0, -55, 0, 0.85, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end3_l"), Hash40::new("top"), 0, 11.3, 9, 0, -55, 0, 0.85, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end4_l"), Hash40::new("top"), 0, 8, 9, 0, -55, 0, 0.85, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end5_l"), Hash40::new("top"), 0, 4.7, 9, 0, -55, 0, 0.85, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end6_l"), Hash40::new("top"), 0, 1.3, 9, 0, -55, 0, 0.85, true);
+    }
+    else{
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success1"), Hash40::new("top"), 0, 21.4, 9, 0, -125, 0, 0.85, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success2"), Hash40::new("top"), 0, 18.1, 9, 0, -125, 0, 0.85, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success3"), Hash40::new("top"), 0, 14.7, 9, 0, -125, 0, 0.85, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success4"), Hash40::new("top"), 0, 11.3, 9, 0, -125, 0, 0.85, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success5"), Hash40::new("top"), 0, 8, 9, 0, -125, 0, 0.85, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success6"), Hash40::new("top"), 0, 4.7, 9, 0, -125, 0, 0.85, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("edge_senkou_shield_success7"), Hash40::new("top"), 0, 1.3, 9, 0, -125, 0, 0.85, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success"), Hash40::new("top"), 0, 13, 9, 0, -125, 0, 0.85, false);
+    }
+}
+frame(agent.lua_state_agent, 3.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success1"), false, false);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success2"), false, false);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success3"), false, false);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success4"), false, false);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success5"), false, false);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success6"), false, false);
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_senkou_shield_success7"), false, false);
+    macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end"), Hash40::new("top"), 0, 21.4, 9, 0, -125, 0, 0.85, true);
+    macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end1"), Hash40::new("top"), 0, 18.1, 9, 0, -125, 0, 0.85, true);
+    macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end2"), Hash40::new("top"), 0, 14.7, 9, 0, -125, 0, 0.85, true);
+    macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end3"), Hash40::new("top"), 0, 11.3, 9, 0, -125, 0, 0.85, true);
+    macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end4"), Hash40::new("top"), 0, 8, 9, 0, -125, 0, 0.85, true);
+    macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end5"), Hash40::new("top"), 0, 4.7, 9, 0, -125, 0, 0.85, true);
+    macros::EFFECT_FOLLOW(agent, Hash40::new("edge_senkou_shield_success_end6"), Hash40::new("top"), 0, 1.3, 9, 0, -125, 0, 0.85, true);
+}
+frame(agent.lua_state_agent, 6.0);
+if macros::is_excute(agent) {
+    macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+}
+}
+
+unsafe extern "C" fn sound_speciallwhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_edge_special_l02_01"));
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_edge_special_l04"));
+        }
+    }
+    frame(agent.lua_state_agent, 6.0);
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_VOICE);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
+        if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+            if macros::is_excute(agent) {
+                macros::PLAY_SEQUENCE(agent, Hash40::new("seq_edge_rnd_attack_special_lw_b"));
+            }
+        }
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, false)){
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_edge_rnd_attack_special_lw"));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_speciallwhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_SPECIAL_LW_FLAG_IS_HIT_SHIELD);
+    if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(false, true)){
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_78_spl_counter"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        }
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_78_spl_exp"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

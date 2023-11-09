@@ -1,0 +1,34 @@
+unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    macros::FT_MOTION_RATE(agent, 10.0);
+    frame(agent.lua_state_agent, 4.0);
+    macros::FT_MOTION_RATE(agent, 1.0);
+}
+
+unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("mewtwo_final_aura"), Hash40::new("head"), 0, -3, 0, 0, 0, 0, 0.6, false);
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("mewtwo_final_aura"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 0.7, false);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("mewtwo_final_megasymbol"), Hash40::new("top"), -8, 26, 0, 0, 0, 0, 0.8, false);
+        }
+        else{
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("mewtwo_final_megasymbol"), Hash40::new("top"), 8, 26, 0, 0, 0, 0, 0.8, false);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_final(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_mewtwo_final01"));
+    }
+}

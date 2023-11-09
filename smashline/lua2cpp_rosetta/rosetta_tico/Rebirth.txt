@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_rebirth(agent: &mut L2CAgentBase) {
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_awaken"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}
+
+unsafe extern "C" fn effect_rebirth(agent: &mut L2CAgentBase) {
+    if !FighterManager::is_homerun_versus(singletons::FighterManager()) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_tico_birth"), Hash40::new("trans"), 0, 1, 0, 0, 0, 0, 1, false);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_rebirth(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_tico_rebirth"));
+    }
+}
