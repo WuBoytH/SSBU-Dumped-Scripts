@@ -1,5 +1,4 @@
-#[acmd_script( agent = "wiifit", script = "game_finalend_com", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalend_com(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_finalend_com(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_WIIFIT_GENERATE_ARTICLE_SILHOUETTEL, false, -1);

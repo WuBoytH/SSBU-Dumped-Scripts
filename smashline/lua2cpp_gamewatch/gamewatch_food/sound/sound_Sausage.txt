@@ -1,5 +1,4 @@
-#[acmd_script( agent = "gamewatch_food", script = "sound_sausage", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_sausage(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_sausage(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 0.0);
     if macros::is_excute(agent) {
         macros::PLAY_SE(agent, Hash40::new("se_gamewatch_wave02_mi"));

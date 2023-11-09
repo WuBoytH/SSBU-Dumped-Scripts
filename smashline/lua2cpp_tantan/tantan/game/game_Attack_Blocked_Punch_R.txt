@@ -1,5 +1,4 @@
-#[acmd_script( agent = "tantan", script = "game_attack_blocked_punch_r", category = ACMD_GAME, low_priority )]
-unsafe fn game_attack_blocked_punch_r(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_attack_blocked_punch_r(agent: &mut L2CAgentBase) {
     if(0x3a02e0(*FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R, 1)){
         if WorkModule::is_flag(agent.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_REINFORCE_R) {
             frame(agent.lua_state_agent, 1.0);

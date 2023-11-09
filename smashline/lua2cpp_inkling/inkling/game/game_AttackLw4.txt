@@ -1,5 +1,4 @@
-#[acmd_script( agent = "inkling", script = "game_attacklw4", category = ACMD_GAME, low_priority )]
-unsafe fn game_attacklw4(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_attacklw4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SLOSHER, false, -1);
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SLOSHER, Hash40::new("attack_lw4"), false, -1.0);

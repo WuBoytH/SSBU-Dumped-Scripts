@@ -1,5 +1,4 @@
-#[acmd_script( agent = "richter", script = "game_attackairlw", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_attackairlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_NO_SPEED_OPERATION_CHK);
         macros::SET_SPEED_EX(agent, 0, 0.6, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);

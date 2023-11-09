@@ -1,5 +1,4 @@
-#[acmd_script( agent = "edge", script = "effect_win1", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_win1(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
         macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_win_fire"), true, true);

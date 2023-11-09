@@ -1,5 +1,4 @@
-#[acmd_script( agent = "diddy", script = "expression_finalairend", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalairend(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_finalairend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);

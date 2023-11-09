@@ -1,5 +1,4 @@
-#[acmd_script( agent = "buddy", script = "game_finalair", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalair(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_finalair(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::FT_SET_FINAL_SMASH_LIGHT(agent, true);
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_BUDDY_GENERATE_ARTICLE_BIGBIRD, false, -1);

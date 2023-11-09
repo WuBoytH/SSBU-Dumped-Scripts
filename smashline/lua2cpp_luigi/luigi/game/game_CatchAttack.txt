@@ -1,5 +1,4 @@
-#[acmd_script( agent = "luigi", script = "game_catchattack", category = ACMD_GAME, low_priority )]
-unsafe fn game_catchattack(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_catchattack(agent: &mut L2CAgentBase) {
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_LUIGI_GENERATE_ARTICLE_OBAKYUMU) {
         if macros::is_excute(agent) {
             ArticleModule::change_motion(agent.module_accessor, *FIGHTER_LUIGI_GENERATE_ARTICLE_OBAKYUMU, Hash40::new("catch_attack"), false, -1.0);

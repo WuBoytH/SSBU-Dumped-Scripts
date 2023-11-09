@@ -1,5 +1,4 @@
-#[acmd_script( agent = "miiswordsman", script = "expression_runbraker", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_runbraker(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_runbraker(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x26769bd1de), 0, 30, 2);
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);

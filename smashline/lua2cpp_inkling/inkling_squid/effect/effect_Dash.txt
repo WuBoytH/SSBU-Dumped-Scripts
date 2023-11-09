@@ -1,5 +1,4 @@
-#[acmd_script( agent = "inkling_squid", script = "effect_dash", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_dash(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_dash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
         macros::EFFECT(agent, Hash40::new("inkling_squid_swim"), Hash40::new("trans"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);

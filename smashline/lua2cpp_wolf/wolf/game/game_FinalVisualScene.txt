@@ -1,5 +1,4 @@
-#[acmd_script( agent = "wolf", script = "game_finalvisualscene", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalvisualscene(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_finalvisualscene(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_WOLF_GENERATE_ARTICLE_WOLFEN, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_FOX_FINAL, 0, 35.0, 361, 80, 1, 0, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);

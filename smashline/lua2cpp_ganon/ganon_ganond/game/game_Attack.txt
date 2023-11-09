@@ -1,5 +1,4 @@
-#[acmd_script( agent = "ganon_ganond", script = "game_attack", category = ACMD_GAME, low_priority )]
-unsafe fn game_attack(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_attack(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_23_rush_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);

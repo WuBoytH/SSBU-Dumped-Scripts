@@ -1,5 +1,4 @@
-#[acmd_script( agent = "littlemac", script = "expression_finaldash", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finaldash(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_finaldash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_49_dashbrow"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pickel_trolley", script = "game_specialsdriveemptypartial", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialsdriveemptypartial(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialsdriveemptypartial(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         AttackModule::clear_all(agent.module_accessor);
         WorkModule::on_flag(agent.module_accessor, *WEAPON_PICKEL_TROLLEY_INSTANCE_WORK_ID_FLAG_NO_ATTACK_HIT_MOTION);

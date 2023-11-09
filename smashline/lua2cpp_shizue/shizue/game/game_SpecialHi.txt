@@ -1,5 +1,4 @@
-#[acmd_script( agent = "shizue", script = "game_specialhi", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_SWING, false, -1);
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_SWING, Hash40::new("hi"), false, -1.0);

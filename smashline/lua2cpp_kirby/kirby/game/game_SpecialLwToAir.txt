@@ -1,5 +1,4 @@
-#[acmd_script( agent = "kirby", script = "game_speciallwtoair", category = ACMD_GAME, low_priority )]
-unsafe fn game_speciallwtoair(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_speciallwtoair(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_STONE, Hash40::new("special_lw_to_air"), false, -1.0);
         AttackModule::clear(agent.module_accessor, 1, false);

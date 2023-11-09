@@ -1,5 +1,4 @@
-#[acmd_script( agent = "jack", script = "game_specialairhistart", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairhistart(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialairhistart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_WING, false, -1);
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_WING, Hash40::new("special_hi2"), false, -1.0);

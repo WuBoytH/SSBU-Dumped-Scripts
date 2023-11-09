@@ -1,5 +1,4 @@
-#[acmd_script( agent = "diddy", script = "game_win1wait", category = ACMD_GAME, low_priority )]
-unsafe fn game_win1wait(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_win1wait(agent: &mut L2CAgentBase) {
     if !macros::IS_EXIST_ARTICLE(agent, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN) {
         if macros::is_excute(agent) {
             ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));

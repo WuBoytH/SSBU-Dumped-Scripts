@@ -1,5 +1,4 @@
-#[acmd_script( agent = "sheik", script = "game_finalfinish", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalfinish(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_finalfinish(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_SHEIK_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT) {
         frame(agent.lua_state_agent, 1.0);
         if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {

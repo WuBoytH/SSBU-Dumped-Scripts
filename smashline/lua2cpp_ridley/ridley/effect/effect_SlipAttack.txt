@@ -1,5 +1,4 @@
-#[acmd_script( agent = "ridley", script = "effect_slipattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_slipattack(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_slipattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
         macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("ridley_scratch"), Hash40::new("ridley_scratch"), Hash40::new("top"), 4, 8, -6, -185.5, 34.5, 12, 1.4, true, *EF_FLIP_YZ);

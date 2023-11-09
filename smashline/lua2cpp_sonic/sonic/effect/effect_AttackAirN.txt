@@ -1,5 +1,4 @@
-#[acmd_script( agent = "sonic", script = "effect_attackairn", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackairn(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_attackairn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         macros::EFFECT_FOLLOW(agent, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 0.84, true);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "shulk", script = "expression_specialairs", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_specialairs(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_specialairs(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         AttackModule::set_attack_reference_joint_id(agent.module_accessor, Hash40::new("swordr"), AttackDirectionAxis(*ATTACK_DIRECTION_Z), AttackDirectionAxis(*ATTACK_DIRECTION_X), AttackDirectionAxis(*ATTACK_DIRECTION_Y));
         VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_monad_hand") as i64);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pacman", script = "sound_appealhir", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_appealhir(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_appealhir(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 30.0);
     if(0x11a0d0(*FIGHTER_PACMAN_INSTANCE_WORK_ID_INT_APPEAL_HI_KIND, *FIGHTER_PACMAN_APPEAL_HI_A)){
         if macros::is_excute(agent) {

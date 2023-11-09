@@ -1,5 +1,4 @@
-#[acmd_script( agent = "szerosuit_laser", script = "game_shoot", category = ACMD_GAME, low_priority )]
-unsafe fn game_shoot(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_shoot(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 48.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *WEAPON_SZEROSUIT_LASER_STATUS_WORK_FLAG_START_ATTACK);

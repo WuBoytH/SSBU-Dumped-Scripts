@@ -1,5 +1,4 @@
-#[acmd_script( agent = "murabito_balloon", script = "effect_burst", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_burst(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_burst(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::EFFECT(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "buddy", script = "game_finalairend", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairend(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_BUDDY_FINAL, 0, 10.0, 60, 125, 0, 90, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_BUDDY_STATUS_FINAL_FLAG_ABS_SET);

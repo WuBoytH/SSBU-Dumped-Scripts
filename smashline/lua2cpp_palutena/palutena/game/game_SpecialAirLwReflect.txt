@@ -1,5 +1,4 @@
-#[acmd_script( agent = "palutena", script = "game_specialairlwreflect", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialairlwreflect(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialairlwreflect(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         shield!(agent, *MA_MSC_CMD_SHIELD_ON, *COLLISION_KIND_REFLECTOR, *FIGHTER_PALUTENA_REFLECTOR_KIND_REFLECTOR, *FIGHTER_REFLECTOR_GROUP_EXTEND);
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PALUTENA_GENERATE_ARTICLE_REFLECTIONBOARD, false, -1);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "demon", script = "effect_attackragedrivecatch", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_attackragedrivecatch(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_attackragedrivecatch(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ATTACK_RAGE_CAPTURE) {
         if macros::is_excute(agent) {
             EffectModule::req_screen(agent.module_accessor, Hash40::new("demon_ragedrive_bg"), true, false, false);

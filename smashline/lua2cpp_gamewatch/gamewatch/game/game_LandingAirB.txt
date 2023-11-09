@@ -1,5 +1,4 @@
-#[acmd_script( agent = "gamewatch", script = "game_landingairb", category = ACMD_GAME, low_priority )]
-unsafe fn game_landingairb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_landingairb(agent: &mut L2CAgentBase) {
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_GAMEWATCH_GENERATE_ARTICLE_NORMAL_WEAPON) {
         if macros::is_excute(agent) {
             ArticleModule::change_motion(agent.module_accessor, *FIGHTER_GAMEWATCH_GENERATE_ARTICLE_NORMAL_WEAPON, Hash40::new("landing_air_b"), false, -1.0);

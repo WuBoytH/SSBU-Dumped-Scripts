@@ -1,5 +1,4 @@
-#[acmd_script( agent = "falco", script = "effect_specialairlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_specialairlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::EFFECT_FLW_POS(agent, Hash40::new("falco_ref_loop"), Hash40::new("reflector"), 1.4, -0.6, 0, 0, 0, 0, 1, true);
         EffectModule::preset_limit_num(agent.module_accessor, 2);

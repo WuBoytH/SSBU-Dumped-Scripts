@@ -1,5 +1,4 @@
-#[acmd_script( agent = "inkling", script = "game_runbrakel", category = ACMD_GAME, low_priority )]
-unsafe fn game_runbrakel(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_runbrakel(agent: &mut L2CAgentBase) {
     if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
             WorkModule::on_flag(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_NO_FLIP_SQUID);

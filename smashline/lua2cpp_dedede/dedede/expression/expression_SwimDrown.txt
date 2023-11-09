@@ -1,5 +1,4 @@
-#[acmd_script( agent = "dedede", script = "expression_swimdrown", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_swimdrown(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_swimdrown(agent: &mut L2CAgentBase) {
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SwimDrownRumble()();
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);

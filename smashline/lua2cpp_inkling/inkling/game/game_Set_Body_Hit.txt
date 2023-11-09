@@ -1,5 +1,4 @@
-#[acmd_script( agent = "inkling", script = "game_set_body_hit", category = ACMD_GAME, low_priority )]
-unsafe fn game_set_body_hit(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_set_body_hit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         VisibilityModule::set_whole(agent.module_accessor, true);
         macros::HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_NORMAL);

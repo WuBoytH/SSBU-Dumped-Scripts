@@ -1,5 +1,4 @@
-#[acmd_script( agent = "snake", script = "game_attackairb", category = ACMD_GAME, low_priority )]
-unsafe fn game_attackairb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_attackairb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     StatusModule::prev_status_kind(agent.module_accessor);
     if(methodlib::L2CValue::operator==(lib::L2CValueconst&)const(0, *FIGHTER_STATUS_KIND_PASS)){

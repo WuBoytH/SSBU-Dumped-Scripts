@@ -1,5 +1,4 @@
-#[acmd_script( agent = "jack_fire2", script = "game_hit", category = ACMD_GAME, low_priority )]
-unsafe fn game_hit(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_hit(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "shizue", script = "expression_stopwall", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_stopwall(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_stopwall(agent: &mut L2CAgentBase) {
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_StopWallRumble()();
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {

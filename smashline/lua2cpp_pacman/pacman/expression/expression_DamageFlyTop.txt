@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pacman", script = "expression_damageflytop", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_damageflytop(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_damageflytop(agent: &mut L2CAgentBase) {
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_DamageFlyTopRumble()();
     if macros::IS_STATUS_KIND(agent, *FIGHTER_PACMAN_STATUS_KIND_SPECIAL_S_REFLECT_FALL) {
         if macros::is_excute(agent) {

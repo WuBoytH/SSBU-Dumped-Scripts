@@ -1,5 +1,4 @@
-#[acmd_script( agent = "shizue", script = "expression_entryr", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_entryr(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         article(*MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, 0, 0, -10);
         ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step1"), Hash40::new("step1_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));

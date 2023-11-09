@@ -1,5 +1,4 @@
-#[acmd_script( agent = "brave_explosion", script = "game_explode1", category = ACMD_GAME, low_priority )]
-unsafe fn game_explode1(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_explode1(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         AttackModule::disable_tip(agent.module_accessor);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);

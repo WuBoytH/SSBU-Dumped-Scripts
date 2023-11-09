@@ -1,5 +1,4 @@
-#[acmd_script( agent = "koopag", script = "effect_catchattack", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_catchattack(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_catchattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
         macros::EFFECT_FOLLOW(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 35, 17, 0, 35, -90, 2.3, true);

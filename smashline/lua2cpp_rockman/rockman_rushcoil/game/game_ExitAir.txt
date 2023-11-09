@@ -1,5 +1,4 @@
-#[acmd_script( agent = "rockman_rushcoil", script = "game_exitair", category = ACMD_GAME, low_priority )]
-unsafe fn game_exitair(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_exitair(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *WEAPON_ROCKMAN_RUSHCOIL_INSTANCE_WORK_ID_FLAG_EXIT);

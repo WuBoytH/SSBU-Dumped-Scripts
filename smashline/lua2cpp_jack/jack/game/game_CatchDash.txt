@@ -1,5 +1,4 @@
-#[acmd_script( agent = "jack", script = "game_catchdash", category = ACMD_GAME, low_priority )]
-unsafe fn game_catchdash(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_catchdash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
         GrabModule::set_rebound(agent.module_accessor, true);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "diddy", script = "expression_finalendready", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_finalendready(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_finalendready(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_31_cypher"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);

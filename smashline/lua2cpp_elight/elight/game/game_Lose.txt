@@ -1,5 +1,4 @@
-#[acmd_script( agent = "elight", script = "game_lose", category = ACMD_GAME, low_priority )]
-unsafe fn game_lose(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_lose(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }

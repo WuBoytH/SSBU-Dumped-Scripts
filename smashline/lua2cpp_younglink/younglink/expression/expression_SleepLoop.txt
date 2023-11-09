@@ -1,5 +1,4 @@
-#[acmd_script( agent = "younglink", script = "expression_sleeploop", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_sleeploop(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_sleeploop(agent: &mut L2CAgentBase) {
     wait_loop_sync_mot();
     methodlua2cpp::L2CFighterAnimcmdExpressionCommon::expression_SleepLoopRumble()();
     if macros::is_excute(agent) {

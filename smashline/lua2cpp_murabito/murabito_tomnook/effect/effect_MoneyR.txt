@@ -1,5 +1,4 @@
-#[acmd_script( agent = "murabito_tomnook", script = "effect_moneyr", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_moneyr(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_moneyr(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
         ArticleModule::set_visibility_whole(agent.module_accessor, *WEAPON_MURABITO_TOMNOOK_GENERATE_ARTICLE_MONEYBAG, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));

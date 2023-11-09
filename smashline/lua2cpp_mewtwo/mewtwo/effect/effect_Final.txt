@@ -1,5 +1,4 @@
-#[acmd_script( agent = "mewtwo", script = "effect_final", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_final(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_mewtwo_final"), false, false, false);
         macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 0.15, 0.15, 0.15, 0, 0, 0, 1, 1.2, EffectScreenLayer:*GROUND, *EFFECT_SCREEN_PRIO_FINAL);

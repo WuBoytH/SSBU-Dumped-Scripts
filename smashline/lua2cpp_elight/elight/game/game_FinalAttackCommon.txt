@@ -1,5 +1,4 @@
-#[acmd_script( agent = "elight", script = "game_finalattackcommon", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalattackcommon(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_finalattackcommon(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ELIGHT_ATTACK_ABSOLUTE_KIND_FINAL, 0, 7.0, 70, 0, 0, 80, 0.3, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_paralyze"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_BODY);
         AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, false, false, -1, true);

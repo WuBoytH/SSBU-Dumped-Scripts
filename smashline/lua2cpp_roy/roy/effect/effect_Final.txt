@@ -1,5 +1,4 @@
-#[acmd_script( agent = "roy", script = "effect_final", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_final(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_ROY_STATUS_FINAL_FLAG_REMOVE_FINAL_AURA);

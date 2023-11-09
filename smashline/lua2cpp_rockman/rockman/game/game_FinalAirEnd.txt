@@ -1,5 +1,4 @@
-#[acmd_script( agent = "rockman", script = "game_finalairend", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairend(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_ROCKMAN_FINAL, 0, 10.0, 45, 130, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 1.0, true, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_LL, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_NONE);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);

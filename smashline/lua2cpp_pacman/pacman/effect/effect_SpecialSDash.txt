@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pacman", script = "effect_specialsdash", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_specialsdash(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_specialsdash(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PACMAN_STATUS_SPECIAL_S_WORK_FLAG_EAT_POWER_ESA) {
         if macros::is_excute(agent) {
             macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("pacman_power_up"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "demon_blaster", script = "game_hitground", category = ACMD_GAME, low_priority )]
-unsafe fn game_hitground(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_hitground(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_beam_wallhit"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }

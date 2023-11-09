@@ -1,5 +1,4 @@
-#[acmd_script( agent = "trail", script = "game_finalairendl", category = ACMD_GAME, low_priority )]
-unsafe fn game_finalairendl(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_finalairendl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_TRAIL_FINAL, 0, 10.0, 45, 100, 0, 85, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
         AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, false, -1, true);

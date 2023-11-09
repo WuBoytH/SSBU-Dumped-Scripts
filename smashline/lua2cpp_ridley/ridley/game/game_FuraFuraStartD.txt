@@ -1,5 +1,4 @@
-#[acmd_script( agent = "ridley", script = "game_furafurastartd", category = ACMD_GAME, low_priority )]
-unsafe fn game_furafurastartd(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_furafurastartd(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_CHANGE_STATUS_DLAY_MOTION);

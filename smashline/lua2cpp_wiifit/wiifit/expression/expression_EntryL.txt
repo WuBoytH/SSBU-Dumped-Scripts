@@ -1,5 +1,4 @@
-#[acmd_script( agent = "wiifit", script = "expression_entryl", category = ACMD_EXPRESSION, low_priority )]
-unsafe fn expression_entryl(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_WIIFIT_GENERATE_ARTICLE_WIIBO, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));

@@ -1,5 +1,4 @@
-#[acmd_script( agent = "daisy", script = "game_specialnhit", category = ACMD_GAME, low_priority )]
-unsafe fn game_specialnhit(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_specialnhit(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DAISY_GENERATE_ARTICLE_KINOPIOSPORE, false, -1);

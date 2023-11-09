@@ -1,5 +1,4 @@
-#[acmd_script( agent = "ryu", script = "sound_attacknearw", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_attacknearw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_attacknearw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::PLAY_SE(agent, Hash40::new("se_ryu_swing_punch_m"));

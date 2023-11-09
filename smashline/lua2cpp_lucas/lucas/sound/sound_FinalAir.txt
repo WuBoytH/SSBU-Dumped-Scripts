@@ -1,5 +1,4 @@
-#[acmd_script( agent = "lucas", script = "sound_finalair", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_finalair(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_finalair(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         SoundModule::set_gamespeed_se_calibration(agent.module_accessor, true);

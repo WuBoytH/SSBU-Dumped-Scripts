@@ -1,5 +1,4 @@
-#[acmd_script( agent = "miifighter", script = "effect_throwlw", category = ACMD_EFFECT, low_priority )]
-unsafe fn effect_throwlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn effect_throwlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
         macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("sys_attack_speedline"), Hash40::new("sys_attack_speedline"), Hash40::new("top"), -4, 15, -1, 90, 0, 0, 0.7, true, *EF_FLIP_YZ);

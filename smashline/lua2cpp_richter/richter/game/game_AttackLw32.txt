@@ -1,5 +1,4 @@
-#[acmd_script( agent = "richter", script = "game_attacklw32", category = ACMD_GAME, low_priority )]
-unsafe fn game_attacklw32(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_attacklw32(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
         JostleModule::set_status(agent.module_accessor, false);

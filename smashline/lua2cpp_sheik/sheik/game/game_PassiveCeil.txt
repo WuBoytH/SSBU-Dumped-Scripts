@@ -1,5 +1,4 @@
-#[acmd_script( agent = "sheik", script = "game_passiveceil", category = ACMD_GAME, low_priority )]
-unsafe fn game_passiveceil(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_passiveceil(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
         KineticModule::change_kinetic(agent.module_accessor, *FIGHTER_KINETIC_TYPE_PASSIVE_CEIL);

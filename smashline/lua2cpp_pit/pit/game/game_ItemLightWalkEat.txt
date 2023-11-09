@@ -1,5 +1,4 @@
-#[acmd_script( agent = "pit", script = "game_itemlightwalkeat", category = ACMD_GAME, low_priority )]
-unsafe fn game_itemlightwalkeat(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_itemlightwalkeat(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY);

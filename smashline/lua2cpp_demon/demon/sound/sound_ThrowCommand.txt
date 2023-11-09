@@ -1,5 +1,4 @@
-#[acmd_script( agent = "demon", script = "sound_throwcommand", category = ACMD_SOUND, low_priority )]
-unsafe fn sound_throwcommand(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn sound_throwcommand(agent: &mut L2CAgentBase) {
     if FighterCutInManager::is_play_motion_camera(agent.module_accessor) {
         if macros::is_excute(agent) {
             macros::PLAY_SE(agent, Hash40::new("se_demon_throwcommand_01"));

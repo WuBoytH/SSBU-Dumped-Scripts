@@ -1,5 +1,4 @@
-#[acmd_script( agent = "szerosuit", script = "game_escapeair", category = ACMD_GAME, low_priority )]
-unsafe fn game_escapeair(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_escapeair(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
         KineticModule::change_kinetic(agent.module_accessor, *FIGHTER_KINETIC_TYPE_FALL);

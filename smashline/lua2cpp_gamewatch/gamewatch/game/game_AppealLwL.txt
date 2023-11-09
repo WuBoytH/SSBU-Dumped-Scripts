@@ -1,5 +1,4 @@
-#[acmd_script( agent = "gamewatch", script = "game_appeallwl", category = ACMD_GAME, low_priority )]
-unsafe fn game_appeallwl(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn game_appeallwl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_GAMEWATCH_GENERATE_ARTICLE_NORMAL_WEAPON, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         WorkModule::set_int(agent.module_accessor, *WEAPON_GAMEWATCH_NORMAL_WEAPON_KIND_SPRAY, *FIGHTER_GAMEWATCH_INSTANCE_WORK_ID_INT_NORMAL_WEAPON_KIND);
