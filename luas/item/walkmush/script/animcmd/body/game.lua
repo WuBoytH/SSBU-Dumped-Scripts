@@ -2,6 +2,7 @@
 
 -- Decimal      -> Hexadecimal   -> Label
 -- 13402447818  -> 0x031ED91FCA  -> top
+-- 121959549671 -> 0x1C655B0AE7  -> collision_attr_head_mushroom
 
 game_Throw = function ()
     if sv_animcmd.is_excute() then
