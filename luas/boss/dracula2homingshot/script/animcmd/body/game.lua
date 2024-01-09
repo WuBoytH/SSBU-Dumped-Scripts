@@ -2,6 +2,7 @@
 
 -- Decimal      -> Hexadecimal   -> Label
 -- 13402447818  -> 0x031ED91FCA  -> top
+-- 122851540185 -> 0x1C9A85BCD9  -> collision_attr_normal_poison
 
 game_Throw = function ()
     if sv_animcmd.is_excute() then
