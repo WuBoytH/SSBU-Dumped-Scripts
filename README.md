@@ -12,6 +12,3 @@ https://github.com/WuBoytH/skyline-rs-template/tree/smash_smashline
 
 Scripts in the `smashline-hdr` folder are formatted in a way to be used when
 developing for HewDraw Remix, removing some verbosity for the sake of shorthand.
-
-Scripts in the `skyline-acmd` folder are meant for the legacy skyline-acmd formatting,
-and should not be used when smashline exists.
