@@ -1,0 +1,32 @@
+unsafe extern "C" fn effect_pzenigamespecialnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_hold"), Hash40::new("head"), -0.5, 3.3, 0, 0, 0, 0, 0.8, true);
+    }
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 5, 0, 5, 0, 0, 0, false);
+        macros::FLASH(agent, 0, 0, 1, 0.471);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0, 0.502, 1, 0.314);
+        macros::FLASH_FRM(agent, 8, 1, 1, 1, 0);
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    wait(agent.lua_state_agent, 1.0);
+}
+
+unsafe extern "C" fn sound_pzenigamespecialnhold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_pzenigamespecialnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

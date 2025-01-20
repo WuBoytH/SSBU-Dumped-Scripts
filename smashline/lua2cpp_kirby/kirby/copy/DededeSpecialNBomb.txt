@@ -1,0 +1,58 @@
+unsafe extern "C" fn effect_dededespecialnbomb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_bomb_a"), Hash40::new("neck"), 2, 3, -1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_flame"), Hash40::new("neck"), 2, 3, -1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    for _ in 0..3 {
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR(agent, 2, 0.15, 0.02, 0.9);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR(agent, 2, 0.15, 0.02, 0);
+        macros::BURN_COLOR_NORMAL(agent);
+        macros::FLASH(agent, 0.3, 0.01, 0, 0.5);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+}
+}
+
+unsafe extern "C" fn sound_dededespecialnbomb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_common_bomb_s"));
+    }
+}
+
+unsafe extern "C" fn expression_dededespecialnbomb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_swell") as i64);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body") as i64, hash40("body_normal") as i64);
+    }
+}

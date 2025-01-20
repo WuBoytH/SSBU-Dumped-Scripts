@@ -1,0 +1,14 @@
+unsafe extern "C" fn effect_rosettaspecialnreturn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_wand_light"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_wand_stardust"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn expression_rosettaspecialnreturn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

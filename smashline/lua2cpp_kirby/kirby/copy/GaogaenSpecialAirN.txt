@@ -1,0 +1,76 @@
+unsafe extern "C" fn effect_gaogaenspecialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("gaogaen_lariat_start"), Hash40::new("gaogaen_lariat_start"), Hash40::new("top"), 0, 11, 0.5, 11, -40, 21, 0.9, true, *EF_FLIP_YZ);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    for _ in 0..6 {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("gaogaen_lariat"), Hash40::new("gaogaen_lariat"), Hash40::new("top"), 0, 12, 1, 11, 9, 21, 1.5, true, *EF_FLIP_YZ);
+    }
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("gaogaen_lariat"), Hash40::new("gaogaen_lariat"), Hash40::new("top"), 0, 11, 1, 11, 9, 21, 1.5, true, *EF_FLIP_YZ);
+    }
+    wait(agent.lua_state_agent, 4.0);
+}
+}
+
+unsafe extern "C" fn sound_gaogaenspecialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_kirby_copy_gaogaen_01"));
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_special_n01"));
+    }
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_special_n02"));
+    }
+    frame(agent.lua_state_agent, 33.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_special_n03"));
+    }
+    frame(agent.lua_state_agent, 45.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_special_n04"));
+    }
+    frame(agent.lua_state_agent, 58.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_special_n05"));
+    }
+}
+
+unsafe extern "C" fn expression_gaogaenspecialairn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 11, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 11, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 11, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 41.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 11, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
+    }
+    frame(agent.lua_state_agent, 53.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

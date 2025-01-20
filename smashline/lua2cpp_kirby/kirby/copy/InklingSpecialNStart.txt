@@ -1,0 +1,14 @@
+unsafe extern "C" fn effect_inklingspecialnstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, -4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 7, 0, 1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn expression_inklingspecialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

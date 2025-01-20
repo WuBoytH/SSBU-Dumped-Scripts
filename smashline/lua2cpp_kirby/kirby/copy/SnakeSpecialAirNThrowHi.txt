@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_snakespecialairnthrowhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_snakespecialairnthrowhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_snake_special_n02"));
+    }
+}
+
+unsafe extern "C" fn expression_snakespecialairnthrowhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lightthrow4item"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

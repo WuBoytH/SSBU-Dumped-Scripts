@@ -1,0 +1,22 @@
+unsafe extern "C" fn effect_trailspecialn1end(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_fire_hold"), true, true);
+        macros::EFFECT(agent, Hash40::new("trail_sword_fire_end"), Hash40::new("haver"), 0, 0, 0, -90, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("trail_sword_fire"), -1);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("trail_sword_fire"), false, true);
+        macros::EFFECT(agent, Hash40::new("trail_fire_end)", Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn expression_trailspecialn1end(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if ItemModule::is_have_item(agent.module_accessor, 0) {
+        if macros::is_excute(agent) {
+            macros::FT_MOTION_INTP_WAIT_ITEM(agent, true, 0);
+        }
+    }
+}

@@ -1,0 +1,80 @@
+unsafe extern "C" fn effect_palutenaspecialn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_SIGHT_EFFECT_ON);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_TARGET_EXIST) {
+        if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11.5, -1.5, 0, 65, 0, 1.1, true);
+            }
+            else {
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_wand_light_trace"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.9, true);
+                EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+                macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_wand_light2"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.9, true);
+            }
+            frame(agent.lua_state_agent, 13.0);
+            if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+                if macros::is_excute(agent) {
+                    macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11, -1.5, 0, 65, 0, 1.1, true, 0.8);
+                }
+                else {
+                if macros::is_excute(agent) {
+                    macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11.5, -1.5, 0, -65, 0, 1.1, true);
+                }
+                if macros::is_excute(agent) {
+                    macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_wand_light_trace"), Hash40::new("havel"), 0, 6.5, 0, 0, 0, 0, 0.95, true);
+                    EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+                    macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_lockon"), Hash40::new("havel"), 0, -3.6, 0, 0, 0, 0, 1.2, true);
+                }
+                else {
+                if macros::is_excute(agent) {
+                    macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_backlight"), Hash40::new("top"), 0, 11, -1.5, 0, -65, 0, 1.1, true, 0.8);
+                }
+            }
+        }
+    }
+}
+}
+}
+frame(agent.lua_state_agent, 50.0);
+if macros::is_excute(agent) {
+macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_wand_light2"), false, false);
+macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_lockon"), false, false);
+}
+frame(agent.lua_state_agent, 52.0);
+if macros::is_excute(agent) {
+macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_wand_light_trace"), false, false);
+}
+}
+
+unsafe extern "C" fn sound_palutenaspecialn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_kirby_copy_palutena_03"));
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_palutena_special_n01"));
+    }
+    wait(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+    }
+}
+
+unsafe extern "C" fn expression_palutenaspecialn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

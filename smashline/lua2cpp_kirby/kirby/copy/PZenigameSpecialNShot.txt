@@ -1,0 +1,48 @@
+unsafe extern "C" fn effect_pzenigamespecialnshot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("body"), 0, 4, 0, 0, 0, -13, 0.8, true);
+        }
+        else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("body"), 0, 4, 0, 0, 0, 13, 0.8, true);
+        }
+    }
+}
+frame(agent.lua_state_agent, 39.0);
+if macros::is_excute(agent) {
+    macros::EFFECT_OFF_KIND(agent, Hash40::new("pzenigame_mizuteppo_shoot"), false, false);
+}
+}
+
+unsafe extern "C" fn sound_pzenigamespecialnshot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_CHARGE_MAX) {
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n04"));
+        }
+        else {
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n03"));
+        }
+    }
+}
+if macros::is_excute(agent) {
+    macros::PLAY_SE(agent, Hash40::new("vc_kirby_copy_pzenigame_01"));
+}
+}
+
+unsafe extern "C" fn expression_pzenigamespecialnshot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_waterjetss"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

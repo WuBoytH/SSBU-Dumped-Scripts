@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_yoshispecialn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_tamagoumi"), Hash40::new("top"), 0, 5.5, 2.5, 0, -90, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_yoshispecialn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_yoshi_special_n01"));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("vc_kirby_copy_yoshi_01"));
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_yoshi_special_n05"));
+    }
+}
+
+unsafe extern "C" fn expression_yoshispecialn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

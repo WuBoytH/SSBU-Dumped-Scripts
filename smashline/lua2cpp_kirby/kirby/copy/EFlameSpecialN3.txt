@@ -1,0 +1,56 @@
+unsafe extern "C" fn effect_eflamespecialn3(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_nova_ringflame"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_nova_sword"), Hash40::new("haver"), 0, 0, 0, -90, 90, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_nova_trail"), Hash40::new("haver"), 0, 10, 6, -90, 90, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_nova_ring2"), Hash40::new("top"), 0, 20, 0, 0, 0, 180, 1.3, true);
+        }
+        else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_nova_ring2"), Hash40::new("top"), 0, -5, 0, 0, 0, 0, 1.3, true);
+        }
+    }
+}
+}
+
+unsafe extern "C" fn sound_eflamespecialn3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_special_n03_00"));
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_special_n03_01"));
+    }
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_special_n03_02"));
+    }
+}
+
+unsafe extern "C" fn expression_eflamespecialn3(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 1, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_79_flameslashl"), 4);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    for _ in 0..6 {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    wait(agent.lua_state_agent, 5.0);
+}
+frame(agent.lua_state_agent, 17.0);
+if macros::is_excute(agent) {
+    ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 10, false, *BATTLE_OBJECT_ID_INVALID as u32);
+}
+}

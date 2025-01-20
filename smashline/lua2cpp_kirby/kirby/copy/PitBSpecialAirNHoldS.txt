@@ -1,0 +1,38 @@
+unsafe extern "C" fn effect_pitbspecialairnholds(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pitb_pa_hold_bow"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pitb_pa_hold_bow2"), true, true);
+    }
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("pitb_pa_hold_bow2"), Hash40::new("havel"), 1, 2.5, 1, -1, -20, 180, 1, true);
+        }
+        else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("pitb_pa_hold_bow2"), Hash40::new("havel"), -0.85, -1.5, 1.1, 1, -20, -2, 1, true);
+        }
+    }
+}
+if macros::is_excute(agent) {
+    macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 12, 0, 4, 0, 0, 0, false);
+}
+wait(agent.lua_state_agent, 5.0);
+}
+
+unsafe extern "C" fn sound_pitbspecialairnholds(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    sound!(agent, *MA_MSC_CMD_SOUND_IS_PLAYING_STATUS, Hash40::new("se_pitb_special_n01"));
+    if(0x543c60(false)){
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_pitb_special_n01"));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_pitbspecialairnholds(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_drawhold"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

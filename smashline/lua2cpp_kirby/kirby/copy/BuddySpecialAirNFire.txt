@@ -1,0 +1,40 @@
+unsafe extern "C" fn game_buddyspecialairnfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_GENERATE_BULLET);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_ENABLE_SHOOT);
+    }
+}
+
+unsafe extern "C" fn effect_buddyspecialairnfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if get_value_float(agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("buddy_missile_shot_l"), Hash40::new("top"), 0, 9.5, 11, 0, 0, 0, 1.05, false);
+        }
+        else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("buddy_missile_shot_r"), Hash40::new("top"), 0, 9.5, 11, 0, 0, 0, 1.05, false);
+        }
+    }
+}
+frame(agent.lua_state_agent, 16.0);
+}
+
+unsafe extern "C" fn sound_buddyspecialairnfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_special_n01"));
+    }
+    frame(agent.lua_state_agent, 46.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_special_n04_01"));
+    }
+}
+
+unsafe extern "C" fn expression_buddyspecialairnfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}
