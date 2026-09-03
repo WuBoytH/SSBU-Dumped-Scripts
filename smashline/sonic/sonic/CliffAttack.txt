@@ -1,0 +1,232 @@
+unsafe extern "C" fn game_cliffattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 9.0, 45, 20, 0, 90, 5.0, 0.0, 5.0, 5.0, Some(0.0), Some(5.0), Some(1.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_cliffattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLIP(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x031ed91fca), -3, 13.5, -1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_YZ);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x14d087e889), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 0, 0, 1.1, true);
+    }
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), 0, 0, 7.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0f64ab0e46), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x14d087e889), true, true);
+    }
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 28.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0f64ab0e46), false, true);
+    }
+    frame(agent.lua_state_agent, 45.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_cliffattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x13b9972927));
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x14bb6051d9));
+    }
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x10bcb83b7a));
+    }
+    frame(agent.lua_state_agent, 45.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12738a3381));
+    }
+}
+
+unsafe extern "C" fn expression_cliffattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1209ad28ae), 10, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+    }
+    for _ in 0..5 {
+        if macros::is_excute(agent) {
+            VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bc0e5c581);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_OFF);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_NORMAL);
+        }
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_NORMAL);
+            macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_OFF);
+        }
+        if macros::is_excute(agent) {
+            macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0e49ca009f), 0);
+        }
+        wait(agent.lua_state_agent, 1.0);
+    }
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bc0e5c581);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_NORMAL);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_OFF);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bc0e5c581);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_NORMAL);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_OFF);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bc0e5c581);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_NORMAL);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_OFF);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    frame(agent.lua_state_agent, 51.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+    }
+    frame(agent.lua_state_agent, 52.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, true, 0);
+    }
+}

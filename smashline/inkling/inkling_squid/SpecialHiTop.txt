@@ -1,0 +1,14 @@
+unsafe extern "C" fn effect_specialhitop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1879f98da8), Hash40::new_raw(0x04a7f3f69c), 0, 0, 0, 0, 0, -90, 1, true);
+    }
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_R);
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_G);
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_B);
+    if macros::is_excute(agent) {
+        macros::LAST_PARTICLE_SET_COLOR(agent) /* TODO: macro expects 3 args */;
+    }
+    if macros::is_excute(agent) {
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}

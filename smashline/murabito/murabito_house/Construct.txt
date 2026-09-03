@@ -1,0 +1,84 @@
+unsafe extern "C" fn game_construct(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.83);
+    frame(agent.lua_state_agent, 104.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 10.0, 361, 60, 0, 65, 18.0, 0.0, 11.0, 0.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_LR, false, 0x0267aa281f, 0.0, 40, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1.0, false);
+    }
+    frame(agent.lua_state_agent, 210.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 215.0);
+    macros::FT_MOTION_RATE(agent, 1.58);
+    frame(agent.lua_state_agent, 275.0);
+    macros::FT_MOTION_RATE(agent, 1);
+    frame(agent.lua_state_agent, 298.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 15.0, 45, 115, 0, 80, 25.0, 0.0, 11.0, 0.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_LR, false, 0x0267aa281f, 0.0, 40, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_NONE);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1.0, false);
+    }
+    frame(agent.lua_state_agent, 303.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+        macros::AREA_WIND_2ND_RAD(agent, 0, 3, 0.02, 1000, 1, 3, 15, 55, 80) /* TODO: macro expects 8 args */;
+    }
+    wait(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        AreaModule::erase_wind(agent.module_accessor, 0);
+    }
+}
+
+unsafe extern "C" fn effect_construct(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x1a407ab38c), Hash40::new_raw(0x031ed91fca), 0, 5, 0, 0, 0, 0, 1.1, 0, 1, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 90.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x05acf02ace, 0x0899290e7a);
+    }
+    frame(agent.lua_state_agent, 150.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x0535f97b74, 0x088b9ca194);
+    }
+    frame(agent.lua_state_agent, 200.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x0542fe4be2, 0x083320c6f1);
+    }
+    frame(agent.lua_state_agent, 215.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1a407ab38c), false, false);
+    }
+    frame(agent.lua_state_agent, 220.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x1fa7a1daf8), Hash40::new_raw(0x031ed91fca), 0, -2, -4, 0, 0, 0, 1.05, 0, 1, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 300.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        let request_post_effect_line_circle = EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new_raw(0x0cde87653a), Hash40::new_raw(0x031ed91fca), Vector2::new(5.0, 5.0), Vector3::new(0.0, 10.0, 0.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
+        macros::EFFECT(agent, request_post_effect_line_circle, Hash40::new_raw(0x1eb99e425a), Hash40::new_raw(0x031ed91fca), 0, 0, -5, 0, 90, 0, 1.2, 0, 1, 0, 0, 0, 0, false) /* TODO: macro expects 16 args */;
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        EffectModule::remove_post_effect_line(agent.module_accessor, 5, true);
+    }
+}
+
+unsafe extern "C" fn sound_construct(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x130f509ca0));
+    }
+    frame(agent.lua_state_agent, 220.0);
+    if macros::is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1391340903));
+    }
+    wait(agent.lua_state_agent, 78.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x13e6333995));
+    }
+}

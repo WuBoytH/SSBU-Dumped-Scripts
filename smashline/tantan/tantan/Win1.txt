@@ -1,0 +1,32 @@
+unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 122.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new_raw(0x11094e7b81), Hash40::new_raw(0x031ed91fca), 3, 9, 2, -120, -25, 0, 1.1, true, 0.5);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.6);
+    }
+    frame(agent.lua_state_agent, 123.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new_raw(0x11094e7b81), Hash40::new_raw(0x031ed91fca), -3.5, 7, -3, -110, -50, 160, 0.6, true, 0.5);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.5);
+    }
+}
+
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x0fc91c9c51));
+    }
+    frame(agent.lua_state_agent, 75.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x0f0259696c));
+    }
+}
+
+unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x07e096c9f5, 0x094859bd08);
+        VisibilityModule::set_int64(agent.module_accessor, 0x0b616c555c, 0x12bfd89fca);
+        VisibilityModule::set_int64(agent.module_accessor, 0x0a9ffaf181, 0x0ef190b4e8);
+        VisibilityModule::set_int64(agent.module_accessor, 0x059a6ef56c, 0x09b7cb3e40);
+    }
+}

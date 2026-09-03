@@ -1,0 +1,66 @@
+unsafe extern "C" fn game_visualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_EDGE_GENERATE_ARTICLE_BACKGROUND, false, -1);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_EDGE_GENERATE_ARTICLE_BACKGROUND, Hash40::new_raw(0x0f9e797764), false, 0.0) /* TODO: verify padded default args */;
+    }
+    frame(agent.lua_state_agent, 282.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_EDGE_ATTACK_ABSOLUTE_KIND_FINAL, 0, 10.0, 55, 110, 0, 78, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_FINAL_FLAG_ABS_HIT);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, true);
+    }
+    frame(agent.lua_state_agent, 345.0);
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_EDGE_GENERATE_ARTICLE_BACKGROUND, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_EDGE_STATUS_FINAL_FLAG_SCENE01_SYNC);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x102624056e), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x11b0f9d657), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0a7774373a), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10415ff720), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10e221b928), true, true);
+        macros::AFTER_IMAGE_OFF(agent, 3);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10fb929d45), false, true);
+    }
+    frame(agent.lua_state_agent, 375.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_GLOBAL(agent, Hash40::new_raw(0x111c98998f), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12e02629c4));
+    }
+    frame(agent.lua_state_agent, 75.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12792f787e));
+    }
+    frame(agent.lua_state_agent, 202.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x120e2848e8));
+    }
+    frame(agent.lua_state_agent, 254.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12589a4ea1));
+    }
+    frame(agent.lua_state_agent, 317.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12c1931f1b));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene01(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1345ffccb8), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x1345ffccb8), 0);
+    }
+}

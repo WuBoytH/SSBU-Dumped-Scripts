@@ -1,0 +1,19 @@
+unsafe extern "C" fn effect_magicpotairendaerial(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0f97480fb2), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_magicpotairendaerial(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_ACTIVATED) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x0e84ec658b));
+            macros::PLAY_SE(agent, Hash40::new_raw(0x150a926a3c));
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x0e84ec658b));
+        }
+    }
+}

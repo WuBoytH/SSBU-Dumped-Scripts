@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_pitspecialairnholds(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0f3307c3b4), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10d6eace5b), true, true);
+    }
+    if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0f3307c3b4), Hash40::new_raw(0x05e008fd84), 1, 2.5, 1, -1, -20, 180, 1, true);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0f3307c3b4), Hash40::new_raw(0x05e008fd84), -0.85, -1.5, 1.1, 1, -20, -2, 1, true);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_pitspecialairnholds(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    sound!(agent, *MA_MSC_CMD_SOUND_IS_PLAYING_STATUS, Hash40::new_raw(0x12929ab95a));
+    if true { // TODO: if (condition) {
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new_raw(0x12929ab95a));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_pitspecialairnholds(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0fa6bcdad1), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

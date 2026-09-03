@@ -1,0 +1,12 @@
+unsafe extern "C" fn sound_steppose(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x13e5a46e29));
+    }
+}
+
+unsafe extern "C" fn expression_steppose(agent: &mut L2CAgentBase) {
+    // TODO: expression_StepPoseRumble();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+    }
+}

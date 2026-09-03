@@ -1,0 +1,34 @@
+unsafe extern "C" fn effect_specialairshold(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PIKACHU_STATUS_WORK_ID_FLAG_SKULL_BASH_FLICK) {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x14964c44be), Hash40::new_raw(0x031ed91fca), 0, 4.5, 0, 0, 0, 0, 1, true);
+        }
+    } else {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x134a86405e), Hash40::new_raw(0x031ed91fca), 0, 4.5, 0, 0, 0, 0, 1, true);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_specialairshold(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_PIKACHU_STATUS_WORK_ID_FLAG_SKULL_BASH_INHERIT_MOTION) {
+        frame(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new_raw(0x0e095bbc1e));
+        }
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new_raw(0x161d738b75));
+            macros::PLAY_STATUS(agent, Hash40::new_raw(0x1d7a7e4d7d));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_specialairshold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

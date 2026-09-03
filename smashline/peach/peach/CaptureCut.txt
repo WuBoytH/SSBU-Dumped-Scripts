@@ -1,0 +1,18 @@
+unsafe extern "C" fn sound_capturecut(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12c7af68c9));
+    }
+    wait(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x12c7af68c9));
+    }
+}
+
+unsafe extern "C" fn expression_capturecut(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: expression_CaptureCutRumble();
+    } else {
+        // TODO: expression_CaptureCutRumble();
+    }
+}

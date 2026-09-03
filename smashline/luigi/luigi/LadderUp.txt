@@ -1,0 +1,20 @@
+unsafe extern "C" fn sound_ladderup(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x166157c215));
+        }
+        wait(agent.lua_state_agent, 4.0);
+    }
+}
+
+unsafe extern "C" fn expression_ladderup(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        frame(agent.lua_state_agent, 5.0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

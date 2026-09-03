@@ -1,0 +1,61 @@
+unsafe extern "C" fn game_specialairnhold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_LUCAS_STATUS_SPECIAL_N_FLAG_GENERATE_ARTICLE);
+    }
+}
+
+unsafe extern "C" fn effect_specialairnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x0fc6a66d24), Hash40::new_raw(0x031ed91fca), 0, 9, 0, 0, 0, 0, 1, true);
+    }
+    loop {
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 9, 0, 9, 0, 0, 0, false);
+            macros::FLASH(agent, 0.01, 0.5, 1, 0.4);
+        }
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::FLASH(agent, 1, 1, 1, 0.6);
+        }
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::COL_NORMAL(agent);
+        }
+        wait(agent.lua_state_agent, 1.0);
+    }
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x0fc6a66d24), Hash40::new_raw(0x031ed91fca), 0, 9, 0, 0, 0, 0, 1, true);
+    }
+    loop {
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 9, 0, 9, 0, 0, 0, false);
+            macros::FLASH(agent, 0.01, 0.5, 1, 0.4);
+        }
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::FLASH(agent, 1, 1, 1, 0.6);
+        }
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::COL_NORMAL(agent);
+        }
+        wait(agent.lua_state_agent, 1.0);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x148e80d4ba));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnhold(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

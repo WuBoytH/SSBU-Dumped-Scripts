@@ -1,0 +1,24 @@
+unsafe extern "C" fn game_downstandu(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        macros::FT_MOTION_RATE(agent, 1.0345);
+    } else {
+        macros::FT_MOTION_RATE(agent, 1.0345);
+    }
+}
+
+unsafe extern "C" fn sound_downstandu(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x0e8d0d8cc1));
+    }
+}
+
+unsafe extern "C" fn expression_downstandu(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
+    }
+}

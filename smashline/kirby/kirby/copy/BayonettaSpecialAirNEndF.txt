@@ -1,0 +1,19 @@
+unsafe extern "C" fn effect_bayonettaspecialairnendf(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a9e6a4000), Hash40::new_raw(0x0505c6b25a), -1, 2, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a9e6a4000), Hash40::new_raw(0x05ffc98f39), -1, 2, 0, 0, 0, 0, 1, true);
+        }
+    }
+}
+
+unsafe extern "C" fn expression_bayonettaspecialairnendf(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_KIBY_HIDE_GUN);
+    }
+}

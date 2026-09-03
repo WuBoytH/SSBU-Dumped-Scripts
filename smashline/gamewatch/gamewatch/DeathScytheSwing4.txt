@@ -1,0 +1,40 @@
+unsafe extern "C" fn game_deathscytheswing4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::SEARCH(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 5.0, 0.0, 7.4, 23.3, Some(0.0), Some(7.4), Some(23.3), *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+    }
+    // TODO: game_DeathscytheSwing4Common();
+}
+
+unsafe extern "C" fn effect_deathscytheswing4(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: effect_DeathscytheSwing4Common();
+    } else {
+        // TODO: effect_DeathscytheSwing4Common();
+    }
+}
+
+unsafe extern "C" fn sound_deathscytheswing4(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x18e3ee6484));
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1685ab2ded));
+    }
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1675d3b999));
+    }
+}
+
+unsafe extern "C" fn expression_deathscytheswing4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x042762428f, 0x0c3fa88843);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0f2b93f840), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

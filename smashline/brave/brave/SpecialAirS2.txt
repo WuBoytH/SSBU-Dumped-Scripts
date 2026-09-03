@@ -1,0 +1,457 @@
+unsafe extern "C" fn game_specialairs2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_ENABLE_SPARK);
+    }
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+        if macros::is_excute(agent) {
+            macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 6.0, 361, 90, 0, 25, 4.5, 0.0, 11.5, 12.0, Some(0.0), Some(11.5), Some(56.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13462fcfe4), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_ELEC, *ATTACK_REGION_MAGIC);
+            AttackModule::set_no_finish_camera(agent.module_accessor, 0, true, false);
+            macros::FT_SHOOTING_ATTACK_GROUND_CHECK_NEW(agent, 0, 10, 4);
+        }
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn effect_specialairs2(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12d3549310), Hash40::new_raw(0x031ed91fca), 0, 9, -2.5, 0, -60, 0, 1, false);
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1641bc7b34), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 0, -90, 1, true);
+            let effect_kind_lightning_sword_flare = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_LIGHTNING_SWORD_FLARE);
+            macros::EFFECT_FOLLOW_WORK(agent, effect_kind_lightning_sword_flare, Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 0, -90, 1, true);
+        }
+        frame(agent.lua_state_agent, 8.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1b50aa8fc6), Hash40::new_raw(0x0613f917e1), -7, 0, 0, 0, 0, -90, 1.1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1b50aa8fc6), Hash40::new_raw(0x0613f917e1), -10, 0, 0, 0, 0, -90, 1, true);
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1bcb0fc3a9), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 0, 0, 1, true);
+        }
+        frame(agent.lua_state_agent, 12.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x1b50aa8fc6), 7);
+        }
+        frame(agent.lua_state_agent, 29.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x1bcb0fc3a9), -1);
+        }
+        frame(agent.lua_state_agent, 30.0);
+        if macros::is_excute(agent) {
+            let effect_kind_lightning_sword_flare = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_LIGHTNING_SWORD_FLARE);
+            macros::EFFECT_OFF_KIND_WORK(agent, effect_kind_lightning_sword_flare, false, true);
+            macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1641bc7b34), false, true);
+        }
+    } else {
+        frame(agent.lua_state_agent, 8.0);
+        if macros::is_excute(agent) {
+            macros::AFTER_IMAGE4_ON(agent, Hash40::new_raw(0x10518f4de3), Hash40::new_raw(0x10c8861c59), 5, Hash40::new_raw(0x0613f917e1), 3, 0, 0, Hash40::new_raw(0x0613f917e1), 14, 0, 0, true, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 0, -90, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.4, 0.1);
+            let effect_kind_sword_flare = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE);
+            macros::EFFECT_FOLLOW_WORK(agent, effect_kind_sword_flare, Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 0, -90, 1, true);
+        }
+        frame(agent.lua_state_agent, 12.0);
+        if macros::is_excute(agent) {
+            macros::AFTER_IMAGE_OFF(agent, 4);
+        }
+        frame(agent.lua_state_agent, 15.0);
+        if macros::is_excute(agent) {
+            let effect_kind_sword_flare = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE);
+            macros::EFFECT_OFF_KIND_WORK(agent, effect_kind_sword_flare, false, true);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_specialairs2(agent: &mut L2CAgentBase) {
+    if macros::GET_VOICE_REGION(agent) == *VOICE_US_EN {
+        frame(agent.lua_state_agent, 1.0);
+        if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+            if macros::is_excute(agent) {
+                macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+            }
+            frame(agent.lua_state_agent, 9.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+            }
+        } else {
+            if macros::is_excute(agent) {
+                macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+            }
+            frame(agent.lua_state_agent, 10.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+            }
+        }
+        frame(agent.lua_state_agent, 45.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+        }
+    } else {
+        if macros::GET_VOICE_REGION(agent) == *VOICE_US_FR {
+            frame(agent.lua_state_agent, 1.0);
+            if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                if macros::is_excute(agent) {
+                    macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                }
+                frame(agent.lua_state_agent, 9.0);
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                    macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+                }
+            } else {
+                if macros::is_excute(agent) {
+                    macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                }
+                frame(agent.lua_state_agent, 10.0);
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                }
+            }
+            frame(agent.lua_state_agent, 45.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+            }
+        } else {
+            if macros::GET_VOICE_REGION(agent) == *VOICE_EU_EN {
+                frame(agent.lua_state_agent, 1.0);
+                if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                    if macros::is_excute(agent) {
+                        macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                    }
+                    frame(agent.lua_state_agent, 9.0);
+                    if macros::is_excute(agent) {
+                        macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+                    }
+                } else {
+                    if macros::is_excute(agent) {
+                        macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                    }
+                    frame(agent.lua_state_agent, 10.0);
+                    if macros::is_excute(agent) {
+                        macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                    }
+                }
+                frame(agent.lua_state_agent, 45.0);
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                }
+            } else {
+                if macros::GET_VOICE_REGION(agent) == *VOICE_EU_FR {
+                    frame(agent.lua_state_agent, 1.0);
+                    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                        if macros::is_excute(agent) {
+                            macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                        }
+                        frame(agent.lua_state_agent, 9.0);
+                        if macros::is_excute(agent) {
+                            macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+                        }
+                    } else {
+                        if macros::is_excute(agent) {
+                            macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                        }
+                        frame(agent.lua_state_agent, 10.0);
+                        if macros::is_excute(agent) {
+                            macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                        }
+                    }
+                    frame(agent.lua_state_agent, 45.0);
+                    if macros::is_excute(agent) {
+                        macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                    }
+                } else {
+                    if macros::GET_VOICE_REGION(agent) == *VOICE_EU_IT {
+                        frame(agent.lua_state_agent, 1.0);
+                        if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                            if macros::is_excute(agent) {
+                                macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                            }
+                            frame(agent.lua_state_agent, 9.0);
+                            if macros::is_excute(agent) {
+                                macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+                            }
+                        } else {
+                            if macros::is_excute(agent) {
+                                macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                            }
+                            frame(agent.lua_state_agent, 10.0);
+                            if macros::is_excute(agent) {
+                                macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                            }
+                        }
+                        frame(agent.lua_state_agent, 45.0);
+                        if macros::is_excute(agent) {
+                            macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                        }
+                    } else {
+                        if macros::GET_VOICE_REGION_NEW(agent) == *VOICE_US_SP {
+                            frame(agent.lua_state_agent, 1.0);
+                            if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                                if macros::is_excute(agent) {
+                                    macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                }
+                                frame(agent.lua_state_agent, 9.0);
+                                if macros::is_excute(agent) {
+                                    macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                    macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+                                }
+                            } else {
+                                if macros::is_excute(agent) {
+                                    macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                }
+                                frame(agent.lua_state_agent, 10.0);
+                                if macros::is_excute(agent) {
+                                    macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                                }
+                            }
+                            frame(agent.lua_state_agent, 45.0);
+                            if macros::is_excute(agent) {
+                                macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                            }
+                        } else {
+                            if macros::GET_VOICE_REGION_NEW(agent) == *VOICE_EU_SP {
+                                frame(agent.lua_state_agent, 1.0);
+                                if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                                    if macros::is_excute(agent) {
+                                        macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                    }
+                                    frame(agent.lua_state_agent, 9.0);
+                                    if macros::is_excute(agent) {
+                                        macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+                                    }
+                                } else {
+                                    if macros::is_excute(agent) {
+                                        macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                    }
+                                    frame(agent.lua_state_agent, 10.0);
+                                    if macros::is_excute(agent) {
+                                        macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                                    }
+                                }
+                                frame(agent.lua_state_agent, 45.0);
+                                if macros::is_excute(agent) {
+                                    macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                                }
+                            } else {
+                                if macros::GET_VOICE_REGION_NEW(agent) == *VOICE_EU_GR {
+                                    frame(agent.lua_state_agent, 1.0);
+                                    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                                        if macros::is_excute(agent) {
+                                            macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                        }
+                                        frame(agent.lua_state_agent, 9.0);
+                                        if macros::is_excute(agent) {
+                                            macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+                                        }
+                                    } else {
+                                        if macros::is_excute(agent) {
+                                            macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                        }
+                                        frame(agent.lua_state_agent, 10.0);
+                                        if macros::is_excute(agent) {
+                                            macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                                        }
+                                    }
+                                    frame(agent.lua_state_agent, 45.0);
+                                    if macros::is_excute(agent) {
+                                        macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                                    }
+                                } else {
+                                    if macros::GET_VOICE_REGION_NEW(agent) == *VOICE_EU_NL {
+                                        frame(agent.lua_state_agent, 1.0);
+                                        if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                                            if macros::is_excute(agent) {
+                                                macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                            }
+                                            frame(agent.lua_state_agent, 9.0);
+                                            if macros::is_excute(agent) {
+                                                macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                                macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+                                            }
+                                        } else {
+                                            if macros::is_excute(agent) {
+                                                macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                            }
+                                            frame(agent.lua_state_agent, 10.0);
+                                            if macros::is_excute(agent) {
+                                                macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                                            }
+                                        }
+                                        frame(agent.lua_state_agent, 45.0);
+                                        if macros::is_excute(agent) {
+                                            macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                                        }
+                                    } else {
+                                        if macros::GET_VOICE_REGION_NEW(agent) == *VOICE_EU_RU {
+                                            frame(agent.lua_state_agent, 1.0);
+                                            if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                                                if macros::is_excute(agent) {
+                                                    macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                }
+                                                frame(agent.lua_state_agent, 9.0);
+                                                if macros::is_excute(agent) {
+                                                    macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                                    macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bc82f11a5));
+                                                }
+                                            } else {
+                                                if macros::is_excute(agent) {
+                                                    macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                }
+                                                frame(agent.lua_state_agent, 10.0);
+                                                if macros::is_excute(agent) {
+                                                    macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                                                }
+                                            }
+                                            frame(agent.lua_state_agent, 45.0);
+                                            if macros::is_excute(agent) {
+                                                macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                                            }
+                                        } else {
+                                            if macros::GET_VOICE_REGION_NEW(agent) == *VOICE_ZH_CN {
+                                                frame(agent.lua_state_agent, 1.0);
+                                                if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                                                    if macros::is_excute(agent) {
+                                                        macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                    }
+                                                    frame(agent.lua_state_agent, 9.0);
+                                                    if macros::is_excute(agent) {
+                                                        macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                                        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bb5b83009));
+                                                    }
+                                                } else {
+                                                    if macros::is_excute(agent) {
+                                                        macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                    }
+                                                    frame(agent.lua_state_agent, 10.0);
+                                                    if macros::is_excute(agent) {
+                                                        macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                                                        macros::PLAY_SE(agent, Hash40::new_raw(0x102eb00bc9));
+                                                    }
+                                                }
+                                                frame(agent.lua_state_agent, 45.0);
+                                                if macros::is_excute(agent) {
+                                                    macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                                                }
+                                            } else {
+                                                if macros::GET_VOICE_REGION_NEW(agent) == *VOICE_ZH_TW {
+                                                    frame(agent.lua_state_agent, 1.0);
+                                                    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                                                        if macros::is_excute(agent) {
+                                                            macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                        }
+                                                        frame(agent.lua_state_agent, 9.0);
+                                                        if macros::is_excute(agent) {
+                                                            macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                                            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bb5b83009));
+                                                        }
+                                                    } else {
+                                                        if macros::is_excute(agent) {
+                                                            macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                        }
+                                                        frame(agent.lua_state_agent, 10.0);
+                                                        if macros::is_excute(agent) {
+                                                            macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                                                            macros::PLAY_SE(agent, Hash40::new_raw(0x102eb00bc9));
+                                                        }
+                                                    }
+                                                    frame(agent.lua_state_agent, 45.0);
+                                                    if macros::is_excute(agent) {
+                                                        macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                                                    }
+                                                } else {
+                                                    if macros::GET_VOICE_REGION_NEW(agent) == *VOICE_KR_KO {
+                                                        frame(agent.lua_state_agent, 1.0);
+                                                        if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                                                            if macros::is_excute(agent) {
+                                                                macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                            }
+                                                            frame(agent.lua_state_agent, 9.0);
+                                                            if macros::is_excute(agent) {
+                                                                macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                                                macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bb5b83009));
+                                                            }
+                                                        } else {
+                                                            if macros::is_excute(agent) {
+                                                                macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                            }
+                                                            frame(agent.lua_state_agent, 10.0);
+                                                            if macros::is_excute(agent) {
+                                                                macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                                                                macros::PLAY_SE(agent, Hash40::new_raw(0x102eb00bc9));
+                                                            }
+                                                        }
+                                                        frame(agent.lua_state_agent, 45.0);
+                                                        if macros::is_excute(agent) {
+                                                            macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                                                        }
+                                                    } else {
+                                                        if macros::GET_VOICE_REGION(agent) == *VOICE_DEFAULT {
+                                                            frame(agent.lua_state_agent, 1.0);
+                                                            if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+                                                                if macros::is_excute(agent) {
+                                                                    macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                                }
+                                                                frame(agent.lua_state_agent, 9.0);
+                                                                if macros::is_excute(agent) {
+                                                                    macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
+                                                                    macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bb5b83009));
+                                                                }
+                                                            } else {
+                                                                if macros::is_excute(agent) {
+                                                                    macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+                                                                }
+                                                                frame(agent.lua_state_agent, 10.0);
+                                                                if macros::is_excute(agent) {
+                                                                    macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+                                                                    macros::PLAY_SE(agent, Hash40::new_raw(0x102eb00bc9));
+                                                                }
+                                                            }
+                                                            frame(agent.lua_state_agent, 45.0);
+                                                            if macros::is_excute(agent) {
+                                                                macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+                                                            }
+                                                        } else {
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+unsafe extern "C" fn expression_specialairs2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x12cca52f77), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    } else {
+        frame(agent.lua_state_agent, 12.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+    }
+}

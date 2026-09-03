@@ -1,0 +1,12 @@
+unsafe extern "C" fn effect_extend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11ac0e8475), Hash40::new_raw(0x078f9703f9), 4.4, 0, 0, 0, 0, 0, 1.4, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1057322e7c), Hash40::new_raw(0x07619962d5), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x11ac0e8475), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x1057322e7c), -1);
+    }
+}

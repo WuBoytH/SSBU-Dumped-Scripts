@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_specialairs_c2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x153166d1f7), Hash40::new_raw(0x051a07c0e7), 0, 8, 0, 0, 0.00002, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
+    }
+    frame(agent.lua_state_agent, 9.0);
+    frame(agent.lua_state_agent, 14.0);
+    if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1790916410), Hash40::new_raw(0x031ed91fca), -3, 0, 14, 0, 0.00002, 0, 1.1, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15a86f804d), Hash40::new_raw(0x031ed91fca), -3, 0, 14, 0, 0.00002, 0, 1.1, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+        }
+    }
+    frame(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x15a86f804d), -1);
+    }
+}

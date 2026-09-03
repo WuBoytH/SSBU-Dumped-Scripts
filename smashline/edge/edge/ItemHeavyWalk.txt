@@ -1,0 +1,26 @@
+unsafe extern "C" fn sound_itemheavywalk(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 16.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new_raw(0x144779c9bf));
+        }
+        frame(agent.lua_state_agent, 34.0);
+        macros::PLAY_STEP(agent, Hash40::new_raw(0x132b67afd7));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_itemheavywalk(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        }
+        frame(agent.lua_state_agent, 0.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        frame(agent.lua_state_agent, 14.0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

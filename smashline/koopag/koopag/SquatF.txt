@@ -1,0 +1,21 @@
+unsafe extern "C" fn sound_squatf(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 50.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1818eb991a), Hash40::new_raw(0x19d6b9fbc7));
+        }
+        wait(agent.lua_state_agent, 60.0);
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x19d6b9fbc7), Hash40::new_raw(0x1818eb991a));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_squatf(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+        }
+        frame(agent.lua_state_agent, 110.0);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

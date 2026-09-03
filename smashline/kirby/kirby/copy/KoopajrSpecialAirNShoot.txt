@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_koopajrspecialairnshoot(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_KOOPAJR_STATUS_SPECIAL_N_FLAG_FAIL) {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new_raw(0x13416a1cb8), Hash40::new_raw(0x0cec8914f8), 3, 0, 0, 0, 0, -90, 0.5, 0, 0, 0, 0, 0, 0, true);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x15e1d0ce18), Hash40::new_raw(0x151bdff37b), Hash40::new_raw(0x031ed91fca), 0, 4, 6, 90, 0, 0, 0.5, true, *EF_FLIP_NONE);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_koopajrspecialairnshoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x16b1985c51));
+    }
+}
+
+unsafe extern "C" fn expression_koopajrspecialairnshoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10eaa9bff4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

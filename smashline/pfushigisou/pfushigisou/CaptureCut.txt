@@ -1,0 +1,29 @@
+unsafe extern "C" fn sound_capturecut(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x18eb15f267));
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new_raw(0x1c5f72f7a1));
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new_raw(0x1dfe6b08ee));
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new_raw(0x1da38759e2));
+    }
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new_raw(0x1cdb38f95b));
+    }
+}
+
+unsafe extern "C" fn expression_capturecut(agent: &mut L2CAgentBase) {
+    // TODO: expression_CaptureCutRumble();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

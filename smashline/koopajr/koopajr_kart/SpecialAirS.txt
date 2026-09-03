@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_specialairs(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10d4c5732f), false, true);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x10d4c5732f), Hash40::new_raw(0x07c391f9ad), 8.8, -0.4, 3.8, 0, 0, -95, 0.5, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x10d4c5732f), Hash40::new_raw(0x07c391f9ad), 8.8, -0.4, -3.8, 0, 0, -95, 0.5, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn sound_specialairs(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x163c6f3dc8));
+        macros::STOP_SE(agent, Hash40::new_raw(0x19d06e14c9));
+    }
+    if WorkModule::is_flag(agent.module_accessor, *WEAPON_KOOPAJR_KART_INSTANCE_WORK_ID_FLAG_NO_FLOOR) {
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new_raw(0x193e6075e5));
+        }
+    }
+}

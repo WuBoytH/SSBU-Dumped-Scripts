@@ -1,0 +1,19 @@
+unsafe extern "C" fn sound_adventurerun(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 6.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x15de1bc982), Hash40::new_raw(0x1632911175));
+        }
+        frame(agent.lua_state_agent, 17.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1632911175), Hash40::new_raw(0x15de1bc982));
+        }
+        frame(agent.lua_state_agent, 28.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x15de1bc982), Hash40::new_raw(0x1632911175));
+        }
+        frame(agent.lua_state_agent, 39.0);
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1632911175), Hash40::new_raw(0x15de1bc982));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

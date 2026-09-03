@@ -1,0 +1,29 @@
+unsafe extern "C" fn game_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 40, 0, 0, 0);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DONKEY_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT) {
+            if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+                if macros::is_excute(agent) {
+                    let scale = PostureModule::scale(agent.module_accessor);
+                    macros::CAM_ZOOM_IN(agent, 1, 0, scale * 1.5, -0.1, -0.3);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -20, 3);
+                }
+            } else {
+                if macros::is_excute(agent) {
+                    let scale = PostureModule::scale(agent.module_accessor);
+                    macros::CAM_ZOOM_IN(agent, 1, 0, scale * 1.5, -0.1, 0.3);
+                    camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 20, 3);
+                }
+            }
+        }
+    }
+}
+
+unsafe extern "C" fn effect_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::COLOR_COLLECTION(agent, 1, 0, 1, 1.4, 1.8, 1, 1, 1, 1, 0.2, 1, 1, 0, 0, *EFFECT_SCREEN_BLEND_TYPE_NSUB, *EFFECT_SCREEN_PRIO_FINAL);
+        macros::EFFECT(agent, Hash40::new_raw(0x15a369e982), Hash40::new_raw(0x031ed91fca), 0, 10, 23, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}

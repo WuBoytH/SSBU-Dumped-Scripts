@@ -1,0 +1,89 @@
+unsafe extern "C" fn game_speciallw8(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_BRAVE_GENERATE_ARTICLE_CRASH, false, -1);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_LW_START_FLAG_FULLBURST_INTERRUPT);
+    }
+    frame(agent.lua_state_agent, 116.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_LW_START_FLAG_FULLBURST_INTERRUPT);
+    }
+    frame(agent.lua_state_agent, 136.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_LW_START_FLAG_ENABLE_GRAVITY);
+    }
+}
+
+unsafe extern "C" fn effect_speciallw8(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12d3549310), Hash40::new_raw(0x031ed91fca), 0, 9, 0, 0, -60, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1596885986), Hash40::new_raw(0x031ed91fca), 0, 10, 0, 0, 0, 0, 1, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.6);
+        macros::FLASH(agent, 0.8, 0.8, 2, 0.1);
+        macros::BURN_COLOR(agent, 4, 1.6, 8, 0.8);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 4, 1, 1, 1, 0);
+        macros::BURN_COLOR_FRAME(agent, 4, 1, 1, 1, 0);
+    }
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+        macros::BURN_COLOR_NORMAL(agent);
+    }
+}
+
+unsafe extern "C" fn sound_speciallw8(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1409bdfaef));
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x144f93b597));
+    }
+    frame(agent.lua_state_agent, 100.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x17760d867e));
+    }
+}
+
+unsafe extern "C" fn expression_speciallw8(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 48, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    for _ in 0..24 {
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        }
+        wait(agent.lua_state_agent, 2.0);
+    }
+    frame(agent.lua_state_agent, 68.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11166078cd), 31, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    for _ in 0..11 {
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        }
+        wait(agent.lua_state_agent, 2.0);
+    }
+    frame(agent.lua_state_agent, 102.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x112c3c5d44), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

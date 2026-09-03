@@ -1,0 +1,53 @@
+unsafe extern "C" fn game_ffinalattack(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 175.0);
+}
+
+unsafe extern "C" fn effect_ffinalattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 100.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x11d7f5f592), false, false);
+    }
+    frame(agent.lua_state_agent, 145.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x13fc11e43e), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 165.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.5, 0.5, 0.8, 0);
+        macros::BURN_COLOR(agent, 0.8, 1.5, 1.5, 0);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+    }
+    frame(agent.lua_state_agent, 171.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 15, 0.45, 0.45, 1, 0.4);
+        macros::BURN_COLOR_FRAME(agent, 13, 3.8, 22, 32, 1);
+    }
+    frame(agent.lua_state_agent, 173.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new_raw(0x15c6444b2b), Hash40::new_raw(0x051a36341b), 0, 0, 0, 0, 0, 0, 1.2, true);
+    }
+    frame(agent.lua_state_agent, 183.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new_raw(0x1447f8e92e), Hash40::new_raw(0x051a36341b), 0, 0, 0, 0, 0, 0, 1.2, true);
+    }
+    frame(agent.lua_state_agent, 188.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x15c6444b2b), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x1447f8e92e), -1);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn sound_ffinalattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 145.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1adf910b01));
+    }
+    frame(agent.lua_state_agent, 188.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x199c2ed8d1));
+    }
+}

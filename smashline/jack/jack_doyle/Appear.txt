@@ -1,0 +1,36 @@
+unsafe extern "C" fn effect_appear(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1169021d9d), Hash40::new_raw(0x035dbfe258), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::BURN_COLOR(agent, 0.02, 0.15, 2, 0);
+        macros::BURN_COLOR_FRAME(agent, 1, 0.02, 0.15, 2, 0.7);
+    }
+    frame(agent.lua_state_agent, 42.0);
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR(agent, 0.02, 0.15, 2, 0.7);
+        macros::BURN_COLOR_FRAME(agent, 12, 0.02, 0.15, 2, 0);
+    }
+    frame(agent.lua_state_agent, 54.0);
+    if macros::is_excute(agent) {
+        macros::BURN_COLOR_NORMAL(agent);
+    }
+}
+
+unsafe extern "C" fn sound_appear(agent: &mut L2CAgentBase) {
+    if !WorkModule::is_flag(agent.module_accessor, *WEAPON_JACK_DOYLE_INSTANCE_WORK_ID_FLAG_MUTE_VOICE) {
+        if macros::IS_RANDOM(agent, 2) {
+            if macros::is_excute(agent) {
+            }
+            if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+            }
+        } else {
+            if macros::is_excute(agent) {
+            }
+            if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+                // TODO: WeaponSpecializer_JackDoyle::play_se_jack(0x149e78c4d1);
+                macros::PLAY_SE(agent, Hash40::new_raw(0x15dd3291b6));
+            }
+        }
+        // TODO: WeaponSpecializer_JackDoyle::play_se_jack(0x140771956b);
+        macros::PLAY_SE(agent, Hash40::new_raw(0x15dd3291b6));
+    }
+}

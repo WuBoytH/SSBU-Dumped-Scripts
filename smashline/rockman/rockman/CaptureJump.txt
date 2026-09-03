@@ -1,0 +1,24 @@
+unsafe extern "C" fn game_capturejump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        KineticModule::add_speed(agent.module_accessor, &Vector3f{x: -0.8, y: 0.0, z: 0.0});
+    }
+}
+
+unsafe extern "C" fn sound_capturejump(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x141dd81103));
+    }
+    wait(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x141dd81103));
+    }
+}
+
+unsafe extern "C" fn expression_capturejump(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: expression_CaptureJumpRumble();
+    } else {
+        // TODO: expression_CaptureJumpRumble();
+    }
+}

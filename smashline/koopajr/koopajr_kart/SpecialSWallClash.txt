@@ -1,0 +1,13 @@
+unsafe extern "C" fn sound_specialswallclash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x163c6f3dc8));
+        macros::STOP_SE(agent, Hash40::new_raw(0x193e6075e5));
+        macros::STOP_SE(agent, Hash40::new_raw(0x19a769245f));
+        macros::STOP_SE(agent, Hash40::new_raw(0x19d06e14c9));
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x1658fbf964));
+    }
+    wait(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x16a20ba86b));
+    }
+}

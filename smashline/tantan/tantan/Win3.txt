@@ -1,0 +1,17 @@
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x0f2712fd7d));
+    }
+    frame(agent.lua_state_agent, 128.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x0fec570840));
+    }
+}
+
+unsafe extern "C" fn expression_win3(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x07e096c9f5, 0x09a657dc24);
+        VisibilityModule::set_int64(agent.module_accessor, 0x0b616c555c, 0x10c5a70ec8);
+    }
+}

@@ -1,0 +1,55 @@
+unsafe extern "C" fn game_escapef(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::REVERSE_LR(agent);
+    }
+}
+
+unsafe extern "C" fn effect_escapef(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x031ed91fca), 0, 60, -15, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0dbbe7c8c4), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    for _ in 0..3 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FLIP(agent, Hash40::new_raw(0x0fe5950916), Hash40::new_raw(0x0f1f9a3475), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_ZX);
+            macros::EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, true);
+        }
+        wait(agent.lua_state_agent, 7.0);
+    }
+}
+
+unsafe extern "C" fn sound_escapef(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x104c2b0d69));
+    }
+    wait(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x10ca707f3a));
+    }
+    wait(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x137b83471c));
+    }
+}
+
+unsafe extern "C" fn expression_escapef(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0ae67b3635);
+    }
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+    }
+}

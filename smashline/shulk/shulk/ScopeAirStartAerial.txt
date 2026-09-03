@@ -1,0 +1,19 @@
+unsafe extern "C" fn effect_scopeairstartaerial(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: effect_ScopeAirStartCommon();
+    } else {
+        // TODO: effect_ScopeAirStartCommon();
+    }
+}
+
+unsafe extern "C" fn sound_scopeairstartaerial(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x14565dfd18));
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x0fbfefeeea));
+    }
+    wait(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1218c1322d));
+    }
+}

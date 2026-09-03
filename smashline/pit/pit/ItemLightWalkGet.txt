@@ -1,0 +1,13 @@
+unsafe extern "C" fn game_itemlightwalkget(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT) /* TODO: sig expects 5 args */;
+    }
+}
+
+unsafe extern "C" fn expression_itemlightwalkget(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x066933a7e6, 0x0cb9b9eb5e);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

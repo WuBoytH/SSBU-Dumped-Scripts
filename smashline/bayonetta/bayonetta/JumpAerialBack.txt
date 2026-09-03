@@ -1,0 +1,28 @@
+unsafe extern "C" fn effect_jumpaerialback(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0f97480fb2), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x199f7725da), Hash40::new_raw(0x051a36341b), 6, -5, 0, 0, 0, -90, 1, true);
+    }
+    frame(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x18782dbe50), Hash40::new_raw(0x04b12bd53f), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_jumpaerialback(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x13cf0a95c8));
+    }
+}
+
+unsafe extern "C" fn expression_jumpaerialback(agent: &mut L2CAgentBase) {
+    // TODO: expression_JumpAerialBackRumble();
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x0d6e3e67fe, 0x12eb55062f);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x0d6e3e67fe, 0x127dc21405);
+    }
+}

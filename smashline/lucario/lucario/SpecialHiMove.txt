@@ -1,0 +1,63 @@
+unsafe extern "C" fn game_specialhimove(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        GroundModule::set_passable_check(agent.module_accessor, true);
+    }
+}
+
+unsafe extern "C" fn effect_specialhimove(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x167efb66ef), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, -30, 180, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x167efb66ef), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, -30, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::AFTER_IMAGE4_ON(agent, Hash40::new_raw(0x11500f3645), Hash40::new_raw(0x11c90667ff), 11, Hash40::new_raw(0x051a36341b), -2, 0, 3, Hash40::new_raw(0x051a36341b), -2, 0, -3, true, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x051a36341b), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 1.5, -1);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        macros::AFTER_IMAGE_OFF(agent, 4);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16a55c09c7), Hash40::new_raw(0x051a36341b), 15, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialhimove(agent: &mut L2CAgentBase) {
+    let se_middle_aurapower = WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_MIDDLE_AURAPOWER);
+    if WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER) <= se_middle_aurapower {
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new_raw(0x165d06b292));
+        }
+    } else {
+        let se_high_aurapower = WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_HIGH_AURAPOWER);
+        if WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER) <= se_high_aurapower {
+            if macros::is_excute(agent) {
+                macros::PLAY_STATUS(agent, Hash40::new_raw(0x162a018204));
+                macros::PLAY_SE(agent, Hash40::new_raw(0x1697a1c767));
+            }
+        } else {
+            if macros::is_excute(agent) {
+                macros::PLAY_STATUS(agent, Hash40::new_raw(0x16b46517a7));
+                macros::PLAY_SE(agent, Hash40::new_raw(0x16e0a6f7f1));
+            }
+        }
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x0ee55683bc));
+    }
+}
+
+unsafe extern "C" fn expression_specialhimove(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b2f910967), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

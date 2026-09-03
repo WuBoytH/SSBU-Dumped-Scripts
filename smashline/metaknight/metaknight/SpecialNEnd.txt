@@ -1,0 +1,38 @@
+unsafe extern "C" fn game_specialnend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 1.2);
+    frame(agent.lua_state_agent, 21.0);
+    macros::FT_MOTION_RATE(agent, 1);
+}
+
+unsafe extern "C" fn effect_specialnend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x1afc628002), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1230d89b8b), false, false);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16e9b133db), Hash40::new_raw(0x0570211ebd), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialnend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x19d9e57808));
+    }
+}
+
+unsafe extern "C" fn expression_specialnend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0d6fdac86f);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x133be02067), 16, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::AREA_WIND_2ND_RAD(agent, 1, 2, 0.05, 200, 1, 0, 8, 25, 80) /* TODO: macro expects 8 args */;
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        AreaModule::erase_wind(agent.module_accessor, 1);
+    }
+}

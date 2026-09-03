@@ -1,0 +1,35 @@
+unsafe extern "C" fn game_finalexplosion(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x04dba80bb2), 14.0, 361, 120, 0, 65, 35.0, 0.0, 10.0, 0.0, Some(0.0), Some(-10.0), Some(0.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0x0267aa281f, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13beb18342), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+        macros::ATTACK(agent, 1, 0, Hash40::new_raw(0x04dba80bb2), 12.0, 361, 105, 0, 85, 60.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0x0267aa281f, 0.0, 0, false, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13beb18342), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_NONE);
+        AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
+        AttackModule::set_force_reaction(agent.module_accessor, 1, true, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 0, true, true, -1.0, false);
+        AttackModule::set_final_finish_cut_in(agent.module_accessor, 1, true, true, -1.0, false);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn effect_finalexplosion(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x109bd9d3dd), false, false, false);
+        macros::EFFECT(agent, Hash40::new_raw(0x11ed68619a), Hash40::new_raw(0x04dba80bb2), 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
+    }
+    for _ in 0..30 {
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        }
+        wait(agent.lua_state_agent, 20.0);
+    }
+}
+
+unsafe extern "C" fn sound_finalexplosion(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x11c0201871));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x11b72728e7));
+    }
+}

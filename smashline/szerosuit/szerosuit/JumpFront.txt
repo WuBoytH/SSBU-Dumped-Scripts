@@ -1,0 +1,31 @@
+unsafe extern "C" fn effect_jumpfront(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0e6b8d30f4), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_jumpfront(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING) {
+        wait(agent.lua_state_agent, 14.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x1218c1322d));
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x1360468a99));
+        }
+        wait(agent.lua_state_agent, 14.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x1218c1322d));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_jumpfront(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: expression_JumpFrontRumble();
+    } else {
+        // TODO: expression_JumpFrontRumble();
+    }
+}

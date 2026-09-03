@@ -1,0 +1,33 @@
+unsafe extern "C" fn game_win3(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_BUILDING, false, -1);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_BUILDING, Hash40::new_raw(0x050b44b5ec), false, 0.0) /* TODO: verify padded default args */;
+    }
+}
+
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 72.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x110328ee13), Hash40::new_raw(0x031ed91fca), -9.2, 20.8, 23.5, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 79.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x110328ee13), Hash40::new_raw(0x031ed91fca), 6.7, 20.8, 23.4, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 140.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x051a36341b), 0, -7.4, 0, 0, 0, 0, 0.35, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.1);
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x122c1259d3));
+    }
+    frame(agent.lua_state_agent, 140.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12b51b0869));
+    }
+}

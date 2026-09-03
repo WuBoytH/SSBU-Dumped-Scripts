@@ -1,0 +1,17 @@
+unsafe extern "C" fn sound_capturejump(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x165f93d70a));
+    }
+    wait(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x165f93d70a));
+    }
+}
+
+unsafe extern "C" fn expression_capturejump(agent: &mut L2CAgentBase) {
+    // TODO: expression_CaptureJumpRumble();
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x042762428f, 0x0c3fa88843);
+    }
+}

@@ -1,0 +1,42 @@
+unsafe extern "C" fn game_attackairflw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.8);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_NONE);
+    }
+    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
+    frame(agent.lua_state_agent, 10.0);
+    macros::FT_MOTION_RATE(agent, 1);
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_COLLIDE);
+    }
+}
+
+unsafe extern "C" fn effect_attackairflw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+    }
+    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, true);
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x13a6226063), Hash40::new_raw(0x09e7319683), -8, 0, 0, 0, -130, -90, 0.8, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1096dabff1), Hash40::new_raw(0x090089bb84), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 2);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x14b3ceec20), Hash40::new_raw(0x0a639e5dcb), 1, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x13a6226063), true, true);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+    }
+    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, false);
+}

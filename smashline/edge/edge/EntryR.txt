@@ -1,0 +1,58 @@
+unsafe extern "C" fn effect_entryr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0, 0, 0, 0.8);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+        macros::BURN_COLOR(agent, 0.5, 0.15, 2, 0.3);
+        macros::EFFECT(agent, Hash40::new_raw(0x14ec4b1b83), Hash40::new_raw(0x031ed91fca), 0, 26, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_EDGE_INSTANCE_WORK_ID_FLAG_ONE_WINGED_ACTIVATED) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0fe4860360), Hash40::new_raw(0x04b12bd53f), 0, 0, 0, 0, 0, -90, 1, true);
+        }
+    }
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1354b9a8c3), Hash40::new_raw(0x05e1ab8a2b), 4, -1, -1, 0, 0, -90, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1354b9a8c3), Hash40::new_raw(0x035dbfe258), -3, 0, 0, 0, 0, -90, 2, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1354b9a8c3), Hash40::new_raw(0x042011d653), 0, 0, 0, 0, 0, 0, 1.5, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1354b9a8c3), Hash40::new_raw(0x0461fccbdd), 1, 0, 0, 0, 0, -90, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1354b9a8c3), Hash40::new_raw(0x049bf3f6be), 1, 0, 0, 0, 0, -90, 1, true);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 36, 0, 0, 0, 0);
+        macros::BURN_COLOR_FRAME(agent, 36, 0.5, 0.15, 2, 0);
+    }
+    wait(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+        macros::BURN_COLOR_NORMAL(agent);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1031dfabcc));
+    }
+    frame(agent.lua_state_agent, 51.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x13d16892b4));
+    }
+    frame(agent.lua_state_agent, 53.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x14bd76f4dc));
+    }
+}
+
+unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+}

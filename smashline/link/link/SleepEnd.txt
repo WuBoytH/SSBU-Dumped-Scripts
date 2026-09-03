@@ -1,0 +1,19 @@
+unsafe extern "C" fn effect_sleepend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x08063115d2), Hash40::new_raw(0x04a7f3f69c), 0, 5, 2, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_sleepend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x0e974240db));
+    }
+}
+
+unsafe extern "C" fn expression_sleepend(agent: &mut L2CAgentBase) {
+    // TODO: expression_SleepEndRumble();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

@@ -1,0 +1,40 @@
+unsafe extern "C" fn game_finalvisualscene04(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_TRAIL_FINAL, 0, 24.0, 45, 130, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new_raw(0x149ae97939), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, true);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_TRAIL_STATUS_FINAL_FLAG_ABS_HIT);
+    }
+}
+
+unsafe extern "C" fn effect_finalvisualscene04(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x11975b15c1), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x161b7943ea), true, true);
+        macros::EFFECT(agent, Hash40::new_raw(0x17e765be43), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 1.4, 1.4, 1.6, 0, 0, 0, 0.9, 1.7, *EFFECT_SCREEN_LAYER_CHAR, 198);
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 12, 1.3, 1.3, 1.3, 0, 0, 0, 0.9, 1.5, *EFFECT_SCREEN_LAYER_CHAR, 198);
+    }
+}
+
+unsafe extern "C" fn sound_finalvisualscene04(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x13d8196de0));
+    }
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x10390b261e));
+    }
+}
+
+unsafe extern "C" fn expression_finalvisualscene04(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1cd5e15594), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x1cd5e15594), 0);
+    }
+}

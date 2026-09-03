@@ -1,0 +1,28 @@
+unsafe extern "C" fn effect_specialairhibreak(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x13902e5df7), Hash40::new_raw(0x031d39a761), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn expression_specialairhibreak(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, *ATTACH_ITEM_GROUP_ALL as u32);
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x092a14bcad);
+        VisibilityModule::set_int64(agent.module_accessor, 0x05cfdd826f, 0x0ca97b4300);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051129036e), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05eb263e0d), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0bdd8b0afc), *HIT_STATUS_NORMAL);
+    }
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e916af65b), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

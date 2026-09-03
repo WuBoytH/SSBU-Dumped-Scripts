@@ -1,0 +1,65 @@
+unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        macros::SLOW_OPPONENT(agent, 10.0, 60.0);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 50);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), false);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            let scale = PostureModule::scale(agent.module_accessor);
+            macros::CAM_ZOOM_IN(agent, 3, 0, scale * 2.0, 0, 0);
+        }
+    }
+    macros::FT_START_CUTIN(agent);
+    wait(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::CAM_ZOOM_OUT(agent);
+    }
+}
+
+unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0f79b3632e), false, false, false);
+    }
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x11d1e47ecb), Hash40::new_raw(0x0613f917e1), 0, 0, 6, 0, 0, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x11d1e47ecb), -1);
+    }
+}
+
+unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x13ab144f35));
+    }
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1014857cbd));
+    }
+}
+
+unsafe extern "C" fn expression_finalairstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        macros::AREA_WIND_2ND(agent, 0, 0.5, 120, 20, 0.2, -5, 7, 14, 14, 40);
+    }
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x0badb8166c);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x1071e26d10);
+    }
+}

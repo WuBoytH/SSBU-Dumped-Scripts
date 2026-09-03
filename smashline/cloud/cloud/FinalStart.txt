@@ -1,0 +1,89 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_CLOUD_STATUS_FINAL_FLAG_DISP_WINDOW);
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 27, 0, 0, 0);
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 0, 4, 6, 0);
+        macros::SLOW_OPPONENT(agent, 20.0, 60.0);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
+        }
+        if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if macros::is_excute(agent) {
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x1654ea70d3), true);
+            }
+        } else {
+            if macros::is_excute(agent) {
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), true);
+            }
+        }
+    } else {
+        if macros::is_excute(agent) {
+            let scale = PostureModule::scale(agent.module_accessor);
+            macros::CAM_ZOOM_IN(agent, 4, 0, scale * 1.8, -0.1, 0);
+            macros::FT_START_CUTIN(agent);
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 6);
+        }
+    }
+    if macros::is_excute(agent) {
+        macros::FT_START_CUTIN(agent);
+    }
+    frame(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        macros::CAM_ZOOM_OUT(agent);
+        camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+    }
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0e4c369771), false, false, false);
+        effect!(agent, *MA_MSC_EFFECT_SET_SYNC_SCALE, false);
+        effect!(agent, *MA_MSC_EFFECT_SET_SYNC_SCALE, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11e6921890), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        let effect_kind_sword_flare_lb = WorkModule::get_int64(agent.module_accessor, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE_LB);
+        macros::EFFECT_FOLLOW_WORK(agent, effect_kind_sword_flare_lb, Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
+        macros::EFFECT(agent, Hash40::new_raw(0x137db92a7a), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16da9055af), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x17ae827e9f), Hash40::new_raw(0x051a07c0e7), 0, 13, 1, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x16da9055af), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x102f64312a));
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1077c738ce));
+    }
+}
+
+unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::START_INFO_FLASH_EYE(agent);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

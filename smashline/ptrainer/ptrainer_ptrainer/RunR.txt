@@ -1,0 +1,17 @@
+unsafe extern "C" fn effect_runr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0d0da6e3c0), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_runr(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 3.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x13755ed39d));
+        }
+        frame(agent.lua_state_agent, 21.0);
+        macros::PLAY_SE(agent, Hash40::new_raw(0x13755ed39d));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

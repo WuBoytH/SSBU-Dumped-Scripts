@@ -1,0 +1,41 @@
+unsafe extern "C" fn effect_walkmiddle(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 23.0);
+        if macros::is_excute(agent) {
+            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 23, 0, -15, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 18, 0, -15, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+        }
+        frame(agent.lua_state_agent, 72.0);
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 23, 0, 15, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 18, 0, 15, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn sound_walkmiddle(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 22.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new_raw(0x16cb2245f9));
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x16cb2245f9), 20);
+        }
+        wait(agent.lua_state_agent, 49.0);
+        macros::PLAY_STEP(agent, Hash40::new_raw(0x15a3971a97));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_walkmiddle(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 12);
+        }
+        frame(agent.lua_state_agent, 22.0);
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        }
+        frame(agent.lua_state_agent, 71.0);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

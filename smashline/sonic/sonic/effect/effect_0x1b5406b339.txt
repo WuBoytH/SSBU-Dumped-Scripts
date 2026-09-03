@@ -1,0 +1,38 @@
+unsafe extern "C" fn effect_0x1b5406b339(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x1380ab4a73), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x0f64ab0e46), Hash40::new_raw(0x031ed91fca), 0, 5, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+    for _ in 0..3 {
+        if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x16dcb125ac), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 90, 0, 0.85, true);
+                macros::LAST_EFFECT_SET_COLOR(agent, 0.711, 0.931, 1);
+            }
+            wait(agent.lua_state_agent, 5.0);
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x16dcb125ac), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 90, 0, 0.85, true);
+                macros::LAST_EFFECT_SET_COLOR(agent, 0.711, 0.931, 1);
+            }
+        } else {
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x16dcb125ac), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, -90, 0, 0.85, true);
+                macros::LAST_EFFECT_SET_COLOR(agent, 0.711, 0.931, 1);
+            }
+            wait(agent.lua_state_agent, 5.0);
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x16dcb125ac), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, -90, 0, 0.85, true);
+                macros::LAST_EFFECT_SET_COLOR(agent, 0.711, 0.931, 1);
+            }
+        }
+        wait(agent.lua_state_agent, 5.0);
+    }
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x16dcb125ac), false, false);
+    }
+}

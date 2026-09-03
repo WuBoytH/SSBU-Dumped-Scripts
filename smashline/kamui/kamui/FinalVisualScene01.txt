@@ -1,0 +1,35 @@
+unsafe extern "C" fn effect_finalvisualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new_raw(0x0e4c2ab4c2), -1);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0e4c2ab4c2), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x129c2fe503), true, true);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a3574ca22), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1b20343677), Hash40::new_raw(0x042011d653), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalvisualscene01(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x101a48b4db));
+    }
+}
+
+unsafe extern "C" fn expression_finalvisualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x0627d829b4, 0x0b17593350);
+        VisibilityModule::set_int64(agent.module_accessor, 0x0aa427db75, 0x0fceb2c39f);
+        VisibilityModule::set_int64(agent.module_accessor, 0x049cf76119, 0x097aa97ee6);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0f9e179b21), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x0f9e179b21), 0);
+    }
+}

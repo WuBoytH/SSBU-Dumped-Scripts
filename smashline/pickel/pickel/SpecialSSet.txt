@@ -1,0 +1,15 @@
+unsafe extern "C" fn game_specialsset(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
+    }
+}
+
+unsafe extern "C" fn expression_specialsset(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    loop {
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e320bc4ce), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        wait(agent.lua_state_agent, 4.0);
+    }
+}

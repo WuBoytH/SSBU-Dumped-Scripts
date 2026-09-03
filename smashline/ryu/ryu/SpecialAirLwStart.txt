@@ -1,0 +1,45 @@
+unsafe extern "C" fn effect_specialairlwstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15db57d7a6), Hash40::new_raw(0x035dbfe258), -2, 0, 0, 0, 0, 0, 1.4, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15db57d7a6), Hash40::new_raw(0x042011d653), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15db57d7a6), Hash40::new_raw(0x05eb263e0d), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15db57d7a6), Hash40::new_raw(0x051129036e), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15db57d7a6), Hash40::new_raw(0x05e1ab8a2b), 4, 0, 0, 0, 0, 0, 1.1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15db57d7a6), Hash40::new_raw(0x051ba4b748), 4, 0, 0, 0, 0, 0, 1.1, true);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 0.392, 0.392);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.706, 0.706, 0.706, 0.294);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 0, 0.157);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+}
+
+unsafe extern "C" fn sound_specialairlwstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x1282bc394c));
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x12c172efa3));
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,45 @@
+unsafe extern "C" fn effect_specialairsspin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10d4c5732f), false, true);
+    }
+    if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x10d4c5732f), Hash40::new_raw(0x07c391f9ad), 8.8, -0.4, 3.8, 0, 0, -95, 0.8, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        }
+        frame(agent.lua_state_agent, 17.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10d4c5732f), false, true);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x10d4c5732f), Hash40::new_raw(0x07c391f9ad), 8.8, -0.4, -3.8, 0, 0, -95, 0.8, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        }
+        frame(agent.lua_state_agent, 17.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10d4c5732f), false, true);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_specialairsspin(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x163c6f3dc8));
+        macros::STOP_SE(agent, Hash40::new_raw(0x193e6075e5));
+        macros::STOP_SE(agent, Hash40::new_raw(0x19a769245f));
+        macros::STOP_SE(agent, Hash40::new_raw(0x19d06e14c9));
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x164c05c947));
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x16dcbad4d6));
+    }
+    wait(agent.lua_state_agent, 42.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x164c05c947));
+        macros::STOP_SE(agent, Hash40::new_raw(0x193e6075e5));
+        macros::STOP_SE(agent, Hash40::new_raw(0x19a769245f));
+        macros::PLAY_SE(agent, Hash40::new_raw(0x16a20ba86b));
+    }
+}

@@ -1,0 +1,52 @@
+unsafe extern "C" fn game_jumpaerialf2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_JUMP_FLY_NEXT);
+    }
+}
+
+unsafe extern "C" fn effect_jumpaerialf2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0f97480fb2), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        let effect_kind_flying = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING);
+        macros::EFFECT_FOLLOW_WORK(agent, effect_kind_flying, Hash40::new_raw(0x06f9dd0c03), 5, -5, 0, 0, 0, 0, 0.85, true);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        let effect_kind_flying = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING);
+        macros::EFFECT_OFF_KIND_WORK(agent, effect_kind_flying, false, true);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        let effect_kind_flying = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING);
+        macros::EFFECT_FOLLOW_WORK(agent, effect_kind_flying, Hash40::new_raw(0x06f9dd0c03), 5, -5, 0, 0, 0, 0, 0.8, true);
+    }
+    frame(agent.lua_state_agent, 33.0);
+    if macros::is_excute(agent) {
+        let effect_kind_flying = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING);
+        macros::EFFECT_OFF_KIND_WORK(agent, effect_kind_flying, false, true);
+    }
+}
+
+unsafe extern "C" fn sound_jumpaerialf2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x124f6ee94a));
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x122d15097a));
+    }
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x12d667b8f0));
+    }
+}
+
+unsafe extern "C" fn expression_jumpaerialf2(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: expression_JumpAerialF2Rumble();
+    } else {
+        // TODO: expression_JumpAerialF2Rumble();
+    }
+}

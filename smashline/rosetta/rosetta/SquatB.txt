@@ -1,0 +1,25 @@
+unsafe extern "C" fn effect_squatb(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 1, 0, 0, 0, 0, 0, 0.9, 1, 0, 0, 0, 0, 0, false);
+        }
+        wait(agent.lua_state_agent, 20.0);
+    }
+}
+
+unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 3.0);
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x14e8709737));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_squatb(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 8.0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0fb3af9ec0), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

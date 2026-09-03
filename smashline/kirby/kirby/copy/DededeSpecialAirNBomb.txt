@@ -1,0 +1,58 @@
+unsafe extern "C" fn effect_dededespecialairnbomb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0a8e614246), Hash40::new_raw(0x042011d653), 2, 3, -1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x097f7cfaed), Hash40::new_raw(0x042011d653), 2, 3, -1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    for _ in 0..3 {
+        if macros::is_excute(agent) {
+            macros::BURN_COLOR(agent, 2, 0.15, 0.02, 0.9);
+        }
+        wait(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::BURN_COLOR(agent, 2, 0.15, 0.02, 0);
+            macros::BURN_COLOR_NORMAL(agent);
+            macros::FLASH(agent, 0.3, 0.01, 0, 0.5);
+        }
+        wait(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::COL_NORMAL(agent);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_dededespecialairnbomb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x10f7dda349));
+    }
+}
+
+unsafe extern "C" fn expression_dededespecialairnbomb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ee31cfd6c), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0aee0171fc);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10eaa9bff4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+    }
+}

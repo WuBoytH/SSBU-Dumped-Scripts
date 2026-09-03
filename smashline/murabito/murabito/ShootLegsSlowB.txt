@@ -1,0 +1,34 @@
+unsafe extern "C" fn effect_shootlegsslowb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x0505c6b25a), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 34.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x05ffc98f39), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait_loop_sync_mot(agent.lua_state_agent);
+    loop {
+        frame(agent.lua_state_agent, 9.0);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x0505c6b25a), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+        }
+        frame(agent.lua_state_agent, 22.0);
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x05ffc98f39), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+    // TODO: _Unwind_Resume();
+    wait_loop_sync_mot(agent.lua_state_agent);
+}
+
+unsafe extern "C" fn sound_shootlegsslowb(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 30.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x181fa17472), Hash40::new_raw(0x1761994e97));
+        }
+        frame(agent.lua_state_agent, 59.0);
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1761994e97), Hash40::new_raw(0x181fa17472));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

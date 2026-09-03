@@ -1,0 +1,38 @@
+unsafe extern "C" fn effect_squatb(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 18.0);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x05ffc98f39), -5.5, 0, 0, 0, 180, 0, 0.95, 0, 0, 0, 0, 0, 0, false);
+        }
+        frame(agent.lua_state_agent, 45.0);
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x0505c6b25a), -5, 0, 0, 0, 180, 0, 0.95, 0, 0, 0, 0, 0, 0, false);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 18.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1c580a04d3), Hash40::new_raw(0x1d57406153));
+        }
+        frame(agent.lua_state_agent, 46.0);
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1d57406153), Hash40::new_raw(0x1c580a04d3));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_squatb(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4, true);
+        }
+        frame(agent.lua_state_agent, 18.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        frame(agent.lua_state_agent, 44.0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

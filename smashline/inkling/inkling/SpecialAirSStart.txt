@@ -1,0 +1,65 @@
+unsafe extern "C" fn game_specialairsstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 3.0, 8.0);
+    }
+}
+
+unsafe extern "C" fn effect_specialairsstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x031ed91fca), -8, 7, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairsstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::set_float(agent.module_accessor, 1200.0, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_ROLLER_SE_MAX_PITCH);
+        WorkModule::set_float(agent.module_accessor, 1000.0, *FIGHTER_INKLING_STATUS_SPECIAL_S_WORK_FLOAT_ROLLER_EMPTY_SE_MAX_PITCH);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x16738040ae));
+    }
+}
+
+unsafe extern "C" fn expression_specialairsstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+    }
+    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Inkling::request_paint(agent.battle_object as *mut Fighter, Hash40::new_raw(0x031ed91fca), &Vector3f{x: -3.0, y: 0.0, z: -3.0}, &Vector2f{x: 0.5, y: 2.0}, 5.0);
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+    }
+    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Inkling::request_paint(agent.battle_object as *mut Fighter, Hash40::new_raw(0x031ed91fca), &Vector3f{x: -6.0, y: 0.0, z: -1.5}, &Vector2f{x: 0.8, y: 1.2}, 5.0);
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+    }
+    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Inkling::request_paint(agent.battle_object as *mut Fighter, Hash40::new_raw(0x031ed91fca), &Vector3f{x: -4.0, y: 0.0, z: 0.0}, &Vector2f{x: 3.9, y: 1.5}, 5.0);
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+    }
+    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Inkling::request_paint(agent.battle_object as *mut Fighter, Hash40::new_raw(0x031ed91fca), &Vector3f{x: -3.5, y: 0.0, z: 2.0}, &Vector2f{x: 4.2, y: 1.2}, 5.0);
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+    }
+    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Inkling::request_paint(agent.battle_object as *mut Fighter, Hash40::new_raw(0x031ed91fca), &Vector3f{x: -3.0, y: 0.0, z: 2.5}, &Vector2f{x: 4.5, y: 1.0}, 5.0);
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+    }
+    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Inkling::request_paint(agent.battle_object as *mut Fighter, Hash40::new_raw(0x031ed91fca), &Vector3f{x: -2.5, y: 0.0, z: 3.5}, &Vector2f{x: 4.8, y: 0.8}, 5.0);
+}

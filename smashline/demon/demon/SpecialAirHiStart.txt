@@ -1,0 +1,64 @@
+unsafe extern "C" fn game_specialairhistart(agent: &mut L2CAgentBase) {
+    if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 10.0);
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 0.6);
+    frame(agent.lua_state_agent, 7.0);
+    if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 4.0);
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_HI_FLAG_REVERSE_LR);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 3.0);
+    frame(agent.lua_state_agent, 19.0);
+    if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
+    }
+    FighterSpecializer_Demon::set_devil(agent.module_accessor, true, 2.0);
+}
+
+unsafe extern "C" fn effect_specialairhistart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1622570c2b), Hash40::new_raw(0x04a7f3f69c), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+        macros::FLASH(agent, 0.25, 0.08, 0.6, 0);
+        macros::FLASH_SET_DIRECTION(agent, -1, 0, 0);
+        macros::BURN_COLOR(agent, 8, 3, 36, 0);
+        macros::FLASH_FRM(agent, 2, 0.25, 0.08, 0.6, 0.4);
+        macros::BURN_COLOR_FRAME(agent, 2, 8, 3, 36, 0.4);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1127d2db2e), Hash40::new_raw(0x031ed91fca), 0, 0, 1, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16511123a6), Hash40::new_raw(0x04b12bd53f), 0, 0, 1, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x162609c9b4), Hash40::new_raw(0x04b12bd53f), 0, 0, 1, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.25, 0.08, 0.6, 0.4);
+        macros::BURN_COLOR(agent, 8, 3, 36, 0.4);
+        macros::FLASH_FRM(agent, 3, 0.25, 0.08, 0.6, 0);
+        macros::BURN_COLOR_FRAME(agent, 3, 8, 3, 36, 0);
+    }
+}
+
+unsafe extern "C" fn sound_specialairhistart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x0e14c208a9));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x0e14c208a9), 20);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x14c6f003e3));
+    }
+}

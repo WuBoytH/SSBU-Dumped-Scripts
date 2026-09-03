@@ -1,0 +1,44 @@
+unsafe extern "C" fn effect_visualscene03(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x147cf4b21c), true, true);
+        macros::EFFECT(agent, Hash40::new_raw(0x14e5fde3a6), Hash40::new_raw(0x031ed91fca), 0, 0, -25, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12ab92373b), Hash40::new_raw(0x031ed91fca), 0, 0, -100, 0, 180, 0, 20, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x120eb4d8b3), Hash40::new_raw(0x031ed91fca), 0, 0, -100, 0, 180, 0, 20, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene03(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x0e78afcb4a));
+    }
+    frame(agent.lua_state_agent, 45.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x10ddddf3db));
+    }
+    frame(agent.lua_state_agent, 49.0);
+    if macros::is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x0e0fa8fbdc));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene03(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0cc5a0d007), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x0cc5a0d007), 0);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 40, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x11140ef559), 40);
+    }
+    frame(agent.lua_state_agent, 43.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11166078cd), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x11166078cd), 0);
+    }
+}

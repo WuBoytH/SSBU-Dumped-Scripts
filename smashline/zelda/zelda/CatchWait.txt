@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_catchwait(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    loop {
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x11fb0a20dd), Hash40::new_raw(0x11fb0a20dd), Hash40::new_raw(0x05e008fd84), -0.5, 0, 0, 0, 0, 0, 1.1, true, *EF_FLIP_YZ);
+        }
+        wait(agent.lua_state_agent, 14.0);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x11fb0a20dd), true, true);
+    }
+}
+
+unsafe extern "C" fn sound_catchwait(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x124cc91e5c));
+    }
+}
+
+unsafe extern "C" fn expression_catchwait(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

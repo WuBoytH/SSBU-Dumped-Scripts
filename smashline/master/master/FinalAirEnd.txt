@@ -1,0 +1,32 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD2, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        macros::ATTACK_ABS(agent, *FIGHTER_MASTER_ATTACK_ABSOLUTE_KIND_FINAL, 0, 15.0, 55, 120, 0, 78, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_ABS_SET);
+        macros::CAM_ZOOM_OUT(agent);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_VISUAL_SCENE_FLAG_END_EXIT);
+    }
+    frame(agent.lua_state_agent, 120.0);
+    if macros::is_excute(agent) {
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+    }
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1241b57e58), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x13ca297760), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x12fa9c3350), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1432659c06), true, true);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
+        macros::EFFECT(agent, Hash40::new_raw(0x11dc3804fd), Hash40::new_raw(0x031ed91fca), 0, 14, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x13fe80639e), false, false, false);
+    }
+    frame(agent.lua_state_agent, 65.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_REQ_EFFECT_AURA);
+    }
+}

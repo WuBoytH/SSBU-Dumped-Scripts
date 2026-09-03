@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_swordswing4charge(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: effect_SwordSwing4ChargeCommon();
+    } else {
+        // TODO: effect_SwordSwing4ChargeCommon();
+    }
+}
+
+unsafe extern "C" fn sound_swordswing4charge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x156bea5f43));
+    }
+}
+
+unsafe extern "C" fn expression_swordswing4charge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        physics!(agent, *MA_MSC_CMD_PHYSICS_START_CHARGE, 0.3, 0.4, -1, 0.1, 0.2, -1, Hash40::new_raw(0x07fb997a80));
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 61.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x119a789590), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

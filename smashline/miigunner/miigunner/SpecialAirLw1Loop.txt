@@ -1,0 +1,50 @@
+unsafe extern "C" fn effect_specialairlw1loop(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x12aa4d042d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x13ada8de10), Hash40::new_raw(0x049bf3f6be), 5.5, 0, 0, 0, 0, 0, 1, true);
+    }
+    loop {
+        if macros::is_excute(agent) {
+            macros::FLASH(agent, 1, 0.784, 0.784, 0.376);
+        }
+        wait(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::COL_NORMAL(agent);
+        }
+        wait(agent.lua_state_agent, 1.0);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x12aa4d042d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x13ada8de10), Hash40::new_raw(0x049bf3f6be), 5.5, 0, 0, 0, 0, 0, 1, true);
+    }
+    loop {
+        if macros::is_excute(agent) {
+            macros::FLASH(agent, 1, 0.784, 0.784, 0.376);
+        }
+        wait(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::COL_NORMAL(agent);
+        }
+        wait(agent.lua_state_agent, 1.0);
+    }
+}
+
+unsafe extern "C" fn sound_specialairlw1loop(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x186e3c6603));
+    }
+}
+
+unsafe extern "C" fn expression_specialairlw1loop(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        }
+        frame(agent.lua_state_agent, 1.0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1209ad28ae), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

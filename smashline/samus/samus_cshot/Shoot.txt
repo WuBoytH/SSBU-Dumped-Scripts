@@ -1,0 +1,35 @@
+unsafe extern "C" fn game_shoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 5.0, 361, 42, 0, 14, 1.9, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_SPEED, false, -2.5, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13462fcfe4), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_ENERGY);
+        macros::ATTACK(agent, 1, 0, Hash40::new_raw(0x031ed91fca), 28.0, 40, 50, 0, 46, 8.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_SPEED, false, -7, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13462fcfe4), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_ENERGY);
+        attack!(agent, *MA_MSC_CMD_ATTACK_SET_LERP, 0, 1);
+    }
+}
+
+unsafe extern "C" fn sound_shoot(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x146621f6b3));
+    }
+    if WorkModule::get_float(agent.module_accessor, *WEAPON_SAMUS_CSHOT_INSTANCE_WORK_ID_FLOAT_CHARGE) <= 0.25 {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x14ff28a709));
+        }
+    } else {
+        if WorkModule::get_float(agent.module_accessor, *WEAPON_SAMUS_CSHOT_INSTANCE_WORK_ID_FLOAT_CHARGE) <= 0.625 {
+            if macros::is_excute(agent) {
+                macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x14882f979f));
+            }
+        } else {
+            if WorkModule::get_float(agent.module_accessor, *WEAPON_SAMUS_CSHOT_INSTANCE_WORK_ID_FLOAT_CHARGE) <= 0.875 {
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x14164b023c));
+                }
+            } else {
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x14614c32aa));
+                }
+            }
+        }
+    }
+}

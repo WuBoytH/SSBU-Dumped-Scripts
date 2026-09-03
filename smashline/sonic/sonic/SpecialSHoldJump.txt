@@ -1,0 +1,64 @@
+unsafe extern "C" fn effect_specialsholdjump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x18ec8f9464), true, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x18ec8f9464), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0eb968e28a), false, true);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_SPECIAL_S_HOLD_JUMP_EFFECT) {
+        if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x1383e44e35), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 90, 0, 1, true);
+            }
+        } else {
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x1383e44e35), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, -90, 0, 1, true);
+            }
+        }
+        frame(agent.lua_state_agent, 2.0);
+    }
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_SONIC_INSTANCE_WORK_FLAG_SPECIAL_S_HOLD_JUMP_EFFECT);
+    }
+    loop {
+        if macros::is_excute(agent) {
+            macros::FLASH(agent, 1, 1, 1, 0.13);
+        }
+        wait(agent.lua_state_agent, 3.0);
+        if macros::is_excute(agent) {
+            macros::COL_NORMAL(agent);
+        }
+        wait(agent.lua_state_agent, 4.0);
+        if macros::is_excute(agent) {
+            macros::FLASH(agent, 1, 1, 0.275, 0.196);
+        }
+        wait(agent.lua_state_agent, 3.0);
+        if macros::is_excute(agent) {
+            macros::COL_NORMAL(agent);
+        }
+        wait(agent.lua_state_agent, 2.0);
+    }
+}
+
+unsafe extern "C" fn expression_specialsholdjump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bc0e5c581);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_NORMAL);
+    }
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+    }
+}

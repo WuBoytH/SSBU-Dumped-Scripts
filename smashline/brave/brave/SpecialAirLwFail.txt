@@ -1,0 +1,29 @@
+unsafe extern "C" fn game_specialairlwfail(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+}
+
+unsafe extern "C" fn effect_specialairlwfail(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0b41410a4d), Hash40::new_raw(0x0461fccbdd), 5, 0, 0, -90, -90, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairlwfail(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+        macros::PLAY_SE(agent, Hash40::new_raw(0x102eb00bc9));
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwfail(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

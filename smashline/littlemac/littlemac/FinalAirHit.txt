@@ -1,0 +1,71 @@
+unsafe extern "C" fn game_finalairhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::CAM_ZOOM_OUT(agent);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 2.0, 361, 100, 100, 0, 15.0, 0.0, 9.0, 4.0, Some(0.0), Some(9.0), Some(20.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0x0267aa281f, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, false);
+        AttackModule::set_no_uniq_effect_all(agent.module_accessor, true, false);
+        let scale = PostureModule::scale(agent.module_accessor);
+        macros::CAM_ZOOM_IN(agent, 1, 0, scale * 2.5, 0, 0);
+    }
+    if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -10, 7);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 10, 7);
+        }
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 45.0);
+    if macros::is_excute(agent) {
+        macros::CAM_ZOOM_OUT(agent);
+    }
+}
+
+unsafe extern "C" fn effect_finalairhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::set_visible_kind(agent.module_accessor, Hash40::new_raw(0x0e35b6b29f), false);
+        macros::EFFECT_STENCIL_ON(agent);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x135d3eece0), false, false, false);
+        let request_post_effect_line_circle = EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new_raw(0x0cde87653a), Hash40::new_raw(0x031ed91fca), Vector2::new(10.0, 8.0), Vector3::new(0.0, 8.0, 15.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
+        macros::FOOT_EFFECT(agent, request_post_effect_line_circle, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false) /* TODO: macro expects 16 args */;
+        macros::LAST_EFFECT_SET_RATE(agent, 0.3);
+        macros::EFFECT(agent, Hash40::new_raw(0x0e9d765fdb), Hash40::new_raw(0x031ed91fca), 0, 11, 18, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new_raw(0x152063c053), Hash40::new_raw(0x031ed91fca), -3, 14, 6, 10, -40, 70, 1.4, true);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 0.3);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        EffectModule::remove_post_effect_line(agent.module_accessor, 6, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalairhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x152e465c9f));
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x140ea6a61f));
+    }
+}
+
+unsafe extern "C" fn expression_finalairhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x1644b25228), 0);
+    }
+}

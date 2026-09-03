@@ -1,0 +1,19 @@
+unsafe extern "C" fn effect_metaknightspecialairnend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1230d89b8b), false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16e9b133db), Hash40::new_raw(0x0570211ebd), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_metaknightspecialairnend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x19d9e57808));
+    }
+}
+
+unsafe extern "C" fn expression_metaknightspecialairnend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x133be02067), 16, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

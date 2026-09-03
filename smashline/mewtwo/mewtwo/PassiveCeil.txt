@@ -1,0 +1,23 @@
+unsafe extern "C" fn game_passiveceil(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        KineticModule::change_kinetic(agent.module_accessor, *FIGHTER_KINETIC_TYPE_PASSIVE_CEIL);
+    }
+}
+
+unsafe extern "C" fn sound_passiveceil(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x14a2021d17));
+        macros::STOP_SE(agent, Hash40::new_raw(0x14580d2074));
+        macros::STOP_SE(agent, Hash40::new_raw(0x142f0a10e2));
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1383a9b27b));
+    }
+}
+
+unsafe extern "C" fn expression_passiveceil(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: expression_PassiveCeilRumble();
+    } else {
+        // TODO: expression_PassiveCeilRumble();
+    }
+}

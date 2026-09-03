@@ -1,0 +1,23 @@
+unsafe extern "C" fn game_itemlightthrowairhi4(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::THROW_ITEM_OFFSET(agent, 0, 28, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_ANGLE, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_SPEED, *ITEM_FIGHTER_VAR_FLOAT_ITEM_THROW_POWER);
+    }
+}
+
+unsafe extern "C" fn sound_itemlightthrowairhi4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x13d5f0f259));
+    }
+}
+
+unsafe extern "C" fn expression_itemlightthrowairhi4(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        VisibilityModule::set_int64(agent.module_accessor, 0x061e93d2e8, 0x0b8f067556);
+    }
+    frame(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x061e93d2e8, 0x0d916fa75f);
+    }
+}

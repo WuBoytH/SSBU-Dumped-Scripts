@@ -1,0 +1,28 @@
+unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x14e97f7a87), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}
+
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x13049bdee2), Hash40::new_raw(0x069deece9a), 3, 0, 0, 0, -90, 0, 1, false);
+    }
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_R);
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_G);
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_MEGAPHONELASER_INSTANCE_WORK_ID_FLOAT_B);
+    if macros::is_excute(agent) {
+        macros::LAST_PARTICLE_SET_COLOR(agent) /* TODO: macro expects 3 args */;
+    }
+    frame(agent.lua_state_agent, 55.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0dbbe7c8c4), Hash40::new_raw(0x031ed91fca), 4, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1532aeaa05));
+    }
+}

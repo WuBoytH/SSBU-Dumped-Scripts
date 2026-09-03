@@ -1,0 +1,28 @@
+unsafe extern "C" fn effect_simonspecialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x13b93f004e), Hash40::new_raw(0x13b93f004e), Hash40::new_raw(0x051a07c0e7), 2.5, -2.5, 2.5, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_simonspecialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 26.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1640119f6e));
+        macros::PLAY_SE(agent, Hash40::new_raw(0x14529c49af));
+    }
+}
+
+unsafe extern "C" fn expression_simonspecialairn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x163b9d8dde), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

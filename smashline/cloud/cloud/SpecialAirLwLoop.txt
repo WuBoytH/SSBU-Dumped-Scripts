@@ -1,0 +1,28 @@
+unsafe extern "C" fn effect_specialairlwloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16f127fc42), Hash40::new_raw(0x031ed91fca), 1, 10, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        macros::AREA_WIND_2ND(agent, 0, 0.2, 210, 2, 0.1, 0, 13, 40, 26, 10);
+    }
+    loop {
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 4, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        wait(agent.lua_state_agent, 8.0);
+    }
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        macros::AREA_WIND_2ND(agent, 0, 0.2, 210, 2, 0.1, 0, 13, 40, 26, 10);
+    }
+    loop {
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 4, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        }
+        wait(agent.lua_state_agent, 8.0);
+    }
+}

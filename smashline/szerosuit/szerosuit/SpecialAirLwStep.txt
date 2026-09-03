@@ -1,0 +1,18 @@
+unsafe extern "C" fn effect_specialairlwstep(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11c47520c5), Hash40::new_raw(0x031ed91fca), -1, -0.7, 0, 90, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0fd6dcd415), Hash40::new_raw(0x042013eb38), -1, -0.7, 0, 0, 0, 0, 0.7, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairlwstep(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x17359ea561));
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwstep(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0cfd1f3108), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

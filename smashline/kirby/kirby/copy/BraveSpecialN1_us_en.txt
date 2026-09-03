@@ -1,0 +1,21 @@
+unsafe extern "C" fn sound_bravespecialn1_us_en(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_N_FLAG_SUCCESS_SP) {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new_raw(0x14144fdbd9));
+        }
+        frame(agent.lua_state_agent, 8.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x148d468a63));
+            macros::PLAY_SE(agent, Hash40::new_raw(0x16c1e385dc));
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::STOP_SE(agent, Hash40::new_raw(0x14144fdbd9));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
+        }
+    }
+}

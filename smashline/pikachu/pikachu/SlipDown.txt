@@ -1,0 +1,26 @@
+unsafe extern "C" fn effect_slipdown(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_slipdown(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x111fd20be6));
+    }
+    wait(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x15f75f5e58));
+    }
+}
+
+unsafe extern "C" fn expression_slipdown(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 14);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0bc65d47b3), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

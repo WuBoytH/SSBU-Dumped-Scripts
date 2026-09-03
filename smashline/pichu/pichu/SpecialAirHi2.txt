@@ -1,0 +1,46 @@
+unsafe extern "C" fn game_specialairhi2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FT_ADD_DAMAGE(agent, 1);
+        JostleModule::set_status(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn effect_specialairhi2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new_raw(0x10b4bf6390), Hash40::new_raw(0x031d39a761), 5, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new_raw(0x10c5eb920f), Hash40::new_raw(0x031d39a761), 0, 0, 10, 90, 0, 0, 1.5, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT(agent, Hash40::new_raw(0x09d58cb98f), Hash40::new_raw(0x031d39a761), 0, 0, 0, 0, 0, 0, 0.6, 10, 10, 10, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x09d58cb98f), Hash40::new_raw(0x031d39a761), 0, 0, 0, 0, 0, 0, 0.6, 10, 10, 10, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x09d58cb98f), Hash40::new_raw(0x031d39a761), 0, 0, 0, 0, 0, 0, 0.6, 10, 10, 10, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialairhi2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x14f1a44fe3));
+    }
+}
+
+unsafe extern "C" fn expression_specialairhi2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        MotionModule::set_helper_calculation(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_helper_calculation(agent.module_accessor, true);
+    }
+}

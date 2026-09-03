@@ -1,0 +1,26 @@
+unsafe extern "C" fn game_specialairhilanding2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_SWING, Hash40::new_raw(0x0bf72accfc), false, 0.0) /* TODO: verify padded default args */;
+    }
+}
+
+unsafe extern "C" fn effect_specialairhilanding2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x121299564b), Hash40::new_raw(0x031ed91fca), 0, 16.7, 0, 0, 0, 0, 1, true);
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x13fc11e43e), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialairhilanding2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x150f03b2e2));
+        macros::PLAY_LANDING_SE(agent, Hash40::new_raw(0x137950fabf));
+    }
+}
+
+unsafe extern "C" fn expression_specialairhilanding2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0cfd1f3108), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

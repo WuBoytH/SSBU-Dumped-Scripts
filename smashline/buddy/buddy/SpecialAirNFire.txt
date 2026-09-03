@@ -1,0 +1,47 @@
+unsafe extern "C" fn game_specialairnfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_GENERATE_BULLET);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BUDDY_STATUS_SPECIAL_N_FLAG_ENABLE_SHOOT);
+    }
+}
+
+unsafe extern "C" fn effect_specialairnfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x14a9d1ee04), Hash40::new_raw(0x031ed91fca), 0, 10, 9, 0, 0, 0, 1, false);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1453ded367), Hash40::new_raw(0x031ed91fca), 0, 10, 9, 0, 0, 0, 1, false);
+        }
+    }
+    if macros::is_excute(agent) {
+        let effect_kind_flying = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING);
+        macros::EFFECT_FOLLOW_WORK(agent, effect_kind_flying, Hash40::new_raw(0x057ff7067a), 0, -6, 0, 0, 0, 0, 0.8, true);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        let effect_kind_flying = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING);
+        macros::EFFECT_OFF_KIND_WORK(agent, effect_kind_flying, false, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1473507ac7));
+    }
+    frame(agent.lua_state_agent, 46.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x170bbc365a));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnfire(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0c9adbe9bf), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

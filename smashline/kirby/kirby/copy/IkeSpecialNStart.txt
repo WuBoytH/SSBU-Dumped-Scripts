@@ -1,0 +1,22 @@
+unsafe extern "C" fn effect_ikespecialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x10ae069777), Hash40::new_raw(0x10ae069777), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1.05, false, *EF_FLIP_ZX);
+    }
+}
+
+unsafe extern "C" fn sound_ikespecialnstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12b6111f2b));
+    }
+}
+
+unsafe extern "C" fn expression_ikespecialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::AREA_WIND_2ND(agent, 0, 2, 130, 4, 0.4, 0, 12, 30, 30, 40);
+    }
+}

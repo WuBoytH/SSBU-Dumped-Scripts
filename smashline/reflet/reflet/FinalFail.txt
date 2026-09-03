@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_finalfail(agent: &mut L2CAgentBase) {
+    if StatusModule::situation_kind(agent.module_accessor) == *SITUATION_KIND_AIR {
+        frame(agent.lua_state_agent, 1.0);
+        macros::FT_MOTION_RATE(agent, 1);
+        frame(agent.lua_state_agent, 25.0);
+        macros::FT_MOTION_RATE(agent, 0.3);
+        frame(agent.lua_state_agent, 35.0);
+        macros::FT_MOTION_RATE(agent, 0.2);
+    } else {
+        frame(agent.lua_state_agent, 1.0);
+        macros::FT_MOTION_RATE(agent, 1.2);
+        frame(agent.lua_state_agent, 30.0);
+        macros::FT_MOTION_RATE(agent, 0.3);
+    }
+}
+
+unsafe extern "C" fn effect_finalfail(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new_raw(0x0f22de58b0), -1);
+    }
+}

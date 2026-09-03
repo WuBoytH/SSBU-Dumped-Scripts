@@ -1,0 +1,23 @@
+unsafe extern "C" fn game_vanish(agent: &mut L2CAgentBase) {
+}
+
+unsafe extern "C" fn effect_vanish(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *WEAPON_TRAIL_HOLE_INSTANCE_WORK_ID_FLAG_GROUND) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x105ff9aad2), false, true);
+            macros::EFFECT(agent, Hash40::new_raw(0x17b8cd48fd), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1497131e34), false, true);
+            macros::EFFECT(agent, Hash40::new_raw(0x1b406021be), Hash40::new_raw(0x031ed91fca), 0, 21.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_vanish(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1011c2db75));
+    }
+}

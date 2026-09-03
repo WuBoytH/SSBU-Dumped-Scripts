@@ -1,0 +1,27 @@
+unsafe extern "C" fn sound_landingairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1959c29605));
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x0e5b9cd5fe));
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x137b83471c));
+    }
+}
+
+unsafe extern "C" fn expression_landingairlw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new_raw(0x137fff509b), 0);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+    }
+}

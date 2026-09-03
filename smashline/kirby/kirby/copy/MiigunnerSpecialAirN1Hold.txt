@@ -1,0 +1,26 @@
+unsafe extern "C" fn effect_miigunnerspecialairn1hold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x148b5f2567), Hash40::new_raw(0x049bf3f6be), 0.8, -0.3, -0.3, 0, 90, 0, 1, true);
+    }
+    loop {
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), -8, 0, 0, 0, 0, 0, 1, 12, 0, 12, 0, 0, 0, false);
+        }
+        wait(agent.lua_state_agent, 12.0);
+    }
+}
+
+unsafe extern "C" fn sound_miigunnerspecialairn1hold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x186db8b26d));
+    }
+}
+
+unsafe extern "C" fn expression_miigunnerspecialairn1hold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,35 @@
+unsafe extern "C" fn effect_attackairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x0cab2f76a1), Hash40::new_raw(0x0cab2f76a1), Hash40::new_raw(0x031ed91fca), 0, 5, -5, 0, 0, 0, 2, true, *EF_FLIP_YZ);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    loop {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new_raw(0x0f8f3048cf), Hash40::new_raw(0x031ed91fca), 0, 25, 0, 0, 0, 0, 2.5, 60, 20, 60, 0, 0, 0, true);
+        }
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f8f3048cf), Hash40::new_raw(0x031ed91fca), 0, 10, 0, 0, 0, 0, 2.5, 60, 20, 60, 0, 0, 0, false);
+        }
+        wait(agent.lua_state_agent, 1.0);
+    }
+}
+
+unsafe extern "C" fn sound_attackairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x173637b3c4));
+    }
+}
+
+unsafe extern "C" fn expression_attackairlw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+    }
+}

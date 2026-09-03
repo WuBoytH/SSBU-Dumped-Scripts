@@ -1,0 +1,129 @@
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0d0da6e3c0), Hash40::new_raw(0x031ed91fca), -11, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0d0da6e3c0), Hash40::new_raw(0x031ed91fca), -3, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 4.5, 0, 0, 0, 0, 0, 0.35, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_COLOR(agent, Hash40::new_raw(0x10e97de698), Hash40::new_raw(0x031ed91fca), 0, 10, 4, 60, 28, 100, 0.8, 0, 0, 0, 0, 0, 0, true, 1, 1, 1);
+        macros::LAST_EFFECT_SET_ALPHA(agent, 0.2);
+    }
+    frame(agent.lua_state_agent, 70.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x13fc11e43e), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_LITTLEMAC_INSTANCE_WORK_ID_FLAG_IS_SWEAT_MODEL) {
+        frame(agent.lua_state_agent, 6.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x14703363c2));
+        }
+        frame(agent.lua_state_agent, 13.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x1940fdf032));
+        }
+        frame(agent.lua_state_agent, 18.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x14703363c2));
+        }
+        frame(agent.lua_state_agent, 20.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new_raw(0x18c29a3bd3));
+        }
+        frame(agent.lua_state_agent, 26.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x148a3c5ea1));
+        }
+        frame(agent.lua_state_agent, 39.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x15aa097b3e));
+        }
+        frame(agent.lua_state_agent, 68.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x1218c1322d));
+        }
+    } else {
+        frame(agent.lua_state_agent, 6.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x14703363c2));
+        }
+        frame(agent.lua_state_agent, 13.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x1940fdf032));
+        }
+        frame(agent.lua_state_agent, 18.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x14703363c2));
+        }
+        frame(agent.lua_state_agent, 20.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new_raw(0x18c29a3bd3));
+        }
+        frame(agent.lua_state_agent, 26.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x148a3c5ea1));
+        }
+        frame(agent.lua_state_agent, 39.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x15aa097b3e));
+        }
+        frame(agent.lua_state_agent, 68.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x15905c837b));
+            macros::PLAY_SE(agent, Hash40::new_raw(0x1218c1322d));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_SWEATLITTLEMAC) {
+        if macros::is_excute(agent) {
+            VisibilityModule::set_whole(agent.module_accessor, false);
+        }
+    }
+    if macros::is_excute(agent) {
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_THROWSWEAT, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        VisibilityModule::set_int64(agent.module_accessor, 0x044692847c, 0x07cccbb5fd);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    }
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+    }
+    frame(agent.lua_state_agent, 71.0);
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_SWEATLITTLEMAC) {
+        if macros::is_excute(agent) {
+            VisibilityModule::set_whole(agent.module_accessor, true);
+            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_SWEATLITTLEMAC, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x044692847c, 0x087dcae4fc);
+    }
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_LITTLEMAC_INSTANCE_WORK_ID_FLAG_IS_SWEAT_MODEL) {
+        if macros::is_excute(agent) {
+            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_LITTLEMAC_GENERATE_ARTICLE_THROWSWEAT, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        }
+    }
+    frame(agent.lua_state_agent, 72.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+    frame(agent.lua_state_agent, 73.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+}

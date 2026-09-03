@@ -1,0 +1,22 @@
+unsafe extern "C" fn effect_catchwait(agent: &mut L2CAgentBase) {
+    let catch_effect_handle = WorkModule::get_int(agent.module_accessor, *FIGHTER_REFLET_INSTANCE_WORK_ID_INT_CATCH_EFFECT_HANDLE);
+    if !EffectModule::is_exist_effect(agent.module_accessor, catch_effect_handle) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x0c8a348945), Hash40::new_raw(0x031ed91fca), 0, 0, 5, 0, 0, 0, 1, false);
+            macros::LAST_EFFECT_SET_WORK_INT(agent, *FIGHTER_REFLET_INSTANCE_WORK_ID_INT_CATCH_EFFECT_HANDLE);
+        }
+    }
+    frame(agent.lua_state_agent, 3.0);
+    loop {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x051129036e), 1.5, 0, 0, 0, 0, 0, 0.9, 3, 3, 3, 0, 0, 0, true);
+        }
+        wait(agent.lua_state_agent, 18.0);
+    }
+}
+
+unsafe extern "C" fn expression_catchwait(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

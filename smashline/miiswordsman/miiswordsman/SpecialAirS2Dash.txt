@@ -1,0 +1,57 @@
+unsafe extern "C" fn effect_specialairs2dash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0dbbe7c8c4), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.2);
+        let eft_id_sword_flare = WorkModule::get_int64(agent.module_accessor, *FIGHTER_MIISWORDSMAN_INSTANCE_WORK_ID_INT_EFT_ID_SWORD_FLARE);
+        macros::EFFECT_FOLLOW_WORK(agent, eft_id_sword_flare, Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.72, 1.1);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16bf96c0b9), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x1b7b242d36), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, -90, 0.45, true);
+        macros::EFFECT(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x051a07c0e7), 0, 15, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x1b7b242d36), 1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x16bf96c0b9), 1);
+    }
+}
+
+unsafe extern "C" fn sound_specialairs2dash(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x1b95f1388b));
+        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x23a7e38b27));
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if WorkModule::get_float(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_SHIPPU_SLASH_WORK_FLOAT_CHARGE_RATE) < 0.5 {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x1eb5c4629c));
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x1eb5c4629c), 15);
+        }
+    } else {
+        if WorkModule::get_float(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_SHIPPU_SLASH_WORK_FLOAT_CHARGE_RATE) < 1.0 {
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new_raw(0x1e5bca03b0));
+                macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x1e5bca03b0), 15);
+            }
+        } else {
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new_raw(0x1ec5ae9613));
+                macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x1ec5ae9613), 15);
+            }
+        }
+    }
+}
+
+unsafe extern "C" fn expression_specialairs2dash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0cc5a0d007), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e49ca009f), 2, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

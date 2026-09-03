@@ -1,0 +1,30 @@
+unsafe extern "C" fn effect_specialhistart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15fd6d9120), Hash40::new_raw(0x031ed91fca), 0, 7, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15c12159d8), Hash40::new_raw(0x081e928105), -3, 0, 1, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15c12159d8), Hash40::new_raw(0x08cad3beda), -3, 0, -1, 0, 0, 0, 1, false);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x15fd6d9120), true, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0f1f09c257), Hash40::new_raw(0x04b12bd53f), 0, 0, 0, 0, 0, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialhistart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x129617c5e8));
+    }
+}
+
+unsafe extern "C" fn expression_specialhistart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1116c1eee9), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

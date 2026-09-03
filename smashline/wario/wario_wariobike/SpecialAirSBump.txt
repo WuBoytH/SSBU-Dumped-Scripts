@@ -1,0 +1,19 @@
+unsafe extern "C" fn game_specialairsbump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_WARIO_WARIOBIKE_STATUS_WORK_FLAG_BUMP_WARIO_AWAY);
+    }
+}
+
+unsafe extern "C" fn effect_specialairsbump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 10, 10, 0, -90, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialairsbump(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x128fc3df3e));
+    }
+}

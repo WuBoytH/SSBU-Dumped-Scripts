@@ -1,0 +1,17 @@
+unsafe extern "C" fn game_cliffjump1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 8);
+    frame(agent.lua_state_agent, 2.0);
+    macros::FT_MOTION_RATE(agent, 4);
+}
+
+unsafe extern "C" fn sound_cliffjump1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x141c0c9c69));
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x10ca707f3a));
+    }
+}

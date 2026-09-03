@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_walkmiddle(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x05ffc98f39), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+        frame(agent.lua_state_agent, 30.0);
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x0505c6b25a), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn sound_walkmiddle(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 7.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x182420f80f), Hash40::new_raw(0x19cf7ed40e));
+        }
+        frame(agent.lua_state_agent, 27.0);
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x19cf7ed40e), Hash40::new_raw(0x182420f80f));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

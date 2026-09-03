@@ -1,0 +1,11 @@
+unsafe extern "C" fn game_start(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_frame_partial(agent.module_accessor, *WEAPON_PACMAN_BIGPACMAN_MOTION_PART_SET_KIND_MATERIAL, 0.0, false) /* TODO: verify padded default args */;
+        MotionModule::set_rate_partial(agent.module_accessor, *WEAPON_PACMAN_BIGPACMAN_MOTION_PART_SET_KIND_MATERIAL, 10.0);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate_partial(agent.module_accessor, *WEAPON_PACMAN_BIGPACMAN_MOTION_PART_SET_KIND_MATERIAL, 0.0);
+    }
+}

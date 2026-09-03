@@ -1,0 +1,50 @@
+unsafe extern "C" fn effect_escapebforesight(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+        macros::COL_PRI(agent, 250);
+        macros::FLASH(agent, 0, 0.1, 0.6, 0.8);
+        macros::FLASH_SET_DIRECTION(agent, -1, 0, 0);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x157b88510d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT(agent, Hash40::new_raw(0x109b2d0385), Hash40::new_raw(0x031ed91fca), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new_raw(0x1a67ad6f28), Hash40::new_raw(0x031ed91fca), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x154f1e6dc7), Hash40::new_raw(0x035dbfe258), 2, 0, 0, 0, 0, 90, 1, true);
+    }
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 180, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    }
+    wait(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 6, 0, 0.1, 0.6, 0);
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn sound_escapebforesight(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1842147aa3));
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1b7ab891ed));
+    }
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new_raw(0x153846a21c));
+    }
+    frame(agent.lua_state_agent, 34.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new_raw(0x15c2499f7f));
+    }
+}
+
+unsafe extern "C" fn expression_escapebforesight(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x19f28ddcc4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+    }
+}

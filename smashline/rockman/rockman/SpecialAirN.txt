@@ -1,0 +1,57 @@
+unsafe extern "C" fn game_specialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_ALREADY_EXIST_METALBLADE) {
+        if macros::is_excute(agent) {
+            ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_ROCKMAN_GENERATE_ARTICLE_METALBLADE, false, 0) /* TODO: verify padded default args */;
+        }
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_STICK_CHECK_FRAME_END);
+    }
+    frame(agent.lua_state_agent, 16.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_ALREADY_EXIST_METALBLADE) {
+        if macros::is_excute(agent) {
+            ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_ROCKMAN_GENERATE_ARTICLE_METALBLADE, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_specialairn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_ALREADY_EXIST_METALBLADE) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x18500b14bd), Hash40::new_raw(0x05eb263e0d), 0, 0, 0, 0, -0.00001, 0, 0.8, true);
+        }
+        frame(agent.lua_state_agent, 8.0);
+        if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x19d7ace89c), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, -0.00001, -90, 1, true);
+            }
+        } else {
+            if macros::is_excute(agent) {
+                macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x19d7ace89c), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, -0.00001, 90, 1, true);
+            }
+        }
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x05e008fd84), 0, -2, 4, 0, -0.00001, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new_raw(0x1672845ae9), Hash40::new_raw(0x031ed91fca), -1, 8, 1, 0, -70, -105, 0.85, false, 0.05);
+        macros::LAST_EFFECT_SET_RATE(agent, 2);
+    }
+}
+
+unsafe extern "C" fn expression_specialairn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f5b14bb65), *FIGHTER_ROCKMAN_ARM_LEFT, *FIGHTER_ROCKMAN_ARMFORM_HAND, 0);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f5b14bb65), *FIGHTER_ROCKMAN_ARM_RIGHT, *FIGHTER_ROCKMAN_ARMFORM_HAND, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e49ca009f), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

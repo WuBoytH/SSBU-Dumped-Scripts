@@ -1,0 +1,46 @@
+unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new_raw(0x0ee04a4651), Hash40::new_raw(0x031ed91fca), -20, 1, 20, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), 20, 0, -20, 0, 0, 0, 1.3, 0, 0, 0, 0, 0, 0, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+        }
+        frame(agent.lua_state_agent, 4.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new_raw(0x0ee04a4651), Hash40::new_raw(0x031ed91fca), 16, 1, 14, 0, -45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        }
+        frame(agent.lua_state_agent, 7.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new_raw(0x0ee04a4651), Hash40::new_raw(0x031ed91fca), -14, 1, -14, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new_raw(0x0ee04a4651), Hash40::new_raw(0x031ed91fca), -20, 1, 20, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        }
+        frame(agent.lua_state_agent, 13.0);
+        if macros::is_excute(agent) {
+            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), -20, 0, -20, 0, 0, 0, 1.3, 0, 0, 0, 0, 0, 0, true);
+            macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+        }
+        frame(agent.lua_state_agent, 15.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new_raw(0x0ee04a4651), Hash40::new_raw(0x031ed91fca), 16, 1, 14, 0, -45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new_raw(0x0ee04a4651), Hash40::new_raw(0x031ed91fca), -20, 1, 20, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        }
+        frame(agent.lua_state_agent, 17.0);
+        macros::EFFECT(agent, Hash40::new_raw(0x0ee04a4651), Hash40::new_raw(0x031ed91fca), -14, 1, -14, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x0dcda40cf3));
+    }
+}
+
+unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
+    loop {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

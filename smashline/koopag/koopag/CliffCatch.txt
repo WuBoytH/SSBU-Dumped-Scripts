@@ -1,0 +1,34 @@
+unsafe extern "C" fn game_cliffcatch(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    macros::FT_MOTION_RATE(agent, 2);
+    frame(agent.lua_state_agent, 5.0);
+    macros::FT_MOTION_RATE(agent, 1);
+}
+
+unsafe extern "C" fn effect_cliffcatch(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0f3f44ef80), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_cliffcatch(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x15af703857));
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::IS_RANDOM(agent, 2) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x148a49e388));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_cliffcatch(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: expression_CliffCatchRumble();
+    } else {
+        // TODO: expression_CliffCatchRumble();
+    }
+}

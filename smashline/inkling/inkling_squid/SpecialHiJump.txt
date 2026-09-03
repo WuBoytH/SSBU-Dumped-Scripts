@@ -1,0 +1,30 @@
+unsafe extern "C" fn effect_specialhijump(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x1adaf3bf59), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_R);
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_G);
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_B);
+    if macros::is_excute(agent) {
+        macros::LAST_PARTICLE_SET_COLOR(agent) /* TODO: macro expects 3 args */;
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15b0e1e55c), Hash40::new_raw(0x04a7f3f69c), -2, 0, 0, 0, 0, -90, 1, true);
+        macros::LAST_EFFECT_SET_WORK_INT(agent, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_INT_JET_EFFECT_HANDLE);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_R);
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_G);
+    WorkModule::get_float(agent.module_accessor, *WEAPON_INKLING_SQUID_INSTANCE_WORK_ID_FLOAT_B);
+    if macros::is_excute(agent) {
+        macros::LAST_PARTICLE_SET_COLOR(agent) /* TODO: macro expects 3 args */;
+    }
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1611ebda03), Hash40::new_raw(0x04a7f3f69c), -2, 0, 0, 0, 0, -90, 1, true);
+    }
+    frame(agent.lua_state_agent, 22.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x15b0e1e55c), false, true);
+    }
+}

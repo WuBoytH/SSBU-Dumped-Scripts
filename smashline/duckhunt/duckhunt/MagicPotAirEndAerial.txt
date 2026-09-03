@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_magicpotairendaerial(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0f97480fb2), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        let color = WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1072cf1920), Hash40::new_raw(0x08ee04bc43), -4, 0, 0, 0, 0, -90, 1, true, color) /* TODO: macro expects 10 args */;
+        macros::LAST_EFFECT_SET_WORK_INT(agent, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+    }
+    frame(agent.lua_state_agent, 46.0);
+    if macros::is_excute(agent) {
+        let effect_handle = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
+        macros::EFFECT_OFF_HANDLE(agent, effect_handle);
+    }
+}
+
+unsafe extern "C" fn sound_magicpotairendaerial(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x12485a1758));
+    }
+}
+
+unsafe extern "C" fn expression_magicpotairendaerial(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+    }
+}

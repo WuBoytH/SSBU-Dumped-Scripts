@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_jackspecialairndownend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0f5750df44), Hash40::new_raw(0x05e008fd84), 0, 0.9, 1.9, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_jackspecialairndownend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x13efe5bd9b));
+    }
+    wait(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x126fc602bb));
+    }
+}
+
+unsafe extern "C" fn expression_jackspecialairndownend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

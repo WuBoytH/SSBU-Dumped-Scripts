@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_attachwall(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACH_WALL_FLAG_MOT_STOP);
+    }
+}
+
+unsafe extern "C" fn sound_attachwall(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_LANDING_SE(agent, Hash40::new_raw(0x16d98263e3));
+    }
+}
+
+unsafe extern "C" fn expression_attachwall(agent: &mut L2CAgentBase) {
+    if true { // TODO: if (condition) {
+        // TODO: expression_AttachWallRumble();
+    } else {
+        // TODO: expression_AttachWallRumble();
+    }
+}

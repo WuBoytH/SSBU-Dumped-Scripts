@@ -1,0 +1,28 @@
+unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 46.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x181f865d03), Hash40::new_raw(0x19d1d43fde));
+        }
+        wait(agent.lua_state_agent, 60.0);
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x19d1d43fde), Hash40::new_raw(0x181f865d03));
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_squatb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    }
+    // TODO: pop_lua_stack(110);
+    wait_loop_sync_mot(agent.lua_state_agent);
+    loop {
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+        }
+        frame(agent.lua_state_agent, 110.0);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+    // TODO: _Unwind_Resume();
+    // TODO: frame();
+}

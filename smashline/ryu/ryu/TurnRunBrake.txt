@@ -1,0 +1,12 @@
+unsafe extern "C" fn sound_turnrunbrake(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1396f53980), Hash40::new_raw(0x12e6ff5c0e));
+    }
+}
+
+unsafe extern "C" fn expression_turnrunbrake(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 10);
+    }
+}

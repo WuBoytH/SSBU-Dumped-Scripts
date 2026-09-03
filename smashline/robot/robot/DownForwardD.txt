@@ -1,0 +1,43 @@
+unsafe extern "C" fn effect_downforwardd(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    for _ in 0..4 {
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new_raw(0x0ee04a4651), Hash40::new_raw(0x031ed91fca), 2, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        }
+        wait(agent.lua_state_agent, 5.0);
+    }
+}
+
+unsafe extern "C" fn sound_downforwardd(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x13e56ff235));
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x11cac772b9));
+    }
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x0d58a1d4bf));
+    }
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12a1327480));
+    }
+}
+
+unsafe extern "C" fn expression_downforwardd(agent: &mut L2CAgentBase) {
+    // TODO: expression_DownForwardDRumble();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 3);
+    }
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TPART, 3);
+    }
+}

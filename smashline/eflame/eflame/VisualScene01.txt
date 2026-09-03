@@ -1,0 +1,51 @@
+unsafe extern "C" fn game_visualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x104f924abc), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x104f924abc), 0);
+    }
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD) {
+        if macros::is_excute(agent) {
+            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new_raw(0x07439e926b), 10.0, 10.0, false, false, 0.0, false, true, false);
+        }
+        if MotionModule::is_changing(agent.module_accessor) {
+            if macros::is_excute(agent) {
+                WorkModule::on_flag(agent.module_accessor, *FIGHTER_EFLAME_INSTANCE_WORK_ID_FLAG_ADD_PARTIAL_MTION_SWORD_WHEN_CHANGEING);
+            }
+        }
+    }
+    if macros::is_excute(agent) {
+        WorkModule::set_int64(agent.module_accessor, 0x0f9e797764, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_INT_ESWORD_INHERIT_OPEN_MOTION_KIND);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene01(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 1.15, 1, 1, 0.04, 0.04, 0.04, 0.95, 1.4, *EFFECT_SCREEN_LAYER_CHAR, 199);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11d7f5f592), Hash40::new_raw(0x035dbfe258), 0, 0, 0, 0, 0, 0, 2, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11d7f5f592), Hash40::new_raw(0x042011d653), 0, 0, 0, 0, 0, 0, 1.4, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11d7f5f592), Hash40::new_raw(0x0461fccbdd), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11d7f5f592), Hash40::new_raw(0x049bf3f6be), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x175d13b30a), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 90, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x17372916e4), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 90, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene01(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x160fcd2401));
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x11c926ca61));
+    }
+    frame(agent.lua_state_agent, 64.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1696c475bb));
+    }
+    frame(agent.lua_state_agent, 110.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x11502f9bdb));
+        macros::PLAY_SE(agent, Hash40::new_raw(0x17e0ee4e96));
+    }
+}

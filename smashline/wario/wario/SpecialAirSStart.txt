@@ -1,0 +1,14 @@
+unsafe extern "C" fn sound_specialairsstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x0c519fe7bc));
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x14eace5e57));
+    }
+}
+
+unsafe extern "C" fn expression_specialairsstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ee31cfd6c), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

@@ -1,0 +1,23 @@
+unsafe extern "C" fn game_finalhit(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        MotionModule::set_rate(agent.module_accessor, 3.0);
+    }
+}
+
+unsafe extern "C" fn effect_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1a5150c5b5), false, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1b14cb83a0), Hash40::new_raw(0x0570211ebd), 0, 1, 0, 90, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalhit(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x128b04eac5));
+    }
+    frame(agent.lua_state_agent, 140.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x12fc03da53));
+    }
+}

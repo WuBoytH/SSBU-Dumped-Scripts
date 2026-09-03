@@ -1,0 +1,12 @@
+unsafe extern "C" fn effect_purinspecialnkorogaru(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0e6257347a), Hash40::new_raw(0x04dba80bb2), 0, 0, 0, 0, 0, 0, 1, false);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+    if WorkModule::get_float(agent.module_accessor, *FIGHTER_PURIN_STATUS_SPECIAL_N_WORK_FLOAT_SPEED) <= 3.0 {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0faa67711b), Hash40::new_raw(0x04dba80bb2), 0, 0, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        }
+    }
+}

@@ -1,0 +1,42 @@
+unsafe extern "C" fn effect_specialairn(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12400e45d9), Hash40::new_raw(0x051129036e), 3, 0, 0, 0, 0, 0, 1, true);
+        }
+        wait(agent.lua_state_agent, 8.0);
+    }
+}
+
+unsafe extern "C" fn sound_specialairn(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 0.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x17a64e1242));
+        }
+        wait(agent.lua_state_agent, 1.0);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+    loop {
+        frame(agent.lua_state_agent, 0.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x17a64e1242));
+        }
+        wait(agent.lua_state_agent, 1.0);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_specialairn(agent: &mut L2CAgentBase) {
+    loop {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0fa6bcdad1), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+    loop {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0fa6bcdad1), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

@@ -1,0 +1,57 @@
+unsafe extern "C" fn game_speciallw(agent: &mut L2CAgentBase) {
+    if WorkModule::get_int64(agent.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_IS_DAIKON_GENERATABLE) == 1 {
+        if WorkModule::get_int64(agent.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_UNIQ_ITEM_KIND) == *ITEM_KIND_NONE as u64 {
+            if macros::is_excute(agent) {
+                ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DAISY_GENERATE_ARTICLE_DAIKON, false, -1);
+            }
+        }
+        if WorkModule::get_int64(agent.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_UNIQ_ITEM_KIND) == *ITEM_KIND_BOMBHEI as u64 {
+            if macros::is_excute(agent) {
+                ItemModule::have_item(agent.module_accessor, ItemKind(*ITEM_KIND_BOMBHEI), 0, 0, false, false) /* TODO: verify padded default args */;
+            }
+        }
+        WorkModule::get_int64(agent.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_UNIQ_ITEM_KIND);
+        if true { // TODO: if (condition) {
+            if macros::is_excute(agent) {
+                ItemModule::have_item(agent.module_accessor, ItemKind(*ITEM_KIND_DOSEISAN), 0, 0, false, false) /* TODO: verify padded default args */;
+            }
+        }
+        WorkModule::get_int64(agent.module_accessor, *FIGHTER_PEACH_STATUS_SPECIAL_LW_WORK_INT_UNIQ_ITEM_KIND);
+        if true { // TODO: if (condition) {
+            if macros::is_excute(agent) {
+                ItemModule::have_item(agent.module_accessor, ItemKind(*ITEM_KIND_BEAMSWORD), 0, 0, false, false) /* TODO: verify padded default args */;
+            }
+        }
+    }
+}
+
+unsafe extern "C" fn effect_speciallw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0ffadaa114), Hash40::new_raw(0x031ed91fca), 0, -0.3, 1, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_speciallw(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x14838edea2));
+    }
+    wait(agent.lua_state_agent, 12.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x141a878f18));
+    }
+}
+
+unsafe extern "C" fn expression_speciallw(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ee31cfd6c), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

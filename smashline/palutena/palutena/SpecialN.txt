@@ -1,0 +1,72 @@
+unsafe extern "C" fn game_specialn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::SEARCH(agent, 0, 0, Hash40::new_raw(0x04b12bd53f), 120.0, 0.0, 0.0, 0.0, None, None, None, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIEB, *COLLISION_PART_MASK_BODY_HEAD, false);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR_ALL);
+    }
+}
+
+unsafe extern "C" fn effect_specialn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x1255c42543), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_SIGHT_EFFECT_ON);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PALUTENA_STATUS_SPECIAL_N_FLAG_TARGET_EXIST) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1212308814), Hash40::new_raw(0x031ed91fca), -0.2, 22, -1, 10, 90, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1941d96f74), Hash40::new_raw(0x054fbb2ad2), 0, 8.65, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0f8d9fc7fb), Hash40::new_raw(0x054fbb2ad2), 0, 0, 0, 0, 0, 0, 1, true);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1941d96f74), Hash40::new_raw(0x054fbb2ad2), 0, 8.65, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x14c37776d7), Hash40::new_raw(0x054fbb2ad2), 0, 8.65, 0, 0, 0, 0, 1, true);
+        }
+        frame(agent.lua_state_agent, 13.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1212308814), Hash40::new_raw(0x031ed91fca), -0.2, 22, -1, 10, 90, 0, 1, true);
+        }
+    }
+    frame(agent.lua_state_agent, 50.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1941d96f74), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x14c37776d7), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0f8d9fc7fb), false, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_PALUTENA_GENERATE_ARTICLE_AUTORETICLE) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1a868b9d93));
+        }
+    }
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new_raw(0x1747148021));
+    }
+    wait(agent.lua_state_agent, 40.0);
+    if macros::is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+    }
+}
+
+unsafe extern "C" fn expression_specialn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

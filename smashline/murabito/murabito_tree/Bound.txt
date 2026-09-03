@@ -1,0 +1,38 @@
+unsafe extern "C" fn game_bound(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATK_POWER(agent, 0, 15);
+        macros::ATK_POWER(agent, 1, 15);
+    }
+}
+
+unsafe extern "C" fn effect_bound(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+    }
+    if WorkModule::get_int64(agent.module_accessor, *WEAPON_MURABITO_TREE_STATUS_FALLEN_WORK_INT_HIT_NUM) == 1 {
+        if macros::is_excute(agent) {
+            let smoke_rot_x = WorkModule::get_float(agent.module_accessor, *WEAPON_MURABITO_TREE_INSTANCE_WORK_ID_FLOAT_SMOKE_ROT_X);
+            let smoke_rot_y = WorkModule::get_float(agent.module_accessor, *WEAPON_MURABITO_TREE_INSTANCE_WORK_ID_FLOAT_SMOKE_ROT_Y);
+            let smoke_rot_z = WorkModule::get_float(agent.module_accessor, *WEAPON_MURABITO_TREE_INSTANCE_WORK_ID_FLOAT_SMOKE_ROT_Z);
+            macros::EFFECT_WORK_R(agent, Hash40::new_raw(0x139dac9b9a), Hash40::new_raw(0x04b73e5edc), 0, 10, 0, smoke_rot_x, smoke_rot_y, smoke_rot_z, 1.2, 0, 0, 0, 0, 0, 0, true);
+            let smoke_rot_x = WorkModule::get_float(agent.module_accessor, *WEAPON_MURABITO_TREE_INSTANCE_WORK_ID_FLOAT_SMOKE_ROT_X);
+            let smoke_rot_y = WorkModule::get_float(agent.module_accessor, *WEAPON_MURABITO_TREE_INSTANCE_WORK_ID_FLOAT_SMOKE_ROT_Y);
+            let smoke_rot_z = WorkModule::get_float(agent.module_accessor, *WEAPON_MURABITO_TREE_INSTANCE_WORK_ID_FLOAT_SMOKE_ROT_Z);
+            macros::EFFECT_WORK_R(agent, Hash40::new_raw(0x0ee2d41536), Hash40::new_raw(0x04b73e5edc), 0, 10, 0, smoke_rot_x, smoke_rot_y, smoke_rot_z, 1, 0, 0, 0, 0, 0, 0, true);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_bound(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    if WorkModule::get_int64(agent.module_accessor, *WEAPON_MURABITO_TREE_STATUS_FALLEN_WORK_INT_HIT_NUM) == 1 {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x177c069371));
+        }
+    } else {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x170b01a3e7));
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x170b01a3e7), 60);
+        }
+    }
+}

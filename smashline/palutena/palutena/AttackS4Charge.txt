@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_attacks4charge(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    loop {
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0d0da6e3c0), Hash40::new_raw(0x031ed91fca), -3, 0, 0, 0, 0, 0, 1, 15, 0, 4, 0, 0, 0, false);
+        }
+        wait(agent.lua_state_agent, 5.0);
+        macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x031ed91fca), 0, 24, -3, 0, 0, 0, 1, 2, 3, 3, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_attacks4charge(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x18f7179e75));
+    }
+}
+
+unsafe extern "C" fn expression_attacks4charge(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        physics!(agent, *MA_MSC_CMD_PHYSICS_START_CHARGE, -1, -1, -1, -1, -1, -1, Hash40::new_raw(0x07fb997a80));
+        macros::AREA_WIND_2ND(agent, 0, 0.5, 100, 3, 0.2, 0, 12, 24, 24, 80);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(agent.lua_state_agent, 61.0);
+    if macros::is_excute(agent) {
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x119a789590), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}

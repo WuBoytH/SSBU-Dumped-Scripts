@@ -1,0 +1,14 @@
+unsafe extern "C" fn effect_specialairlwloop(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0fa621e558), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, 0, 0, 1, true);
+        }
+        wait(agent.lua_state_agent, 12.0);
+    }
+}
+
+unsafe extern "C" fn expression_specialairlwloop(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

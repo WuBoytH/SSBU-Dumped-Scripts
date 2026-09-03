@@ -1,0 +1,17 @@
+unsafe extern "C" fn sound_passive(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new_raw(0x14a2021d17));
+        macros::STOP_SE(agent, Hash40::new_raw(0x14580d2074));
+        macros::STOP_SE(agent, Hash40::new_raw(0x142f0a10e2));
+        macros::PLAY_SE(agent, Hash40::new_raw(0x10d3d2585c));
+        macros::PLAY_LANDING_SE(agent, Hash40::new_raw(0x123b363fc3));
+    }
+}
+
+unsafe extern "C" fn expression_passive(agent: &mut L2CAgentBase) {
+    // TODO: expression_PassiveRumble();
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

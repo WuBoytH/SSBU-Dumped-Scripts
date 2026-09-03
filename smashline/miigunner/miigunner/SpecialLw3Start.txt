@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_speciallw3start(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    loop {
+        if macros::is_excute(agent) {
+            macros::FLASH(agent, 0.5, 0.7, 1, 0.6);
+        }
+        wait(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::FLASH_FRM(agent, 3, 0, 0.2, 0.5, 0);
+        }
+        wait(agent.lua_state_agent, 3.0);
+        macros::COL_NORMAL(agent);
+    }
+}
+
+unsafe extern "C" fn sound_speciallw3start(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x1bad9bfa17));
+    }
+}
+
+unsafe extern "C" fn expression_speciallw3start(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

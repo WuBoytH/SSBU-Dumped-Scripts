@@ -1,0 +1,18 @@
+unsafe extern "C" fn effect_steppose(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new_raw(0x0d915a8b73), Hash40::new_raw(0x031ed91fca), 0, 10, 15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_steppose(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new_raw(0x13e5a46e29));
+    }
+}
+
+unsafe extern "C" fn expression_steppose(agent: &mut L2CAgentBase) {
+    // TODO: expression_StepPoseRumble();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

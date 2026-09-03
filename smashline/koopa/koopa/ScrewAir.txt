@@ -1,0 +1,43 @@
+unsafe extern "C" fn game_screwair(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0674207db6), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_XLU);
+    }
+    for _ in 0..10 {
+        // TODO: game_ScrewCommon();
+        if macros::is_excute(agent) {
+            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 0, Hash40::new_raw(0x031ed91fca), 0, 5, 7);
+            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 1, Hash40::new_raw(0x031ed91fca), 0, 5, -7);
+            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 2, Hash40::new_raw(0x031ed91fca), 0, 19, 7);
+            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 3, Hash40::new_raw(0x031ed91fca), 0, 19, -7);
+        }
+        wait(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            AttackModule::clear_all(agent.module_accessor);
+        }
+    }
+}
+
+unsafe extern "C" fn effect_screwair(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x09aa1f1420), Hash40::new_raw(0x031d39a761), 0, 0, 0, 0, 0, 0, 2, true);
+    }
+}
+
+unsafe extern "C" fn expression_screwair(agent: &mut L2CAgentBase) {
+    // TODO: expression_ScrewAirRumble();
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::FT_DISABLE_CURRY_FACE(agent, true);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+    }
+}
