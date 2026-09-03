@@ -9,7 +9,7 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 70);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), true, false) /* TODO: macro expects 2 args */;
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), true, false) /* TODO: macro expects 2 args */;
             macros::FT_START_CUTIN(agent);
         }
     } else {
@@ -53,23 +53,23 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0fc88aa7d0), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_pacman_final"), false, false, false);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x163dd29747), Hash40::new_raw(0x04b12bd53f), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("finpacman_change_start"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         macros::LAST_EFFECT_SET_RATE(agent, 1.5);
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x1cf463759a), Hash40::new_raw(0x04b12bd53f), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("finpacman_change_start_flash"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, false);
         macros::LAST_EFFECT_SET_RATE(agent, 1.5);
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x1bfc5871c9), Hash40::new_raw(0x04b12bd53f), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("finpacman_change_start_ring"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, false);
         macros::LAST_EFFECT_SET_RATE(agent, 1.5);
     }
     frame(agent.lua_state_agent, 70.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0e35b6b29f), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_final_aura"), false, false);
     }
     frame(agent.lua_state_agent, 127.0);
     if macros::is_excute(agent) {
@@ -79,7 +79,7 @@ unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11119c68b5));
+        macros::PLAY_SE(agent, Hash40::new("se_pacman_final01"));
     }
 }
 
@@ -87,16 +87,16 @@ unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::START_INFO_FLASH_EYE(agent);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        VisibilityModule::set_int64(agent.module_accessor, 0x0e3d1d83a6, 0x13a5a96f8b);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("final_poweresa"), hash40("final_poweresa_disp"));
     }
     frame(agent.lua_state_agent, 77.0);
     if macros::is_excute(agent) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
-        VisibilityModule::set_int64(agent.module_accessor, 0x0e3d1d83a6, 0x17c67da959);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("final_poweresa"), hash40("final_poweresa_disp_off"));
     }
     frame(agent.lua_state_agent, 88.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0fe3cd917c), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_warpstar"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 155.0);
     if macros::is_excute(agent) {

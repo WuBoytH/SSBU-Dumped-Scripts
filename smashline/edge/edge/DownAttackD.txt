@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_downattackd(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
-        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 7.0, 48, 48, 0, 80, 5.0, 0.0, 5.0, -12.5, Some(0.0), Some(5.0), Some(-5.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 7.0, 48, 48, 0, 80, 5.0, 0.0, 5.0, -12.5, Some(0.0), Some(5.0), Some(-5.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
     }
     wait(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
@@ -9,7 +9,7 @@ unsafe extern "C" fn game_downattackd(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 24.0);
     if macros::is_excute(agent) {
-        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 7.0, 48, 48, 0, 80, 5.0, 0.0, 5.0, 12.0, Some(0.0), Some(5.0), Some(5.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 7.0, 48, 48, 0, 80, 5.0, 0.0, 5.0, 12.0, Some(0.0), Some(5.0), Some(5.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
     }
     wait(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
@@ -20,19 +20,19 @@ unsafe extern "C" fn game_downattackd(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_downattackd(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0f1f9a3475), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
         macros::LAST_EFFECT_SET_ALPHA(agent, 0.6);
     }
     frame(agent.lua_state_agent, 18.0);
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW_COLOR(agent, Hash40::new_raw(0x10e97de698), Hash40::new_raw(0x031ed91fca), 0, 3.743, -5, 174.732, -22.712, 14.403, 1, true, 0.75, 0.5, 1.5);
+            macros::EFFECT_FOLLOW_COLOR(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 3.743, -5, 174.732, -22.712, 14.403, 1, true, 0.75, 0.5, 1.5);
             macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
             macros::LAST_EFFECT_SET_RATE(agent, 1.4);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW_COLOR(agent, Hash40::new_raw(0x10e97de698), Hash40::new_raw(0x031ed91fca), 0, 3.743, -5, 179.821, 0.549, 12.435, 1, true, 0.75, 0.5, 1.5);
+            macros::EFFECT_FOLLOW_COLOR(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 3.743, -5, 179.821, 0.549, 12.435, 1, true, 0.75, 0.5, 1.5);
             macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
             macros::LAST_EFFECT_SET_RATE(agent, 1.4);
         }
@@ -40,13 +40,13 @@ unsafe extern "C" fn effect_downattackd(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 23.0);
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW_COLOR(agent, Hash40::new_raw(0x10e97de698), Hash40::new_raw(0x031ed91fca), 0, 3.861, 5, 1, 24.489, 190.356, 1, true, 0.75, 0.5, 1.5);
+            macros::EFFECT_FOLLOW_COLOR(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 3.861, 5, 1, 24.489, 190.356, 1, true, 0.75, 0.5, 1.5);
             macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
             macros::LAST_EFFECT_SET_RATE(agent, 1.4);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW_COLOR(agent, Hash40::new_raw(0x10e97de698), Hash40::new_raw(0x031ed91fca), 0, 3.861, 5, -2.314, 1.326, 190.91, 1, true, 0.75, 0.5, 1.5);
+            macros::EFFECT_FOLLOW_COLOR(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 3.861, 5, -2.314, 1.326, 190.91, 1, true, 0.75, 0.5, 1.5);
             macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
             macros::LAST_EFFECT_SET_RATE(agent, 1.4);
         }
@@ -56,19 +56,19 @@ unsafe extern "C" fn effect_downattackd(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_downattackd(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0d8f8113f2));
+        macros::PLAY_SE(agent, Hash40::new("se_edge_squat"));
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11b792742c));
+        macros::PLAY_SE(agent, Hash40::new("se_edge_swing_s01"));
     }
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11a12afa56));
+        macros::PLAY_SE(agent, Hash40::new("se_edge_swing_m01"));
     }
     frame(agent.lua_state_agent, 42.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0c10598bbc));
+        macros::PLAY_SE(agent, Hash40::new("se_edge_rise"));
     }
 }
 
@@ -78,11 +78,11 @@ unsafe extern "C" fn expression_downattackd(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 28.0);
     if macros::is_excute(agent) {

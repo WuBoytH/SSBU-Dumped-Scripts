@@ -8,22 +8,22 @@ unsafe extern "C" fn game_itemheavythrowb4(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_itemheavythrowb4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x174bb08a7b));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_toonlink_rnd_attack"));
     }
 }
 
 unsafe extern "C" fn expression_itemheavythrowb4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
-        VisibilityModule::set_int64(agent.module_accessor, 0x061e93d2e8, 0x0b8f067556);
-        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x0a7da68099);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("shield"), hash40("shield_back"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("sword_back"));
     }
     frame(agent.lua_state_agent, 34.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x061e93d2e8, 0x0d916fa75f);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("shield"), hash40("shield_normal"));
     }
     frame(agent.lua_state_agent, 38.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x0c10da98ed);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("sword_normal"));
     }
 }

@@ -7,34 +7,34 @@ unsafe extern "C" fn game_slip(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_slip(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0ec09045bb), Hash40::new_raw(0x031ed91fca), 1.5, 0, 0, 0, 180, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 1.5, 0, 0, 0, 180, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0ec09045bb), Hash40::new_raw(0x031ed91fca), 3, 0, 0, 0, 180, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 3, 0, 0, 0, 180, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_slip(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x111fd20be6));
+        macros::PLAY_SE(agent, Hash40::new("se_common_slip_01"));
     }
     wait(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x111fd20be6));
+        macros::PLAY_SE(agent, Hash40::new("se_common_slip_01"));
     }
     wait(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x111fd20be6));
+        macros::PLAY_SE(agent, Hash40::new("se_common_slip_01"));
     }
     wait(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1519513f74));
+        macros::PLAY_SE(agent, Hash40::new("se_common_falldown_01"));
     }
 }
 
@@ -43,6 +43,6 @@ unsafe extern "C" fn expression_slip(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0bc65d47b3), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_down"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

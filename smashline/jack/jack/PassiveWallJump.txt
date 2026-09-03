@@ -1,11 +1,11 @@
 unsafe extern "C" fn sound_passivewalljump(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x130247c55b));
+        macros::PLAY_SE(agent, Hash40::new("se_jack_step_left_l"));
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0e2052488d));
+        macros::PLAY_SE(agent, Hash40::new("se_jack_jump01"));
     }
 }
 
@@ -13,6 +13,6 @@ unsafe extern "C" fn expression_passivewalljump(agent: &mut L2CAgentBase) {
     // TODO: expression_PassiveWallJumpRumble();
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b7d11d19e), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_jump"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

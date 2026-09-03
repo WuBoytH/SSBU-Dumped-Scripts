@@ -1,7 +1,7 @@
 unsafe extern "C" fn effect_specialairsjump(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x1255c42543), Hash40::new_raw(0x031ed91fca), 0, 0, 2, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12bf32187c), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, 0, 0, 0.5, true);
+        macros::EFFECT(agent, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 2, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("littlemac_joltblow"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 0.5, true);
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
 }
@@ -9,7 +9,7 @@ unsafe extern "C" fn effect_specialairsjump(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairsjump(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x184bac87bf));
+        macros::PLAY_SE(agent, Hash40::new("se_littlemac_special_s01"));
     }
 }
 
@@ -23,6 +23,6 @@ unsafe extern "C" fn expression_specialairsjump(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

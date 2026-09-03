@@ -4,7 +4,7 @@ unsafe extern "C" fn game_specialsstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
         if macros::is_excute(agent) {
-            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new_raw(0x07439e926b), 5.0, 5.0, false, false, 0.0, false, true, false);
+            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 5.0, 5.0, false, false, 0.0, false, true, false);
         }
         if MotionModule::is_changing(agent.module_accessor) {
             if macros::is_excute(agent) {
@@ -22,19 +22,19 @@ unsafe extern "C" fn game_specialsstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_specialsstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x13c766385e), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_photon_start"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x133ef7d99a), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 90, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_sword_open_l"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
         macros::LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(agent, -0.3);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x13f7d132d2), Hash40::new_raw(0x0613f917e1), 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x11c2f35333), true, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x13c2faaade), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 90, 0, 1, true);
+        macros::EFFECT(agent, Hash40::new("elight_photon_flash"), Hash40::new("sword1"), 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("elight_sword_open"), true, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_photon_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
         macros::LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(agent, -0.3);
     }
 }
@@ -42,7 +42,7 @@ unsafe extern "C" fn effect_specialsstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialsstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x154b7f2313));
+        macros::PLAY_SE(agent, Hash40::new("se_elight_special_s01"));
     }
 }
 
@@ -53,6 +53,6 @@ unsafe extern "C" fn expression_specialsstart(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

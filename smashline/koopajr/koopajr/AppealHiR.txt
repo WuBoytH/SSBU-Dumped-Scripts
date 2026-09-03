@@ -2,7 +2,7 @@ unsafe extern "C" fn effect_appealhir(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 25.0);
     for _ in 0..3 {
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x0f77ae0469), Hash40::new_raw(0x04a7f3f69c), -1, 7, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new("sys_damage_fire"), Hash40::new("head"), -1, 7, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true);
         }
         wait(agent.lua_state_agent, 10.0);
     }
@@ -11,30 +11,30 @@ unsafe extern "C" fn effect_appealhir(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_appealhir(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14100ff6f6));
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_wait_jump"));
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13b846b6e7));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13139efafb));
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_wait_out"));
+        macros::PLAY_SE(agent, Hash40::new("vc_koopajr_appeal01"));
     }
     frame(agent.lua_state_agent, 25.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x156c49fc46));
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_appeal_h01"));
     }
     frame(agent.lua_state_agent, 54.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14100ff6f6));
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_wait_jump"));
     }
     frame(agent.lua_state_agent, 74.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x122846f60f));
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_wait_in"));
     }
 }
 
 unsafe extern "C" fn expression_appealhir(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 27.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1481a1a2f3), 24, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapplingbeam"), 24, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

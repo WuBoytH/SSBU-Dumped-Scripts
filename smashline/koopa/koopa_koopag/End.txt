@@ -1,6 +1,6 @@
 unsafe extern "C" fn game_end(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1069efdf1b), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_14_end_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
@@ -10,17 +10,17 @@ unsafe extern "C" fn game_end(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_end(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new_raw(0x15a5b2bd76), Hash40::new_raw(0x031ed91fca), 0, 15, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("koopa_final_disappear"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, false);
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x15a5b2bd76), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("koopa_final_disappear"), -1);
     }
 }
 
 unsafe extern "C" fn sound_end(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x10f1897341));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_koopa_final05"));
     }
 }

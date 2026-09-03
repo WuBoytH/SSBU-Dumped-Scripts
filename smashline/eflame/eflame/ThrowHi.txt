@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_throwhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 5.0, 84, 45, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
-        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 5.0, 84, 45, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
     }
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
@@ -14,31 +14,31 @@ unsafe extern "C" fn game_throwhi(agent: &mut L2CAgentBase) {
         let target_object = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_OBJECT);
         let target_hit_group = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_GROUP);
         let target_hit_no = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_NO);
-        macros::ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new_raw(0x054f934137), target_object, target_hit_group, target_hit_no);
+        macros::ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), target_object, target_hit_group, target_hit_no);
     }
 }
 
 unsafe extern "C" fn effect_throwhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0c158f2a35), Hash40::new_raw(0x05eb263e0d), 2.3, 1, 0, 0, 0, 0, 1.2, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_throw"), Hash40::new("handl"), 2.3, 1, 0, 0, 0, 0, 1.2, true);
     }
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
-        macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x031ed91fca), 0, 22, -2, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 0, 22, -2, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0c158f2a35), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_throw"), false, true);
     }
 }
 
 unsafe extern "C" fn sound_throwhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x133b10043d));
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x172c1db9cf));
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_throw_h01"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_eflame_rnd_attack01"));
     }
 }
 
@@ -49,6 +49,6 @@ unsafe extern "C" fn expression_throwhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0eb3c53dfc), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

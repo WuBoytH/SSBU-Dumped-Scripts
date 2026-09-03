@@ -7,7 +7,7 @@ unsafe extern "C" fn game_finalmove(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_finalmove(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         let effect_kind_sword_flare_lb = WorkModule::get_int64(agent.module_accessor, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE_LB);
-        macros::EFFECT_FOLLOW_WORK(agent, effect_kind_sword_flare_lb, Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW_WORK(agent, effect_kind_sword_flare_lb, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
         macros::LAST_EFFECT_SET_ALPHA(agent, 0.5);
     }
 }
@@ -15,13 +15,13 @@ unsafe extern "C" fn effect_finalmove(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_finalmove(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1099c959e2));
+        macros::PLAY_SE(agent, Hash40::new("se_cloud_final03"));
     }
 }
 
 unsafe extern "C" fn expression_finalmove(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b41cc0a88), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

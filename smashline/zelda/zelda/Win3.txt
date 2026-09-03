@@ -1,12 +1,12 @@
 unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x129bbc83b2), Hash40::new_raw(0x05e008fd84), 0, 0, 0.5, 0, 0, 0, 0.3, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("zelda_phantom_aura"), Hash40::new("havel"), 0, 0, 0.5, 0, 0, 0, 0.3, true);
         macros::LAST_EFFECT_SET_RATE(agent, 1.5);
     }
     frame(agent.lua_state_agent, 40.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x129bbc83b2), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("zelda_phantom_aura"), false, true);
     }
 }
 
@@ -14,32 +14,32 @@ unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
         frame(agent.lua_state_agent, 26.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x0e20299231));
+            macros::PLAY_SE(agent, Hash40::new("se_zelda_win03"));
         }
         frame(agent.lua_state_agent, 40.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x17f64201da));
+            macros::PLAY_SE(agent, Hash40::new("se_zelda_special_l10_03"));
         }
         frame(agent.lua_state_agent, 57.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x142823fe33));
+            macros::PLAY_SE(agent, Hash40::new("se_zelda_special_l10"));
         }
         frame(agent.lua_state_agent, 74.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x178145314c));
+            macros::PLAY_SE(agent, Hash40::new("se_zelda_special_l10_02"));
         }
         frame(agent.lua_state_agent, 91.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x17f64201da));
+            macros::PLAY_SE(agent, Hash40::new("se_zelda_special_l10_03"));
         }
         frame(agent.lua_state_agent, 107.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1768269479));
+            macros::PLAY_SE(agent, Hash40::new("se_zelda_special_l10_04"));
         }
     }
     frame(agent.lua_state_agent, 122.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0e046f2381));
+        macros::PLAY_SE(agent, Hash40::new("vc_zelda_win03"));
     }
 }
 
@@ -47,60 +47,60 @@ unsafe extern "C" fn expression_win3(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
         if macros::is_excute(agent) {
             ArticleModule::generate_article(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, false, -1);
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x04d642dfa0), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("demo"), false, 0.0) /* TODO: verify padded default args */;
             ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         frame(agent.lua_state_agent, 30.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x11f391bb85), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_01_a"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x116a98ea3f), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("hud_end_limit_pos"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x0f349fdeb2), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_02"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x11f0156feb), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_03_a"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x11691c3e51), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_03_b"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x11f55a796e), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_04_a"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x116c5328d4), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_04_b"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x0faafb4b11), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_05"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x11f6dead00), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_06_a"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x116fd7fcba), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_06_b"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x0f44f52a3d), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("rate_pole_value"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x0fd44a37ac), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_08"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
         wait(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new_raw(0x0fa34d073a), Hash40::new_raw(0x05bda0f2db), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("phantom_step_09"), Hash40::new("build"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         }
     }
 }

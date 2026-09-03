@@ -19,8 +19,8 @@ unsafe extern "C" fn effect_firebarswing4(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_firebarswing4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x18f7179e75));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1203a6615c));
+        macros::STOP_SE(agent, Hash40::new("se_common_smash_start_03"));
+        macros::PLAY_SE(agent, Hash40::new("vc_wiifit_attack06"));
     }
 }
 
@@ -35,6 +35,6 @@ unsafe extern "C" fn expression_firebarswing4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e9718c3e6), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

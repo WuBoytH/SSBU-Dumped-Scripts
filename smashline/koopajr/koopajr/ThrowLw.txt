@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_throwlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 4.0, 30, 55, 0, 90, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
-        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 4.0, 30, 55, 0, 90, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
     }
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
@@ -9,7 +9,7 @@ unsafe extern "C" fn game_throwlw(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 1.2, 361, 100, 30, 0, 5.0, 0.0, 4.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 5, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x14860b063a), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 1.2, 361, 100, 30, 0, 5.0, 0.0, 4.0, 0.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 5, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_OBJECT);
         AttackModule::set_catch_only_all(agent.module_accessor, true, false);
     }
     frame(agent.lua_state_agent, 49.0);
@@ -23,7 +23,7 @@ unsafe extern "C" fn game_throwlw(agent: &mut L2CAgentBase) {
         let target_object = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_OBJECT);
         let target_hit_group = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_GROUP);
         let target_hit_no = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_NO);
-        macros::ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new_raw(0x054f934137), target_object, target_hit_group, target_hit_no);
+        macros::ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), target_object, target_hit_group, target_hit_no);
         AttackModule::clear_all(agent.module_accessor);
     }
 }
@@ -33,86 +33,86 @@ unsafe extern "C" fn effect_throwlw(agent: &mut L2CAgentBase) {
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         for _ in 0..2 {
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 4.5, 0, 0, 0, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 3, 0, 0, 0, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 1, 0, 0, 0, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 4.5, 0, 0, 0, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 3, 0, 0, 0, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 1, 0, 0, 0, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
             }
             wait(agent.lua_state_agent, 2.0);
         }
     } else {
         for _ in 0..3 {
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 4.5, 0, 0, 180, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 3, 0, 0, 180, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 1, 0, 0, 180, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 4.5, 0, 0, 180, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 3, 0, 0, 180, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 1, 0, 0, 180, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
             }
             wait(agent.lua_state_agent, 2.0);
         }
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         for _ in 0..4 {
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 4.5, 0, 0, 0, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 3, 0, 0, 0, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 1, 0, 0, 0, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 4.5, 0, 0, 0, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 3, 0, 0, 0, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 1, 0, 0, 0, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
             }
             wait(agent.lua_state_agent, 3.0);
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 4.5, 0, 0, 0, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 3, 0, 0, 0, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 1, 0, 0, 0, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 4.5, 0, 0, 0, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 3, 0, 0, 0, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 1, 0, 0, 0, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
             }
             wait(agent.lua_state_agent, 3.0);
             if macros::is_excute(agent) {
-                macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
+                macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
             }
             wait(agent.lua_state_agent, 3.0);
         }
     } else {
         for _ in 0..4 {
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 4.5, 0, 0, 180, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 3, 0, 0, 180, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 1, 0, 0, 180, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 4.5, 0, 0, 180, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 3, 0, 0, 180, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 1, 0, 0, 180, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
             }
             wait(agent.lua_state_agent, 3.0);
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 4.5, 0, 0, 180, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 3, 0, 0, 180, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
-                macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x0d5803ba04), 1, 0, 0, 180, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 4.5, 0, 0, 180, 0, 90, 0.25, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 3, 0, 0, 180, 0, 90, 0.4, 3, 1, 1, 10, 360, 10, true);
+                macros::EFFECT_FOLLOW_RND(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("clownattachr2"), 1, 0, 0, 180, 0, 90, 0.55, 3, 1, 1, 10, 360, 10, true);
             }
             wait(agent.lua_state_agent, 3.0);
             if macros::is_excute(agent) {
-                macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
+                macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.85, 0, 0, 0, 0, 0, 0, false);
             }
             wait(agent.lua_state_agent, 3.0);
         }
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_throwlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1280979f7d));
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_01"));
     }
     wait(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x126e99fe51));
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x162aeb9635));
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_03"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_koopajr_rnd_attack"));
     }
     wait(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_DOWN_SE(agent, Hash40::new_raw(0x157ce9b678));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1408f27036));
+        macros::PLAY_DOWN_SE(agent, Hash40::new("se_common_down_soil_s"));
+        macros::PLAY_SE(agent, Hash40::new("se_common_kick_hit_m"));
     }
 }
 
@@ -127,16 +127,16 @@ unsafe extern "C" fn expression_throwlw(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x041f1b251e, 0x0a8b4bac20);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("item"), hash40("item_drill"));
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0fafb6b401), 5);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackss"), 5);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
     frame(agent.lua_state_agent, 46.0);
     if macros::is_excute(agent) {
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0e49ca009f), 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
@@ -144,6 +144,6 @@ unsafe extern "C" fn expression_throwlw(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 75.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x041f1b251e, 0x09b7a04434);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("item"), hash40("item_none"));
     }
 }

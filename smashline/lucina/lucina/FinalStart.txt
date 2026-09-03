@@ -11,11 +11,11 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
         }
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x1654ea70d3), false);
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart02.nuanmb"), false);
             }
         } else {
             if macros::is_excute(agent) {
-                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), false);
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
             }
         }
     } else {
@@ -37,36 +37,36 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0fad3383ad), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_lucina_final"), false, false, false);
     }
     frame(agent.lua_state_agent, 26.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x12f3bf9595), Hash40::new_raw(0x051a07c0e7), 0, 12, 0.00001, 0, 0, 0, 1.5, true);
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x16bed9a469), Hash40::new_raw(0x051a07c0e7), 0, 12, 0.00001, 0, 0, 0, 1.5, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("lucina_final_light"), Hash40::new("haver"), 0, 12, 0.00001, 0, 0, 0, 1.5, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("lucina_final_lensflare"), Hash40::new("haver"), 0, 12, 0.00001, 0, 0, 0, 1.5, true);
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1749acf4ed), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("lucina_final_sword_aura"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 45.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x12f3bf9595), -1);
-        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x16bed9a469), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("lucina_final_light"), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("lucina_final_lensflare"), -1);
     }
 }
 
 unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11296a7bc5));
+        macros::PLAY_SE(agent, Hash40::new("se_lucina_final06"));
     }
     wait(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0f7a81f69a));
+        macros::PLAY_SE(agent, Hash40::new("vc_lucina_final"));
     }
     wait(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x11b70eee66));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_lucina_final01"));
     }
 }
 

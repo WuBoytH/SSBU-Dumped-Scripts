@@ -11,20 +11,20 @@ unsafe extern "C" fn game_specialsfail(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_specialsfail(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1590745e2a), Hash40::new_raw(0x031ed91fca), 0, 17, 10, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("buddy_special_s_sweat"), Hash40::new("top"), 0, 17, 10, 0, 0, 0, 1, true);
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0d0da6e3c0), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 2, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_specialsfail(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x172dfd76a5));
+        macros::PLAY_SE(agent, Hash40::new("se_buddy_special_s04_02"));
     }
 }
 
@@ -38,7 +38,7 @@ unsafe extern "C" fn expression_specialsfail(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0fc9a5de3b), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_landl_hv"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {

@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_visualscene02(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD2, Hash40::new_raw(0x0f077026de), false, 0.0) /* TODO: verify padded default args */;
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_BACKGROUND, Hash40::new_raw(0x0f077026de), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_SWORD2, Hash40::new("visual_scene_02"), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_MASTER_GENERATE_ARTICLE_BACKGROUND, Hash40::new("visual_scene_02"), false, 0.0) /* TODO: verify padded default args */;
     }
     frame(agent.lua_state_agent, 140.0);
     if macros::is_excute(agent) {
@@ -12,40 +12,40 @@ unsafe extern "C" fn game_visualscene02(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_visualscene02(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_MASTER_INSTANCE_WORK_ID_FLAG_SWORD_OFF_EFFECT_AURA);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x18cc4ebfda), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 0, 0, 1, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a30cc7607), Hash40::new_raw(0x0613f917e1), 2.5, 0, 0, 0, 0, 0, 1, true);
-        macros::EFFECT_GLOBAL(agent, Hash40::new_raw(0x14ab6ccdbc), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("master_final_sword_spark"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("master_final_sword_charge2"), Hash40::new("sword1"), 2.5, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_GLOBAL(agent, Hash40::new("master_final_screen1"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x17ee5ea5eb), false, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x18cc4ebfda), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("master_final_bg_twincle"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("master_final_sword_spark"), true, true);
     }
     frame(agent.lua_state_agent, 70.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_GLOBAL(agent, Hash40::new_raw(0x18afa61201), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_GLOBAL(agent, Hash40::new("master_final_sword_front"), 0, 0, 0, 0, 0, 0, 1, true);
     }
 }
 
 unsafe extern "C" fn sound_visualscene02(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11b4664303));
+        macros::PLAY_SE(agent, Hash40::new("se_master_final03"));
     }
     frame(agent.lua_state_agent, 35.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11645ef6fd));
-        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x170d39473e));
+        macros::PLAY_SE(agent, Hash40::new("vc_master_final02"));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_master_guest_final03"));
     }
     frame(agent.lua_state_agent, 57.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x112a02d6a0));
+        macros::PLAY_SE(agent, Hash40::new("se_master_final04"));
     }
 }
 
 unsafe extern "C" fn expression_visualscene02(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x19ed1786a3), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x19ed1786a3), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_75_beginningend_v2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_75_beginningend_v2"), 0);
     }
 }

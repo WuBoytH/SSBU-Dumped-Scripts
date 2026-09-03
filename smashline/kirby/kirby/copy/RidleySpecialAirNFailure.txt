@@ -1,13 +1,13 @@
 unsafe extern "C" fn effect_ridleyspecialairnfailure(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x097f7cfaed), Hash40::new_raw(0x04dba80bb2), 0, 6, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_flame"), Hash40::new("body"), 0, 6, 0, 0, 0, 0, 1.25, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_ridleyspecialairnfailure(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1533a0a9cd));
+        macros::PLAY_SE(agent, Hash40::new("se_ridley_special_n04"));
     }
 }
 
@@ -15,6 +15,6 @@ unsafe extern "C" fn expression_ridleyspecialairnfailure(agent: &mut L2CAgentBas
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1176aa3f9e), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_damage_lv4"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

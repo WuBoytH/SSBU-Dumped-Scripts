@@ -6,27 +6,27 @@ unsafe extern "C" fn game_finalairbeam(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalairbeam(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x19699a28ea), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_final_gliderjump"), false, false);
     }
     frame(agent.lua_state_agent, 110.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x180ee33ca0), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_final_backlight"), false, false);
     }
 }
 
 unsafe extern "C" fn sound_finalairbeam(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x13e6c5af83));
+        macros::PLAY_STATUS(agent, Hash40::new("se_palutena_final03"));
     }
     wait(agent.lua_state_agent, 100.0);
     if macros::is_excute(agent) {
         sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
-        macros::STOP_SE(agent, Hash40::new_raw(0x1391c29f15));
+        macros::STOP_SE(agent, Hash40::new("se_palutena_final02"));
     }
     wait(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x1378a13a20));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_palutena_final04"));
     }
 }
 
@@ -37,18 +37,18 @@ unsafe extern "C" fn expression_finalairbeam(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x112c3c5d44), 10, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionl"), 10, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11166078cd), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_loopattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     wait(agent.lua_state_agent, 80.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0cc5a0d007), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     wait(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x112c3c5d44), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -13,12 +13,12 @@ unsafe extern "C" fn effect_donkeyspecialn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x112d3b0ea0), Hash40::new_raw(0x112d3b0ea0), Hash40::new_raw(0x031ed91fca), 0, 5.5, 13, 17, -10, 0, 0.5, true, *EF_FLIP_YZ);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("donkey_giantpunch"), Hash40::new("donkey_giantpunch"), Hash40::new("top"), 0, 5.5, 13, 17, -10, 0, 0.5, true, *EF_FLIP_YZ);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x18c4326bee), Hash40::new_raw(0x18c4326bee), Hash40::new_raw(0x031ed91fca), 0, 4, 21, 0, 0, 0, 0.6, true, *EF_FLIP_YZ);
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("donkey_giantpunch_impact"), Hash40::new("donkey_giantpunch_impact"), Hash40::new("top"), 0, 4, 21, 0, 0, 0, 0.6, true, *EF_FLIP_YZ);
         macros::LAST_EFFECT_SET_RATE(agent, 0.7);
     }
 }
@@ -26,7 +26,7 @@ unsafe extern "C" fn effect_donkeyspecialn(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_donkeyspecialn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15329aee5b));
+        macros::PLAY_SE(agent, Hash40::new("se_donkey_special_n02"));
     }
 }
 
@@ -40,11 +40,11 @@ unsafe extern "C" fn expression_donkeyspecialn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0e3ecd3009), 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
     }

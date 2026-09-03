@@ -11,17 +11,17 @@ unsafe extern "C" fn effect_specialairs(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 7.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_S_WORK_ID_FLAG_ALREADY_EXIST_CRASHBOMB) {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x17186c44c4), Hash40::new_raw(0x031ed91fca), 0, 7, 10, 0, -90, 0, 0.62, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("rockman_clashbomb_start"), Hash40::new("top"), 0, 7, 10, 0, -90, 0, 0.62, true);
         }
     }
     frame(agent.lua_state_agent, 19.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_S_WORK_ID_FLAG_ALREADY_EXIST_CRASHBOMB) {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16456c905e), Hash40::new_raw(0x031ed91fca), 0, 7.5, 11, 0, -0.00001, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("rockman_clashbomb_fire"), Hash40::new("top"), 0, 7.5, 11, 0, -0.00001, 0, 1, true);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16456c905e), Hash40::new_raw(0x031ed91fca), 0, 7, 11, 0, -0.00001, 0, 0.6, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("rockman_clashbomb_fire"), Hash40::new("top"), 0, 7, 11, 0, -0.00001, 0, 0.6, true);
         }
     }
 }
@@ -30,13 +30,13 @@ unsafe extern "C" fn sound_specialairs(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 19.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_S_WORK_ID_FLAG_ALREADY_EXIST_CRASHBOMB) {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1665f33aff));
+            macros::PLAY_SE(agent, Hash40::new("se_rockman_special_s01"));
         }
     }
     frame(agent.lua_state_agent, 19.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_S_WORK_ID_FLAG_ALREADY_EXIST_CRASHBOMB) {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x161599ce70));
+            macros::PLAY_SE(agent, Hash40::new("se_rockman_special_s04"));
         }
     }
 }
@@ -49,13 +49,13 @@ unsafe extern "C" fn expression_specialairs(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 18.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_S_WORK_ID_FLAG_ALREADY_EXIST_CRASHBOMB) {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e49ca009f), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     }
     frame(agent.lua_state_agent, 18.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_S_WORK_ID_FLAG_ALREADY_EXIST_CRASHBOMB) {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d487813b4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     }
 }

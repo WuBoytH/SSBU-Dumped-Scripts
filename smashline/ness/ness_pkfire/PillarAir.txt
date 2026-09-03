@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_pillarair(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 1.0, 58, 45, 0, 16, 6.5, 0.0, 3.1, 2.0, None, None, None, 0.33, 1.5, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 7, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13beb18342), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_PSI);
-        macros::ATTACK(agent, 1, 0, Hash40::new_raw(0x031ed91fca), 1.0, 58, 45, 0, 16, 4.5, 0.0, 9.6, 2.0, None, None, None, 0.33, 1.5, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 7, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13beb18342), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_PSI);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 1.0, 58, 45, 0, 16, 6.5, 0.0, 3.1, 2.0, None, None, None, 0.33, 1.5, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 7, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_PSI);
+        macros::ATTACK(agent, 1, 0, Hash40::new("top"), 1.0, 58, 45, 0, 16, 4.5, 0.0, 9.6, 2.0, None, None, None, 0.33, 1.5, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 7, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_PSI);
         macros::AREA_WIND_2ND_RAD(agent, 0, 1, 0.05, 200, 0.6, 0, 10, 20, 60) /* TODO: macro expects 8 args */;
     }
 }
@@ -9,7 +9,7 @@ unsafe extern "C" fn game_pillarair(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_pillarair(agent: &mut L2CAgentBase) {
     loop {
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x0e589dd674), Hash40::new_raw(0x031ed91fca), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::EFFECT(agent, Hash40::new("ness_pkfi_bomb"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 10.0);
     }
@@ -17,6 +17,6 @@ unsafe extern "C" fn effect_pillarair(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_pillarair(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x13b3847824));
+        macros::PLAY_STATUS(agent, Hash40::new("se_ness_special_s02"));
     }
 }

@@ -2,7 +2,7 @@ unsafe extern "C" fn game_finalend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::CAM_ZOOM_OUT(agent);
         camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
-        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_KAMUI_FINAL, 0, 13.0, 60, 125, 0, 75, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_WATER, *ATTACK_REGION_NONE);
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_KAMUI_FINAL, 0, 13.0, 60, 125, 0, 75, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_WATER, *ATTACK_REGION_NONE);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
     }
     frame(agent.lua_state_agent, 30.0);
@@ -19,7 +19,7 @@ unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
                     if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_LIGHT) {
                         if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_DARK) {
                             if macros::is_excute(agent) {
-                                macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a16ae2e10), Hash40::new_raw(0x051a36341b), -1.5, 0, 0, 0, 0, 0, 1.2, true);
+                                macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_dragon_end"), Hash40::new("waist"), -1.5, 0, 0, 0, 0, 0, 1.2, true);
                             }
                             if WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 2 {
                                 if macros::is_excute(agent) {
@@ -64,7 +64,7 @@ unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
                     if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_LIGHT) {
                         if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_DARK) {
                             if macros::is_excute(agent) {
-                                macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a16ae2e10), Hash40::new_raw(0x049bf3f6be), 0, 0, 0, 0, 0, 0, 0.8, true);
+                                macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_dragon_end"), Hash40::new("armr"), 0, 0, 0, 0, 0, 0, 0.8, true);
                             }
                             if WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 2 {
                                 if macros::is_excute(agent) {
@@ -109,7 +109,7 @@ unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
                     if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_LIGHT) {
                         if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_DARK) {
                             if macros::is_excute(agent) {
-                                macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a16ae2e10), Hash40::new_raw(0x0461fccbdd), 0, 0, 0, 0, 0, 0, 0.8, true);
+                                macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_dragon_end"), Hash40::new("arml"), 0, 0, 0, 0, 0, 0, 0.8, true);
                             }
                             if WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 2 {
                                 if macros::is_excute(agent) {
@@ -154,7 +154,7 @@ unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
                     if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_LIGHT) {
                         if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_DARK) {
                             if macros::is_excute(agent) {
-                                macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a16ae2e10), Hash40::new_raw(0x051ba4b748), 0, 0, 0, 0, 0, 0, 0.8, true);
+                                macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_dragon_end"), Hash40::new("kneer"), 0, 0, 0, 0, 0, 0, 0.8, true);
                             }
                             if WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 2 {
                                 if macros::is_excute(agent) {
@@ -199,7 +199,7 @@ unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
                     if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_LIGHT) {
                         if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_DARK) {
                             if macros::is_excute(agent) {
-                                macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a16ae2e10), Hash40::new_raw(0x05e1ab8a2b), 0, 0, 0, 0, 0, 0, 0.8, true);
+                                macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_dragon_end"), Hash40::new("kneel"), 0, 0, 0, 0, 0, 0, 0.8, true);
                             }
                             if WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 2 {
                                 if macros::is_excute(agent) {
@@ -243,21 +243,21 @@ unsafe extern "C" fn expression_finalend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        VisibilityModule::set_int64(agent.module_accessor, 0x0627d829b4, 0x0b17593350);
-        VisibilityModule::set_int64(agent.module_accessor, 0x0aa427db75, 0x0fceb2c39f);
-        VisibilityModule::set_int64(agent.module_accessor, 0x049cf76119, 0x097aa97ee6);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e3ecd3009), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon"), hash40("dragon_horn"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair"), hash40("front_hair_hide"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair"), hash40("hair_hide"));
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x049cf76119, 0x0be4da58d4);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair"), hash40("hair_normal"));
     }
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0aa427db75, 0x11aff7e141);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair"), hash40("front_hair_normal"));
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0627d829b4, 0x0b4397e859);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon"), hash40("dragon_none"));
     }
 }

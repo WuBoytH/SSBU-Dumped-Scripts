@@ -7,11 +7,11 @@ unsafe extern "C" fn game_catchturn(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_catchturn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x126fc602bb));
+        macros::PLAY_SE(agent, Hash40::new("se_common_swing_04"));
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x117a1f5eb0));
+        macros::PLAY_STATUS(agent, Hash40::new("se_tantan_catch01"));
     }
 }
 
@@ -21,6 +21,6 @@ unsafe extern "C" fn expression_catchturn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0f1e996bf0), 15, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_furafura"), 15, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

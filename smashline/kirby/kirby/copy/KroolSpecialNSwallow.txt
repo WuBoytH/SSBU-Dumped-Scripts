@@ -1,7 +1,7 @@
 unsafe extern "C" fn effect_kroolspecialnswallow(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x139ef88237), true, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1b1c3e9d75), Hash40::new_raw(0x031ed91fca), 0, 6, 14, 0, 0, 0, 0.8, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("krool_cannon_vacuum"), true, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("krool_cannon_vacuum_success"), Hash40::new("top"), 0, 6, 14, 0, 0, 0, 0.8, true);
     }
 }
 
@@ -9,13 +9,13 @@ unsafe extern "C" fn sound_kroolspecialnswallow(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_KROOL_INSTANCE_WORK_ID_FLAG_SPECIAL_N_SUCTION_IRONBALL) {
         if macros::is_excute(agent) {
-            macros::STOP_SE(agent, Hash40::new_raw(0x14d7fb8eb5));
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1439f5ef99));
+            macros::STOP_SE(agent, Hash40::new("se_krool_special_n01"));
+            macros::PLAY_SE(agent, Hash40::new("se_krool_special_n03"));
         }
     } else {
         if macros::is_excute(agent) {
-            macros::STOP_SE(agent, Hash40::new_raw(0x14d7fb8eb5));
-            macros::PLAY_SE(agent, Hash40::new_raw(0x14a7917a3a));
+            macros::STOP_SE(agent, Hash40::new("se_krool_special_n01"));
+            macros::PLAY_SE(agent, Hash40::new("se_krool_special_n04"));
         }
     }
 }
@@ -27,6 +27,6 @@ unsafe extern "C" fn expression_kroolspecialnswallow(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0eb3c53dfc), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

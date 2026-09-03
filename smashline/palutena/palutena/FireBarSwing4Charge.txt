@@ -9,19 +9,19 @@ unsafe extern "C" fn effect_firebarswing4charge(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_firebarswing4charge(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x18f7179e75));
+        macros::PLAY_SE(agent, Hash40::new("se_common_smash_start_03"));
     }
 }
 
 unsafe extern "C" fn expression_firebarswing4charge(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        physics!(agent, *MA_MSC_CMD_PHYSICS_START_CHARGE, 0.9, 0.8, -1, 0.9, 0.8, -1, Hash40::new_raw(0x07fb997a80));
+        physics!(agent, *MA_MSC_CMD_PHYSICS_START_CHARGE, 0.9, 0.8, -1, 0.9, 0.8, -1, Hash40::new("invalid"));
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         macros::AREA_WIND_2ND(agent, 0, 0.5, 66, 3, 0.2, -4, 8, 24, 24, 80);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 61.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x119a789590), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

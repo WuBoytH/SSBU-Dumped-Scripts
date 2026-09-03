@@ -14,11 +14,11 @@ unsafe extern "C" fn game_specialairhi(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_specialairhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x148f53883b), Hash40::new_raw(0x031d39a761), 0, -8, 0, 90, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("gekkouga_pump_splash"), Hash40::new("rot"), 0, -8, 0, 90, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x125ebb591b), Hash40::new_raw(0x031d39a761), 0, 20, 0, 90, 0, 0, 1.2, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("gekkouga_pump_line"), Hash40::new("rot"), 0, 20, 0, 90, 0, 0, 1.2, true);
     }
 }
 
@@ -26,11 +26,11 @@ unsafe extern "C" fn sound_specialairhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_GEKKOUGA_STATUS_WORK_ID_FLAG_2ND) {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x17d3e9b3de));
+            macros::PLAY_SE(agent, Hash40::new("se_gekkouga_special_h02"));
         }
     } else {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x174ae0e264));
+            macros::PLAY_SE(agent, Hash40::new("se_gekkouga_special_h01"));
         }
     }
 }
@@ -43,6 +43,6 @@ unsafe extern "C" fn expression_specialairhi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10ae609fd9), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_waterjets"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

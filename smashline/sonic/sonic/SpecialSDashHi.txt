@@ -2,7 +2,7 @@ unsafe extern "C" fn game_specialsdashhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         JostleModule::set_status(agent.module_accessor, false);
         AttackModule::clear_all(agent.module_accessor);
-        macros::ATTACK(agent, *FIGHTER_SONIC_STATUS_SPECIAL_S_DASH_ATTACK_ID_DEFAULT as u64, 0, Hash40::new_raw(0x035dbfe258), 7.0, 70, 67, 0, 67, 3.2, 0.0, 1.5, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
+        macros::ATTACK(agent, *FIGHTER_SONIC_STATUS_SPECIAL_S_DASH_ATTACK_ID_DEFAULT as u64, 0, Hash40::new("hip"), 7.0, 70, 67, 0, 67, 3.2, 0.0, 1.5, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
         AttackModule::set_captured_same_time_attack(agent.module_accessor, *FIGHTER_SONIC_STATUS_SPECIAL_S_DASH_ATTACK_ID_DEFAULT, true);
         AttackModule::set_attack_keep_rumble(agent.module_accessor, 0, true);
     }
@@ -11,79 +11,79 @@ unsafe extern "C" fn game_specialsdashhi(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialsdashhi(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_SONIC_STATUS_SPECIAL_S_DASH_FLAG_MAX_CHARGE) {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x1363d0d1fb), Hash40::new_raw(0x031ed91fca), 0, 5, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sonic_spintrace_max"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, true);
             EffectModule::enable_sync_init_pos_last(agent.module_accessor);
-            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x12e182bd34), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sonic_spinblur_max"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
             EffectModule::enable_sync_init_pos_last(agent.module_accessor);
         }
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x16dcb125ac), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 90, 0, 1, true);
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind_oneshot"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 1, true);
                 macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.928, 0.65);
             }
         } else {
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x16dcb125ac), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, -90, 0, 1, true);
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind_oneshot"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 1, true);
                 macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.928, 0.65);
             }
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x0f64ab0e46), Hash40::new_raw(0x031ed91fca), 0, 5, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sonic_spintrace"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, true);
             EffectModule::enable_sync_init_pos_last(agent.module_accessor);
-            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x0ee81887c4), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sonic_spinblur"), Hash40::new("sphere"), 0, 0, 0, 0, 0, 0, 1, true);
             EffectModule::enable_sync_init_pos_last(agent.module_accessor);
         }
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x0ed4f69c49), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 90, 0, 0.8, true);
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.8, true);
                 macros::LAST_EFFECT_SET_COLOR(agent, 0.711, 0.931, 1);
             }
         } else {
             if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x0ed4f69c49), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, -90, 0, 0.8, true);
+                macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 0.8, true);
                 macros::LAST_EFFECT_SET_COLOR(agent, 0.711, 0.931, 1);
             }
         }
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x0ed4f69c49), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, 90, 0, 0.8, true);
+            macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, 90, 0, 0.8, true);
             macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.928, 0.65);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new_raw(0x0ed4f69c49), Hash40::new_raw(0x0655f96687), 0, 0, 0, 0, -90, 0, 0.8, true);
+            macros::EFFECT_FOLLOW_NO_SCALE(agent, Hash40::new("sonic_spinwind"), Hash40::new("sphere"), 0, 0, 0, 0, -90, 0, 0.8, true);
             macros::LAST_EFFECT_SET_COLOR(agent, 1, 0.928, 0.65);
         }
     }
     wait(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0dbbe7c8c4), Hash40::new_raw(0x031ed91fca), 0, 0, -12, 0, 0, 0, 0.8, 5, 0, 0, 0, 0, 0, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, -12, 0, 0, 0, 0.8, 5, 0, 0, 0, 0, 0, true);
     }
     loop {
         wait(agent.lua_state_agent, 5.0);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
     loop {
         if macros::is_excute(agent) {
             macros::FLASH(agent, 1, 1, 1, 0.13);
-            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 4.0);
         if macros::is_excute(agent) {
             macros::COL_NORMAL(agent);
-            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 4.0);
         if macros::is_excute(agent) {
             macros::FLASH(agent, 1, 1, 0.275, 0.196);
-            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 4.0);
         if macros::is_excute(agent) {
             macros::COL_NORMAL(agent);
-            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 4.0);
     }
@@ -91,55 +91,55 @@ unsafe extern "C" fn effect_specialsdashhi(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_specialsdashhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14bb6051d9));
+        macros::PLAY_SE(agent, Hash40::new("se_sonic_special_s01"));
     }
 }
 
 unsafe extern "C" fn expression_specialsdashhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bc0e5c581);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x09bc1e6985), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0505c6b25a), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x05ffc98f39), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x031d39a761), *HIT_STATUS_NORMAL);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_sphere"));
+        macros::HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("s_stingd1"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("footl"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_NORMAL);
     }
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
         ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0e49ca009f), 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
     }
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 31.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 41.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 51.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -1,18 +1,18 @@
 unsafe extern "C" fn effect_cliffclimb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 26.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0d0da6e3c0), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_cliffclimb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x17f2149b59));
+        macros::PLAY_SE(agent, Hash40::new("se_younglink_dash_start"));
     }
     wait(agent.lua_state_agent, 33.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x166de55b1e));
+        macros::PLAY_SE(agent, Hash40::new("se_younglink_landing01"));
     }
 }
 
@@ -23,6 +23,6 @@ unsafe extern "C" fn expression_cliffclimb(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0c70173cfd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

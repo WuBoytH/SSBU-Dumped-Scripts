@@ -2,8 +2,8 @@ unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
         macros::FLASH(agent, 1, 1, 1, 0.2);
-        macros::EFFECT(agent, Hash40::new_raw(0x0b8e4d76b1), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sheik_entry"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
@@ -19,7 +19,7 @@ unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x114a1cd13f));
+        macros::PLAY_SE(agent, Hash40::new("se_sheik_appear01"));
     }
 }
 

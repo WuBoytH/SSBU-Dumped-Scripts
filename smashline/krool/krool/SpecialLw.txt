@@ -19,11 +19,11 @@ unsafe extern "C" fn effect_speciallw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15519b6af1), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("krool_counter_flash_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x13d0744a1d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("krool_counter_flash"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
         }
     }
 }
@@ -31,16 +31,16 @@ unsafe extern "C" fn effect_speciallw(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_speciallw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14d47f5adb));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14622981d7));
+        macros::PLAY_SE(agent, Hash40::new("se_krool_special_l01"));
+        macros::PLAY_SE(agent, Hash40::new("vc_krool_special_l01"));
     }
     frame(agent.lua_state_agent, 29.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x143a713bf7));
+        macros::PLAY_SE(agent, Hash40::new("se_krool_special_l03"));
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14fb20d06d));
+        macros::PLAY_SE(agent, Hash40::new("vc_krool_special_l02"));
     }
 }
 
@@ -50,6 +50,6 @@ unsafe extern "C" fn expression_speciallw(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -1,16 +1,16 @@
 unsafe extern "C" fn sound_specialairhidamage(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x147fe23d07));
+        macros::PLAY_SE(agent, Hash40::new("se_diddy_special_h03"));
     }
 }
 
 unsafe extern "C" fn expression_specialairhidamage(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_attach_item_visibility(agent.module_accessor, false, *ATTACH_ITEM_GROUP_BACK as u32);
-        VisibilityModule::set_int64(agent.module_accessor, 0x069a6137b7, 0x0ee711ae08);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("barrel"), hash40("barrel_visible"));
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x069a6137b7, 0x10086bb3ee);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("barrel"), hash40("barrel_invisible"));
     }
 }

@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_visualscene02(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_BACKGROUND, false, -1);
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_BACKGROUND, Hash40::new_raw(0x0f077026de), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_BACKGROUND, Hash40::new("visual_scene_02"), false, 0.0) /* TODO: verify padded default args */;
         VisibilityModule::set_whole(agent.module_accessor, true);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_JACK_STATUS_FINAL_FLAG_TARGET_FURAFURA);
     }
@@ -35,15 +35,15 @@ unsafe extern "C" fn game_visualscene02(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_visualscene02(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x11e10c7998));
+        macros::STOP_SE(agent, Hash40::new("se_jack_final02_4"));
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x110f0218b4));
+        macros::PLAY_SE(agent, Hash40::new("se_jack_final02_6"));
     }
     frame(agent.lua_state_agent, 98.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1178052822));
+        macros::PLAY_SE(agent, Hash40::new("se_jack_final02_7"));
     }
 }
 
@@ -53,12 +53,12 @@ unsafe extern "C" fn expression_visualscene02(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d2fe44f91), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x0d2fe44f91), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_impact"), 0);
     }
     frame(agent.lua_state_agent, 96.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1538184f17), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x1538184f17), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_slash_critical"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_slash_critical"), 0);
     }
 }

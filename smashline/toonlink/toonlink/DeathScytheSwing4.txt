@@ -1,6 +1,6 @@
 unsafe extern "C" fn game_deathscytheswing4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::SEARCH(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 5.0, 0.0, 7.4, 23.3, Some(0.0), Some(7.4), Some(23.3), *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+        macros::SEARCH(agent, 0, 0, Hash40::new("top"), 5.0, 0.0, 7.4, 23.3, Some(0.0), Some(7.4), Some(23.3), *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
     }
     // TODO: game_DeathscytheSwing4Common();
 }
@@ -16,17 +16,17 @@ unsafe extern "C" fn effect_deathscytheswing4(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_deathscytheswing4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x156bea5f43));
+        macros::STOP_SE(agent, Hash40::new("se_common_smash_start"));
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x146cc7a4da));
+        macros::PLAY_SE(agent, Hash40::new("vc_toonlink_attack05"));
     }
 }
 
 unsafe extern "C" fn expression_deathscytheswing4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x061e93d2e8, 0x0b8f067556);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("shield"), hash40("shield_back"));
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(agent.lua_state_agent, 7.0);
@@ -36,6 +36,6 @@ unsafe extern "C" fn expression_deathscytheswing4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0f2b93f840), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

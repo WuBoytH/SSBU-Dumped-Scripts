@@ -22,13 +22,13 @@ unsafe extern "C" fn effect_specialairncharge(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairncharge(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x1628910deb));
+        macros::PLAY_STATUS(agent, Hash40::new("se_koopajr_special_n02"));
     }
 }
 
 unsafe extern "C" fn expression_specialairncharge(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x05327cb690, 0x09511940c5);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("tarap"), hash40("tarap_off"));
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

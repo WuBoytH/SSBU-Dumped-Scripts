@@ -2,10 +2,10 @@ unsafe extern "C" fn effect_walkfast(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 14.0);
         if macros::is_excute(agent) {
-            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 2.5, 0, 3, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 2.5, 0, 3, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 30.0);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 5, 0, -2, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 5, 0, -2, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -14,10 +14,10 @@ unsafe extern "C" fn sound_walkfast(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 14.0);
         if macros::is_excute(agent) {
-            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x14285babba), Hash40::new_raw(0x155a37eae2));
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopa_step_left_s"), Hash40::new("se_koopa_step_right_s"));
         }
         frame(agent.lua_state_agent, 30.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x155a37eae2), Hash40::new_raw(0x14285babba));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopa_step_right_s"), Hash40::new("se_koopa_step_left_s"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -30,11 +30,11 @@ unsafe extern "C" fn expression_walkfast(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 15.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0eadcb80bf), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
             macros::QUAKE(agent, *CAMERA_QUAKE_KIND_SMALL_HF);
         }
         frame(agent.lua_state_agent, 31.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0eadcb80bf), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

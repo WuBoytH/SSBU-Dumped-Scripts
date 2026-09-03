@@ -1,6 +1,6 @@
 unsafe extern "C" fn effect_death(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x1102e2201d), Hash40::new_raw(0x035dbfe258), 1, 0, 0, 0, 0, -90, 1.1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("rosetta_tico_dead"), Hash40::new("hip"), 1, 0, 0, 0, 0, -90, 1.1, 0, 0, 0, 0, 0, 0, true);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
     }
     frame(agent.lua_state_agent, 60.0);
@@ -12,6 +12,6 @@ unsafe extern "C" fn effect_death(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_death(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0c16a87e48));
+        macros::PLAY_SE(agent, Hash40::new("se_tico_dead"));
     }
 }

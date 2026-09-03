@@ -1,6 +1,6 @@
 unsafe extern "C" fn game_deathscytheswing4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::SEARCH(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 5.0, 0.0, 7.4, 23.3, Some(0.0), Some(7.4), Some(23.3), *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+        macros::SEARCH(agent, 0, 0, Hash40::new("top"), 5.0, 0.0, 7.4, 23.3, Some(0.0), Some(7.4), Some(23.3), *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
     }
     // TODO: game_DeathscytheSwing4Common();
 }
@@ -16,11 +16,11 @@ unsafe extern "C" fn effect_deathscytheswing4(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_deathscytheswing4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x156bea5f43));
+        macros::STOP_SE(agent, Hash40::new("se_common_smash_start"));
     }
     wait(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1badb7d9ce));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_miifighter_rnd_attack02"));
     }
 }
 
@@ -35,6 +35,6 @@ unsafe extern "C" fn expression_deathscytheswing4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0f2b93f840), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

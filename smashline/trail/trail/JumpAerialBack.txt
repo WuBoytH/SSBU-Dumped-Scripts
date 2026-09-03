@@ -10,20 +10,20 @@ unsafe extern "C" fn game_jumpaerialback(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_jumpaerialback(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0f97480fb2), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_jump_aerial"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_jumpaerialback(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0fe939f6ee));
+        macros::PLAY_SE(agent, Hash40::new("se_trail_jump02"));
     }
 }
 
 unsafe extern "C" fn expression_jumpaerialback(agent: &mut L2CAgentBase) {
     // TODO: expression_JumpAerialBackRumble();
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10588ca9de), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_aerial"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

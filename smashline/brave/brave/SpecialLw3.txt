@@ -9,8 +9,8 @@ unsafe extern "C" fn game_speciallw3(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_speciallw3(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12d3549310), Hash40::new_raw(0x031ed91fca), 0, 9, 0, 0, -60, 0, 1, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_chant_finish"), Hash40::new("top"), 0, 9, 0, 0, -60, 0, 1, false);
     }
 }
 
@@ -25,6 +25,6 @@ unsafe extern "C" fn expression_speciallw3(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x12cca52f77), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohit_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -2,11 +2,11 @@ unsafe extern "C" fn game_pchange(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, -1);
         ArticleModule::set_visibility_whole(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x0925339dc5);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("m_ball_lr"));
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x08532515e6);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("m_ball_l"));
         ArticleModule::set_visibility_whole(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::shoot(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
     }
@@ -16,14 +16,14 @@ unsafe extern "C" fn game_pchange(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 1);
     frame(agent.lua_state_agent, 103.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x08a92a2885);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("m_ball_r"));
     }
 }
 
 unsafe extern "C" fn effect_pchange(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 78.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1551b91024), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ptrainer_change_catch"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
     }
 }
 
@@ -34,26 +34,26 @@ unsafe extern "C" fn sound_pchange(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x166c262c6a));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_ball_swing"));
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1ba0fbc8e0));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_change_recovery"));
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x159ce646bb));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_ball_open"));
     }
     frame(agent.lua_state_agent, 28.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x197fb0adfd));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_change_appear"));
     }
     frame(agent.lua_state_agent, 104.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x19634415a9));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_ball_recovery"));
     }
     frame(agent.lua_state_agent, 115.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x18193959ea));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_ball_putaway"));
     }
 }

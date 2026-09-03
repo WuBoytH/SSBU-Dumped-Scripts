@@ -2,7 +2,7 @@ unsafe extern "C" fn effect_appealhil(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
         let color = WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1072cf1920), Hash40::new_raw(0x08ee04bc43), -4, 0, 0, 0, 0, -90, 1, true, color) /* TODO: macro expects 10 args */;
+        macros::EFFECT_FOLLOW(agent, Hash40::new("duckhunt_feather"), Hash40::new("duckneck"), -4, 0, 0, 0, 0, -90, 1, true, color) /* TODO: macro expects 10 args */;
         macros::LAST_EFFECT_SET_WORK_INT(agent, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
     }
     frame(agent.lua_state_agent, 16.0);
@@ -12,53 +12,53 @@ unsafe extern "C" fn effect_appealhil(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 93.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_appealhil(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x16752b01ae));
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_appeal_h01"));
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x16ec225014));
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_appeal_h02"));
     }
     frame(agent.lua_state_agent, 35.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x169b256082));
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_appeal_h03"));
     }
     frame(agent.lua_state_agent, 60.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x160541f521));
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_appeal_h04"));
     }
     frame(agent.lua_state_agent, 80.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x167246c5b7));
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_appeal_h05"));
     }
 }
 
 unsafe extern "C" fn expression_appealhil(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d487813b4), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d487813b4), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 57.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d487813b4), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 82.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0d7e79f000);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_openwing"));
     }
     frame(agent.lua_state_agent, 85.0);
     if macros::is_excute(agent) {
@@ -66,6 +66,6 @@ unsafe extern "C" fn expression_appealhil(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 98.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
     }
 }

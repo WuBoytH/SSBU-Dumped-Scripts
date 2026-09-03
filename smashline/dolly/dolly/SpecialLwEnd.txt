@@ -6,17 +6,17 @@ unsafe extern "C" fn game_speciallwend(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_speciallwend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 11, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 11, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND) {
         if macros::is_excute(agent) {
-            macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x0c4c2ac48f), -1);
-            macros::EFFECT(agent, Hash40::new_raw(0x13186667d5), Hash40::new_raw(0x031ed91fca), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT_DETACH_KIND(agent, Hash40::new("dolly_down_s"), -1);
+            macros::EFFECT(agent, Hash40::new("dolly_down_ground_s"), Hash40::new("top"), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x0c2f2ca856), -1);
-            macros::EFFECT(agent, Hash40::new_raw(0x137b600b0c), Hash40::new_raw(0x031ed91fca), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT_DETACH_KIND(agent, Hash40::new("dolly_down_n"), -1);
+            macros::EFFECT(agent, Hash40::new("dolly_down_ground_n"), Hash40::new("top"), 0, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     }
 }
@@ -25,15 +25,15 @@ unsafe extern "C" fn sound_speciallwend(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DOLLY_STATUS_SPECIAL_COMMON_WORK_FLAG_COMMAND) {
         frame(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            macros::STOP_SE(agent, Hash40::new_raw(0x143ec98bbb));
-            macros::PLAY_SE(agent, Hash40::new_raw(0x14a7c0da01));
+            macros::STOP_SE(agent, Hash40::new("se_dolly_special_l05"));
+            macros::PLAY_SE(agent, Hash40::new("se_dolly_special_l06"));
         }
     } else {
         frame(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            macros::STOP_SE(agent, Hash40::new_raw(0x1439a44fa2));
-            macros::STOP_SE(agent, Hash40::new_raw(0x14a0ad1e18));
-            macros::PLAY_SE(agent, Hash40::new_raw(0x14d7aa2e8e));
+            macros::STOP_SE(agent, Hash40::new("se_dolly_special_l01"));
+            macros::STOP_SE(agent, Hash40::new("se_dolly_special_l02"));
+            macros::PLAY_SE(agent, Hash40::new("se_dolly_special_l03"));
         }
     }
 }
@@ -42,7 +42,7 @@ unsafe extern "C" fn expression_speciallwend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d2fe44f91), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     wait(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {

@@ -22,13 +22,13 @@ unsafe extern "C" fn game_escapen(agent: &mut L2CAgentBase) {
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(0x08569f5db6), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("escape_l"), false, 0.0) /* TODO: verify padded default args */;
             let motion_rate = get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_MOTION_RATE);
             macros::SET_RATE_ARTICLE(agent, motion_rate) /* TODO: macro expects 2 args */;
         }
     } else {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(0x0625e8b08e), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("escape"), false, 0.0) /* TODO: verify padded default args */;
             let motion_rate = get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_MOTION_RATE);
             macros::SET_RATE_ARTICLE(agent, motion_rate) /* TODO: macro expects 2 args */;
         }
@@ -50,14 +50,14 @@ unsafe extern "C" fn game_escapen(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_escapen(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_escapen(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x128d97f5a8));
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_escapen"));
     }
 }
 

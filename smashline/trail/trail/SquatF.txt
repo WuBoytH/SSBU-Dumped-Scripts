@@ -3,15 +3,15 @@ unsafe extern "C" fn effect_squatf(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 9.0);
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x05ffc98f39), 4, 0, -3, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+                macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 4, 0, -3, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
             }
         } else {
             if macros::is_excute(agent) {
-                macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x05ffc98f39), 4, 0, 3, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+                macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 4, 0, 3, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
             }
         }
         frame(agent.lua_state_agent, 19.0);
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x0505c6b25a), 4, 0, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), 4, 0, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -20,14 +20,14 @@ unsafe extern "C" fn sound_squatf(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1259282a1d));
+            macros::PLAY_SE(agent, Hash40::new("se_trail_squatf_01"));
         }
         frame(agent.lua_state_agent, 8.0);
         if macros::is_excute(agent) {
-            macros::PLAY_STEP(agent, Hash40::new_raw(0x12c0217ba7));
+            macros::PLAY_STEP(agent, Hash40::new("se_trail_squatf_02"));
         }
         frame(agent.lua_state_agent, 15.0);
-        macros::PLAY_SE(agent, Hash40::new_raw(0x12b7264b31));
+        macros::PLAY_SE(agent, Hash40::new("se_trail_squatf_03"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -39,10 +39,10 @@ unsafe extern "C" fn expression_squatf(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 13.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         frame(agent.lua_state_agent, 20.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

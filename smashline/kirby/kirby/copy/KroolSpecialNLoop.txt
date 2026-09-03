@@ -1,10 +1,10 @@
 unsafe extern "C" fn effect_kroolspecialnloop(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x139ef88237), Hash40::new_raw(0x031ed91fca), 0, 6, 14, 0, 0, 0, 0.8, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("krool_cannon_vacuum"), Hash40::new("top"), 0, 6, 14, 0, 0, 0, 0.8, true);
     }
     loop {
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), -6, 0, 0, 0, 0, 0, 0.6, 10, 0, 4, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 0.6, 10, 0, 4, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 10.0);
     }
@@ -14,7 +14,7 @@ unsafe extern "C" fn expression_kroolspecialnloop(agent: &mut L2CAgentBase) {
     loop {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

@@ -21,21 +21,21 @@ unsafe extern "C" fn game_attackairf(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_attackairf(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_RND(agent, Hash40::new_raw(0x16688e0af6), Hash40::new_raw(0x049bf3f6be), 6, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FOLLOW_RND(agent, Hash40::new("miigunner_atk_air_shot"), Hash40::new("armr"), 6, 0, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_attackairf(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1a9e11dbd9));
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1a1cd7ccbf));
+        macros::PLAY_SE(agent, Hash40::new("se_miigunner_attackair_f01"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_miigunner_rnd_attack01"));
     }
 }
 
 unsafe extern "C" fn expression_attackairf(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0c9adbe9bf), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

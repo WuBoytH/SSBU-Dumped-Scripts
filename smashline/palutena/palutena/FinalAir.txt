@@ -9,7 +9,7 @@ unsafe extern "C" fn game_finalair(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x0fb271b569), false, false) /* TODO: macro expects 2 args */;
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final.nuanmb"), false, false) /* TODO: macro expects 2 args */;
         }
     } else {
         if macros::is_excute(agent) {
@@ -33,56 +33,56 @@ unsafe extern "C" fn game_finalair(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalair(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x113d610ea7), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_palutena_final"), false, false, false);
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x1562334fdc), Hash40::new_raw(0x05ffc98f39), 0, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FLW_POS(agent, Hash40::new("palutena_final_ripple"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, true);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x1562334fdc), Hash40::new_raw(0x05ffc98f39), 0, 0, 0, 0, 180, 0, 1, true);
+            macros::EFFECT_FLW_POS(agent, Hash40::new("palutena_final_ripple"), Hash40::new("footl"), 0, 0, 0, 0, 180, 0, 1, true);
         }
     }
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x147222ecf2), Hash40::new_raw(0x05ffc98f39), 0, 0, 0, 0, 0, 0, 1, true);
-        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new_raw(0x180ee33ca0), Hash40::new_raw(0x04b12bd53f), 7, 0, 0, 0, -90, -90, 1, false, 1);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("palutena_final_flash"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_final_backlight"), Hash40::new("bust"), 7, 0, 0, 0, -90, -90, 1, false, 1);
     }
     frame(agent.lua_state_agent, 10.0);
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) >= 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x180ee33ca0), false, false);
-            macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new_raw(0x180ee33ca0), Hash40::new_raw(0x04b12bd53f), 7, 0, 0, 0, -90, -90, 1, false, 1);
+            macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_final_backlight"), false, false);
+            macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_final_backlight"), Hash40::new("bust"), 7, 0, 0, 0, -90, -90, 1, false, 1);
         }
     }
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x19b882a2c8), Hash40::new_raw(0x054fbb2ad2), 0, 8.65, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_final_wand_light"), Hash40::new("stick"), 0, 8.65, 0, 0, 0, 0, 1, true);
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x180ee33ca0), false, false);
-            macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new_raw(0x180ee33ca0), Hash40::new_raw(0x04b12bd53f), 7, 0, 0, 0, -90, -90, 1, false, 1);
+            macros::EFFECT_OFF_KIND(agent, Hash40::new("palutena_final_backlight"), false, false);
+            macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("palutena_final_backlight"), Hash40::new("bust"), 7, 0, 0, 0, -90, -90, 1, false, 1);
         }
     }
     frame(agent.lua_state_agent, 135.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x19699a28ea), Hash40::new_raw(0x051a36341b), 0, 0, 0, 0, 0, 0, 1.5, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("palutena_final_gliderjump"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1.5, false);
     }
 }
 
 unsafe extern "C" fn sound_finalair(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13383dff90));
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x1308cbceaf));
+        macros::PLAY_SE(agent, Hash40::new("vc_palutena_final01"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_palutena_final01"));
     }
     wait(agent.lua_state_agent, 85.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13a134ae2a));
+        macros::PLAY_SE(agent, Hash40::new("vc_palutena_final02"));
     }
     frame(agent.lua_state_agent, 142.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1391c29f15));
+        macros::PLAY_SE(agent, Hash40::new("se_palutena_final02"));
     }
 }
 
@@ -94,18 +94,18 @@ unsafe extern "C" fn expression_finalair(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 48.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 80.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 108.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 140.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -5,12 +5,12 @@ unsafe extern "C" fn game_speciallwb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
         macros::REVERSE_LR(agent);
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, Hash40::new_raw(0x0c1dc2a9b6), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, Hash40::new("special_lw_b"), false, 0.0) /* TODO: verify padded default args */;
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 15.0, 53, 98, 0, 40, 7.5, 0.0, 7.5, -6.0, Some(0.0), Some(7.5), Some(-8.0), 1.4, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x14860b063a), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
-        macros::ATTACK(agent, 1, 0, Hash40::new_raw(0x031ed91fca), 15.0, 53, 98, 0, 40, 5.5, 0.0, 6.5, -15.3, Some(0.0), Some(6.5), Some(2.0), 1.4, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x14860b063a), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 15.0, 53, 98, 0, 40, 7.5, 0.0, 7.5, -6.0, Some(0.0), Some(7.5), Some(-8.0), 1.4, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
+        macros::ATTACK(agent, 1, 0, Hash40::new("top"), 15.0, 53, 98, 0, 40, 5.5, 0.0, 6.5, -15.3, Some(0.0), Some(6.5), Some(2.0), 1.4, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_SWORD);
     }
     wait(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
@@ -30,42 +30,42 @@ unsafe extern "C" fn game_speciallwb(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_speciallwb(agent: &mut L2CAgentBase) {
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x134a85f54d), Hash40::new_raw(0x031ed91fca), 0, -2.4, -16.5, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("metaknight_mantle_b"), Hash40::new("top"), 0, -2.4, -16.5, 0, 0, 0, 1, true);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x134a85f54d), Hash40::new_raw(0x031ed91fca), 0, 0, -15, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("metaknight_mantle_b"), Hash40::new("top"), 0, 0, -15, 0, 0, 0, 1, true);
         }
     }
     EffectModule::set_disable_render_offset_last(agent.module_accessor);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x17c2314aeb), Hash40::new_raw(0x031ed91fca), 23, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("metaknight_attack_smoke"), Hash40::new("top"), 23, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0c47781d45), Hash40::new_raw(0x031ed91fca), 0, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x157d379a4c), Hash40::new_raw(0x031ed91fca), 0, 8, 0, 0, -90, 0, 1, true);
+        macros::EFFECT(agent, Hash40::new("sys_sp_flash"), Hash40::new("top"), 0, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("metaknight_mantle_end"), Hash40::new("top"), 0, 8, 0, 0, -90, 0, 1, true);
         macros::LAST_EFFECT_SET_RATE(agent, 1.5);
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x10790b338f), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("metaknight_sword"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x157d379a4c), false, false);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), -6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("metaknight_mantle_end"), false, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10790b338f), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("metaknight_sword"), false, false);
     }
 }
 
 unsafe extern "C" fn sound_speciallwb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x19da61ac66));
+        macros::PLAY_SE(agent, Hash40::new("se_metaknight_special_l03"));
     }
 }
 
@@ -74,8 +74,8 @@ unsafe extern "C" fn expression_speciallwb(agent: &mut L2CAgentBase) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
-        AttackModule::set_attack_reference_joint_id(agent.module_accessor, Hash40::new_raw(0x051a07c0e7), AttackDirectionAxis(*ATTACK_DIRECTION_Z), AttackDirectionAxis(*ATTACK_DIRECTION_Y), AttackDirectionAxis(*ATTACK_DIRECTION_X));
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0b82e1ff70);
+        AttackModule::set_attack_reference_joint_id(agent.module_accessor, Hash40::new("haver"), AttackDirectionAxis(*ATTACK_DIRECTION_Z), AttackDirectionAxis(*ATTACK_DIRECTION_Y), AttackDirectionAxis(*ATTACK_DIRECTION_X));
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_none"));
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
@@ -84,8 +84,8 @@ unsafe extern "C" fn expression_speciallwb(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0db75641a5), 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_slashl"), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
     }

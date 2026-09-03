@@ -9,7 +9,7 @@ unsafe extern "C" fn game_finalair2(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x100bb16777), true);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final2.nuanmb"), true);
             macros::FT_START_CUTIN(agent);
         }
     } else {
@@ -50,7 +50,7 @@ unsafe extern "C" fn game_finalair2(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalair2(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0da545f27a), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_popo_final"), false, false, false);
     }
 }
 
@@ -58,7 +58,7 @@ unsafe extern "C" fn sound_finalair2(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_POPO_INSTANCE_WORK_ID_FLAG_MAIN_FIGHTER_NANA) {
         frame(agent.lua_state_agent, 19.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x0fccdc528f));
+            macros::PLAY_SE(agent, Hash40::new("se_popo_final02"));
         }
     }
 }
@@ -70,7 +70,7 @@ unsafe extern "C" fn expression_finalair2(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 67.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1482808b32), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_15_iceberg_sp"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 89.0);
     if macros::is_excute(agent) {

@@ -9,7 +9,7 @@ unsafe extern "C" fn game_specialairnend(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairnend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_ATTR(agent, Hash40::new_raw(0x140b8082c7), Hash40::new_raw(0x059ec55c97), 2, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, true, *EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE);
+        macros::EFFECT_ATTR(agent, Hash40::new("packun_spikeball_end"), Hash40::new("mouth"), 2, 0, 0, 0, 0, -90, 1, 0, 0, 0, 0, 0, 0, true, *EFFECT_SUB_ATTRIBUTE_NO_JOINT_SCALE);
     }
 }
 
@@ -17,18 +17,18 @@ unsafe extern "C" fn sound_specialairnend(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLAG_END_PREVIOUS_SHOOT) {
         frame(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            macros::STOP_SE(agent, Hash40::new_raw(0x15873e73f2));
+            macros::STOP_SE(agent, Hash40::new("se_packun_special_n03"));
         }
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x156e5dd6c7));
+        macros::PLAY_SE(agent, Hash40::new("se_packun_special_n05"));
     }
 }
 
 unsafe extern "C" fn expression_specialairnend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0eb3c53dfc), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

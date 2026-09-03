@@ -1,11 +1,11 @@
 unsafe extern "C" fn effect_dededespecialairnbomb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0a8e614246), Hash40::new_raw(0x042011d653), 2, 3, -1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_bomb_a"), Hash40::new("neck"), 2, 3, -1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x097f7cfaed), Hash40::new_raw(0x042011d653), 2, 3, -1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_flame"), Hash40::new("neck"), 2, 3, -1.5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     for _ in 0..3 {
         if macros::is_excute(agent) {
@@ -27,7 +27,7 @@ unsafe extern "C" fn effect_dededespecialairnbomb(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_dededespecialairnbomb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x10f7dda349));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_common_bomb_s"));
     }
 }
 
@@ -37,11 +37,11 @@ unsafe extern "C" fn expression_dededespecialairnbomb(agent: &mut L2CAgentBase) 
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ee31cfd6c), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0aee0171fc);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_swell"));
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
@@ -49,10 +49,10 @@ unsafe extern "C" fn expression_dededespecialairnbomb(agent: &mut L2CAgentBase) 
     }
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10eaa9bff4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
     }
 }

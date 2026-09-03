@@ -7,13 +7,13 @@ unsafe extern "C" fn game_downboundd(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_downboundd(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::DOWN_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::DOWN_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
         let color = WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1072cf1920), Hash40::new_raw(0x08ee04bc43), -2, 0, 0, 0, 0, -90, 1, true, color) /* TODO: macro expects 10 args */;
+        macros::EFFECT_FOLLOW(agent, Hash40::new("duckhunt_feather"), Hash40::new("duckneck"), -2, 0, 0, 0, 0, -90, 1, true, color) /* TODO: macro expects 10 args */;
         macros::LAST_EFFECT_SET_WORK_INT(agent, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
     }
     frame(agent.lua_state_agent, 14.0);
@@ -21,7 +21,7 @@ unsafe extern "C" fn effect_downboundd(agent: &mut L2CAgentBase) {
         let effect_handle = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
         macros::EFFECT_OFF_HANDLE(agent, effect_handle);
         let color = WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1072cf1920), Hash40::new_raw(0x08ee04bc43), -2, 0, 0, 0, 0, -90, 1, true, color) /* TODO: macro expects 10 args */;
+        macros::EFFECT_FOLLOW(agent, Hash40::new("duckhunt_feather"), Hash40::new("duckneck"), -2, 0, 0, 0, 0, -90, 1, true, color) /* TODO: macro expects 10 args */;
         macros::LAST_EFFECT_SET_WORK_INT(agent, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
     }
     frame(agent.lua_state_agent, 28.0);
@@ -33,17 +33,17 @@ unsafe extern "C" fn effect_downboundd(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_downboundd(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x14a2021d17));
-        macros::STOP_SE(agent, Hash40::new_raw(0x14580d2074));
-        macros::STOP_SE(agent, Hash40::new_raw(0x142f0a10e2));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_s"));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_m"));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_l"));
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_DOWN_SE(agent, Hash40::new_raw(0x157ce9b678));
+        macros::PLAY_DOWN_SE(agent, Hash40::new("se_common_down_soil_s"));
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        macros::PLAY_DOWN_SE(agent, Hash40::new_raw(0x1645acdfb3));
+        macros::PLAY_DOWN_SE(agent, Hash40::new("se_common_down_soil_ss"));
     }
 }
 

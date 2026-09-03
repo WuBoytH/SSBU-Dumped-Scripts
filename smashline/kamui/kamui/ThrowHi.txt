@@ -2,9 +2,9 @@ unsafe extern "C" fn game_throwhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, false, -1);
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, Hash40::new_raw(0x08a0abc72c), false, 0.0) /* TODO: verify padded default args */;
-        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 3.0, 85, 198, 0, 30, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
-        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_WATERDRAGON, Hash40::new("throw_hi"), false, 0.0) /* TODO: verify padded default args */;
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 3.0, 85, 198, 0, 30, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
@@ -13,7 +13,7 @@ unsafe extern "C" fn game_throwhi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 6.5, 85, 150, 0, 40, 8.0, 0.0, 20.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_OBJECT);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 6.5, 85, 150, 0, 40, 8.0, 0.0, 20.0, 0.0, None, None, None, 1.5, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_OBJECT);
         AttackModule::set_catch_only_all(agent.module_accessor, true, false);
         macros::CHECK_FINISH_CAMERA(agent, 1, 27);
         lua_bind::FighterCutInManager::set_throw_finish_zoom_rate(singletons::FighterCutInManager(), 1.5);
@@ -23,7 +23,7 @@ unsafe extern "C" fn game_throwhi(agent: &mut L2CAgentBase) {
         let target_object = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_OBJECT);
         let target_hit_group = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_GROUP);
         let target_hit_no = WorkModule::get_int64(agent.module_accessor, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_NO);
-        macros::ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new_raw(0x054f934137), target_object, target_hit_group, target_hit_no);
+        macros::ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), target_object, target_hit_group, target_hit_no);
         AttackModule::clear_all(agent.module_accessor);
     }
     frame(agent.lua_state_agent, 43.0);
@@ -36,21 +36,21 @@ unsafe extern "C" fn game_throwhi(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_throwhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x1ca5affc7a), Hash40::new_raw(0x042011d653), 2, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("kamui_transform_splash_start"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x168753962e), false, false);
-        macros::EFFECT(agent, Hash40::new_raw(0x11f733f105), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("kamui_transform_dragon"), false, false);
+        macros::EFFECT(agent, Hash40::new("kamui_water_hamon"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x129829ab80), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 180, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("kamui_water_splash"), Hash40::new("top"), 0, 0, 0, 0, 180, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x054f934137), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 36.0);
     if macros::is_excute(agent) {
@@ -58,7 +58,7 @@ unsafe extern "C" fn effect_throwhi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 43.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1afeab8bac), Hash40::new_raw(0x042011d653), 2, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_OFF_EFEECT_TRANSFORM_WIND);
     }
 }
@@ -66,19 +66,19 @@ unsafe extern "C" fn effect_throwhi(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_throwhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x15118ee09d));
+        macros::PLAY_STATUS(agent, Hash40::new("se_kamui_dragon_start"));
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1280979f7d));
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_01"));
     }
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x12199ecec7));
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_02"));
     }
     frame(agent.lua_state_agent, 38.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x133350e357));
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_dragon_end"));
     }
 }
 
@@ -86,31 +86,31 @@ unsafe extern "C" fn expression_throwhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::FT_ATTACK_ABS_CAMERA_QUAKE(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        VisibilityModule::set_int64(agent.module_accessor, 0x0627d829b4, 0x0b17593350);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon"), hash40("dragon_horn"));
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0aa427db75, 0x0fceb2c39f);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair"), hash40("front_hair_hide"));
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x049cf76119, 0x097aa97ee6);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair"), hash40("hair_hide"));
     }
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0e49ca009f), 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
     frame(agent.lua_state_agent, 43.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x049cf76119, 0x0be4da58d4);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair"), hash40("hair_normal"));
     }
     frame(agent.lua_state_agent, 44.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0aa427db75, 0x11aff7e141);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair"), hash40("front_hair_normal"));
     }
     frame(agent.lua_state_agent, 47.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0627d829b4, 0x0b4397e859);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon"), hash40("dragon_none"));
     }
 }

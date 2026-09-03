@@ -1,7 +1,7 @@
 unsafe extern "C" fn sound_catchwait(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 4.0);
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0e959a0b91));
+        macros::PLAY_SE(agent, Hash40::new("se_yoshi_catch"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -12,7 +12,7 @@ unsafe extern "C" fn expression_catchwait(agent: &mut L2CAgentBase) {
             slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         }
         frame(agent.lua_state_agent, 8.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1209ad28ae), 14, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 14, true, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

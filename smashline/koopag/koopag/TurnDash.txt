@@ -12,25 +12,25 @@ unsafe extern "C" fn game_turndash(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_turndash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), -3, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x05ffc98f39), 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_turndash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x141c0c9c69));
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_dash_start"));
     }
     wait(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP(agent, Hash40::new_raw(0x16312d789a));
+        macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_right_m"));
     }
     wait(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP(agent, Hash40::new_raw(0x15a3971a97));
+        macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_left_m"));
     }
 }

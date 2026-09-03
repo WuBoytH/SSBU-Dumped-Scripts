@@ -1,6 +1,6 @@
 unsafe extern "C" fn effect_jumpback(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0e6b8d30f4), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1.2, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, false);
     }
 }
 
@@ -8,12 +8,12 @@ unsafe extern "C" fn sound_jumpback(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING) {
         if macros::is_excute(agent) {
-            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x12a8731475));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_ganon_rnd_jump"));
         }
     } else {
         if macros::is_excute(agent) {
-            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x12a8731475));
-            macros::PLAY_SE(agent, Hash40::new_raw(0x0ffc961fe8));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_ganon_rnd_jump"));
+            macros::PLAY_SE(agent, Hash40::new("se_ganon_jump01"));
         }
     }
 }

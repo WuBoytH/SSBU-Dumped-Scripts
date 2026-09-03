@@ -8,7 +8,7 @@ unsafe extern "C" fn game_specialairhi(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::FLASH(agent, 1, 1, 1, 1);
-        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new_raw(0x138f2439ba), Hash40::new_raw(0x031ed91fca), 0, 8.5, 0, 0, 0, 0, 0.9, false);
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("mewtwo_teleport_end"), Hash40::new("top"), 0, 8.5, 0, 0, 0, 0, 0.9, false);
     }
     frame(agent.lua_state_agent, 1.0);
     for _ in 0..4 {
@@ -29,14 +29,14 @@ unsafe extern "C" fn effect_specialairhi(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1544b0b809));
+        macros::PLAY_SE(agent, Hash40::new("se_mewtwo_special_h02"));
     }
 }
 
 unsafe extern "C" fn expression_specialairhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d404abaff), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beamss"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {

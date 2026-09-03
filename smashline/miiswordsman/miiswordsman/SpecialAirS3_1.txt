@@ -18,12 +18,12 @@ unsafe extern "C" fn effect_specialairs3_1(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_IS_GENERATE) {
         frame(agent.lua_state_agent, 8.0);
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x16e5f3181f), Hash40::new_raw(0x05eb263e0d), 4, 0, -2, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new("miiswordsman_chakram_t"), Hash40::new("handl"), 4, 0, -2, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
         }
     } else {
         frame(agent.lua_state_agent, 20.0);
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0b41410a4d), Hash40::new_raw(0x05eb263e0d), 4, -1, 0, 0, 0, 0, 0.8, false);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("sys_misfire"), Hash40::new("handl"), 4, -1, 0, 0, 0, 0, 0.8, false);
         }
     }
 }
@@ -31,16 +31,16 @@ unsafe extern "C" fn effect_specialairs3_1(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairs3_1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x239a83a297));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_miiswordsman_rnd_special_c3_s01"));
     }
     wait(agent.lua_state_agent, 3.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_FLICK) {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1e66aa2a00));
+            macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c3_s03"));
         }
     } else {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1e88a44b2c));
+            macros::PLAY_SE(agent, Hash40::new("se_miiswordsman_special_c3_s01"));
         }
     }
 }
@@ -54,11 +54,11 @@ unsafe extern "C" fn expression_specialairs3_1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 17.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_MIISWORDSMAN_STATUS_CHAKRAM_FLAG_IS_GENERATE) {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x163b9d8dde), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lightthrow4item"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     } else {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d487813b4), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     }
     frame(agent.lua_state_agent, 40.0);

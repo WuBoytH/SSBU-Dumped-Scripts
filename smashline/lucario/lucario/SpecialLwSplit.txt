@@ -8,23 +8,23 @@ unsafe extern "C" fn effect_speciallwsplit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::COL_PRI(agent, 200);
         macros::FLASH(agent, 0, 0, 0, 0);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x138dd24a0c), true, true);
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x193bfc0fdf), Hash40::new_raw(0x031ed91fca), 0, 0, -2, 0, 0, 0, 1, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("lucario_kagebunshin"), true, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("lucario_kagebunshin_split"), Hash40::new("top"), 0, 0, -2, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x193bfc0fdf), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("lucario_kagebunshin_split"), -1);
         macros::COL_NORMAL(agent);
     }
 }
 
 unsafe extern "C" fn sound_speciallwsplit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x0e9251b32a));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("vc_lucario_007"));
     }
     wait(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x165a0f1a4e));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_lucario_special_l02"));
     }
 }
 
@@ -35,6 +35,6 @@ unsafe extern "C" fn expression_speciallwsplit(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ed8a54f86), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_counter"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_win3(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_WINDUMMY, false, -1);
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_WINDUMMY, Hash40::new_raw(0x050b44b5ec), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_WINDUMMY, Hash40::new("win_3"), false, 0.0) /* TODO: verify padded default args */;
     }
 }
 
@@ -13,7 +13,7 @@ unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 31.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12e8a0ba8b), Hash40::new_raw(0x031ed91fca), 0, 11.5, 3, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_change_win3"), Hash40::new("top"), 0, 11.5, 3, 0, 0, 0, 1, false);
         macros::FLASH(agent, 2, 3, 2, 1);
         macros::FLASH_FRM(agent, 6, 0.5, 0.5, 0.1, 0.5);
     }
@@ -28,7 +28,7 @@ unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 95.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x126f1d7d04), Hash40::new_raw(0x031ed91fca), -0.5, 11, 3, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_change_win3"), Hash40::new("top"), -0.5, 11, 3, 0, 0, 0, 1, false);
         macros::FLASH(agent, 3, 2, 2, 1.2);
         macros::FLASH_FRM(agent, 6, 1, 0.15, 0.02, 0.5);
     }
@@ -41,7 +41,7 @@ unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 24.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x136ca6668a));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0f2e9edfdb));
+        macros::PLAY_SE(agent, Hash40::new("vc_eflame_win03_mix"));
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_win03"));
     }
 }

@@ -1,14 +1,14 @@
 unsafe extern "C" fn game_loop(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x114232c11c), 240, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_spinattack"), 240, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }
 
 unsafe extern "C" fn effect_loop(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1d16f9cdcd), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.85, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_final_powerstar_light"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.85, true);
     }
     loop {
         if macros::is_excute(agent) {

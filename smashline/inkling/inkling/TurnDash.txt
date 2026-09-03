@@ -24,11 +24,11 @@ unsafe extern "C" fn game_turndash(agent: &mut L2CAgentBase) {
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(0x0b8aebf476), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("turn_dash_l"), false, 0.0) /* TODO: verify padded default args */;
         }
     } else {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(0x0b70e4c915), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("turn_dash_r"), false, 0.0) /* TODO: verify padded default args */;
         }
     }
     frame(agent.lua_state_agent, 1.0);
@@ -57,7 +57,7 @@ unsafe extern "C" fn game_turndash(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_turndash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new_raw(0x14ab915845), Hash40::new_raw(0x04a7f3f69c), 3, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("inkling_squid_change"), Hash40::new("head"), 3, 0, 0, 0, 0, 0, 1, true);
     }
     WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
     WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
@@ -67,23 +67,23 @@ unsafe extern "C" fn effect_turndash(agent: &mut L2CAgentBase) {
     }
     if macros::is_excute(agent) {
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), -3, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 24.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_turndash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x158ed7de15));
-        macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x158ed7de15), 20);
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_dash_start"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_inkling_dash_start"), 20);
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x148fa0d39c));
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_dash_turn"));
     }
 }
 
@@ -97,7 +97,7 @@ unsafe extern "C" fn expression_turndash(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b41cc0a88), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {

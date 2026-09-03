@@ -1,20 +1,20 @@
 unsafe extern "C" fn effect_speciallwhit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x15ab1aeaea), Hash40::new_raw(0x04a7f3f69c), 2, -1, 0, 0, 0, 0, 1, false);
-        EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new_raw(0x0cde87653a), Hash40::new_raw(0x035dbfe258), Vector2::new(30.0, 30.0), Vector3::new(0.0, 0.0, 0.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
+        macros::EFFECT_FLW_POS(agent, Hash40::new("shulk_counter_success"), Hash40::new("head"), 2, -1, 0, 0, 0, 0, 1, false);
+        EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("hip"), Vector2::new(30.0, 30.0), Vector3::new(0.0, 0.0, 0.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0c0f87c4c3), Hash40::new_raw(0x035dbfe258), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("shulk_vision"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_SHULK_STATUS_SPECIAL_LW_FLAG_SPECIAL_EFFECT) {
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x11e9417690), Hash40::new_raw(0x035dbfe258), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::EFFECT(agent, Hash40::new("sys_counter_flash"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12a2050432), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("shulk_monad_sword3"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
         EffectModule::remove_post_effect_line(agent.module_accessor, 2, true);
     }
 }
@@ -22,16 +22,16 @@ unsafe extern "C" fn effect_speciallwhit(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_speciallwhit(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1415d5c950));
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1773c30e73));
+        macros::PLAY_SE(agent, Hash40::new("se_shulk_special_l01"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_shulk_rnd_special_l"));
     }
 }
 
 unsafe extern "C" fn expression_speciallwhit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0f1bae52ad);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_monad_hand"));
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ed8a54f86), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_counter"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

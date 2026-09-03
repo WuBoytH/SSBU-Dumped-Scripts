@@ -13,11 +13,11 @@ unsafe extern "C" fn game_final2airstart(agent: &mut L2CAgentBase) {
         }
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x1654ea70d3), true);
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart02.nuanmb"), true);
             }
         } else {
             if macros::is_excute(agent) {
-                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), true);
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), true);
             }
         }
     } else {
@@ -40,30 +40,30 @@ unsafe extern "C" fn game_final2airstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_final2airstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0f3d9bc930), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_cloud_final2"), false, false, false);
         effect!(agent, *MA_MSC_EFFECT_SET_SYNC_SCALE, false);
         effect!(agent, *MA_MSC_EFFECT_SET_SYNC_SCALE, true);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x178d9a67be), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x17a24b4bd2), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT(agent, Hash40::new("cloud_final2_start_aura"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("cloud_final2_sword_aura"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x189e24dd09), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("cloud_final2_sword_trace"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 37.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x189e24dd09), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("cloud_final2_sword_trace"), false, true);
     }
 }
 
 unsafe extern "C" fn sound_final2airstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1077c738ce));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x102f64312a));
+        macros::PLAY_SE(agent, Hash40::new("se_cloud_final01"));
+        macros::PLAY_SE(agent, Hash40::new("vc_cloud_final01"));
     }
     frame(agent.lua_state_agent, 24.0);
     if macros::is_excute(agent) {

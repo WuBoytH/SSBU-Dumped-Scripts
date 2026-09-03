@@ -1,7 +1,7 @@
 unsafe extern "C" fn sound_finalend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11c0201871));
+        macros::PLAY_SE(agent, Hash40::new("se_pikmin_final06"));
     }
 }
 
@@ -10,10 +10,10 @@ unsafe extern "C" fn expression_finalend(agent: &mut L2CAgentBase) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
         ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0f9e179b21), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase_sp"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     wait(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1455f6637b), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_40_rocket_sp2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

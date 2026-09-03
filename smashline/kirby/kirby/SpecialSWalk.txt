@@ -2,10 +2,10 @@ unsafe extern "C" fn sound_specialswalk(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 4.0);
         if macros::is_excute(agent) {
-            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x14aa7ea26b), Hash40::new_raw(0x15ab612da9));
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_kirby_step_left_s"), Hash40::new("se_kirby_step_right_s"));
         }
         wait(agent.lua_state_agent, 20.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x15ab612da9), Hash40::new_raw(0x14aa7ea26b));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_kirby_step_right_s"), Hash40::new("se_kirby_step_left_s"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

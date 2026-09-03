@@ -1,13 +1,13 @@
 unsafe extern "C" fn sound_downwaitd(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x14a2021d17));
-        macros::STOP_SE(agent, Hash40::new_raw(0x14580d2074));
-        macros::STOP_SE(agent, Hash40::new_raw(0x142f0a10e2));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_s"));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_m"));
+        macros::STOP_SE(agent, Hash40::new("se_common_blowaway_l"));
     }
     frame(agent.lua_state_agent, 1.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_DOWN_FLAG_PREV_STATUS_DOWN_EAT) {
         if macros::is_excute(agent) {
-            macros::PLAY_DOWN_SE(agent, Hash40::new_raw(0x1645acdfb3));
+            macros::PLAY_DOWN_SE(agent, Hash40::new("se_common_down_soil_ss"));
         }
     }
 }
@@ -15,7 +15,7 @@ unsafe extern "C" fn sound_downwaitd(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_downwaitd(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
-        VisibilityModule::set_int64(agent.module_accessor, 0x04a7f3f69c, 0x0a7c0dec31);
-        VisibilityModule::set_int64(agent.module_accessor, 0x042762428f, 0x0c3fa88843);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("head"), hash40("head_close"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hand"), hash40("hand_hold_lr"));
     }
 }

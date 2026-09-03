@@ -12,18 +12,18 @@ unsafe extern "C" fn game_specialairlw2(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairlw2(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0ea4930680), Hash40::new_raw(0x031ed91fca), 0, 2, 7, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("murabito_water"), Hash40::new("top"), 0, 2, 7, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0ea4930680), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("murabito_water"), false, false);
     }
 }
 
 unsafe extern "C" fn sound_specialairlw2(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x179cd37a6f));
+        macros::PLAY_STATUS(agent, Hash40::new("se_murabito_special_l02"));
     }
 }
 
@@ -33,17 +33,17 @@ unsafe extern "C" fn expression_specialairlw2(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x041f1b251e, 0x0f81ff0059);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("item"), hash40("item_sprinkling"));
     }
     frame(agent.lua_state_agent, 4.0);
     for _ in 0..5 {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1209ad28ae), 30, true, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 30, true, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         wait(agent.lua_state_agent, 7.0);
     }
     frame(agent.lua_state_agent, 47.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x041f1b251e, 0x09b7a04434);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("item"), hash40("item_none"));
     }
 }

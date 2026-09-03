@@ -6,30 +6,30 @@ unsafe extern "C" fn game_cliffescape(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_cliffescape(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0ec09045bb), Hash40::new_raw(0x031ed91fca), -7, 0, 0, 0, 0, 0, 1.3, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -7, 0, 0, 0, 0, 0, 1.3, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 31.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_cliffescape(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11bafe44dc));
+        macros::PLAY_SE(agent, Hash40::new("se_roy_dash_start"));
     }
     wait(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP(agent, Hash40::new_raw(0x132097de73));
+        macros::PLAY_STEP(agent, Hash40::new("se_roy_step_right_m"));
     }
     wait(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0dd0337d2a));
+        macros::PLAY_SE(agent, Hash40::new("se_roy_escape"));
     }
     wait(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x10ac05c403));
+        macros::PLAY_SE(agent, Hash40::new("se_roy_landing02"));
     }
 }
 
@@ -40,7 +40,7 @@ unsafe extern "C" fn expression_cliffescape(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dce053f18), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_escape"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 39.0);
     if macros::is_excute(agent) {

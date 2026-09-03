@@ -1,37 +1,37 @@
 unsafe extern "C" fn effect_chromspecialairnend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x147a10edd6), false, false);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x14e319bc6c), false, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1204018b5d), Hash40::new_raw(0x05e008fd84), 0, 1.25, 0, -90, 90, 0, 1, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("chrom_volcano_hold_1"), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("chrom_volcano_hold_2"), false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("chrom_sword_purple"), Hash40::new("havel"), 0, 1.25, 0, -90, 90, 0, 1, true);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0f1cfa549f), Hash40::new_raw(0x031ed91fca), 0, 0, 17, 0, 0, 0, 0.93, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("chrom_volcano_e"), Hash40::new("top"), 0, 0, 17, 0, 0, 0, 0.93, 0, 0, 0, 0, 0, 0, true);
         macros::LAST_EFFECT_SET_RATE(agent, 0.95);
-        macros::EFFECT(agent, Hash40::new_raw(0x0f85f30525), Hash40::new_raw(0x031ed91fca), 0, 0, 17, 0, 0, 0, 0.93, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("chrom_volcano_f"), Hash40::new("top"), 0, 0, 17, 0, 0, 0, 0.93, 0, 0, 0, 0, 0, 0, true);
         macros::LAST_EFFECT_SET_RATE(agent, 0.95);
-        macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 17, 0, 0, 0, 0, 0, 0.78, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 17, 0, 0, 0, 0, 0, 0.78, 0, 0, 0, 0, 0, 0, false);
         macros::LAST_EFFECT_SET_RATE(agent, 0.9);
     }
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 17, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 17, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0dbbe7c8c4), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_b"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 38.0);
     if macros::is_excute(agent) {
         macros::COL_NORMAL(agent);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1204018b5d), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("chrom_sword_purple"), false, false);
     }
 }
 
 unsafe extern "C" fn sound_chromspecialairnend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14df8c20e5));
+        macros::PLAY_SE(agent, Hash40::new("se_chrom_special_n02"));
     }
 }
 
@@ -46,8 +46,8 @@ unsafe extern "C" fn expression_chromspecialairnend(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x10eaa9bff4), 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10eaa9bff4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_explosion"), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {

@@ -1,23 +1,23 @@
 unsafe extern "C" fn effect_turn(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_turn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP(agent, Hash40::new_raw(0x1a852f7222));
+        macros::PLAY_STEP(agent, Hash40::new("se_metaknight_step_right_m"));
     }
     wait(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP(agent, Hash40::new_raw(0x19aa23956b));
+        macros::PLAY_STEP(agent, Hash40::new("se_metaknight_step_left_m"));
     }
 }
 
 unsafe extern "C" fn expression_turn(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0d6fdac86f);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_normal"));
     }
 }

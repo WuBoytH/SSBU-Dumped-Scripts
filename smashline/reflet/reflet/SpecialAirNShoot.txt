@@ -12,8 +12,8 @@ unsafe extern "C" fn sound_specialairnshoot(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_REFLET_STATUS_SPECIAL_S_FLAG_SHOOT_OK) {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x122796b84d));
-            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1c7eadfd70));
+            macros::PLAY_SE(agent, Hash40::new("se_reflet_mp_empty"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_reflet_rnd_special_empty"));
         }
     }
 }
@@ -26,7 +26,7 @@ unsafe extern "C" fn expression_specialairnshoot(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 11.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_REFLET_STATUS_SPECIAL_S_FLAG_SHOOT_OK) {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0cdf926da0), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_blank"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     }
 }

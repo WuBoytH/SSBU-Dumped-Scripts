@@ -7,40 +7,40 @@ unsafe extern "C" fn game_escapef(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_escapef(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x031ed91fca), 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_escapef(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15de39fd2d));
+        macros::PLAY_SE(agent, Hash40::new("se_pfushigisou_escape"));
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1cdb38f95b), Hash40::new_raw(0x1da38759e2));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pfushigisou_step_f_left_m"), Hash40::new("se_pfushigisou_step_f_right_m"));
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1da38759e2), Hash40::new_raw(0x1cdb38f95b));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pfushigisou_step_f_right_m"), Hash40::new("se_pfushigisou_step_f_left_m"));
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1dfe6b08ee), Hash40::new_raw(0x1c5f72f7a1));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pfushigisou_step_b_right_m"), Hash40::new("se_pfushigisou_step_b_left_m"));
     }
     frame(agent.lua_state_agent, 31.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1c5f72f7a1), Hash40::new_raw(0x1dfe6b08ee));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pfushigisou_step_b_left_m"), Hash40::new("se_pfushigisou_step_b_right_m"));
     }
 }
 
 unsafe extern "C" fn expression_escapef(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x0d1c7047c3);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("weapon_normal"));
     }
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {

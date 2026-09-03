@@ -1,7 +1,7 @@
 unsafe extern "C" fn effect_sleeploop(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 25.0);
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x0975712420), Hash40::new_raw(0x04a7f3f69c), 2, 4, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("sys_sleep"), Hash40::new("head"), 2, 4, 0, 0, 0, 0, 1, false);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -9,7 +9,7 @@ unsafe extern "C" fn effect_sleeploop(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_sleeploop(agent: &mut L2CAgentBase) {
     loop {
         if macros::is_excute(agent) {
-            macros::PLAY_STATUS(agent, Hash40::new_raw(0x163a81bc9b));
+            macros::PLAY_STATUS(agent, Hash40::new("vc_gamewatch_furasleep"));
         }
         wait(agent.lua_state_agent, 1.0);
         wait_loop_sync_mot(agent.lua_state_agent);
@@ -24,33 +24,33 @@ unsafe extern "C" fn expression_sleeploop(agent: &mut L2CAgentBase) {
         }
         wait(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0cec8a6b69), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
-            VisibilityModule::set_int64(agent.module_accessor, 0x04a7f3f69c, 0x0a7c0dec31);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_sleep"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+            VisibilityModule::set_int64(agent.module_accessor, hash40("head"), hash40("head_close"));
         }
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                VisibilityModule::set_int64(agent.module_accessor, 0x03c3273dca, 0x079e5574f6);
+                VisibilityModule::set_int64(agent.module_accessor, hash40("zzz"), hash40("r_zzz_5"));
             }
         } else {
             if macros::is_excute(agent) {
-                VisibilityModule::set_int64(agent.module_accessor, 0x03c3273dca, 0x07a9b49365);
-            }
-        }
-        wait(agent.lua_state_agent, 30.0);
-        if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
-            if macros::is_excute(agent) {
-                VisibilityModule::set_int64(agent.module_accessor, 0x03c3273dca, 0x07e9524460);
-            }
-        } else {
-            if macros::is_excute(agent) {
-                VisibilityModule::set_int64(agent.module_accessor, 0x03c3273dca, 0x07deb3a3f3);
+                VisibilityModule::set_int64(agent.module_accessor, hash40("zzz"), hash40("l_zzz_5"));
             }
         }
         wait(agent.lua_state_agent, 30.0);
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
-            VisibilityModule::set_int64(agent.module_accessor, 0x03c3273dca, 0x077736d1c3);
+            if macros::is_excute(agent) {
+                VisibilityModule::set_int64(agent.module_accessor, hash40("zzz"), hash40("r_zzz_4"));
+            }
         } else {
-            VisibilityModule::set_int64(agent.module_accessor, 0x03c3273dca, 0x0740d73650);
+            if macros::is_excute(agent) {
+                VisibilityModule::set_int64(agent.module_accessor, hash40("zzz"), hash40("l_zzz_4"));
+            }
+        }
+        wait(agent.lua_state_agent, 30.0);
+        if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+            VisibilityModule::set_int64(agent.module_accessor, hash40("zzz"), hash40("r_zzz_3"));
+        } else {
+            VisibilityModule::set_int64(agent.module_accessor, hash40("zzz"), hash40("l_zzz_3"));
         }
         wait_loop_sync_mot(agent.lua_state_agent);
     }

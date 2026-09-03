@@ -1,28 +1,28 @@
 unsafe extern "C" fn effect_landingairf(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_landingairf(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::PLAY_LANDING_SE(agent, Hash40::new_raw(0x135d275d21));
+        macros::PLAY_LANDING_SE(agent, Hash40::new("se_donkey_landing02"));
     }
     wait(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15cc540ecd));
+        macros::PLAY_SE(agent, Hash40::new("se_donkey_step_left_s"));
     }
     wait(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x166ebd3cbb));
+        macros::PLAY_SE(agent, Hash40::new("se_donkey_step_right_m"));
     }
 }
 
 unsafe extern "C" fn expression_landingairf(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0fc9a5de3b), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_landl_hv"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {

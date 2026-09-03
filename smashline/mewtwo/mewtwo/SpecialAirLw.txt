@@ -48,11 +48,11 @@ unsafe extern "C" fn effect_specialairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 13.0);
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1589494549), Hash40::new_raw(0x04a7f3f69c), 0.7, 1.9, 1.4, 0, 0, 0, 0.5, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("mewtwo_kanasibari_eye"), Hash40::new("head"), 0.7, 1.9, 1.4, 0, 0, 0, 0.5, true);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1589494549), Hash40::new_raw(0x04a7f3f69c), 0.7, 1.9, -1.4, 0, 0, 0, 0.5, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("mewtwo_kanasibari_eye"), Hash40::new("head"), 0.7, 1.9, -1.4, 0, 0, 0, 0.5, true);
         }
     }
 }
@@ -60,7 +60,7 @@ unsafe extern "C" fn effect_specialairlw(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15dab0416f));
+        macros::PLAY_SE(agent, Hash40::new("se_mewtwo_special_l01"));
     }
 }
 
@@ -70,7 +70,7 @@ unsafe extern "C" fn expression_specialairlw(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0c9adbe9bf), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         macros::AREA_WIND_2ND(agent, 0, 0.5, 220, 3, 0.2, -10, 5, 20, 10, 80);
     }
     frame(agent.lua_state_agent, 32.0);

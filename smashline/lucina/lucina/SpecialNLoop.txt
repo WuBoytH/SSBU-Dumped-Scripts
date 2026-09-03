@@ -1,6 +1,6 @@
 unsafe extern "C" fn effect_specialnloop(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1388f0ac45), Hash40::new_raw(0x051a07c0e7), -0.00001, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("lucina_sword_purple"), Hash40::new("haver"), -0.00001, 0, 0, 0, 0, 0, 1, true);
         macros::FLASH(agent, 1, 1, 1, 0.863);
     }
     wait(agent.lua_state_agent, 1.0);
@@ -10,21 +10,21 @@ unsafe extern "C" fn effect_specialnloop(agent: &mut L2CAgentBase) {
     }
     loop {
         if macros::is_excute(agent) {
-            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d22ee997e), Hash40::new_raw(0x031ed91fca), 0, 0, -2, 0, 0, 0, 0.8, 8, 0, 7, 0, 0, 0, true);
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_a"), Hash40::new("top"), 0, 0, -2, 0, 0, 0, 0.8, 8, 0, 7, 0, 0, 0, true);
         }
         wait(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x0613f917e1), 0, -0.00001, 8, 0, 0, 0, 1, 2, 2, 8, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("sword1"), 0, -0.00001, 8, 0, 0, 0, 1, 2, 2, 8, 0, 0, 0, true);
         }
         wait(agent.lua_state_agent, 5.0);
-        macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x0613f917e1), 0, -0.00001, 8, 0, 0, 0, 1, 2, 2, 8, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("sword1"), 0, -0.00001, 8, 0, 0, 0, 1, 2, 2, 8, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_specialnloop(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x150046bbe1));
+        macros::PLAY_STATUS(agent, Hash40::new("se_lucina_special_n02"));
     }
 }
 
@@ -35,6 +35,6 @@ unsafe extern "C" fn expression_specialnloop(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

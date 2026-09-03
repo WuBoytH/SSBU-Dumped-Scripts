@@ -20,7 +20,7 @@ unsafe extern "C" fn game_speciallwstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_speciallwstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x13921c76ab), Hash40::new_raw(0x031ed91fca), 0, 9, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("trail_counter_flash"), Hash40::new("top"), 0, 9, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         macros::FLASH(agent, 1, 1, 1, 0.75);
     }
     wait(agent.lua_state_agent, 1.0);
@@ -43,11 +43,11 @@ unsafe extern "C" fn effect_speciallwstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_speciallwstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14101da3b0));
+        macros::PLAY_SE(agent, Hash40::new("se_trail_special_l01"));
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14a64b78bc));
+        macros::PLAY_SE(agent, Hash40::new("vc_trail_special_l01"));
     }
 }
 
@@ -58,12 +58,12 @@ unsafe extern "C" fn expression_speciallwstart(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x14d118ef91), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_special_lw"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 19.0);
     for _ in 0..15 {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x187da697cd), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_speciallw_land"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         wait(agent.lua_state_agent, 2.0);
     }
@@ -87,7 +87,7 @@ unsafe extern "C" fn expression_speciallwstart(agent: &mut L2CAgentBase) {
     }
     loop {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1b0ded5110), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_landingairlwlight"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         wait(agent.lua_state_agent, 2.0);
     }

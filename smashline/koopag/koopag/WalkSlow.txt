@@ -2,12 +2,12 @@ unsafe extern "C" fn effect_walkslow(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 30.0);
         if macros::is_excute(agent) {
-            macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 20, 0, -15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 15, 0, -15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 20, 0, -15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 15, 0, -15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 92.0);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 20, 0, 15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 15, 0, 15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 20, 0, 15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 15, 0, 15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -16,10 +16,10 @@ unsafe extern "C" fn sound_walkslow(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 33.0);
         if macros::is_excute(agent) {
-            macros::PLAY_STEP(agent, Hash40::new_raw(0x17dfa4a7f6));
+            macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_right_ss"));
         }
         wait(agent.lua_state_agent, 60.0);
-        macros::PLAY_STEP(agent, Hash40::new_raw(0x17dfa4a7f6));
+        macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_right_ss"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

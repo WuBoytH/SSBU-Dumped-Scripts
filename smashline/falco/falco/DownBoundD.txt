@@ -7,24 +7,24 @@ unsafe extern "C" fn game_downboundd(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_downboundd(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::DOWN_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::DOWN_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_downboundd(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x1390b17353));
-        macros::STOP_SE(agent, Hash40::new_raw(0x136abe4e30));
-        macros::STOP_SE(agent, Hash40::new_raw(0x131db97ea6));
+        macros::STOP_SE(agent, Hash40::new("se_common_futtobi_s"));
+        macros::STOP_SE(agent, Hash40::new("se_common_futtobi_m"));
+        macros::STOP_SE(agent, Hash40::new("se_common_futtobi_l"));
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_DOWN_SE(agent, Hash40::new_raw(0x157ce9b678));
+        macros::PLAY_DOWN_SE(agent, Hash40::new("se_common_down_soil_s"));
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        macros::PLAY_DOWN_SE(agent, Hash40::new_raw(0x1645acdfb3));
+        macros::PLAY_DOWN_SE(agent, Hash40::new("se_common_down_soil_ss"));
     }
 }
 

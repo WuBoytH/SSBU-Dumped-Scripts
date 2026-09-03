@@ -2,10 +2,10 @@ unsafe extern "C" fn effect_walkfast(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 4.0);
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x05ffc98f39), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 17.0);
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x0505c6b25a), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -14,10 +14,10 @@ unsafe extern "C" fn sound_walkfast(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 12.0);
         if macros::is_excute(agent) {
-            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x168db1cc54), Hash40::new_raw(0x175d72cc91));
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_inkling_step_left_l"), Hash40::new("se_inkling_step_right_l"));
         }
         frame(agent.lua_state_agent, 28.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x175d72cc91), Hash40::new_raw(0x168db1cc54));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_inkling_step_right_l"), Hash40::new("se_inkling_step_left_l"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

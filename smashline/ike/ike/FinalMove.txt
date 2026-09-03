@@ -1,25 +1,25 @@
 unsafe extern "C" fn game_finalmove(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
-        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x0ab4f18a85);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("sword_hide"));
     }
 }
 
 unsafe extern "C" fn effect_finalmove(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_finalmove(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x0e2fba4b58));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ike_final01"));
     }
 }
 
 unsafe extern "C" fn expression_finalmove(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b41cc0a88), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

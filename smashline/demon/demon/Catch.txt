@@ -5,8 +5,8 @@ unsafe extern "C" fn game_catch(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::CATCH(agent, 0, Hash40::new_raw(0x031ed91fca), 4.0, 0.0, 9.0, 7.0, Some(0.0), Some(9.0), Some(11.2), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
-        macros::CATCH(agent, 1, Hash40::new_raw(0x031ed91fca), 2.0, 0.0, 9.0, 5.0, Some(0.0), Some(9.0), Some(13.2), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
+        macros::CATCH(agent, 0, Hash40::new("top"), 4.0, 0.0, 9.0, 7.0, Some(0.0), Some(9.0), Some(11.2), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
+        macros::CATCH(agent, 1, Hash40::new("top"), 2.0, 0.0, 9.0, 5.0, Some(0.0), Some(9.0), Some(13.2), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
     }
     // TODO: game_CaptureCutCommon();
     wait(agent.lua_state_agent, 2.0);
@@ -20,11 +20,11 @@ unsafe extern "C" fn game_catch(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_catch(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1281c86397));
+        macros::PLAY_SE(agent, Hash40::new("se_common_swing_06"));
     }
     wait(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x1281c86397));
+        macros::STOP_SE(agent, Hash40::new("se_common_swing_06"));
     }
 }
 
@@ -34,6 +34,6 @@ unsafe extern "C" fn expression_catch(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10aad95f2e), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

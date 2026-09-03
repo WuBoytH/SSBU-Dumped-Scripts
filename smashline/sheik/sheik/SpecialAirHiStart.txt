@@ -8,33 +8,33 @@ unsafe extern "C" fn game_specialairhistart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairhistart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 27.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x09d58cb98f), Hash40::new_raw(0x031ed91fca), 0, 5, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_flash"), Hash40::new("top"), 0, 5, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         macros::LAST_EFFECT_SET_RATE(agent, 1.3);
     }
     frame(agent.lua_state_agent, 36.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x162fd54f43), Hash40::new_raw(0x031ed91fca), 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT(agent, Hash40::new_raw(0x0a8e614246), Hash40::new_raw(0x031ed91fca), 0, 5, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sheik_fushin_start_air"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_bomb_a"), Hash40::new("top"), 0, 5, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
         macros::LAST_EFFECT_SET_RATE(agent, 1.5);
     }
     frame(agent.lua_state_agent, 55.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x103d5d1179), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sheik_fushin_end"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_specialairhistart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x143c13f182));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_sheik_special_h03"));
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1719a68e01));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_sheik_rnd_special_h"));
     }
     frame(agent.lua_state_agent, 35.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x14d21d90ae));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_sheik_special_h01"));
     }
 }
 
@@ -45,6 +45,6 @@ unsafe extern "C" fn expression_specialairhistart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 35.0);
     if macros::is_excute(agent) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10eaa9bff4), 20, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 20, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

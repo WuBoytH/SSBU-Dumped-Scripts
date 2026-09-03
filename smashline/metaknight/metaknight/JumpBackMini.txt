@@ -1,23 +1,23 @@
 unsafe extern "C" fn effect_jumpbackmini(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0e6b8d30f4), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
     }
 }
 
 unsafe extern "C" fn sound_jumpbackmini(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14d8838844));
+        macros::PLAY_SE(agent, Hash40::new("se_metaknight_jump06"));
     }
     wait(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14af84b8d2));
+        macros::PLAY_SE(agent, Hash40::new("se_metaknight_jump07"));
     }
 }
 
 unsafe extern "C" fn expression_jumpbackmini(agent: &mut L2CAgentBase) {
     // TODO: expression_JumpBackMiniRumble();
     if macros::is_excute(agent) {
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0d6fdac86f);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_normal"));
     }
 }

@@ -1,26 +1,26 @@
 unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x16e2b72210));
+        macros::PLAY_SE(agent, Hash40::new("se_gamewatch_appear_01"));
     }
     wait(agent.lua_state_agent, 40.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x167bbe73aa));
+        macros::PLAY_SE(agent, Hash40::new("se_gamewatch_appear_02"));
     }
     wait(agent.lua_state_agent, 40.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x160cb9433c));
+        macros::PLAY_SE(agent, Hash40::new("se_gamewatch_appear_03"));
     }
     wait(agent.lua_state_agent, 39.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x1692ddd69f));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_gamewatch_appear_04"));
     }
 }
 
 unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x042762428f, 0x0c3fa88843);
-        VisibilityModule::set_int64(agent.module_accessor, 0x04a7f3f69c, 0x0a7c0dec31);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hand"), hash40("hand_hold_lr"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("head"), hash40("head_close"));
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);

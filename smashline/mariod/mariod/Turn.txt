@@ -1,17 +1,17 @@
 unsafe extern "C" fn effect_turn(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_turn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x1547e3932d), Hash40::new_raw(0x161a7d5681));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_mariod_step_left_m"), Hash40::new("se_mariod_step_right_m"));
     }
     wait(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x161a7d5681), Hash40::new_raw(0x1547e3932d));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_mariod_step_right_m"), Hash40::new("se_mariod_step_left_m"));
     }
 }
 

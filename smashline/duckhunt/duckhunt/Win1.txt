@@ -1,13 +1,13 @@
 unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 55.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x13512877d8), Hash40::new_raw(0x031ed91fca), 0, 0, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("duckhunt_win1_grass"), Hash40::new("top"), 0, 0, -2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 60.0);
     loop {
         if macros::is_excute(agent) {
             let color = WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1072cf1920), Hash40::new_raw(0x08ee04bc43), -4, 0, 0, 0, 0, -90, 1, true, color) /* TODO: macro expects 10 args */;
+            macros::EFFECT_FOLLOW(agent, Hash40::new("duckhunt_feather"), Hash40::new("duckneck"), -4, 0, 0, 0, 0, -90, 1, true, color) /* TODO: macro expects 10 args */;
             macros::LAST_EFFECT_SET_WORK_INT(agent, *FIGHTER_STATUS_WIN_WORK_INT_EFFECT_HANDLE);
         }
         wait(agent.lua_state_agent, 16.0);
@@ -22,19 +22,19 @@ unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x186533bd82));
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_jump02_win01"));
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1bfdb656c4));
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_landing01_win01"));
     }
     frame(agent.lua_state_agent, 54.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x17c1f4275d));
+        macros::PLAY_STATUS(agent, Hash40::new("se_duckhunt_win01_win01"));
     }
     frame(agent.lua_state_agent, 86.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1ca91552af));
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_appeal_s02_win01"));
     }
     frame(agent.lua_state_agent, 123.0);
     if macros::is_excute(agent) {
@@ -44,7 +44,7 @@ unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0d7e79f000);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_openwing"));
         ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GUNMAN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_CAN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_DUCKHUNT_GENERATE_ARTICLE_GRASS, false, -1);

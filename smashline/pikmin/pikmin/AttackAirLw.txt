@@ -18,13 +18,13 @@ unsafe extern "C" fn effect_attackairlw(agent: &mut L2CAgentBase) {
     if WorkModule::get_int64(agent.module_accessor, *FIGHTER_PIKMIN_STATUS_ATTACK_AIR_WORK_INT_HAVE_PIKMIN) == 1 {
         frame(agent.lua_state_agent, 3.0);
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x031ed91fca), 0, -7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, -7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
             macros::LAST_EFFECT_SET_RATE(agent, 2);
         }
         frame(agent.lua_state_agent, 7.0);
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x1156ac182a), Hash40::new_raw(0x031ed91fca), 0, -12, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 360, false);
+            macros::EFFECT(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, -12, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 360, false);
         }
     }
 }
@@ -32,7 +32,7 @@ unsafe extern "C" fn effect_attackairlw(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_attackairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x177279edc3));
+        macros::PLAY_SE(agent, Hash40::new("se_pikmin_attackair_l01"));
     }
 }
 
@@ -42,11 +42,11 @@ unsafe extern "C" fn expression_attackairlw(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0e49ca009f), 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {

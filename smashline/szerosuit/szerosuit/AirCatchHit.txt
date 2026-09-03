@@ -7,23 +7,23 @@ unsafe extern "C" fn game_aircatchhit(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_aircatchhit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x105cc6ddce), Hash40::new_raw(0x051a07c0e7), 0, 3.2, 1.5, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("szero_whip_flash"), Hash40::new("haver"), 0, 3.2, 1.5, 0, 0, 0, 1, true);
     }
 }
 
 unsafe extern "C" fn sound_aircatchhit(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15af703857));
+        macros::PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
     }
     wait(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x10b38345cf));
+        macros::PLAY_SE(agent, Hash40::new("vc_szerosuit_003"));
     }
 }
 
 unsafe extern "C" fn expression_aircatchhit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1481a1a2f3), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapplingbeam"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

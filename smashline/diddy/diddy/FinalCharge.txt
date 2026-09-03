@@ -13,14 +13,14 @@ unsafe extern "C" fn game_finalcharge(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalcharge(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1509ad0705), Hash40::new_raw(0x04b12bd53f), -3, -4.5, -4.5, 0, 0, 0, 1.2, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1509ad0705), Hash40::new_raw(0x04b12bd53f), -3, -4.5, 4.5, 0, 0, 0, 1.2, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_final_charge_hi"), Hash40::new("bust"), -3, -4.5, -4.5, 0, 0, 0, 1.2, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("diddy_final_charge_hi"), Hash40::new("bust"), -3, -4.5, 4.5, 0, 0, 0, 1.2, true);
     }
 }
 
 unsafe extern "C" fn sound_finalcharge(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1023b8452b));
+        macros::PLAY_SE(agent, Hash40::new("se_diddy_final05"));
     }
 }
 
@@ -32,6 +32,6 @@ unsafe extern "C" fn expression_finalcharge(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0a378ce548), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_jet"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

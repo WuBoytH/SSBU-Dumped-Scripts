@@ -9,7 +9,7 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 55);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), false);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
         }
     } else {
         if macros::is_excute(agent) {
@@ -27,7 +27,7 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 45.0);
     if macros::is_excute(agent) {
         camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
-        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 3.0, 10, 100, 60, 0, 8.0, 0.0, 7.5, 5.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0x0267aa281f, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13beb18342), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 10, 100, 60, 0, 8.0, 0.0, 7.5, 5.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, true, 0x0267aa281f, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
         AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
         AttackModule::set_no_dead_all(agent.module_accessor, true, false);
     }
@@ -39,31 +39,31 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x10152f4acc), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_gaogaen_final"), false, false, false);
         macros::FT_REMOVE_FINAL_AURA(agent, false);
     }
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x149c308199), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x133e5b6caf), Hash40::new_raw(0x08813bc317), 0, 0, 2.5, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("gaogaen_final_ground"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("gaogaen_final_start"), Hash40::new("feelerca"), 0, 0, 2.5, 0, 0, 0, 1, false);
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x14d7073408), Hash40::new_raw(0x14d7073408), Hash40::new_raw(0x031ed91fca), -4, 8, 4, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("gaogaen_final_symbol"), Hash40::new("gaogaen_final_symbol"), Hash40::new("top"), -4, 8, 4, 0, 0, 0, 1, true, *EF_FLIP_YZ);
     }
 }
 
 unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x122bca7beb));
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_final01"));
     }
     frame(agent.lua_state_agent, 24.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x126804ad04));
+        macros::PLAY_SE(agent, Hash40::new("vc_gaogaen_final01"));
     }
 }

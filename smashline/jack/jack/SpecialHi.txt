@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_specialhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE, false, -1);
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE, Hash40::new_raw(0x0a28f17495), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE, Hash40::new("special_hi"), false, 0.0) /* TODO: verify padded default args */;
         macros::SET_RATE_ARTICLE(agent, *FIGHTER_JACK_GENERATE_ARTICLE_WIREROPE, 0);
     }
     frame(agent.lua_state_agent, 8.0);
@@ -18,9 +18,9 @@ unsafe extern "C" fn game_specialhi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        macros::SEARCH(agent, 0, 0, Hash40::new_raw(0x054f934137), 3.0, 1.5, 1.5, 0.7, Some(1.5), Some(-15.0), Some(-6.4), *COLLISION_KIND_MASK_HSR, *HIT_STATUS_MASK_NORMAL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, *COLLISION_PART_MASK_BODY, false);
-        macros::SEARCH(agent, 1, 0, Hash40::new_raw(0x054f934137), 5.5, 1.5, 1.5, 0.7, None, None, None, *COLLISION_KIND_MASK_HSR, *HIT_STATUS_MASK_NORMAL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, *COLLISION_PART_MASK_BODY, false);
-        macros::SEARCH(agent, 2, 0, Hash40::new_raw(0x054f934137), 5.5, 1.2, 1.5, 0.7, None, None, None, *COLLISION_KIND_MASK_HSR, *HIT_STATUS_MASK_NORMAL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, *COLLISION_PART_MASK_BODY, false);
+        macros::SEARCH(agent, 0, 0, Hash40::new("throw"), 3.0, 1.5, 1.5, 0.7, Some(1.5), Some(-15.0), Some(-6.4), *COLLISION_KIND_MASK_HSR, *HIT_STATUS_MASK_NORMAL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, *COLLISION_PART_MASK_BODY, false);
+        macros::SEARCH(agent, 1, 0, Hash40::new("throw"), 5.5, 1.5, 1.5, 0.7, None, None, None, *COLLISION_KIND_MASK_HSR, *HIT_STATUS_MASK_NORMAL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, *COLLISION_PART_MASK_BODY, false);
+        macros::SEARCH(agent, 2, 0, Hash40::new("throw"), 5.5, 1.2, 1.5, 0.7, None, None, None, *COLLISION_KIND_MASK_HSR, *HIT_STATUS_MASK_NORMAL, 0, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_STAGE_GIMMICK, *COLLISION_PART_MASK_BODY, false);
     }
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
@@ -50,37 +50,37 @@ unsafe extern "C" fn game_specialhi(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 20.0);
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0e0aa92478), Hash40::new_raw(0x054f934137), 0, 0, 0, 115.5, 0, -1, 0.6, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("jack_wire_line"), Hash40::new("throw"), 0, 0, 0, 115.5, 0, -1, 0.6, true);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0e0aa92478), Hash40::new_raw(0x054f934137), 0, 0, 0, 115.5, 0, 1, 0.6, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("jack_wire_line"), Hash40::new("throw"), 0, 0, 0, 115.5, 0, 1, 0.6, true);
         }
     }
     frame(agent.lua_state_agent, 26.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0e0aa92478), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("jack_wire_line"), false, true);
     }
 }
 
 unsafe extern "C" fn sound_specialhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13ec050530));
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x18ec185044));
+        macros::PLAY_SE(agent, Hash40::new("se_jack_special_h01"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_jack_rnd_special_h01"));
     }
     frame(agent.lua_state_agent, 29.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13750c548a));
+        macros::PLAY_SE(agent, Hash40::new("se_jack_special_h02"));
     }
     frame(agent.lua_state_agent, 37.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13020b641c));
+        macros::PLAY_SE(agent, Hash40::new("se_jack_special_h03"));
     }
 }
 
@@ -94,10 +94,10 @@ unsafe extern "C" fn expression_specialhi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 38.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ee31cfd6c), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -1,8 +1,8 @@
 unsafe extern "C" fn sound_speciallw3hit(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x17609d0f18));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1775b0df5a));
+        macros::STOP_SE(agent, Hash40::new("se_common_sword_swing_m"));
+        macros::PLAY_SE(agent, Hash40::new("se_murabito_special_l04"));
     }
 }
 
@@ -13,6 +13,6 @@ unsafe extern "C" fn expression_speciallw3hit(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 40.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x041f1b251e, 0x09b7a04434);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("item"), hash40("item_none"));
     }
 }

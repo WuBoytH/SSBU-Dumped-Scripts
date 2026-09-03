@@ -1,20 +1,20 @@
 unsafe extern "C" fn effect_airstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x1060fc8544), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_packun_final2"), false, false, false);
         macros::BURN_COLOR(agent, 4, 1.6, 8, 0.6);
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x12f7a36468), Hash40::new_raw(0x031ed91fca), -15, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new("packun_final_start"), Hash40::new("top"), -15, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x12f7a36468), Hash40::new_raw(0x031ed91fca), 15, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new("packun_final_start"), Hash40::new("top"), 15, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         }
     }
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16ad5cfd3e), Hash40::new_raw(0x06e9f90715), 13, 0, 0, 0, 0, 0, 1, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16ad5cfd3e), Hash40::new_raw(0x063db838ca), 13, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("packun_final_iron_aura"), Hash40::new("ironr2"), 13, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("packun_final_iron_aura"), Hash40::new("ironl2"), 13, 0, 0, 0, 0, 0, 1, false);
     }
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
@@ -29,6 +29,6 @@ unsafe extern "C" fn effect_airstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_airstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11d76c8364));
+        macros::PLAY_SE(agent, Hash40::new("se_packun_final01"));
     }
 }

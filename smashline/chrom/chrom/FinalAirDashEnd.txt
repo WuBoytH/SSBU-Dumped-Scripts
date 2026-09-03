@@ -8,8 +8,8 @@ unsafe extern "C" fn game_finalairdashend(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_finalairdashend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        EffectModule::remove_screen(agent.module_accessor, Hash40::new_raw(0x0fe0ba3294), -1);
-        EffectModule::remove_screen(agent.module_accessor, Hash40::new_raw(0x0f79b3632e), -1);
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_chrom_final1"), -1);
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_chrom_final2"), -1);
     }
 }
 
@@ -19,6 +19,6 @@ unsafe extern "C" fn expression_finalairdashend(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e9718c3e6), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

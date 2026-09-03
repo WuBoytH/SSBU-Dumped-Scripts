@@ -5,15 +5,15 @@ unsafe extern "C" fn game_specialairnchargeh(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_specialairnchargeh(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1cabab7466), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1cabab7466), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_start"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_start"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, false);
     }
 }
 
 unsafe extern "C" fn sound_specialairnchargeh(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x18e112d9f5));
+        macros::PLAY_STATUS(agent, Hash40::new("se_bayonetta_special_n04"));
     }
 }
 
@@ -24,6 +24,6 @@ unsafe extern "C" fn expression_specialairnchargeh(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

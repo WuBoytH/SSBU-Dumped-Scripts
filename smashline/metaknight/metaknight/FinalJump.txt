@@ -7,13 +7,13 @@ unsafe extern "C" fn game_finaljump(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_finaljump(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1544f12ae0));
+        macros::PLAY_SE(agent, Hash40::new("se_metaknight_final02"));
     }
 }
 
 unsafe extern "C" fn expression_finaljump(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0b4573fafb);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_wing"));
     }
 }

@@ -2,10 +2,10 @@ unsafe extern "C" fn sound_squatf(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x18e8fd6cb8), Hash40::new_raw(0x17320b3dfd));
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_luigi_crawing_right_f"), Hash40::new("se_luigi_crawing_left_f"));
         }
         wait(agent.lua_state_agent, 6.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x17320b3dfd), Hash40::new_raw(0x18e8fd6cb8));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_luigi_crawing_left_f"), Hash40::new("se_luigi_crawing_right_f"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -21,10 +21,10 @@ unsafe extern "C" fn expression_squatf(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 6.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         frame(agent.lua_state_agent, 11.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

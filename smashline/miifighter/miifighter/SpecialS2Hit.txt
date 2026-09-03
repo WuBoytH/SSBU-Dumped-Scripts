@@ -8,17 +8,17 @@ unsafe extern "C" fn game_specials2hit(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_specials2hit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x1791ca47e6), Hash40::new_raw(0x035dbfe258), 0, 0, 0, 0, 0, 0, 0.7, true);
-        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x1ee94ef8c6), Hash40::new_raw(0x1ee94ef8c6), Hash40::new_raw(0x035dbfe258), 1, 0, 0.5, 0, 0, 0, 0.7, true, *EF_FLIP_XY);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("miifighter_dropkick_hit"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 0.7, true);
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("miifighter_dropkick_hit_impact"), Hash40::new("miifighter_dropkick_hit_impact"), Hash40::new("hip"), 1, 0, 0.5, 0, 0, 0, 0.7, true, *EF_FLIP_XY);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1791ca47e6), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("miifighter_dropkick_hit"), false, true);
     }
 }
 
 unsafe extern "C" fn expression_specials2hit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10eaa9bff4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

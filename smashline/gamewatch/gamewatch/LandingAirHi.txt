@@ -1,22 +1,22 @@
 unsafe extern "C" fn effect_landingairhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_landingairhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_LANDING_SE(agent, Hash40::new_raw(0x16c69a86b0));
+        macros::PLAY_LANDING_SE(agent, Hash40::new("se_gamewatch_landing02"));
     }
 }
 
 unsafe extern "C" fn expression_landingairhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        VisibilityModule::set_int64(agent.module_accessor, 0x04a7f3f69c, 0x0b73216351);
-        VisibilityModule::set_int64(agent.module_accessor, 0x042762428f, 0x0c3fa88843);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("head"), hash40("head_sparky"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hand"), hash40("hand_hold_lr"));
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0c70173cfd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -3,10 +3,10 @@ unsafe extern "C" fn game_screw(agent: &mut L2CAgentBase) {
     for _ in 0..10 {
         // TODO: game_ScrewCommon();
         if macros::is_excute(agent) {
-            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 0, Hash40::new_raw(0x031ed91fca), 0, -1, 5.2);
-            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 1, Hash40::new_raw(0x031ed91fca), 0, -1, -5.2);
-            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 2, Hash40::new_raw(0x031ed91fca), 0, 9, 5.2);
-            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 3, Hash40::new_raw(0x031ed91fca), 0, 9, -5.2);
+            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 0, Hash40::new("top"), 0, -1, 5.2);
+            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 1, Hash40::new("top"), 0, -1, -5.2);
+            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 2, Hash40::new("top"), 0, 9, 5.2);
+            attack!(agent, *MA_MSC_CMD_ATTACK_NODE, 3, Hash40::new("top"), 0, 9, -5.2);
         }
         wait(agent.lua_state_agent, 2.0);
         if macros::is_excute(agent) {
@@ -17,14 +17,14 @@ unsafe extern "C" fn game_screw(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_screw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x09aa1f1420), Hash40::new_raw(0x031d39a761), 0, 0, 0, 0, 0, 0, 1.2, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_screw"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1.2, true);
     }
 }
 
 unsafe extern "C" fn expression_screw(agent: &mut L2CAgentBase) {
     // TODO: expression_ScrewRumble();
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x061e93d2e8, 0x0b8f067556);
-        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x0a7da68099);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("shield"), hash40("shield_back"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("sword_back"));
     }
 }

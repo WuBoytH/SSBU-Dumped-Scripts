@@ -7,15 +7,15 @@ unsafe extern "C" fn game_itemheavyget(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn expression_itemheavyget(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04a7f3f69c, 0x0a7c0dec31);
-        VisibilityModule::set_int64(agent.module_accessor, 0x042762428f, 0x0c3fa88843);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("head"), hash40("head_close"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hand"), hash40("hand_hold_lr"));
     }
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x042762428f, 0x0b3a6f0db1);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hand"), hash40("hand_normal"));
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ee31cfd6c), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -1,12 +1,12 @@
 unsafe extern "C" fn effect_bayonettaspecialnchargef(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1cabab7466), Hash40::new_raw(0x0505c6b25a), -1, 2, 0, 0, 0, 0, 1, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1cabab7466), Hash40::new_raw(0x05ffc98f39), -1, 2, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_start"), Hash40::new("footr"), -1, 2, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_start"), Hash40::new("footl"), -1, 2, 0, 0, 0, 0, 1, false);
     }
     loop {
         wait(agent.lua_state_agent, 2.0);
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), -6, 0, 0, 0, 0, 0, 0.6, 7, 0, 5, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -6, 0, 0, 0, 0, 0, 0.6, 7, 0, 5, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 8.0);
     }
@@ -15,7 +15,7 @@ unsafe extern "C" fn effect_bayonettaspecialnchargef(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_bayonettaspecialnchargef(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x18e112d9f5));
+        macros::PLAY_STATUS(agent, Hash40::new("se_bayonetta_special_n04"));
     }
 }
 
@@ -26,6 +26,6 @@ unsafe extern "C" fn expression_bayonettaspecialnchargef(agent: &mut L2CAgentBas
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

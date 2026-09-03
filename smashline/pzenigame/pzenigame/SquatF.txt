@@ -2,10 +2,10 @@ unsafe extern "C" fn effect_squatf(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 21.0);
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -14,7 +14,7 @@ unsafe extern "C" fn sound_squatf(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 20.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x18363dbb81));
+            macros::PLAY_SE(agent, Hash40::new("se_pzenigame_crawing_f02"));
         }
         frame(agent.lua_state_agent, 38.0);
         macros::PLAY_STEP(agent, Hash40::new_raw(0x18af34ea3b));
@@ -29,10 +29,10 @@ unsafe extern "C" fn expression_squatf(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 21.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         frame(agent.lua_state_agent, 39.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

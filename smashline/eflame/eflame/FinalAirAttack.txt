@@ -1,6 +1,6 @@
 unsafe extern "C" fn game_finalairattack(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        WorkModule::set_int64(agent.module_accessor, 0x10e315f739, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_INT_ESWORD_INHERIT_OPEN_MOTION_KIND);
+        WorkModule::set_int64(agent.module_accessor, hash40("final_air_attack"), *FIGHTER_ELIGHT_INSTANCE_WORK_ID_INT_ESWORD_INHERIT_OPEN_MOTION_KIND);
     }
     frame(agent.lua_state_agent, 1.0);
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
@@ -38,42 +38,42 @@ unsafe extern "C" fn game_finalairattack(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalairattack(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x1073e4e132), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_eflame_final2"), false, false, false);
     }
     frame(agent.lua_state_agent, 5.0);
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x169d092352), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 90, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_final_sword_arc"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, false);
     }
     frame(agent.lua_state_agent, 36.0);
     frame(agent.lua_state_agent, 92.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x11d7f5f592), false, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x17b45f1499), false, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x175d13b30a), false, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x17372916e4), false, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12fab1c37c), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 90, 0, 1, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_aura"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_sword_fire"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_sword_beam"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_final_sword_body"), false, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_sword_close"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
     }
 }
 
 unsafe extern "C" fn sound_finalairattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1180172e25));
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_final03"));
     }
     frame(agent.lua_state_agent, 120.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11b94c3eee));
+        macros::PLAY_SE(agent, Hash40::new("vc_eflame_final04"));
     }
 }
 
 unsafe extern "C" fn expression_finalairattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 128.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e9718c3e6), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 143.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

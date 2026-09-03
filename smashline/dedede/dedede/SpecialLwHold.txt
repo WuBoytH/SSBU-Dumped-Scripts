@@ -1,7 +1,7 @@
 unsafe extern "C" fn effect_speciallwhold(agent: &mut L2CAgentBase) {
     loop {
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), -5, 0, 0, 0, 0, 0, 0.9, 15, 0, 4, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 0.9, 15, 0, 4, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 12.0);
     }
@@ -9,7 +9,7 @@ unsafe extern "C" fn effect_speciallwhold(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn expression_speciallwhold(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x06def58a36, 0x0fb3387110);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hammer"), hash40("hammer_disp_off"));
         macros::AREA_WIND_2ND(agent, 0, 3, 20, 2, 1, 22, 30, 25, 25, 50);
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);

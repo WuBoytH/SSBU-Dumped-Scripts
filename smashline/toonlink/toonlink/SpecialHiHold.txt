@@ -1,13 +1,13 @@
 unsafe extern "C" fn effect_specialhihold(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1546f0a0c8), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 0, 0, 1, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x143597c39a), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("toonlink_kaiten_flare"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("toonlink_kaiten_hold"), Hash40::new("sword1"), 0, 0, 0, 0, 0, 0, 1, true);
     }
     loop {
         wait(agent.lua_state_agent, 2.0);
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0d0da6e3c0), Hash40::new_raw(0x031ed91fca), -2, 0, 0, 0, 0, 0, 1, 5, 0, 3, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -2, 0, 0, 0, 0, 0, 1, 5, 0, 3, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 2.0);
     }
@@ -16,7 +16,7 @@ unsafe extern "C" fn effect_specialhihold(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialhihold(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x173bca3f4a));
+        macros::PLAY_STATUS(agent, Hash40::new("se_toonlink_special_h01"));
     }
 }
 
@@ -26,6 +26,6 @@ unsafe extern "C" fn expression_specialhihold(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

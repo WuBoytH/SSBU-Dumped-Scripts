@@ -3,11 +3,11 @@ unsafe extern "C" fn game_finall(agent: &mut L2CAgentBase) {
         ArticleModule::generate_article(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, -1);
         ArticleModule::generate_article(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, -1);
         ArticleModule::set_visibility_whole(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x0925339dc5);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("m_ball_lr"));
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x047f9000cf);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("none"));
         ArticleModule::set_visibility_whole(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ArticleModule::shoot(agent.module_accessor, *WEAPON_PTRAINER_PTRAINER_GENERATE_ARTICLE_MBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
     }
@@ -28,19 +28,19 @@ unsafe extern "C" fn game_finall(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_finall(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x166c262c6a));
-        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x134a7495e1));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_ball_swing"));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_ptrainer_final01"));
     }
     frame(agent.lua_state_agent, 28.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x159ce646bb));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_ball_open"));
     }
     frame(agent.lua_state_agent, 36.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x160166df63));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_finalstart"));
     }
     frame(agent.lua_state_agent, 44.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x13d37dc45b));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_ptrainer_final02"));
     }
 }

@@ -9,7 +9,7 @@ unsafe extern "C" fn sound_specialairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 17.0);
     if get_value_int(agent.lua_state_agent, *SO_VAR_INT_HAVE_ITEM_KIND) == *ITEM_KIND_YOUNGLINKBOMB {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x181bec6a1d));
+            macros::PLAY_SE(agent, Hash40::new("se_younglink_special_l01"));
         }
     }
 }
@@ -20,10 +20,10 @@ unsafe extern "C" fn expression_specialairlw(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x061e93d2e8, 0x0b8f067556);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("shield"), hash40("shield_back"));
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ee31cfd6c), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

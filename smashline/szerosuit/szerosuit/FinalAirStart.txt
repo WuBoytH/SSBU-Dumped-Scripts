@@ -6,7 +6,7 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), false);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
             macros::FT_START_CUTIN(agent);
             SlowModule::set_whole(agent.module_accessor, 2, 0);
         }
@@ -44,14 +44,14 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x1200dec306), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_szerosuit_final"), false, false, false);
     }
 }
 
 unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x146a6386f6));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_szerosuit_final01"));
     }
 }
 
@@ -63,6 +63,6 @@ unsafe extern "C" fn expression_finalairstart(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b2f910967), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_rush"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

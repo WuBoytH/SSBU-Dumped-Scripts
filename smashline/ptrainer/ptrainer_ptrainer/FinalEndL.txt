@@ -1,6 +1,6 @@
 unsafe extern "C" fn game_finalendl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x047f9000cf);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("none"));
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
@@ -12,29 +12,29 @@ unsafe extern "C" fn game_finalendl(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 52.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x0925339dc5);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("m_ball_lr"));
     }
     frame(agent.lua_state_agent, 120.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x08a92a2885);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("m_ball_r"));
     }
 }
 
 unsafe extern "C" fn effect_finalendl(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 81.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1551b91024), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, 0, 0, 1, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1551b91024), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ptrainer_change_catch"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("ptrainer_change_catch"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
     }
 }
 
 unsafe extern "C" fn sound_finalendl(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 55.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1ba0fbc8e0));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_change_recovery"));
     }
     frame(agent.lua_state_agent, 117.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x18193959ea));
+        macros::PLAY_SE(agent, Hash40::new("se_ptrainer_ball_putaway"));
     }
 }

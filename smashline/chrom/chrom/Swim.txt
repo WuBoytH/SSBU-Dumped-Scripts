@@ -2,10 +2,10 @@ unsafe extern "C" fn sound_swim(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 15.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x180a38ee04));
+            macros::PLAY_SE(agent, Hash40::new("se_common_swim_middle_01"));
         }
         wait(agent.lua_state_agent, 35.0);
-        macros::PLAY_SE(agent, Hash40::new_raw(0x180a38ee04));
+        macros::PLAY_SE(agent, Hash40::new("se_common_swim_middle_01"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -14,10 +14,10 @@ unsafe extern "C" fn expression_swim(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 15.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b54eeb438), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         frame(agent.lua_state_agent, 50.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b54eeb438), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

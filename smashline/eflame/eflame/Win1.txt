@@ -2,12 +2,12 @@ unsafe extern "C" fn game_win1(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
         if macros::is_excute(agent) {
             ArticleModule::generate_article(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_DIVER, false, -1);
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_DIVER, Hash40::new_raw(0x07abba3f5e), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_DIVER, Hash40::new("f_win_1"), false, 0.0) /* TODO: verify padded default args */;
         }
     }
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD) {
         if macros::is_excute(agent) {
-            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new_raw(0x07439e926b), 10.0, 10.0, false, false, 0.0, false, true, false);
+            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 10.0, 10.0, false, false, 0.0, false, true, false);
         }
         if MotionModule::is_changing(agent.module_accessor) {
             if macros::is_excute(agent) {
@@ -18,7 +18,7 @@ unsafe extern "C" fn game_win1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 54.0);
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD) {
         if macros::is_excute(agent) {
-            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new_raw(0x08183db0f4), 5.0, 5.0, false, false, 0.0, false, true, false);
+            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_close"), 5.0, 5.0, false, false, 0.0, false, true, false);
         }
         if MotionModule::is_changing(agent.module_accessor) {
             if macros::is_excute(agent) {
@@ -31,46 +31,46 @@ unsafe extern "C" fn game_win1(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16a2faf5ba), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 90, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_sword_beam_win1"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, false);
     }
     frame(agent.lua_state_agent, 33.0);
     frame(agent.lua_state_agent, 55.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x16a2faf5ba), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_sword_beam_win1"), false, true);
     }
 }
 
 unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0f0bd54bca));
+        macros::PLAY_SE(agent, Hash40::new("vc_eflame_win01"));
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x122cfbf3b1));
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_win01_01"));
     }
     frame(agent.lua_state_agent, 38.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x12b5f2a20b));
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_win01_02"));
     }
     frame(agent.lua_state_agent, 58.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x12c2f5929d));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_eflame_win01_03"));
     }
     frame(agent.lua_state_agent, 83.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x125c91073e));
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_win01_04"));
     }
     frame(agent.lua_state_agent, 94.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1547b16d11));
+        macros::PLAY_SE(agent, Hash40::new("vc_eflame_diver_win01"));
     }
     frame(agent.lua_state_agent, 121.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x122b9637a8));
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_win01_05"));
     }
     frame(agent.lua_state_agent, 126.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x12b29f6612));
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_win01_06"));
     }
 }

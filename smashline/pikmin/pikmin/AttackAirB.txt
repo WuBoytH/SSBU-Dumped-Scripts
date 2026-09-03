@@ -26,7 +26,7 @@ unsafe extern "C" fn effect_attackairb(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_attackairb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1778e7c0c9));
+        macros::PLAY_SE(agent, Hash40::new("se_pikmin_attackair_b01"));
     }
 }
 
@@ -36,11 +36,11 @@ unsafe extern "C" fn expression_attackairb(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0e49ca009f), 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackm"), 0);
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {

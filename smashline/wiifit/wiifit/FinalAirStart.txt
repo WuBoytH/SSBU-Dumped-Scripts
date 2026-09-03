@@ -7,7 +7,7 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), false, false) /* TODO: macro expects 2 args */;
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false, false) /* TODO: macro expects 2 args */;
         }
     } else {
         if macros::is_excute(agent) {
@@ -28,23 +28,23 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0f83ed793b), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_wiifit_final"), false, false, false);
     }
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x12e61068d6), Hash40::new_raw(0x042011d653), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("wiifit_final_pose1"), Hash40::new("neck"), 0, 0, 0, 0, 0, 0, 1, true);
         macros::LAST_EFFECT_SET_RATE(agent, 1);
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x12e61068d6), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("wiifit_final_pose1"), false, true);
     }
 }
 
 unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x140aa491fe));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_wiifit_rnd_final"));
     }
 }
 
@@ -56,6 +56,6 @@ unsafe extern "C" fn expression_finalairstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 51.0);
     if macros::is_excute(agent) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d2fe44f91), 8, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 8, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

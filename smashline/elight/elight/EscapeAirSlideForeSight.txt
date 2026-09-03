@@ -10,9 +10,9 @@ unsafe extern "C" fn effect_escapeairslideforesight(agent: &mut L2CAgentBase) {
         ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
         macros::COL_PRI(agent, 250);
         macros::FLASH(agent, 0, 0.1, 0.6, 0.95);
-        macros::EFFECT(agent, Hash40::new_raw(0x11879ce4a1), Hash40::new_raw(0x031ed91fca), 0, 6.5, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT(agent, Hash40::new_raw(0x1a67ad6f28), Hash40::new_raw(0x031ed91fca), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x154f1e6dc7), Hash40::new_raw(0x035dbfe258), 2, 0, 0, 0, 0, 90, 1, true);
+        macros::EFFECT(agent, Hash40::new("elight_foresight2"), Hash40::new("top"), 0, 6.5, 0, 0, 0, 90, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("elight_foresight_lensflare"), Hash40::new("top"), 0, 7.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_foresight_body"), Hash40::new("hip"), 2, 0, 0, 0, 0, 90, 1, true);
     }
     wait(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
@@ -27,13 +27,13 @@ unsafe extern "C" fn effect_escapeairslideforesight(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_escapeairslideforesight(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1842147aa3));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1b7ab891ed));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_elight_rnd_foresight"));
+        macros::PLAY_SE(agent, Hash40::new("se_elight_escapeforesight02"));
     }
 }
 
 unsafe extern "C" fn expression_escapeairslideforesight(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x191bee79f1), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_79_special_escapea"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

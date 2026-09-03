@@ -1,12 +1,12 @@
 unsafe extern "C" fn game_specialhilong(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::HIT_NODE(agent, Hash40::new_raw(0x051129036e), *HIT_STATUS_XLU);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x05a8f346d3), *HIT_STATUS_XLU);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x05dff47645), *HIT_STATUS_XLU);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x05eb263e0d), *HIT_STATUS_XLU);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x057cb2790c), *HIT_STATUS_XLU);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x050bb5499a), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("handr"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("armr5"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("armr4"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("handl"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("arml5"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("arml4"), *HIT_STATUS_XLU);
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
@@ -29,14 +29,14 @@ unsafe extern "C" fn game_specialhilong(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_specialhilong(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x10da0b43c8), false, true);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x1393ca367c), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        macros::EFFECT(agent, Hash40::new_raw(0x1276ace05d), Hash40::new_raw(0x031d39a761), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_shield_smoke"), false, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("tantan_jump_quake_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("tantan_jump_wind_l"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0f5ea22dd6), Hash40::new_raw(0x031d39a761), 0, 0.5, 0, 0, 0, 0, 1.5, 0, 10, 0, 5, 360, 5, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x121e7f7832), Hash40::new_raw(0x031d39a761), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT(agent, Hash40::new("sys_spin_wind_s"), Hash40::new("rot"), 0, 0.5, 0, 0, 0, 0, 1.5, 0, 10, 0, 5, 360, 5, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("tantan_jump_line_l"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, false);
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
     frame(agent.lua_state_agent, 19.0);
@@ -45,11 +45,11 @@ unsafe extern "C" fn effect_specialhilong(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialhilong(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1507c6d08f));
+        macros::PLAY_SE(agent, Hash40::new("se_tantan_special_h05"));
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1590a25fdc));
+        macros::PLAY_SE(agent, Hash40::new("vc_tantan_special_h02"));
     }
 }
 
@@ -64,7 +64,7 @@ unsafe extern "C" fn expression_specialhilong(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e3ecd3009), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
 }

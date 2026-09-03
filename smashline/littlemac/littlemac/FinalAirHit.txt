@@ -5,7 +5,7 @@ unsafe extern "C" fn game_finalairhit(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 2.0, 361, 100, 100, 0, 15.0, 0.0, 9.0, 4.0, Some(0.0), Some(9.0), Some(20.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0x0267aa281f, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x15a2c502b3), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 2.0, 361, 100, 100, 0, 15.0, 0.0, 9.0, 4.0, Some(0.0), Some(9.0), Some(20.0), 2.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0x0267aa281f, 0.0, 0, false, false, false, true, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_NO_FLOOR, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
         AttackModule::set_no_dead_all(agent.module_accessor, true, false);
         AttackModule::set_no_uniq_effect_all(agent.module_accessor, true, false);
         let scale = PostureModule::scale(agent.module_accessor);
@@ -32,18 +32,18 @@ unsafe extern "C" fn game_finalairhit(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalairhit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::set_visible_kind(agent.module_accessor, Hash40::new_raw(0x0e35b6b29f), false);
+        EffectModule::set_visible_kind(agent.module_accessor, Hash40::new("sys_final_aura"), false);
         macros::EFFECT_STENCIL_ON(agent);
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x135d3eece0), false, false, false);
-        let request_post_effect_line_circle = EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new_raw(0x0cde87653a), Hash40::new_raw(0x031ed91fca), Vector2::new(10.0, 8.0), Vector3::new(0.0, 8.0, 15.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
-        macros::FOOT_EFFECT(agent, request_post_effect_line_circle, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false) /* TODO: macro expects 16 args */;
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_littlemac_final2"), false, false, false);
+        let request_post_effect_line_circle = EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(10.0, 8.0), Vector3::new(0.0, 8.0, 15.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
+        macros::FOOT_EFFECT(agent, request_post_effect_line_circle, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false) /* TODO: macro expects 16 args */;
         macros::LAST_EFFECT_SET_RATE(agent, 0.3);
-        macros::EFFECT(agent, Hash40::new_raw(0x0e9d765fdb), Hash40::new_raw(0x031ed91fca), 0, 11, 18, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new_raw(0x152063c053), Hash40::new_raw(0x031ed91fca), -3, 14, 6, 10, -40, 70, 1.4, true);
+        macros::EFFECT(agent, Hash40::new("sys_hit_normal"), Hash40::new("top"), 0, 11, 18, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("littlemac_counter_arc"), Hash40::new("top"), -3, 14, 6, 10, -40, 70, 1.4, true);
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
         macros::LAST_EFFECT_SET_RATE(agent, 0.3);
     }
     frame(agent.lua_state_agent, 30.0);
@@ -55,17 +55,17 @@ unsafe extern "C" fn effect_finalairhit(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_finalairhit(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x152e465c9f));
+        macros::PLAY_SE(agent, Hash40::new("se_littlemac_swing_ll"));
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x140ea6a61f));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_littlemac_final03"));
     }
 }
 
 unsafe extern "C" fn expression_finalairhit(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x1644b25228), 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attack_critical"), 0);
     }
 }

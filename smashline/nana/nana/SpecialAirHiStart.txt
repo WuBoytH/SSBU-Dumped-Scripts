@@ -11,7 +11,7 @@ unsafe extern "C" fn game_specialairhistart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 12.0);
     macros::FT_MOTION_RATE(agent, 1);
     frame(agent.lua_state_agent, 15.0);
-    let param_float = WorkModule::get_param_float(agent.module_accessor, 0x1086bc4a93, 0x11df3c6b30);
+    let param_float = WorkModule::get_param_float(agent.module_accessor, hash40("param_special_hi"), hash40("start_turn_cont_x"));
     if get_value_float(agent.lua_state_agent, *FT_VAR_FLOAT_STICK_X_BACK) < param_float {
         if macros::is_excute(agent) {
             macros::STICK_LR(agent);
@@ -27,14 +27,14 @@ unsafe extern "C" fn game_specialairhistart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairhistart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0c35c0aaf0), Hash40::new_raw(0x031ed91fca), 0, 11, -7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("popo_gomjump"), Hash40::new("top"), 0, 11, -7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_specialairhistart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13c988ead6));
+        macros::PLAY_SE(agent, Hash40::new("se_popo_special_h01"));
     }
 }
 

@@ -8,11 +8,11 @@ unsafe extern "C" fn game_specialairnshoot(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairnshoot(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_KOOPAJR_STATUS_SPECIAL_N_FLAG_FAIL) {
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x13416a1cb8), Hash40::new_raw(0x0cec8914f8), 3, 0, 0, 0, 0, -90, 0.5, 0, 0, 0, 0, 0, 0, true);
+            macros::EFFECT(agent, Hash40::new("koopajr_cannon_miss"), Hash40::new("clowntongue2"), 3, 0, 0, 0, 0, -90, 0.5, 0, 0, 0, 0, 0, 0, true);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x15e1d0ce18), Hash40::new_raw(0x151bdff37b), Hash40::new_raw(0x031ed91fca), 0, 9, 8, 90, 0, 0, 0.5, true, *EF_FLIP_NONE);
+            macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("koopajr_cannon_shot_r"), Hash40::new("koopajr_cannon_shot_l"), Hash40::new("top"), 0, 9, 8, 90, 0, 0, 0.5, true, *EF_FLIP_NONE);
         }
     }
 }
@@ -20,19 +20,19 @@ unsafe extern "C" fn effect_specialairnshoot(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairnshoot(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x16b1985c51));
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x19b4d67d16));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_n01"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_koopajr_rnd_special_n"));
     }
 }
 
 unsafe extern "C" fn expression_specialairnshoot(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x05327cb690, 0x09511940c5);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("tarap"), hash40("tarap_off"));
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10eaa9bff4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         macros::AREA_WIND_2ND(agent, 0, 3, 0, 2, 1, 18, 10, 20, 20, 80);
     }
     frame(agent.lua_state_agent, 5.0);

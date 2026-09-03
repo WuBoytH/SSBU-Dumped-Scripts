@@ -11,13 +11,13 @@ unsafe extern "C" fn game_finalairendr(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalairendr(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0c735b6b9b), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_bg_black"), false, false);
     }
 }
 
 unsafe extern "C" fn expression_finalairendr(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0b4573fafb);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_wing"));
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
     }
 }

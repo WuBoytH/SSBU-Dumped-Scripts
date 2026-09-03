@@ -5,8 +5,8 @@ unsafe extern "C" fn game_catchdash(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        macros::CATCH(agent, 0, Hash40::new_raw(0x031ed91fca), 2.4, 0.0, 7.0, 4.0, Some(0.0), Some(7.0), Some(10.1), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
-        macros::CATCH(agent, 1, Hash40::new_raw(0x031ed91fca), 1.2, 0.0, 7.0, 2.8, Some(0.0), Some(7.0), Some(11.3), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
+        macros::CATCH(agent, 0, Hash40::new("top"), 2.4, 0.0, 7.0, 4.0, Some(0.0), Some(7.0), Some(10.1), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_G);
+        macros::CATCH(agent, 1, Hash40::new("top"), 1.2, 0.0, 7.0, 2.8, Some(0.0), Some(7.0), Some(11.3), *FIGHTER_STATUS_KIND_CAPTURE_PULLED, *COLLISION_SITUATION_MASK_A);
     }
     // TODO: game_CaptureCutCommon();
     frame(agent.lua_state_agent, 13.0);
@@ -21,21 +21,21 @@ unsafe extern "C" fn game_catchdash(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_catchdash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1218c1322d));
+        macros::PLAY_SE(agent, Hash40::new("se_common_swing_05"));
     }
     wait(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x1218c1322d));
+        macros::STOP_SE(agent, Hash40::new("se_common_swing_05"));
     }
     wait(agent.lua_state_agent, 25.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x174cce1065));
+        macros::PLAY_SE(agent, Hash40::new("se_metaknight_landing02"));
     }
 }
 
 unsafe extern "C" fn expression_catchdash(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0b4573fafb);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_wing"));
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
@@ -43,6 +43,6 @@ unsafe extern "C" fn expression_catchdash(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d487813b4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

@@ -6,18 +6,18 @@ unsafe extern "C" fn game_finalridel(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalridel(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0e35b6b29f), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_final_aura"), false, true);
     }
 }
 
 unsafe extern "C" fn sound_finalridel(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x0e7ca5d9dc));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("vc_captain_004"));
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x17b53b8d68));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_captain_final_jingle"));
     }
 }
 
@@ -30,6 +30,6 @@ unsafe extern "C" fn expression_finalridel(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1644b25228), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attack_critical"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

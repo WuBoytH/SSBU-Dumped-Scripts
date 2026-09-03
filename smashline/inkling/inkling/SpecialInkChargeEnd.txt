@@ -22,31 +22,31 @@ unsafe extern "C" fn game_specialinkchargeend(agent: &mut L2CAgentBase) {
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(0x18e6949c97), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("special_ink_charge_end_l"), false, 0.0) /* TODO: verify padded default args */;
             let motion_rate = get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_MOTION_RATE);
             macros::SET_RATE_ARTICLE(agent, motion_rate) /* TODO: macro expects 2 args */;
         }
     } else {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(0x181c9ba1f4), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("special_ink_charge_end_r"), false, 0.0) /* TODO: verify padded default args */;
             let motion_rate = get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_MOTION_RATE);
             macros::SET_RATE_ARTICLE(agent, motion_rate) /* TODO: macro expects 2 args */;
         }
     }
     if macros::is_excute(agent) {
         VisibilityModule::set_whole(agent.module_accessor, false);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x04ad12b739), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_OFF);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x031ed91fca), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("tank"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("top"), *HIT_STATUS_NORMAL);
     }
     if macros::is_excute(agent) {
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
@@ -54,18 +54,18 @@ unsafe extern "C" fn game_specialinkchargeend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         VisibilityModule::set_whole(agent.module_accessor, true);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x051a36341b), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x04ad12b739), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x04a7f3f69c), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x090fa00879), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x09f5af351a), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x049bf3f6be), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0461fccbdd), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x048a1f731c), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0470104e7f), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x051ba4b748), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x05e1ab8a2b), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x031ed91fca), *HIT_STATUS_OFF);
+        macros::HIT_NODE(agent, Hash40::new("waist"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("tank"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("head"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("shoulderr"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("shoulderl"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("armr"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("arml"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("legr"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("legl"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("kneer"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("kneel"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("top"), *HIT_STATUS_OFF);
     }
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
@@ -76,7 +76,7 @@ unsafe extern "C" fn game_specialinkchargeend(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialinkchargeend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x14ab915845), Hash40::new_raw(0x04a7f3f69c), 0, 0, 0, 0, 0, 0, 0.9, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("inkling_squid_change"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 0.9, true);
     }
     WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
     WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
@@ -88,7 +88,7 @@ unsafe extern "C" fn effect_specialinkchargeend(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_specialinkchargeend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1416d6d06d));
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_dash_stop"));
     }
 }
 
@@ -114,6 +114,6 @@ unsafe extern "C" fn expression_specialinkchargeend(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 28.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0c70173cfd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

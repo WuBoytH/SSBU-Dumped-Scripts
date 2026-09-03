@@ -1,6 +1,6 @@
 unsafe extern "C" fn game_specialswallm(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         WorkModule::off_flag(agent.module_accessor, *WEAPON_PICKEL_TROLLEY_INSTANCE_WORK_ID_FLAG_NO_ATTACK_HIT_MOTION);
     }
 }
@@ -9,21 +9,21 @@ unsafe extern "C" fn effect_specialswallm(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *WEAPON_PICKEL_TROLLEY_INSTANCE_WORK_ID_FLAG_IS_WALL_LEFT) {
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 3, 6.5, -90, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+                macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 3, 6.5, -90, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
             }
         } else {
             if macros::is_excute(agent) {
-                macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 3, -6.5, 90, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+                macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 3, -6.5, 90, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
             }
         }
     } else {
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 3, -6.5, 90, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+                macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 3, -6.5, 90, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
             }
         } else {
             if macros::is_excute(agent) {
-                macros::EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 3, 6.5, -90, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+                macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 3, 6.5, -90, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
             }
         }
     }
@@ -34,6 +34,6 @@ unsafe extern "C" fn effect_specialswallm(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_specialswallm(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15035471e7));
+        macros::PLAY_SE(agent, Hash40::new("se_pickel_special_s06"));
     }
 }

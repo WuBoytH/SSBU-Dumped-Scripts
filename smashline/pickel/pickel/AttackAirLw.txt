@@ -20,7 +20,7 @@ unsafe extern "C" fn effect_attackairlw(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_PICKEL_STATUS_ATTACK_FLAG_IS_GENERATE_FORGE) {
         frame(agent.lua_state_agent, 4.0);
         if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x031ed91fca), 0, -5, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+            macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, -5, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
             macros::LAST_EFFECT_SET_RATE(agent, 0.8);
         }
     }
@@ -29,12 +29,12 @@ unsafe extern "C" fn effect_attackairlw(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_attackairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x17cdb8969e));
+        macros::PLAY_SE(agent, Hash40::new("se_pickel_attackair_l01"));
     }
 }
 
 unsafe extern "C" fn expression_attackairlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10f2ad9413), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_77_nohitl"), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

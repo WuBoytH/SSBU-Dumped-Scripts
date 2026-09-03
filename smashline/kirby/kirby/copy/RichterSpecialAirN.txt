@@ -1,19 +1,19 @@
 unsafe extern "C" fn effect_richterspecialairn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x1546517637), Hash40::new_raw(0x1546517637), Hash40::new_raw(0x051a07c0e7), 2.5, -2.5, 2.5, 0, 0, 0, 1, true, *EF_FLIP_YZ);
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("richter_bottle_appear"), Hash40::new("richter_bottle_appear"), Hash40::new("haver"), 2.5, -2.5, 2.5, 0, 0, 0, 1, true, *EF_FLIP_YZ);
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_richterspecialairn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 26.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1851e81c1f));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1653b81ab1));
+        macros::PLAY_SE(agent, Hash40::new("vc_kirby_copy_richter_01"));
+        macros::PLAY_SE(agent, Hash40::new("se_richter_special_n01"));
     }
 }
 
@@ -23,6 +23,6 @@ unsafe extern "C" fn expression_richterspecialairn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x163b9d8dde), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lightthrow4item"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

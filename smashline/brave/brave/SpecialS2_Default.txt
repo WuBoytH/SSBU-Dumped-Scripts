@@ -2,25 +2,25 @@ unsafe extern "C" fn sound_specials2_default(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_S_FLAG_SUCCESS_SP) {
         if macros::is_excute(agent) {
-            macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_s01"));
         }
         frame(agent.lua_state_agent, 9.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1470db1f75));
-            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1bb5b83009));
+            macros::PLAY_SE(agent, Hash40::new("se_brave_special_s04"));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_brave_rnd_special_s2_jp"));
         }
     } else {
         if macros::is_excute(agent) {
-            macros::STOP_SE(agent, Hash40::new_raw(0x1400b1ebfa));
+            macros::STOP_SE(agent, Hash40::new("se_brave_special_s01"));
         }
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x0d6a6d0d29));
-            macros::PLAY_SE(agent, Hash40::new_raw(0x102eb00bc9));
+            macros::PLAY_SE(agent, Hash40::new("se_brave_miss"));
+            macros::PLAY_SE(agent, Hash40::new("vc_brave_mp_lost"));
         }
     }
     frame(agent.lua_state_agent, 45.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14e9d24ecf));
+        macros::PLAY_SE(agent, Hash40::new("se_brave_special_s07"));
     }
 }

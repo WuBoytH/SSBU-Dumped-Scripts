@@ -1,6 +1,6 @@
 unsafe extern "C" fn effect_specialairnstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1ca5affc7a), Hash40::new_raw(0x042011d653), 2, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_transform_splash_start"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
     }
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_METAL) {
         if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_GOLD) {
@@ -9,7 +9,7 @@ unsafe extern "C" fn effect_specialairnstart(agent: &mut L2CAgentBase) {
                     if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_LIGHT) {
                         if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_DARK) {
                             if macros::is_excute(agent) {
-                                macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x1478313122), Hash40::new_raw(0x0461fccbdd), 0, 0, 0, 0, 0, 0, 1, false);
+                                macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("kamui_ryusensya_wind"), Hash40::new("arml"), 0, 0, 0, 0, 0, 0, 1, false);
                             }
                             if WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR) == 2 {
                                 if macros::is_excute(agent) {
@@ -52,7 +52,7 @@ unsafe extern "C" fn effect_specialairnstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairnstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1304bf4ca0));
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_horn_start"));
     }
 }
 
@@ -60,14 +60,14 @@ unsafe extern "C" fn expression_specialairnstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        VisibilityModule::set_int64(agent.module_accessor, 0x0627d829b4, 0x0b17593350);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon"), hash40("dragon_horn"));
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0aa427db75, 0x0fceb2c39f);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair"), hash40("front_hair_hide"));
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x049cf76119, 0x097aa97ee6);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair"), hash40("hair_hide"));
     }
 }

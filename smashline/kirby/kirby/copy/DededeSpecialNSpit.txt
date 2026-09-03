@@ -1,27 +1,27 @@
 unsafe extern "C" fn effect_dededespecialnspit(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d22ee997e), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_h_smoke_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_dededespecialnspit(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11a70dbc61));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15ada9a915));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1534a0f8af));
+        macros::PLAY_SE(agent, Hash40::new("vc_kirby_attack02"));
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_special_n06"));
+        macros::PLAY_SE(agent, Hash40::new("se_dedede_special_n05"));
     }
 }
 
 unsafe extern "C" fn expression_dededespecialnspit(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0aee0171fc);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_swell"));
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0c9adbe9bf), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

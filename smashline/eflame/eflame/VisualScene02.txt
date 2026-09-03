@@ -1,8 +1,8 @@
 unsafe extern "C" fn game_visualscene02(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10d69b1b06), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x10d69b1b06), 0);
-        WorkModule::set_int64(agent.module_accessor, 0x0f077026de, *FIGHTER_ELIGHT_INSTANCE_WORK_ID_INT_ESWORD_INHERIT_OPEN_MOTION_KIND);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_79_vs_a02"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_79_vs_a02"), 0);
+        WorkModule::set_int64(agent.module_accessor, hash40("visual_scene_02"), *FIGHTER_ELIGHT_INSTANCE_WORK_ID_INT_ESWORD_INHERIT_OPEN_MOTION_KIND);
         macros::FT_SET_FINAL_FEAR_FACE(agent, 104);
     }
     frame(agent.lua_state_agent, 4.0);
@@ -14,19 +14,19 @@ unsafe extern "C" fn game_visualscene02(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_visualscene02(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 47.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 4, 0, 8, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), -4, 0, 8, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 4, 0, 8, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), -4, 0, 8, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_visualscene02(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1418d7e953));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_eflame_final02_01"));
     }
     frame(agent.lua_state_agent, 66.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x112728ab4d));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1797e97e00));
+        macros::PLAY_SE(agent, Hash40::new("vc_eflame_final03"));
+        macros::PLAY_SE(agent, Hash40::new("vc_eflame_diver_final03"));
     }
 }

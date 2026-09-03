@@ -6,7 +6,7 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), false);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
         }
     } else {
         if macros::is_excute(agent) {
@@ -27,10 +27,10 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x10da885eae), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_koopajr_final"), false, false, false);
         macros::COL_PRI(agent, 105);
         macros::BURN_COLOR(agent, 0.5, 3, 3, 0);
-        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new_raw(0x1413df5c46), Hash40::new_raw(0x031d39a761), 0, -2, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("koopajr_final_change"), Hash40::new("rot"), 0, -2, 0, 0, 0, 0, 1, true);
     }
     wait(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
@@ -45,12 +45,12 @@ unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1062e249d4));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1266db6914));
+        macros::PLAY_SE(agent, Hash40::new("vc_koopajr_final"));
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_final01"));
     }
     wait(agent.lua_state_agent, 56.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x1288d50838));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_koopajr_final03"));
     }
 }
 

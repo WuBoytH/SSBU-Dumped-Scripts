@@ -1,7 +1,7 @@
 unsafe extern "C" fn effect_mewtwospecialairnshoot(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1ac6d446d8), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("mewtwo_shadowball_max_hand"), false, false);
     }
 }
 
@@ -9,8 +9,8 @@ unsafe extern "C" fn sound_mewtwospecialairnshoot(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_MEWTWO_SPECIAL_N_STATUS_WORK_ID_FLAG_CHARGE_MAX) {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x15a0e82da5));
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1777cfbf0d));
+            macros::PLAY_SE(agent, Hash40::new("se_mewtwo_special_n08"));
+            macros::PLAY_SE(agent, Hash40::new("vc_kirby_copy_mewtwo_01"));
         }
     }
 }
@@ -23,11 +23,11 @@ unsafe extern "C" fn expression_mewtwospecialairnshoot(agent: &mut L2CAgentBase)
     frame(agent.lua_state_agent, 6.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_MEWTWO_SPECIAL_N_STATUS_WORK_ID_FLAG_CHARGE_MAX) {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x115b3b6dd2), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     } else {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10eaa9bff4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
     }
     frame(agent.lua_state_agent, 36.0);

@@ -1,14 +1,14 @@
 unsafe extern "C" fn sound_guardon(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11dc2a64ad));
+        macros::PLAY_SE(agent, Hash40::new("se_common_guardon"));
     }
 }
 
 unsafe extern "C" fn expression_guardon(agent: &mut L2CAgentBase) {
     // TODO: expression_GuardOnRumble();
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x066933a7e6, 0x0d1c7047c3);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("weapon_normal"));
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 2);
     }
     frame(agent.lua_state_agent, 2.0);

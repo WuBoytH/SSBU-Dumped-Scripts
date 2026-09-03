@@ -2,7 +2,7 @@ unsafe extern "C" fn game_catchturn(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_FLAG_REQUEST_REMOVE_HAVE_CRAFT_WEAPON);
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_FISHINGROD, false, -1);
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_FISHINGROD, Hash40::new_raw(0x0a5f869486), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_FISHINGROD, Hash40::new("catch_turn"), false, 0.0) /* TODO: verify padded default args */;
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
@@ -11,10 +11,10 @@ unsafe extern "C" fn game_catchturn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_FISHINGROD, Hash40::new_raw(0x03008eb705), Hash40::new_raw(0x08ec730634), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        macros::CATCH(agent, 0, Hash40::new_raw(0x054f934137), 2.5, 0.0, -5.0, 2.5, Some(0.0), Some(-4.8), Some(2.5), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_GA);
-        macros::CATCH(agent, 1, Hash40::new_raw(0x031ed91fca), 1.8, 0.0, 7.0, -3.2, Some(0.0), Some(7.0), Some(-10.8), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_A);
-        macros::CATCH(agent, 2, Hash40::new_raw(0x031ed91fca), 3.6, 0.0, 7.0, -5.0, Some(0.0), Some(7.0), Some(-9.0), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_G);
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_FISHINGROD, Hash40::new("rod"), Hash40::new("rod_cast"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        macros::CATCH(agent, 0, Hash40::new("throw"), 2.5, 0.0, -5.0, 2.5, Some(0.0), Some(-4.8), Some(2.5), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_GA);
+        macros::CATCH(agent, 1, Hash40::new("top"), 1.8, 0.0, 7.0, -3.2, Some(0.0), Some(7.0), Some(-10.8), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_A);
+        macros::CATCH(agent, 2, Hash40::new("top"), 3.6, 0.0, 7.0, -5.0, Some(0.0), Some(7.0), Some(-9.0), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_G);
     }
     // TODO: game_CaptureCutCommon();
     frame(agent.lua_state_agent, 19.0);
@@ -24,15 +24,15 @@ unsafe extern "C" fn game_catchturn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 26.0);
     if macros::is_excute(agent) {
-        macros::CATCH(agent, 0, Hash40::new_raw(0x054f934137), 2.5, 0.0, -5.0, 2.5, Some(0.0), Some(-4.0), Some(2.5), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_GA);
+        macros::CATCH(agent, 0, Hash40::new("throw"), 2.5, 0.0, -5.0, 2.5, Some(0.0), Some(-4.0), Some(2.5), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_GA);
     }
     frame(agent.lua_state_agent, 28.0);
     if macros::is_excute(agent) {
-        macros::CATCH(agent, 0, Hash40::new_raw(0x054f934137), 2.5, 0.0, -3.0, 2.5, Some(0.0), Some(-0.5), Some(2.5), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_GA);
+        macros::CATCH(agent, 0, Hash40::new("throw"), 2.5, 0.0, -3.0, 2.5, Some(0.0), Some(-0.5), Some(2.5), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_GA);
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        macros::CATCH(agent, 0, Hash40::new_raw(0x054f934137), 2.5, 0.0, -3.0, 2.5, Some(0.0), Some(0.0), Some(2.5), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_GA);
+        macros::CATCH(agent, 0, Hash40::new("throw"), 2.5, 0.0, -3.0, 2.5, Some(0.0), Some(0.0), Some(2.5), *FIGHTER_STATUS_KIND_CAPTURE_PULLED_PICKEL, *COLLISION_SITUATION_MASK_GA);
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
@@ -51,11 +51,11 @@ unsafe extern "C" fn game_catchturn(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_catchturn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x17222d1e01));
+        macros::PLAY_SE(agent, Hash40::new("se_pickel_throw_catch01"));
     }
     wait(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x17222d1e01));
+        macros::STOP_SE(agent, Hash40::new("se_pickel_throw_catch01"));
     }
 }
 
@@ -65,6 +65,6 @@ unsafe extern "C" fn expression_catchturn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x14c2e15141), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohit_attacks"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

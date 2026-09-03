@@ -11,7 +11,7 @@ unsafe extern "C" fn game_finalend(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new_raw(0x104bea60d6), Hash40::new_raw(0x031ed91fca), 0, 11, -3, 0, 0, 0, 1, false);
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("mewtwo_final_end"), Hash40::new("top"), 0, 11, -3, 0, 0, 0, 1, false);
         macros::BURN_COLOR(agent, 1, 0.5, 0.9, 1);
     }
     wait(agent.lua_state_agent, 35.0);
@@ -31,6 +31,6 @@ unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_finalend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0c9adbe9bf), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

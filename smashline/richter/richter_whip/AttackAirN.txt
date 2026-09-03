@@ -9,7 +9,7 @@ unsafe extern "C" fn game_attackairn(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_attackairn(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1453e0d324), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("richter_whip_rolling"), true, true);
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
@@ -17,10 +17,10 @@ unsafe extern "C" fn effect_attackairn(agent: &mut L2CAgentBase) {
     if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
     }
     WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, true);
-    macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1453e0d324), Hash40::new_raw(0x09975b620c), -1, 0, 0, 180, -60, 0, 0.7, true);
+    macros::EFFECT_FOLLOW(agent, Hash40::new("richter_whip_rolling"), Hash40::new("hookshot2"), -1, 0, 0, 180, -60, 0, 0.7, true);
     frame(agent.lua_state_agent, 27.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1453e0d324), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("richter_whip_rolling"), false, true);
     }
     if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
     }

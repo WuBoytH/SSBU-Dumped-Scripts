@@ -1,8 +1,8 @@
 unsafe extern "C" fn effect_finalvisualscene01(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 1, 0.75, 0.9, 0, 0, 0.04, 0.8, 1.5, *EFFECT_SCREEN_LAYER_CHAR, 198);
-        macros::EFFECT(agent, Hash40::new_raw(0x14b92ba1df), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT_GLOBAL(agent, Hash40::new_raw(0x154d1dd061), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT(agent, Hash40::new("trail_final_bg_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_GLOBAL(agent, Hash40::new("trail_final_gradation"), 0, 0, 0, 0, 0, 0, 1, false);
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
@@ -17,15 +17,15 @@ unsafe extern "C" fn effect_finalvisualscene01(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_finalvisualscene01(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1061a82ffa));
+        macros::PLAY_SE(agent, Hash40::new("se_trail_final03"));
     }
     frame(agent.lua_state_agent, 58.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13fd72323c));
+        macros::PLAY_SE(agent, Hash40::new("se_trail_final03_02"));
     }
     frame(agent.lua_state_agent, 69.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x138a7502aa));
+        macros::PLAY_SE(agent, Hash40::new("se_trail_final03_03"));
     }
 }
 
@@ -33,7 +33,7 @@ unsafe extern "C" fn expression_finalvisualscene01(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         ModelModule::disable_gold_eye(agent.module_accessor);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1ca58ba11b), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
-        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new_raw(0x1ca58ba11b), 0);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_finalvisualscene01"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_81_finalvisualscene01"), 0);
     }
 }

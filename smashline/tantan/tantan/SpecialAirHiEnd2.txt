@@ -20,14 +20,14 @@ unsafe extern "C" fn game_specialairhiend2(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairhiend2(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x105c037951), Hash40::new_raw(0x057bdfbd15), -1, -0.3, -0.5, 0, 0, 0, 0.7, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("tantan_punch_end"), Hash40::new("arml1"), -1, -0.3, -0.5, 0, 0, 0, 0.7, true);
         macros::LAST_EFFECT_SET_RATE(agent, 1.3);
     }
 }
 
 unsafe extern "C" fn sound_specialairhiend2(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x18494d6d28));
+        macros::PLAY_SE(agent, Hash40::new("se_tantan_attack01_catch"));
     }
 }
 
@@ -39,7 +39,7 @@ unsafe extern "C" fn expression_specialairhiend2(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     loop {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1772c23ed5), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_76_specialhiland"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         wait(agent.lua_state_agent, 1.0);
     }

@@ -9,8 +9,8 @@ unsafe extern "C" fn game_runbraker(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_runbraker(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x12c5ab043d));
-        macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x12c5ab043d), 10);
+        macros::PLAY_SE(agent, Hash40::new("se_robot_dash_stop"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_robot_dash_stop"), 10);
     }
 }
 
@@ -20,6 +20,6 @@ unsafe extern "C" fn expression_runbraker(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b41cc0a88), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

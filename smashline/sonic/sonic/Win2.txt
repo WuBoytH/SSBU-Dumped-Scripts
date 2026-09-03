@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_win2(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SONIC_GENERATE_ARTICLE_CHAOSEMERALD, false, -1);
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SONIC_GENERATE_ARTICLE_CHAOSEMERALD, Hash40::new_raw(0x04a303a03f), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SONIC_GENERATE_ARTICLE_CHAOSEMERALD, Hash40::new("win2"), false, 0.0) /* TODO: verify padded default args */;
     }
 }
 
@@ -9,13 +9,13 @@ unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
             let color = WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0e8655e3ba), Hash40::new_raw(0x054f934137), 0, 0, 0, 180, 180, 0, -1, true, color) /* TODO: macro expects 10 args */;
+            macros::EFFECT_FOLLOW(agent, Hash40::new("sonic_runtrace"), Hash40::new("throw"), 0, 0, 0, 180, 180, 0, -1, true, color) /* TODO: macro expects 10 args */;
             macros::LAST_EFFECT_SET_RATE(agent, 1.09);
         }
     } else {
         if macros::is_excute(agent) {
             let color = WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0e8655e3ba), Hash40::new_raw(0x054f934137), 0, 0, 0, 0, 180, 0, 1, true, color) /* TODO: macro expects 10 args */;
+            macros::EFFECT_FOLLOW(agent, Hash40::new("sonic_runtrace"), Hash40::new("throw"), 0, 0, 0, 0, 180, 0, 1, true, color) /* TODO: macro expects 10 args */;
             macros::LAST_EFFECT_SET_RATE(agent, 1.09);
         }
     }
@@ -24,12 +24,12 @@ unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
     }
     for _ in 0..16 {
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0ec09045bb), Hash40::new_raw(0x054f934137), 5, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("throw"), 5, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
             macros::LAST_EFFECT_SET_RATE(agent, 1.5);
         }
         wait(agent.lua_state_agent, 2.0);
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0ec09045bb), Hash40::new_raw(0x054f934137), 5, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("throw"), 5, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
             macros::LAST_EFFECT_SET_RATE(agent, 1.5);
         }
         wait(agent.lua_state_agent, 2.0);
@@ -40,22 +40,22 @@ unsafe extern "C" fn effect_win2(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 65.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0ec09045bb), Hash40::new_raw(0x054f934137), 4, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("throw"), 4, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
         macros::LAST_EFFECT_SET_RATE(agent, 1.1);
     }
     frame(agent.lua_state_agent, 70.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0ec09045bb), Hash40::new_raw(0x054f934137), 7, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("throw"), 7, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
         macros::LAST_EFFECT_SET_RATE(agent, 0.9);
     }
     frame(agent.lua_state_agent, 96.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0f1f9a3475), Hash40::new_raw(0x031ed91fca), 1.5, 0, 0, 0, 0, 0, 0.675, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), 1.5, 0, 0, 0, 0, 0, 0.675, 0, 0, 0, 0, 0, 0, true);
         macros::LAST_EFFECT_SET_RATE(agent, 0.78);
     }
     frame(agent.lua_state_agent, 112.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x051a07c0e7), -1, 1, 1, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("haver"), -1, 1, 1, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
         macros::LAST_EFFECT_SET_RATE(agent, 0.7);
     }
 }
@@ -64,277 +64,277 @@ unsafe extern "C" fn sound_win2(agent: &mut L2CAgentBase) {
     if macros::GET_VOICE_REGION(agent) == *VOICE_DEFAULT {
         frame(agent.lua_state_agent, 0.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x0e3d6b9125));
+            macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_sonic_win02"));
         }
         frame(agent.lua_state_agent, 36.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
         }
         frame(agent.lua_state_agent, 40.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
         }
         frame(agent.lua_state_agent, 44.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
         }
         frame(agent.lua_state_agent, 48.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
         }
         frame(agent.lua_state_agent, 52.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
         }
         frame(agent.lua_state_agent, 56.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
         }
         frame(agent.lua_state_agent, 60.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
         }
         frame(agent.lua_state_agent, 78.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x143fd6b312));
+            macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_s_win"));
         }
         frame(agent.lua_state_agent, 79.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1852017485));
+            macros::PLAY_SE(agent, Hash40::new("se_sonic_step_left_m_win"));
         }
         frame(agent.lua_state_agent, 96.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x14dd66b341));
+            macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_l_win"));
         }
     } else {
         if macros::GET_VOICE_REGION(agent) == *VOICE_US_EN {
             frame(agent.lua_state_agent, 36.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
             }
             frame(agent.lua_state_agent, 40.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
             }
             frame(agent.lua_state_agent, 44.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
             }
             frame(agent.lua_state_agent, 48.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
             }
             frame(agent.lua_state_agent, 52.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
             }
             frame(agent.lua_state_agent, 56.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
             }
             frame(agent.lua_state_agent, 60.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
             }
             frame(agent.lua_state_agent, 78.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new_raw(0x143fd6b312));
+                macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_s_win"));
             }
             frame(agent.lua_state_agent, 79.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new_raw(0x1852017485));
+                macros::PLAY_SE(agent, Hash40::new("se_sonic_step_left_m_win"));
             }
             frame(agent.lua_state_agent, 87.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x0e3d6b9125));
+                macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_sonic_win02"));
             }
             frame(agent.lua_state_agent, 96.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new_raw(0x14dd66b341));
+                macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_l_win"));
             }
         } else {
             if macros::GET_VOICE_REGION(agent) == *VOICE_US_FR {
                 frame(agent.lua_state_agent, 36.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                    macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                 }
                 frame(agent.lua_state_agent, 40.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                    macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                 }
                 frame(agent.lua_state_agent, 44.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                    macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                 }
                 frame(agent.lua_state_agent, 48.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                    macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                 }
                 frame(agent.lua_state_agent, 52.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                    macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                 }
                 frame(agent.lua_state_agent, 56.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                    macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                 }
                 frame(agent.lua_state_agent, 60.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                    macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                 }
                 frame(agent.lua_state_agent, 78.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new_raw(0x143fd6b312));
+                    macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_s_win"));
                 }
                 frame(agent.lua_state_agent, 79.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new_raw(0x1852017485));
+                    macros::PLAY_SE(agent, Hash40::new("se_sonic_step_left_m_win"));
                 }
                 frame(agent.lua_state_agent, 87.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x0e3d6b9125));
+                    macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_sonic_win02"));
                 }
                 frame(agent.lua_state_agent, 96.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new_raw(0x14dd66b341));
+                    macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_l_win"));
                 }
             } else {
                 if macros::GET_VOICE_REGION(agent) == *VOICE_EU_EN {
                     frame(agent.lua_state_agent, 36.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                     }
                     frame(agent.lua_state_agent, 40.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                     }
                     frame(agent.lua_state_agent, 44.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                     }
                     frame(agent.lua_state_agent, 48.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                     }
                     frame(agent.lua_state_agent, 52.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                     }
                     frame(agent.lua_state_agent, 56.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                     }
                     frame(agent.lua_state_agent, 60.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                     }
                     frame(agent.lua_state_agent, 78.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE(agent, Hash40::new_raw(0x143fd6b312));
+                        macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_s_win"));
                     }
                     frame(agent.lua_state_agent, 79.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE(agent, Hash40::new_raw(0x1852017485));
+                        macros::PLAY_SE(agent, Hash40::new("se_sonic_step_left_m_win"));
                     }
                     frame(agent.lua_state_agent, 87.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x0e3d6b9125));
+                        macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_sonic_win02"));
                     }
                     frame(agent.lua_state_agent, 96.0);
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE(agent, Hash40::new_raw(0x14dd66b341));
+                        macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_l_win"));
                     }
                 } else {
                     if macros::GET_VOICE_REGION(agent) == *VOICE_EU_FR {
                         frame(agent.lua_state_agent, 36.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                         }
                         frame(agent.lua_state_agent, 40.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                         }
                         frame(agent.lua_state_agent, 44.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                         }
                         frame(agent.lua_state_agent, 48.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                         }
                         frame(agent.lua_state_agent, 52.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                         }
                         frame(agent.lua_state_agent, 56.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                         }
                         frame(agent.lua_state_agent, 60.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                            macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                         }
                         frame(agent.lua_state_agent, 78.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE(agent, Hash40::new_raw(0x143fd6b312));
+                            macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_s_win"));
                         }
                         frame(agent.lua_state_agent, 79.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE(agent, Hash40::new_raw(0x1852017485));
+                            macros::PLAY_SE(agent, Hash40::new("se_sonic_step_left_m_win"));
                         }
                         frame(agent.lua_state_agent, 87.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x0e3d6b9125));
+                            macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_sonic_win02"));
                         }
                         frame(agent.lua_state_agent, 96.0);
                         if macros::is_excute(agent) {
-                            macros::PLAY_SE(agent, Hash40::new_raw(0x14dd66b341));
+                            macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_l_win"));
                         }
                     } else {
                         if macros::GET_VOICE_REGION(agent) == *VOICE_EU_IT {
                             frame(agent.lua_state_agent, 36.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                             }
                             frame(agent.lua_state_agent, 40.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                             }
                             frame(agent.lua_state_agent, 44.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                             }
                             frame(agent.lua_state_agent, 48.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                             }
                             frame(agent.lua_state_agent, 52.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                             }
                             frame(agent.lua_state_agent, 56.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x195ccd5527));
+                                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_right_m_win"));
                             }
                             frame(agent.lua_state_agent, 60.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x1852017485));
+                                macros::PLAY_SE_NO_3D(agent, Hash40::new("se_sonic_step_left_m_win"));
                             }
                             frame(agent.lua_state_agent, 78.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE(agent, Hash40::new_raw(0x143fd6b312));
+                                macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_s_win"));
                             }
                             frame(agent.lua_state_agent, 79.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE(agent, Hash40::new_raw(0x1852017485));
+                                macros::PLAY_SE(agent, Hash40::new("se_sonic_step_left_m_win"));
                             }
                             frame(agent.lua_state_agent, 87.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x0e3d6b9125));
+                                macros::PLAY_SE_NO_3D(agent, Hash40::new("vc_sonic_win02"));
                             }
                             frame(agent.lua_state_agent, 96.0);
                             if macros::is_excute(agent) {
-                                macros::PLAY_SE(agent, Hash40::new_raw(0x14dd66b341));
+                                macros::PLAY_SE(agent, Hash40::new("se_sonic_swing_l_win"));
                             }
                         } else {
                         }

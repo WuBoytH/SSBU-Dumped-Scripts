@@ -6,7 +6,7 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), false);
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
             macros::FT_START_CUTIN(agent);
         }
     } else {
@@ -25,8 +25,8 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0e071aecf4), false, false, false);
-        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new_raw(0x112c9e1c7a), Hash40::new_raw(0x031ed91fca), 0, 20, 0, 0, 0, 0, 1, true);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_koopa_final"), false, false, false);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("koopa_final_start"), Hash40::new("top"), 0, 20, 0, 0, 0, 0, 1, true);
         macros::LAST_EFFECT_SET_RATE(agent, 0.6);
     }
 }
@@ -34,7 +34,7 @@ unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_finalairstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_REMAIN(agent, Hash40::new_raw(0x10f6e4b758));
+        macros::PLAY_SE_REMAIN(agent, Hash40::new("se_koopa_final01"));
     }
 }
 
@@ -46,6 +46,6 @@ unsafe extern "C" fn expression_finalairstart(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 89.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0c60d4d4dc), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beamm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

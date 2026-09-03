@@ -14,7 +14,7 @@ unsafe extern "C" fn game_specialairlw(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0b616ddac1), Hash40::new_raw(0x0613f917e1), 0, 2, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("roy_counter"), Hash40::new("sword1"), 0, 2, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         macros::FLASH(agent, 1, 1, 1, 0.75);
     }
     wait(agent.lua_state_agent, 1.0);
@@ -37,7 +37,7 @@ unsafe extern "C" fn effect_specialairlw(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x128676f76d));
+        macros::PLAY_SE(agent, Hash40::new("se_roy_special_l01"));
     }
 }
 
@@ -51,7 +51,7 @@ unsafe extern "C" fn expression_specialairlw(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d487813b4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {

@@ -7,12 +7,12 @@ unsafe extern "C" fn game_specialn1hold(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialn1hold(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x148b5f2567), Hash40::new_raw(0x049bf3f6be), 0.8, -0.3, -0.3, 0, 90, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("miigunner_cshot_hold"), Hash40::new("armr"), 0.8, -0.3, -0.3, 0, 90, 0, 1, true);
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
     loop {
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), -8, 0, 0, 0, 0, 0, 1, 12, 0, 12, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), -8, 0, 0, 0, 0, 0, 1, 12, 0, 12, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 12.0);
     }
@@ -21,7 +21,7 @@ unsafe extern "C" fn effect_specialn1hold(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialn1hold(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x186db8b26d));
+        macros::PLAY_STATUS(agent, Hash40::new("se_miigunner_special_n01"));
     }
 }
 
@@ -31,7 +31,7 @@ unsafe extern "C" fn expression_specialn1hold(agent: &mut L2CAgentBase) {
             slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         }
         frame(agent.lua_state_agent, 1.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x110371c42a), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
         macros::AREA_WIND_2ND_RAD(agent, 1, 1, 0.02, 3, 0.6, 6, 7, 24, 50) /* TODO: macro expects 8 args */;
         wait_loop_sync_mot(agent.lua_state_agent);
     }

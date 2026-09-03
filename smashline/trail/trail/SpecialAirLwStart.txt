@@ -20,7 +20,7 @@ unsafe extern "C" fn game_specialairlwstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairlwstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x13921c76ab), Hash40::new_raw(0x031ed91fca), 0, 9, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("trail_counter_flash"), Hash40::new("top"), 0, 9, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         macros::FLASH(agent, 1, 1, 1, 0.75);
     }
     wait(agent.lua_state_agent, 1.0);
@@ -43,12 +43,12 @@ unsafe extern "C" fn effect_specialairlwstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairlwstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14101da3b0));
-        macros::STOP_SE(agent, Hash40::new_raw(0x0fe939f6ee), 50) /* TODO: macro expects 1 args */;
+        macros::PLAY_SE(agent, Hash40::new("se_trail_special_l01"));
+        macros::STOP_SE(agent, Hash40::new("se_trail_jump02"), 50) /* TODO: macro expects 1 args */;
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14a64b78bc));
+        macros::PLAY_SE(agent, Hash40::new("vc_trail_special_l01"));
     }
 }
 
@@ -59,7 +59,7 @@ unsafe extern "C" fn expression_specialairlwstart(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x17d110e466), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_81_special_airlw"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 60.0);
     if macros::is_excute(agent) {

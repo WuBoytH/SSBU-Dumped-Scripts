@@ -1,15 +1,15 @@
 unsafe extern "C" fn effect_specialairshold(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0b51f19f4a), Hash40::new_raw(0x031ed91fca), 0, 9, 0, 0, -60, 0, 1, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15b0774126), Hash40::new_raw(0x0613f917e1), 9, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_chant"), Hash40::new("top"), 0, 9, 0, 0, -60, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_lightning1_hold"), Hash40::new("sword1"), 9, 0, 0, 0, 0, 0, 1, true);
     }
 }
 
 unsafe extern "C" fn sound_specialairshold(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1400b1ebfa));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14b6e730f6));
+        macros::PLAY_SE(agent, Hash40::new("se_brave_special_s01"));
+        macros::PLAY_SE(agent, Hash40::new("vc_brave_special_s01"));
     }
 }
 
@@ -17,6 +17,6 @@ unsafe extern "C" fn expression_specialairshold(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11166078cd), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_loopattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

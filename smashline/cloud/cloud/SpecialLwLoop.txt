@@ -1,11 +1,11 @@
 unsafe extern "C" fn effect_speciallwloop(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x16f127fc42), false, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16f127fc42), Hash40::new_raw(0x031ed91fca), 1, 10, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("cloud_limitcharge_hold"), false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("cloud_limitcharge_hold"), Hash40::new("top"), 1, 10, 0, 0, 0, 0, 1, true);
     }
     loop {
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x174f1eb194), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("cloud_limitcharge_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 9.0);
     }
@@ -18,7 +18,7 @@ unsafe extern "C" fn expression_speciallwloop(agent: &mut L2CAgentBase) {
     }
     loop {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11140ef559), 4, true, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 4, true, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         wait(agent.lua_state_agent, 8.0);
     }

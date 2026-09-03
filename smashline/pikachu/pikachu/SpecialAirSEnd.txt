@@ -8,15 +8,15 @@ unsafe extern "C" fn game_specialairsend(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairsend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x138214e222), Hash40::new_raw(0x04a7f3f69c), 4, 0, 0, 90, 0, 0, 1, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("pikachu_rocket_aura"), Hash40::new("head"), 4, 0, 0, 90, 0, 0, 1, true);
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
-        macros::EFFECT_FLW_POS_NO_STOP(agent, Hash40::new_raw(0x12bc88cb94), Hash40::new_raw(0x04a7f3f69c), 0, 0, 0, 0, 0, 0, 1.1, true);
+        macros::EFFECT_FLW_POS_NO_STOP(agent, Hash40::new("pikachu_rocket_jet"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1.1, true);
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x138214e222), false, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x12bc88cb94), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pikachu_rocket_aura"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pikachu_rocket_jet"), false, true);
     }
 }
 
@@ -30,7 +30,7 @@ unsafe extern "C" fn expression_specialairsend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0e3ecd3009), 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {

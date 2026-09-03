@@ -7,7 +7,7 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), false, false) /* TODO: macro expects 2 args */;
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false, false) /* TODO: macro expects 2 args */;
         }
     } else {
         if macros::is_excute(agent) {
@@ -29,19 +29,19 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0ebe3c6422), false, false, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11160e27ea), Hash40::new_raw(0x05e008fd84), 0, 0, 0.5, 0, 0, 0, 1.3, true);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_zelda_final"), false, false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("zelda_final_flash"), Hash40::new("havel"), 0, 0, 0.5, 0, 0, 0, 1.3, true);
     }
 }
 
 unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x10c2e567f5));
+        macros::PLAY_SE(agent, Hash40::new("se_zelda_final01"));
     }
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x105bec364f));
+        macros::PLAY_SE(agent, Hash40::new("se_zelda_final02"));
     }
 }
 
@@ -55,6 +55,6 @@ unsafe extern "C" fn expression_finalstart(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 60.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e3ecd3009), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

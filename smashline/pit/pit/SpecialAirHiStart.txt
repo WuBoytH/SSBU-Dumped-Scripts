@@ -1,20 +1,20 @@
 unsafe extern "C" fn effect_specialairhistart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15fd6d9120), Hash40::new_raw(0x051a36341b), 0, 0, 0, 0, 0, 0, 1, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15c12159d8), Hash40::new_raw(0x081e928105), -3, -1, 1, 0, 0, 0, 1, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15c12159d8), Hash40::new_raw(0x08cad3beda), -3, -1, -1, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pit_fly_miracle_start"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pit_ikaros_wing_flare"), Hash40::new("s_wingl1"), -3, -1, 1, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pit_ikaros_wing_flare"), Hash40::new("s_wingr1"), -3, -1, -1, 0, 0, 0, 1, false);
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x15fd6d9120), true, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0f1f09c257), Hash40::new_raw(0x051a36341b), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pit_fly_miracle_start"), true, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pit_fly_miracle"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1, false);
     }
 }
 
 unsafe extern "C" fn sound_specialairhistart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x129617c5e8));
+        macros::PLAY_SE(agent, Hash40::new("se_pit_special_h01"));
     }
 }
 
@@ -24,6 +24,6 @@ unsafe extern "C" fn expression_specialairhistart(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1116c1eee9), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_28_soaring"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

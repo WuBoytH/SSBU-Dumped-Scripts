@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_shoot(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::ATTACK(agent, 0, 0, Hash40::new_raw(0x031ed91fca), 10.0, 361, 42, 0, 14, 2.2, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, -2.3, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13313725f6), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
-        macros::ATTACK(agent, 1, 0, Hash40::new_raw(0x031ed91fca), 25.0, 47, 69, 0, 35, 2.2, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, -4, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new_raw(0x13313725f6), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 10.0, 361, 42, 0, 14, 2.2, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, -2.3, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
+        macros::ATTACK(agent, 1, 0, Hash40::new("top"), 25.0, 47, 69, 0, 35, 2.2, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, -4, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_NONE);
         attack!(agent, *MA_MSC_CMD_ATTACK_SET_LERP, 0, 1);
         AttackModule::enable_safe_pos(agent.module_accessor);
     }
@@ -9,32 +9,32 @@ unsafe extern "C" fn game_shoot(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_shoot(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x1965ac1abd), false, false);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1533cacc7c), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("lucario_hadoudan_max_hold"), false, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("lucario_hadoudan_tail"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
     }
 }
 
 unsafe extern "C" fn sound_shoot(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x16c0829f9a));
+        macros::STOP_SE(agent, Hash40::new("se_lucario_special_n01"));
         macros::STOP_SE(agent, Hash40::new_raw(0x16b0e86b15));
     }
     if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_CHARGE_RATE) <= 0.45 {
         let se_aurapower_middle = WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_SE_AURAPOWER_MIDDLE);
         if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_AURAPOWER) <= se_aurapower_middle {
             if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new_raw(0x1859e1f7f9));
+                macros::PLAY_SE(agent, Hash40::new("se_lucario_special_n05_s"));
             }
         } else {
             let se_aurapower_high = WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_SE_AURAPOWER_HIGH);
             if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_AURAPOWER) <= se_aurapower_high {
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new_raw(0x185ba749a0));
+                    macros::PLAY_SE(agent, Hash40::new("se_lucario_special_n06_s"));
                 }
             } else {
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new_raw(0x185a652397));
+                    macros::PLAY_SE(agent, Hash40::new("se_lucario_special_n07_s"));
                 }
             }
         }
@@ -43,17 +43,17 @@ unsafe extern "C" fn sound_shoot(agent: &mut L2CAgentBase) {
             let se_aurapower_middle = WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_SE_AURAPOWER_MIDDLE);
             if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_AURAPOWER) <= se_aurapower_middle {
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new_raw(0x18a3eeca9a));
+                    macros::PLAY_SE(agent, Hash40::new("se_lucario_special_n05_m"));
                 }
             } else {
                 let se_aurapower_high = WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_SE_AURAPOWER_HIGH);
                 if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_AURAPOWER) <= se_aurapower_high {
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE(agent, Hash40::new_raw(0x18a1a874c3));
+                        macros::PLAY_SE(agent, Hash40::new("se_lucario_special_n06_m"));
                     }
                 } else {
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE(agent, Hash40::new_raw(0x18a06a1ef4));
+                        macros::PLAY_SE(agent, Hash40::new("se_lucario_special_n07_m"));
                     }
                 }
             }
@@ -61,17 +61,17 @@ unsafe extern "C" fn sound_shoot(agent: &mut L2CAgentBase) {
             let se_aurapower_middle = WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_SE_AURAPOWER_MIDDLE);
             if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_AURAPOWER) <= se_aurapower_middle {
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new_raw(0x18d4e9fa0c));
+                    macros::PLAY_SE(agent, Hash40::new("se_lucario_special_n05_l"));
                 }
             } else {
                 let se_aurapower_high = WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_SE_AURAPOWER_HIGH);
                 if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCARIO_AURABALL_INSTANCE_WORK_ID_FLOAT_AURAPOWER) <= se_aurapower_high {
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE(agent, Hash40::new_raw(0x18d6af4455));
+                        macros::PLAY_SE(agent, Hash40::new("se_lucario_special_n06_l"));
                     }
                 } else {
                     if macros::is_excute(agent) {
-                        macros::PLAY_SE(agent, Hash40::new_raw(0x18d76d2e62));
+                        macros::PLAY_SE(agent, Hash40::new("se_lucario_special_n07_l"));
                     }
                 }
             }

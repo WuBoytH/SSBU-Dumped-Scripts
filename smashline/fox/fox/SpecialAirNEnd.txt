@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_specialairnend(agent: &mut L2CAgentBase) {
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_FOX_GENERATE_ARTICLE_BLASTER) {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_FOX_GENERATE_ARTICLE_BLASTER, Hash40::new_raw(0x05130181c4), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_FOX_GENERATE_ARTICLE_BLASTER, Hash40::new("close"), false, 0.0) /* TODO: verify padded default args */;
         }
     }
     frame(agent.lua_state_agent, 1.0);
@@ -11,11 +11,11 @@ unsafe extern "C" fn game_specialairnend(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairnend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x120f735110));
+        macros::PLAY_SE(agent, Hash40::new("se_fox_special_n02"));
     }
     wait(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x12e610f425));
+        macros::PLAY_SE(agent, Hash40::new("se_fox_special_n04"));
     }
 }
 
@@ -26,7 +26,7 @@ unsafe extern "C" fn expression_specialairnend(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x07d6d25362, 0x0ebe8f628e);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("blaster"), hash40("blaster_normal"));
     }
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_FOX_GENERATE_ARTICLE_BLASTER) {
         if macros::is_excute(agent) {

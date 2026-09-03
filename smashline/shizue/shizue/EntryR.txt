@@ -1,59 +1,59 @@
 unsafe extern "C" fn effect_entryr(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), 20, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 20, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 114.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x12c14df03c), Hash40::new_raw(0x031ed91fca), 20, 0, 0, 0, 0, 0, 1.15, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("shizue_entry_smoke"), Hash40::new("top"), 20, 0, 0, 0, 0, 0, 1.15, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_entryr(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1261434b3f));
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_appear03"));
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x128f4d2a13));
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_appear01"));
     }
     frame(agent.lua_state_agent, 26.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x10857bfc32));
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_jump01"));
     }
     frame(agent.lua_state_agent, 39.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13e059ab05));
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_landing01"));
     }
     frame(agent.lua_state_agent, 68.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x164c185ab7));
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_step_right_s"));
     }
     frame(agent.lua_state_agent, 72.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x156b24bb65));
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_step_left_s"));
     }
     frame(agent.lua_state_agent, 74.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1216447ba9));
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_appear02"));
     }
     frame(agent.lua_state_agent, 105.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x164c185ab7));
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_step_right_s"));
     }
     frame(agent.lua_state_agent, 117.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x156b24bb65));
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_step_left_s"));
     }
 }
 
 unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         article!(agent, *MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, 0, 0, -10);
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new_raw(0x05acf02ace), Hash40::new_raw(0x0899290e7a), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new_raw(0x0535f97b74), Hash40::new_raw(0x088b9ca194), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new_raw(0x0542fe4be2), Hash40::new_raw(0x0acb8d86bd), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step1"), Hash40::new("step1_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step2"), Hash40::new("step2_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
@@ -70,7 +70,7 @@ unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new_raw(0x0542fe4be2), Hash40::new_raw(0x0abc8ab62b), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_3"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
         ItemModule::set_attach_item_visibility(agent.module_accessor, true, *ATTACH_ITEM_GROUP_BADGE as u32);
     }
     frame(agent.lua_state_agent, 14.0);
@@ -83,7 +83,7 @@ unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 81.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new_raw(0x0542fe4be2), Hash40::new_raw(0x0acb8d86bd), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
     }
     frame(agent.lua_state_agent, 95.0);
     if macros::is_excute(agent) {

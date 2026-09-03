@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_specials0(agent: &mut L2CAgentBase) {
     if macros::IS_EXIST_ARTICLE(agent, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD) {
         if macros::is_excute(agent) {
-            ArticleModule::add_motion_partial(agent.module_accessor, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new_raw(0x07439e926b), 10.0, 10.0, false, false, 0.0, false, true, false);
+            ArticleModule::add_motion_partial(agent.module_accessor, *WEAPON_ELIGHT_BUNSHIN_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 10.0, 10.0, false, false, 0.0, false, true, false);
         }
     }
     frame(agent.lua_state_agent, 2.0);
@@ -12,17 +12,17 @@ unsafe extern "C" fn game_specials0(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_specials0(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x185cf6c9eb), Hash40::new_raw(0x035dbfe258), 0, 0, 0, 0, 0, 0, 1, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x13c2faaade), Hash40::new_raw(0x0613f917e1), 0, 0, 0, 0, 90, 0, 1, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("elight_photon_body_lihgt"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_photon_sword"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, true);
         macros::LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(agent, -1);
     }
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x14e2e35f6d), Hash40::new_raw(0x054f934137), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("elight_photon_vanish"), Hash40::new("throw"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x185cf6c9eb), false, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x13c2faaade), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("elight_photon_body_lihgt"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("elight_photon_sword"), true, true);
     }
 }

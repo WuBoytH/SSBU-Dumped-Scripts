@@ -1,8 +1,8 @@
 unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::FLASH(agent, 0.1, 0, 0, 0.7);
-        macros::EFFECT(agent, Hash40::new_raw(0x0e348fad6d), Hash40::new_raw(0x051a36341b), -1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
-        macros::EFFECT(agent, Hash40::new_raw(0x1352cad462), Hash40::new_raw(0x031ed91fca), 0, 5.5, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("toonlink_entry"), Hash40::new("waist"), -1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("toonlink_entry_bomb"), Hash40::new("top"), 0, 5.5, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 0, 0, true);
     }
     wait(agent.lua_state_agent, 45.0);
     if macros::is_excute(agent) {
@@ -17,27 +17,27 @@ unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x100dd29e2a));
+        macros::PLAY_SE(agent, Hash40::new("se_common_bomb_m"));
     }
     wait(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15d32ba7e1));
+        macros::PLAY_SE(agent, Hash40::new("se_toonlink_landing01"));
     }
     wait(agent.lua_state_agent, 39.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1467557ac4));
+        macros::PLAY_SE(agent, Hash40::new("se_toonlink_appear02"));
     }
     wait(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14fe5c2b7e));
+        macros::PLAY_SE(agent, Hash40::new("se_toonlink_appear01"));
     }
 }
 
 unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        VisibilityModule::set_int64(agent.module_accessor, 0x061e93d2e8, 0x0b8f067556);
-        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x0a7da68099);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("shield"), hash40("shield_back"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("sword_back"));
     }
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
@@ -53,10 +53,10 @@ unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 58.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x0c10da98ed);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("sword_normal"));
     }
     frame(agent.lua_state_agent, 102.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x061e93d2e8, 0x0d916fa75f);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("shield"), hash40("shield_normal"));
     }
 }

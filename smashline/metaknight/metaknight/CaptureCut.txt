@@ -1,17 +1,17 @@
 unsafe extern "C" fn sound_capturecut(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x17d5c741df));
+        macros::PLAY_SE(agent, Hash40::new("se_metaknight_landing01"));
     }
     wait(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x17d5c741df));
+        macros::STOP_SE(agent, Hash40::new("se_metaknight_landing01"));
     }
 }
 
 unsafe extern "C" fn expression_capturecut(agent: &mut L2CAgentBase) {
     // TODO: expression_CaptureCutRumble();
     if macros::is_excute(agent) {
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0d6fdac86f);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_normal"));
     }
 }

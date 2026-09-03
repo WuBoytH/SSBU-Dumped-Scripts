@@ -4,40 +4,40 @@ unsafe extern "C" fn game_specialairlwbite(agent: &mut L2CAgentBase) {
     }
     if macros::is_excute(agent) {
         damage!(agent, *MA_MSC_DAMAGE_DAMAGE_NO_REACTION, *DAMAGE_NO_REACTION_MODE_DAMAGE_POWER, 12);
-        macros::SEARCH(agent, 0, 0, Hash40::new_raw(0x059ec55c97), 6.0, 0.0, 0.0, 0.0, None, None, None, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
+        macros::SEARCH(agent, 0, 0, Hash40::new("mouth"), 6.0, 0.0, 0.0, 0.0, None, None, None, *COLLISION_KIND_MASK_HIT, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false);
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::HIT_NODE(agent, Hash40::new_raw(0x059ec55c97), *HIT_STATUS_XLU);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0565a7512d), *HIT_STATUS_XLU);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x05367e723d), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("mouth"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("lipu3"), *HIT_STATUS_XLU);
+        macros::HIT_NODE(agent, Hash40::new("lipd3"), *HIT_STATUS_XLU);
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0501f40aa0), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0576f33a36), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x0598fd5b1a), *HIT_STATUS_NORMAL);
-        macros::HIT_NODE(agent, Hash40::new_raw(0x057f45761d), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("neck4"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("neck5"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("neck7"), *HIT_STATUS_NORMAL);
+        macros::HIT_NODE(agent, Hash40::new("neck9"), *HIT_STATUS_NORMAL);
     }
 }
 
 unsafe extern "C" fn effect_specialairlwbite(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x16797e6017), Hash40::new_raw(0x059ec55c97), 0, 0, 0, 180, 0, 0, 0.85, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("packun_longrange_start"), Hash40::new("mouth"), 0, 0, 0, 180, 0, 0, 0.85, true);
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x1a0d496087), Hash40::new_raw(0x059ec55c97), 6, 0, 0, 0, 90, 0, 0.9, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x15e58fa051), Hash40::new_raw(0x059ec55c97), 0, 0, 0, 180, 0, 0, 0.85, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("packun_longrange_bite_line"), Hash40::new("mouth"), 6, 0, 0, 0, 90, 0, 0.9, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("packun_longrange_bite"), Hash40::new("mouth"), 0, 0, 0, 180, 0, 0, 0.85, true);
     }
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_DETACH_KIND(agent, Hash40::new_raw(0x15e58fa051), -1);
+        macros::EFFECT_DETACH_KIND(agent, Hash40::new("packun_longrange_bite"), -1);
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1b6904e1ee), Hash40::new_raw(0x059ec55c97), 5, 0, 0, 0, 90, 0, 0.9, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("packun_longrange_bite_line2"), Hash40::new("mouth"), 5, 0, 0, 0, 90, 0, 0.9, true);
     }
 }
 
@@ -45,22 +45,22 @@ unsafe extern "C" fn sound_specialairlwbite(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15f3bd970a));
-        macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x15f3bd970a), 20);
+        macros::PLAY_SE(agent, Hash40::new("se_packun_special_l02"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_packun_special_l02"), 20);
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15f4d05313));
+        macros::PLAY_SE(agent, Hash40::new("se_packun_special_l06"));
     }
 }
 
 unsafe extern "C" fn expression_specialairlwbite(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        macros::RUMBLE_HIT(agent, Hash40::new_raw(0x0e3ecd3009), 0);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b2f910967), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_rush"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

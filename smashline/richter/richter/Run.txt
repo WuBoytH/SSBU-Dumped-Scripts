@@ -2,10 +2,10 @@ unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0d0da6e3c0), Hash40::new_raw(0x031ed91fca), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 21.0);
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0d0da6e3c0), Hash40::new_raw(0x031ed91fca), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -14,10 +14,10 @@ unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 2.0);
         if macros::is_excute(agent) {
-            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x177229767c), Hash40::new_raw(0x16b977a668));
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_richter_step_right_l"), Hash40::new("se_richter_step_left_l"));
         }
         frame(agent.lua_state_agent, 23.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new_raw(0x16b977a668), Hash40::new_raw(0x177229767c));
+        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_richter_step_left_l"), Hash40::new("se_richter_step_right_l"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -26,10 +26,10 @@ unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 9.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0a9219fcab), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         frame(agent.lua_state_agent, 29.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0a9219fcab), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

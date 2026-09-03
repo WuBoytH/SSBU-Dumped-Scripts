@@ -1,8 +1,8 @@
 unsafe extern "C" fn effect_bayonettaspecialnendh(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a9e6a4000), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 1, true);
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1a9e6a4000), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_end"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("bayonetta_chargebullet_end"), Hash40::new("havel"), 0, 0, 0, 0, 0, 0, 1, true);
         }
     }
 }
@@ -11,12 +11,12 @@ unsafe extern "C" fn sound_bayonettaspecialnendh(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_SPECIAL_N_FLAG_SPECIAL_N_CHARGE_MAX) {
         frame(agent.lua_state_agent, 30.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x18e8a495de));
+            macros::PLAY_SE(agent, Hash40::new("se_bayonetta_special_n08"));
         }
     }
     frame(agent.lua_state_agent, 38.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STEP(agent, Hash40::new_raw(0x18f6bf9c56));
+        macros::PLAY_STEP(agent, Hash40::new("se_bayonetta_step_left_s"));
     }
 }
 

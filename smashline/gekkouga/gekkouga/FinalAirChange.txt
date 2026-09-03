@@ -11,7 +11,7 @@ unsafe extern "C" fn game_finalairchange(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x15e4e2fd87), false, false) /* TODO: macro expects 2 args */;
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalchange.nuanmb"), false, false) /* TODO: macro expects 2 args */;
         }
     } else {
         if macros::is_excute(agent) {
@@ -35,18 +35,18 @@ unsafe extern "C" fn game_finalairchange(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalairchange(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x111a7ed79a), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_gekkouga_final"), false, false, false);
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x1a2b0446d8), Hash40::new_raw(0x031ed91fca), 0, 9.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("gekkouga_kageuchi_warp_end"), Hash40::new("top"), 0, 9.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_finalairchange(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1393f7434c));
+        macros::PLAY_SE(agent, Hash40::new("se_gekkouga_final09"));
     }
 }
 

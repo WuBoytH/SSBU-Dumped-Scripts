@@ -1,6 +1,6 @@
 unsafe extern "C" fn effect_jumpback(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0e6b8d30f4), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_jump_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, false);
     }
 }
 
@@ -8,20 +8,20 @@ unsafe extern "C" fn sound_jumpback(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_JUMP_FLAG_GIMMICK_SPRING_JUMP_FROM_RING) {
         if macros::is_excute(agent) {
-            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x115f515037));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_wolf_rnd_jump"));
         }
         wait(agent.lua_state_agent, 11.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1281c86397));
+            macros::PLAY_SE(agent, Hash40::new("se_common_swing_06"));
         }
     } else {
         if macros::is_excute(agent) {
-            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x115f515037));
-            macros::PLAY_SE(agent, Hash40::new_raw(0x0e1f452bf2));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_wolf_rnd_jump"));
+            macros::PLAY_SE(agent, Hash40::new("se_wolf_jump01"));
         }
         wait(agent.lua_state_agent, 11.0);
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x1281c86397));
+            macros::PLAY_SE(agent, Hash40::new("se_common_swing_06"));
         }
     }
 }

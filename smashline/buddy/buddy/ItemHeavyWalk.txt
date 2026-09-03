@@ -2,10 +2,10 @@ unsafe extern "C" fn sound_itemheavywalk(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
-            macros::PLAY_STEP(agent, Hash40::new_raw(0x15cb6f4a15));
+            macros::PLAY_STEP(agent, Hash40::new("se_buddy_step_right_l"));
         }
         frame(agent.lua_state_agent, 16.0);
-        macros::PLAY_STEP(agent, Hash40::new_raw(0x14999fc61e));
+        macros::PLAY_STEP(agent, Hash40::new("se_buddy_step_left_l"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -14,10 +14,10 @@ unsafe extern "C" fn expression_itemheavywalk(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 0.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         frame(agent.lua_state_agent, 16.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b5733addd), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

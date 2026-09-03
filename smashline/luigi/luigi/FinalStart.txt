@@ -10,11 +10,11 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
         }
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x1654ea70d3), false, false) /* TODO: macro expects 2 args */;
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart02.nuanmb"), false, false) /* TODO: macro expects 2 args */;
             }
         } else {
             if macros::is_excute(agent) {
-                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x14c2bd844e), false, false) /* TODO: macro expects 2 args */;
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false, false) /* TODO: macro expects 2 args */;
             }
         }
     } else {
@@ -34,18 +34,18 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x0e2826e789), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_luigi_final"), false, false, false);
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_finalstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x10fba74657));
+        macros::PLAY_SE(agent, Hash40::new("se_luigi_final01"));
     }
 }
 

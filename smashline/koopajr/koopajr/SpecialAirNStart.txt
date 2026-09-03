@@ -6,7 +6,7 @@ unsafe extern "C" fn game_specialairnstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairnstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x031ed91fca), 11, 10, 4.5, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 11, 10, 4.5, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
         macros::LAST_EFFECT_SET_RATE(agent, 1.3);
     }
 }
@@ -14,12 +14,12 @@ unsafe extern "C" fn effect_specialairnstart(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairnstart(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x16b1985c51));
+        macros::PLAY_SE(agent, Hash40::new("se_koopajr_special_n01"));
     }
 }
 
 unsafe extern "C" fn expression_specialairnstart(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x05327cb690, 0x09511940c5);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("tarap"), hash40("tarap_off"));
     }
 }

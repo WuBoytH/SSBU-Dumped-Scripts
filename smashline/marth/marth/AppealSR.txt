@@ -1,27 +1,27 @@
 unsafe extern "C" fn effect_appealsr(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x11345bc2de), Hash40::new_raw(0x0613f917e1), -0.00001, -0.00002, 7, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("sword1"), -0.00001, -0.00002, 7, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_appealsr(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11c9fceeb9));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x10ef818087));
+        macros::PLAY_SE(agent, Hash40::new("vc_marth_appeal03"));
+        macros::PLAY_SE(agent, Hash40::new("se_marth_swing_s"));
     }
     wait(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x10158ebde4));
+        macros::PLAY_SE(agent, Hash40::new("se_marth_swing_m"));
     }
     wait(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x109252def5));
+        macros::PLAY_SE(agent, Hash40::new("se_marth_swordin"));
     }
     wait(agent.lua_state_agent, 45.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x155cfcb9e5));
+        macros::PLAY_STATUS(agent, Hash40::new("se_marth_swordpullout"));
     }
 }
 
@@ -31,15 +31,15 @@ unsafe extern "C" fn expression_appealsr(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d487813b4), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 56.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x0ac5fba3a6);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0ee31cfd6c), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("sword_saya"));
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 3, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 77.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x059ae5c70f, 0x0c10da98ed);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("sword_normal"));
     }
 }

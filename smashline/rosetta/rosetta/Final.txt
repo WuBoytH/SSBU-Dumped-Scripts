@@ -11,11 +11,11 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
         }
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             if macros::is_excute(agent) {
-                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x11dff1b240), true);
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final02.nuanmb"), true);
             }
         } else {
             if macros::is_excute(agent) {
-                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x0fb271b569), true);
+                macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final.nuanmb"), true);
             }
         }
     } else {
@@ -37,16 +37,16 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x1055214c48), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_rosetta_final"), false, false, false);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x12fd1d4ba6), Hash40::new_raw(0x05e008fd84), 0, 7.5, 0, 0, 0, 0, 1, true);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x155cfdd2a9), Hash40::new_raw(0x05e008fd84), 0, 7.5, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_wand_light"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rosetta_wand_stardust"), Hash40::new("havel"), 0, 7.5, 0, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 40.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x1d41521325), Hash40::new_raw(0x031ed91fca), 0, 46, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("rosetta_final_powerstar_birth"), Hash40::new("top"), 0, 46, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
@@ -57,6 +57,6 @@ unsafe extern "C" fn expression_final(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e49ca009f), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

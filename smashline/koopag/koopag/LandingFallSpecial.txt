@@ -1,21 +1,21 @@
 unsafe extern "C" fn effect_landingfallspecial(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x116e7e1f9d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_landingfallspecial(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x137b83471c));
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_landing01"));
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x15599827f4));
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_step_left_s"));
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13e28a16a6));
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_landing02"));
     }
 }
 
@@ -25,16 +25,16 @@ unsafe extern "C" fn expression_landingfallspecial(agent: &mut L2CAgentBase) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
         ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
-        macros::RUMBLE_ALL(agent, Hash40::new_raw(0x137fff509b), 0);
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_stg_impact_m"), 0);
     }
     frame(agent.lua_state_agent, 0.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0ae67b3635);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_shell"));
     }
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
         ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
-        macros::RUMBLE_ALL(agent, Hash40::new_raw(0x1385f06df8), 0);
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_stg_impact_s"), 0);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
     }
 }

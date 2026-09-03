@@ -6,7 +6,7 @@ unsafe extern "C" fn game_specialairlw(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_specialairlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x05e008fd84), 0, 0, 0, 0.00004, 0.00001, 0.00006, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_smash_flash"), Hash40::new("havel"), 0, 0, 0, 0.00004, 0.00001, 0.00006, 1, true);
     }
 }
 
@@ -15,7 +15,7 @@ unsafe extern "C" fn sound_specialairlw(agent: &mut L2CAgentBase) {
     if get_value_int(agent.lua_state_agent, *SO_VAR_INT_PREV_STATUS) == *FIGHTER_GAMEWATCH_STATUS_KIND_SPECIAL_LW_WAIT_START {
         if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_LW_FLAG_SE_PLAYED) {
             if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new_raw(0x1675d3b999));
+                macros::PLAY_SE(agent, Hash40::new("se_gamewatch_wave08_mi"));
                 WorkModule::on_flag(agent.module_accessor, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_LW_FLAG_SE_PLAYED);
             }
         }
@@ -26,7 +26,7 @@ unsafe extern "C" fn expression_specialairlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        VisibilityModule::set_int64(agent.module_accessor, 0x04a7f3f69c, 0x09c38a1419);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0db2772ed7), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("head"), hash40("head_none"));
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

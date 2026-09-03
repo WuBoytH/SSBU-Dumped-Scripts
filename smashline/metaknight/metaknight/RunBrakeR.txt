@@ -10,7 +10,7 @@ unsafe extern "C" fn effect_runbraker(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     for _ in 0..3 {
         if macros::is_excute(agent) {
-            macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0ec09045bb), Hash40::new_raw(0x031ed91fca), 7, 0, 0, 0, 180, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 7, 0, 0, 0, 180, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
         }
         wait(agent.lua_state_agent, 5.0);
     }
@@ -19,22 +19,22 @@ unsafe extern "C" fn effect_runbraker(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_runbraker(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x17b15e3162));
-        macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x17b15e3162), 15);
+        macros::PLAY_SE(agent, Hash40::new("se_metaknight_dash_stop"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_metaknight_dash_stop"), 15);
     }
 }
 
 unsafe extern "C" fn expression_runbraker(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0b4573fafb);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_wing"));
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b41cc0a88), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0d6fdac86f);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_normal"));
     }
 }

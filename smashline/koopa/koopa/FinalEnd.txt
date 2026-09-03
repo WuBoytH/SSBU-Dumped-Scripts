@@ -5,22 +5,22 @@ unsafe extern "C" fn game_finalend(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x0f8d310665), Hash40::new_raw(0x031ed91fca), 0, 8, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopa_final_end"), Hash40::new("top"), 0, 8, 0, 0, 0, 0, 1, false);
     }
     frame(agent.lua_state_agent, 30.0);
     if macros::is_excute(agent) {
-        EffectModule::remove_screen(agent.module_accessor, Hash40::new_raw(0x0e071aecf4), -1);
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_koopa_final"), -1);
     }
 }
 
 unsafe extern "C" fn sound_finalend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x10688022fb));
+        macros::PLAY_SE(agent, Hash40::new("se_koopa_final06"));
     }
     frame(agent.lua_state_agent, 47.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x12752386da));
+        macros::PLAY_SE(agent, Hash40::new("se_koopa_landing01"));
     }
 }
 

@@ -10,17 +10,17 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new_raw(0x1104c54dd3), Hash40::new_raw(0x04a7f3f69c), 0, -3, 0, 0, 0, 0, 0.6, false);
-        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new_raw(0x1104c54dd3), Hash40::new_raw(0x035dbfe258), 0, 0, 0, 0, 0, 0, 0.7, false);
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("mewtwo_final_aura"), Hash40::new("head"), 0, -3, 0, 0, 0, 0, 0.6, false);
+        macros::EFFECT_FLW_POS_UNSYNC_VIS(agent, Hash40::new("mewtwo_final_aura"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 0.7, false);
     }
     frame(agent.lua_state_agent, 12.0);
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x171c3cefd8), Hash40::new_raw(0x031ed91fca), -8, 26, 0, 0, 0, 0, 0.8, false);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("mewtwo_final_megasymbol"), Hash40::new("top"), -8, 26, 0, 0, 0, 0, 0.8, false);
         }
     } else {
         if macros::is_excute(agent) {
-            macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x171c3cefd8), Hash40::new_raw(0x031ed91fca), 8, 26, 0, 0, 0, 0, 0.8, false);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("mewtwo_final_megasymbol"), Hash40::new("top"), 8, 26, 0, 0, 0, 0, 0.8, false);
         }
     }
 }
@@ -28,6 +28,6 @@ unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_final(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 37.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11e7038735));
+        macros::PLAY_SE(agent, Hash40::new("se_mewtwo_final01"));
     }
 }

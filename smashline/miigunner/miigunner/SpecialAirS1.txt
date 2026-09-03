@@ -8,15 +8,15 @@ unsafe extern "C" fn game_specialairs1(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairs1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x14ea983d03), Hash40::new_raw(0x049bf3f6be), 5.5, 0, 0, 0, 90, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("miigunner_flame_shot"), Hash40::new("armr"), 5.5, 0, 0, 0, 90, 0, 1, true);
     }
 }
 
 unsafe extern "C" fn sound_specialairs1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x187946824e));
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x2052dc8c78));
+        macros::PLAY_SE(agent, Hash40::new("se_miigunner_special_s01"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_miigunner_rnd_special_c1_s01"));
     }
 }
 
@@ -28,6 +28,6 @@ unsafe extern "C" fn expression_specialairs1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x12cca52f77), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohit_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

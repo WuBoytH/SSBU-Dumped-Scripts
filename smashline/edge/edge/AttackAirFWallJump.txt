@@ -30,20 +30,20 @@ unsafe extern "C" fn effect_attackairfwalljump(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_attackairfwalljump(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x11328edbef));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_edge_rnd_jump"));
     }
     frame(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1500b8426b));
+        macros::PLAY_SE(agent, Hash40::new("se_edge_attackair_f04"));
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1577bf72fd));
+        macros::PLAY_SE(agent, Hash40::new("se_edge_attackair_f05"));
     }
 }
 
 unsafe extern "C" fn expression_attackairfwalljump(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b7d11d19e), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_jump"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

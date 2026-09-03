@@ -18,31 +18,31 @@ unsafe extern "C" fn game_specialairsthrow(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairsthrow(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new_raw(0x09bf299de8), Hash40::new_raw(0x09bf299de8), Hash40::new_raw(0x051a07c0e7), 0, 0, 0, 0, 0, 0, 0.9, true, *EF_FLIP_YZ);
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("sys_catch"), Hash40::new("sys_catch"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 0.9, true, *EF_FLIP_YZ);
     }
     frame(agent.lua_state_agent, 31.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), -2, 0, 0, 0, 180, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), -2, 0, 0, 0, 180, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_specialairsthrow(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::STOP_SE(agent, Hash40::new_raw(0x163f7503a0));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x16a67c521a));
+        macros::STOP_SE(agent, Hash40::new("se_gaogaen_special_s01"));
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_special_s02"));
     }
     frame(agent.lua_state_agent, 29.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x16d17b628c));
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_special_s03"));
     }
     frame(agent.lua_state_agent, 40.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x164f1ff72f));
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_special_s04"));
     }
     frame(agent.lua_state_agent, 59.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x163818c7b9));
+        macros::PLAY_SE(agent, Hash40::new("se_gaogaen_special_s05"));
     }
 }
 
@@ -50,10 +50,10 @@ unsafe extern "C" fn expression_specialairsthrow(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0eb3c53dfc), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 39.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x163b9d8dde), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lightthrow4item"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

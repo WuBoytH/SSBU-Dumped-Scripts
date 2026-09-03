@@ -22,13 +22,13 @@ unsafe extern "C" fn game_escapeb(agent: &mut L2CAgentBase) {
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(0x092ad16694), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("escape_bl"), false, 0.0) /* TODO: verify padded default args */;
             let motion_rate = get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_MOTION_RATE);
             macros::SET_RATE_ARTICLE(agent, motion_rate) /* TODO: macro expects 2 args */;
         }
     } else {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new_raw(0x08b12770b1), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, Hash40::new("escape_b"), false, 0.0) /* TODO: verify padded default args */;
             let motion_rate = get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_MOTION_RATE);
             macros::SET_RATE_ARTICLE(agent, motion_rate) /* TODO: macro expects 2 args */;
         }
@@ -50,7 +50,7 @@ unsafe extern "C" fn game_escapeb(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_escapeb(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new_raw(0x14ab915845), Hash40::new_raw(0x04a7f3f69c), 3, 0, 0, 0, 0, 0, 0.9, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("inkling_squid_change"), Hash40::new("head"), 3, 0, 0, 0, 0, 0, 0.9, true);
     }
     WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
     WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
@@ -60,15 +60,15 @@ unsafe extern "C" fn effect_escapeb(agent: &mut L2CAgentBase) {
     }
     if macros::is_excute(agent) {
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
-        macros::EFFECT(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x031ed91fca), 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0eb968e28a), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 180, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new_raw(0x14ab915845), Hash40::new_raw(0x04a7f3f69c), 3, 0, 0, 0, 0, 0, 0.9, true);
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("inkling_squid_change"), Hash40::new("head"), 3, 0, 0, 0, 0, 0, 0.9, true);
     }
     WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_R);
     WorkModule::get_float(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLOAT_INK_G);
@@ -84,7 +84,7 @@ unsafe extern "C" fn effect_escapeb(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_escapeb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1190922d57));
+        macros::PLAY_SE(agent, Hash40::new("se_inkling_escape"));
     }
 }
 

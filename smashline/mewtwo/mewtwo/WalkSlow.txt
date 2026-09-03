@@ -1,11 +1,11 @@
 unsafe extern "C" fn effect_walkslow(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 0, 0, false);
     }
     loop {
         wait(agent.lua_state_agent, 52.0);
-        macros::FOOT_EFFECT(agent, Hash40::new_raw(0x0425cbfc4f), Hash40::new_raw(0x031ed91fca), -3, 0, 0, 0, 0, 0, 0.9, 2, 0, 3, 0, 0, 0, false);
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 0.9, 2, 0, 3, 0, 0, 0, false);
     }
 }
 
@@ -13,7 +13,7 @@ unsafe extern "C" fn sound_walkslow(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x13b97d736f));
+        macros::PLAY_STATUS(agent, Hash40::new("se_mewtwo_step_lp_s"));
     }
 }
 
@@ -24,10 +24,10 @@ unsafe extern "C" fn expression_walkslow(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 52.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0fb3af9ec0), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_floating"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         }
         frame(agent.lua_state_agent, 112.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0fb3af9ec0), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_floating"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

@@ -7,13 +7,13 @@ unsafe extern "C" fn game_itemheavythrowf4(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_itemheavythrowf4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x194072c8d8));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_metaknight_rnd_attack"));
     }
 }
 
 unsafe extern "C" fn expression_itemheavythrowf4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 4);
-        VisibilityModule::set_status_default_int64(agent.module_accessor, 0x06dd6b121a, 0x0d6fdac86f);
+        VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_normal"));
     }
 }

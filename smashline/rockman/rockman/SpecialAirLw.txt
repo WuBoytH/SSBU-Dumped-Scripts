@@ -10,14 +10,14 @@ unsafe extern "C" fn game_specialairlw(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1833757135), Hash40::new_raw(0x031ed91fca), 0, 6.5, 0, 0, -0.00001, 0, 1, false);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("rockman_leafshield_start"), Hash40::new("top"), 0, 6.5, 0, 0, -0.00001, 0, 1, false);
     }
 }
 
 unsafe extern "C" fn sound_specialairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x16eb808f08));
+        macros::PLAY_SE(agent, Hash40::new("se_rockman_special_l02"));
     }
 }
 
@@ -29,6 +29,6 @@ unsafe extern "C" fn expression_specialairlw(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0eb3c53dfc), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

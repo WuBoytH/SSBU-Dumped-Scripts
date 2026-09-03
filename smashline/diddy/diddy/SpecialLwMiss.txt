@@ -8,7 +8,7 @@ unsafe extern "C" fn game_speciallwmiss(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_speciallwmiss(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x147b6f41b5));
+        macros::PLAY_STATUS(agent, Hash40::new("se_diddy_special_n03"));
     }
     wait(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
@@ -22,6 +22,6 @@ unsafe extern "C" fn expression_speciallwmiss(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d487813b4), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

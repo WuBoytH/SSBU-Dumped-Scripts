@@ -7,7 +7,7 @@ unsafe extern "C" fn game_attacks4hi(agent: &mut L2CAgentBase) {
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_SMASH_SMASH_HOLD_TO_ATTACK) {
         if macros::is_excute(agent) {
             ArticleModule::generate_article(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_SPEARHAND, false, -1);
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_SPEARHAND, Hash40::new_raw(0x0b78983dd2), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_SPEARHAND, Hash40::new("attack_s4_s"), false, 0.0) /* TODO: verify padded default args */;
             ArticleModule::set_frame(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_SPEARHAND, 8.0);
         }
     }
@@ -18,22 +18,22 @@ unsafe extern "C" fn game_attacks4hi(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_attacks4hi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x1ca5affc7a), Hash40::new_raw(0x042011d653), 2, 0, 0, 0, 0, 0, 1, true);
-        macros::EFFECT(agent, Hash40::new_raw(0x0fcb698218), Hash40::new_raw(0x031ed91fca), 0, 10, 10, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("kamui_transform_splash_start"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 10, 10, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
     }
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_KAMUI_INSTANCE_WORK_ID_FLAG_REQ_EFEECT_TRANSFORM_WIND);
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11c2549544), Hash40::new_raw(0x05e008fd84), 0, 0, 0, -7, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("kamui_attack_line"), Hash40::new("havel"), 0, 0, 0, -7, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
-        macros::EFFECT(agent, Hash40::new_raw(0x128ab2cd82), Hash40::new_raw(0x05e008fd84), 0, 2.5, 22, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0d0679b24d), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT(agent, Hash40::new("kamui_attack_flash"), Hash40::new("havel"), 0, 2.5, 22, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x11c2549544), false, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("kamui_attack_line"), false, false);
     }
     frame(agent.lua_state_agent, 31.0);
     if macros::is_excute(agent) {
@@ -41,53 +41,53 @@ unsafe extern "C" fn effect_attacks4hi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 48.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FLW_POS(agent, Hash40::new_raw(0x1afeab8bac), Hash40::new_raw(0x042011d653), 2, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FLW_POS(agent, Hash40::new("kamui_transform_splash_end"), Hash40::new("neck"), 2, 0, 0, 0, 0, 0, 1, true);
     }
 }
 
 unsafe extern "C" fn sound_attacks4hi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1304bf4ca0));
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_horn_start"));
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x122e7b6336));
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_smash_s04"));
         sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
     }
     wait(agent.lua_state_agent, 4.0);
     if WorkModule::get_float(agent.module_accessor, *FIGHTER_STATUS_WORK_ID_FLOAT_RESERVE_HOLD_RATE) < 1.0 {
         if macros::is_excute(agent) {
-            macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x1cbfe69e2e));
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_kamui_rnd_attack_smash_s"));
         }
     } else {
         if macros::is_excute(agent) {
-            macros::PLAY_SE(agent, Hash40::new_raw(0x11538bb9ae));
+            macros::PLAY_SE(agent, Hash40::new("vc_kamui_attack07"));
         }
     }
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x125e1197b9));
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_smash_s01"));
     }
     wait(agent.lua_state_agent, 12.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x12c718c603));
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_smash_s02"));
     }
     frame(agent.lua_state_agent, 54.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x11bc128192));
+        macros::PLAY_SE(agent, Hash40::new("se_kamui_horn_end"));
     }
 }
 
 unsafe extern "C" fn expression_attacks4hi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0627d829b4, 0x0b17593350);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon"), hash40("dragon_horn"));
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0aa427db75, 0x0fceb2c39f);
-        VisibilityModule::set_int64(agent.module_accessor, 0x049cf76119, 0x097aa97ee6);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair"), hash40("front_hair_hide"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair"), hash40("hair_hide"));
     }
     frame(agent.lua_state_agent, 9.0);
     execute(agent.lua_state_agent, 9.0);
@@ -99,18 +99,18 @@ unsafe extern "C" fn expression_attacks4hi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0dc5701e41), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x049cf76119, 0x0be4da58d4);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("hair"), hash40("hair_normal"));
     }
     frame(agent.lua_state_agent, 52.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0aa427db75, 0x11aff7e141);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("front_hair"), hash40("front_hair_normal"));
     }
     frame(agent.lua_state_agent, 55.0);
     if macros::is_excute(agent) {
-        VisibilityModule::set_int64(agent.module_accessor, 0x0627d829b4, 0x0b4397e859);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("dragon"), hash40("dragon_none"));
     }
 }

@@ -13,11 +13,11 @@ unsafe extern "C" fn game_specialairhi(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialairhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x1323002812), Hash40::new_raw(0x051129036e), 1, 1, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("reflet_elwind_start"), Hash40::new("handr"), 1, 1, 0, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x09d58cb98f), Hash40::new_raw(0x05e008fd84), -1, 0, 0, 0, 0, 0, 0.45, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("sys_flash"), Hash40::new("havel"), -1, 0, 0, 0, 0, 0, 0.45, true);
         macros::LAST_EFFECT_SET_RATE(agent, 1.5);
     }
 }
@@ -25,7 +25,7 @@ unsafe extern "C" fn effect_specialairhi(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SEQUENCE(agent, Hash40::new_raw(0x188731c951));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_reflet_rnd_special_h"));
     }
 }
 
@@ -35,6 +35,6 @@ unsafe extern "C" fn expression_specialairhi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d3a5e4c50), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_slashs"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

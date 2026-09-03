@@ -1,36 +1,36 @@
 unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 66.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x0e963002d8), Hash40::new_raw(0x031ed91fca), -2.5, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), -2.5, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }
 
 unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 25.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE_NO_3D(agent, Hash40::new_raw(0x0f5fe6cfc7));
+        macros::PLAY_SE_NO_3D(agent, Hash40::new("se_samus_jump02"));
     }
     frame(agent.lua_state_agent, 66.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x12a23f6e79));
+        macros::PLAY_SE(agent, Hash40::new("se_samus_landing02"));
     }
     frame(agent.lua_state_agent, 67.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x13c842bc36));
+        macros::PLAY_SE(agent, Hash40::new("se_samus_appeal_s01"));
     }
     frame(agent.lua_state_agent, 107.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14fbe97afc));
+        macros::PLAY_SE(agent, Hash40::new("se_samus_step_left_m"));
     }
     frame(agent.lua_state_agent, 126.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0ddc9e8c44));
+        macros::PLAY_SE(agent, Hash40::new("se_samus_win1"));
     }
 }
 
 unsafe extern "C" fn expression_win1(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_SAMUS_GENERATE_ARTICLE_GUN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        VisibilityModule::set_int64(agent.module_accessor, 0x04dba80bb2, 0x0bb499cbe2);
+        VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
     }
 }

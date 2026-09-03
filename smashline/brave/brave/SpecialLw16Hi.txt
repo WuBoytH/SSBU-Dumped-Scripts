@@ -4,7 +4,7 @@ unsafe extern "C" fn game_speciallw16hi(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_speciallw16hi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW(agent, Hash40::new_raw(0x11e6de27f7), Hash40::new_raw(0x031d39a761), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("brave_flying_line"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
 }
@@ -12,13 +12,13 @@ unsafe extern "C" fn effect_speciallw16hi(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_speciallw16hi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1490b4ab55));
+        macros::PLAY_SE(agent, Hash40::new("se_brave_special_l16"));
     }
 }
 
 unsafe extern "C" fn expression_speciallw16hi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x1116c1eee9), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_28_soaring"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

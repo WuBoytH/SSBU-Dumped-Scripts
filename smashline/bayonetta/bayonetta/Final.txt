@@ -6,7 +6,7 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 40);
-            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new_raw(0x0fb271b569), false, false) /* TODO: macro expects 2 args */;
+            macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04final.nuanmb"), false, false) /* TODO: macro expects 2 args */;
             macros::FT_START_CUTIN(agent);
         }
         frame(agent.lua_state_agent, 15.0);
@@ -41,7 +41,7 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        EffectModule::req_screen(agent.module_accessor, Hash40::new_raw(0x1246dadeac), false, false, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_bayonetta_final"), false, false, false);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_BAYONETTA_STATUS_WORK_ID_FINAL_FLAG_START_SCREEN_EFFECT);
     }
 }
@@ -49,8 +49,8 @@ unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_final(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x145d8df848));
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1472d272fe));
+        macros::PLAY_SE(agent, Hash40::new("se_bayonetta_final01"));
+        macros::PLAY_SE(agent, Hash40::new("vc_bayonetta_final02"));
     }
 }
 
@@ -64,6 +64,6 @@ unsafe extern "C" fn expression_final(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 64.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x132ace367f), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_63_witchtime"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

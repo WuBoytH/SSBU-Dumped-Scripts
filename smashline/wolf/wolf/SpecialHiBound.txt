@@ -7,24 +7,24 @@ unsafe extern "C" fn game_specialhibound(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_specialhibound(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0edcbf08b6), true, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0a5059c548), true, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0ff780e21d), true, true);
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0f961ad7a1), true, true);
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x092a3b5b68), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("wolf_shoot_sub"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("wolf_shoot"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("wolf_smash_line"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("wolf_atk_impact"), true, true);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 
 unsafe extern "C" fn sound_specialhibound(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        macros::PLAY_DOWN_SE(agent, Hash40::new_raw(0x157ce9b678));
+        macros::PLAY_DOWN_SE(agent, Hash40::new("se_common_down_soil_s"));
     }
 }
 
 unsafe extern "C" fn expression_specialhibound(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0d2fe44f91), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
     }
 }

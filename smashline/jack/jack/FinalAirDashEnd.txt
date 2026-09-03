@@ -11,13 +11,13 @@ unsafe extern "C" fn effect_finalairdashend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
         macros::CANCEL_FILL_SCREEN(agent, 0, 18);
-        EffectModule::remove_screen(agent.module_accessor, Hash40::new_raw(0x0d5b702a12), -1);
+        EffectModule::remove_screen(agent.module_accessor, Hash40::new("bg_jack_final"), -1);
     }
 }
 
 unsafe extern "C" fn expression_finalairdashend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0b2f910967), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_rush"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }

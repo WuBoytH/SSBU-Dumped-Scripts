@@ -9,11 +9,11 @@ unsafe extern "C" fn game_specialn(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn effect_specialn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
-        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x0dc435ade4), Hash40::new_raw(0x04a7f3f69c), 0, 0, 0, 0, -90, -90, 1, true);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("pikachu_cheek"), Hash40::new("head"), 0, 0, 0, 0, -90, -90, 1, true);
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        macros::LANDING_EFFECT(agent, Hash40::new_raw(0x1255c42543), Hash40::new_raw(0x031ed91fca), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_action_smoke_h"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
     for _ in 0..12 {
         if macros::is_excute(agent) {
@@ -30,18 +30,18 @@ unsafe extern "C" fn effect_specialn(agent: &mut L2CAgentBase) {
         wait(agent.lua_state_agent, 1.0);
     }
     if macros::is_excute(agent) {
-        macros::EFFECT_OFF_KIND(agent, Hash40::new_raw(0x0dc435ade4), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pikachu_cheek"), false, true);
     }
 }
 
 unsafe extern "C" fn sound_specialn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x0ee038192b));
+        macros::PLAY_SE(agent, Hash40::new("vc_pikachu_002"));
     }
     wait(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        macros::PLAY_SE(agent, Hash40::new_raw(0x169084eaec));
+        macros::PLAY_SE(agent, Hash40::new("se_pikachu_special_n02"));
     }
 }
 
@@ -52,7 +52,7 @@ unsafe extern "C" fn expression_specialn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x0e49ca009f), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
     frame(agent.lua_state_agent, 44.0);
     if macros::is_excute(agent) {

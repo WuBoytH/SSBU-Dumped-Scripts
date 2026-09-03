@@ -1,12 +1,12 @@
 unsafe extern "C" fn effect_specialairlwdamage(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         EffectModule::preset_limit_num(agent.module_accessor, 2);
-        macros::EFFECT_ALPHA(agent, Hash40::new_raw(0x1090d70187), Hash40::new_raw(0x031ed91fca), 0, 11, 2, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true, 0.4);
+        macros::EFFECT_ALPHA(agent, Hash40::new("sys_spirits_up_s"), Hash40::new("top"), 0, 11, 2, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, true, 0.4);
         EffectModule::preset_limit_num(agent.module_accessor, 2);
-        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new_raw(0x120e612d06), Hash40::new_raw(0x031ed91fca), 0, 0, 2, 0, 0, 0, 1.5, true, 1);
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("jack_counter_smoke"), Hash40::new("top"), 0, 0, 2, 0, 0, 0, 1.5, true, 1);
         macros::LAST_EFFECT_SET_RATE(agent, 1.3);
         EffectModule::preset_limit_num(agent.module_accessor, 2);
-        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new_raw(0x16ae3c2e70), Hash40::new_raw(0x047f6fc330), 0, 0, 0, 0, 0, 0, 1, false);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("jack_counter_mask_fire"), Hash40::new("mask"), 0, 0, 0, 0, 0, 0, 1, false);
         macros::FLASH(agent, 0.5, 0.7, 1, 0.5);
         macros::BURN_COLOR(agent, 3, 6, 16, 0.8);
     }
@@ -31,6 +31,6 @@ unsafe extern "C" fn expression_specialairlwdamage(agent: &mut L2CAgentBase) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x10c50d2189), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_guard_lv2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
     }
 }
