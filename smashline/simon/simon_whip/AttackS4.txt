@@ -9,29 +9,21 @@ unsafe extern "C" fn game_attacks4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 76.0);
     if macros::is_excute(agent) {
         PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_MOVE);
+        WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
+        WeaponSpecializer_SimonWhip::set_node_fix_flag_list(agent.battle_object as *mut Weapon, 3, 4, 5, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, -1, -1, -1, -1, -1, -1, -1, -1, -1);
     }
-    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
-    }
-    WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
-    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
-    }
-    WeaponSpecializer_SimonWhip::set_node_fix_flag_list(agent.battle_object as *mut Weapon, 3, 4, 5, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0) /* TODO: verify padded default args */;
 }
 
 unsafe extern "C" fn effect_attacks4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("simon_whip_light"), Hash40::new("hookshot11"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("simon_whip_light_s"), Hash40::new("hookshot3"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("simon_whip_flash_top"), Hash40::new("hookshot27"), 1, 0, 0, 0, 0, 0, 1, true);
     }
-    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
-    }
-    WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, true);
-    macros::EFFECT_FOLLOW(agent, Hash40::new("simon_whip_light"), Hash40::new("hookshot11"), 0, 0, 0, 0, 0, 0, 1, true);
-    macros::EFFECT_FOLLOW(agent, Hash40::new("simon_whip_light_s"), Hash40::new("hookshot3"), 0, 0, 0, 0, 0, 0, 1, true);
-    macros::EFFECT_FOLLOW(agent, Hash40::new("simon_whip_flash_top"), Hash40::new("hookshot27"), 1, 0, 0, 0, 0, 0, 1, true);
     frame(agent.lua_state_agent, 31.0);
     if macros::is_excute(agent) {
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, false);
     }
-    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
-    }
-    WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, false);
 }

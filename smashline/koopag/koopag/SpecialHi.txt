@@ -80,7 +80,7 @@ unsafe extern "C" fn game_specialhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::off_flag(agent.module_accessor, *FIGHTER_KOOPA_STATUS_SPECIAL_HI_FLAG4);
         WorkModule::off_flag(agent.module_accessor, *FIGHTER_KOOPA_STATUS_SPECIAL_HI_FLAG3);
-        HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0) /* TODO: verify padded default args */;
+        HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
         KineticModule::set_consider_ground_friction(agent.module_accessor, true, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_KOOPA_STATUS_SPECIAL_HI_FLAG1);
     }
@@ -135,7 +135,7 @@ unsafe extern "C" fn expression_specialhi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
     }
     frame(agent.lua_state_agent, 49.0);
     if macros::is_excute(agent) {
@@ -143,7 +143,7 @@ unsafe extern "C" fn expression_specialhi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 51.0);
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
         VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
     }
 }

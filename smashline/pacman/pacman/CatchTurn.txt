@@ -32,7 +32,7 @@ unsafe extern "C" fn effect_catchturn(agent: &mut L2CAgentBase) {
         macros::EFFECT_FOLLOW(agent, Hash40::new("pacman_tractorbeam"), Hash40::new("top"), 0, 7, -11, 90, 0, 90, 1, true);
         macros::LAST_EFFECT_SET_WORK_INT(agent, *FIGHTER_PACMAN_INSTANCE_WORK_ID_INT_CATCH_EFFECT_HANDLE);
         let catch_effect_handle = WorkModule::get_int64(agent.module_accessor, *FIGHTER_PACMAN_INSTANCE_WORK_ID_INT_CATCH_EFFECT_HANDLE);
-        EffectModule::set_custom_uv_offset(agent.module_accessor, catch_effect_handle, &Vector2f{x: 0.0, y: 0.0}, 0) /* TODO: verify padded default args */;
+        EffectModule::set_custom_uv_offset(agent.module_accessor, catch_effect_handle, &Vector2f{x: 0.0, y: 0.0}, 0);
     }
 }
 
@@ -57,10 +57,10 @@ unsafe extern "C" fn expression_catchturn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
     }
     frame(agent.lua_state_agent, 53.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, 0x50000000);
     }
 }

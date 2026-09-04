@@ -4,7 +4,7 @@ unsafe extern "C" fn game_attackairn(agent: &mut L2CAgentBase) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_POMPON, false, -1);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_SHIZUE_INSTANCE_WORK_ID_FLAG_POMPON_RIGHT);
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_POMPON, false, -1);
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_POMPON, Hash40::new("attack"), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_POMPON, Hash40::new("attack"), false, -1.0);
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
@@ -34,7 +34,7 @@ unsafe extern "C" fn game_attackairn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 59.0);
     if macros::is_excute(agent) {
-        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_POMPON, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_POMPON, ArticleOperationTarget(0));
     }
 }
 
@@ -62,7 +62,7 @@ unsafe extern "C" fn expression_attackairn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 6, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
@@ -70,10 +70,10 @@ unsafe extern "C" fn expression_attackairn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 6, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
     }
 }

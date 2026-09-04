@@ -24,7 +24,7 @@ unsafe extern "C" fn expression_landingfallspecial(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
         macros::RUMBLE_ALL(agent, Hash40::new("rbkind_stg_impact_m"), 0);
     }
     frame(agent.lua_state_agent, 0.0);
@@ -33,7 +33,7 @@ unsafe extern "C" fn expression_landingfallspecial(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
         macros::RUMBLE_ALL(agent, Hash40::new("rbkind_stg_impact_s"), 0);
         VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
     }

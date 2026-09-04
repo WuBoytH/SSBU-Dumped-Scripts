@@ -29,11 +29,11 @@ unsafe extern "C" fn game_finalairl(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
+        // TODO: FighterSpecializer_EFlame::attach_esword_diver();
+        macros::SLOW_OPPONENT(agent, 30.0, 70.0);
     }
     if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
     }
-    // TODO: FighterSpecializer_EFlame::attach_esword_diver();
-    macros::SLOW_OPPONENT(agent, 30.0, 70.0);
     frame(agent.lua_state_agent, 25.0);
     if macros::is_excute(agent) {
         macros::CAM_ZOOM_OUT(agent);
@@ -52,7 +52,7 @@ unsafe extern "C" fn game_finalairl(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 32.0);
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD) {
         if macros::is_excute(agent) {
-            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 5.0, 5.0, false, false, 0.0, false, true, false);
+            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 5.0, 5.0, false, false, 0.0, false, true, ?);
         }
         if MotionModule::is_changing(agent.module_accessor) {
             if macros::is_excute(agent) {
@@ -90,7 +90,7 @@ unsafe extern "C" fn game_finalairl(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 80.0);
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD) {
         if macros::is_excute(agent) {
-            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_close"), 5.0, 5.0, false, false, 0.0, false, true, false);
+            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_ESWORD, *WEAPON_EFLAME_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_close"), 5.0, 5.0, false, false, 0.0, false, true, ?);
         }
         if MotionModule::is_changing(agent.module_accessor) {
             if macros::is_excute(agent) {
@@ -100,11 +100,11 @@ unsafe extern "C" fn game_finalairl(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 90.0);
     if macros::is_excute(agent) {
+        // TODO: FighterSpecializer_EFlame::detach_esword_diver();
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_ELEMENT_STATUS_FINAL_FLAG_DETACH_ESWORD);
     }
     if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
     }
-    // TODO: FighterSpecializer_EFlame::detach_esword_diver();
-    WorkModule::on_flag(agent.module_accessor, *FIGHTER_ELEMENT_STATUS_FINAL_FLAG_DETACH_ESWORD);
 }
 
 unsafe extern "C" fn effect_finalairl(agent: &mut L2CAgentBase) {
@@ -177,19 +177,19 @@ unsafe extern "C" fn expression_finalairl(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 26.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase_sp"), 1, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase_sp"), 1, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 53.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl_l"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl_l"), 0, false, 0x50000000);
         AreaModule::erase_wind(agent.module_accessor, 0);
     }
     frame(agent.lua_state_agent, 78.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 7, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 101.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, 0x50000000);
     }
 }

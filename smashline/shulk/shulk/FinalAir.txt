@@ -43,8 +43,8 @@ unsafe extern "C" fn game_finalair(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 30.0);
         if macros::is_excute(agent) {
-            macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 50, 0.3, 0.3, 0.3, 1, 1, 1, 0.1, 1, *EFFECT_SCREEN_LAYER_GROUND, *EFFECT_SCREEN_PRIO_FINAL);
-            macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 20, 0.3, 0.3, 0.3, -0.6, -0.6, -0.6, 0.4, 1, *EFFECT_SCREEN_LAYER_CHAR, *EFFECT_SCREEN_PRIO_FINAL);
+            macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 50, 0.3, 0.3, 0.3, 1, 1, 1, 0.1, 1, *smash::lib::lua_const::EffectScreenLayer::GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+            macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 20, 0.3, 0.3, 0.3, -0.6, -0.6, -0.6, 0.4, 1, *smash::lib::lua_const::EffectScreenLayer::CHAR, *EFFECT_SCREEN_PRIO_FINAL);
         }
     } else {
         frame(agent.lua_state_agent, 28.0);
@@ -91,17 +91,15 @@ unsafe extern "C" fn sound_finalair(agent: &mut L2CAgentBase) {
                 macros::PLAY_SE(agent, Hash40::new("se_shulk_final01"));
             }
         }
+    } else if macros::IS_RANDOM(agent, 3) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_shulk_final03"));
+            macros::PLAY_SE(agent, Hash40::new("se_shulk_final01"));
+        }
     } else {
-        if macros::IS_RANDOM(agent, 3) {
-            if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new("vc_shulk_final03"));
-                macros::PLAY_SE(agent, Hash40::new("se_shulk_final01"));
-            }
-        } else {
-            if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new("vc_shulk_final02"));
-                macros::PLAY_SE(agent, Hash40::new("se_shulk_final01"));
-            }
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_shulk_final02"));
+            macros::PLAY_SE(agent, Hash40::new("se_shulk_final01"));
         }
     }
     frame(agent.lua_state_agent, 55.0);
@@ -126,7 +124,7 @@ unsafe extern "C" fn expression_finalair(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 24.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohit_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohit_beams"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 71.0);
     if macros::is_excute(agent) {

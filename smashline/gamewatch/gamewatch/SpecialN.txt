@@ -37,13 +37,13 @@ unsafe extern "C" fn effect_specialn(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn expression_specialn(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
         VisibilityModule::set_int64(agent.module_accessor, hash40("head"), hash40("head_none"));
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {

@@ -5,7 +5,7 @@ unsafe extern "C" fn game_finalstartr(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::FT_START_CUTIN(agent);
-        ArticleModule::change_status(agent.module_accessor, *FIGHTER_PIKMIN_GENERATE_ARTICLE_DOLFIN, *WEAPON_PIKMIN_DOLFIN_STATUS_KIND_START, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::change_status(agent.module_accessor, *FIGHTER_PIKMIN_GENERATE_ARTICLE_DOLFIN, *WEAPON_PIKMIN_DOLFIN_STATUS_KIND_START, ArticleOperationTarget(0));
         macros::SLOW_OPPONENT(agent, 5.0, 40.0);
         macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
     }
@@ -42,6 +42,6 @@ unsafe extern "C" fn expression_finalstartr(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 56.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_jump"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_jump"), 0, false, 0x50000000);
     }
 }

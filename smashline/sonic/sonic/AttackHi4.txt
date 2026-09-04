@@ -119,13 +119,13 @@ unsafe extern "C" fn expression_attackhi4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
         macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attacks"), 5);
     }
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
     }
     if macros::is_excute(agent) {
         VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_sphere"));
@@ -164,7 +164,7 @@ unsafe extern "C" fn expression_attackhi4(agent: &mut L2CAgentBase) {
     }
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, true, 0);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
         macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
     }
     frame(agent.lua_state_agent, 35.0);
@@ -173,10 +173,10 @@ unsafe extern "C" fn expression_attackhi4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 42.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, 0x50000000);
     }
 }

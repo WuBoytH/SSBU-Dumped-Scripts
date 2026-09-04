@@ -1,10 +1,8 @@
 unsafe extern "C" fn game_attacklw4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_NONE);
+        WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
     }
-    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
-    }
-    WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
 }
 
 unsafe extern "C" fn effect_attacklw4(agent: &mut L2CAgentBase) {
@@ -21,16 +19,12 @@ unsafe extern "C" fn effect_attacklw4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
         macros::AFTER_IMAGE4_ON(agent, Hash40::new("tex_richter_whip1"), Hash40::new("tex_richter_whip2"), 4, Hash40::new("hookshot5"), -5, 0, 1, Hash40::new("hookshot5"), 5, 0, 1, true, Hash40::new("null"), Hash40::new("hookshot2"), 0, 0, 0, 0, 0, 0, 1, 0, *EFFECT_AXIS_X, 0, *TRAIL_BLEND_ALPHA, 101, *TRAIL_CULL_NONE, 2, 0.2);
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, true);
     }
-    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
-    }
-    WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, true);
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, false);
     }
-    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
-    }
-    WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, false);
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
         macros::AFTER_IMAGE_OFF(agent, 2);

@@ -1,8 +1,8 @@
 unsafe extern "C" fn game_speciallwloop(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY, *ITEM_TRAIT_FLAG_QUICK) /* TODO: sig expects 5 args */;
+        ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY, *ITEM_TRAIT_FLAG_QUICK, 0, 0);
         ItemModule::use_item(agent.module_accessor, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY, false);
-        ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT) /* TODO: sig expects 5 args */;
+        ItemModule::pickup_item(agent.module_accessor, *ITEM_SIZE_LIGHT, 0, -1, 0, 0);
     }
     wait(agent.lua_state_agent, 1.0);
 }

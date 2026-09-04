@@ -7,12 +7,12 @@ unsafe extern "C" fn effect_cliffjump2(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_cliffjump2(agent: &mut L2CAgentBase) {
     // TODO: expression_CliffJump2Rumble();
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
         VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_shell"));
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
         VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
     }
 }

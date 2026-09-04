@@ -35,8 +35,8 @@ unsafe extern "C" fn effect_finalairhit(agent: &mut L2CAgentBase) {
         EffectModule::set_visible_kind(agent.module_accessor, Hash40::new("sys_final_aura"), false);
         macros::EFFECT_STENCIL_ON(agent);
         EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_littlemac_final2"), false, false, false);
-        let request_post_effect_line_circle = EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(10.0, 8.0), Vector3::new(0.0, 8.0, 15.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
-        macros::FOOT_EFFECT(agent, request_post_effect_line_circle, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false) /* TODO: macro expects 16 args */;
+        EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(10.0, 8.0), Vector3::new(0.0, 8.0, 15.0), true, -1.0, 0.0);
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         macros::LAST_EFFECT_SET_RATE(agent, 0.3);
         macros::EFFECT(agent, Hash40::new("sys_hit_normal"), Hash40::new("top"), 0, 11, 18, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("littlemac_counter_arc"), Hash40::new("top"), -3, 14, 6, 10, -40, 70, 1.4, true);

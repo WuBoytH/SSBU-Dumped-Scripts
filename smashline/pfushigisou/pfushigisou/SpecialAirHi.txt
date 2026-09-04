@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_specialairhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PFUSHIGISOU_GENERATE_ARTICLE_VINE, false, -1);
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_PFUSHIGISOU_GENERATE_ARTICLE_VINE, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_PFUSHIGISOU_GENERATE_ARTICLE_VINE, false, ArticleOperationTarget(0));
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_PFUSHIGISOU_STATUS_SPECIAL_HI_SET_MAP_COLL_OFFSET);
     }
     frame(agent.lua_state_agent, 13.0);
@@ -72,7 +72,7 @@ unsafe extern "C" fn expression_specialairhi(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {

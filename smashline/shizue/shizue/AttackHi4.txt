@@ -8,7 +8,7 @@ unsafe extern "C" fn game_attackhi4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_TRAFFICSIGN, false, -1);
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_TRAFFICSIGN, Hash40::new("attack"), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_TRAFFICSIGN, Hash40::new("attack"), false, -1.0);
     }
     frame(agent.lua_state_agent, 11.0);
     macros::FT_MOTION_RATE(agent, 1);
@@ -69,7 +69,7 @@ unsafe extern "C" fn expression_attackhi4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_awaken"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_awaken"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {

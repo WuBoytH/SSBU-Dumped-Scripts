@@ -64,12 +64,12 @@ unsafe extern "C" fn sound_cliffattack(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_cliffattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 10, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 10, true, 0x50000000);
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
     }
     for _ in 0..5 {
         if macros::is_excute(agent) {
@@ -223,7 +223,7 @@ unsafe extern "C" fn expression_cliffattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 51.0);
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
     }
     frame(agent.lua_state_agent, 52.0);
     if macros::is_excute(agent) {

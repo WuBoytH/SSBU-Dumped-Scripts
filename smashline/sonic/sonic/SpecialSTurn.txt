@@ -58,15 +58,15 @@ unsafe extern "C" fn expression_specialsturn(agent: &mut L2CAgentBase) {
     }
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 9, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 9, true, 0x50000000);
     }
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
     }
 }

@@ -22,21 +22,17 @@ unsafe extern "C" fn sound_bang(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::PLAY_SE_REMAIN(agent, Hash40::new("se_lucas_special_n04_s"));
         }
+    } else if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCAS_PK_FREEZE_INSTANCE_WORK_ID_FLOAT_COUNT) <= 30.0 {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_lucas_special_n04_m"));
+        }
+    } else if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCAS_PK_FREEZE_INSTANCE_WORK_ID_FLOAT_COUNT) <= 40.0 {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_lucas_special_n04_l"));
+        }
     } else {
-        if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCAS_PK_FREEZE_INSTANCE_WORK_ID_FLOAT_COUNT) <= 30.0 {
-            if macros::is_excute(agent) {
-                macros::PLAY_SE_REMAIN(agent, Hash40::new("se_lucas_special_n04_m"));
-            }
-        } else {
-            if WorkModule::get_float(agent.module_accessor, *WEAPON_LUCAS_PK_FREEZE_INSTANCE_WORK_ID_FLOAT_COUNT) <= 40.0 {
-                if macros::is_excute(agent) {
-                    macros::PLAY_SE_REMAIN(agent, Hash40::new("se_lucas_special_n04_l"));
-                }
-            } else {
-                if macros::is_excute(agent) {
-                    macros::PLAY_SE_REMAIN(agent, Hash40::new("se_lucas_special_n04_ll"));
-                }
-            }
+        if macros::is_excute(agent) {
+            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_lucas_special_n04_ll"));
         }
     }
 }

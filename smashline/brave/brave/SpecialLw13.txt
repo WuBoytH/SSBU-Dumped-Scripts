@@ -4,11 +4,9 @@ unsafe extern "C" fn game_speciallw13(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 11.0);
     macros::FT_MOTION_RATE(agent, 1);
     if macros::is_excute(agent) {
+        FighterSpecializer_Brave::special_lw_active_command(agent.battle_object as *mut Fighter);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_LW_FLAG_ENABLE_CONTROL_ENERGY);
     }
-    if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
-    }
-    FighterSpecializer_Brave::special_lw_active_command(agent.battle_object as *mut Fighter);
-    WorkModule::on_flag(agent.module_accessor, *FIGHTER_BRAVE_STATUS_SPECIAL_LW_FLAG_ENABLE_CONTROL_ENERGY);
 }
 
 unsafe extern "C" fn effect_speciallw13(agent: &mut L2CAgentBase) {
@@ -32,6 +30,6 @@ unsafe extern "C" fn expression_speciallw13(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, 0x50000000);
     }
 }

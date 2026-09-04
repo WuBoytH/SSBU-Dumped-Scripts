@@ -52,8 +52,8 @@ unsafe extern "C" fn effect_construct(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 300.0);
     if macros::is_excute(agent) {
         VisibilityModule::set_whole(agent.module_accessor, false);
-        let request_post_effect_line_circle = EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(5.0, 5.0), Vector3::new(0.0, 10.0, 0.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
-        macros::EFFECT(agent, request_post_effect_line_circle, Hash40::new("shizue_final_house_explosion"), Hash40::new("top"), 0, 0, -5, 0, 90, 0, 1.2, 0, 1, 0, 0, 0, 0, false) /* TODO: macro expects 16 args */;
+        EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(5.0, 5.0), Vector3::new(0.0, 10.0, 0.0), true, -1.0, 0.0);
+        macros::EFFECT(agent, Hash40::new("shizue_final_house_explosion"), Hash40::new("top"), 0, 0, -5, 0, 90, 0, 1.2, 0, 1, 0, 0, 0, 0, false);
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {

@@ -17,19 +17,17 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
                 camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 5, 5);
             }
         }
+    } else if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
+        if macros::is_excute(agent) {
+            let scale = PostureModule::scale(agent.module_accessor);
+            macros::CAM_ZOOM_IN(agent, 1, 0, scale * 2.0, 0, -0.3);
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -5, 5);
+        }
     } else {
-        if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
-            if macros::is_excute(agent) {
-                let scale = PostureModule::scale(agent.module_accessor);
-                macros::CAM_ZOOM_IN(agent, 1, 0, scale * 2.0, 0, -0.3);
-                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, -5, 5);
-            }
-        } else {
-            if macros::is_excute(agent) {
-                let scale = PostureModule::scale(agent.module_accessor);
-                macros::CAM_ZOOM_IN(agent, 1, 0, scale * 2.0, 0, 0.3);
-                camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 5, 5);
-            }
+        if macros::is_excute(agent) {
+            let scale = PostureModule::scale(agent.module_accessor);
+            macros::CAM_ZOOM_IN(agent, 1, 0, scale * 2.0, 0, 0.3);
+            camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 5, 5);
         }
     }
     frame(agent.lua_state_agent, 3.0);
@@ -98,11 +96,11 @@ unsafe extern "C" fn sound_final(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_final(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_spbeam2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_spbeam2"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 5.0);
     for _ in 0..19 {

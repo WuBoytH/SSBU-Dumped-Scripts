@@ -19,18 +19,14 @@ unsafe extern "C" fn sound_appear(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *WEAPON_JACK_DOYLE_INSTANCE_WORK_ID_FLAG_MUTE_VOICE) {
         if macros::IS_RANDOM(agent, 2) {
             if macros::is_excute(agent) {
-            }
-            if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+                // TODO: WeaponSpecializer_JackDoyle::play_se_jack(0x140771956b);
+                macros::PLAY_SE(agent, Hash40::new("se_jack_doyle_entry02"));
             }
         } else {
             if macros::is_excute(agent) {
-            }
-            if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
                 // TODO: WeaponSpecializer_JackDoyle::play_se_jack(0x149e78c4d1);
                 macros::PLAY_SE(agent, Hash40::new("se_jack_doyle_entry02"));
             }
         }
-        // TODO: WeaponSpecializer_JackDoyle::play_se_jack(0x140771956b);
-        macros::PLAY_SE(agent, Hash40::new("se_jack_doyle_entry02"));
     }
 }

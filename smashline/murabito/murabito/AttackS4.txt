@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_attacks4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_BOWLING_BALL, false, 0) /* TODO: verify padded default args */;
+        ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_MURABITO_GENERATE_ARTICLE_BOWLING_BALL, false, -1);
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
@@ -36,7 +36,7 @@ unsafe extern "C" fn expression_attacks4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 17.0);
     execute(agent.lua_state_agent, 17.0);
@@ -46,6 +46,6 @@ unsafe extern "C" fn expression_attacks4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, 0x50000000);
     }
 }

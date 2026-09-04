@@ -41,7 +41,7 @@ unsafe extern "C" fn sound_entryr(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_egg"));
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
@@ -49,7 +49,7 @@ unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 25.0);
     if macros::is_excute(agent) {
         VisibilityModule::set_int64(agent.module_accessor, hash40("body"), hash40("body_normal"));
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
     }

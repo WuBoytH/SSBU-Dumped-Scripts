@@ -48,7 +48,7 @@ unsafe extern "C" fn effect_visualscene04(agent: &mut L2CAgentBase) {
         macros::EFFECT(agent, Hash40::new("krool_final_hit"), Hash40::new("top"), 0, 0, -3600, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, true);
         macros::LAST_EFFECT_SET_RATE(agent, 0.5);
         macros::EFFECT(agent, Hash40::new("krool_final_hit_a"), Hash40::new("top"), 0, 0, -3800, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, true);
-        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 20, 0, 0, 0, 0, 0, 0, 1, 1, *EFFECT_SCREEN_LAYER_GROUND, *EFFECT_SCREEN_PRIO_FINAL);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 20, 0, 0, 0, 0, 0, 0, 1, 1, *smash::lib::lua_const::EffectScreenLayer::GROUND, *EFFECT_SCREEN_PRIO_FINAL);
     }
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
@@ -83,22 +83,22 @@ unsafe extern "C" fn sound_visualscene04(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_visualscene04(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_loopattack"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_loopattack"), 0, true, 0x50000000);
         macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_loopattack"), 0);
     }
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, 0x50000000);
         macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_erase"), 0);
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beamm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beamm"), 0, false, 0x50000000);
         macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_beamm"), 0);
     }
     frame(agent.lua_state_agent, 93.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosionl"), 0, false, 0x50000000);
         macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_explosionl"), 0);
     }
 }

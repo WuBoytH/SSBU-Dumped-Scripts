@@ -7,7 +7,7 @@ unsafe extern "C" fn game_finalstartr(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, true, ArticleOperationTarget(0));
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
         }
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
@@ -25,7 +25,7 @@ unsafe extern "C" fn game_finalstartr(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, true, ArticleOperationTarget(0));
             let scale = PostureModule::scale(agent.module_accessor);
             macros::CAM_ZOOM_IN(agent, 5, 0, scale * 2.0, 0, 0);
             macros::FT_START_CUTIN(agent);

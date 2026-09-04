@@ -23,7 +23,8 @@ unsafe extern "C" fn effect_fly(agent: &mut L2CAgentBase) {
         wait(agent.lua_state_agent, 5.0);
         if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
             macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), -5, 0, 0, 180, -90, 90, 1, 0, 0, 0, 0, 0, 0, true);
+        } else {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 5, 0, 0, 180, 90, -90, 1, 0, 0, 0, 0, 0, 0, true);
         }
-        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 5, 0, 0, 180, 90, -90, 1, 0, 0, 0, 0, 0, 0, true);
     }
 }

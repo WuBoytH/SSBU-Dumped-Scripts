@@ -2,7 +2,7 @@ unsafe extern "C" fn game_specialairn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 7.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_ROCKMAN_STATUS_SPECIAL_N_WORK_ID_FLAG_ALREADY_EXIST_METALBLADE) {
         if macros::is_excute(agent) {
-            ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_ROCKMAN_GENERATE_ARTICLE_METALBLADE, false, 0) /* TODO: verify padded default args */;
+            ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_ROCKMAN_GENERATE_ARTICLE_METALBLADE, false, -1);
         }
     }
     frame(agent.lua_state_agent, 13.0);
@@ -52,6 +52,6 @@ unsafe extern "C" fn expression_specialairn(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, 0x50000000);
     }
 }

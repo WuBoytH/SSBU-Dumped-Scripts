@@ -62,32 +62,32 @@ unsafe extern "C" fn expression_appealhir(agent: &mut L2CAgentBase) {
     }
     if !macros::IS_EXIST_ARTICLE(agent, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE) {
         if macros::is_excute(agent) {
-            ArticleModule::generate_article(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, 0) /* TODO: verify padded default args */;
+            ArticleModule::generate_article(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, -1);
         }
     } else {
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(0));
         }
     }
     if macros::is_excute(agent) {
-        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, Hash40::new("appeal_hi"), false, 0.0) /* TODO: verify padded default args */;
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, Hash40::new("appeal_hi"), false, -1.0);
     }
     frame(agent.lua_state_agent, 21.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, false, ArticleOperationTarget(0));
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(0));
         ItemModule::set_have_item_visibility(agent.module_accessor, true, 0);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 4, false, 0x50000000);
     }
 }

@@ -1,6 +1,6 @@
 unsafe extern "C" fn effect_visualscene01(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 1, 0.8, 0.8, 0.8, 0, 0, 0, 0.9, 1.15, *EFFECT_SCREEN_LAYER_CHAR, *EFFECT_SCREEN_PRIO_FINAL);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 1, 0.8, 0.8, 0.8, 0, 0, 0, 0.9, 1.15, *smash::lib::lua_const::EffectScreenLayer::CHAR, *EFFECT_SCREEN_PRIO_FINAL);
         macros::EFFECT_GLOBAL(agent, Hash40::new("tantan_final_bg1"), 960, -540, 0, 0, 0, 0, 1, true);
     }
 }
@@ -23,7 +23,7 @@ unsafe extern "C" fn sound_visualscene01(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_visualscene01(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_76_armsrush_v1"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_76_armsrush_v1"), 0, false, 0x50000000);
         macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_76_armsrush_v1"), 0);
     }
 }

@@ -52,7 +52,7 @@ unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
         macros::HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_NORMAL);
     }
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
@@ -166,7 +166,7 @@ unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
         macros::HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_OFF);
     }
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
     }

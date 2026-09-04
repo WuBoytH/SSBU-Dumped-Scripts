@@ -16,7 +16,7 @@ unsafe extern "C" fn game_attacklw3(agent: &mut L2CAgentBase) {
         macros::ATK_POWER(agent, 0, 3.5);
         macros::ATK_POWER(agent, 1, 3.5);
         macros::ATK_POWER(agent, 2, 5.5);
-        HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0) /* TODO: verify padded default args */;
+        HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
@@ -78,7 +78,7 @@ unsafe extern "C" fn expression_attacklw3(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_dash"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {

@@ -3,8 +3,8 @@ unsafe extern "C" fn game_attackhi4(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.74);
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, true, ArticleOperationTarget(0));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO, true, ArticleOperationTarget(0));
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
@@ -17,8 +17,8 @@ unsafe extern "C" fn game_attackhi4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 56.0);
     if macros::is_excute(agent) {
-        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO, ArticleOperationTarget(0));
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_YOYO_HEAD, ArticleOperationTarget(0));
     }
 }
 
@@ -62,13 +62,13 @@ unsafe extern "C" fn expression_attackhi4(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
             ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
             macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
         }
     }
     frame(agent.lua_state_agent, 37.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 4, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 4, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 48.0);
     if macros::is_excute(agent) {

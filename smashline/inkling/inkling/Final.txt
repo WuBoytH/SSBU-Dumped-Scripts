@@ -6,11 +6,11 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_MEGAPHONELASER, false, -1);
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_MEGAPHONELASER, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_MEGAPHONELASER, false, ArticleOperationTarget(0));
     }
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_MEGAPHONELASER, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_MEGAPHONELASER, true, ArticleOperationTarget(0));
     }
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(agent.lua_state_agent, 10.0);
@@ -33,7 +33,7 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 60.0);
     if macros::is_excute(agent) {
         ArticleModule::shoot(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_MEGAPHONELASER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
-        ArticleModule::change_status(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_MEGAPHONELASER, *WEAPON_INKLING_MEGAPHONELASER_STATUS_KIND_FIRE, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::change_status(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_MEGAPHONELASER, *WEAPON_INKLING_MEGAPHONELASER_STATUS_KIND_FIRE, ArticleOperationTarget(0));
     }
 }
 
@@ -159,6 +159,6 @@ unsafe extern "C" fn expression_final(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 39.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, 0x50000000);
     }
 }

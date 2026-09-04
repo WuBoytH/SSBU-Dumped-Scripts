@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_clubswing4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         MotionModule::set_rate(agent.module_accessor, 0.5);
-        ItemModule::set_have_item_scale_anim(agent.module_accessor, 6, 1.4, 0) /* TODO: verify padded default args */;
+        ItemModule::set_have_item_scale_anim(agent.module_accessor, 6, 1.4, 0);
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
@@ -9,7 +9,7 @@ unsafe extern "C" fn game_clubswing4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
-        ItemModule::set_have_item_action(agent.module_accessor, *ITEM_SWING_ACTION_BEGIN, 0.0, 0) /* TODO: verify padded default args */;
+        ItemModule::set_have_item_action(agent.module_accessor, *ITEM_SWING_ACTION_BEGIN, 1.0, 0);
     }
     frame(agent.lua_state_agent, 15.0);
     // TODO: game_ClubSwing4Common();
@@ -20,7 +20,7 @@ unsafe extern "C" fn game_clubswing4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 25.0);
     if macros::is_excute(agent) {
-        ItemModule::set_have_item_scale_anim(agent.module_accessor, 12, 1.0, 0) /* TODO: verify padded default args */;
+        ItemModule::set_have_item_scale_anim(agent.module_accessor, 12, 1.0, 0);
     }
     frame(agent.lua_state_agent, 26.0);
     if macros::is_excute(agent) {
@@ -30,8 +30,8 @@ unsafe extern "C" fn game_clubswing4(agent: &mut L2CAgentBase) {
 }
 
 unsafe extern "C" fn effect_clubswing4(agent: &mut L2CAgentBase) {
-    if true { // TODO: if (!(condition)) {
-    }
+    frame(agent.lua_state_agent, 15.0);
+    // TODO: effect_Swing4Impact();
 }
 
 unsafe extern "C" fn expression_clubswing4(agent: &mut L2CAgentBase) {
@@ -49,6 +49,6 @@ unsafe extern "C" fn expression_clubswing4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 0, false, 0x50000000);
     }
 }

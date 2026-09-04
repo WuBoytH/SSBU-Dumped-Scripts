@@ -1,9 +1,5 @@
 unsafe extern "C" fn game_specialncharge(agent: &mut L2CAgentBase) {
-    if true { // TODO: if (condition) {
-        macros::FT_MOTION_RATE(agent, 0.5);
-    } else {
-        macros::FT_MOTION_RATE(agent, 0.5);
-    }
+    macros::FT_MOTION_RATE(agent, 0.5);
 }
 
 unsafe extern "C" fn effect_specialncharge(agent: &mut L2CAgentBase) {
@@ -26,6 +22,6 @@ unsafe extern "C" fn sound_specialncharge(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_specialncharge(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, 0x50000000);
     }
 }

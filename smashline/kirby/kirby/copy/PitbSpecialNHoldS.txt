@@ -22,8 +22,7 @@ unsafe extern "C" fn effect_pitbspecialnholds(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_pitbspecialnholds(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 0.0);
-    sound!(agent, *MA_MSC_CMD_SOUND_IS_PLAYING_STATUS, Hash40::new("se_pitb_special_n01"));
-    if true { // TODO: if (condition) {
+    if !sound!(agent, *MA_MSC_CMD_SOUND_IS_PLAYING_STATUS, Hash40::new("se_pitb_special_n01")) {
         if macros::is_excute(agent) {
             macros::PLAY_STATUS(agent, Hash40::new("se_pitb_special_n01"));
         }
@@ -34,6 +33,6 @@ unsafe extern "C" fn expression_pitbspecialnholds(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_drawhold"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_drawhold"), 0, true, 0x50000000);
     }
 }

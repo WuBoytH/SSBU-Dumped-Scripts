@@ -10,13 +10,13 @@ unsafe extern "C" fn game_attackhi3(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0) /* TODO: verify padded default args */;
+        HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
         macros::ATTACK(agent, 0, 0, Hash40::new("throw"), 8.0, 88, 66, 0, 75, 4.0, 0.0, 0.0, -3.5, Some(0.0), Some(0.0), Some(3.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_magic"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_MAGIC, *ATTACK_REGION_MAGIC);
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
         AttackModule::clear_all(agent.module_accessor);
-        ArticleModule::remove(agent.module_accessor, *FIGHTER_ROSETTA_GENERATE_ARTICLE_RING, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove(agent.module_accessor, *FIGHTER_ROSETTA_GENERATE_ARTICLE_RING, ArticleOperationTarget(0));
     }
 }
 
@@ -70,7 +70,7 @@ unsafe extern "C" fn expression_attackhi3(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
         macros::RUMBLE_HIT(agent, Hash40::new("rbkind_beams"), 0);
     }
 }

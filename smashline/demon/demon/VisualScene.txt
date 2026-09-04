@@ -1,7 +1,7 @@
 unsafe extern "C" fn effect_visualscene(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 0, 2.5, 1.5, 1, 0, 0, 0, 1, 1.2, *EFFECT_SCREEN_LAYER_GROUND, 199);
-        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 1.5, 1, 1, 0.02, 0, 0, 1, 1.1, *EFFECT_SCREEN_LAYER_CHAR, 198);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 0, 0, 2.5, 1.5, 1, 0, 0, 0, 1, 1.2, *smash::lib::lua_const::EffectScreenLayer::GROUND, 199);
+        macros::FILL_SCREEN_MODEL_COLOR(agent, 1, 0, 1.5, 1, 1, 0.02, 0, 0, 1, 1.1, *smash::lib::lua_const::EffectScreenLayer::CHAR, 198);
         macros::EFFECT(agent, Hash40::new("demon_final_sparks"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
         macros::EFFECT_GLOBAL(agent, Hash40::new("demon_final_distortion"), 0, 0, 0, 0, 0, 0, 1, true);
         macros::EFFECT_FOLLOW(agent, Hash40::new("demon_final_light"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
@@ -25,11 +25,11 @@ unsafe extern "C" fn sound_visualscene(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn expression_visualscene(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
     }
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_vs"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_vs"), 0, false, 0x50000000);
         macros::RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_80_vs"), 0);
     }
 }

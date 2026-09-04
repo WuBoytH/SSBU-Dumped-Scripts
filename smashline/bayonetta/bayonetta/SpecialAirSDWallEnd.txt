@@ -1,9 +1,5 @@
 unsafe extern "C" fn game_specialairsdwallend(agent: &mut L2CAgentBase) {
-    if true { // TODO: if (condition) {
-        macros::FT_MOTION_RATE(agent, 0.7);
-    } else {
-        macros::FT_MOTION_RATE(agent, 0.7);
-    }
+    macros::FT_MOTION_RATE(agent, 0.7);
 }
 
 unsafe extern "C" fn effect_specialairsdwallend(agent: &mut L2CAgentBase) {
@@ -24,6 +20,6 @@ unsafe extern "C" fn sound_specialairsdwallend(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_specialairsdwallend(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_impact"), 0, false, 0x50000000);
     }
 }

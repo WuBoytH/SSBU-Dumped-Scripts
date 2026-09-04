@@ -38,15 +38,13 @@ unsafe extern "C" fn sound_specialairnfire(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::PLAY_SEQUENCE(agent, Hash40::new("seq_kamui_rnd_special_n01"));
         }
+    } else if WorkModule::get_float(agent.module_accessor, *FIGHTER_KAMUI_STATUS_SPECIAL_N_WORK_FLOAT_HOLD_RATE) < 0.95 {
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_kamui_rnd_special_n02"));
+        }
     } else {
-        if WorkModule::get_float(agent.module_accessor, *FIGHTER_KAMUI_STATUS_SPECIAL_N_WORK_FLOAT_HOLD_RATE) < 0.95 {
-            if macros::is_excute(agent) {
-                macros::PLAY_SEQUENCE(agent, Hash40::new("seq_kamui_rnd_special_n02"));
-            }
-        } else {
-            if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new("vc_kamui_special_n03"));
-            }
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_kamui_special_n03"));
         }
     }
     frame(agent.lua_state_agent, 13.0);
@@ -63,11 +61,11 @@ unsafe extern "C" fn expression_specialairnfire(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 24, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 24, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 26.0);
     if macros::is_excute(agent) {

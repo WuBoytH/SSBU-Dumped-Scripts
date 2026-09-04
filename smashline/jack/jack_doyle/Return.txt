@@ -21,24 +21,20 @@ unsafe extern "C" fn sound_return(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *WEAPON_JACK_DOYLE_INSTANCE_WORK_ID_FLAG_MUTE_VOICE) {
         if macros::IS_RANDOM(agent, 2) {
             if macros::is_excute(agent) {
+                // TODO: WeaponSpecializer_JackDoyle::play_se_jack(0x149101401d);
             }
-            if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+            frame(agent.lua_state_agent, 20.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SE_REMAIN(agent, Hash40::new("se_jack_doyle_exit02"));
             }
         } else {
             if macros::is_excute(agent) {
-            }
-            if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
                 // TODO: WeaponSpecializer_JackDoyle::play_se_jack(0x14080811a7);
             }
-        }
-        // TODO: WeaponSpecializer_JackDoyle::play_se_jack(0x149101401d);
-        frame(agent.lua_state_agent, 20.0);
-        if macros::is_excute(agent) {
-            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_jack_doyle_exit02"));
-        }
-        frame(agent.lua_state_agent, 20.0);
-        if macros::is_excute(agent) {
-            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_jack_doyle_exit02"));
+            frame(agent.lua_state_agent, 20.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SE_REMAIN(agent, Hash40::new("se_jack_doyle_exit02"));
+            }
         }
     }
 }

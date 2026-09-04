@@ -10,17 +10,13 @@ unsafe extern "C" fn game_batswing4(agent: &mut L2CAgentBase) {
 }
 
 unsafe extern "C" fn effect_batswing4(agent: &mut L2CAgentBase) {
-    if true { // TODO: if (condition) {
-        // TODO: effect_BatSwing4Common();
-    } else {
-        // TODO: effect_BatSwing4Common();
-    }
+    // TODO: effect_BatSwing4Common();
 }
 
 unsafe extern "C" fn expression_batswing4(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_R);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, 0x50000000);
     }
     frame(agent.lua_state_agent, 48.0);
     if macros::is_excute(agent) {
@@ -28,10 +24,10 @@ unsafe extern "C" fn expression_batswing4(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 51.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, 0x50000000);
     }
 }

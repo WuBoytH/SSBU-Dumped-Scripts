@@ -29,7 +29,7 @@ unsafe extern "C" fn effect_finalend(agent: &mut L2CAgentBase) {
         macros::EFFECT(agent, Hash40::new("sys_crown"), Hash40::new("top"), 15, 0, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, false);
         macros::EFFECT(agent, Hash40::new("cloud_final_finish_hit2"), Hash40::new("top"), 15, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         macros::EFFECT(agent, Hash40::new("cloud_final_finish_hit"), Hash40::new("top"), 15, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("damage_fly"), Hash40::new("top"), Vector2::new(10.0, 10.0), Vector3::new(0.0, 10.0, 15.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
+        EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("damage_fly"), Hash40::new("top"), Vector2::new(10.0, 10.0), Vector3::new(0.0, 10.0, 15.0), true, -1.0, 0.0);
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
@@ -57,6 +57,6 @@ unsafe extern "C" fn expression_finalend(agent: &mut L2CAgentBase) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attack_critical"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attack_critical"), 0, false, 0x50000000);
     }
 }

@@ -22,21 +22,17 @@ unsafe extern "C" fn sound_bang(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_s"));
         }
+    } else if WorkModule::get_float(agent.module_accessor, *WEAPON_NESS_PK_FLASH_INSTANCE_WORK_ID_FLOAT_COUNT) <= 60.0 {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_m"));
+        }
+    } else if WorkModule::get_float(agent.module_accessor, *WEAPON_NESS_PK_FLASH_INSTANCE_WORK_ID_FLOAT_COUNT) <= 90.0 {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_l"));
+        }
     } else {
-        if WorkModule::get_float(agent.module_accessor, *WEAPON_NESS_PK_FLASH_INSTANCE_WORK_ID_FLOAT_COUNT) <= 60.0 {
-            if macros::is_excute(agent) {
-                macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_m"));
-            }
-        } else {
-            if WorkModule::get_float(agent.module_accessor, *WEAPON_NESS_PK_FLASH_INSTANCE_WORK_ID_FLOAT_COUNT) <= 90.0 {
-                if macros::is_excute(agent) {
-                    macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_l"));
-                }
-            } else {
-                if macros::is_excute(agent) {
-                    macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_ll"));
-                }
-            }
+        if macros::is_excute(agent) {
+            macros::PLAY_SE_REMAIN(agent, Hash40::new("se_ness_special_n04_ll"));
         }
     }
 }

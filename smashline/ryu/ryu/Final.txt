@@ -91,8 +91,8 @@ unsafe extern "C" fn effect_final(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        let request_post_effect_line_circle = EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("handr"), Vector2::new(30.0, 30.0), Vector3::new(0.0, 0.0, 0.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
-        macros::LANDING_EFFECT(agent, request_post_effect_line_circle, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false) /* TODO: macro expects 16 args */;
+        EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("handr"), Vector2::new(30.0, 30.0), Vector3::new(0.0, 0.0, 0.0), true, -1.0, 0.0);
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
         macros::EFFECT_OFF_KIND(agent, Hash40::new("ryu_final_shinsyoryu_aura"), false, false);
     }
     frame(agent.lua_state_agent, 53.0);
@@ -123,6 +123,6 @@ unsafe extern "C" fn expression_final(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
         macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attack_critical"), 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_rush"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_rush"), 0, false, 0x50000000);
     }
 }

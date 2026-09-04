@@ -3,11 +3,9 @@ unsafe extern "C" fn game_specialairsget(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             KineticModule::add_speed(agent.module_accessor, &Vector3f{x: 0.0, y: -2.5, z: 0.0});
         }
-    } else {
-        if KineticModule::get_sum_speed_y(agent.module_accessor, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN) <= -2.0 {
-            if macros::is_excute(agent) {
-                KineticModule::add_speed(agent.module_accessor, &Vector3f{x: 0.0, y: 2.0, z: 0.0});
-            }
+    } else if KineticModule::get_sum_speed_y(agent.module_accessor, *KINETIC_ENERGY_RESERVE_ATTRIBUTE_MAIN) <= -2.0 {
+        if macros::is_excute(agent) {
+            KineticModule::add_speed(agent.module_accessor, &Vector3f{x: 0.0, y: 2.0, z: 0.0});
         }
     }
     frame(agent.lua_state_agent, 1.0);
@@ -34,11 +32,11 @@ unsafe extern "C" fn expression_specialairsget(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_grapple"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 29.0);
     if macros::is_excute(agent) {
         macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, 0x50000000);
     }
 }

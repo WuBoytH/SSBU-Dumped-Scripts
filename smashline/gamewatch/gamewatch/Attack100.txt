@@ -1,7 +1,7 @@
 unsafe extern "C" fn game_attack100(agent: &mut L2CAgentBase) {
     loop {
         if macros::is_excute(agent) {
-            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_GAMEWATCH_GENERATE_ARTICLE_NORMAL_WEAPON, Hash40::new("attack_100"), false, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::change_motion(agent.module_accessor, *FIGHTER_GAMEWATCH_GENERATE_ARTICLE_NORMAL_WEAPON, Hash40::new("attack_100"), false, -1.0);
         }
         frame(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
@@ -75,14 +75,14 @@ unsafe extern "C" fn expression_attack100(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 3.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 5.0);
         if macros::is_excute(agent) {
             macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackss"), 6);
         }
         frame(agent.lua_state_agent, 11.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, 0x50000000);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

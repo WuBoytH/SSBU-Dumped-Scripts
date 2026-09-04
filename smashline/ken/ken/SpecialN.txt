@@ -75,34 +75,30 @@ unsafe extern "C" fn sound_specialn(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::PLAY_SE(agent, Hash40::new("vc_ken_special_n02"));
         }
-    } else {
-        if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
-            if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new("se_ken_special_n01"));
-            }
-            wait(agent.lua_state_agent, 10.0);
-            if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new("se_ken_special_n03"));
-            }
-            wait(agent.lua_state_agent, 2.0);
-            if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new("vc_ken_special_n01"));
-            }
-        } else {
-            if WorkModule::get_int64(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_INT_TYPE) == 0 {
-                if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new("se_ken_command_success"));
-                    macros::PLAY_SE(agent, Hash40::new("se_ken_special_n01"));
-                }
-                wait(agent.lua_state_agent, 10.0);
-                if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new("se_ken_special_n03"));
-                }
-                wait(agent.lua_state_agent, 2.0);
-                if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new("vc_ken_special_n01_command"));
-                }
-            }
+    } else if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_ken_special_n01"));
+        }
+        wait(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_ken_special_n03"));
+        }
+        wait(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_ken_special_n01"));
+        }
+    } else if WorkModule::get_int64(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_INT_TYPE) == 0 {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_ken_command_success"));
+            macros::PLAY_SE(agent, Hash40::new("se_ken_special_n01"));
+        }
+        wait(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_ken_special_n03"));
+        }
+        wait(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("vc_ken_special_n01_command"));
         }
     }
 }
@@ -115,17 +111,17 @@ unsafe extern "C" fn expression_specialn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 11.0);
     if WorkModule::is_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_N_FLAG_FAILED) {
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, 0x50000000);
         }
     } else {
         if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
             if macros::is_excute(agent) {
-                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, 0x50000000);
             }
         }
         if WorkModule::is_flag(agent.module_accessor, *FIGHTER_RYU_STATUS_WORK_ID_SPECIAL_COMMON_FLAG_COMMAND) {
             if macros::is_excute(agent) {
-                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackl"), 0, false, 0x50000000);
             }
         }
     }

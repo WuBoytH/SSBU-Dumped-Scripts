@@ -21,11 +21,11 @@ unsafe extern "C" fn expression_attacks4charge(agent: &mut L2CAgentBase) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         physics!(agent, *MA_MSC_CMD_PHYSICS_START_CHARGE, -1, -1, -1, 0.3, 0.1, -1, Hash40::new("invalid"));
         macros::AREA_WIND_2ND(agent, 0, 0.8, 180, 8, 0.8, -8, 4, 16, 8, 80);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, 0x50000000);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
     }
     frame(agent.lua_state_agent, 61.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold2"), 0, true, 0x50000000);
     }
 }

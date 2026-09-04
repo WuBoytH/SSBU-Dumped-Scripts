@@ -58,7 +58,7 @@ unsafe extern "C" fn sound_throwf(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn expression_throwf(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, 0) /* TODO: verify padded default args */;
+        ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, -1);
         macros::FT_ATTACK_ABS_CAMERA_QUAKE(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, *CAMERA_QUAKE_KIND_NONE);
         VisibilityModule::set_int64(agent.module_accessor, hash40("sholder_l"), hash40("sholder_l_on"));
         VisibilityModule::set_int64(agent.module_accessor, hash40("sholder_r"), hash40("sholder_r_on"));
@@ -66,7 +66,7 @@ unsafe extern "C" fn expression_throwf(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_PICOPICOHAMMER, false, ArticleOperationTarget(0));
     }
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
@@ -75,6 +75,6 @@ unsafe extern "C" fn expression_throwf(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_MAGICHAND, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_MAGICHAND, false, ArticleOperationTarget(0));
     }
 }

@@ -14,40 +14,30 @@ unsafe extern "C" fn effect_specialsloop(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_metal"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
         }
+    } else if WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_GOLD) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_gold"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
+        }
+    } else if WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_SPYCLOAK) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("null"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
+        }
+    } else if macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *smash::lib::lua_const::FighterCategory::METAMON) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_metamon"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
+        }
+    } else if macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *smash::lib::lua_const::FighterCategory::LIGHT) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_light"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
+        }
+    } else if macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *smash::lib::lua_const::FighterCategory::DARK) {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_dark"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
+        }
     } else {
-        if WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_GOLD) {
-            if macros::is_excute(agent) {
-                macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_gold"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
-            }
-        } else {
-            if WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_SPYCLOAK) {
-                if macros::is_excute(agent) {
-                    macros::EFFECT_FOLLOW(agent, Hash40::new("null"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
-                }
-            } else {
-                if macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_METAMON) {
-                    if macros::is_excute(agent) {
-                        macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_metamon"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
-                    }
-                } else {
-                    if macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_LIGHT) {
-                        if macros::is_excute(agent) {
-                            macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_light"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
-                        }
-                    } else {
-                        if macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_DARK) {
-                            if macros::is_excute(agent) {
-                                macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_dark"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true);
-                            }
-                        } else {
-                            if macros::is_excute(agent) {
-                                let color = WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
-                                macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_01"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true, color) /* TODO: macro expects 10 args */;
-                            }
-                        }
-                    }
-                }
-            }
+        if macros::is_excute(agent) {
+            let color = WorkModule::get_int64(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_INT_COLOR);
+            macros::EFFECT_FOLLOW(agent, Hash40::new("yoshi_gorogorotamago_01"), Hash40::new("egg"), 0, 0, 0, 0, 0, 0, 1, true, color) /* TODO: macro expects 10 args */;
         }
     }
     loop {
@@ -88,7 +78,7 @@ unsafe extern "C" fn expression_specialsloop(agent: &mut L2CAgentBase) {
             macros::HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_NORMAL);
         }
         macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

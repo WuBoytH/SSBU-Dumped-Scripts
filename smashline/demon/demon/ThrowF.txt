@@ -6,13 +6,13 @@ unsafe extern "C" fn game_throwf(agent: &mut L2CAgentBase) {
     }
     if true { // TODO: if (FighterCutInManager::is_one_on_one_including_thrown() == true) {
         if macros::is_excute(agent) {
+            FighterSpecializer_Demon::check_disabled_motion_camera_of_scale(agent.module_accessor);
+            FighterSpecializer_Demon::check_disabled_motion_camera_of_stage(agent.module_accessor);
         }
         if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
         }
-        FighterSpecializer_Demon::check_disabled_motion_camera_of_scale(agent.module_accessor);
         if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
         }
-        FighterSpecializer_Demon::check_disabled_motion_camera_of_stage(agent.module_accessor);
         if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ENABLE_THROW_MOTION_CAMERA) {
             if macros::is_excute(agent) {
                 macros::CHECK_VALID_START_CAMERA(agent, 0, 7, 0, 20, 30, 0, true);
@@ -154,11 +154,11 @@ unsafe extern "C" fn expression_throwf(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 16.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_attackl"), 5, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_attackl"), 5, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 44.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_attackl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_attackl"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 60.0);
     if macros::is_excute(agent) {

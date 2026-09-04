@@ -1,9 +1,5 @@
 unsafe extern "C" fn game_downspot(agent: &mut L2CAgentBase) {
-    if true { // TODO: if (condition) {
-        macros::FT_MOTION_RATE(agent, 0.93);
-    } else {
-        macros::FT_MOTION_RATE(agent, 0.93);
-    }
+    macros::FT_MOTION_RATE(agent, 0.93);
 }
 
 unsafe extern "C" fn sound_downspot(agent: &mut L2CAgentBase) {
@@ -23,7 +19,7 @@ unsafe extern "C" fn expression_downspot(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_landl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_landl"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
@@ -31,6 +27,6 @@ unsafe extern "C" fn expression_downspot(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 31.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, 0x50000000);
     }
 }

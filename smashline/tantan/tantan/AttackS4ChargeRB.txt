@@ -32,18 +32,16 @@ unsafe extern "C" fn sound_attacks4chargerb(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::PLAY_STATUS(agent, Hash40::new("se_tantan_attack02_charge"));
         }
+    } else if WorkModule::get_int64(agent.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R) == 2 {
+        frame(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_smash_start"));
+            macros::PLAY_STATUS(agent, Hash40::new("se_tantan_attack03_charge"));
+        }
     } else {
-        if WorkModule::get_int64(agent.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R) == 2 {
-            frame(agent.lua_state_agent, 2.0);
-            if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new("se_common_smash_start"));
-                macros::PLAY_STATUS(agent, Hash40::new("se_tantan_attack03_charge"));
-            }
-        } else {
-            frame(agent.lua_state_agent, 2.0);
-            if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new("se_common_smash_start"));
-            }
+        frame(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_smash_start"));
         }
     }
 }
@@ -51,10 +49,10 @@ unsafe extern "C" fn sound_attacks4chargerb(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_attacks4chargerb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, 0x50000000);
     }
     frame(agent.lua_state_agent, 61.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold2"), 0, true, 0x50000000);
     }
 }

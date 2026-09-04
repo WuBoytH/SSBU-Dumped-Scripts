@@ -2,16 +2,16 @@ unsafe extern "C" fn game_finalair(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_PAULA, false, -1);
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_POO, false, -1);
+        article!(agent, *MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_NESS_GENERATE_ARTICLE_PAULA, -10, 0, -0.01);
+        article!(agent, *MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_NESS_GENERATE_ARTICLE_POO, 10, 0, -0.01);
+        macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
+        macros::SLOW_OPPONENT(agent, 5.0, 30.0);
     }
     if lua_bind::BattleObjectWorld::scale_z(singletons::BattleObjectWorld()) <= 1.0 {
         article!(agent, *MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_NESS_GENERATE_ARTICLE_PAULA, -10, 0, -10);
         article!(agent, *MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_NESS_GENERATE_ARTICLE_POO, 10, 0, -10);
     } else {
-        article!(agent, *MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_NESS_GENERATE_ARTICLE_PAULA, -10, 0, -0.01);
-        article!(agent, *MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_NESS_GENERATE_ARTICLE_POO, 10, 0, -0.01);
     }
-    macros::CHECK_VALID_FINAL_START_CAMERA(agent, 0, 7, 20, 0, 0, 0);
-    macros::SLOW_OPPONENT(agent, 5.0, 30.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
@@ -36,8 +36,8 @@ unsafe extern "C" fn game_finalair(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 350.0);
     if macros::is_excute(agent) {
-        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_PAULA, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_POO, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_PAULA, ArticleOperationTarget(0));
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_NESS_GENERATE_ARTICLE_POO, ArticleOperationTarget(0));
     }
     frame(agent.lua_state_agent, 357.0);
     if macros::is_excute(agent) {
@@ -81,7 +81,7 @@ unsafe extern "C" fn expression_finalair(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 73.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_10_starstorm_sp"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_10_starstorm_sp"), 0, true, 0x50000000);
     }
     frame(agent.lua_state_agent, 276.0);
     if macros::is_excute(agent) {
@@ -89,6 +89,6 @@ unsafe extern "C" fn expression_finalair(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 314.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_10_starstorm_sp2"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_10_starstorm_sp2"), 0, false, 0x50000000);
     }
 }

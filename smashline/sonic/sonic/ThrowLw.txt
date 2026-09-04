@@ -80,7 +80,7 @@ unsafe extern "C" fn expression_throwlw(agent: &mut L2CAgentBase) {
         macros::HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_NORMAL);
     }
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
@@ -99,7 +99,7 @@ unsafe extern "C" fn expression_throwlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 41.0);
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 10);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attackm"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 51.0);
     if macros::is_excute(agent) {
@@ -120,6 +120,6 @@ unsafe extern "C" fn expression_throwlw(agent: &mut L2CAgentBase) {
         macros::HIT_NODE(agent, Hash40::new("rot"), *HIT_STATUS_OFF);
     }
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
     }
 }

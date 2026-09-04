@@ -20,7 +20,7 @@ unsafe extern "C" fn game_finalfinish(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.5);
     if macros::is_excute(agent) {
         macros::SET_RATE_ARTICLE(agent, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, 2);
-        ArticleModule::remove(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_BUNSHIN, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_BUNSHIN, ArticleOperationTarget(0));
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_METAKNIGHT_STATUS_FINAL_FLAG_ENABLE_TRANS);
     }
     frame(agent.lua_state_agent, 5.0);
@@ -74,7 +74,7 @@ unsafe extern "C" fn game_finalfinish(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 100.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_FOURWINGS, false, ArticleOperationTarget(0));
     }
 }
 
@@ -93,11 +93,11 @@ unsafe extern "C" fn effect_finalfinish(agent: &mut L2CAgentBase) {
     }
     if get_value_float(agent.lua_state_agent, *SO_VAR_FLOAT_LR) < 0.0 {
         if macros::is_excute(agent) {
-            EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(3.0, 3.0), Vector3::new(0.0, 6.0, -15.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
+            EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(3.0, 3.0), Vector3::new(0.0, 6.0, -15.0), true, -1.0, 0.0);
         }
     } else {
         if macros::is_excute(agent) {
-            EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(3.0, 3.0), Vector3::new(0.0, 6.0, 20.0), true, 0.0, 0.0) /* TODO: verify padded default args */;
+            EffectModule::request_post_effect_line_circle(agent.module_accessor, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(3.0, 3.0), Vector3::new(0.0, 6.0, 20.0), true, -1.0, 0.0);
         }
     }
     frame(agent.lua_state_agent, 50.0);
@@ -140,11 +140,11 @@ unsafe extern "C" fn expression_finalfinish(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 33.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_28_soaring"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_28_soaring"), 0, true, 0x50000000);
     }
     frame(agent.lua_state_agent, 40.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_erase"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {

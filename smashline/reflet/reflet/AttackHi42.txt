@@ -32,8 +32,7 @@ unsafe extern "C" fn game_attackhi42(agent: &mut L2CAgentBase) {
             }
         }
         if macros::is_excute(agent) {
-        }
-        if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+            FighterSpecializer_Reflet::throwaway_sword(agent.battle_object as *mut Fighter, &Vector2f{x: 1.5, y: 22.0}, true);
         }
     } else {
         if macros::is_excute(agent) {
@@ -48,7 +47,6 @@ unsafe extern "C" fn game_attackhi42(agent: &mut L2CAgentBase) {
             AttackModule::clear_all(agent.module_accessor);
         }
     }
-    FighterSpecializer_Reflet::throwaway_sword(agent.battle_object as *mut Fighter, &Vector2f{x: 1.5, y: 22.0}, false) /* TODO: verify padded default args */;
 }
 
 unsafe extern "C" fn effect_attackhi42(agent: &mut L2CAgentBase) {
@@ -139,16 +137,16 @@ unsafe extern "C" fn expression_attackhi42(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 12.0);
         if macros::is_excute(agent) {
             macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 16.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, 0x50000000);
         }
     } else {
         frame(agent.lua_state_agent, 11.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitl"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 12.0);
         if macros::is_excute(agent) {

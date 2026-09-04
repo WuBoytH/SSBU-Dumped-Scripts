@@ -22,12 +22,12 @@ unsafe extern "C" fn expression_appealhir(agent: &mut L2CAgentBase) {
     if !macros::IS_EXIST_ARTICLE(agent, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX) {
         if macros::is_excute(agent) {
             ArticleModule::generate_article(agent.module_accessor, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX, false, -1);
-            ArticleModule::have(agent.module_accessor, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX, Hash40::new("haver"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), 0, false);
-            ArticleModule::set_item_action(agent.module_accessor, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX, *ITEM_SNAKECBOX_ACTION_ENABLE_PICKUP, 0.0) /* TODO: verify padded default args */;
+            ArticleModule::have(agent.module_accessor, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX, Hash40::new("haver"), ArticleOperationTarget(0), 0x50000000, false);
+            ArticleModule::set_item_action(agent.module_accessor, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX, *ITEM_SNAKECBOX_ACTION_ENABLE_PICKUP, 1.0);
         }
     }
     frame(agent.lua_state_agent, 28.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 6, false, 0x50000000);
     }
 }

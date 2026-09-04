@@ -13,7 +13,7 @@ unsafe extern "C" fn game_specialairnend1(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 50.0);
     if macros::is_excute(agent) {
-        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_DRAGONHAND, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_KAMUI_GENERATE_ARTICLE_DRAGONHAND, ArticleOperationTarget(0));
     }
 }
 
@@ -26,9 +26,9 @@ unsafe extern "C" fn effect_specialairnend1(agent: &mut L2CAgentBase) {
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_METAL) {
         if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_GOLD) {
             if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_SPYCLOAK) {
-                if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_METAMON) {
-                    if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_LIGHT) {
-                        if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *FIGHTER_CATEGORY_DARK) {
+                if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *smash::lib::lua_const::FighterCategory::METAMON) {
+                    if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *smash::lib::lua_const::FighterCategory::LIGHT) {
+                        if !macros::FT_IS_SAME_FIGHTER_CATEGORY(agent, *smash::lib::lua_const::FighterCategory::DARK) {
                             if macros::is_excute(agent) {
                                 macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("kamui_ryusensya_wind_end"), Hash40::new("arml"), 0, 0, 0, 0, 0, 0, 0.8, false);
                             }
@@ -99,7 +99,7 @@ unsafe extern "C" fn expression_specialairnend1(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
         macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {

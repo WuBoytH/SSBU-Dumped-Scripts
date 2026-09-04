@@ -57,19 +57,19 @@ unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
     }
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
     }
     frame(agent.lua_state_agent, 45.0);
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_DIDDY_GENERATE_ARTICLE_DKBARREL) {
         if macros::is_excute(agent) {
-            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_DKBARREL, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_DKBARREL, false, ArticleOperationTarget(0));
         }
     }
     frame(agent.lua_state_agent, 47.0);

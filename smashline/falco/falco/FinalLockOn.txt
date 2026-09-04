@@ -5,7 +5,7 @@ unsafe extern "C" fn game_finallockon(agent: &mut L2CAgentBase) {
     }
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING) {
         if macros::is_excute(agent) {
-            ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+            ArticleModule::remove_exist(agent.module_accessor, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, ArticleOperationTarget(0));
         }
     }
     if macros::is_excute(agent) {
@@ -15,7 +15,7 @@ unsafe extern "C" fn game_finallockon(agent: &mut L2CAgentBase) {
         ArticleModule::generate_article(agent.module_accessor, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, false, -1);
     }
     if lua_bind::BattleObjectWorld::scale_z(singletons::BattleObjectWorld()) > 1.0 {
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_FALCO_GENERATE_ARTICLE_ARWING, false, ArticleOperationTarget(0));
     }
     macros::SLOW_OPPONENT(agent, 4.0, 30.0);
     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FINAL_START_CAMERA) {
@@ -66,7 +66,7 @@ unsafe extern "C" fn game_finallockon(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn effect_finallockon(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        macros::FILL_SCREEN(agent, 0, 14, 0, 0.008, 0.012, 0.745, *EFFECT_SCREEN_LAYER_GROUND, *EFFECT_SCREEN_PRIO_FINAL, *EFFECT_SCREEN_BLEND_TYPE_BLEND);
+        macros::FILL_SCREEN(agent, 0, 14, 0, 0.008, 0.012, 0.745, *smash::lib::lua_const::EffectScreenLayer::GROUND, *EFFECT_SCREEN_PRIO_FINAL, *smash::lib::lua_const::EffectScreenBlendType::BLEND);
     }
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
@@ -96,14 +96,14 @@ unsafe extern "C" fn expression_finallockon(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 32.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 14, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 14, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 47.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 13, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 13, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 61.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitll"), 0, false, 0x50000000);
     }
 }

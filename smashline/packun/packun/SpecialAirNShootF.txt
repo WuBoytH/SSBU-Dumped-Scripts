@@ -33,8 +33,8 @@ unsafe extern "C" fn game_specialairnshootf(agent: &mut L2CAgentBase) {
                 WorkModule::off_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
             }
         } else {
-            WorkModule::get_float(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLOAT_SHOOT_START_SPIKEBALL_DISTANCE);
-            if true { // TODO: if (condition) {
+            let scale = PostureModule::scale(agent.module_accessor);
+            if WorkModule::get_float(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLOAT_SHOOT_START_SPIKEBALL_DISTANCE) <= scale * 40.0 {
                 macros::FT_MOTION_RATE(agent, 0.7);
                 frame(agent.lua_state_agent, 8.0);
                 if macros::is_excute(agent) {
@@ -54,66 +54,70 @@ unsafe extern "C" fn game_specialairnshootf(agent: &mut L2CAgentBase) {
                 frame(agent.lua_state_agent, 19.0);
                 macros::FT_MOTION_RATE(agent, 1.3);
                 WorkModule::off_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
-            }
-            let scale = PostureModule::scale(agent.module_accessor);
-            if WorkModule::get_float(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLOAT_SHOOT_START_SPIKEBALL_DISTANCE) <= scale * 50.0 {
-                macros::FT_MOTION_RATE(agent, 0.9);
-                frame(agent.lua_state_agent, 10.0);
-                if macros::is_excute(agent) {
-                    search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR, 0);
+            } else {
+                let scale = PostureModule::scale(agent.module_accessor);
+                if WorkModule::get_float(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLOAT_SHOOT_START_SPIKEBALL_DISTANCE) <= scale * 50.0 {
+                    macros::FT_MOTION_RATE(agent, 0.9);
+                    frame(agent.lua_state_agent, 10.0);
+                    if macros::is_excute(agent) {
+                        search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR, 0);
+                    }
+                    frame(agent.lua_state_agent, 11.0);
+                    macros::FT_MOTION_RATE(agent, 4);
+                    if macros::is_excute(agent) {
+                        ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_PACKUN_GENERATE_ARTICLE_SPIKEBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
+                    }
+                    frame(agent.lua_state_agent, 12.0);
+                    macros::FT_MOTION_RATE(agent, 0.8);
+                    if macros::is_excute(agent) {
+                        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                    }
+                    frame(agent.lua_state_agent, 19.0);
+                    macros::FT_MOTION_RATE(agent, 1.2);
+                    WorkModule::off_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                } else {
+                    let scale = PostureModule::scale(agent.module_accessor);
+                    if WorkModule::get_float(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLOAT_SHOOT_START_SPIKEBALL_DISTANCE) <= scale * 100.0 {
+                        macros::FT_MOTION_RATE(agent, 1.2);
+                        frame(agent.lua_state_agent, 10.0);
+                        if macros::is_excute(agent) {
+                            search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR, 0);
+                        }
+                        frame(agent.lua_state_agent, 11.0);
+                        macros::FT_MOTION_RATE(agent, 5);
+                        if macros::is_excute(agent) {
+                            ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_PACKUN_GENERATE_ARTICLE_SPIKEBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
+                        }
+                        frame(agent.lua_state_agent, 12.0);
+                        macros::FT_MOTION_RATE(agent, 1);
+                        if macros::is_excute(agent) {
+                            WorkModule::on_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                        }
+                        frame(agent.lua_state_agent, 19.0);
+                        macros::FT_MOTION_RATE(agent, 1.1);
+                        WorkModule::off_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                    } else {
+                        macros::FT_MOTION_RATE(agent, 1);
+                        frame(agent.lua_state_agent, 10.0);
+                        if macros::is_excute(agent) {
+                            search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR, 0);
+                        }
+                        frame(agent.lua_state_agent, 11.0);
+                        macros::FT_MOTION_RATE(agent, 5);
+                        if macros::is_excute(agent) {
+                            ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_PACKUN_GENERATE_ARTICLE_SPIKEBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
+                        }
+                        frame(agent.lua_state_agent, 12.0);
+                        macros::FT_MOTION_RATE(agent, 1);
+                        if macros::is_excute(agent) {
+                            WorkModule::on_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                        }
+                        frame(agent.lua_state_agent, 19.0);
+                        macros::FT_MOTION_RATE(agent, 1);
+                        WorkModule::off_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                    }
                 }
-                frame(agent.lua_state_agent, 11.0);
-                macros::FT_MOTION_RATE(agent, 4);
-                if macros::is_excute(agent) {
-                    ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_PACKUN_GENERATE_ARTICLE_SPIKEBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
-                }
-                frame(agent.lua_state_agent, 12.0);
-                macros::FT_MOTION_RATE(agent, 0.8);
-                if macros::is_excute(agent) {
-                    WorkModule::on_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
-                }
-                frame(agent.lua_state_agent, 19.0);
-                macros::FT_MOTION_RATE(agent, 1.2);
-                WorkModule::off_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
             }
-            let scale = PostureModule::scale(agent.module_accessor);
-            if WorkModule::get_float(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLOAT_SHOOT_START_SPIKEBALL_DISTANCE) <= scale * 100.0 {
-                macros::FT_MOTION_RATE(agent, 1.2);
-                frame(agent.lua_state_agent, 10.0);
-                if macros::is_excute(agent) {
-                    search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR, 0);
-                }
-                frame(agent.lua_state_agent, 11.0);
-                macros::FT_MOTION_RATE(agent, 5);
-                if macros::is_excute(agent) {
-                    ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_PACKUN_GENERATE_ARTICLE_SPIKEBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
-                }
-                frame(agent.lua_state_agent, 12.0);
-                macros::FT_MOTION_RATE(agent, 1);
-                if macros::is_excute(agent) {
-                    WorkModule::on_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
-                }
-                frame(agent.lua_state_agent, 19.0);
-                macros::FT_MOTION_RATE(agent, 1.1);
-                WorkModule::off_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
-            }
-            macros::FT_MOTION_RATE(agent, 1);
-            frame(agent.lua_state_agent, 10.0);
-            if macros::is_excute(agent) {
-                search!(agent, *MA_MSC_CMD_SEARCH_SEARCH_SCH_CLR, 0);
-            }
-            frame(agent.lua_state_agent, 11.0);
-            macros::FT_MOTION_RATE(agent, 5);
-            if macros::is_excute(agent) {
-                ArticleModule::shoot_exist(agent.module_accessor, *FIGHTER_PACKUN_GENERATE_ARTICLE_SPIKEBALL, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
-            }
-            frame(agent.lua_state_agent, 12.0);
-            macros::FT_MOTION_RATE(agent, 1);
-            if macros::is_excute(agent) {
-                WorkModule::on_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
-            }
-            frame(agent.lua_state_agent, 19.0);
-            macros::FT_MOTION_RATE(agent, 1);
         }
     } else {
         macros::FT_MOTION_RATE(agent, 1);
@@ -142,7 +146,6 @@ unsafe extern "C" fn game_specialairnshootf(agent: &mut L2CAgentBase) {
             frame(agent.lua_state_agent, 31.0);
             macros::FT_MOTION_RATE(agent, 1);
         }
-        WorkModule::off_flag(agent.module_accessor, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
     }
 }
 
@@ -163,6 +166,6 @@ unsafe extern "C" fn sound_specialairnshootf(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_specialairnshootf(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attacks"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_attacks"), 0, false, 0x50000000);
     }
 }

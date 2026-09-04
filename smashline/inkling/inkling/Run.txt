@@ -5,13 +5,13 @@ unsafe extern "C" fn game_run(agent: &mut L2CAgentBase) {
         }
     }
     let motion_kind = MotionModule::motion_kind(agent.module_accessor);
-    ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, motion_kind, false, 0.0) /* TODO: verify padded default args */;
+    ArticleModule::change_motion(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, motion_kind, false, -1.0);
     if macros::is_excute(agent) {
         let frame = MotionModule::frame(agent.module_accessor);
         ArticleModule::set_frame(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, frame);
         let rate = MotionModule::rate(agent.module_accessor);
         ArticleModule::set_rate(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, rate);
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, false, ArticleOperationTarget(0));
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INKLING_INSTANCE_WORK_ID_FLAG_EXIST_SQUID);
     }
     if StatusModule::status_kind(agent.module_accessor) != *FIGHTER_STATUS_KIND_REBIRTH {
@@ -19,7 +19,7 @@ unsafe extern "C" fn game_run(agent: &mut L2CAgentBase) {
     }
     if macros::is_excute(agent) {
         VisibilityModule::set_whole(agent.module_accessor, false);
-        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, true, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_INKLING_GENERATE_ARTICLE_SQUID, true, ArticleOperationTarget(0));
     }
 }
 
@@ -68,14 +68,14 @@ unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 10.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 28.0);
         if macros::is_excute(agent) {
-            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 38.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, 0x50000000);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

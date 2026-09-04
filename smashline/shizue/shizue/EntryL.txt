@@ -51,10 +51,10 @@ unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         article!(agent, *MA_MSC_CMD_ARTICLE_SET_OFFSET_ARTICLE, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, 0, 0, -10);
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step1"), Hash40::new("step1_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step2"), Hash40::new("step2_on"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step1"), Hash40::new("step1_on"), ArticleOperationTarget(0));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step2"), Hash40::new("step2_on"), ArticleOperationTarget(0));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(0));
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
         notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
@@ -70,7 +70,7 @@ unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_3"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_3"), ArticleOperationTarget(0));
         ItemModule::set_attach_item_visibility(agent.module_accessor, true, *ATTACH_ITEM_GROUP_BADGE as u32);
     }
     frame(agent.lua_state_agent, 14.0);
@@ -79,11 +79,11 @@ unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
     }
     frame(agent.lua_state_agent, 81.0);
     if macros::is_excute(agent) {
-        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(0));
     }
     frame(agent.lua_state_agent, 95.0);
     if macros::is_excute(agent) {

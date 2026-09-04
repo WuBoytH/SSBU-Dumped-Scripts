@@ -1,10 +1,10 @@
 unsafe extern "C" fn game_specialhiattacklanding(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_HAMMER, false, 0) /* TODO: verify padded default args */;
+        ArticleModule::generate_article_enable(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_HAMMER, false, -1);
     }
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
-        ArticleModule::remove(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_HAMMER, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL));
+        ArticleModule::remove(agent.module_accessor, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_HAMMER, ArticleOperationTarget(0));
     }
 }
 
@@ -25,6 +25,6 @@ unsafe extern "C" fn sound_specialhiattacklanding(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_specialhiattacklanding(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_landl"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_landl"), 0, false, 0x50000000);
     }
 }

@@ -12,13 +12,13 @@ unsafe extern "C" fn game_speciallwcatch(agent: &mut L2CAgentBase) {
         }
         if true { // TODO: if (FighterCutInManager::is_one_on_one_including_thrown() == true) {
             if macros::is_excute(agent) {
+                FighterSpecializer_Demon::check_disabled_motion_camera_of_scale(agent.module_accessor);
+                FighterSpecializer_Demon::check_disabled_motion_camera_of_stage(agent.module_accessor);
             }
             if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
             }
-            FighterSpecializer_Demon::check_disabled_motion_camera_of_scale(agent.module_accessor);
             if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
             }
-            FighterSpecializer_Demon::check_disabled_motion_camera_of_stage(agent.module_accessor);
             if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_ENABLE_THROW_MOTION_CAMERA) {
                 if WorkModule::is_flag(agent.module_accessor, *FIGHTER_DEMON_STATUS_SPECIAL_LW_FLAG_ENABLE_MOTION_CAMERA) {
                     if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_DISABLE_THROW_MOTION_CAMERA) {
@@ -107,10 +107,10 @@ unsafe extern "C" fn expression_speciallwcatch(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_attackl"), 7, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_80_attackl"), 7, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_furafura"), 16, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_furafura"), 16, false, 0x50000000);
     }
 }

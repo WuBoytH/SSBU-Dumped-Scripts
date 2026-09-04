@@ -1,7 +1,7 @@
 unsafe extern "C" fn expression_dragoonget(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 0) /* TODO: verify padded default args */;
+        ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
     }
     for _ in 0..10 {
         if macros::is_excute(agent) {
@@ -43,6 +43,6 @@ unsafe extern "C" fn expression_dragoonget(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 52.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_getbonus"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_getbonus"), 0, false, 0x50000000);
     }
 }

@@ -30,8 +30,11 @@ unsafe extern "C" fn game_attackairb(agent: &mut L2CAgentBase) {
         }
         frame(agent.lua_state_agent, 27.0);
         if macros::is_excute(agent) {
+            FighterSpecializer_Reflet::throwaway_sword(agent.battle_object as *mut Fighter, &Vector2f{x: -8.0, y: 14.0}, true);
         }
-        if (sv_system::battle_object(agent.lua_state_agent) as *mut _).is_null() {
+        frame(agent.lua_state_agent, 32.0);
+        if macros::is_excute(agent) {
+            WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
         }
     } else {
         if macros::is_excute(agent) {
@@ -43,11 +46,6 @@ unsafe extern "C" fn game_attackairb(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             AttackModule::clear_all(agent.module_accessor);
         }
-    }
-    FighterSpecializer_Reflet::throwaway_sword(agent.battle_object as *mut Fighter, &Vector2f{x: -8.0, y: 14.0}, false) /* TODO: verify padded default args */;
-    frame(agent.lua_state_agent, 32.0);
-    if macros::is_excute(agent) {
-        WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
     }
 }
 
@@ -102,7 +100,7 @@ unsafe extern "C" fn expression_attackairb(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 9.0);
     execute(agent.lua_state_agent, 9.0);

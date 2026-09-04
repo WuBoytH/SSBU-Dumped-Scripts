@@ -10,13 +10,14 @@ unsafe extern "C" fn effect_catchwait(agent: &mut L2CAgentBase) {
             }
             wait(agent.lua_state_agent, 18.0);
         }
-    }
-    loop {
-        if macros::is_excute(agent) {
-            macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 6.5, 13.5, -1.5, 0, 0, 0, 0.4, 1.5, 1, 0.5, 0, 0, 0, false);
-            macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+    } else {
+        loop {
+            if macros::is_excute(agent) {
+                macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("top"), 6.5, 13.5, -1.5, 0, 0, 0, 0.4, 1.5, 1, 0.5, 0, 0, 0, false);
+                macros::LAST_EFFECT_SET_RATE(agent, 0.7);
+            }
+            wait(agent.lua_state_agent, 18.0);
         }
-        wait(agent.lua_state_agent, 18.0);
     }
 }
 
