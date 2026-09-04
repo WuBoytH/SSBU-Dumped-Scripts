@@ -24,14 +24,15 @@ unsafe extern "C" fn game_finalairlockon(agent: &mut L2CAgentBase) {
             SlowModule::set_whole(agent.module_accessor, 2, 0);
             macros::FT_SET_FINAL_FEAR_FACE(agent, 25);
             macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finallockon.nuanmb"), false, false) /* TODO: macro expects 2 args */;
+            macros::FT_START_CUTIN(agent);
         }
     } else {
         if macros::is_excute(agent) {
             let scale = PostureModule::scale(agent.module_accessor);
             macros::CAM_ZOOM_IN(agent, 4, 0, scale * 1.2, 0, 0);
+            macros::FT_START_CUTIN(agent);
         }
     }
-    macros::FT_START_CUTIN(agent);
     frame(agent.lua_state_agent, 25.0);
     if macros::is_excute(agent) {
         SlowModule::clear_whole(agent.module_accessor);

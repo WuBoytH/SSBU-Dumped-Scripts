@@ -10,6 +10,7 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 55);
             macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
+            macros::FT_START_CUTIN(agent);
         }
     } else {
         if macros::is_excute(agent) {
@@ -17,9 +18,9 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
             macros::CAM_ZOOM_IN(agent, 5, 0, scale * 1.8, -0.1, 0);
             camera!(agent, *MA_MSC_CMD_CAMERA_CAM_RECT, 0, 4, 6, 0);
             camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, 0);
+            macros::FT_START_CUTIN(agent);
         }
     }
-    macros::FT_START_CUTIN(agent);
     frame(agent.lua_state_agent, 35.0);
     if macros::is_excute(agent) {
         macros::CAM_ZOOM_OUT(agent);

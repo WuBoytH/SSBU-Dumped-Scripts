@@ -272,23 +272,23 @@ unsafe extern "C" fn game_attackairn(agent: &mut L2CAgentBase) {
                 AttackModule::set_add_reaction_frame_revised(agent.module_accessor, 4, -10.0, false);
             }
         }
-        wait(agent.lua_state_agent, 3.0);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
+    }
+    wait(agent.lua_state_agent, 1.0);
+    if WorkModule::get_int64(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_INT_HAVE_CRAFT_WEAPON_MATERIAL_KIND) == *FIGHTER_PICKEL_MATERIAL_KIND_GOLD as u64 {
         if macros::is_excute(agent) {
-            AttackModule::clear_all(agent.module_accessor);
-            wait(agent.lua_state_agent, 1.0);
+            MotionModule::set_rate_partial(agent.module_accessor, *FIGHTER_MOTION_PART_SET_KIND_UPPER_BODY, 1.25);
         }
-        if WorkModule::get_int64(agent.module_accessor, *FIGHTER_PICKEL_INSTANCE_WORK_ID_INT_HAVE_CRAFT_WEAPON_MATERIAL_KIND) == *FIGHTER_PICKEL_MATERIAL_KIND_GOLD as u64 {
-            if macros::is_excute(agent) {
-                MotionModule::set_rate_partial(agent.module_accessor, *FIGHTER_MOTION_PART_SET_KIND_UPPER_BODY, 1.25);
-                frame(agent.lua_state_agent, 16.0);
-            }
-            if macros::is_excute(agent) {
-                MotionModule::set_rate_partial(agent.module_accessor, *FIGHTER_MOTION_PART_SET_KIND_UPPER_BODY, 1.0);
-            }
-        } else {
-            if macros::is_excute(agent) {
-                MotionModule::set_rate_partial(agent.module_accessor, *FIGHTER_MOTION_PART_SET_KIND_UPPER_BODY, 1.0);
-            }
+        frame(agent.lua_state_agent, 16.0);
+        if macros::is_excute(agent) {
+            MotionModule::set_rate_partial(agent.module_accessor, *FIGHTER_MOTION_PART_SET_KIND_UPPER_BODY, 1.0);
+        }
+    } else {
+        if macros::is_excute(agent) {
+            MotionModule::set_rate_partial(agent.module_accessor, *FIGHTER_MOTION_PART_SET_KIND_UPPER_BODY, 1.0);
         }
     }
     wait(agent.lua_state_agent, 3.0);

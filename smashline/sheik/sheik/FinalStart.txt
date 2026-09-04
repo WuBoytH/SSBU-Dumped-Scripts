@@ -10,15 +10,16 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
             macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), true);
+            macros::FT_START_CUTIN(agent);
         }
     } else {
         if macros::is_excute(agent) {
             let scale = PostureModule::scale(agent.module_accessor);
             macros::CAM_ZOOM_IN(agent, 10, 0, scale * 1.9, 0, 0);
             camera!(agent, *MA_MSC_CMD_CAMERA_CAM_OFFSET, 0, -5);
+            macros::FT_START_CUTIN(agent);
         }
     }
-    macros::FT_START_CUTIN(agent);
     frame(agent.lua_state_agent, 35.0);
     macros::FT_MOTION_RATE(agent, 1);
     if macros::is_excute(agent) {

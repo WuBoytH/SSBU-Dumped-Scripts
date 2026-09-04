@@ -7,14 +7,15 @@ unsafe extern "C" fn game_finalstart(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 60);
             macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
+            macros::FT_START_CUTIN(agent);
         }
     } else {
         if macros::is_excute(agent) {
             let scale = PostureModule::scale(agent.module_accessor);
             macros::CAM_ZOOM_IN(agent, 3, 0, scale * 2.1, 0, 0);
+            macros::FT_START_CUTIN(agent);
         }
     }
-    macros::FT_START_CUTIN(agent);
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_KOOPAJR_STATUS_FINAL_FLAG_CHANGE);

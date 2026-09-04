@@ -32,12 +32,10 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
         // TODO: FighterSpecializer_ELight::attach_esword_diver();
         macros::SLOW_OPPONENT(agent, 30.0, 80.0);
     }
-    if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
-    }
     frame(agent.lua_state_agent, 22.0);
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
         if macros::is_excute(agent) {
-            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 5.0, 5.0, false, false, 0.0, false, true, ?);
+            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_open"), 5.0, 5.0, false, false, 0.0, false, true, false);
         }
         if MotionModule::is_changing(agent.module_accessor) {
             if macros::is_excute(agent) {
@@ -93,7 +91,7 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 70.0);
     if macros::IS_EXIST_ARTICLE(agent, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD) {
         if macros::is_excute(agent) {
-            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_close"), 5.0, 5.0, false, false, 0.0, false, true, ?);
+            ArticleModule::add_motion_partial(agent.module_accessor, *FIGHTER_ELIGHT_GENERATE_ARTICLE_ESWORD, *WEAPON_ELIGHT_ESWORD_MOTION_PART_SET_KIND_OPEM_CLOSE, Hash40::new("to_close"), 5.0, 5.0, false, false, 0.0, false, true, false);
         }
         if MotionModule::is_changing(agent.module_accessor) {
             if macros::is_excute(agent) {
@@ -105,8 +103,6 @@ unsafe extern "C" fn game_final(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         // TODO: FighterSpecializer_ELight::detach_esword_diver();
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_ELEMENT_STATUS_FINAL_FLAG_DETACH_ESWORD);
-    }
-    if (sv_system::battle_object_module_accessor(agent.lua_state_agent) as *mut _).is_null() {
     }
 }
 

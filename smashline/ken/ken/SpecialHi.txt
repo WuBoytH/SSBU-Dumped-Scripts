@@ -72,14 +72,15 @@ unsafe extern "C" fn effect_specialhi(agent: &mut L2CAgentBase) {
                 if macros::is_excute(agent) {
                     macros::EFFECT_FOLLOW(agent, Hash40::new("ken_syoryuken_firearc"), Hash40::new("trans"), 3, 2, 2, 5, 0, 5, 1, false);
                     macros::EFFECT_FOLLOW(agent, Hash40::new("ken_syoryuken_firearc2"), Hash40::new("trans"), 3, 2, 2, 5, 0, 5, 1, false);
+                    EffectModule::enable_sync_init_pos_last(agent.module_accessor);
                 }
             } else {
                 if macros::is_excute(agent) {
                     macros::EFFECT_FOLLOW(agent, Hash40::new("ken_syoryuken_firearc"), Hash40::new("trans"), -3, 2, 2, 5, 0, -5, 1, false);
                     macros::EFFECT_FOLLOW(agent, Hash40::new("ken_syoryuken_firearc2"), Hash40::new("trans"), -3, 2, 2, 5, 0, -5, 1, false);
+                    EffectModule::enable_sync_init_pos_last(agent.module_accessor);
                 }
             }
-            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
             frame(agent.lua_state_agent, 9.0);
             if macros::is_excute(agent) {
                 macros::EFFECT_DETACH_KIND(agent, Hash40::new("ken_syoryuken_firearc"), -1);

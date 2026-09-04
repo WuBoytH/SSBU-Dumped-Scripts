@@ -16,6 +16,7 @@ unsafe extern "C" fn game_attackairf(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 24.0);
         if macros::is_excute(agent) {
             HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
+            AttackModule::clear_all(agent.module_accessor);
         }
     } else if WorkModule::get_int64(agent.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_INT_PUNCH_KIND_R) == 2 {
         frame(agent.lua_state_agent, 1.0);
@@ -34,6 +35,7 @@ unsafe extern "C" fn game_attackairf(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 24.0);
         if macros::is_excute(agent) {
             HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
+            AttackModule::clear_all(agent.module_accessor);
         }
     } else {
         frame(agent.lua_state_agent, 4.0);
@@ -50,9 +52,9 @@ unsafe extern "C" fn game_attackairf(agent: &mut L2CAgentBase) {
         frame(agent.lua_state_agent, 24.0);
         if macros::is_excute(agent) {
             HitModule::set_status_all(agent.module_accessor, HitStatus(*HIT_STATUS_NORMAL), 0);
+            AttackModule::clear_all(agent.module_accessor);
         }
     }
-    AttackModule::clear_all(agent.module_accessor);
     frame(agent.lua_state_agent, 37.0);
     if macros::is_excute(agent) {
         WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);

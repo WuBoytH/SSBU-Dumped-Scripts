@@ -210,6 +210,7 @@ unsafe extern "C" fn effect_specialhi1(agent: &mut L2CAgentBase) {
         }
         if macros::is_excute(agent) {
             macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("dolly_roll_l"), Hash40::new("throw"), 0, 2.5, 0, 0, 0, 0, 1, true, 0.5);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
         }
     } else {
         if macros::is_excute(agent) {
@@ -300,9 +301,9 @@ unsafe extern "C" fn effect_specialhi1(agent: &mut L2CAgentBase) {
         }
         if macros::is_excute(agent) {
             macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("dolly_roll_r"), Hash40::new("throw"), 0, 2.5, 0, 0, 0, 0, 1, true, 0.5);
+            EffectModule::enable_sync_init_pos_last(agent.module_accessor);
         }
     }
-    EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     frame(agent.lua_state_agent, 23.0);
     if macros::is_excute(agent) {
         macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 8.5, 1, 0, 0, 0, 1.9, true, 0.5);

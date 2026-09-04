@@ -86,6 +86,7 @@ unsafe extern "C" fn game_finalend(agent: &mut L2CAgentBase) {
         }
     }
     if macros::is_excute(agent) {
+        AttackModule::clear_all(agent.module_accessor);
     }
     frame(agent.lua_state_agent, 30.0);
     macros::FT_MOTION_RATE(agent, 0.8);

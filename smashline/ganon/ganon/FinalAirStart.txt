@@ -12,14 +12,15 @@ unsafe extern "C" fn game_finalairstart(agent: &mut L2CAgentBase) {
         if macros::is_excute(agent) {
             macros::FT_SET_FINAL_FEAR_FACE(agent, 35);
             macros::REQ_FINAL_START_CAMERA(agent, Hash40::new("d04finalstart.nuanmb"), false);
+            macros::FT_START_CUTIN(agent);
         }
     } else {
         if macros::is_excute(agent) {
             let scale = PostureModule::scale(agent.module_accessor);
             macros::CAM_ZOOM_IN(agent, 3, 0, scale * 1.7, 0, 0);
+            macros::FT_START_CUTIN(agent);
         }
     }
-    macros::FT_START_CUTIN(agent);
 }
 
 unsafe extern "C" fn effect_finalairstart(agent: &mut L2CAgentBase) {
