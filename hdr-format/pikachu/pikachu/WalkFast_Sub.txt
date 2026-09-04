@@ -1,0 +1,16 @@
+unsafe extern "C" fn expression_walkfast_sub(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        if is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 8);
+        }
+        frame(lua_state, 1.0);
+        if is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 8, true);
+        }
+        frame(lua_state, 6.0);
+        ControlModule::set_rumble(boma, Hash40::new_raw(0x11699da2fd), 6, true, 0x50000000);
+        wait_loop_sync_mot(lua_state);
+    }
+}

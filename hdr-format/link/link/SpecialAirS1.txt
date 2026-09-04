@@ -1,0 +1,54 @@
+unsafe extern "C" fn game_specialairs1(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        ArticleModule::generate_article(boma, *FIGHTER_LINK_GENERATE_ARTICLE_BOOMERANG, false, -1);
+    }
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        ArticleModule::shoot(boma, *FIGHTER_LINK_GENERATE_ARTICLE_BOOMERANG, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
+    }
+}
+
+unsafe extern "C" fn effect_specialairs1(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 12, 16.5, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairs1(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_link_special_s01"));
+    }
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_link_special_s01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairs1(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("sword"), hash40("sword_back"));
+    }
+    frame(lua_state, 26.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attackm"), 0, false, 0x50000000);
+    }
+    frame(lua_state, 44.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("sword"), hash40("sword_normal"));
+    }
+}

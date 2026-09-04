@@ -1,0 +1,9 @@
+unsafe extern "C" fn game_win2wait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        if is_excute(agent) {
+            ArticleModule::change_motion(boma, *FIGHTER_ELIGHT_GENERATE_ARTICLE_DIVER, Hash40::new("l_win_2_wait"), false, -1.0);
+        }
+    }
+}

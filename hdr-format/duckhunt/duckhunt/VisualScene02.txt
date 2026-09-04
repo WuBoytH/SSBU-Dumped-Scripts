@@ -1,0 +1,35 @@
+unsafe extern "C" fn effect_visualscene02(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 80.0);
+    if is_excute(agent) {
+        EffectModule::request_post_effect_line_parallel_2d(boma, Hash40::new("dead_area_out"), Vector2::new(0.0, 0.0), Vector2::new(1.0, 0.0), Vector2::new(0.0, 0.0), Vector2::new(0.0, 0.0), true, -1.0, 0.0);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene02(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 46.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_duckhunt_final03"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene02(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_erase_sp"), 0, true, 0x50000000);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_erase_sp"), 0);
+    }
+    frame(lua_state, 45.0);
+    loop {
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_beams"), 0, true, 0x50000000);
+            RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_lv2"), 0);
+        }
+        wait(lua_state, 22.0);
+    }
+}

@@ -1,0 +1,12 @@
+unsafe extern "C" fn effect_win2wait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, false);
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 9, -0.5, 4, 0, 0, -95, 0.3, true);
+        EFFECT_FOLLOW(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 9, -0.5, -4, 0, 0, -95, 0.3, true);
+    }
+}

@@ -1,0 +1,14 @@
+unsafe extern "C" fn game_stop(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        if is_excute(agent) {
+            VisibilityModule::set_whole(boma, false);
+        }
+        wait(lua_state, 2.0);
+        if is_excute(agent) {
+            VisibilityModule::set_whole(boma, true);
+        }
+        wait(lua_state, 2.0);
+    }
+}

@@ -1,0 +1,22 @@
+unsafe extern "C" fn sound_catchwait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        frame(lua_state, 4.0);
+        PLAY_SE(agent, Hash40::new("se_yoshi_catch"));
+        wait_loop_sync_mot(lua_state);
+    }
+}
+
+unsafe extern "C" fn expression_catchwait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        if is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        }
+        frame(lua_state, 8.0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 14, true, 0x50000000);
+        wait_loop_sync_mot(lua_state);
+    }
+}

@@ -1,0 +1,31 @@
+unsafe extern "C" fn game_specialswheelieend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    FT_MOTION_RATE(agent, 0.6);
+    frame(lua_state, 35.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_WARIO_STATUS_SPECIAL_S_FLAG_WHEELIE_END);
+    }
+}
+
+unsafe extern "C" fn sound_specialswheelieend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wario_special_s06"));
+    }
+}
+
+unsafe extern "C" fn expression_specialswheelieend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_impact"), 0, true, 0x50000000);
+    }
+    frame(lua_state, 36.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
+    }
+}

@@ -1,0 +1,26 @@
+unsafe extern "C" fn game_attackairn(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        PhysicsModule::set_2nd_status(boma, *PH2NDARY_CRAW_NONE);
+        WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
+    }
+}
+
+unsafe extern "C" fn effect_attackairn(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("richter_whip_rolling"), true, true);
+    }
+    frame(lua_state, 7.0);
+    if is_excute(agent) {
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, true);
+        EFFECT_FOLLOW(agent, Hash40::new("richter_whip_rolling"), Hash40::new("hookshot2"), -1, 0, 0, 180, -60, 0, 0.7, true);
+    }
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("richter_whip_rolling"), false, true);
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, false);
+    }
+}

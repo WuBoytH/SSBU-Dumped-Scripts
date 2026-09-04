@@ -1,0 +1,11 @@
+unsafe extern "C" fn game_specialhichecklrsub(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    let param_float = WorkModule::get_param_float(boma, hash40("param_special_hi"), hash40("start_turn_cont_x"));
+    if get_value_float(lua_state, *FT_VAR_FLOAT_STICK_X_BACK) < param_float {
+        if is_excute(agent) {
+            STICK_LR(agent);
+            UPDATE_ROT(agent);
+        }
+    }
+}

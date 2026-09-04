@@ -1,0 +1,26 @@
+unsafe extern "C" fn effect_visualscene04(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_can"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_hit"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_hit2"), true, true);
+        EFFECT_OFF_KIND(agent, Hash40::new("duckhunt_final_hit3"), true, true);
+    }
+    frame(lua_state, 49.0);
+    if is_excute(agent) {
+        EffectModule::request_post_effect_line_parallel_2d(boma, Hash40::new("dead_area_out"), Vector2::new(0.0, 0.0), Vector2::new(1.0, 0.0), Vector2::new(0.0, 0.0), Vector2::new(0.0, 0.0), true, -1.0, 0.0);
+    }
+}
+
+unsafe extern "C" fn expression_visualscene04(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_beams"), 0, true, 0x50000000);
+            RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_damage_lv2"), 0);
+        }
+        wait(lua_state, 18.0);
+    }
+}

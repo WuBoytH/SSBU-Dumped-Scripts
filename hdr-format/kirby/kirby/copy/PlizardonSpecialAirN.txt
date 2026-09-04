@@ -1,0 +1,42 @@
+unsafe extern "C" fn effect_plizardonspecialairn(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("plizardon_kaenhousya_start"), false, false);
+    }
+    loop {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("plizardon_kaenhousya_start_air"), Hash40::new("neck"), 0, 4, 0, 0, 0, 0, 1, true);
+        }
+        wait(lua_state, 6.0);
+        if is_excute(agent) {
+            FLASH(agent, 1, 0.7, 0.5, 0.5);
+            FLASH_FRM(agent, 10, 0, 0, 0, 0);
+        }
+        wait(lua_state, 6.0);
+    }
+}
+
+unsafe extern "C" fn expression_plizardonspecialairn(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        if is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+        }
+        frame(lua_state, 8.0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+        wait_loop_sync_mot(lua_state);
+    }
+    loop {
+        if is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+        }
+        frame(lua_state, 8.0);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+        wait_loop_sync_mot(lua_state);
+    }
+}

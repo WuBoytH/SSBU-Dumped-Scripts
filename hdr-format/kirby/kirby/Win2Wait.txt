@@ -1,0 +1,17 @@
+unsafe extern "C" fn game_win2wait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        if is_excute(agent) {
+            ArticleModule::change_motion(boma, *FIGHTER_KIRBY_GENERATE_ARTICLE_WINDUMMY, Hash40::new("win_2_wait"), false, -1.0);
+        }
+    }
+}
+
+unsafe extern "C" fn expression_win2wait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_KIRBY_GENERATE_ARTICLE_WINDUMMY, ArticleOperationTarget(0));
+    }
+}

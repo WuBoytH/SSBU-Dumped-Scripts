@@ -1,0 +1,8 @@
+unsafe extern "C" fn game_blink(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        ColorBlendModule::set_main_color(boma, &Vector4f{x: 1.5, y: 0.4, z: 0.4, w: 0.0}, &Vector4f{x: 0.0, y: 0.0, z: 0.0, w: 0.0}, 1.0, 1.0, 0, true);
+        SEARCH(agent, 0, 0, Hash40::new("top"), 19.0, 0.0, 0.0, -1.0, Some(0.0), Some(0.0), Some(1.0), *COLLISION_KIND_MASK_AH, *HIT_STATUS_MASK_NORMAL, 1, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false);
+    }
+}

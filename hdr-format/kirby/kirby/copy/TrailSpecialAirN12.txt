@@ -1,0 +1,14 @@
+unsafe extern "C" fn effect_trailspecialairn12(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("trail_sword_fire"), true, true);
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_hold"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("trail_fire_end"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, true);
+        EFFECT_FOLLOW(agent, Hash40::new("trail_sword_fire"), Hash40::new("haver"), 0, 0, 0, -90, 0, 0, 1, true);
+    }
+    frame(lua_state, 29.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("trail_fire_shot"), Hash40::new("haver"), 0, 10, -1, -90, 0, 0, 1, false);
+    }
+}

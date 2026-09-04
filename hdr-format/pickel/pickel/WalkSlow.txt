@@ -1,0 +1,11 @@
+unsafe extern "C" fn expression_walkslow(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        if is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+        }
+        frame(lua_state, 5.0);
+        wait_loop_sync_mot(lua_state);
+    }
+}

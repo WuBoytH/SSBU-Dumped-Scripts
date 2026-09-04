@@ -1,0 +1,51 @@
+unsafe extern "C" fn effect_visualscene02(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        EffectModule::request_post_effect_line_circle(boma, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(500.0, 500.0), Vector3::new(0.0, 1500.0, 300.0), false, -1.0, 0.0);
+    }
+    frame(lua_state, 20.0);
+    if is_excute(agent) {
+        EffectModule::request_post_effect_line_circle(boma, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(500.0, 500.0), Vector3::new(0.0, 1500.0, 300.0), false, -1.0, 0.0);
+    }
+    frame(lua_state, 25.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("krool_final_charge_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        EffectModule::request_post_effect_line_circle(boma, Hash40::new("critical_hit"), Hash40::new("top"), Vector2::new(500.0, 500.0), Vector3::new(0.0, 1500.0, 300.0), false, -1.0, 0.0);
+    }
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        EffectModule::remove_post_effect_line(boma, 10, true);
+    }
+}
+
+unsafe extern "C" fn sound_visualscene02(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_krool_amb02"));
+    }
+    frame(lua_state, 25.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_krool_final05"));
+    }
+    frame(lua_state, 35.0);
+    if is_excute(agent) {
+        PLAY_STATUS(agent, Hash40::new("se_krool_amb03"));
+    }
+}
+
+unsafe extern "C" fn expression_visualscene02(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 28.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 35, true, 0x50000000);
+        RUMBLE_FINAL_TARGET(agent, Hash40::new("rbkind_elecattacks"), 35);
+    }
+}

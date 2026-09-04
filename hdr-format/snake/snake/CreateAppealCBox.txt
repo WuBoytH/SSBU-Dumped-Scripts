@@ -1,0 +1,11 @@
+unsafe extern "C" fn expression_createappealcbox(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX) {
+        if is_excute(agent) {
+            ArticleModule::generate_article(boma, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX, false, -1);
+            ArticleModule::have(boma, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX, Hash40::new("haver"), ArticleOperationTarget(0), 0x50000000, false);
+            ArticleModule::set_item_action(boma, *FIGHTER_SNAKE_GENERATE_ARTICLE_CBOX, *ITEM_SNAKECBOX_ACTION_ENABLE_PICKUP, 1.0);
+        }
+    }
+}

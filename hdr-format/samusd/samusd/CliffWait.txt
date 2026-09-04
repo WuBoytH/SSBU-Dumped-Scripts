@@ -1,0 +1,14 @@
+unsafe extern "C" fn sound_cliffwait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        STOP_SE(agent, Hash40::new("se_samusd_catch"));
+    }
+    if get_value_int(lua_state, *SO_VAR_INT_PREV_STATUS) == *FIGHTER_STATUS_KIND_AIR_LASSO_REWIND {
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
+            SET_PLAY_INHIVIT(agent, Hash40::new("se_common_cliff_catch"), 5);
+        }
+    }
+}

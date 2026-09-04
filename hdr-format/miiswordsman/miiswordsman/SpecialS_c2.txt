@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_specials_c2(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("miiswordsman_reflect2"), Hash40::new("haver"), 0, 8, 0, 0, 0.00002, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        LAST_EFFECT_SET_RATE(agent, 1.5);
+    }
+    frame(lua_state, 9.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_r"), Hash40::new("top"), -1.5, 0, 2, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(lua_state, 14.0);
+    if get_value_float(lua_state, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("miiswordsman_reflect1_l"), Hash40::new("top"), -3, 0, 14, 0, 0.00002, 0, 1.1, true);
+            LAST_EFFECT_SET_RATE(agent, 1.2);
+        }
+    } else {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("miiswordsman_reflect1"), Hash40::new("top"), -3, 0, 14, 0, 0.00002, 0, 1.1, true);
+            LAST_EFFECT_SET_RATE(agent, 1.2);
+        }
+    }
+    frame(lua_state, 26.0);
+    if is_excute(agent) {
+        EFFECT_DETACH_KIND(agent, Hash40::new("miiswordsman_reflect1"), -1);
+    }
+}

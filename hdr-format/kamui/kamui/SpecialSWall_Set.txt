@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_specialswall_set(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_METAL) {
+        if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_GOLD) {
+            if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_SPYCLOAK) {
+                if !FT_IS_SAME_FIGHTER_CATEGORY(agent, *smash::lib::lua_const::FighterCategory::METAMON) {
+                    if !FT_IS_SAME_FIGHTER_CATEGORY(agent, *smash::lib::lua_const::FighterCategory::LIGHT) {
+                        if !FT_IS_SAME_FIGHTER_CATEGORY(agent, *smash::lib::lua_const::FighterCategory::DARK) {
+                            if is_excute(agent) {
+                                EFFECT_FOLLOW(agent, Hash40::new("kamui_tyousoutotu_transform"), Hash40::new("handl"), -3.3, 0, 0, 0, 90, 0, 0.95, true);
+                                LAST_EFFECT_SET_RATE(agent, 0.001);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

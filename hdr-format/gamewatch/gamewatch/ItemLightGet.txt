@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_itemlightget(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        ItemModule::pickup_item(boma, *ITEM_SIZE_LIGHT, 0, -1, 0, 0);
+    }
+}
+
+unsafe extern "C" fn expression_itemlightget(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+        VisibilityModule::set_int64(boma, hash40("head"), hash40("head_close"));
+        VisibilityModule::set_int64(boma, hash40("hand"), hash40("hand_hold_lr"));
+    }
+}

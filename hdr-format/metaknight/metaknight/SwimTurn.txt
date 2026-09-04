@@ -1,0 +1,16 @@
+unsafe extern "C" fn sound_swimturn(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_swim_high_01"));
+    }
+}
+
+unsafe extern "C" fn expression_swimturn(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        VisibilityModule::set_status_default_int64(boma, hash40("mantle"), hash40("mantle_normal"));
+    }
+}

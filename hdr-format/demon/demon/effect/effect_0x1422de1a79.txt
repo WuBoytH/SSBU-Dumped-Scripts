@@ -1,0 +1,15 @@
+unsafe extern "C" fn effect_0x1422de1a79(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if WorkModule::is_flag(boma, *FIGHTER_DEMON_INSTANCE_WORK_ID_FLAG_LOW_MODE) {
+        if is_excute(agent) {
+            EFFECT_OFF_KIND(agent, Hash40::new("demon_rage_aura2"), false, true);
+            EFFECT_FOLLOW(agent, Hash40::new("demon_rage_end"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, false);
+        }
+    } else {
+        if is_excute(agent) {
+            EFFECT_OFF_KIND(agent, Hash40::new("demon_rage_aura"), false, true);
+            EFFECT_FOLLOW(agent, Hash40::new("demon_rage_end"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, false);
+        }
+    }
+}

@@ -1,0 +1,17 @@
+unsafe extern "C" fn effect_specialairhiend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("flare"), hash40("flare_on"));
+        VisibilityModule::set_int64(boma, hash40("flare2"), hash40("flare2_on"));
+    }
+    frame(lua_state, 7.0);
+    if is_excute(agent) {
+        // TODO: WeaponSpecializer_MasterSwordflare::fade_out_flare();
+    }
+    frame(lua_state, 12.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("flare"), hash40("flare_off"));
+        VisibilityModule::set_int64(boma, hash40("flare2"), hash40("flare2_off"));
+    }
+}

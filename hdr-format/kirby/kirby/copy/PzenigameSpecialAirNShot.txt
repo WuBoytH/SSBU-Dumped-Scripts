@@ -1,0 +1,49 @@
+unsafe extern "C" fn effect_pzenigamespecialairnshot(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 5.0);
+    if get_value_float(lua_state, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("body"), 0, 4, 0, 0, 0, -13, 0.8, true);
+        }
+    } else {
+        if is_excute(agent) {
+            EFFECT_FLW_POS(agent, Hash40::new("pzenigame_mizuteppo_shoot"), Hash40::new("body"), 0, 4, 0, 0, 0, 13, 0.8, true);
+        }
+    }
+    frame(lua_state, 39.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("pzenigame_mizuteppo_shoot"), false, false);
+    }
+}
+
+unsafe extern "C" fn sound_pzenigamespecialairnshot(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 5.0);
+    if WorkModule::is_flag(boma, *FIGHTER_PZENIGAME_STATUS_SPECIAL_N_FLAG_CHARGE_MAX) {
+        if is_excute(agent) {
+            PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n04"));
+        }
+    } else {
+        if is_excute(agent) {
+            PLAY_STATUS(agent, Hash40::new("se_pzenigame_special_n03"));
+        }
+    }
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("vc_kirby_copy_pzenigame_01"));
+    }
+}
+
+unsafe extern "C" fn expression_pzenigamespecialairnshot(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_waterjetss"), 0, true, 0x50000000);
+    }
+    frame(lua_state, 40.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, 0x50000000);
+    }
+}

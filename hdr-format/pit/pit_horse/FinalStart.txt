@@ -1,0 +1,15 @@
+unsafe extern "C" fn effect_finalstart(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        EFFECT_FLW_POS(agent, Hash40::new("pit_final_enter"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 145.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("pit_final_enter"), false, true);
+    }
+    frame(lua_state, 160.0);
+    if is_excute(agent) {
+        EFFECT(agent, Hash40::new("pit_final_flash"), Hash40::new("bust"), 0, 0, 0, 0, 0, 0, 80, 0, 0, 0, 0, 0, 0, true);
+    }
+}

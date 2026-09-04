@@ -1,0 +1,36 @@
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 25.0);
+    if WorkModule::get_int(boma, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_INT_COLOR) % 2 != 0 {
+        if is_excute(agent) {
+            VisibilityModule::set_int64(boma, hash40("flare"), hash40("flare_on"));
+            VisibilityModule::set_int64(boma, hash40("flare2"), hash40("flare2_on"));
+        }
+    }
+    frame(lua_state, 60.0);
+    if WorkModule::get_int(boma, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_INT_COLOR) % 2 == 0 {
+        if is_excute(agent) {
+            VisibilityModule::set_int64(boma, hash40("flare"), hash40("flare_on"));
+            VisibilityModule::set_int64(boma, hash40("flare2"), hash40("flare2_on"));
+        }
+    }
+    frame(lua_state, 125.0);
+    if is_excute(agent) {
+        // TODO: WeaponSpecializer_MasterSwordflare::fade_out_flare();
+    }
+    frame(lua_state, 127.0);
+    if WorkModule::get_int(boma, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_INT_COLOR) % 2 != 0 {
+        if is_excute(agent) {
+            VisibilityModule::set_int64(boma, hash40("flare"), hash40("flare_off"));
+            VisibilityModule::set_int64(boma, hash40("flare2"), hash40("flare2_off"));
+        }
+    }
+    frame(lua_state, 130.0);
+    if WorkModule::get_int(boma, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_INT_COLOR) % 2 == 0 {
+        if is_excute(agent) {
+            VisibilityModule::set_int64(boma, hash40("flare"), hash40("flare_off"));
+            VisibilityModule::set_int64(boma, hash40("flare2"), hash40("flare2_off"));
+        }
+    }
+}

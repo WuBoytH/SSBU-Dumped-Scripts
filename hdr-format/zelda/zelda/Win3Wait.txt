@@ -1,0 +1,10 @@
+unsafe extern "C" fn expression_win3wait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_RESULT_FIGHTER_SINGLE) {
+        if is_excute(agent) {
+            ArticleModule::generate_article_enable(boma, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, false, -1);
+            ArticleModule::change_motion(boma, *FIGHTER_ZELDA_GENERATE_ARTICLE_PHANTOM, Hash40::new("demo_wait"), false, -1.0);
+        }
+    }
+}
