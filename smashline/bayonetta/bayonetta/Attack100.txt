@@ -59,11 +59,9 @@ unsafe extern "C" fn game_attack100(agent: &mut L2CAgentBase) {
             WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
         }
         wait_loop_clear(agent.lua_state_agent);
-        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CHECK_COMBO_NUM);
-    }
-    // TODO: _Unwind_Resume();
-    if macros::is_excute(agent) {
-        AttackModule::clear(agent.module_accessor, *FIGHTER_BAYONETTA_SHOOTING_ATTACK_ID_01, false);
+        if macros::is_excute(agent) {
+            WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_100_CHECK_COMBO_NUM);
+        }
     }
 }
 
@@ -74,8 +72,10 @@ unsafe extern "C" fn effect_attack100(agent: &mut L2CAgentBase) {
             macros::EFFECT_WORK(agent, effect_kind_bayonetta_attack_100a, Hash40::new("trans"), 0, 10, 4, 0, 0, 0, 1, 0, 0, 2, 0, 0, 30, true);
         }
         frame(agent.lua_state_agent, 10.0);
-        let effect_kind_bayonetta_attack_100b = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_EFFECT_KIND_BAYONETTA_ATTACK_100B);
-        macros::EFFECT_WORK(agent, effect_kind_bayonetta_attack_100b, Hash40::new("trans"), 0, 10, 4, 0, 0, 0, 1, 0, 0, 2, 0, 0, 30, true);
+        if macros::is_excute(agent) {
+            let effect_kind_bayonetta_attack_100b = WorkModule::get_int64(agent.module_accessor, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_EFFECT_KIND_BAYONETTA_ATTACK_100B);
+            macros::EFFECT_WORK(agent, effect_kind_bayonetta_attack_100b, Hash40::new("trans"), 0, 10, 4, 0, 0, 0, 1, 0, 0, 2, 0, 0, 30, true);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -106,7 +106,9 @@ unsafe extern "C" fn expression_attack100(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 14.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

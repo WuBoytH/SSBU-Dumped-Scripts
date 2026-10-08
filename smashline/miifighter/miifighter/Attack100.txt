@@ -99,7 +99,9 @@ unsafe extern "C" fn effect_attack100(agent: &mut L2CAgentBase) {
             macros::EFFECT_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 15, 3.5, 0, 0, 0, 0, 0.7, 5, 4, 2, 0, 0, 360, false, 0.6);
         }
         wait(agent.lua_state_agent, 4.0);
-        macros::EFFECT_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 15.5, 6.5, 0, 0, 0, 0, 0.8, 6, 4, 2, 0, 0, 360, false, 0.6);
+        if macros::is_excute(agent) {
+            macros::EFFECT_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 15.5, 6.5, 0, 0, 0, 0, 0.8, 6, 4, 2, 0, 0, 360, false, 0.6);
+        }
     }
 }
 
@@ -122,7 +124,9 @@ unsafe extern "C" fn sound_attack100(agent: &mut L2CAgentBase) {
             macros::PLAY_SE(agent, Hash40::new("se_miifighter_attack100"));
         }
         wait(agent.lua_state_agent, 4.0);
-        macros::PLAY_SE(agent, Hash40::new("se_miifighter_attack100"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_miifighter_attack100"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -145,7 +149,9 @@ unsafe extern "C" fn expression_attack100(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 4, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 14.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 4, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 4, false, 0x50000000);
+        }
         wait_loop_clear(agent.lua_state_agent);
     }
 }

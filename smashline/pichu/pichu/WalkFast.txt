@@ -9,7 +9,9 @@ unsafe extern "C" fn effect_walkfast(agent: &mut L2CAgentBase) {
             macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 37.0);
-        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -37,7 +39,9 @@ unsafe extern "C" fn sound_walkfast(agent: &mut L2CAgentBase) {
             macros::PLAY_STEP(agent, Hash40::new("se_pichu_step_left_l"));
         }
         frame(agent.lua_state_agent, 39.0);
-        macros::PLAY_STEP(agent, Hash40::new("se_pichu_step_right_l"));
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_pichu_step_right_l"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -76,9 +80,9 @@ unsafe extern "C" fn expression_walkfast(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11699da2fd), 6, true, 0x50000000);
         }
         frame(agent.lua_state_agent, 32.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11699da2fd), 6, true, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new_raw(0x11699da2fd), 6, true, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
-    // TODO: _Unwind_Resume();
-    wait_loop_sync_mot(agent.lua_state_agent);
 }

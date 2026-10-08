@@ -2,7 +2,9 @@ unsafe extern "C" fn effect_walkfast(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 2.0);
     loop {
         wait(agent.lua_state_agent, 10.0);
-        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -4, 0, 0, 0, 0, 0, 1, 2, 0, 3, 0, 0, 0, false);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -4, 0, 0, 0, 0, 0, 1, 2, 0, 3, 0, 0, 0, false);
+        }
     }
 }
 
@@ -24,7 +26,9 @@ unsafe extern "C" fn expression_walkfast(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 60.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

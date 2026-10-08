@@ -4,15 +4,9 @@ unsafe extern "C" fn expression_hammerjump(agent: &mut L2CAgentBase) {
             VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("visibility_status_none"));
         }
         frame(agent.lua_state_agent, 4.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
-        wait_loop_sync_mot(agent.lua_state_agent);
-    }
-    loop {
         if macros::is_excute(agent) {
-            VisibilityModule::set_int64(agent.module_accessor, hash40("sword"), hash40("visibility_status_none"));
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
         }
-        frame(agent.lua_state_agent, 4.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

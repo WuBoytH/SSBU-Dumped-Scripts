@@ -54,7 +54,9 @@ unsafe extern "C" fn expression_specialn(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
         }
         frame(agent.lua_state_agent, 8.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

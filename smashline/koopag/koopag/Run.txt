@@ -26,7 +26,9 @@ unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
             macros::EFFECT(agent, Hash40::new("sys_slip_spark"), Hash40::new("top"), -20, 1, 20, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
         }
         frame(agent.lua_state_agent, 17.0);
-        macros::EFFECT(agent, Hash40::new("sys_slip_spark"), Hash40::new("top"), -14, 1, -14, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        if macros::is_excute(agent) {
+            macros::EFFECT(agent, Hash40::new("sys_slip_spark"), Hash40::new("top"), -14, 1, -14, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -40,7 +42,9 @@ unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
     loop {
-        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

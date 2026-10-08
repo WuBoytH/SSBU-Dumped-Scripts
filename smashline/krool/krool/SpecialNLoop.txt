@@ -40,7 +40,9 @@ unsafe extern "C" fn expression_specialnloop(agent: &mut L2CAgentBase) {
                 ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_KROOL_GENERATE_ARTICLE_PIRATEHAT, true, ArticleOperationTarget(0));
             }
         }
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

@@ -53,14 +53,16 @@ unsafe extern "C" fn effect_specialairnloop(agent: &mut L2CAgentBase) {
                 COL_NORMAL(agent);
             }
         }
-        if is_excute(agent) {
-            FLASH(agent, 0.125, 0.4, 1, 0.4);
+        if WorkModule::get_int64(boma, *FIGHTER_IKE_STATUS_SPECIAL_N_WORK_INT_READY_LEVEL) == 2 {
+            if is_excute(agent) {
+                FLASH(agent, 0.125, 0.4, 1, 0.4);
+            }
+            wait(lua_state, 4.0);
+            if is_excute(agent) {
+                COL_NORMAL(agent);
+            }
+            wait(lua_state, 1.0);
         }
-        wait(lua_state, 4.0);
-        if is_excute(agent) {
-            COL_NORMAL(agent);
-        }
-        wait(lua_state, 1.0);
         wait_loop_sync_mot(lua_state);
     }
 }

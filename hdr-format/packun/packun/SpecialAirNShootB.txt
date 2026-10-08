@@ -55,7 +55,9 @@ unsafe extern "C" fn game_specialairnshootb(agent: &mut L2CAgentBase) {
                 }
                 frame(lua_state, 19.0);
                 FT_MOTION_RATE(agent, 1.3);
-                WorkModule::off_flag(boma, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                if is_excute(agent) {
+                    WorkModule::off_flag(boma, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                }
             } else {
                 let scale = PostureModule::scale(boma);
                 if WorkModule::get_float(boma, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLOAT_SHOOT_START_SPIKEBALL_DISTANCE) <= scale * 50.0 {
@@ -76,7 +78,9 @@ unsafe extern "C" fn game_specialairnshootb(agent: &mut L2CAgentBase) {
                     }
                     frame(lua_state, 19.0);
                     FT_MOTION_RATE(agent, 1.2);
-                    WorkModule::off_flag(boma, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                    if is_excute(agent) {
+                        WorkModule::off_flag(boma, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                    }
                 } else {
                     let scale = PostureModule::scale(boma);
                     if WorkModule::get_float(boma, *FIGHTER_PACKUN_STATUS_SPECIAL_N_WORK_FLOAT_SHOOT_START_SPIKEBALL_DISTANCE) <= scale * 100.0 {
@@ -97,7 +101,9 @@ unsafe extern "C" fn game_specialairnshootb(agent: &mut L2CAgentBase) {
                         }
                         frame(lua_state, 19.0);
                         FT_MOTION_RATE(agent, 1.1);
-                        WorkModule::off_flag(boma, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                        if is_excute(agent) {
+                            WorkModule::off_flag(boma, *FIGHTER_PACKUN_STATUS_SPECIAL_N_FLAG_SHOOT_BLOW_SPIKEBALL);
+                        }
                     } else {
                         FT_MOTION_RATE(agent, 1);
                         frame(lua_state, 10.0);

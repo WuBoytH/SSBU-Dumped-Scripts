@@ -7,7 +7,9 @@ unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
             PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopag_crawing_left_b"), Hash40::new("se_koopag_crawing_right_b"));
         }
         wait(lua_state, 60.0);
-        PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopag_crawing_right_b"), Hash40::new("se_koopag_crawing_left_b"));
+        if is_excute(agent) {
+            PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopag_crawing_right_b"), Hash40::new("se_koopag_crawing_left_b"));
+        }
         wait_loop_sync_mot(lua_state);
     }
 }
@@ -27,6 +29,4 @@ unsafe extern "C" fn expression_squatb(agent: &mut L2CAgentBase) {
         frame(lua_state, 110.0);
         wait_loop_sync_mot(lua_state);
     }
-    // TODO: _Unwind_Resume();
-    // TODO: frame();
 }

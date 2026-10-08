@@ -7,7 +7,9 @@ unsafe extern "C" fn effect_attackhi4charge(agent: &mut L2CAgentBase) {
             FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 15, 0, 4, 0, 0, 0, false);
         }
         wait(lua_state, 5.0);
-        EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("swordl"), 0, -7.99999, 0, 0, 0, 0, 1, 2, 2, 2, 0, 0, 0, true);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("swordl"), 0, -7.99999, 0, 0, 0, 0, 1, 2, 2, 2, 0, 0, 0, true);
+        }
     }
 }
 

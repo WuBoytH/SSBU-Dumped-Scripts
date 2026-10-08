@@ -20,25 +20,6 @@ unsafe extern "C" fn effect_pitbspecialairnholds(agent: &mut L2CAgentBase) {
         }
         wait(lua_state, 5.0);
     }
-    if is_excute(agent) {
-        EFFECT_OFF_KIND(agent, Hash40::new("pitb_pa_hold_bow"), true, true);
-        EFFECT_OFF_KIND(agent, Hash40::new("pitb_pa_hold_bow2"), true, true);
-    }
-    if get_value_float(lua_state, *SO_VAR_FLOAT_LR) < 0.0 {
-        if is_excute(agent) {
-            EFFECT_FOLLOW(agent, Hash40::new("pitb_pa_hold_bow2"), Hash40::new("havel"), 1, 2.5, 1, -1, -20, 180, 1, true);
-        }
-    } else {
-        if is_excute(agent) {
-            EFFECT_FOLLOW(agent, Hash40::new("pitb_pa_hold_bow2"), Hash40::new("havel"), -0.85, -1.5, 1.1, 1, -20, -2, 1, true);
-        }
-    }
-    loop {
-        if is_excute(agent) {
-            FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 12, 0, 4, 0, 0, 0, false);
-        }
-        wait(lua_state, 5.0);
-    }
 }
 
 unsafe extern "C" fn sound_pitbspecialairnholds(agent: &mut L2CAgentBase) {

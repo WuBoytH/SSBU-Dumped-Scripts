@@ -55,6 +55,8 @@ unsafe extern "C" fn game_attack100loop(agent: &mut L2CAgentBase) {
             WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_100_CONTINUE_CHECK);
         }
         wait_loop_clear(lua_state);
-        WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_100_CHECK_COMBO_NUM);
+        if is_excute(agent) {
+            WorkModule::on_flag(boma, *FIGHTER_STATUS_ATTACK_FLAG_100_CHECK_COMBO_NUM);
+        }
     }
 }

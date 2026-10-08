@@ -1,22 +1,18 @@
 unsafe extern "C" fn sound_furafura_nana(agent: &mut L2CAgentBase) {
     loop {
         if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL) {
-            macros::PLAY_STATUS(agent, Hash40::new("vc_nana_furafura"));
+            if macros::is_excute(agent) {
+                macros::PLAY_STATUS(agent, Hash40::new("vc_nana_furafura"));
+            }
         } else {
             wait_loop_sync_mot(agent.lua_state_agent);
             loop {
-                if macros::is_excute(agent) {
-                    macros::PLAY_STATUS(agent, Hash40::new("vc_popo_furafura"));
+                if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL) {
+                    if macros::is_excute(agent) {
+                        macros::PLAY_STATUS(agent, Hash40::new("vc_popo_furafura"));
+                    }
+                    wait_loop_sync_mot(agent.lua_state_agent);
                 }
-                wait_loop_sync_mot(agent.lua_state_agent);
-                wait_loop_sync_mot(agent.lua_state_agent);
-            }
-            // TODO: _Unwind_Resume();
-            loop {
-                if macros::is_excute(agent) {
-                    macros::PLAY_STATUS(agent, Hash40::new("vc_popo_furafura"));
-                }
-                wait_loop_sync_mot(agent.lua_state_agent);
                 wait_loop_sync_mot(agent.lua_state_agent);
             }
         }

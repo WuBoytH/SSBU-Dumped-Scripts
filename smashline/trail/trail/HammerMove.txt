@@ -1,22 +1,9 @@
 unsafe extern "C" fn expression_hammermove(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 4.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
-    }
-    if macros::is_excute(agent) {
-        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
-    }
-    frame(agent.lua_state_agent, 5.0);
-    if macros::is_excute(agent) {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm_l"), 0, false, 0x50000000);
-    }
-    frame(agent.lua_state_agent, 7.0);
-    if macros::is_excute(agent) {
-        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3, true);
-    }
-    frame(agent.lua_state_agent, 38.0);
-    if macros::is_excute(agent) {
-        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 10);
     }
 }

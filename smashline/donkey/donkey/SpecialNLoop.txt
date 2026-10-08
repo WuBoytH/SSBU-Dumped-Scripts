@@ -39,7 +39,9 @@ unsafe extern "C" fn expression_specialnloop(agent: &mut L2CAgentBase) {
             slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         }
         frame(agent.lua_state_agent, 1.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 5, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 5, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

@@ -7,7 +7,9 @@ unsafe extern "C" fn effect_shootlegsmiddleb(agent: &mut L2CAgentBase) {
             FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
         }
         frame(lua_state, 35.0);
-        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }
@@ -24,7 +26,9 @@ unsafe extern "C" fn expression_shootlegsmiddleb(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
         }
         frame(lua_state, 49.0);
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

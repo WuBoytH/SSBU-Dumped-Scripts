@@ -5,7 +5,9 @@ unsafe extern "C" fn effect_walkslow(agent: &mut L2CAgentBase) {
     }
     loop {
         wait(agent.lua_state_agent, 52.0);
-        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 0.9, 2, 0, 3, 0, 0, 0, false);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 0.9, 2, 0, 3, 0, 0, 0, false);
+        }
     }
 }
 
@@ -27,7 +29,9 @@ unsafe extern "C" fn expression_walkslow(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 112.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

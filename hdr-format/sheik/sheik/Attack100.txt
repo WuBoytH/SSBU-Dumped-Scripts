@@ -105,7 +105,9 @@ unsafe extern "C" fn expression_attack100(agent: &mut L2CAgentBase) {
             RUMBLE_HIT(agent, Hash40::new("rbkind_attackss"), 4);
         }
         frame(lua_state, 7.0);
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 5, false, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 5, false, 0x50000000);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

@@ -14,11 +14,11 @@ unsafe extern "C" fn effect_shootlegsslowb(agent: &mut L2CAgentBase) {
             macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 22.0);
-        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0, 0, 0, 0, false);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
-    // TODO: _Unwind_Resume();
-    wait_loop_sync_mot(agent.lua_state_agent);
 }
 
 unsafe extern "C" fn sound_shootlegsslowb(agent: &mut L2CAgentBase) {
@@ -28,7 +28,9 @@ unsafe extern "C" fn sound_shootlegsslowb(agent: &mut L2CAgentBase) {
             macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_murabito_step_right_s"), Hash40::new("se_murabito_step_left_s"));
         }
         frame(agent.lua_state_agent, 59.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_murabito_step_left_s"), Hash40::new("se_murabito_step_right_s"));
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_murabito_step_left_s"), Hash40::new("se_murabito_step_right_s"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

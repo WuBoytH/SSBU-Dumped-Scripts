@@ -12,14 +12,10 @@ unsafe extern "C" fn effect_specialairnloop(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_specialairnloop(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 1.0);
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14d690ec1c));
-        macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x14d690ec1c), 10);
-        wait_loop_sync_mot(agent.lua_state_agent);
-    }
-    loop {
-        frame(agent.lua_state_agent, 1.0);
-        macros::PLAY_SE(agent, Hash40::new_raw(0x14d690ec1c));
-        macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x14d690ec1c), 10);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x14d690ec1c));
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x14d690ec1c), 10);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -30,15 +26,9 @@ unsafe extern "C" fn expression_specialairnloop(agent: &mut L2CAgentBase) {
             slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
         }
         frame(agent.lua_state_agent, 1.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
-        wait_loop_sync_mot(agent.lua_state_agent);
-    }
-    loop {
         if macros::is_excute(agent) {
-            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
         }
-        frame(agent.lua_state_agent, 1.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

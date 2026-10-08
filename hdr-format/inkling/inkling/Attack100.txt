@@ -185,7 +185,9 @@ unsafe extern "C" fn sound_attack100(agent: &mut L2CAgentBase) {
                 PLAY_SE(agent, Hash40::new("se_inkling_attack100_01"));
             }
             frame(lua_state, 13.0);
-            PLAY_SE(agent, Hash40::new("se_inkling_attack100_01"));
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("se_inkling_attack100_01"));
+            }
         } else {
             frame(lua_state, 1.0);
             if is_excute(agent) {
@@ -200,7 +202,9 @@ unsafe extern "C" fn sound_attack100(agent: &mut L2CAgentBase) {
                 PLAY_SE(agent, Hash40::new("se_inkling_airshot"));
             }
             frame(lua_state, 13.0);
-            PLAY_SE(agent, Hash40::new("se_inkling_airshot"));
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("se_inkling_airshot"));
+            }
         }
         wait_loop_sync_mot(lua_state);
     }
@@ -218,7 +222,9 @@ unsafe extern "C" fn expression_attack100(agent: &mut L2CAgentBase) {
                 ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, 0x50000000);
             }
             frame(lua_state, 1.0);
-            ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+            if is_excute(agent) {
+                ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattack"), 0, true, 0x50000000);
+            }
         } else {
             if is_excute(agent) {
                 ControlModule::set_rumble(boma, Hash40::new("rbkind_erase"), 0, false, 0x50000000);
@@ -236,7 +242,9 @@ unsafe extern "C" fn expression_attack100(agent: &mut L2CAgentBase) {
                 ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
             }
             frame(lua_state, 13.0);
-            ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
+            if is_excute(agent) {
+                ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
+            }
         }
         wait_loop_sync_mot(lua_state);
     }

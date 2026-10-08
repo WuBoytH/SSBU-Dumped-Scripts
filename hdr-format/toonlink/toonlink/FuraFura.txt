@@ -2,10 +2,12 @@ unsafe extern "C" fn sound_furafura(agent: &mut L2CAgentBase) {
     let boma = agent.boma();
     let lua_state = agent.lua_state_agent;
     loop {
-        if is_excute(agent) {
-            PLAY_SE(agent, Hash40::new("vc_toonlink_furafura"));
+        if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL) {
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("vc_toonlink_furafura"));
+            }
+            wait_loop_sync_mot(lua_state);
         }
-        wait_loop_sync_mot(lua_state);
         wait_loop_sync_mot(lua_state);
     }
 }

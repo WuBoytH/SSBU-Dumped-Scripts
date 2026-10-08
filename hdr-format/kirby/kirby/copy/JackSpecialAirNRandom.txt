@@ -78,7 +78,9 @@ unsafe extern "C" fn sound_jackspecialairnrandom(agent: &mut L2CAgentBase) {
             PLAY_SE(agent, Hash40::new("se_jack_special_n04"));
         }
         frame(lua_state, 43.0);
-        PLAY_SE(agent, Hash40::new("se_jack_special_n04"));
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_jack_special_n04"));
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

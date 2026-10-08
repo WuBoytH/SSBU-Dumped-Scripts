@@ -5,7 +5,9 @@ unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
             macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_luigi_crawing_right_b"), Hash40::new("se_luigi_crawing_left_b"));
         }
         wait(agent.lua_state_agent, 6.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_luigi_crawing_left_b"), Hash40::new("se_luigi_crawing_right_b"));
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_luigi_crawing_left_b"), Hash40::new("se_luigi_crawing_right_b"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -24,7 +26,9 @@ unsafe extern "C" fn expression_squatb(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 11.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

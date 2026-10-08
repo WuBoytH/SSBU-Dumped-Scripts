@@ -5,7 +5,9 @@ unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
             macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 18.0);
-        macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -34,8 +36,10 @@ unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
             macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pfushigisou_step_b_left_l"), Hash40::new("se_pfushigisou_step_b_right_l"));
         }
         frame(agent.lua_state_agent, 22.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pfushigisou_step_b_right_l"), Hash40::new("se_pfushigisou_step_b_left_l"));
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pfushigisou_step_f_left_l"), Hash40::new("se_pfushigisou_step_f_right_l"));
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pfushigisou_step_b_right_l"), Hash40::new("se_pfushigisou_step_b_left_l"));
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pfushigisou_step_f_left_l"), Hash40::new("se_pfushigisou_step_f_right_l"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -50,7 +54,9 @@ unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, true, 0x50000000);
         }
         frame(agent.lua_state_agent, 23.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, true, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, true, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

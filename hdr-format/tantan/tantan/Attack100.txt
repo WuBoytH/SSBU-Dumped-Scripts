@@ -124,7 +124,9 @@ unsafe extern "C" fn effect_attack100(agent: &mut L2CAgentBase) {
             EFFECT_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 15.5, 4, 0, 0, 0, 0, 0.7, 5, 4, 2, 0, 0, 360, false, 0.6);
         }
         wait(lua_state, 4.0);
-        EFFECT_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 17.5, 10.5, 0, 0, 0, 0, 0.8, 6, 4, 2, 0, 0, 360, false, 0.6);
+        if is_excute(agent) {
+            EFFECT_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("top"), 17.5, 10.5, 0, 0, 0, 0, 0.8, 6, 4, 2, 0, 0, 360, false, 0.6);
+        }
     }
 }
 
@@ -172,7 +174,9 @@ unsafe extern "C" fn expression_attack100(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
         }
         frame(lua_state, 14.0);
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 3, false, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 3, false, 0x50000000);
+        }
         wait_loop_clear(lua_state);
     }
 }

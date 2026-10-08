@@ -18,7 +18,9 @@ unsafe extern "C" fn expression_walkfast_sub(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(boma, Hash40::new_raw(0x11699da2fd), 6, true, 0x50000000);
         }
         frame(lua_state, 32.0);
-        ControlModule::set_rumble(boma, Hash40::new_raw(0x11699da2fd), 6, true, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new_raw(0x11699da2fd), 6, true, 0x50000000);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

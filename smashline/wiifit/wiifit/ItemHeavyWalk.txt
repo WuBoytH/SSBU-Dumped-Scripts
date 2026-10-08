@@ -15,7 +15,9 @@ unsafe extern "C" fn sound_itemheavywalk(agent: &mut L2CAgentBase) {
             macros::PLAY_STEP(agent, Hash40::new("se_wiifit_step_right_m"));
         }
         frame(agent.lua_state_agent, 34.0);
-        macros::PLAY_STEP(agent, Hash40::new("se_wiifit_step_left_m"));
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_wiifit_step_left_m"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -27,7 +29,9 @@ unsafe extern "C" fn expression_itemheavywalk(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 33.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

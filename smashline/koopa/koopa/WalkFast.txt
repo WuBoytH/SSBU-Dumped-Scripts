@@ -5,7 +5,9 @@ unsafe extern "C" fn effect_walkfast(agent: &mut L2CAgentBase) {
             macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 2.5, 0, 3, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 30.0);
-        macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 5, 0, -2, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        if macros::is_excute(agent) {
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 5, 0, -2, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -17,7 +19,9 @@ unsafe extern "C" fn sound_walkfast(agent: &mut L2CAgentBase) {
             macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopa_step_left_s"), Hash40::new("se_koopa_step_right_s"));
         }
         frame(agent.lua_state_agent, 30.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopa_step_right_s"), Hash40::new("se_koopa_step_left_s"));
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_koopa_step_right_s"), Hash40::new("se_koopa_step_left_s"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -34,7 +38,9 @@ unsafe extern "C" fn expression_walkfast(agent: &mut L2CAgentBase) {
             macros::QUAKE(agent, *CAMERA_QUAKE_KIND_SMALL_HF);
         }
         frame(agent.lua_state_agent, 31.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

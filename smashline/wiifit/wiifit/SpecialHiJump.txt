@@ -15,7 +15,9 @@ unsafe extern "C" fn sound_specialhijump(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn expression_specialhijump(agent: &mut L2CAgentBase) {
     loop {
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

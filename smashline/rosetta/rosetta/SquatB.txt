@@ -10,8 +10,10 @@ unsafe extern "C" fn effect_squatb(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 3.0);
-        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x14e8709737));
+        if macros::is_excute(agent) {
+            sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+            macros::PLAY_STATUS(agent, Hash40::new_raw(0x14e8709737));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -19,7 +21,9 @@ unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_squatb(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 8.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

@@ -43,7 +43,9 @@ unsafe extern "C" fn expression_linkspecialn(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, 0x50000000);
         }
         frame(lua_state, 25.0);
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

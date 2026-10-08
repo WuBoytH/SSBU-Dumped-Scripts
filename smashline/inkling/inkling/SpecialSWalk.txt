@@ -11,7 +11,9 @@ unsafe extern "C" fn sound_specialswalk(agent: &mut L2CAgentBase) {
             macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_inkling_step_left_s"), Hash40::new("se_inkling_step_right_s"));
         }
         frame(agent.lua_state_agent, 31.0);
-        macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_inkling_step_right_s"), Hash40::new("se_inkling_step_left_s"));
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_inkling_step_right_s"), Hash40::new("se_inkling_step_left_s"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -28,7 +30,9 @@ unsafe extern "C" fn expression_specialswalk(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 29.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_lands"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

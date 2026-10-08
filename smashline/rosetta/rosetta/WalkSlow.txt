@@ -11,7 +11,9 @@ unsafe extern "C" fn effect_walkslow(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_walkslow(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 22.0);
-        macros::PLAY_STATUS(agent, Hash40::new_raw(0x17b9aad280));
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new_raw(0x17b9aad280));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -19,7 +21,9 @@ unsafe extern "C" fn sound_walkslow(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_walkslow(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 66.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

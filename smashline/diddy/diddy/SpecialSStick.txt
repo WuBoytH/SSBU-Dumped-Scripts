@@ -18,7 +18,9 @@ unsafe extern "C" fn game_specialsstick(agent: &mut L2CAgentBase) {
             AttackModule::set_catch_only_all(agent.module_accessor, true, false);
         }
         wait(agent.lua_state_agent, 1.0);
-        AttackModule::clear_all(agent.module_accessor);
+        if macros::is_excute(agent) {
+            AttackModule::clear_all(agent.module_accessor);
+        }
         wait_loop_clear(agent.lua_state_agent);
     }
 }
@@ -114,14 +116,18 @@ unsafe extern "C" fn sound_specialsstick(agent: &mut L2CAgentBase) {
             macros::PLAY_SE(agent, Hash40::new("se_diddy_special_s07"));
         }
         wait(agent.lua_state_agent, 3.0);
-        macros::PLAY_SE(agent, Hash40::new("se_diddy_special_s07"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_diddy_special_s07"));
+        }
     }
 }
 
 unsafe extern "C" fn expression_specialsstick(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 10.0);
-        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_slashss"), 0);
+        if macros::is_excute(agent) {
+            macros::RUMBLE_HIT(agent, Hash40::new("rbkind_slashss"), 0);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

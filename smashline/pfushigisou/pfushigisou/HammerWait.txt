@@ -4,7 +4,9 @@ unsafe extern "C" fn expression_hammerwait(agent: &mut L2CAgentBase) {
             VisibilityModule::set_int64(agent.module_accessor, hash40("weapon"), hash40("weapon_normal"));
         }
         frame(agent.lua_state_agent, 4.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

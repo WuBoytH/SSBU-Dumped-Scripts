@@ -5,7 +5,9 @@ unsafe extern "C" fn sound_swimrise(agent: &mut L2CAgentBase) {
             macros::PLAY_SE(agent, Hash40::new("se_common_swim_middle_01"));
         }
         wait(agent.lua_state_agent, 14.0);
-        macros::PLAY_SE(agent, Hash40::new("se_common_swim_middle_02"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_swim_middle_02"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

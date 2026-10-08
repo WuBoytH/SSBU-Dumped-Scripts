@@ -78,8 +78,10 @@ unsafe extern "C" fn expression_specialinkcharge(agent: &mut L2CAgentBase) {
     let boma = agent.boma();
     let lua_state = agent.lua_state_agent;
     loop {
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
-        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_TOP);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

@@ -6,6 +6,8 @@ unsafe extern "C" fn game_speciallwloop(agent: &mut L2CAgentBase) {
     }
     loop {
         wait(lua_state, 1.0);
-        WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_SPECIAL_LW_FLAG_GENERATE_STONE);
+        if is_excute(agent) {
+            WorkModule::on_flag(boma, *FIGHTER_PICKEL_STATUS_SPECIAL_LW_FLAG_GENERATE_STONE);
+        }
     }
 }

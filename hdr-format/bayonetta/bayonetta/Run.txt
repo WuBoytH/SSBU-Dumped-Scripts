@@ -18,8 +18,10 @@ unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
             FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 4.5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
         }
         frame(lua_state, 45.0);
-        EFFECT(agent, Hash40::new("bayonetta_butterfly_walk"), Hash40::new("top"), 2.5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
-        FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2.5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("bayonetta_butterfly_walk"), Hash40::new("top"), 2.5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+            FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2.5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }
@@ -41,7 +43,9 @@ unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
             PLAY_STEP(agent, Hash40::new("se_bayonetta_step_right_l"));
         }
         frame(lua_state, 44.0);
-        PLAY_STEP(agent, Hash40::new("se_bayonetta_step_left_l"));
+        if is_excute(agent) {
+            PLAY_STEP(agent, Hash40::new("se_bayonetta_step_left_l"));
+        }
         wait_loop_sync_mot(lua_state);
     }
 }
@@ -66,7 +70,9 @@ unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_run"), 0, false, 0x50000000);
         }
         frame(lua_state, 52.0);
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_run"), 0, false, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_run"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

@@ -8,7 +8,9 @@ unsafe extern "C" fn expression_hammerwait(agent: &mut L2CAgentBase) {
             VisibilityModule::set_int64(boma, hash40("gun_hand"), hash40("gun_hand_hide_all"));
         }
         frame(lua_state, 4.0);
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

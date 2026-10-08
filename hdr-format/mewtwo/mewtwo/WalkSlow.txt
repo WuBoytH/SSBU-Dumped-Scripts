@@ -7,7 +7,9 @@ unsafe extern "C" fn effect_walkslow(agent: &mut L2CAgentBase) {
     }
     loop {
         wait(lua_state, 52.0);
-        FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 0.9, 2, 0, 3, 0, 0, 0, false);
+        if is_excute(agent) {
+            FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -3, 0, 0, 0, 0, 0, 0.9, 2, 0, 3, 0, 0, 0, false);
+        }
     }
 }
 
@@ -33,7 +35,9 @@ unsafe extern "C" fn expression_walkslow(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
         }
         frame(lua_state, 112.0);
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

@@ -68,7 +68,9 @@ unsafe extern "C" fn effect_attackairnhold(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn sound_attackairnhold(agent: &mut L2CAgentBase) {
     loop {
         frame(agent.lua_state_agent, 1.0);
-        macros::PLAY_SE(agent, Hash40::new_raw(0x1a6c382d58));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x1a6c382d58));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

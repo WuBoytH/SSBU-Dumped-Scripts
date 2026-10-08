@@ -13,7 +13,9 @@ unsafe extern "C" fn effect_turnrun(agent: &mut L2CAgentBase) {
     frame(lua_state, 1.0);
     loop {
         wait(lua_state, 5.0);
-        FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 3, 0, 0, 0, 0, 0, false);
+        if is_excute(agent) {
+            FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 3, 0, 0, 0, 0, 0, false);
+        }
     }
 }
 

@@ -3,7 +3,9 @@ unsafe extern "C" fn effect_sleeploop(agent: &mut L2CAgentBase) {
     let lua_state = agent.lua_state_agent;
     loop {
         frame(lua_state, 25.0);
-        EFFECT_FLW_POS(agent, Hash40::new("sys_sleep"), Hash40::new("head"), 2, 4, 0, 0, 0, 0, 1, false);
+        if is_excute(agent) {
+            EFFECT_FLW_POS(agent, Hash40::new("sys_sleep"), Hash40::new("head"), 2, 4, 0, 0, 0, 0, 1, false);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }
@@ -54,9 +56,13 @@ unsafe extern "C" fn expression_sleeploop(agent: &mut L2CAgentBase) {
         }
         wait(lua_state, 30.0);
         if get_value_float(lua_state, *SO_VAR_FLOAT_LR) < 0.0 {
-            VisibilityModule::set_int64(boma, hash40("zzz"), hash40("r_zzz_3"));
+            if is_excute(agent) {
+                VisibilityModule::set_int64(boma, hash40("zzz"), hash40("r_zzz_3"));
+            }
         } else {
-            VisibilityModule::set_int64(boma, hash40("zzz"), hash40("l_zzz_3"));
+            if is_excute(agent) {
+                VisibilityModule::set_int64(boma, hash40("zzz"), hash40("l_zzz_3"));
+            }
         }
         wait_loop_sync_mot(lua_state);
     }

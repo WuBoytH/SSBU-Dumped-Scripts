@@ -3,7 +3,9 @@ unsafe extern "C" fn effect_sleeploop(agent: &mut L2CAgentBase) {
     let lua_state = agent.lua_state_agent;
     loop {
         frame(lua_state, 25.0);
-        EFFECT_FLW_POS(agent, Hash40::new("sys_sleep"), Hash40::new("head"), 2, 3, 0, 0, 0, 0, 1, false);
+        if is_excute(agent) {
+            EFFECT_FLW_POS(agent, Hash40::new("sys_sleep"), Hash40::new("head"), 2, 3, 0, 0, 0, 0, 1, false);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }
@@ -29,7 +31,9 @@ unsafe extern "C" fn expression_sleeploop(agent: &mut L2CAgentBase) {
             slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6, true);
         }
         wait(lua_state, 1.0);
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_sleep"), 0, true, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_sleep"), 0, true, 0x50000000);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

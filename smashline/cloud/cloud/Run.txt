@@ -20,7 +20,9 @@ unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
             macros::AREA_WIND_2ND(agent, 0, 0.1, 145, 4, 0.08, -10, 8, 30, 16, 2);
         }
         frame(agent.lua_state_agent, 18.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_aerial"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_aerial"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

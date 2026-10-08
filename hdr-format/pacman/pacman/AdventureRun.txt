@@ -15,7 +15,9 @@ unsafe extern "C" fn sound_adventurerun(agent: &mut L2CAgentBase) {
             PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pacman_step_left_l"), Hash40::new("se_pacman_step_right_l"));
         }
         frame(lua_state, 39.0);
-        PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pacman_step_right_l"), Hash40::new("se_pacman_step_left_l"));
+        if is_excute(agent) {
+            PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_pacman_step_right_l"), Hash40::new("se_pacman_step_left_l"));
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

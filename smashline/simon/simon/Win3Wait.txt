@@ -29,7 +29,9 @@ unsafe extern "C" fn sound_win3wait(agent: &mut L2CAgentBase) {
             macros::PLAY_SE(agent, Hash40::new("se_simon_landing02_win03"));
         }
         frame(agent.lua_state_agent, 72.0);
-        macros::PLAY_SE(agent, Hash40::new("se_simon_attackhard_s01_win03"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_simon_attackhard_s01_win03"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

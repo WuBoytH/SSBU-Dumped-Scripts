@@ -44,9 +44,9 @@ unsafe extern "C" fn sound_swimdrown_nana(agent: &mut L2CAgentBase) {
             macros::PLAY_SE(agent, Hash40::new("se_common_swim_high_01"));
         }
         wait(agent.lua_state_agent, 20.0);
-        macros::PLAY_SE(agent, Hash40::new("se_common_swim_low_02"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_swim_low_02"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
-    // TODO: _Unwind_Resume();
-    wait_loop_sync_mot(agent.lua_state_agent);
 }

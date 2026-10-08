@@ -13,7 +13,9 @@ unsafe extern "C" fn sound_ladderup(agent: &mut L2CAgentBase) {
             macros::PLAY_SE(agent, Hash40::new("se_common_ladderstep_m"));
         }
         wait(agent.lua_state_agent, 4.0);
-        macros::PLAY_SE(agent, Hash40::new("se_common_ladderstep_m"));
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_ladderstep_m"));
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -33,7 +35,9 @@ unsafe extern "C" fn expression_ladderup(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
         }
         frame(agent.lua_state_agent, 15.0);
-        ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }

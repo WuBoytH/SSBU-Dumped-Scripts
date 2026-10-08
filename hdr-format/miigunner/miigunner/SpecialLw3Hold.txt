@@ -26,6 +26,8 @@ unsafe extern "C" fn effect_speciallw3hold(agent: &mut L2CAgentBase) {
             FLASH_FRM(agent, 3, 0, 0.2, 0.5, 0);
         }
         wait(lua_state, 3.0);
+        if is_excute(agent) {
+        }
         COL_NORMAL(agent);
     }
 }
@@ -53,7 +55,9 @@ unsafe extern "C" fn expression_speciallw3hold(agent: &mut L2CAgentBase) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
         }
         frame(lua_state, 10.0);
-        ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_elecattacks"), 0, true, 0x50000000);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

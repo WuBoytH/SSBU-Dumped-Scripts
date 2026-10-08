@@ -28,7 +28,9 @@ unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
             EFFECT(agent, Hash40::new("sys_slip_spark"), Hash40::new("top"), -20, 1, 20, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
         }
         frame(lua_state, 17.0);
-        EFFECT(agent, Hash40::new("sys_slip_spark"), Hash40::new("top"), -14, 1, -14, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        if is_excute(agent) {
+            EFFECT(agent, Hash40::new("sys_slip_spark"), Hash40::new("top"), -14, 1, -14, 0, 45, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }
@@ -46,7 +48,9 @@ unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
     let boma = agent.boma();
     let lua_state = agent.lua_state_agent;
     loop {
-        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        if is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        }
         wait_loop_sync_mot(lua_state);
     }
 }

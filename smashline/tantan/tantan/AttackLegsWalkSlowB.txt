@@ -4,7 +4,9 @@ unsafe extern "C" fn effect_attacklegswalkslowb(agent: &mut L2CAgentBase) {
             macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footr"), -7, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
         }
         frame(agent.lua_state_agent, 28.0);
-        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+        }
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
@@ -25,17 +27,9 @@ unsafe extern "C" fn sound_attacklegswalkslowb(agent: &mut L2CAgentBase) {
             macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_left_s"));
         }
         frame(agent.lua_state_agent, 27.0);
-        macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_right_s"));
-        wait_loop_sync_mot(agent.lua_state_agent);
-    }
-    // TODO: _Unwind_Resume();
-    loop {
-        frame(agent.lua_state_agent, 3.0);
         if macros::is_excute(agent) {
-            macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_left_s"));
+            macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_right_s"));
         }
-        frame(agent.lua_state_agent, 27.0);
-        macros::PLAY_STEP(agent, Hash40::new("se_tantan_step_right_s"));
         wait_loop_sync_mot(agent.lua_state_agent);
     }
 }
