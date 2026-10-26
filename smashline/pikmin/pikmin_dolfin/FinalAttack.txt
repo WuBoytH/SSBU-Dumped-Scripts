@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_finalattack(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+    }
+}
+
+unsafe extern "C" fn effect_finalattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 32.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pikmin_final_rise"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalattack(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pikmin_final04"));
+    }
+}

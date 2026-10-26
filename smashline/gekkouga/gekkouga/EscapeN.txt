@@ -1,0 +1,32 @@
+unsafe extern "C" fn effect_escapen(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("gekkouga_escape"), Hash40::new("top"), 0, 4, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("gekkouga_escape_leaf"), Hash40::new("top"), 0, 4, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_escapen(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gekkouga_escapeair"));
+    }
+}
+
+unsafe extern "C" fn expression_escapen(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, true);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

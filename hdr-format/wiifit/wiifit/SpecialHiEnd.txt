@@ -1,0 +1,25 @@
+unsafe extern "C" fn game_specialhiend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ArticleModule::shoot_exist(boma, *FIGHTER_WIIFIT_GENERATE_ARTICLE_HULAHOOP, ArticleOperationTarget(*ARTICLE_OPE_TARGET_ALL), false);
+    }
+}
+
+unsafe extern "C" fn sound_specialhiend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wiifit_special_h02"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhiend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitl"), 0, false, 0x50000000);
+    }
+}

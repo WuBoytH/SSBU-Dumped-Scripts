@@ -1,0 +1,13 @@
+unsafe extern "C" fn game_escapeair(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        KineticModule::change_kinetic(agent.module_accessor, *FIGHTER_KINETIC_TYPE_FALL);
+    }
+}
+
+unsafe extern "C" fn sound_escapeair(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_zelda_escapeair"));
+    }
+}

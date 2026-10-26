@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_INVINCIBLE);
+    }
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("snake_final_ui"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("snake_final_frame"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("snake_final_lockon_count"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("snake_final_lockon_count2"), false, true);
+    }
+}
+
+unsafe extern "C" fn expression_finalairend(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

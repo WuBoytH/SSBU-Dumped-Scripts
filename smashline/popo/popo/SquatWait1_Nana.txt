@@ -1,0 +1,15 @@
+unsafe extern "C" fn sound_squatwait1_nana(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if WorkModule::is_flag(agent.module_accessor, *FIGHTER_STATUS_SQUAT_FLAG_REQUEST_SQUAT_SE) {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_popo_squat"));
+            WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_SQUAT_FLAG_REQUEST_SQUAT_SE);
+        }
+    }
+}
+
+unsafe extern "C" fn expression_squatwait1_nana(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4, true);
+    }
+}

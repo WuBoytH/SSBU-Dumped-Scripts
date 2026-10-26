@@ -1,0 +1,65 @@
+unsafe extern "C" fn game_specialairs(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 17.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_REFLET_STATUS_SPECIAL_S_FLAG_TRY);
+    }
+}
+
+unsafe extern "C" fn effect_specialairs(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if WorkModule::is_flag(boma, *FIGHTER_REFLET_STATUS_SPECIAL_S_FLAG_SHOOT_OK) {
+        frame(lua_state, 4.0);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("reflet_gigafire_hold"), Hash40::new("top"), -1, 22, 1.5, 0, 0, 0, 0.8, true);
+        }
+        frame(lua_state, 15.0);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("reflet_gigafire_hand"), Hash40::new("handr"), 1, 1, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(boma);
+        }
+        frame(lua_state, 16.0);
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("reflet_gigafire_hand"), Hash40::new("handl"), 1, 1, 0, 0, 0, 0, 1, true);
+            EffectModule::enable_sync_init_pos_last(boma);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_specialairs(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 4.0);
+    if WorkModule::is_flag(boma, *FIGHTER_REFLET_STATUS_SPECIAL_S_FLAG_SHOOT_OK) {
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_reflet_special_s01"));
+            PLAY_SEQUENCE(agent, Hash40::new("seq_reflet_rnd_special_s"));
+        }
+    } else {
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_reflet_mp_empty"));
+            PLAY_SEQUENCE(agent, Hash40::new("seq_reflet_rnd_special_empty"));
+        }
+    }
+}
+
+unsafe extern "C" fn expression_specialairs(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+    }
+    frame(lua_state, 13.0);
+    if WorkModule::is_flag(boma, *FIGHTER_REFLET_STATUS_SPECIAL_S_FLAG_SHOOT_OK) {
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_attackm"), 0, false, 0x50000000);
+        }
+    } else {
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_blank"), 0, false, 0x50000000);
+        }
+    }
+}

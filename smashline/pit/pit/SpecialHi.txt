@@ -1,0 +1,30 @@
+unsafe extern "C" fn game_specialhi(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    }
+    frame(agent.lua_state_agent, 45.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PIT_STATUS_SPECIAL_HI_RUSH_FLAG_FIX_ANGLE);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_PIT_STATUS_SPECIAL_HI_RUSH_FLAG_BACK_ANGLE);
+        JostleModule::set_status(agent.module_accessor, true);
+    }
+}
+
+unsafe extern "C" fn effect_specialhi(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pit_fly_miracle_b"), Hash40::new("rot"), 0, 0, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn sound_specialhi(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pit_special_h02"));
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_pit_rnd_special_h"));
+    }
+}

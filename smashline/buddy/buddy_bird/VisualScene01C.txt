@@ -1,0 +1,13 @@
+unsafe extern "C" fn game_visualscene01c(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_whole(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn effect_visualscene01c(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_UNSYNC_VIS(agent, Hash40::new("buddy_final_fusion_green"), Hash40::new("hip"), 0, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 38.0);
+}

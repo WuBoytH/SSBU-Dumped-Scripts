@@ -1,0 +1,19 @@
+unsafe extern "C" fn sound_damageflytop(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        PLAY_FLY_VOICE(agent, Hash40::new("seq_metaknight_rnd_futtobi01"), Hash40::new("seq_metaknight_rnd_futtobi02"));
+    }
+}
+
+unsafe extern "C" fn expression_damageflytop(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    // TODO: expression_DamageFlyTopRumble();
+    if get_value_int(lua_state, *SO_VAR_INT_CURRENT_STATUS) == *FIGHTER_STATUS_KIND_ICE {
+        if is_excute(agent) {
+            VisibilityModule::set_status_default_int64(boma, hash40("mantle"), hash40("mantle_normal"));
+        }
+    }
+}

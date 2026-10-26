@@ -1,0 +1,38 @@
+unsafe extern "C" fn game_specialhi2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_GEKKOUGA_GENERATE_ARTICLE_WATER, false, -1);
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_GEKKOUGA_GENERATE_ARTICLE_WATER, false, -1);
+    }
+}
+
+unsafe extern "C" fn effect_specialhi2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("gekkouga_pump_splash"), Hash40::new("rot"), 0, -8, 0.7, 90, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("gekkouga_pump_line"), Hash40::new("rot"), 0, 20, 0, 90, 0, 0, 1.2, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialhi2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gekkouga_special_h01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhi2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+}

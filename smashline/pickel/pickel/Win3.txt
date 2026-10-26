@@ -1,0 +1,33 @@
+unsafe extern "C" fn game_win3(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_BUILDING, false, -1);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_PICKEL_GENERATE_ARTICLE_BUILDING, Hash40::new("win_3"), false, -1.0);
+    }
+}
+
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 72.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pickel_torch_fire"), Hash40::new("top"), -9.2, 20.8, 23.5, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 79.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("pickel_torch_fire"), Hash40::new("top"), 6.7, 20.8, 23.4, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 140.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("waist"), 0, -7.4, 0, 0, 0, 0, 0.35, 0, 0, 0, 0, 0, 0, false);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.1);
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pickel_win03_01"));
+    }
+    frame(agent.lua_state_agent, 140.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pickel_win03_02"));
+    }
+}

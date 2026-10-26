@@ -1,0 +1,25 @@
+unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
+    loop {
+        wait(agent.lua_state_agent, 15.0);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_palutena_step_lp_l"));
+    }
+}
+
+unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 68.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_aerial"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

@@ -1,0 +1,18 @@
+unsafe extern "C" fn effect_catchwait(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("mewtwo_pk_hand"), Hash40::new("throw"), 0, 2, 0, 0, 0, 0, 0.6, true);
+    }
+}
+
+unsafe extern "C" fn sound_catchwait(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_mewtwo_catch_loop"));
+    }
+}
+
+unsafe extern "C" fn expression_catchwait(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

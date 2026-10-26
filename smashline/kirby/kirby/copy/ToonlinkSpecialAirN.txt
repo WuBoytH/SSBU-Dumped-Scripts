@@ -1,0 +1,30 @@
+unsafe extern "C" fn effect_toonlinkspecialairn(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("toonlink_arrow_max"), Hash40::new("havel"), -0.50051, 0.48232, 2, 0, 0, 0, 1, true);
+        }
+        wait(agent.lua_state_agent, 8.0);
+    }
+}
+
+unsafe extern "C" fn sound_toonlinkspecialairn(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 0.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_toonlink_special_n02"));
+        }
+        wait(agent.lua_state_agent, 1.0);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_toonlinkspecialairn(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+            ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_drawhold"), 8, true, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

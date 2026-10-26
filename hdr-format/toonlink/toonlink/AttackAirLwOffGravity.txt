@@ -1,0 +1,9 @@
+unsafe extern "C" fn game_attackairlwoffgravity(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if get_value_int(lua_state, *SO_VAR_INT_PREV_STATUS) != *FIGHTER_STATUS_KIND_DAMAGE_FLY {
+        if is_excute(agent) {
+            WorkModule::on_flag(boma, *FIGHTER_STATUS_WORK_ID_FLAG_RESERVE_GRAVITY_STABLE_UNABLE);
+        }
+    }
+}

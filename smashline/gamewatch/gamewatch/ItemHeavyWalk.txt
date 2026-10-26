@@ -1,0 +1,44 @@
+unsafe extern "C" fn game_itemheavywalk(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_LIFT_WORK_FLAG_STOP);
+    }
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_ITEM_LIFT_WORK_FLAG_STOP);
+    }
+}
+
+unsafe extern "C" fn sound_itemheavywalk(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 12.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_gamewatch_step_right_m"));
+        }
+        frame(agent.lua_state_agent, 26.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_gamewatch_step_left_m"));
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_itemheavywalk(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            VisibilityModule::set_int64(agent.module_accessor, hash40("head"), hash40("head_close"));
+        }
+        frame(agent.lua_state_agent, 5.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 15.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 25.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

@@ -1,0 +1,9 @@
+unsafe extern "C" fn game_guarddamage(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WeaponSpecializer_SimonWhip::set_2nd_gravity(agent.battle_object as *mut Weapon, 4.0);
+        WeaponSpecializer_SimonWhip::set_2nd_air_resistance(agent.battle_object as *mut Weapon, 40.0);
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_MOVE);
+        WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
+        WeaponSpecializer_SimonWhip::set_node_fix_flag_list(agent.battle_object as *mut Weapon, 4, 6, 8, 9, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
+    }
+}

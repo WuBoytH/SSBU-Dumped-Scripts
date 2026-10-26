@@ -1,0 +1,13 @@
+unsafe extern "C" fn game_spntakenoutstart_b(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        let mot_rate = WorkModule::get_float(boma, *WEAPON_PIKMIN_PIKMIN_STATUS_PULL_OUT_START_WORK_FLOAT_MOT_RATE);
+        MotionModule::set_rate(boma, mot_rate);
+    }
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        MotionModule::set_rate(boma, 1.0);
+    }
+}

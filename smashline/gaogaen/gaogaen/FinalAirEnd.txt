@@ -1,0 +1,19 @@
+unsafe extern "C" fn game_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_GAOGAEN_FINAL, 0, 11.0, 361, 108, 0, 100, 0.0, 1.0, *ATTACK_LR_CHECK_POS, 0.0, true, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_NONE);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_GAOGAEN_STATUS_WORK_ID_FLAG_FINAL_ABS_SET);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_GAOGAEN_STATUS_WORK_ID_FLAG_FINAL_END_EXIT);
+    }
+}
+
+unsafe extern "C" fn effect_finalairend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("gaogaen_final_bomb"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("gaogaen_final_white"), true, true);
+        macros::EFFECT(agent, Hash40::new("gaogaen_final_echo"), Hash40::new("top"), 0, 14, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        EffectModule::req_screen(agent.module_accessor, Hash40::new("bg_gaogaen_final_end"), false, false, false);
+    }
+}

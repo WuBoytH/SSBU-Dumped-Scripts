@@ -1,0 +1,15 @@
+unsafe extern "C" fn game_guardon(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        PhysicsModule::set_2nd_status(boma, *PH2NDARY_CRAW_COLLIDE);
+        WeaponSpecializer_SimonWhip::set_2nd_gravity(agent.battle_object as *mut Weapon, 4.0);
+        WeaponSpecializer_SimonWhip::set_2nd_air_resistance(agent.battle_object as *mut Weapon, 40.0);
+    }
+    frame(lua_state, 7.0);
+    if is_excute(agent) {
+        PhysicsModule::set_2nd_status(boma, *PH2NDARY_CRAW_MOVE);
+        WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
+        WeaponSpecializer_SimonWhip::set_node_fix_flag_list(agent.battle_object as *mut Weapon, 4, 6, 8, 9, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
+    }
+}

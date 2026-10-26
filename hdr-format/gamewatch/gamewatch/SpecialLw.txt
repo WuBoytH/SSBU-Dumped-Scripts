@@ -1,0 +1,40 @@
+unsafe extern "C" fn game_speciallw(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_LW_FLAG_ABSORB_ENABLE);
+    }
+}
+
+unsafe extern "C" fn effect_speciallw(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("sys_smash_flash"), Hash40::new("havel"), 0, 0, 0, 0.00004, 0.00001, 0.00006, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_speciallw(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 6.0);
+    if get_value_int(lua_state, *SO_VAR_INT_PREV_STATUS) == *FIGHTER_GAMEWATCH_STATUS_KIND_SPECIAL_LW_WAIT_START {
+        if !WorkModule::is_flag(boma, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_LW_FLAG_SE_PLAYED) {
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("se_gamewatch_wave08_mi"));
+                WorkModule::on_flag(boma, *FIGHTER_GAMEWATCH_STATUS_SPECIAL_LW_FLAG_SE_PLAYED);
+            }
+        }
+    }
+}
+
+unsafe extern "C" fn expression_speciallw(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        ItemModule::set_attach_item_visibility(boma, false, 255);
+        ItemModule::set_have_item_visibility(boma, false, 0);
+        VisibilityModule::set_int64(boma, hash40("head"), hash40("head_none"));
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
+    }
+}

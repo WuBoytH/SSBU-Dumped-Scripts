@@ -1,0 +1,65 @@
+unsafe extern "C" fn effect_run(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+        frame(agent.lua_state_agent, 13.0);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+        frame(agent.lua_state_agent, 24.0);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+        frame(agent.lua_state_agent, 35.0);
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_run_smoke"), Hash40::new("top"), 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn sound_run(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_mario_step_left_m"), Hash40::new("se_mario_step_right_m"));
+        }
+        frame(agent.lua_state_agent, 13.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_mario_step_right_m"), Hash40::new("se_mario_step_left_m"));
+        }
+        frame(agent.lua_state_agent, 24.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_mario_step_left_m"), Hash40::new("se_mario_step_right_m"));
+        }
+        frame(agent.lua_state_agent, 36.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_mario_step_right_m"), Hash40::new("se_mario_step_left_m"));
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_run(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 4.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 16.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 28.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 40.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_run"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

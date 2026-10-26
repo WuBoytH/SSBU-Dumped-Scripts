@@ -1,0 +1,20 @@
+unsafe extern "C" fn game_win2wait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if !IS_EXIST_ARTICLE(agent, *FIGHTER_MARIOD_GENERATE_ARTICLE_STETHOSCOPE) {
+        if is_excute(agent) {
+            ArticleModule::generate_article_enable(boma, *FIGHTER_MARIOD_GENERATE_ARTICLE_STETHOSCOPE, false, -1);
+        }
+    }
+    if is_excute(agent) {
+        ArticleModule::change_motion(boma, *FIGHTER_MARIOD_GENERATE_ARTICLE_STETHOSCOPE, Hash40::new("win_2_wait"), false, -1.0);
+    }
+}
+
+unsafe extern "C" fn expression_win2wait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("stethoscope"), hash40("stethoscope_off"));
+    }
+}

@@ -1,0 +1,30 @@
+unsafe extern "C" fn game_specialsendf(agent: &mut L2CAgentBase) {
+    macros::FT_MOTION_RATE(agent, 0.66);
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, false);
+    }
+    frame(agent.lua_state_agent, 10.0);
+    if macros::is_excute(agent) {
+        JostleModule::set_status(agent.module_accessor, true);
+    }
+}
+
+unsafe extern "C" fn effect_specialsendf(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT_FLIP(agent, Hash40::new("sys_down_smoke"), Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false, *EF_FLIP_NONE);
+    }
+}
+
+unsafe extern "C" fn sound_specialsendf(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gekkouga_landing01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialsendf(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

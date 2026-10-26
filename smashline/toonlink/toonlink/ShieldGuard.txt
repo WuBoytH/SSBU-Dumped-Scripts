@@ -1,0 +1,11 @@
+unsafe extern "C" fn game_shieldguard(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_LINK_INSTANCE_WORK_ID_FLAG_WAIT_SHIELD);
+    }
+}
+
+unsafe extern "C" fn sound_shieldguard(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_toonlink_sheildguard"));
+    }
+}

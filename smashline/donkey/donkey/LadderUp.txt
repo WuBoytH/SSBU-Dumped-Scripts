@@ -1,0 +1,26 @@
+unsafe extern "C" fn sound_ladderup(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_ladderstep_l"));
+        }
+        wait(agent.lua_state_agent, 9.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_ladderstep_l"));
+        }
+        wait(agent.lua_state_agent, 9.0);
+    }
+}
+
+unsafe extern "C" fn expression_ladderup(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 9.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

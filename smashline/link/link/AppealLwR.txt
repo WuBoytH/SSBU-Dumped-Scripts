@@ -1,0 +1,34 @@
+unsafe extern "C" fn effect_appeallwr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("sword1"), 12, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, true);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
+    }
+}
+
+unsafe extern "C" fn sound_appeallwr(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_link_squat"));
+    }
+    wait(agent.lua_state_agent, 20.0);
+    wait(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_link_appeal_l01"));
+        macros::PLAY_SE(agent, Hash40::new("vc_link_attack03"));
+    }
+}
+
+unsafe extern "C" fn expression_appeallwr(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 72.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

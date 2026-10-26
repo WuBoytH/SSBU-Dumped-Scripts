@@ -1,0 +1,17 @@
+unsafe extern "C" fn effect_death(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("rosetta_tico_dead"), Hash40::new("hip"), 1, 0, 0, 0, 0, -90, 1.1, 0, 0, 0, 0, 0, 0, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *WEAPON_ROSETTA_TICO_INSTANCE_WORK_ID_FLAG_CAMERA_OFF);
+    }
+}
+
+unsafe extern "C" fn sound_death(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_tico_dead"));
+    }
+}

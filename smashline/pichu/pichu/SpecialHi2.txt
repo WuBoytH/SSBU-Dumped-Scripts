@@ -1,0 +1,13 @@
+unsafe extern "C" fn game_specialhi2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FT_ADD_DAMAGE(agent, 1);
+        JostleModule::set_status(agent.module_accessor, false);
+    }
+}
+
+unsafe extern "C" fn sound_specialhi2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_pichu_special_h02"));
+    }
+}

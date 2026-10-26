@@ -1,0 +1,20 @@
+unsafe extern "C" fn game_specialnstart(agent: &mut L2CAgentBase) {
+    macros::FT_MOTION_RATE(agent, 0.73);
+    frame(agent.lua_state_agent, 13.0);
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_GEKKOUGA_GENERATE_ARTICLE_SHURIKEN, false, -1);
+    }
+}
+
+unsafe extern "C" fn sound_specialnstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_gekkouga_special_n05"));
+    }
+}
+
+unsafe extern "C" fn expression_specialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

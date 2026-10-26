@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_samusdspecialairnhold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_LIGHT(agent, Hash40::new("samusd_cshot_hold"), Hash40::new("armr"), 6.5, 0, 0, 0, 0, 0, 1, true, 0.471, 0.471, 0.471, 20, 1, 1, 0);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn sound_samusdspecialairnhold(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("se_samusd_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_samusdspecialairnhold(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

@@ -1,0 +1,38 @@
+unsafe extern "C" fn effect_walkfast(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        }
+        wait(agent.lua_state_agent, 14.0);
+    }
+}
+
+unsafe extern "C" fn sound_walkfast(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+        macros::PLAY_STATUS(agent, Hash40::new("se_koopajr_step_l"));
+    }
+}
+
+unsafe extern "C" fn expression_walkfast(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 2.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 27.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 52.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 77.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk_hv"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

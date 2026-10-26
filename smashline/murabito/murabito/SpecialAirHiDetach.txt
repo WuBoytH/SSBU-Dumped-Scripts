@@ -1,0 +1,12 @@
+unsafe extern "C" fn sound_specialairhidetach(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_murabito_special_h03"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairhidetach(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

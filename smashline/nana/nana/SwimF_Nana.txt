@@ -1,0 +1,26 @@
+unsafe extern "C" fn sound_swimf_nana(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_swim_high_01"));
+    }
+    // TODO: pop_lua_stack(1);
+    wait_loop_sync_mot(agent.lua_state_agent);
+    loop {
+        frame(agent.lua_state_agent, 8.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_common_swim_high_01"));
+        }
+        wait(agent.lua_state_agent, 1.0);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_swimf_nana(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 17.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_swim"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

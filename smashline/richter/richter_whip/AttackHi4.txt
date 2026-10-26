@@ -1,0 +1,46 @@
+unsafe extern "C" fn game_attackhi4(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_NONE);
+    }
+    macros::FT_MOTION_RATE(agent, 0.2);
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_MOVE);
+        WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
+        WeaponSpecializer_SimonWhip::set_node_fix_flag_list(agent.battle_object as *mut Weapon, 4, 5, 10, 11, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    macros::FT_MOTION_RATE(agent, 1);
+    frame(agent.lua_state_agent, 13.0);
+    macros::FT_MOTION_RATE(agent, 0.5);
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_NONE);
+        WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    macros::FT_MOTION_RATE(agent, 1);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_COLLIDE);
+    }
+    frame(agent.lua_state_agent, 52.0);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_NONE);
+    }
+}
+
+unsafe extern "C" fn effect_attackhi4(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 23.0);
+    if macros::is_excute(agent) {
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("richter_whip_straight"), Hash40::new("hookshot3"), -6, 0, 0, 180, 50, 90, 1.1, true);
+        macros::EFFECT_FOLLOW_ALPHA(agent, Hash40::new("richter_whip_light"), Hash40::new("hookshot10"), 0, 0, 0, 0, 0, 0, 1, false, 0.65);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("richter_whip_light_s"), Hash40::new("hookshot3"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("richter_whip_flash_top"), Hash40::new("hookshot27"), 1, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, false);
+    }
+}

@@ -1,0 +1,11 @@
+unsafe extern "C" fn game_attackholdstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_COLLIDE);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_MOVE);
+        WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
+        WeaponSpecializer_SimonWhip::set_node_fix_flag_list(agent.battle_object as *mut Weapon, 5, 11, 12, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
+    }
+}

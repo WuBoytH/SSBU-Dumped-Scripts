@@ -1,0 +1,37 @@
+unsafe extern "C" fn effect_entryl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        macros::LANDING_EFFECT(agent, Hash40::new("sys_landing_smoke_s"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_entryl(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dolly_jump01"));
+    }
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dolly_appear01"));
+    }
+    frame(agent.lua_state_agent, 37.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dolly_appear02"));
+    }
+    frame(agent.lua_state_agent, 84.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_dolly_appear03"));
+    }
+}
+
+unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+    }
+}

@@ -1,0 +1,45 @@
+unsafe extern "C" fn game_specialairnbiteend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 10.0);
+    if is_excute(agent) {
+        CHECK_FINISH_CAMERA(agent, 12, 3);
+    }
+    frame(lua_state, 11.0);
+    if is_excute(agent) {
+        let target_object = WorkModule::get_int64(boma, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_OBJECT);
+        let target_hit_group = WorkModule::get_int64(boma, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_GROUP);
+        let target_hit_no = WorkModule::get_int64(boma, *FIGHTER_STATUS_THROW_WORK_INT_TARGET_HIT_NO);
+        ATK_HIT_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, Hash40::new("throw"), target_object, target_hit_group, target_hit_no);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnbiteend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wario_swing_l"));
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_wario_special_n08"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairnbiteend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 4, true);
+    }
+    frame(lua_state, 11.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_L, 2);
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attackm"), 0, false, 0x50000000);
+    }
+    frame(lua_state, 19.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 8);
+    }
+}

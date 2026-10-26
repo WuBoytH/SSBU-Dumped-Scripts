@@ -1,0 +1,27 @@
+unsafe extern "C" fn sound_itemheavywalk(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 17.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_miiswordsman_step_right_m"));
+        }
+        frame(agent.lua_state_agent, 32.5);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_miiswordsman_step_left_m"));
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_itemheavywalk(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 16.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
+        frame(agent.lua_state_agent, 31.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_walk"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

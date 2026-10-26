@@ -1,0 +1,18 @@
+unsafe extern "C" fn effect_shulkspecialnstart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn expression_shulkspecialnstart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

@@ -1,0 +1,17 @@
+unsafe extern "C" fn game_specialhi(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("up"), hash40("off"));
+        VisibilityModule::set_int64(boma, hash40("down"), hash40("off"));
+    }
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("down"), hash40("on"));
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("up"), hash40("on"));
+        VisibilityModule::set_int64(boma, hash40("down"), hash40("off"));
+    }
+}

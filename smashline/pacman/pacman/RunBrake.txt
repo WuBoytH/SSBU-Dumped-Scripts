@@ -1,0 +1,17 @@
+unsafe extern "C" fn sound_runbrake(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_pacman_dash_stop"));
+        macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_pacman_dash_stop"), 20);
+    }
+}
+
+unsafe extern "C" fn expression_runbrake(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+}

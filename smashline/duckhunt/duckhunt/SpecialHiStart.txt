@@ -1,0 +1,16 @@
+unsafe extern "C" fn sound_specialhistart(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_duckhunt_special_h01"));
+    }
+    wait(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SEQUENCE(agent, Hash40::new("seq_duckhunt_rnd_attack_duck"));
+    }
+}
+
+unsafe extern "C" fn expression_specialhistart(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

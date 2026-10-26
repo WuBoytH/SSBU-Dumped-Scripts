@@ -1,0 +1,27 @@
+unsafe extern "C" fn game_specialairlwshoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_a"), hash40("off"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_b"), hash40("off"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_c"), hash40("off"));
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_a"), hash40("on"));
+    }
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_a"), hash40("off"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_b"), hash40("on"));
+    }
+    frame(agent.lua_state_agent, 14.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_b"), hash40("off"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_c"), hash40("on"));
+    }
+    frame(agent.lua_state_agent, 27.0);
+    if macros::is_excute(agent) {
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_a"), hash40("off"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_b"), hash40("off"));
+        VisibilityModule::set_int64(agent.module_accessor, hash40("oil_c"), hash40("off"));
+    }
+}

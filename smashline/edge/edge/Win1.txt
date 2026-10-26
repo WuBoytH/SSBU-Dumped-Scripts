@@ -1,0 +1,43 @@
+unsafe extern "C" fn effect_win1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ColorBlendModule::set_disable_camera_depth_influence(agent.module_accessor, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_win_fire"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_win_sprks"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_win_sprks_b"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_win_sprks2"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_win_sprks3"), true, true);
+        macros::EFFECT(agent, Hash40::new("edge_win_fire"), Hash40::new("top"), 0, 0, -35, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("edge_win_sprks"), Hash40::new("top"), 0, 0, -35, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("edge_win_sprks2"), Hash40::new("top"), 0, 0, -35, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 124.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("edge_win_burst"), Hash40::new("top"), 0.73, 19.14, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("edge_win_sprks2"), false, true);
+    }
+    frame(agent.lua_state_agent, 300.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0, 0, 0, 0);
+        macros::EFFECT(agent, Hash40::new("edge_win_sprks2"), Hash40::new("top"), 0, 0, -35, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+    frame(agent.lua_state_agent, 320.0);
+    if macros::is_excute(agent) {
+        macros::FLASH_FRM(agent, 400, 0, 0, 0, 1);
+    }
+    wait(agent.lua_state_agent, 400.0);
+}
+
+unsafe extern "C" fn sound_win1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_edge_win01_02"));
+    }
+    frame(agent.lua_state_agent, 195.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_edge_win01_02"));
+    }
+    frame(agent.lua_state_agent, 277.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_edge_win01_step01"));
+    }
+}

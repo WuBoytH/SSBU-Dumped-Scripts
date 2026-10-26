@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_squatb(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), -2.5, 0, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0, 0, false);
+        }
+        wait(agent.lua_state_agent, 25.0);
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 17.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_pickel_step_m"));
+        }
+        frame(agent.lua_state_agent, 67.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_pickel_step_m"));
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

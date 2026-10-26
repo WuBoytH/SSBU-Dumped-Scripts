@@ -1,0 +1,16 @@
+unsafe extern "C" fn sound_aircatchhit(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new_raw(0x0f70cb9a58));
+    }
+    wait(lua_state, 5.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_common_cliff_catch"));
+    }
+    wait(lua_state, 3.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new_raw(0x0fe9c2cbe2));
+    }
+}

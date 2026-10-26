@@ -1,0 +1,18 @@
+unsafe extern "C" fn game_specialairhidetach(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_SWING, Hash40::new("air_detach"), false, -1.0);
+    }
+}
+
+unsafe extern "C" fn sound_specialairhidetach(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_shizue_special_h03"));
+    }
+}
+
+unsafe extern "C" fn expression_specialairhidetach(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

@@ -1,0 +1,22 @@
+unsafe extern "C" fn game_scopeairfireemptyfly1(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 3.0);
+    if !WorkModule::is_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT) {
+        if is_excute(agent) {
+            let sscope_charge = WorkModule::get_int64(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_INT_SSCOPE_CHARGE);
+            SHOOT_ITEM_BULLET_CHARGE(agent, sscope_charge);
+            WorkModule::on_flag(boma, *FIGHTER_STATUS_ITEM_SHOOT_WORK_FLAG_SSCOPE_SHOOT);
+        }
+    }
+}
+
+unsafe extern "C" fn sound_scopeairfireemptyfly1(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_tantan_jump02"));
+        PLAY_SEQUENCE(agent, Hash40::new("seq_tantan_rnd_jumpair"));
+    }
+}

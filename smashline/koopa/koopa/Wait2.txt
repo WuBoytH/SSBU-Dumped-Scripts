@@ -1,0 +1,19 @@
+unsafe extern "C" fn effect_wait2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 61.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopa_wait_breath"), Hash40::new("head"), -1.5, 3, 0, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn sound_wait2(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 53.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STATUS(agent, Hash40::new("vc_koopa_wait2"));
+    }
+}
+
+unsafe extern "C" fn expression_wait2(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

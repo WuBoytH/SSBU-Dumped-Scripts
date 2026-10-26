@@ -1,0 +1,33 @@
+unsafe extern "C" fn effect_throwb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 16.0);
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("throw"), 0, 0, -10, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_purple_fire_side"), Hash40::new("handl"), 7, 0, 0, 0, 0, 0, 1.2, true);
+    }
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("koopag_purple_fire_side"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_throwb(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_01"));
+    }
+    wait(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_common_throw_02"));
+    }
+}
+
+unsafe extern "C" fn expression_throwb(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 18.0);
+    if macros::is_excute(agent) {
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+    }
+}

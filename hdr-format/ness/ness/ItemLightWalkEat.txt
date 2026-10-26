@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_itemlightwalkeat(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 3.0);
+    if is_excute(agent) {
+        ItemModule::pickup_item(boma, *ITEM_SIZE_LIGHT, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY, -1, 0, 0);
+    }
+    frame(lua_state, 6.0);
+    if is_excute(agent) {
+        ItemModule::use_item(boma, *FIGHTER_HAVE_ITEM_WORK_TEMPORARY, false);
+    }
+}
+
+unsafe extern "C" fn expression_itemlightwalkeat(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 22.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 3);
+    }
+}

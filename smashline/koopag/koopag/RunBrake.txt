@@ -1,0 +1,17 @@
+unsafe extern "C" fn effect_runbrake(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 15, 0, 0, 0, 180, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 15, 0, 0, 0, 180, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
+    }
+    wait(agent.lua_state_agent, 4.0);
+}
+
+unsafe extern "C" fn expression_runbrake(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

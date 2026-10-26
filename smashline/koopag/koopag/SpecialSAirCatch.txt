@@ -1,0 +1,43 @@
+unsafe extern "C" fn game_specialsaircatch(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 16.0);
+    if macros::is_excute(agent) {
+        macros::CATCH(agent, 0, Hash40::new("top"), 11.0, 0.0, 10.5, 48.0, Some(0.0), Some(19.0), Some(27.0), *FIGHTER_STATUS_KIND_KOOPA_DIVED, *COLLISION_SITUATION_MASK_GA);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        grab!(agent, *MA_MSC_CMD_GRAB_CLEAR_ALL);
+    }
+}
+
+unsafe extern "C" fn effect_specialsaircatch(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP(agent, Hash40::new("koopag_appear_elec"), Hash40::new("koopag_appear_elec"), Hash40::new("handr"), 0, -8, 0, 0, 0, 0, 1.2, true, *EF_FLIP_XY);
+        macros::EFFECT_FLIP(agent, Hash40::new("sys_smash_flash_s"), Hash40::new("sys_smash_flash_s"), Hash40::new("handr"), 10, -8, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, true, *EF_FLIP_XY);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_FLIP_ALPHA(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 20, 23, 15, 18, -5.3, 3.55, true, *EF_FLIP_YZ, 1);
+        macros::LAST_EFFECT_SET_RATE(agent, 1.5);
+    }
+    frame(agent.lua_state_agent, 17.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 1, 0.753, 0.627);
+        macros::FLASH_FRM(agent, 5, 0.502, 0, 0, 0);
+    }
+    frame(agent.lua_state_agent, 19.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_attack_arc_d"), true, true);
+    }
+    wait(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+}
+
+unsafe extern "C" fn sound_specialsaircatch(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_special_s01"));
+    }
+}

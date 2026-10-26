@@ -1,0 +1,28 @@
+unsafe extern "C" fn sound_swimf(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        wait(lua_state, 6.0);
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_common_swim_low_02"));
+        }
+        wait(lua_state, 1.0);
+        wait_loop_sync_mot(lua_state);
+    }
+}
+
+unsafe extern "C" fn expression_swimf(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        frame(lua_state, 1.0);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_swim"), 0, false, 0x50000000);
+        }
+        frame(lua_state, 16.0);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_swim"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(lua_state);
+    }
+}

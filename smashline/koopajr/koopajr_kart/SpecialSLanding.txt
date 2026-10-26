@@ -1,0 +1,23 @@
+unsafe extern "C" fn effect_specialslanding(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet"), false, true);
+    }
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, 3.8, 0, 0, -95, 0.5, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("koopajr_kart_jet"), Hash40::new("muffler"), 8.8, -0.4, -3.8, 0, 0, -95, 0.5, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+}
+
+unsafe extern "C" fn sound_specialslanding(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s04"));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02"));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02_01"));
+        macros::STOP_SE(agent, Hash40::new("se_koopajr_special_s02_02"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_koopajr_special_s02_03"));
+        macros::PLAY_STATUS(agent, Hash40::new("se_koopajr_special_n07"));
+    }
+}

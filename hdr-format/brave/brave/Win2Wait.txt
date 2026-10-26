@@ -1,0 +1,13 @@
+unsafe extern "C" fn effect_win2wait(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 2.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("brave_lightning3_sword"), false, true);
+    }
+    frame(lua_state, 4.0);
+    if is_excute(agent) {
+        let effect_kind_lightning_sword_flare = WorkModule::get_int64(boma, *FIGHTER_BRAVE_INSTANCE_WORK_ID_INT_EFFECT_KIND_LIGHTNING_SWORD_FLARE);
+        EFFECT_OFF_KIND_WORK(agent, effect_kind_lightning_sword_flare, false, true);
+    }
+}

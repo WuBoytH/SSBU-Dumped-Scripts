@@ -1,0 +1,27 @@
+unsafe extern "C" fn game_specialairsend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        WorkModule::on_flag(boma, *FIGHTER_BUDDY_STATUS_SPECIAL_S_FLAG_LANDING_HEAVY);
+    }
+}
+
+unsafe extern "C" fn effect_specialairsend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 5.0);
+    if is_excute(agent) {
+        let effect_kind_flying = WorkModule::get_int64(boma, *FIGHTER_BUDDY_INSTANCE_WORK_ID_INT_EFFECT_KIND_FLYING);
+        EFFECT_FOLLOW_WORK(agent, effect_kind_flying, Hash40::new("k_all"), 0, -6, 0, 0, 0, 0, 1, true);
+        EffectModule::enable_sync_init_pos_last(boma);
+    }
+}
+
+unsafe extern "C" fn expression_specialairsend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitll"), 7, false, 0x50000000);
+    }
+}

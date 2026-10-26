@@ -1,0 +1,27 @@
+unsafe extern "C" fn effect_turn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_turn(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    wait(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_plizardon_step_right_m"));
+    }
+    wait(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_STEP(agent, Hash40::new("se_plizardon_step_left_m"));
+    }
+}
+
+unsafe extern "C" fn expression_turn(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x23c33f3bdc));
+    }
+}

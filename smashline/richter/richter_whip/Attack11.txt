@@ -1,0 +1,28 @@
+unsafe extern "C" fn game_attack11(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_NONE);
+        WeaponSpecializer_SimonWhip::set_2nd_gravity(agent.battle_object as *mut Weapon, 10.0);
+        WeaponSpecializer_SimonWhip::set_2nd_air_resistance(agent.battle_object as *mut Weapon, 50.0);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_COLLIDE);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        PhysicsModule::set_2nd_status(agent.module_accessor, *PH2NDARY_CRAW_MOVE);
+        WeaponSpecializer_SimonWhip::reset_node_fix_flag_list(agent.battle_object as *mut Weapon);
+        macros::ATTACK_ABS(agent, 4, 5, 9.0, 10, 15, 16, 17, 18.0, 19.0, 20, 21.0, 22, Hash40::new_raw(23), 24, 25, 26);
+    }
+}
+
+unsafe extern "C" fn effect_attack11(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, true);
+    }
+    frame(agent.lua_state_agent, 6.0);
+    if macros::is_excute(agent) {
+        WeaponSpecializer_SimonWhip::set_chain_2_visibility(agent.battle_object as *mut Weapon, false);
+    }
+}

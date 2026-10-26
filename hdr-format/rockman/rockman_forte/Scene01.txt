@@ -1,0 +1,13 @@
+unsafe extern "C" fn effect_scene01(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 71.0);
+    if is_excute(agent) {
+        EFFECT_FOLLOW(agent, Hash40::new("rockman_final_charge_forte"), Hash40::new("handl"), 2, 0, 0, 0, 0, 0, 1, true);
+    }
+    frame(lua_state, 183.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("rockman_final_charge_forte"), false, false);
+        EFFECT_FOLLOW_COLOR(agent, Hash40::new("rockman_final_beam"), Hash40::new("handl"), 3, 0, 0, 0, 105, 0, 1, true, 0.6, 0.3, 1);
+    }
+}

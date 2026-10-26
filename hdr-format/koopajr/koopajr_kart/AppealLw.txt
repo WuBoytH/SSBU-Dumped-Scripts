@@ -1,0 +1,20 @@
+unsafe extern "C" fn effect_appeallw(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 15.0);
+    if get_value_float(lua_state, *SO_VAR_FLOAT_LR) < 0.0 {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("koopajr_kart_jet_appeal"), Hash40::new("muffler"), 9, -0.5, 4, 180, 0, 0, 0.7, true);
+            EFFECT_FOLLOW(agent, Hash40::new("koopajr_kart_jet_appeal"), Hash40::new("muffler"), 9, -0.5, -4, 180, 0, 0, 0.7, true);
+        }
+    } else {
+        if is_excute(agent) {
+            EFFECT_FOLLOW(agent, Hash40::new("koopajr_kart_jet_appeal"), Hash40::new("muffler"), 9, -0.5, 4, 0, 0, 0, 0.7, true);
+            EFFECT_FOLLOW(agent, Hash40::new("koopajr_kart_jet_appeal"), Hash40::new("muffler"), 9, -0.5, -4, 0, 0, 0, 0.7, true);
+        }
+    }
+    frame(lua_state, 55.0);
+    if is_excute(agent) {
+        EFFECT_OFF_KIND(agent, Hash40::new("koopajr_kart_jet_appeal"), false, false);
+    }
+}

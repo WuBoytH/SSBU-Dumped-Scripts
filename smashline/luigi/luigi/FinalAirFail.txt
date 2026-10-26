@@ -1,0 +1,24 @@
+unsafe extern "C" fn effect_finalairfail(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 99.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_erace_smoke"), Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn sound_finalairfail(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_luigi_final07"));
+    }
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_luigi_final08"));
+    }
+}
+
+unsafe extern "C" fn expression_finalairfail(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+    }
+}

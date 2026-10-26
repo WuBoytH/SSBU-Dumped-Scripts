@@ -1,0 +1,81 @@
+unsafe extern "C" fn game_appeallwr(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        ArticleModule::generate_article_enable(boma, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_KART, false, -1);
+    }
+    frame(lua_state, 97.0);
+    if is_excute(agent) {
+        ArticleModule::remove_exist(boma, *FIGHTER_KOOPAJR_GENERATE_ARTICLE_KART, ArticleOperationTarget(0));
+    }
+}
+
+unsafe extern "C" fn effect_appeallwr(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 15.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -5, 0, -7, 0, 0, 0, 1.5, 5, 0, 5, 0, 0, 0, false);
+    }
+    wait(lua_state, 6.0);
+    if is_excute(agent) {
+        FOOT_EFFECT(agent, Hash40::new("sys_turn_smoke"), Hash40::new("top"), -5, 0, -7, 0, 0, 0, 1.5, 5, 0, 5, 0, 0, 0, false);
+    }
+    wait(lua_state, 6.0);
+    frame(lua_state, 27.0);
+    if is_excute(agent) {
+        LANDING_EFFECT(agent, Hash40::new("sys_whirlwind_l"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+
+unsafe extern "C" fn sound_appeallwr(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    frame(lua_state, 1.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_koopajr_open_mouth"));
+    }
+    frame(lua_state, 29.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_koopajr_appeal_l01"));
+    }
+    frame(lua_state, 88.0);
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_koopajr_close"));
+    }
+}
+
+unsafe extern "C" fn expression_appeallwr(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        VisibilityModule::set_int64(boma, hash40("clown"), hash40("clown_off"));
+        VisibilityModule::set_int64(boma, hash40("clown_face"), hash40("clown_face_off"));
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_NONE);
+    }
+    frame(lua_state, 8.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 6);
+    }
+    frame(lua_state, 30.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_rush"), 0, false, 0x50000000);
+    }
+    frame(lua_state, 51.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_nohits"), 0, false, 0x50000000);
+    }
+    frame(lua_state, 86.0);
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 10);
+    }
+    frame(lua_state, 93.0);
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_grapple"), 0, false, 0x50000000);
+    }
+    frame(lua_state, 97.0);
+    if is_excute(agent) {
+        VisibilityModule::set_default_int64(boma, hash40("clown"));
+        VisibilityModule::set_default_int64(boma, hash40("clown_face"));
+    }
+}

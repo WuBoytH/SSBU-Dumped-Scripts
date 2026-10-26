@@ -1,0 +1,11 @@
+unsafe extern "C" fn game_win2wait(agent: &mut L2CAgentBase) {
+    if !macros::IS_EXIST_ARTICLE(agent, *FIGHTER_DIDDY_GENERATE_ARTICLE_BARRELJET) {
+        if macros::is_excute(agent) {
+            VisibilityModule::set_int64(agent.module_accessor, hash40("barrel"), hash40("barrel_invisible"));
+        }
+    } else {
+        if macros::is_excute(agent) {
+            ArticleModule::remove(agent.module_accessor, *FIGHTER_DIDDY_GENERATE_ARTICLE_BARRELJET, ArticleOperationTarget(0));
+        }
+    }
+}

@@ -1,0 +1,35 @@
+unsafe extern "C" fn game_attacklongstartl1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        FighterAreaModuleImpl::enable_fix_jostle_area(agent.module_accessor, 3.5, 3.5);
+    }
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_START_HOLD);
+    }
+    frame(agent.lua_state_agent, 15.0);
+    if macros::is_excute(agent) {
+        macros::HIT_NO(agent, 3, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 9, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 10, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 11, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 12, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 13, *HIT_STATUS_OFF);
+        macros::HIT_NO(agent, 19, *HIT_STATUS_OFF);
+    }
+}
+
+unsafe extern "C" fn effect_attacklongstartl1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 0, 0, false);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("havel"), 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+    }
+}
+
+unsafe extern "C" fn expression_attacklongstartl1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+}

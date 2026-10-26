@@ -1,0 +1,11 @@
+unsafe extern "C" fn expression_hammerjump(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        frame(lua_state, 4.0);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(lua_state);
+    }
+}

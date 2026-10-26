@@ -1,0 +1,16 @@
+unsafe extern "C" fn effect_wait1(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 30.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_wait_breath"), Hash40::new("mouth1"), 0, -3.7, 0, 0, 0, 0, 1.35, true);
+    }
+    frame(agent.lua_state_agent, 130.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_wait_breath"), Hash40::new("mouth1"), 0, -3.7, 0, 0, 0, 0, 1.35, true);
+    }
+}
+
+unsafe extern "C" fn expression_wait1(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+    }
+}

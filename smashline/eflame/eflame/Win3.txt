@@ -1,0 +1,47 @@
+unsafe extern "C" fn game_win3(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_WINDUMMY, false, -1);
+        ArticleModule::change_motion(agent.module_accessor, *FIGHTER_EFLAME_GENERATE_ARTICLE_WINDUMMY, Hash40::new("win_3"), false, -1.0);
+    }
+}
+
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 25.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 1, 0.15, 0.02, 0.5);
+        macros::FLASH_FRM(agent, 5, 3, 2, 2, 1);
+    }
+    frame(agent.lua_state_agent, 31.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("elight_change_win3"), Hash40::new("top"), 0, 11.5, 3, 0, 0, 0, 1, false);
+        macros::FLASH(agent, 2, 3, 2, 1);
+        macros::FLASH_FRM(agent, 6, 0.5, 0.5, 0.1, 0.5);
+    }
+    frame(agent.lua_state_agent, 36.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+    frame(agent.lua_state_agent, 89.0);
+    if macros::is_excute(agent) {
+        macros::FLASH(agent, 0.5, 0.5, 0.1, 0.5);
+        macros::FLASH_FRM(agent, 5, 2, 3, 2, 1);
+    }
+    frame(agent.lua_state_agent, 95.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_change_win3"), Hash40::new("top"), -0.5, 11, 3, 0, 0, 0, 1, false);
+        macros::FLASH(agent, 3, 2, 2, 1.2);
+        macros::FLASH_FRM(agent, 6, 1, 0.15, 0.02, 0.5);
+    }
+    frame(agent.lua_state_agent, 100.0);
+    if macros::is_excute(agent) {
+        macros::COL_NORMAL(agent);
+    }
+}
+
+unsafe extern "C" fn sound_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("vc_eflame_win03_mix"));
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_win03"));
+    }
+}

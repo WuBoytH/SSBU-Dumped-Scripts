@@ -1,0 +1,22 @@
+unsafe extern "C" fn sound_furafura(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        if !WorkModule::is_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL) {
+            if is_excute(agent) {
+                PLAY_SE(agent, Hash40::new("vc_peach_furafura"));
+            }
+            wait_loop_sync_mot(lua_state);
+        }
+        wait_loop_sync_mot(lua_state);
+    }
+}
+
+unsafe extern "C" fn expression_furafura(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    // TODO: expression_FuraFuraRumble();
+    if is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+    }
+}

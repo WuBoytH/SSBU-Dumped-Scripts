@@ -1,0 +1,13 @@
+unsafe extern "C" fn effect_back(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_blazeend_sword"), true, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("eflame_sword_close"), true, true);
+        macros::EFFECT_FOLLOW(agent, Hash40::new("eflame_blazeend_return"), Hash40::new("sword1"), 0, 0, 0, 0, 90, 0, 1, false);
+    }
+}
+
+unsafe extern "C" fn sound_back(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_eflame_special_s04"));
+    }
+}

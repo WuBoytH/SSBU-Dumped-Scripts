@@ -1,0 +1,45 @@
+unsafe extern "C" fn game_specialairsend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        notify_event_msc_cmd!(agent, Hash40::new_raw(0x2127e37c07), *GROUND_CLIFF_CHECK_KIND_ALWAYS_BOTH_SIDES);
+    }
+}
+
+unsafe extern "C" fn effect_specialairsend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FLW_POS(agent, Hash40::new("pichu_rocket_aura"), Hash40::new("head"), 6.5, 0, 0, 90, 0, 0, 1.13, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+        macros::EFFECT_FLW_POS_NO_STOP(agent, Hash40::new("pichu_rocket_jet"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 0.95, true);
+        EffectModule::enable_sync_init_pos_last(agent.module_accessor);
+    }
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pichu_rocket_aura"), false, true);
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("pichu_rocket_jet"), false, true);
+    }
+}
+
+unsafe extern "C" fn sound_specialairsend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+    }
+}
+
+unsafe extern "C" fn expression_specialairsend(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3);
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attackl"), 0);
+    }
+    frame(agent.lua_state_agent, 4.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 3, true);
+    }
+    frame(agent.lua_state_agent, 38.0);
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 7);
+    }
+    frame(agent.lua_state_agent, 42.0);
+    if macros::is_excute(agent) {
+        ItemModule::set_have_item_visibility(agent.module_accessor, true, 0);
+    }
+}

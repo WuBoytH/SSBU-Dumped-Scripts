@@ -1,0 +1,26 @@
+unsafe extern "C" fn sound_attack100end_default(agent: &mut L2CAgentBase) {
+    if WorkModule::get_int64(agent.module_accessor, *FIGHTER_BAYONETTA_INSTANCE_WORK_ID_INT_COSTUME_KIND) < *FIGHTER_BAYONETTA_COSTUME_KIND_BAYONETTA_1 as u64 {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+        }
+        frame(agent.lua_state_agent, 8.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SEQUENCE(agent, Hash40::new("seq_bayonetta_rnd_attack_smash_s01_jp"));
+        }
+        frame(agent.lua_state_agent, 10.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_bayonetta_attack100_02"));
+        }
+        frame(agent.lua_state_agent, 22.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new("se_bayonetta_loveisblue_spin"));
+        }
+        frame(agent.lua_state_agent, 55.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_bayonetta_step_right_s"));
+        }
+    } else {
+        frame(agent.lua_state_agent, 0.0);
+    }
+}

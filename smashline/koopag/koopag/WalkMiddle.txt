@@ -1,0 +1,47 @@
+unsafe extern "C" fn effect_walkmiddle(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 23.0);
+        if macros::is_excute(agent) {
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 23, 0, -15, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 18, 0, -15, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+        }
+        frame(agent.lua_state_agent, 72.0);
+        if macros::is_excute(agent) {
+            macros::LANDING_EFFECT(agent, Hash40::new("sys_down_smoke"), Hash40::new("top"), 23, 0, 15, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+            macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 18, 0, 15, 0, 0, 0, 1.05, 0, 0, 0, 0, 0, 0, false);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn sound_walkmiddle(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 22.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_right_s"));
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new("se_koopag_step_right_s"), 20);
+        }
+        wait(agent.lua_state_agent, 49.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_STEP(agent, Hash40::new("se_koopag_step_left_m"));
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_walkmiddle(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_NONE, 12);
+        }
+        frame(agent.lua_state_agent, 22.0);
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        }
+        frame(agent.lua_state_agent, 71.0);
+        if macros::is_excute(agent) {
+            macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

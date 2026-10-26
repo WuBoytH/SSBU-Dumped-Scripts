@@ -1,0 +1,15 @@
+unsafe extern "C" fn sound_adventurerun(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        frame(lua_state, 5.0);
+        if is_excute(agent) {
+            PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_rockman_step_right_m"), Hash40::new("se_rockman_step_left_m"));
+        }
+        wait(lua_state, 11.0);
+        if is_excute(agent) {
+            PLAY_STEP_FLIPPABLE(agent, Hash40::new("se_rockman_step_left_m"), Hash40::new("se_rockman_step_right_m"));
+        }
+        wait_loop_sync_mot(lua_state);
+    }
+}

@@ -1,0 +1,120 @@
+unsafe extern "C" fn game_death(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 60.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_BOSS_DEAD_FLAG_KEYOFF_BGM);
+    }
+    frame(agent.lua_state_agent, 208.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_DEAD_FLAG_END_ACTION);
+    }
+    frame(agent.lua_state_agent, 230.0);
+    if macros::is_excute(agent) {
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_BOSS_DEAD_FLAG_BOSS_STOP_SE);
+        WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_BOSS_DEAD_FLAG_FINISH);
+    }
+}
+
+unsafe extern "C" fn effect_death(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("shoulderr"), 0, 0, 0, 0, 0, 0, 0.5, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 20.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("top"), 0, 45, 0, 0, 0, 0, 0.7, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("shoulderl"), 0, 0, 0, 0, 0, 0, 0.6, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 55.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("kneer"), 0, 8, 0, 0, 0, 0, 0.6, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+    }
+    frame(agent.lua_state_agent, 65.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("top"), 0, 30, 0, 0, 0, 0, 0.9, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+    }
+    frame(agent.lua_state_agent, 80.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+    }
+    frame(agent.lua_state_agent, 85.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 1, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+    }
+    frame(agent.lua_state_agent, 130.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("armr"), 0, 0, 0, 0, 0, 0, 0.6, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 160.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("arml"), 0, 0, 0, 0, 0, 0, 0.85, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_S);
+    }
+    frame(agent.lua_state_agent, 178.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("tail1"), 0, 0, 0, 0, 0, 0, 1.2, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_M);
+    }
+    frame(agent.lua_state_agent, 188.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("koopag_dead"), Hash40::new("head"), 0, 0, 0, 0, 0, 0, 1.35, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_L);
+    }
+    frame(agent.lua_state_agent, 195.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT(agent, Hash40::new("koopag_dead_last"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("koopag_dead"), Hash40::new("kneer"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("koopag_dead"), Hash40::new("kneel"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, true);
+        macros::EFFECT(agent, Hash40::new("koopag_dead"), Hash40::new("waist"), 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, true);
+        macros::QUAKE(agent, *CAMERA_QUAKE_KIND_XL);
+    }
+}
+
+unsafe extern "C" fn expression_death(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 5.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_explosion"), 15);
+    }
+    frame(agent.lua_state_agent, 21.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_explosion"), 13);
+    }
+    frame(agent.lua_state_agent, 35.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_explosion"), 19);
+    }
+    frame(agent.lua_state_agent, 55.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_explosion"), 24);
+    }
+    frame(agent.lua_state_agent, 80.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_explosionm"), 0);
+    }
+    frame(agent.lua_state_agent, 131.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_explosion"), 0);
+    }
+    frame(agent.lua_state_agent, 160.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_explosion"), 18);
+    }
+    frame(agent.lua_state_agent, 179.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_explosion"), 9);
+    }
+    frame(agent.lua_state_agent, 189.0);
+    if macros::is_excute(agent) {
+        macros::RUMBLE_ALL(agent, Hash40::new("rbkind_explosionl"), 0);
+    }
+}

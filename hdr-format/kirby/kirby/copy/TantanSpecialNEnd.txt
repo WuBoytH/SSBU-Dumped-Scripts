@@ -1,0 +1,29 @@
+unsafe extern "C" fn effect_tantanspecialnend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        EFFECT_FOLLOW_NO_STOP(agent, Hash40::new("tantan_punch_end"), Hash40::new("top"), 0, 5, 8, 0, 0, 0, 0.7, true);
+    }
+}
+
+unsafe extern "C" fn sound_tantanspecialnend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        PLAY_SE(agent, Hash40::new("se_tantan_attack01_catch"));
+    }
+}
+
+unsafe extern "C" fn expression_tantanspecialnend(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    if is_excute(agent) {
+        ControlModule::set_rumble(boma, Hash40::new("rbkind_attackss"), 9, false, 0x50000000);
+    }
+    loop {
+        if is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 6);
+        }
+        wait(lua_state, 6.0);
+    }
+}

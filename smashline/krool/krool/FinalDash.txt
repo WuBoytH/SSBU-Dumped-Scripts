@@ -1,0 +1,27 @@
+unsafe extern "C" fn game_finaldash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::WHOLE_HIT(agent, *HIT_STATUS_XLU);
+        macros::CAM_ZOOM_OUT(agent);
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 15.0, 80, 100, 200, 0, 14.0, 0.0, 12.0, 3.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_SPEED, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, false);
+        AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
+    }
+    frame(agent.lua_state_agent, 3.0);
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 10.0, 80, 100, 200, 0, 14.0, 0.0, 12.0, 3.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_SPEED, false, f32::NAN, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_FIGHTER, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
+        AttackModule::set_no_dead_all(agent.module_accessor, true, false);
+        AttackModule::set_force_reaction(agent.module_accessor, 0, true, false);
+    }
+}
+
+unsafe extern "C" fn effect_finaldash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("krool_final_dash"), Hash40::new("top"), 0, 12.5, 27.5, 0, 0, 0, 1, true);
+    }
+}
+
+unsafe extern "C" fn expression_finaldash(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::RUMBLE_HIT(agent, Hash40::new("rbkind_attack_critical"), 0);
+    }
+}

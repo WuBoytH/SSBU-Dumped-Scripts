@@ -1,0 +1,11 @@
+unsafe extern "C" fn game_shoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        ArticleModule::generate_article(agent.module_accessor, *WEAPON_SNAKE_NIKITA_GENERATE_ARTICLE_MISSILE, false, -1);
+    }
+}
+
+unsafe extern "C" fn sound_shoot(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_snake_special_s01"));
+    }
+}

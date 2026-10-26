@@ -1,0 +1,17 @@
+unsafe extern "C" fn game_specialn1cancel(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        WorkModule::off_flag(agent.module_accessor, *FIGHTER_MIIGUNNER_STATUS_GUNNER_CHARGE_FLAG_BULLET_DISP);
+    }
+}
+
+unsafe extern "C" fn sound_specialn1cancel(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::STOP_SE(agent, Hash40::new("se_miigunner_special_n01"));
+    }
+}
+
+unsafe extern "C" fn expression_specialn1cancel(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

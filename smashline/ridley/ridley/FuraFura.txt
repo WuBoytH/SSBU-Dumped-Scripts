@@ -1,0 +1,18 @@
+unsafe extern "C" fn sound_furafura(agent: &mut L2CAgentBase) {
+    loop {
+        if !WorkModule::is_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_DISABLE_FURAFURA_VOICE_FINAL) {
+            if macros::is_excute(agent) {
+                macros::PLAY_STATUS(agent, Hash40::new("vc_ridley_furafura"));
+            }
+            wait_loop_sync_mot(agent.lua_state_agent);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_furafura(agent: &mut L2CAgentBase) {
+    // TODO: expression_FuraFuraRumble();
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

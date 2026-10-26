@@ -1,0 +1,21 @@
+unsafe extern "C" fn game_escapen(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    macros::FT_MOTION_RATE(agent, 1.6);
+}
+
+unsafe extern "C" fn sound_escapen(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_escapeair"));
+    }
+    wait(agent.lua_state_agent, 29.0);
+    if macros::is_excute(agent) {
+        macros::PLAY_SE(agent, Hash40::new("se_koopag_landing01"));
+    }
+}
+
+unsafe extern "C" fn expression_escapen(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}

@@ -1,0 +1,11 @@
+unsafe extern "C" fn game_final_com3(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    wait(lua_state, 1.0);
+    if is_excute(agent) {
+        AttackModule::clear_all(boma);
+    }
+    frame(lua_state, 13.0);
+    FT_MOTION_RATE(agent, 1);
+    frame(lua_state, 22.0);
+}

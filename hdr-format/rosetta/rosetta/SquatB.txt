@@ -1,0 +1,35 @@
+unsafe extern "C" fn effect_squatb(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        if is_excute(agent) {
+            FOOT_EFFECT(agent, Hash40::new("null"), Hash40::new("top"), 1, 0, 0, 0, 0, 0, 0.9, 1, 0, 0, 0, 0, 0, false);
+        }
+        wait(lua_state, 20.0);
+    }
+}
+
+unsafe extern "C" fn sound_squatb(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        frame(lua_state, 3.0);
+        if is_excute(agent) {
+            sound!(agent, *MA_MSC_CMD_SOUND_STOP_SE_STATUS);
+            PLAY_STATUS(agent, Hash40::new_raw(0x14e8709737));
+        }
+        wait_loop_sync_mot(lua_state);
+    }
+}
+
+unsafe extern "C" fn expression_squatb(agent: &mut L2CAgentBase) {
+    let boma = agent.boma();
+    let lua_state = agent.lua_state_agent;
+    loop {
+        frame(lua_state, 8.0);
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_floating"), 0, false, 0x50000000);
+        }
+        wait_loop_sync_mot(lua_state);
+    }
+}

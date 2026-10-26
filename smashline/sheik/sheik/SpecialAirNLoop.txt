@@ -1,0 +1,34 @@
+unsafe extern "C" fn effect_specialairnloop(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    loop {
+        wait(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::EFFECT_FOLLOW(agent, Hash40::new("sheik_shikomibari"), Hash40::new("havel"), 2, 0, 1.5, 0, 0, 0, 0.8, false);
+        }
+        wait(agent.lua_state_agent, 12.0);
+    }
+}
+
+unsafe extern "C" fn sound_specialairnloop(agent: &mut L2CAgentBase) {
+    loop {
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            macros::PLAY_SE(agent, Hash40::new_raw(0x14d690ec1c));
+            macros::SET_PLAY_INHIVIT(agent, Hash40::new_raw(0x14d690ec1c), 10);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}
+
+unsafe extern "C" fn expression_specialairnloop(agent: &mut L2CAgentBase) {
+    loop {
+        if macros::is_excute(agent) {
+            slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        }
+        frame(agent.lua_state_agent, 1.0);
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 3, false, 0x50000000);
+        }
+        wait_loop_sync_mot(agent.lua_state_agent);
+    }
+}

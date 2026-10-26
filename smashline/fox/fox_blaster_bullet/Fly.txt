@@ -1,0 +1,20 @@
+unsafe extern "C" fn game_fly(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        macros::ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 361, 0, 0, 0, 1.44, 0.0, 0.0, 0.8, Some(0.0), Some(0.0), Some(9.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_SPEED, false, 0, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_blaster_throw_down"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FOX_BLASTER, *ATTACK_REGION_ENERGY);
+    }
+    wait(agent.lua_state_agent, 2.0);
+    if macros::is_excute(agent) {
+        macros::ATK_POWER(agent, 0, 2);
+    }
+    wait(agent.lua_state_agent, 7.0);
+    if macros::is_excute(agent) {
+        macros::ATK_POWER(agent, 0, 1.4);
+    }
+}
+
+unsafe extern "C" fn sound_fly(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 0.0);
+    if macros::is_excute(agent) {
+        macros::SET_TAKEOUT_SE(agent, Hash40::new("se_fox_special_n01"));
+    }
+}

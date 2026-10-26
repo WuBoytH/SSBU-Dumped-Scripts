@@ -1,0 +1,34 @@
+unsafe extern "C" fn effect_win3(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 25.0);
+    if WorkModule::get_int(agent.module_accessor, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_INT_COLOR) % 2 != 0 {
+        if macros::is_excute(agent) {
+            VisibilityModule::set_int64(agent.module_accessor, hash40("flare"), hash40("flare_on"));
+            VisibilityModule::set_int64(agent.module_accessor, hash40("flare2"), hash40("flare2_on"));
+        }
+    }
+    frame(agent.lua_state_agent, 60.0);
+    if WorkModule::get_int(agent.module_accessor, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_INT_COLOR) % 2 == 0 {
+        if macros::is_excute(agent) {
+            VisibilityModule::set_int64(agent.module_accessor, hash40("flare"), hash40("flare_on"));
+            VisibilityModule::set_int64(agent.module_accessor, hash40("flare2"), hash40("flare2_on"));
+        }
+    }
+    frame(agent.lua_state_agent, 125.0);
+    if macros::is_excute(agent) {
+        // TODO: WeaponSpecializer_MasterSwordflare::fade_out_flare();
+    }
+    frame(agent.lua_state_agent, 127.0);
+    if WorkModule::get_int(agent.module_accessor, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_INT_COLOR) % 2 != 0 {
+        if macros::is_excute(agent) {
+            VisibilityModule::set_int64(agent.module_accessor, hash40("flare"), hash40("flare_off"));
+            VisibilityModule::set_int64(agent.module_accessor, hash40("flare2"), hash40("flare2_off"));
+        }
+    }
+    frame(agent.lua_state_agent, 130.0);
+    if WorkModule::get_int(agent.module_accessor, *WEAPON_MASTER_SWORD_INSTANCE_WORK_ID_INT_COLOR) % 2 == 0 {
+        if macros::is_excute(agent) {
+            VisibilityModule::set_int64(agent.module_accessor, hash40("flare"), hash40("flare_off"));
+            VisibilityModule::set_int64(agent.module_accessor, hash40("flare2"), hash40("flare2_off"));
+        }
+    }
+}

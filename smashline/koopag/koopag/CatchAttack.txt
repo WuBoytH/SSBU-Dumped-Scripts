@@ -1,0 +1,22 @@
+unsafe extern "C" fn effect_catchattack(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 8.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_FOLLOW(agent, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 0, 35, 17, 0, 35, -90, 2.3, true);
+        macros::LAST_EFFECT_SET_COLOR(agent, 2, 0.25, 0.25);
+        macros::LAST_EFFECT_SET_RATE(agent, 2);
+    }
+    frame(agent.lua_state_agent, 9.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_ALPHA(agent, Hash40::new("sys_attack_impact"), Hash40::new("head"), 17, 8, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 360, true, 1);
+    }
+    frame(agent.lua_state_agent, 11.0);
+    if macros::is_excute(agent) {
+        macros::EFFECT_OFF_KIND(agent, Hash40::new("sys_attack_arc_d"), false, true);
+    }
+}
+
+unsafe extern "C" fn expression_catchattack(agent: &mut L2CAgentBase) {
+    if macros::is_excute(agent) {
+        slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+    }
+}
