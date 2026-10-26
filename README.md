@@ -1,5 +1,5 @@
 # SSBU Dumped Scripts
-Dumped using Rubendal's script dumping tool: https://github.com/rubendal/SSBU-Dump-Scripts
+(Mostly) accurate dumps of all of the ACMD in the game.
 Make an issue or DM @wuboy on Discord if any script is incorrect!
 
 # Usage
