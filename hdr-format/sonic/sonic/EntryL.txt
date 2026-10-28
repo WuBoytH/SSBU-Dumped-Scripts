@@ -59,8 +59,8 @@ unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     }
     if is_excute(agent) {
         ItemModule::set_attach_item_visibility(boma, false, 255);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), false);
         WorkModule::on_flag(boma, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
     }
     frame(lua_state, 30.0);
@@ -173,8 +173,8 @@ unsafe extern "C" fn expression_entryl(agent: &mut L2CAgentBase) {
     }
     if is_excute(agent) {
         ItemModule::set_attach_item_visibility(boma, true, 255);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), true);
     }
     frame(lua_state, 95.0);
     if is_excute(agent) {

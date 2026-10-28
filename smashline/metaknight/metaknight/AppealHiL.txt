@@ -77,8 +77,8 @@ unsafe extern "C" fn expression_appealhil(agent: &mut L2CAgentBase) {
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, false, ArticleOperationTarget(0));
         ItemModule::set_have_item_visibility(agent.module_accessor, false, 0);
         ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), false);
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 0, false, 0x50000000);
     }
     frame(agent.lua_state_agent, 50.0);
@@ -86,8 +86,8 @@ unsafe extern "C" fn expression_appealhil(agent: &mut L2CAgentBase) {
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(0));
         ItemModule::set_have_item_visibility(agent.module_accessor, true, 0);
         ItemModule::set_attach_item_visibility(agent.module_accessor, true, 255);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), true);
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohitm"), 4, false, 0x50000000);
     }
 }

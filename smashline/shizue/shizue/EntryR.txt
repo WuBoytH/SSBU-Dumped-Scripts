@@ -56,8 +56,8 @@ unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
         ArticleModule::set_visibility(agent.module_accessor, *FIGHTER_SHIZUE_GENERATE_ARTICLE_OFFICE, Hash40::new("step3"), Hash40::new("step3_on_2"), ArticleOperationTarget(0));
         ItemModule::set_attach_item_visibility(agent.module_accessor, false, 255);
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_INSTANCE_WORK_ID_FLAG_BACKSHIELD_INVISIBLE);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), false);
     }
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
@@ -65,8 +65,8 @@ unsafe extern "C" fn expression_entryr(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), true);
     }
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {

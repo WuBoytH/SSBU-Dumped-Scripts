@@ -31,13 +31,13 @@ unsafe extern "C" fn expression_specialairlwend(agent: &mut L2CAgentBase) {
         VisibilityModule::set_whole(agent.module_accessor, true);
         VisibilityModule::set_status_default_int64(agent.module_accessor, hash40("mantle"), hash40("mantle_none"));
         ArticleModule::set_visibility_whole(agent.module_accessor, *FIGHTER_METAKNIGHT_GENERATE_ARTICLE_MANTLE, true, ArticleOperationTarget(0));
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), false);
     }
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_nohits"), 0, false, 0x50000000);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), true);
     }
 }

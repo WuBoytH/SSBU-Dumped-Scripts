@@ -17,8 +17,8 @@ unsafe extern "C" fn expression_specialhiend(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         VisibilityModule::set_whole(agent.module_accessor, false);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), false);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), false);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), false);
     }
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
@@ -39,7 +39,7 @@ unsafe extern "C" fn expression_specialhiend(agent: &mut L2CAgentBase) {
     }
     frame(agent.lua_state_agent, 13.0);
     if macros::is_excute(agent) {
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x1f20a9d549), true);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x24772eddef), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_cursor"), true);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_set_name_cursor"), true);
     }
 }

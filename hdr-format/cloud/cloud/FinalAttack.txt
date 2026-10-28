@@ -152,7 +152,7 @@ unsafe extern "C" fn game_finalattack(agent: &mut L2CAgentBase) {
     if is_excute(agent) {
         AttackModule::clear_all(boma);
         WorkModule::off_flag(boma, *FIGHTER_CLOUD_STATUS_FINAL_FLAG_ATTACK_REQUEST_LOOP_DAMAGE_MOTION);
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x296be39a69), 8, 70);
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_cloud_final_slow_opponent"), 8, 70);
     }
     frame(lua_state, 217.0);
     if WorkModule::is_flag(boma, *FIGHTER_CLOUD_STATUS_FINAL_FLAG_HIT_ALL_OPPONENT) {
@@ -174,8 +174,8 @@ unsafe extern "C" fn game_finalattack(agent: &mut L2CAgentBase) {
         }
         frame(lua_state, 220.0);
         if is_excute(agent) {
-            notify_event_msc_cmd!(agent, Hash40::new_raw(0x348e125d20), Hash40::new_raw(0x14d842c3f5), true, true);
-            notify_event_msc_cmd!(agent, Hash40::new_raw(0x348e125d20), Hash40::new_raw(0x10cf1285a2), true, true);
+            notify_event_msc_cmd!(agent, Hash40::new_raw(0x348e125d20), Hash40::new("ef_sys_hit_cut_shock"), true, true);
+            notify_event_msc_cmd!(agent, Hash40::new_raw(0x348e125d20), Hash40::new("ef_sys_hit_sweat"), true, true);
         }
     }
     frame(lua_state, 285.0);

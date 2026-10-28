@@ -32,7 +32,7 @@ unsafe extern "C" fn sound_turnrun(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn expression_turnrun(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        notify_event_msc_cmd!(agent, Hash40::new_raw(0x23c33f3bdc));
+        notify_event_msc_cmd!(agent, Hash40::new("fighter_msc_cmd_self_flip_have_item"));
         slope!(agent, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 5);
     }
     frame(agent.lua_state_agent, 2.0);
