@@ -34,20 +34,18 @@ unsafe extern "C" fn sound_robotspecialairn(agent: &mut L2CAgentBase) {
 unsafe extern "C" fn expression_robotspecialairn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 23.0);
     let param_float = WorkModule::get_param_float(agent.module_accessor, hash40("param_special_n"), hash40("strong_shoot_energy"));
+    let param_float_2 = WorkModule::get_param_float(agent.module_accessor, hash40("param_special_n"), hash40("miss_shoot_energy"));
     if WorkModule::get_float(agent.module_accessor, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE) == param_float {
         if macros::is_excute(agent) {
             ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beaml"), 0, false, 0x50000000);
         }
+    } else if WorkModule::get_float(agent.module_accessor, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE) < param_float_2 {
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, 0x50000000);
+        }
     } else {
-        let param_float = WorkModule::get_param_float(agent.module_accessor, hash40("param_special_n"), hash40("miss_shoot_energy"));
-        if WorkModule::get_float(agent.module_accessor, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE) < param_float {
-            if macros::is_excute(agent) {
-                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_beams"), 0, false, 0x50000000);
-            }
-        } else {
-            if macros::is_excute(agent) {
-                ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_blank"), 0, false, 0x50000000);
-            }
+        if macros::is_excute(agent) {
+            ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_blank"), 0, false, 0x50000000);
         }
     }
     frame(agent.lua_state_agent, 25.0);

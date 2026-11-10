@@ -31,22 +31,20 @@ unsafe extern "C" fn effect_specialhimove(agent: &mut L2CAgentBase) {
 
 unsafe extern "C" fn sound_specialhimove(agent: &mut L2CAgentBase) {
     let se_middle_aurapower = WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_MIDDLE_AURAPOWER);
+    let se_high_aurapower = WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_HIGH_AURAPOWER);
     if WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER) <= se_middle_aurapower {
         if macros::is_excute(agent) {
             macros::PLAY_STATUS(agent, Hash40::new("se_lucario_special_h02"));
         }
+    } else if WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER) <= se_high_aurapower {
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_lucario_special_h03"));
+            macros::PLAY_SE(agent, Hash40::new("se_lucario_smash_add03"));
+        }
     } else {
-        let se_high_aurapower = WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_HIGH_AURAPOWER);
-        if WorkModule::get_float(agent.module_accessor, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER) <= se_high_aurapower {
-            if macros::is_excute(agent) {
-                macros::PLAY_STATUS(agent, Hash40::new("se_lucario_special_h03"));
-                macros::PLAY_SE(agent, Hash40::new("se_lucario_smash_add03"));
-            }
-        } else {
-            if macros::is_excute(agent) {
-                macros::PLAY_STATUS(agent, Hash40::new("se_lucario_special_h04"));
-                macros::PLAY_SE(agent, Hash40::new("se_lucario_smash_add02"));
-            }
+        if macros::is_excute(agent) {
+            macros::PLAY_STATUS(agent, Hash40::new("se_lucario_special_h04"));
+            macros::PLAY_SE(agent, Hash40::new("se_lucario_smash_add02"));
         }
     }
     wait(agent.lua_state_agent, 6.0);

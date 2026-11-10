@@ -62,23 +62,21 @@ unsafe extern "C" fn sound_specialsthrow(agent: &mut L2CAgentBase) {
         PLAY_SE_REMAIN(agent, Hash40::new("vc_lucario_005"));
     }
     let se_middle_aurapower = WorkModule::get_float(boma, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_MIDDLE_AURAPOWER);
+    let se_high_aurapower = WorkModule::get_float(boma, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_HIGH_AURAPOWER);
     if WorkModule::get_float(boma, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER) <= se_middle_aurapower {
         if is_excute(agent) {
             PLAY_SE(agent, Hash40::new("se_lucario_special_s01"));
             PLAY_SE(agent, Hash40::new("se_lucario_special_s02_s"));
         }
+    } else if WorkModule::get_float(boma, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER) <= se_high_aurapower {
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_lucario_special_s01"));
+            PLAY_SE(agent, Hash40::new("se_lucario_special_s02_m"));
+        }
     } else {
-        let se_high_aurapower = WorkModule::get_float(boma, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_SE_HIGH_AURAPOWER);
-        if WorkModule::get_float(boma, *FIGHTER_LUCARIO_INSTANCE_WORK_ID_FLOAT_CURR_AURAPOWER) <= se_high_aurapower {
-            if is_excute(agent) {
-                PLAY_SE(agent, Hash40::new("se_lucario_special_s01"));
-                PLAY_SE(agent, Hash40::new("se_lucario_special_s02_m"));
-            }
-        } else {
-            if is_excute(agent) {
-                PLAY_SE(agent, Hash40::new("se_lucario_special_s01"));
-                PLAY_SE(agent, Hash40::new("se_lucario_special_s02_l"));
-            }
+        if is_excute(agent) {
+            PLAY_SE(agent, Hash40::new("se_lucario_special_s01"));
+            PLAY_SE(agent, Hash40::new("se_lucario_special_s02_l"));
         }
     }
 }

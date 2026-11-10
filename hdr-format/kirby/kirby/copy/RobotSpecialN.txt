@@ -41,20 +41,18 @@ unsafe extern "C" fn expression_robotspecialn(agent: &mut L2CAgentBase) {
     let lua_state = agent.lua_state_agent;
     frame(lua_state, 23.0);
     let param_float = WorkModule::get_param_float(boma, hash40("param_special_n"), hash40("strong_shoot_energy"));
+    let param_float_2 = WorkModule::get_param_float(boma, hash40("param_special_n"), hash40("miss_shoot_energy"));
     if WorkModule::get_float(boma, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE) == param_float {
         if is_excute(agent) {
             ControlModule::set_rumble(boma, Hash40::new("rbkind_beaml"), 0, false, 0x50000000);
         }
+    } else if WorkModule::get_float(boma, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE) < param_float_2 {
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_beams"), 0, false, 0x50000000);
+        }
     } else {
-        let param_float = WorkModule::get_param_float(boma, hash40("param_special_n"), hash40("miss_shoot_energy"));
-        if WorkModule::get_float(boma, *FIGHTER_ROBOT_INSTANCE_WORK_ID_FLOAT_BEAM_ENERGY_VALUE) < param_float {
-            if is_excute(agent) {
-                ControlModule::set_rumble(boma, Hash40::new("rbkind_beams"), 0, false, 0x50000000);
-            }
-        } else {
-            if is_excute(agent) {
-                ControlModule::set_rumble(boma, Hash40::new("rbkind_blank"), 0, false, 0x50000000);
-            }
+        if is_excute(agent) {
+            ControlModule::set_rumble(boma, Hash40::new("rbkind_blank"), 0, false, 0x50000000);
         }
     }
     frame(lua_state, 25.0);
